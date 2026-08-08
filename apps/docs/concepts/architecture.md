@@ -27,7 +27,7 @@ Optional peers (auth providers, date libraries, Immer) sit beside features. They
 
 | Layer        | Examples                                                               | You install when…                                         |
 | ------------ | ---------------------------------------------------------------------- | --------------------------------------------------------- |
-| Foundation   | `@sometic/core`, `events`, `store`, `styling`, `accessibility`          | You need shared contracts, state, or styling hooks        |
+| Foundation   | `@sometic/core`, `events`, `store`, `styling`, `accessibility`         | You need shared contracts, state, or styling hooks        |
 | Features     | `theme`, `validation`, `forms`, `auth`, `http`, `query`, `head`, `dom` | You need product behavior (forms, sessions, fetches, SEO) |
 | Integrations | `elements`, `auth-local`, `date-native`, …                             | You want custom elements or a concrete provider           |
 | Adapters     | `react`, `vue`, Wave B/C packages                                      | You bind engines to a UI framework                        |
@@ -74,11 +74,11 @@ Transport and 401 refresh live on HTTP + auth. Provider adapters (`auth-local`, 
 
 ## Delivery surfaces
 
-| Surface                    | Role                                                 |
-| -------------------------- | ---------------------------------------------------- |
+| Surface                     | Role                                                 |
+| --------------------------- | ---------------------------------------------------- |
 | npm packages (`@sometic/*`) | Maintained logic, types, updates                     |
-| CLI + registry             | Explicit `init` / `add` (no interactive postinstall) |
-| Docs site                  | Consumer guides and maturity labels                  |
+| CLI + registry              | Explicit `init` / `add` (no interactive postinstall) |
+| Docs site                   | Consumer guides and maturity labels                  |
 
 ## Stability honesty
 

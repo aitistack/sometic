@@ -14,12 +14,12 @@ This section is a **navigation hub**, not a generated per-symbol reference. Hand
 
 | Domain         | Live docs                                           | Typical packages                                              |
 | -------------- | --------------------------------------------------- | ------------------------------------------------------------- |
-| Stores         | [Stores](/stores/), [Store](/stores/store)          | `@sometic/store`, `@sometic/store-immer`                        |
-| Theming        | [Theming](/theming/)                                | `@sometic/theme`                                               |
-| Authentication | [Authentication](/authentication/)                  | `@sometic/auth`, `@sometic/auth-*`                              |
-| HTTP           | [HTTP](/utilities/http), [Services](/services/)     | `@sometic/http`                                                |
-| Components     | [Components](/components/)                          | `@sometic/react/*`, `@sometic/vue/*`, `@sometic/elements/*`      |
-| Forms          | [Forms](/forms/)                                    | `@sometic/forms`, `@sometic/validation`                         |
+| Stores         | [Stores](/stores/), [Store](/stores/store)          | `@sometic/store`, `@sometic/store-immer`                      |
+| Theming        | [Theming](/theming/)                                | `@sometic/theme`                                              |
+| Authentication | [Authentication](/authentication/)                  | `@sometic/auth`, `@sometic/auth-*`                            |
+| HTTP           | [HTTP](/utilities/http), [Services](/services/)     | `@sometic/http`                                               |
+| Components     | [Components](/components/)                          | `@sometic/react/*`, `@sometic/vue/*`, `@sometic/elements/*`   |
+| Forms          | [Forms](/forms/)                                    | `@sometic/forms`, `@sometic/validation`                       |
 | Primitives     | [Primitives](/primitives/)                          | `core`, `events`, `styling`, `accessibility`, `dom`, `date-*` |
 | Frameworks     | [Frameworks](/frameworks/)                          | adapter packages                                              |
 | Concepts       | [Architecture](/concepts/architecture) and siblings | cross-cutting                                                 |

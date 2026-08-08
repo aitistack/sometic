@@ -105,10 +105,7 @@ export type AuthController = {
     handleUnauthorized: () => Promise<AuthSession>;
     hydrate: (session: AuthSession) => Promise<void>;
     requestStepUp: (input?: { reason?: StepUpReason }) => Promise<StepUpRequestResult>;
-    completeStepUp: (input?: {
-        challengeId?: string;
-        code?: string;
-    }) => Promise<AuthSession>;
+    completeStepUp: (input?: { challengeId?: string; code?: string }) => Promise<AuthSession>;
     requestPasswordReset: (email: string) => Promise<void>;
     verifyEmail: (token: string) => Promise<void>;
     startOAuth: (options: OAuthStartOptions) => Promise<OAuthStartResult>;
@@ -225,7 +222,10 @@ export function createAuth(options: CreateAuthOptions): AuthController {
         notify();
         if (event) {
             emit(event, session as AuthEventMap[typeof event]);
-        } else if (isAuthenticatedStatus(session.status) && !isAuthenticatedStatus(previous.status)) {
+        } else if (
+            isAuthenticatedStatus(session.status) &&
+            !isAuthenticatedStatus(previous.status)
+        ) {
             emit("signedIn", session);
         } else if (session.status === "signedOut" && previous.status !== "signedOut") {
             emit("signedOut", session);
@@ -472,10 +472,7 @@ export function createAuth(options: CreateAuthOptions): AuthController {
             if (input?.challengeId !== undefined && input.code !== undefined) {
                 return controller.verifyMfa(input.challengeId, input.code);
             }
-            if (
-                session.status !== "mfaRequired" &&
-                session.status !== "reauthenticationRequired"
-            ) {
+            if (session.status !== "mfaRequired" && session.status !== "reauthenticationRequired") {
                 throw createAuthError(
                     "AUTH_UNSUPPORTED",
                     "No step-up challenge is pending on the current session",

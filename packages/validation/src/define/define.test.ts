@@ -68,10 +68,14 @@ describe("define schema", () => {
                 email: string({ email: true }),
             }),
         );
-        const result = await runValidators([fromSchema(adapter)], { email: "bad" }, {
-            values: {},
-            path: "",
-        });
+        const result = await runValidators(
+            [fromSchema(adapter)],
+            { email: "bad" },
+            {
+                values: {},
+                path: "",
+            },
+        );
         expect(result.valid).toBe(false);
         expect(result.issues[0]?.path).toBe("email");
     });

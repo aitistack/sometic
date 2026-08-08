@@ -19,7 +19,6 @@
         },
         "./package.json": "./package.json"
     },
-
     "files": [
         "dist",
         "LICENSE",

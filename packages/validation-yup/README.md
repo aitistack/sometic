@@ -11,9 +11,7 @@ import * as yup from "yup";
 import { createYupSchemaAdapter } from "@sometic/validation-yup";
 import { fromSchema } from "@sometic/validation/schema";
 
-const adapter = createYupSchemaAdapter(
-    yup.object({ email: yup.string().email().required() }),
-);
+const adapter = createYupSchemaAdapter(yup.object({ email: yup.string().email().required() }));
 const validator = fromSchema(adapter);
 ```
 

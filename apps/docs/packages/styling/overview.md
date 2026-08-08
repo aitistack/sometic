@@ -4,14 +4,14 @@
 
 ## Modules
 
-| Module                | Import                                         |
-| --------------------- | ---------------------------------------------- |
+| Module                | Import                                           |
+| --------------------- | ------------------------------------------------ |
 | Class resolver        | `@sometic/styling` or `@sometic/styling/classes` |
 | Style / CSS variables | `@sometic/styling` or `@sometic/styling/styles`  |
-| Styleable compose     | `@sometic/styling` → `resolveStyleable`         |
-| Slots                 | `@sometic/styling/slots`                        |
-| State attributes      | `@sometic/styling/state`                        |
-| Polymorphic `as`      | `@sometic/styling/polymorphic`                  |
+| Styleable compose     | `@sometic/styling` → `resolveStyleable`          |
+| Slots                 | `@sometic/styling/slots`                         |
+| State attributes      | `@sometic/styling/state`                         |
+| Polymorphic `as`      | `@sometic/styling/polymorphic`                   |
 
 ## When to use
 

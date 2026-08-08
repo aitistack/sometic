@@ -2,7 +2,7 @@
 
 | Approach                         | When to use                                                              |
 | -------------------------------- | ------------------------------------------------------------------------ |
-| `@sometic/validation`             | Portable validators shared across Vanilla/React/Vue without a schema lib |
+| `@sometic/validation`            | Portable validators shared across Vanilla/React/Vue without a schema lib |
 | Zod / Yup / Valibot              | Prefer your existing schemas; wrap later via `SchemaAdapter` when needed |
 | HTML constraint validation alone | Simple native forms; insufficient for cross-field/async/server errors    |
 

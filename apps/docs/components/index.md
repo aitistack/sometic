@@ -14,13 +14,13 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 
 ## Field & text inputs
 
-| Component                                    | Summary                                                    |
-| -------------------------------------------- | ---------------------------------------------------------- |
-| [Field](/components/field)                   | Label, description, control, and error with generated IDs  |
+| Component                                    | Summary                                                     |
+| -------------------------------------------- | ----------------------------------------------------------- |
+| [Field](/components/field)                   | Label, description, control, and error with generated IDs   |
 | [Form](/components/form)                     | React / Vue / `sometic-form` adapters over the forms engine |
-| [Input](/components/input)                   | Controllable text-like native input with state attributes  |
-| [Password input](/components/password-input) | Password field with show/hide reveal control               |
-| [OTP input](/components/otp-input)           | Fixed-length one-time code input (`one-time-code`)         |
+| [Input](/components/input)                   | Controllable text-like native input with state attributes   |
+| [Password input](/components/password-input) | Password field with show/hide reveal control                |
+| [OTP input](/components/otp-input)           | Fixed-length one-time code input (`one-time-code`)          |
 
 ## Specialized inputs
 

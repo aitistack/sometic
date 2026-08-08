@@ -53,17 +53,17 @@ pnpm dlx @sometic/cli@latest add button --mode source
 
 ## Commands
 
-| Command                    | Status            | Purpose                                                                         |
-| -------------------------- | ----------------- | ------------------------------------------------------------------------------- |
+| Command                     | Status            | Purpose                                                                           |
+| --------------------------- | ----------------- | --------------------------------------------------------------------------------- |
 | `sometic init`              | Implemented       | Write `sometic.config.json` and `src/lib/sometic/README.md` (paths follow config) |
-| `sometic add <item>`        | Implemented       | Add a registry template: `config` \| `theme` \| `button`                        |
-| `sometic list`              | Implemented       | List registry items                                                             |
-| `sometic info <item>`       | Implemented       | Show registry item details                                                      |
-| `sometic config [get\|set]` | Implemented       | Read or update config non-interactively                                         |
-| `sometic diff`              | **Deferred stub** | Prints “not implemented” guidance                                               |
-| `sometic update`            | **Deferred stub** | Prints “not implemented” guidance                                               |
-| `sometic doctor`            | **Deferred stub** | Prints “not implemented” guidance                                               |
-| `sometic help`              | Implemented       | Show help (`--help` / `-h`)                                                     |
+| `sometic add <item>`        | Implemented       | Add a registry template: `config` \| `theme` \| `button`                          |
+| `sometic list`              | Implemented       | List registry items                                                               |
+| `sometic info <item>`       | Implemented       | Show registry item details                                                        |
+| `sometic config [get\|set]` | Implemented       | Read or update config non-interactively                                           |
+| `sometic diff`              | **Deferred stub** | Prints “not implemented” guidance                                                 |
+| `sometic update`            | **Deferred stub** | Prints “not implemented” guidance                                                 |
+| `sometic doctor`            | **Deferred stub** | Prints “not implemented” guidance                                                 |
+| `sometic help`              | Implemented       | Show help (`--help` / `-h`)                                                       |
 
 Honesty: `diff`, `update`, and `doctor` are **not** feature-complete. They exit successfully after printing that they ship in a follow-up. Do not build release workflows around them yet.
 
@@ -110,15 +110,15 @@ Unsupported keys throw. Framework values must be `vanilla` \| `react` \| `vue`. 
 
 ## Flags
 
-| Flag                 | Description                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| `--cwd <path>`       | Project directory (default: process cwd)                     |
-| `--mode <mode>`      | `package` \| `source` \| `hybrid`                            |
-| `--framework <name>` | `vanilla` \| `react` \| `vue`                                |
-| `--dry-run`          | Print actions without writing                                |
+| Flag                 | Description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| `--cwd <path>`       | Project directory (default: process cwd)                      |
+| `--mode <mode>`      | `package` \| `source` \| `hybrid`                             |
+| `--framework <name>` | `vanilla` \| `react` \| `vue`                                 |
+| `--dry-run`          | Print actions without writing                                 |
 | `--force`            | Allow overwrite; backups under `.sometic/backup` when writing |
-| `--yes` / `-y`       | Non-interactive affirm (CI-friendly)                         |
-| `--help` / `-h`      | Show help                                                    |
+| `--yes` / `-y`       | Non-interactive affirm (CI-friendly)                          |
+| `--help` / `-h`      | Show help                                                     |
 
 Unknown flags throw. Values can also use `=` form (`--mode=hybrid`, `--framework=react`).
 
@@ -149,7 +149,7 @@ Unknown flags throw. Values can also use `=` form (`--mode=hybrid`, `--framework
 | Unknown command                           | Error + help text, exit `1`                                |
 | Unknown flag                              | Error, exit `1`                                            |
 | Invalid `--mode` / `--framework`          | Error naming allowed values                                |
-| Config missing on `add` / `config`        | Error: run `sometic init` first                             |
+| Config missing on `add` / `config`        | Error: run `sometic init` first                            |
 | Config exists on `init` without `--force` | Error                                                      |
 | Add overwrite without `--force`           | Error                                                      |
 | Item / mode / framework unsupported       | Error from registry checks                                 |

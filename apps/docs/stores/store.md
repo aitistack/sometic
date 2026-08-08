@@ -4,8 +4,8 @@
 
 ## Overview
 
-| Module           | Import                                                       |
-| ---------------- | ------------------------------------------------------------ |
+| Module           | Import                                                        |
+| ---------------- | ------------------------------------------------------------- |
 | Basic store      | `@sometic/store`                                              |
 | Selector helper  | `@sometic/store` → `select`                                   |
 | Persistent store | `@sometic/store/persistent`                                   |
@@ -449,9 +449,9 @@ Default `Object.is` with immutable updates. Use `shallowEqual` from `@sometic/co
 
 ## Comparison vs Redux / Zustand
 
-| Concern                 | `@sometic/store`                        | Redux                        | Zustand                        |
+| Concern                 | `@sometic/store`                       | Redux                        | Zustand                        |
 | ----------------------- | -------------------------------------- | ---------------------------- | ------------------------------ |
-| Role in Sometic          | Adapter-facing external store contract | App architecture             | App architecture               |
+| Role in Sometic         | Adapter-facing external store contract | App architecture             | App architecture               |
 | Middleware / DevTools   | Out of scope                           | First-class                  | Available                      |
 | Size in every adapter   | Tiny core + optional subpaths          | Heavier if pulled into cores | Small, but still an app choice |
 | Persistence / cross-tab | First-party subpaths                   | Ecosystem                    | Ecosystem                      |

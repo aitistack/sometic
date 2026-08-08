@@ -6,7 +6,11 @@ export {
     type AppShellStores,
     type CreateAppShellOptions,
 } from "./create-app-shell.js";
-export { bindQueryToAuth, type BindQueryToAuthOptions, type RefetchOnReauth } from "./bind-query.js";
+export {
+    bindQueryToAuth,
+    type BindQueryToAuthOptions,
+    type RefetchOnReauth,
+} from "./bind-query.js";
 export { bindAuthToHttp, type BindAuthToHttpOptions } from "./bind-http.js";
 export {
     bindThemeToHead,

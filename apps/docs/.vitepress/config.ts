@@ -484,9 +484,7 @@ export default defineConfig({
                 },
             ],
         },
-        socialLinks: [
-            { icon: "github", link: "https://github.com/aitistack" },
-        ],
+        socialLinks: [{ icon: "github", link: "https://github.com/aitistack" }],
         footer: {
             message:
                 '<p class="sometic-footer-kicker">Open source under the <a href="/legal/license">MIT License</a></p><nav class="sometic-footer-links" aria-label="Legal and trust"><a href="/guide/contributing">Contributing</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/security">Security</a><a href="/llms.txt">llms.txt</a></nav>',

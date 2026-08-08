@@ -18,9 +18,7 @@ export type ZodErrorLike = {
 
 export type ZodSchemaLike<T = unknown> = {
     parse(input: unknown): T;
-    safeParse(input: unknown):
-        | { success: true; data: T }
-        | { success: false; error: ZodErrorLike };
+    safeParse(input: unknown): { success: true; data: T } | { success: false; error: ZodErrorLike };
 };
 
 function pathFromZod(path: readonly (string | number)[]): string | undefined {

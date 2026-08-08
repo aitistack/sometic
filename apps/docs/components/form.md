@@ -62,12 +62,12 @@ For the engine itself (validators, drafts, a11y helpers), see [Forms](/forms/).
 
 ## Anatomy
 
-| Part                | Role                                                                              |
-| ------------------- | --------------------------------------------------------------------------------- |
-| `FormController`    | Source of truth for values, meta, issues, submit                                  |
+| Part                | Role                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `FormController`    | Source of truth for values, meta, issues, submit                                   |
 | `<form noValidate>` | Adapter host; native constraint validation disabled in favor of Sometic validators |
-| Fields              | Registered paths (`email`, `items[0].name`) bound via hooks or CE auto-scan       |
-| Feedback            | Optional validation / success / error messages from the controller                |
+| Fields              | Registered paths (`email`, `items[0].name`) bound via hooks or CE auto-scan        |
+| Feedback            | Optional validation / success / error messages from the controller                 |
 
 CE moves light children into an internal `<form>` and auto-registers named `input` / `select` / `textarea`.
 
@@ -106,10 +106,10 @@ CE moves light children into an internal `<form>` and auto-registers named `inpu
 
 ### `sometic-form` attributes
 
-| Attribute    | Description                                  |
-| ------------ | -------------------------------------------- |
+| Attribute    | Description                                   |
+| ------------ | --------------------------------------------- |
 | `novalidate` | Observed; form always uses Sometic validation |
-| `shadow`     | Optional open shadow root                    |
+| `shadow`     | Optional open shadow root                     |
 
 Access `element.controller` for the full `FormController` API.
 

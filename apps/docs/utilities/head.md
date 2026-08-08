@@ -10,15 +10,15 @@ Use `@sometic/head/seo` for page/OG/Twitter/canonical/hreflang/JSON-LD patches, 
 
 ## Overview
 
-| Concern       | API                                                                              |
-| ------------- | -------------------------------------------------------------------------------- |
-| Create        | `createHeadController(options?)`                                                 |
-| Patch         | `set(id, patch)` / `remove(id)`                                                  |
-| Read          | `get()` → `HeadSnapshot`                                                         |
-| Subscribe     | `subscribe(listener)` → unsubscribe                                              |
-| Browser apply | `applyHead(document, snapshot)`                                                  |
-| SSR           | `serializeHead(snapshot)`                                                        |
-| Merge         | `mergePatches(patches)`                                                          |
+| Concern       | API                                                                               |
+| ------------- | --------------------------------------------------------------------------------- |
+| Create        | `createHeadController(options?)`                                                  |
+| Patch         | `set(id, patch)` / `remove(id)`                                                   |
+| Read          | `get()` → `HeadSnapshot`                                                          |
+| Subscribe     | `subscribe(listener)` → unsubscribe                                               |
+| Browser apply | `applyHead(document, snapshot)`                                                   |
+| SSR           | `serializeHead(snapshot)`                                                         |
+| Merge         | `mergePatches(patches)`                                                           |
 | React         | `HeadProvider`, `Head`, `useHead`, `useHeadController` from `@sometic/react/head` |
 | Vue           | `provideHead`, `useHead`, `useHeadController` from `@sometic/vue/head`            |
 
@@ -225,16 +225,16 @@ Pure merge of an ordered `HeadPatch[]` into a `HeadSnapshot` (same rules as the 
 
 ## SEO helpers (`@sometic/head/seo`)
 
-| Helper                   | Role                                                              |
-| ------------------------ | ----------------------------------------------------------------- |
-| `createPageSeoPatch`     | Title / description / robots / keywords                           |
-| `createOpenGraphPatch`   | `og:*` meta                                                       |
-| `createTwitterPatch`     | Twitter card meta                                                 |
-| `createCanonicalLink`    | Canonical `<link>`                                                |
-| `createHreflangLinks`    | Alternate language links                                          |
-| `createJsonLdPatch`      | Article / Product / Organization / SoftwareApplication JSON-LD    |
-| `createRouteHeadStack`   | `enter(routeId, patch)` / `leave(routeId)` over controller ids    |
-| `detectHeadConflicts`    | Non-throwing warnings (duplicate names, OG without canonical)     |
+| Helper                 | Role                                                           |
+| ---------------------- | -------------------------------------------------------------- |
+| `createPageSeoPatch`   | Title / description / robots / keywords                        |
+| `createOpenGraphPatch` | `og:*` meta                                                    |
+| `createTwitterPatch`   | Twitter card meta                                              |
+| `createCanonicalLink`  | Canonical `<link>`                                             |
+| `createHreflangLinks`  | Alternate language links                                       |
+| `createJsonLdPatch`    | Article / Product / Organization / SoftwareApplication JSON-LD |
+| `createRouteHeadStack` | `enter(routeId, patch)` / `leave(routeId)` over controller ids |
+| `detectHeadConflicts`  | Non-throwing warnings (duplicate names, OG without canonical)  |
 
 ## React adapters (`@sometic/react/head`)
 

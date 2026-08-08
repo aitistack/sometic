@@ -12,8 +12,8 @@ Production backends plug in through optional packages: `@sometic/auth-local`, `@
 
 ## Overview
 
-| Concern               | Package / subpath                             |
-| --------------------- | --------------------------------------------- |
+| Concern               | Package / subpath                              |
+| --------------------- | ---------------------------------------------- |
 | Orchestration         | `@sometic/auth` → `createAuth`                 |
 | Provider contract     | `@sometic/auth/provider`                       |
 | Session helpers       | `@sometic/auth/session`                        |
@@ -137,11 +137,11 @@ See [Authorization](/authentication/authorization) and [Troubleshooting](/authen
 
 ## Framework adapters
 
-| Surface  | Package                                                                  |
-| -------- | ------------------------------------------------------------------------ |
+| Surface  | Package                                                                   |
+| -------- | ------------------------------------------------------------------------- |
 | React    | `@sometic/react/auth` (`AuthProvider`, `useAuth`, `useSession`, `useCan`) |
 | Vue      | `@sometic/vue/auth`                                                       |
-| Elements | `@sometic/elements/auth` (`sometic-auth-status`)                           |
+| Elements | `@sometic/elements/auth` (`sometic-auth-status`)                          |
 
 ## FAQ
 

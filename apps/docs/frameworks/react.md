@@ -45,8 +45,8 @@ Add foundation packages as needed (`@sometic/theme`, `@sometic/store`, `@sometic
 
 Prefer **subpath imports** so unused families stay out of your bundle.
 
-| Import                    | Exports                                                                                                       |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Import                     | Exports                                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `@sometic/react/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
 | `@sometic/react/field`     | `Field`                                                                                                       |
 | `@sometic/react/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |

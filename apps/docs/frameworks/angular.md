@@ -8,7 +8,7 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 | Item         | Value                                      |
 | ------------ | ------------------------------------------ |
-| Package      | `@sometic/angular`                          |
+| Package      | `@sometic/angular`                         |
 | Exports      | `.` only (no `/button`, `/form`, …)        |
 | Capabilities | `storeBind` (`angularAdapterCapabilities`) |
 | Peer         | `@angular/core` `^19` (optional peer)      |
@@ -58,14 +58,14 @@ import {
 
 `AngularStoreBind<TState>` extends `AdapterLifecycleContract` (`dispose()`) and exposes:
 
-| Member                | Role                                |
-| --------------------- | ----------------------------------- |
+| Member                | Role                                 |
+| --------------------- | ------------------------------------ |
 | `store`               | Underlying `@sometic/store` instance |
-| `get()`               | Snapshot                            |
-| `set(state)`          | Replace state                       |
-| `update(updater)`     | Functional update                   |
-| `subscribe(listener)` | Listen; returns unsubscribe         |
-| `dispose()`           | Tear down                           |
+| `get()`               | Snapshot                             |
+| `set(state)`          | Replace state                        |
+| `update(updater)`     | Functional update                    |
+| `subscribe(listener)` | Listen; returns unsubscribe          |
+| `dispose()`           | Tear down                            |
 
 ## Usage
 

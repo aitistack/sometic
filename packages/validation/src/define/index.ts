@@ -1,10 +1,6 @@
 import { createIssue, fail, ok, type ValidationIssue } from "../issues.js";
 import { joinPath, parsePath } from "../path/index.js";
-import {
-    fromSchema,
-    type SchemaAdapter,
-    type SchemaSafeParseResult,
-} from "../schema/index.js";
+import { fromSchema, type SchemaAdapter, type SchemaSafeParseResult } from "../schema/index.js";
 
 export type SchemaType<T = unknown> = {
     readonly _type: T;
@@ -65,7 +61,11 @@ export function string(checks: StringChecks = {}): SchemaType<string> {
     return makeSchema((input, path) => {
         if (typeof input !== "string") {
             return failure([
-                createIssue("invalid_type", checks.message?.type ?? "Expected string", pathOpts(path)),
+                createIssue(
+                    "invalid_type",
+                    checks.message?.type ?? "Expected string",
+                    pathOpts(path),
+                ),
             ]);
         }
         if (checks.nonempty && input.trim() === "") {
@@ -123,12 +123,20 @@ export function number(checks: NumberChecks = {}): SchemaType<number> {
             num = Number(input);
         } else {
             return failure([
-                createIssue("invalid_type", checks.message?.type ?? "Expected number", pathOpts(path)),
+                createIssue(
+                    "invalid_type",
+                    checks.message?.type ?? "Expected number",
+                    pathOpts(path),
+                ),
             ]);
         }
         if (Number.isNaN(num)) {
             return failure([
-                createIssue("invalid_type", checks.message?.type ?? "Expected number", pathOpts(path)),
+                createIssue(
+                    "invalid_type",
+                    checks.message?.type ?? "Expected number",
+                    pathOpts(path),
+                ),
             ]);
         }
         if (checks.int && !Number.isInteger(num)) {

@@ -36,8 +36,8 @@ Sometic theming is **behavior first**, not a shipped visual kit:
 
 ## Package map
 
-| Surface          | Import                        | Role                                                            |
-| ---------------- | ----------------------------- | --------------------------------------------------------------- |
+| Surface          | Import                         | Role                                                            |
+| ---------------- | ------------------------------ | --------------------------------------------------------------- |
 | Theme controller | `@sometic/theme`               | `createThemeController`, `applyThemeToElement`, snapshot types  |
 | Tokens           | `@sometic/theme/tokens`        | `defineTokens`, `mergeTokens`, `resolveToken`                   |
 | CSS variables    | `@sometic/theme/css-variables` | `tokensToCssVariables`, `serializeCssVariables`                 |
@@ -49,8 +49,8 @@ Presets stay on a subpath so the root controller can stay within its gzip size b
 
 ## Architecture boundary
 
-| Package           | Owns                                                              | Does not own                   |
-| ----------------- | ----------------------------------------------------------------- | ------------------------------ |
+| Package            | Owns                                                              | Does not own                   |
+| ------------------ | ----------------------------------------------------------------- | ------------------------------ |
 | `@sometic/theme`   | Tokens, generation, mode resolution, attributes, contrast helpers | Class merging, framework hooks |
 | `@sometic/styling` | Classes, styles, slots, state attrs, `resolveCssVariables`        | Design tokens                  |
 | `@sometic/store`   | Preference store, persistence adapters                            | Theme token math               |
@@ -120,11 +120,11 @@ Contrast helpers parse **hex** colors (`#rgb` / `#rrggbb`) today. `rgb()`, `hsl(
 
 ## Comparison (short)
 
-| Approach                             | Fit                                                                                                                    |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Approach                             | Fit                                                                                                                     |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | Hand-written `:root` variables       | Fine for static sites; Sometic adds registration, system mode, persistence, density/RTL, and a snapshot for any binding |
 | `next-themes` / React-only providers | Great in Next.js; Sometic stays framework-neutral so Vanilla/Vue/Svelte share one engine                                |
-| Style Dictionary                     | Compile-time pipelines; use both: generate at build time, switch at runtime with this package                          |
+| Style Dictionary                     | Compile-time pipelines; use both: generate at build time, switch at runtime with this package                           |
 
 ## Related
 

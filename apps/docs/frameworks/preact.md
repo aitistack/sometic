@@ -8,7 +8,7 @@ Prefer `@sometic/react` when you run React, or [Elements](/frameworks/vanilla) f
 
 | Item         | Value                                     |
 | ------------ | ----------------------------------------- |
-| Package      | `@sometic/preact`                          |
+| Package      | `@sometic/preact`                         |
 | Exports      | `.` only                                  |
 | Capabilities | `storeBind` (`preactAdapterCapabilities`) |
 | Peer         | `preact` `^10` (optional peer)            |
@@ -58,7 +58,7 @@ import {
 
 | Member                     | Role                                   |
 | -------------------------- | -------------------------------------- |
-| `store`                    | Underlying Sometic store                |
+| `store`                    | Underlying Sometic store               |
 | `getSnapshot()`            | Snapshot (external-store style)        |
 | `subscribe(onStoreChange)` | Subscribe; listener takes no state arg |
 | `set(state)`               | Replace state                          |

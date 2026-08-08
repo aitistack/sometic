@@ -3,14 +3,14 @@
 ## vs hard-coding Tailwind in the library
 
 |                                   | `@sometic/styling` | Tailwind-in-package           |
-| --------------------------------- | ----------------- | ----------------------------- |
-| Consumer CSS freedom              | Full              | Locked to utility conventions |
-| Runtime deps                      | None              | Tailwind (or peer pressure)   |
-| Fits Bootstrap / CSS Modules apps | Yes               | Poor                          |
+| --------------------------------- | ------------------ | ----------------------------- |
+| Consumer CSS freedom              | Full               | Locked to utility conventions |
+| Runtime deps                      | None               | Tailwind (or peer pressure)   |
+| Fits Bootstrap / CSS Modules apps | Yes                | Poor                          |
 
 ## vs CSS-in-JS runtime (Emotion/Styled-components)
 
-|                       | Sometic styling     | CSS-in-JS runtime        |
+|                       | Sometic styling    | CSS-in-JS runtime        |
 | --------------------- | ------------------ | ------------------------ |
 | SSR complexity        | None for resolvers | Runtime + cache concerns |
 | Bundle                | Tiny pure helpers  | Runtime + often Babel    |

@@ -6,8 +6,8 @@ These pages mirror the deeper guides under [Authentication](/authentication/) an
 
 ## Inventory
 
-| Service         | Package             | Deep docs                                                           |
-| --------------- | ------------------- | ------------------------------------------------------------------- |
+| Service         | Package              | Deep docs                                                           |
+| --------------- | -------------------- | ------------------------------------------------------------------- |
 | Auth controller | `@sometic/auth`      | [Authentication](/authentication/) · [Auth service](/services/auth) |
 | HTTP client     | `@sometic/http`      | [HTTP utility](/utilities/http) · [HTTP service](/services/http)    |
 | Auth HTTP seam  | `@sometic/http/auth` | [Interceptors](/authentication/interceptors)                        |

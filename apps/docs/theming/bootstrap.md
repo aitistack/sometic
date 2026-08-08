@@ -119,7 +119,7 @@ This is ordinary class merging. Theme tokens still come from `@sometic/theme`, n
 
 | Layer           | Role                                             |
 | --------------- | ------------------------------------------------ |
-| Sometic theme    | Snapshot → `--sometic-*` + `data-*` / `dir`       |
+| Sometic theme   | Snapshot → `--sometic-*` + `data-*` / `dir`      |
 | Your bridge CSS | Map to `--bs-*` or component overrides           |
 | Bootstrap       | Components and utilities as you already use them |
 
@@ -132,15 +132,15 @@ No Bootstrap-specific exports.
 | Need            | Use                                            |
 | --------------- | ---------------------------------------------- |
 | Runtime theme   | `createThemeController`, `applyThemeToElement` |
-| Token maps      | `@sometic/theme/tokens`                         |
+| Token maps      | `@sometic/theme/tokens`                        |
 | Static CSS dump | `serializeCssVariables`                        |
-| Class strings   | `@sometic/styling` (optional)                   |
+| Class strings   | `@sometic/styling` (optional)                  |
 
 ## Edge cases
 
 | Case                         | Guidance                                                                                          |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| Bootstrap dark mode helpers  | Prefer Sometic `data-color-scheme` as source of truth to avoid double toggles                      |
+| Bootstrap dark mode helpers  | Prefer Sometic `data-color-scheme` as source of truth to avoid double toggles                     |
 | Sass `$primary` compile-time | Runtime variables cannot change compiled Sass color math; use CSS variables for runtime switching |
 | CDN Bootstrap + scoped theme | Apply snapshot on a wrapper; bridge CSS must target that scope                                    |
 | Contrast auditing            | Hex helpers only; Bootstrap may expose non-hex computed styles                                    |

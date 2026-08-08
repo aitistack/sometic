@@ -14,8 +14,8 @@ Adapters / your CSS       → apply variables and class recipes
 
 Import surfaces (prefer subpaths for size):
 
-| Need                 | Import                        |
-| -------------------- | ----------------------------- |
+| Need                 | Import                         |
+| -------------------- | ------------------------------ |
 | Theme controller     | `@sometic/theme`               |
 | Token helpers        | `@sometic/theme/tokens`        |
 | CSS variable helpers | `@sometic/theme/css-variables` |

@@ -6,8 +6,8 @@ Use it alone for value checks, or with [`@sometic/forms`](/forms/) for form-wide
 
 ## Overview
 
-| Module           | Import                          | Purpose                                                      |
-| ---------------- | ------------------------------- | ------------------------------------------------------------ |
+| Module           | Import                           | Purpose                                                      |
+| ---------------- | -------------------------------- | ------------------------------------------------------------ |
 | Issues / results | `@sometic/validation`            | `ok`, `fail`, `createIssue`, `mergeResults`, `issuesForPath` |
 | Path helpers     | `@sometic/validation/path`       | `getAt`, `setAt`, `deleteAt`, `parsePath`, `joinPath`        |
 | Validators       | `@sometic/validation/validators` | Native sync / async validators                               |

@@ -10,8 +10,8 @@
 
 ## Subpaths
 
-| Subpath                      | Contents                                  |
-| ---------------------------- | ----------------------------------------- |
+| Subpath                       | Contents                                  |
+| ----------------------------- | ----------------------------------------- |
 | `@sometic/auth/provider`      | Provider types + capabilities             |
 | `@sometic/auth/session`       | Session helpers / expiry                  |
 | `@sometic/auth/storage`       | Memory / session / local / custom storage |
@@ -22,8 +22,8 @@
 
 ## Adapters
 
-| Package                 | Surfaces                                          |
-| ----------------------- | ------------------------------------------------- |
+| Package                  | Surfaces                                          |
+| ------------------------ | ------------------------------------------------- |
 | `@sometic/react/auth`    | `AuthProvider`, `useAuth`, `useSession`, `useCan` |
 | `@sometic/vue/auth`      | `useAuth`, `useSession`, `useCan`                 |
-| `@sometic/elements/auth` | `sometic-auth-status`                              |
+| `@sometic/elements/auth` | `sometic-auth-status`                             |

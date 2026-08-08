@@ -6,8 +6,8 @@
 
 ## Old → new package mapping
 
-| Previous package             | New package                  |
-| ---------------------------- | ---------------------------- |
+| Previous package              | New package                   |
+| ----------------------------- | ----------------------------- |
 | `@sometic/accessibility`      | `@sometic/accessibility`      |
 | `@sometic/auth`               | `@sometic/auth`               |
 | `@sometic/auth-firebase`      | `@sometic/auth-firebase`      |
@@ -39,12 +39,12 @@
 | `@sometic/release-tools`      | `@sometic/release-tools`      |
 | `@sometic/testing-config`     | `@sometic/testing-config`     |
 | `@sometic/typescript-config`  | `@sometic/typescript-config`  |
-| Root `aitistack-packages`    | `sometic-packages`            |
+| Root `aitistack-packages`     | `sometic-packages`            |
 
 ## CE / class mapping
 
-| Previous                | New        |
-| ----------------------- | ---------- |
+| Previous                | New         |
+| ----------------------- | ----------- |
 | `aiti-*` tags           | `sometic-*` |
 | `Aiti*` element classes | `Sometic*`  |
 

@@ -116,7 +116,7 @@ applyThemeToElement(document.documentElement, theme.get());
 | Module format   | ESM (`"type": "module"`), tree-shakeable, `sideEffects: false`         |
 | Types           | Bundled `.d.ts` via package exports                                    |
 | Peers           | Framework packages are **not** peers; theme is framework-neutral       |
-| Runtime deps    | `@sometic/core`, `@sometic/store`, `@sometic/styling`                     |
+| Runtime deps    | `@sometic/core`, `@sometic/store`, `@sometic/styling`                  |
 | Node            | `>=20.18.0` (package engines)                                          |
 | Browser globals | Never accessed at import time; `matchMedia` is lazy via system helpers |
 
@@ -139,7 +139,7 @@ Published exports (from `package.json`):
 | SSR / no `window`         | Safe to import; system helpers return light / `no-preference` / false without `matchMedia` |
 | Missing transitive deps   | Install fails or types break; reinstall workspace deps                                     |
 | Deep imports into `dist/` | Unsupported; use public exports only                                                       |
-| Presets on root entry     | Not re-exported; import `@sometic/theme/presets`                                            |
+| Presets on root entry     | Not re-exported; import `@sometic/theme/presets`                                           |
 
 ## FAQ
 

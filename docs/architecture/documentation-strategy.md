@@ -32,12 +32,12 @@ Must explain what/when/**when-not**, install, JS and TS usage, framework usage, 
 
 ## Architecture and Decisions
 
-| Path                 | Role                                              |
-| -------------------- | ------------------------------------------------- |
-| `docs/architecture/` | Locked system rules (public in the repository)    |
-| `docs/decisions/`    | ADRs (public in the repository)                   |
-| `docs/security/`     | Security policies and reviews                     |
-| `docs/performance/`  | Benchmark reports                                 |
+| Path                 | Role                                           |
+| -------------------- | ---------------------------------------------- |
+| `docs/architecture/` | Locked system rules (public in the repository) |
+| `docs/decisions/`    | ADRs (public in the repository)                |
+| `docs/security/`     | Security policies and reviews                  |
+| `docs/performance/`  | Benchmark reports                              |
 
 Maintainer-only release checklists and phase reports stay out of the public repository.
 

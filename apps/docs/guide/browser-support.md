@@ -7,7 +7,7 @@ Sometic targets **modern evergreen browsers** (current stable Chrome, Firefox, S
 | Capability                            | Requirement                                   |
 | ------------------------------------- | --------------------------------------------- |
 | ES modules                            | Native `import` in the browser or a bundler   |
-| Custom Elements                       | Custom Elements v1 for `@sometic/elements`     |
+| Custom Elements                       | Custom Elements v1 for `@sometic/elements`    |
 | Web Crypto                            | Required for OIDC PKCE and related auth flows |
 | `AbortController`                     | Async actions, HTTP cancellation              |
 | `ResizeObserver` / `MutationObserver` | Used by some DOM helpers where applicable     |

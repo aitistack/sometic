@@ -2,8 +2,8 @@
 
 Contract: `@sometic/date-core` (`DateAdapter`).
 
-| Package               | Role                          |
-| --------------------- | ----------------------------- |
+| Package                | Role                          |
+| ---------------------- | ----------------------------- |
 | `@sometic/date-native` | Default `Date` implementation |
 | `@sometic/date-dayjs`  | Optional; peer `dayjs`        |
 | `@sometic/date-fns`    | Optional; peer `date-fns`     |

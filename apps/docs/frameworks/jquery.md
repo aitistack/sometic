@@ -8,7 +8,7 @@ Prefer Wave A ([React](/frameworks/react), [Vue](/frameworks/vue), [Elements](/f
 
 | Item         | Value                                               |
 | ------------ | --------------------------------------------------- |
-| Package      | `@sometic/jquery`                                    |
+| Package      | `@sometic/jquery`                                   |
 | Exports      | `.` only                                            |
 | Capabilities | `storeBind`, `button` (`jqueryAdapterCapabilities`) |
 | Peer         | `jquery` `^3.7` (optional peer)                     |
@@ -62,7 +62,7 @@ import {
 | ------------------------ | ------------------------------------------------------------------ |
 | `createJQueryStoreBind`  | Store bind with `get` / `set` / `update` / `subscribe` / `dispose` |
 | `bindJQueryButton`       | Low-level bind returning a `Disposable`                            |
-| `registerJQueryAdapters` | Installs `$.fn.someticButton` plugin API                            |
+| `registerJQueryAdapters` | Installs `$.fn.someticButton` plugin API                           |
 
 Plugin command union: options object, options factory, or `"destroy"`.
 

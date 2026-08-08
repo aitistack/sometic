@@ -17,8 +17,8 @@ Keep server / cache data here, **not** in `@sometic/store`. On logout / user swi
 | Observers   | `createQueryObserver` / `createMutationObserver`                                                                     |
 | Keys        | `QueryKey` (`readonly unknown[]`), `hashQueryKey`, `partialMatchKey`                                                 |
 | HTTP bridge | `createHttpQueryFn({ client, path, method?, body? })`                                                                |
-| React       | `QueryClientProvider`, `useQuery`, `useMutation`, `useQueryClient` from `@sometic/react/query`                        |
-| Vue         | `provideQueryClient`, `useQuery`, `useMutation`, `useQueryClient` from `@sometic/vue/query`                           |
+| React       | `QueryClientProvider`, `useQuery`, `useMutation`, `useQueryClient` from `@sometic/react/query`                       |
+| Vue         | `provideQueryClient`, `useQuery`, `useMutation`, `useQueryClient` from `@sometic/vue/query`                          |
 
 ### When to use
 
@@ -305,8 +305,8 @@ Paths passed to HTTP / `createHttpQueryFn` must be **relative** or `http(s)` abs
 
 ## Store vs query
 
-| Data                         | Package         |
-| ---------------------------- | --------------- |
+| Data                         | Package          |
+| ---------------------------- | ---------------- |
 | Server lists / detail / ETag | `@sometic/query` |
 | Theme preference, UI flags   | `@sometic/store` |
 | Form draft values            | `@sometic/forms` |

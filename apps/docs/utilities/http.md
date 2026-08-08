@@ -10,19 +10,19 @@
 
 ## Overview
 
-| Concern       | API                                                     |
-| ------------- | ------------------------------------------------------- |
-| Create client | `createHttp(options?)`                                  |
-| Verbs         | `get` / `post` / `put` / `patch` / `delete` / `request` |
-| Extend        | `client.extend(overrides)`                              |
-| Interceptors  | `interceptors` option + `composeInterceptors`           |
+| Concern       | API                                                      |
+| ------------- | -------------------------------------------------------- |
+| Create client | `createHttp(options?)`                                   |
+| Verbs         | `get` / `post` / `put` / `patch` / `delete` / `request`  |
+| Extend        | `client.extend(overrides)`                               |
+| Interceptors  | `interceptors` option + `composeInterceptors`            |
 | Auth refresh  | `createAuthInterceptor` from `@sometic/http/auth`        |
 | Policy        | `createPolicyInterceptor` from `@sometic/http/auth`      |
 | Transport     | `allowAbsoluteUrl` (default `false`), `maxResponseBytes` |
-| Retry         | `retry` option / per-request `retry`                    |
-| Dedupe        | `dedupe` option / per-request `dedupe`                  |
-| Errors        | `HTTP_ERROR_CODES` / `createHttpError`                  |
-| Tests         | `createMockFetcher`                                     |
+| Retry         | `retry` option / per-request `retry`                     |
+| Dedupe        | `dedupe` option / per-request `dedupe`                   |
+| Errors        | `HTTP_ERROR_CODES` / `createHttpError`                   |
+| Tests         | `createMockFetcher`                                      |
 
 ### When to use
 
@@ -334,7 +334,7 @@ const logging: HttpInterceptor = {
 | Rule                 | Detail                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------ |
 | No secrets in errors | Do not put tokens in `createHttpError` details                                                   |
-| Auth peer optional   | Import `/auth` only when wiring Sometic auth                                                      |
+| Auth peer optional   | Import `/auth` only when wiring Sometic auth                                                     |
 | Cookies              | Use `fetcher` wrapper with `credentials: "include"` when same-site cookies apply                 |
 | SSR                  | Pass an explicit `fetcher`; do not assume `window.fetch` at import time                          |
 | CSRF                 | Cookie sessions still need server CSRF strategy; Bearer headers are not a CSRF fix by themselves |

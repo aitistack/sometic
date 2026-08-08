@@ -72,7 +72,7 @@ Important defaults:
 
 | Option       | Default when persisting                      |
 | ------------ | -------------------------------------------- |
-| `storageKey` | `"sometic-theme"`                             |
+| `storageKey` | `"sometic-theme"`                            |
 | `storage`    | `createMemoryStorage()` (not `localStorage`) |
 | `version`    | `1` (fixed by the controller today)          |
 

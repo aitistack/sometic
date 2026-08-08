@@ -4,8 +4,8 @@
 
 ## Modules
 
-| Module           | Import                                |
-| ---------------- | ------------------------------------- |
+| Module           | Import                                 |
+| ---------------- | -------------------------------------- |
 | Basic store      | `@sometic/store`                       |
 | Selector helper  | `@sometic/store` → `select`            |
 | Persistent store | `@sometic/store/persistent`            |

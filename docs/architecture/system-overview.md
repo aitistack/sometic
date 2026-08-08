@@ -35,12 +35,12 @@ Optional adapter packages (auth providers, date libraries, Immer, Axios) attach 
 
 ## Delivery Surfaces
 
-| Surface                    | Purpose                                           |
-| -------------------------- | ------------------------------------------------- |
+| Surface                     | Purpose                                           |
+| --------------------------- | ------------------------------------------------- |
 | npm packages (`@sometic/*`) | Maintained logic, types, updates                  |
-| CLI + registry             | `init` / `add` in package, source, or hybrid mode |
-| Docs app                   | Consumer and maintainer documentation             |
-| Playgrounds                | Per-framework verification and examples           |
+| CLI + registry              | `init` / `add` in package, source, or hybrid mode |
+| Docs app                    | Consumer and maintainer documentation             |
+| Playgrounds                 | Per-framework verification and examples           |
 
 ## Component Architecture Pattern
 

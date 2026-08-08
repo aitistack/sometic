@@ -4,29 +4,29 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 
 ## Foundation (Beta)
 
-| Package                 | Role                                              | Docs                                                                                         |
-| ----------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `@sometic/core`          | Environment, controllable state, shared contracts | [Primitives: core](/primitives/core), [Controlled state](/concepts/controlled-state)         |
-| `@sometic/events`        | Typed event emitters                              | [Primitives: events](/primitives/events)                                                     |
-| `@sometic/store`         | External store, selectors, persistence, cross-tab | [Store](/stores/store), [Stores hub](/stores/)                                               |
-| `@sometic/store-immer`   | Optional Immer adapter (peer)                     | [Store Immer](/stores/store-immer)                                                           |
-| `@sometic/styling`       | Class/style resolvers, slots, state attributes    | [Primitives: styling](/primitives/styling), [Styling slots](/concepts/styling-slots)         |
-| `@sometic/theme`         | Tokens, CSS variables, theme controller           | [Theming](/theming/), [Design tokens](/concepts/design-tokens), [Theme store](/stores/theme) |
-| `@sometic/accessibility` | Focus, keyboard, dismiss, announce helpers        | [Primitives: accessibility](/primitives/accessibility)                                       |
-| `@sometic/positioning`   | First-party positioning engine                    | [Primitives: positioning](/primitives/positioning)                                           |
-| `@sometic/dom`           | Behavior engines for controls and overlays        | [Primitives: dom](/primitives/dom), [Components](/components/)                               |
-| `@sometic/validation`    | Validators, define schema, schema-adapter contracts | [Primitives: validation](/primitives/validation), [Forms validation](/forms/validation) |
-| `@sometic/validation-zod` | Optional Zod `SchemaAdapter` (peer `zod`)          | [Primitives: validation](/primitives/validation)                                      |
-| `@sometic/validation-yup` | Optional Yup `SchemaAdapter` (peer `yup`)          | [Primitives: validation](/primitives/validation)                                      |
-| `@sometic/date-core`     | Date adapter contracts                            | [Primitives: date](/primitives/date)                                                         |
-| `@sometic/date-native`   | Native date adapter                               | [Primitives: date](/primitives/date)                                                         |
-| `@sometic/date-dayjs`    | Day.js adapter (optional peer)                    | [Primitives: date](/primitives/date)                                                         |
-| `@sometic/date-fns`      | date-fns adapter (optional peer)                  | [Primitives: date](/primitives/date)                                                         |
+| Package                   | Role                                                | Docs                                                                                         |
+| ------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `@sometic/core`           | Environment, controllable state, shared contracts   | [Primitives: core](/primitives/core), [Controlled state](/concepts/controlled-state)         |
+| `@sometic/events`         | Typed event emitters                                | [Primitives: events](/primitives/events)                                                     |
+| `@sometic/store`          | External store, selectors, persistence, cross-tab   | [Store](/stores/store), [Stores hub](/stores/)                                               |
+| `@sometic/store-immer`    | Optional Immer adapter (peer)                       | [Store Immer](/stores/store-immer)                                                           |
+| `@sometic/styling`        | Class/style resolvers, slots, state attributes      | [Primitives: styling](/primitives/styling), [Styling slots](/concepts/styling-slots)         |
+| `@sometic/theme`          | Tokens, CSS variables, theme controller             | [Theming](/theming/), [Design tokens](/concepts/design-tokens), [Theme store](/stores/theme) |
+| `@sometic/accessibility`  | Focus, keyboard, dismiss, announce helpers          | [Primitives: accessibility](/primitives/accessibility)                                       |
+| `@sometic/positioning`    | First-party positioning engine                      | [Primitives: positioning](/primitives/positioning)                                           |
+| `@sometic/dom`            | Behavior engines for controls and overlays          | [Primitives: dom](/primitives/dom), [Components](/components/)                               |
+| `@sometic/validation`     | Validators, define schema, schema-adapter contracts | [Primitives: validation](/primitives/validation), [Forms validation](/forms/validation)      |
+| `@sometic/validation-zod` | Optional Zod `SchemaAdapter` (peer `zod`)           | [Primitives: validation](/primitives/validation)                                             |
+| `@sometic/validation-yup` | Optional Yup `SchemaAdapter` (peer `yup`)           | [Primitives: validation](/primitives/validation)                                             |
+| `@sometic/date-core`      | Date adapter contracts                              | [Primitives: date](/primitives/date)                                                         |
+| `@sometic/date-native`    | Native date adapter                                 | [Primitives: date](/primitives/date)                                                         |
+| `@sometic/date-dayjs`     | Day.js adapter (optional peer)                      | [Primitives: date](/primitives/date)                                                         |
+| `@sometic/date-fns`       | date-fns adapter (optional peer)                    | [Primitives: date](/primitives/date)                                                         |
 
 ## Application (Beta)
 
-| Package                 | Role                                                 | Docs                                                      |
-| ----------------------- | ---------------------------------------------------- | --------------------------------------------------------- |
+| Package                  | Role                                                 | Docs                                                      |
+| ------------------------ | ---------------------------------------------------- | --------------------------------------------------------- |
 | `@sometic/forms`         | Form engine, fields, drafts, feedback                | [Forms](/forms/), [Form component](/components/form)      |
 | `@sometic/auth`          | Provider-independent auth orchestration              | [Authentication](/authentication/)                        |
 | `@sometic/auth-local`    | Local REST provider                                  | [Local provider](/authentication/local-provider)          |
@@ -40,25 +40,25 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 
 ## Wave A adapters (Beta)
 
-| Package                    | Role                                         | Docs                                                       |
-| -------------------------- | -------------------------------------------- | ---------------------------------------------------------- |
+| Package                     | Role                                         | Docs                                                       |
+| --------------------------- | -------------------------------------------- | ---------------------------------------------------------- |
 | `@sometic/react`            | React components and hooks (subpath exports) | [React](/frameworks/react), [Components](/components/)     |
 | `@sometic/vue`              | Vue components and composables               | [Vue](/frameworks/vue), [Components](/components/)         |
-| `@sometic/elements`         | `sometic-*` custom elements                   | [Vanilla](/frameworks/vanilla), [Components](/components/) |
+| `@sometic/elements`         | `sometic-*` custom elements                  | [Vanilla](/frameworks/vanilla), [Components](/components/) |
 | `@sometic/adapter-contract` | Shared adapter contracts                     | [Framework adapters](/concepts/framework-adapters)         |
 
 ## Tooling (Beta)
 
-| Package                 | Role                              | Docs                              |
-| ----------------------- | --------------------------------- | --------------------------------- |
+| Package                  | Role                               | Docs                              |
+| ------------------------ | ---------------------------------- | --------------------------------- |
 | `@sometic/cli`           | `sometic` CLI (`init` / `add` / …) | [CLI guide](/guide/cli)           |
-| `@sometic/registry`      | Template registry for CLI         | [CLI guide](/guide/cli)           |
-| `@sometic/eslint-config` | Shareable ESLint config           | Package README / monorepo tooling |
+| `@sometic/registry`      | Template registry for CLI          | [CLI guide](/guide/cli)           |
+| `@sometic/eslint-config` | Shareable ESLint config            | Package README / monorepo tooling |
 
 ## Wave B adapters (Experimental)
 
-| Package           | Role                          | Docs                           |
-| ----------------- | ----------------------------- | ------------------------------ |
+| Package            | Role                          | Docs                           |
+| ------------------ | ----------------------------- | ------------------------------ |
 | `@sometic/angular` | Angular store-bind foundation | [Angular](/frameworks/angular) |
 | `@sometic/svelte`  | Svelte store-bind foundation  | [Svelte](/frameworks/svelte)   |
 | `@sometic/solid`   | Solid store-bind foundation   | [Solid](/frameworks/solid)     |
@@ -66,8 +66,8 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 
 ## Wave C adapters (Experimental)
 
-| Package          | Role            | Docs                         |
-| ---------------- | --------------- | ---------------------------- |
+| Package           | Role            | Docs                         |
+| ----------------- | --------------- | ---------------------------- |
 | `@sometic/alpine` | Alpine adapters | [Alpine](/frameworks/alpine) |
 | `@sometic/jquery` | jQuery adapters | [jQuery](/frameworks/jquery) |
 | `@sometic/htmx`   | HTMX adapters   | [HTMX](/frameworks/htmx)     |

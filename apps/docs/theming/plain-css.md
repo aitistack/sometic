@@ -170,7 +170,7 @@ if (host instanceof HTMLElement) {
 
 | Mechanism                      | Consumer CSS                                   |
 | ------------------------------ | ---------------------------------------------- |
-| `var(--sometic-…)`              | Colors, space, radius, any category you define |
+| `var(--sometic-…)`             | Colors, space, radius, any category you define |
 | `[data-theme="…"]`             | Per-registered-theme tweaks                    |
 | `[data-color-scheme="…"]`      | Light/dark flourishes beyond token swaps       |
 | `[data-density="…"]`           | Comfortable / compact / spacious               |
@@ -203,13 +203,13 @@ Token → variable naming is documented under [CSS variables](/theming/css-varia
 
 ## Edge cases
 
-| Case                         | Behavior / tip                                                                                     |
-| ---------------------------- | -------------------------------------------------------------------------------------------------- |
+| Case                         | Behavior / tip                                                                                      |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- |
 | Missing variable             | CSS ignores `var()` fallback unless you provide one: `var(--sometic-color-bg, #fff)`                |
-| Theme key removed            | Pass `previousVariables` into `applyThemeToElement` to clear stale inline props                    |
+| Theme key removed            | Pass `previousVariables` into `applyThemeToElement` to clear stale inline props                     |
 | `color-scheme` CSS property  | Optional; Sometic sets `data-color-scheme` but does not set the CSS `color-scheme` property for you |
-| Contrast of `#fff` on images | Helpers are hex-on-hex; they do not sample pixels                                                  |
-| Persistence                  | Preferences only; see [Theme store](/stores/theme) · [Store](/stores/store)                        |
+| Contrast of `#fff` on images | Helpers are hex-on-hex; they do not sample pixels                                                   |
+| Persistence                  | Preferences only; see [Theme store](/stores/theme) · [Store](/stores/store)                         |
 
 ## FAQ
 

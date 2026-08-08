@@ -38,8 +38,8 @@ pnpm add @sometic/react   # or @sometic/vue / @sometic/elements
 
 ## Import map
 
-| Path                      | Purpose                                      |
-| ------------------------- | -------------------------------------------- |
+| Path                       | Purpose                                      |
+| -------------------------- | -------------------------------------------- |
 | `@sometic/forms`           | `createForm`, types, re-exports              |
 | `@sometic/forms/drafts`    | Draft persistence                            |
 | `@sometic/forms/steps`     | Multi-step wizard helpers                    |
@@ -49,7 +49,7 @@ pnpm add @sometic/react   # or @sometic/vue / @sometic/elements
 | `@sometic/validation`      | Validators, compose, issues, schema contract |
 | `@sometic/react/form`      | Hooks + `Form`                               |
 | `@sometic/vue/form`        | Composables + `Form`                         |
-| `@sometic/elements/form`   | `sometic-form`                                |
+| `@sometic/elements/form`   | `sometic-form`                               |
 
 ## Quick start
 
@@ -176,11 +176,11 @@ Always call `form.dispose()` when the form leaves the page (Vue adapters do this
 | Concept          | Meaning                                                                                    |
 | ---------------- | ------------------------------------------------------------------------------------------ |
 | `FormController` | Explicit, disposable instance, no module singleton                                         |
-| Paths            | `email`, `user.email`, `items[0].qty` via `@sometic/validation` path helpers                |
+| Paths            | `email`, `user.email`, `items[0].qty` via `@sometic/validation` path helpers               |
 | `FieldMeta`      | `dirty`, `touched`, `visited`, `valid`, `invalid`, `pending`, `enabled`, `error`, `issues` |
 | `FormMeta`       | Aggregate dirty/touched/valid/pending + `submitting`, `submitCount`                        |
 | `ValidationMode` | `onChange` \| `onBlur` \| `onSubmit` \| `onTouched`                                        |
-| Issues           | `{ code, message, path?, params? }` from `@sometic/validation`                              |
+| Issues           | `{ code, message, path?, params? }` from `@sometic/validation`                             |
 
 Defaults: `validationMode: "onSubmit"`, `debounceMs: 0`, feedback flags all enabled.
 

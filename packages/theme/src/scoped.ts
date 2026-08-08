@@ -20,16 +20,14 @@ export type CreateScopedThemeControllerOptions = {
 export type ScopedThemeController = Disposable & {
     get(): ThemeSnapshot;
     subscribe(listener: (snapshot: ThemeSnapshot, previous: ThemeSnapshot) => void): () => void;
-    applyTo(
-        element: {
-            style: {
-                setProperty(name: string, value: string): void;
-                removeProperty(name: string): void;
-            };
-            setAttribute(name: string, value: string): void;
-            removeAttribute(name: string): void;
-        },
-    ): void;
+    applyTo(element: {
+        style: {
+            setProperty(name: string, value: string): void;
+            removeProperty(name: string): void;
+        };
+        setAttribute(name: string, value: string): void;
+        removeAttribute(name: string): void;
+    }): void;
     readonly hydrated: Promise<void>;
 };
 
@@ -98,9 +96,7 @@ export function createScopedThemeController(
 ): ScopedThemeController {
     const prefix = options.prefix ?? "sometic";
     const resolveOptions = buildResolveOptions(options, prefix);
-    const snapshotStore = createStore(
-        resolveScopedSnapshot(options.parent.get(), resolveOptions),
-    );
+    const snapshotStore = createStore(resolveScopedSnapshot(options.parent.get(), resolveOptions));
 
     let previousVariables: Record<string, string> | undefined = snapshotStore.get().cssVariables;
     let disposed = false;

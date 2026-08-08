@@ -51,13 +51,13 @@ export function createRefreshCoordinator(options: RefreshCoordinatorOptions): Re
 
         const run = async (): Promise<AuthSession> => {
             const current = options.getSession();
-                    const next = createSession({
-                        status: "refreshing",
-                        user: current.user,
-                        tokens: current.tokens,
-                        epoch: current.epoch,
-                    });
-                    await options.setSession(next);
+            const next = createSession({
+                status: "refreshing",
+                user: current.user,
+                tokens: current.tokens,
+                epoch: current.epoch,
+            });
+            await options.setSession(next);
 
             let lastError: unknown;
             for (attempt = 0; attempt <= maxRetries; attempt += 1) {

@@ -11,7 +11,14 @@ import {
     type FormFeedback,
 } from "@sometic/forms";
 import { createIssue, email, minLength, required } from "@sometic/validation";
-import { defineSchema, fromSchema, number, object, optional, string } from "@sometic/validation/define";
+import {
+    defineSchema,
+    fromSchema,
+    number,
+    object,
+    optional,
+    string,
+} from "@sometic/validation/define";
 import "@sometic/elements/form";
 
 function bindTextInput<TValues extends Record<string, unknown>>(

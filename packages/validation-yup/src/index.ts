@@ -5,10 +5,7 @@ import {
     type ValidationIssue,
     type ValidationResult,
 } from "@sometic/validation";
-import {
-    assertSchemaAdapter,
-    type SchemaAdapter,
-} from "@sometic/validation/schema";
+import { assertSchemaAdapter, type SchemaAdapter } from "@sometic/validation/schema";
 
 export type YupValidationErrorLike = {
     name?: string;
@@ -20,10 +17,7 @@ export type YupValidationErrorLike = {
 
 export type YupSchemaLike<T = unknown> = {
     validateSync(input: unknown, options?: { abortEarly?: boolean }): T;
-    validate(
-        input: unknown,
-        options?: { abortEarly?: boolean; signal?: AbortSignal },
-    ): Promise<T>;
+    validate(input: unknown, options?: { abortEarly?: boolean; signal?: AbortSignal }): Promise<T>;
 };
 
 function isYupValidationError(error: unknown): error is YupValidationErrorLike {
@@ -38,10 +32,7 @@ function isYupValidationError(error: unknown): error is YupValidationErrorLike {
 }
 
 export function issuesFromYupError(error: YupValidationErrorLike): ValidationIssue[] {
-    const source =
-        error.inner && error.inner.length > 0
-            ? error.inner
-            : [error];
+    const source = error.inner && error.inner.length > 0 ? error.inner : [error];
     const issues: ValidationIssue[] = [];
     for (const item of source) {
         const path = item.path;

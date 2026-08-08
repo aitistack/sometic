@@ -10,18 +10,18 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 ## Overview
 
-| Concern            | API                                                                              |
-| ------------------ | -------------------------------------------------------------------------------- |
-| Compose            | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`     |
-| Epoch              | `app.epoch` / `app.getEpoch()` / `app.onEpochChange(listener)`                   |
-| Dispose            | `app.dispose()` tears down binds; disposes owned query/HTTP clients            |
-| Auth ↔ query       | `bindQueryToAuth` (also applied inside shell)                                    |
-| Auth ↔ HTTP        | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)             |
-| Theme ↔ head       | `bindThemeToHead`                                                                |
-| Auth ↔ stores      | `bindAuthToStores`                                                               |
-| Mutation ↔ form    | `bindMutationForm`                                                               |
-| Query → head       | `bindHeadToQuery`                                                                |
-| Mutation outbox    | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline) |
+| Concern         | API                                                                                |
+| --------------- | ---------------------------------------------------------------------------------- |
+| Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`       |
+| Epoch           | `app.epoch` / `app.getEpoch()` / `app.onEpochChange(listener)`                     |
+| Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                |
+| Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                      |
+| Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)               |
+| Theme ↔ head    | `bindThemeToHead`                                                                  |
+| Auth ↔ stores   | `bindAuthToStores`                                                                 |
+| Mutation ↔ form | `bindMutationForm`                                                                 |
+| Query → head    | `bindHeadToQuery`                                                                  |
+| Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline) |
 
 ### When to use
 
@@ -158,27 +158,27 @@ window.addEventListener("pagehide", () => {
 
 ## Boundaries (enforced by design)
 
-| Data                         | Package         | Shell behavior                                      |
-| ---------------------------- | --------------- | --------------------------------------------------- |
-| Session / identity           | `@sometic/auth`  | Epoch source of truth                               |
-| Server lists / detail        | `@sometic/query` | Cleared on epoch bump; refetch after re-auth        |
-| Transport                    | `@sometic/http`  | Epoch tagged; cross-epoch replay refused            |
-| Client UI / prefs            | `@sometic/store` | Session stores reset; prefs optional                |
-| Form drafts                  | `@sometic/forms` | Never parked in query; omit secrets from drafts     |
-| Document head                | `@sometic/head`  | Theme bind + optional query → SEO patches           |
+| Data                  | Package          | Shell behavior                                  |
+| --------------------- | ---------------- | ----------------------------------------------- |
+| Session / identity    | `@sometic/auth`  | Epoch source of truth                           |
+| Server lists / detail | `@sometic/query` | Cleared on epoch bump; refetch after re-auth    |
+| Transport             | `@sometic/http`  | Epoch tagged; cross-epoch replay refused        |
+| Client UI / prefs     | `@sometic/store` | Session stores reset; prefs optional            |
+| Form drafts           | `@sometic/forms` | Never parked in query; omit secrets from drafts |
+| Document head         | `@sometic/head`  | Theme bind + optional query → SEO patches       |
 
 ## Options
 
-| Input                 | Behavior                                                                 |
-| --------------------- | ------------------------------------------------------------------------ |
-| `auth`                | Required                                                                 |
-| `http` / create options | Attach auth + policy + epoch interceptors                             |
-| `query` / create options | `bindQueryToAuth`                                                    |
-| `head` / `theme`      | Optional; `bindThemeToHead` when both present                            |
-| `stores`              | `{ ui?, prefs?, session? }`; session stores reset on epoch               |
-| `forms`               | `{ draftsClearOnEpoch?, register? }`                                     |
-| `refetchOnReauth`     | `'auth' \| 'all' \| false`                                               |
-| `authQueryKeys`       | Used when `refetchOnReauth: 'auth'`                                      |
+| Input                                   | Behavior                                                   |
+| --------------------------------------- | ---------------------------------------------------------- |
+| `auth`                                  | Required                                                   |
+| `http` / create options                 | Attach auth + policy + epoch interceptors                  |
+| `query` / create options                | `bindQueryToAuth`                                          |
+| `head` / `theme`                        | Optional; `bindThemeToHead` when both present              |
+| `stores`                                | `{ ui?, prefs?, session? }`; session stores reset on epoch |
+| `forms`                                 | `{ draftsClearOnEpoch?, register? }`                       |
+| `refetchOnReauth`                       | `'auth' \| 'all' \| false`                                 |
+| `authQueryKeys`                         | Used when `refetchOnReauth: 'auth'`                        |
 | `allowAbsoluteUrl` / `maxResponseBytes` | Forwarded to HTTP when shell creates the client            |
 
 ## FAQ

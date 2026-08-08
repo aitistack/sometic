@@ -53,9 +53,7 @@ function mapFieldErrors(fieldErrors: Record<string, unknown>): ValidationIssue[]
                     issues.push(asIssue(field, item, "server"));
                 } else {
                     const mapped = mapErrorEntry(
-                        typeof item === "object" && item !== null
-                            ? { ...item, path: field }
-                            : item,
+                        typeof item === "object" && item !== null ? { ...item, path: field } : item,
                     );
                     if (mapped) {
                         issues.push(mapped);

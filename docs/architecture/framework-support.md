@@ -70,7 +70,7 @@ Props · state · events · refs · slots · children · controlled/uncontrolled
 | Browsers                  | Last 2 versions of Chrome, Firefox, Safari, Edge; no IE                   |
 | React                     | 18+ (confirm with Wave A tests)                                           |
 | Vue                       | 3.4+                                                                      |
-| Angular                   | Modern versions only for `@sometic/angular` (not AngularJS)                |
+| Angular                   | Modern versions only for `@sometic/angular` (not AngularJS)               |
 
 Exact semver ranges are published in each adapter README and the compatibility matrix — not claimed earlier than tests exist.
 

@@ -72,9 +72,7 @@ export function createAppShell(options: CreateAppShellOptions): AppShell {
     const epochListeners = new Set<(epoch: number) => void>();
 
     const ownedQuery = !options.query;
-    const query =
-        options.query ??
-        createQueryClient(options.createQueryOptions ?? {});
+    const query = options.query ?? createQueryClient(options.createQueryOptions ?? {});
 
     const createHttpOptions: CreateHttpOptions = {
         ...options.createHttpOptions,

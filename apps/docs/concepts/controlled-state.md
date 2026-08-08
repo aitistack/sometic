@@ -107,7 +107,7 @@ See [Uncontrolled state](/concepts/uncontrolled-state).
 
 ## Controlled vs store
 
-| Concern   | Controlled props            | `@sometic/store`                         |
+| Concern   | Controlled props            | `@sometic/store`                        |
 | --------- | --------------------------- | --------------------------------------- |
 | Scope     | One component or small tree | Shared app / engine state               |
 | SSR       | Parent owns hydration       | Explicit store instance                 |

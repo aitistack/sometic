@@ -11,9 +11,7 @@ import { z } from "zod";
 import { createZodSchemaAdapter } from "@sometic/validation-zod";
 import { fromSchema } from "@sometic/validation/schema";
 
-const adapter = createZodSchemaAdapter(
-    z.object({ email: z.string().email() }),
-);
+const adapter = createZodSchemaAdapter(z.object({ email: z.string().email() }));
 const validator = fromSchema(adapter);
 ```
 

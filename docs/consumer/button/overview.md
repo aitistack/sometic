@@ -14,8 +14,8 @@ The button family shares one behavior model via `@sometic/dom`, with thin adapte
 
 ## Adapters
 
-| Package  | Import                    |
-| -------- | ------------------------- |
+| Package  | Import                     |
+| -------- | -------------------------- |
 | Vanilla  | `@sometic/dom/button`      |
 | React    | `@sometic/react/button`    |
 | Vue      | `@sometic/vue/button`      |

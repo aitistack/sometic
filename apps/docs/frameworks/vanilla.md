@@ -40,8 +40,8 @@ Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@some
 
 ## Import map
 
-| Import                       | Role                       |
-| ---------------------------- | -------------------------- |
+| Import                        | Role                       |
+| ----------------------------- | -------------------------- |
 | `@sometic/elements`           | Root barrel + registrars   |
 | `@sometic/elements/button`    | Button family tags         |
 | `@sometic/elements/input`     | Field / input tags         |
@@ -77,7 +77,7 @@ Duplicate versions of the package in one page can fight over the same tag name. 
 
 | Mode            | How                | Styling                                                                                |
 | --------------- | ------------------ | -------------------------------------------------------------------------------------- |
-| Light (default) | Omit `shadow`      | Page CSS targets internal parts (`sometic-button button`, slots, `data-*`)              |
+| Light (default) | Omit `shadow`      | Page CSS targets internal parts (`sometic-button button`, slots, `data-*`)             |
 | Shadow (opt-in) | `shadow` attribute | Isolation for embeds; inject styles into `shadowRoot` or use CSS variables on the host |
 
 ```html
@@ -90,10 +90,10 @@ Theme CSS variables inherit into open shadow roots. Element selectors in the doc
 
 Elements dispatch bubbling, composed `CustomEvent`s. Detail types are exported from `@sometic/elements` / `@sometic/elements/events`.
 
-| Event                                          | Typical host            |
-| ---------------------------------------------- | ----------------------- |
+| Event                                          | Typical host             |
+| ---------------------------------------------- | ------------------------ |
 | `pressed-change`                               | `sometic-toggle-button`  |
-| `value-change`                                 | inputs                  |
+| `value-change`                                 | inputs                   |
 | `revealed-change`                              | `sometic-password-input` |
 | `async-complete` / `async-error`               | `sometic-async-button`   |
 | `form-submit` / `form-invalid` / `form-change` | `sometic-form`           |

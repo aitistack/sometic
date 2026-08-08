@@ -84,8 +84,8 @@ sometic-packages/
 
 ### Foundation
 
-| Package                 | Responsibility                                                                       |
-| ----------------------- | ------------------------------------------------------------------------------------ |
+| Package                  | Responsibility                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------ |
 | `@sometic/core`          | Environment, SSR guards, IDs, disposable/lifecycle/error contracts, shared utilities |
 | `@sometic/events`        | Typed event emitter                                                                  |
 | `@sometic/store`         | External store, selectors, persistence hooks, cross-tab                              |
@@ -96,25 +96,25 @@ sometic-packages/
 
 ### Features
 
-| Package              | Responsibility                               |
-| -------------------- | -------------------------------------------- |
-| `@sometic/theme`      | Tokens, theme store, CSS variable generation |
-| `@sometic/validation` | Validator API + define schema + adapter contract |
-| `@sometic/validation-zod` | Optional Zod SchemaAdapter (peer `zod`)       |
-| `@sometic/validation-yup` | Optional Yup SchemaAdapter (peer `yup`)       |
-| `@sometic/forms`      | Form engine                                  |
-| `@sometic/auth`       | Provider-independent auth orchestration      |
-| `@sometic/http`       | Fetch-first client and interceptors          |
-| `@sometic/query`      | Portable server-state cache                  |
-| `@sometic/head`       | Portable document head / SEO                 |
-| `@sometic/app-shell`  | System composition (epoch binds, dispose)    |
-| `@sometic/dom`        | Imperative DOM controllers                   |
-| `@sometic/elements`   | Web Components built on shared engines       |
+| Package                   | Responsibility                                   |
+| ------------------------- | ------------------------------------------------ |
+| `@sometic/theme`          | Tokens, theme store, CSS variable generation     |
+| `@sometic/validation`     | Validator API + define schema + adapter contract |
+| `@sometic/validation-zod` | Optional Zod SchemaAdapter (peer `zod`)          |
+| `@sometic/validation-yup` | Optional Yup SchemaAdapter (peer `yup`)          |
+| `@sometic/forms`          | Form engine                                      |
+| `@sometic/auth`           | Provider-independent auth orchestration          |
+| `@sometic/http`           | Fetch-first client and interceptors              |
+| `@sometic/query`          | Portable server-state cache                      |
+| `@sometic/head`           | Portable document head / SEO                     |
+| `@sometic/app-shell`      | System composition (epoch binds, dispose)        |
+| `@sometic/dom`            | Imperative DOM controllers                       |
+| `@sometic/elements`       | Web Components built on shared engines           |
 
 ### Optional adapters
 
-| Package                 | Peer / note                            |
-| ----------------------- | -------------------------------------- |
+| Package                  | Peer / note                            |
+| ------------------------ | -------------------------------------- |
 | `@sometic/auth-local`    | Configurable REST endpoints            |
 | `@sometic/auth-firebase` | `firebase` peer                        |
 | `@sometic/auth-supabase` | `@supabase/supabase-js` peer           |

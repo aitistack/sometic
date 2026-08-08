@@ -391,4 +391,10 @@ declare global {
     }
 }
 
-export { SometicAsyncButton, SometicButton, SometicButtonGroup, SometicIconButton, SometicToggleButton };
+export {
+    SometicAsyncButton,
+    SometicButton,
+    SometicButtonGroup,
+    SometicIconButton,
+    SometicToggleButton,
+};

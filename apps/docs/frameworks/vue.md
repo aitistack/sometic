@@ -43,8 +43,8 @@ bun add @sometic/vue
 
 Prefer **subpath imports**.
 
-| Import                  | Exports                                                                                                       |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Import                   | Exports                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | `@sometic/vue/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
 | `@sometic/vue/field`     | `Field`                                                                                                       |
 | `@sometic/vue/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |

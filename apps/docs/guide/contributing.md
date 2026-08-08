@@ -21,14 +21,14 @@ Pushes to `main` are restricted. Changes land through PRs with required checks a
 
 ## What we look for
 
-| Do | Avoid |
-| -- | ----- |
-| Four-space indentation | Tabs or two-space indent |
-| Production TypeScript | Placeholders or mock-as-production |
-| Docs with the change | Undocumented public APIs |
-| Stable issue `code`s for validation | Schema-library lock-in in cores |
-| Security notes on sensitive PRs | Public issues for unfixed vulns |
-| Playground demos for new interactive UI | Docs-only interactive features |
+| Do                                      | Avoid                              |
+| --------------------------------------- | ---------------------------------- |
+| Four-space indentation                  | Tabs or two-space indent           |
+| Production TypeScript                   | Placeholders or mock-as-production |
+| Docs with the change                    | Undocumented public APIs           |
+| Stable issue `code`s for validation     | Schema-library lock-in in cores    |
+| Security notes on sensitive PRs         | Public issues for unfixed vulns    |
+| Playground demos for new interactive UI | Docs-only interactive features     |
 
 ## Architecture for contributors
 

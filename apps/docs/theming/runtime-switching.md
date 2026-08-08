@@ -154,10 +154,10 @@ Returns `ThemeController`.
 | `direction`      | `"ltr" \| "rtl"`                | `"ltr"`                |
 | `highContrast`   | `boolean \| "system"`           | `false`                |
 | `reducedMotion`  | `boolean \| "system"`           | `"system"`             |
-| `prefix`         | `string`                        | `"sometic"`             |
+| `prefix`         | `string`                        | `"sometic"`            |
 | `persist`        | `boolean`                       | `false`                |
 | `storage`        | `StorageAdapter`                | memory when persisting |
-| `storageKey`     | `string`                        | `"sometic-theme"`       |
+| `storageKey`     | `string`                        | `"sometic-theme"`      |
 
 #### Controller members
 

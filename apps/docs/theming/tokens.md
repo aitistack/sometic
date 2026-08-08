@@ -124,8 +124,8 @@ Categories are one level deep. Keys may be numeric-looking strings (`"1"`, `"2"`
 
 Token → CSS variable flattening (default prefix `sometic`):
 
-| Token path      | CSS variable             |
-| --------------- | ------------------------ |
+| Token path      | CSS variable              |
+| --------------- | ------------------------- |
 | `color.primary` | `--sometic-color-primary` |
 | `space.2`       | `--sometic-space-2`       |
 | `radius.md`     | `--sometic-radius-md`     |

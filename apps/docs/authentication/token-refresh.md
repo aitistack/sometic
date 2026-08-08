@@ -21,10 +21,10 @@ const coordinator = createRefreshCoordinator({
 
 ## Controller APIs
 
-| Method                 | When to call                                              |
-| ---------------------- | --------------------------------------------------------- |
-| `refresh(reason?)`     | Explicit refresh (timer, user action, tests)              |
-| `ensureFreshSession()` | Ensure not expired under skew before sensitive work       |
+| Method                 | When to call                                               |
+| ---------------------- | ---------------------------------------------------------- |
+| `refresh(reason?)`     | Explicit refresh (timer, user action, tests)               |
+| `ensureFreshSession()` | Ensure not expired under skew before sensitive work        |
 | `handleUnauthorized()` | HTTP 401 recovery seam (also used by `@sometic/http/auth`) |
 
 ::: code-group

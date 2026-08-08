@@ -123,19 +123,19 @@ Passing `previousVariables` removes properties that no longer exist in the new s
 5. `applyThemeToElement` sets each property; optional previous map drives removals.
 6. Attributes (`data-theme`, `data-color-scheme`, …) are set alongside variables.
 
-| Token           | Prefix             | Result name              |
-| --------------- | ------------------ | ------------------------ |
+| Token           | Prefix              | Result name               |
+| --------------- | ------------------- | ------------------------- |
 | `color.primary` | `sometic` (default) | `--sometic-color-primary` |
-| `color.primary` | `acme`             | `--acme-color-primary`   |
-| `color.primary` | `""`               | `--color-primary`        |
+| `color.primary` | `acme`              | `--acme-color-primary`    |
+| `color.primary` | `""`                | `--color-primary`         |
 
 ## API
 
 ### `tokensToCssVariables(tokens, options?)`
 
-| Parameter        | Type          | Description        |
-| ---------------- | ------------- | ------------------ |
-| `tokens`         | `ThemeTokens` | Source tokens      |
+| Parameter        | Type          | Description         |
+| ---------------- | ------------- | ------------------- |
+| `tokens`         | `ThemeTokens` | Source tokens       |
 | `options.prefix` | `string`      | Default `"sometic"` |
 
 **Returns:** `Record<string, string>` (keys include leading `--`).

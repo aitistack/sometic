@@ -4,8 +4,8 @@
 
 ## Overview
 
-| Module             | Subpath                           | Purpose                                           |
-| ------------------ | --------------------------------- | ------------------------------------------------- |
+| Module             | Subpath                            | Purpose                                           |
+| ------------------ | ---------------------------------- | ------------------------------------------------- |
 | Environment        | `@sometic/core/environment`        | SSR-safe runtime detection                        |
 | Id                 | `@sometic/core/id`                 | Stable unique ids                                 |
 | Disposable         | `@sometic/core/disposable`         | Cleanup contracts and stacks                      |
@@ -180,7 +180,7 @@ anySignal([controller.signal]);
 | Environment  | `getGlobalThis`, `isServerEnvironment`, `isBrowserEnvironment`, `canUseDom`, `detectRuntimeCapabilities`                              |
 | Id           | `createId`, `createPrefixedId`                                                                                                        |
 | Disposable   | `createDisposable`, `DisposableStack` (`use`, `defer`, `adopt`, `move`, `dispose`)                                                    |
-| Error        | `SometicError`, `createError`, `isSometicError`                                                                                         |
+| Error        | `SometicError`, `createError`, `isSometicError`                                                                                       |
 | Result       | `ok`, `err`, `isOk`, `isErr`, `unwrap`, `mapResult`                                                                                   |
 | Controllable | `createControllableState` → `get` / `set` / `update` / `reset` / `isControlled`                                                       |
 | Async        | `createAsyncOperation` → `execute`, `retry`, `abort`, `reset`, `subscribe`                                                            |

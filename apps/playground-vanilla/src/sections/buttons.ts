@@ -98,8 +98,14 @@ export function mountButtonsSection(root: HTMLElement): () => void {
     }) as EventListener;
 
     loadingToggle?.addEventListener("click", onLoadingToggle);
-    root.querySelector("sometic-button[data-demo='basic']")?.addEventListener("click", onBasicClick);
-    root.querySelector("sometic-toggle-button")?.addEventListener("pressed-change", onPressedChange);
+    root.querySelector("sometic-button[data-demo='basic']")?.addEventListener(
+        "click",
+        onBasicClick,
+    );
+    root.querySelector("sometic-toggle-button")?.addEventListener(
+        "pressed-change",
+        onPressedChange,
+    );
     asyncButton?.addEventListener("async-complete", onAsyncComplete);
 
     log(

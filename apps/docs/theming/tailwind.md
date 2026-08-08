@@ -128,7 +128,7 @@ If you pass `prefix: "acme"` to the controller, map `var(--acme-color-primary)` 
 
 | Layer                | Responsibility                              |
 | -------------------- | ------------------------------------------- |
-| `@sometic/theme`      | Resolve tokens → CSS variables + attributes |
+| `@sometic/theme`     | Resolve tokens → CSS variables + attributes |
 | Your Tailwind config | Alias utilities to those variables          |
 | Your components      | Use utilities / arbitrary values            |
 
@@ -138,8 +138,8 @@ Dark mode strategy: prefer Sometic’s `data-color-scheme` (or `data-theme`) ove
 
 No Tailwind-specific exports. Use the standard theme API:
 
-| Export                  | Package                       |
-| ----------------------- | ----------------------------- |
+| Export                  | Package                        |
+| ----------------------- | ------------------------------ |
 | `createThemeController` | `@sometic/theme`               |
 | `applyThemeToElement`   | `@sometic/theme`               |
 | `tokensToCssVariables`  | `@sometic/theme/css-variables` |

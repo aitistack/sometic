@@ -81,11 +81,11 @@ const revealed = ref(false);
 
 ## Anatomy
 
-| Part          | Role                                               |
-| ------------- | -------------------------------------------------- |
+| Part          | Role                                                |
+| ------------- | --------------------------------------------------- |
 | Wrapper       | `div.sometic-password` (`data-revealed` when shown) |
-| Native input  | Password or text depending on reveal               |
-| Reveal button | `data-reveal`, `aria-pressed`, Show/Hide label     |
+| Native input  | Password or text depending on reveal                |
+| Reveal button | `data-reveal`, `aria-pressed`, Show/Hide label      |
 
 State attributes follow [Input](/components/input) on the resolved field.
 

@@ -14,7 +14,7 @@ Publishable `@sometic/*` packages do **not** ship fonts and do not set a mandato
 | ------------------------------------ | ------------------------------------------------------------ |
 | `class` / `className`                | Host props on framework components                           |
 | `classes` / `styles`                 | Slot-oriented class and style maps where supported           |
-| `cssVariables` / theme CSS variables | [`@sometic/theme`](/theming/)                                 |
+| `cssVariables` / theme CSS variables | [`@sometic/theme`](/theming/)                                |
 | `data-slot`, `data-*` state attrs    | Styling helpers and DOM engines                              |
 | `unstyled`                           | Skip default structural classes when a component offers them |
 

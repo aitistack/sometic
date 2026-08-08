@@ -4,8 +4,8 @@
 
 ## Modules
 
-| Module             | Import                        |
-| ------------------ | ----------------------------- |
+| Module             | Import                         |
+| ------------------ | ------------------------------ |
 | Theme controller   | `@sometic/theme`               |
 | Tokens             | `@sometic/theme/tokens`        |
 | CSS variables      | `@sometic/theme/css-variables` |

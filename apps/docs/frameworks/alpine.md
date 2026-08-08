@@ -8,7 +8,7 @@ Prefer [Elements](/frameworks/vanilla) or Wave A frameworks when you need the fu
 
 | Item         | Value                                               |
 | ------------ | --------------------------------------------------- |
-| Package      | `@sometic/alpine`                                    |
+| Package      | `@sometic/alpine`                                   |
 | Exports      | `.` only                                            |
 | Capabilities | `storeBind`, `button` (`alpineAdapterCapabilities`) |
 | Peer         | `alpinejs` `^3.14` (optional peer)                  |
@@ -57,10 +57,10 @@ import {
 } from "@sometic/alpine";
 ```
 
-| Export                     | Role                                                                |
-| -------------------------- | ------------------------------------------------------------------- |
-| `createAlpineStoreBind`    | Store bind with `get` / `set` / `update` / `subscribe` / `dispose`  |
-| `bindAlpineButton`         | Bind a real `HTMLButtonElement` via `@sometic/dom` options           |
+| Export                      | Role                                                                |
+| --------------------------- | ------------------------------------------------------------------- |
+| `createAlpineStoreBind`     | Store bind with `get` / `set` / `update` / `subscribe` / `dispose`  |
+| `bindAlpineButton`          | Bind a real `HTMLButtonElement` via `@sometic/dom` options          |
 | `createAlpineSometicPlugin` | Optional Alpine plugin registering a directive using button options |
 
 Pass Alpine’s `cleanup` into `bindAlpineButton` so dispose runs when the element is removed.

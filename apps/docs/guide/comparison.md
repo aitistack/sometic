@@ -6,23 +6,23 @@ How Sometic differs from common alternatives. Choose the tool that matches your 
 
 Ask one question: **do you need portable application behavior** (UI + forms + auth + HTTP + query + app shell) across more than one view layer, or a React-only UI kit?
 
-| Need                                                   | Prefer                                    |
-| ------------------------------------------------------ | ----------------------------------------- |
-| Pre-styled React UI                                    | MUI, Chakra, Ant Design, shadcn/ui        |
-| Headless React primitives only                         | Radix, Headless UI, React Aria            |
+| Need                                                   | Prefer                                     |
+| ------------------------------------------------------ | ------------------------------------------ |
+| Pre-styled React UI                                    | MUI, Chakra, Ant Design, shadcn/ui         |
+| Headless React primitives only                         | Radix, Headless UI, React Aria             |
 | **Same controllers across Vanilla + React + Vue + CE** | **Sometic**                                |
 | Auth / HTTP / Head orchestration without SDK lock-in   | **Sometic** (+ optional provider adapters) |
-| Copy-paste styled React blocks owned by your repo      | shadcn-style registries                   |
+| Copy-paste styled React blocks owned by your repo      | shadcn-style registries                    |
 
 If the answer is “I only ever ship React and I only need widgets,” use a headless or visual kit. If the answer is “behavior must survive a framework change and include session/fetch flows,” Sometic is the fit.
 
 ## Portable application behavior (the wedge)
 
 | Capability                         | Typical headless UI kit | Typical visual kit | Sometic                              |
-| ---------------------------------- | ----------------------- | ------------------ | ----------------------------------- |
-| Cross-framework controllers        | Rare (React-first)      | Rare               | **Core design**                     |
-| Unstyled / your design system      | Often                   | No                 | **Default**                         |
-| Forms engine                       | Separate library        | Opinionated        | **First-party**                     |
+| ---------------------------------- | ----------------------- | ------------------ | ------------------------------------ |
+| Cross-framework controllers        | Rare (React-first)      | Rare               | **Core design**                      |
+| Unstyled / your design system      | Often                   | No                 | **Default**                          |
+| Forms engine                       | Separate library        | Opinionated        | **First-party**                      |
 | Auth session + refresh             | Bring your own          | Bring your own     | **Orchestration in `@sometic/auth`** |
 | Fetch interceptors + refresh queue | Bring your own          | Bring your own     | **`@sometic/http`**                  |
 | Server-state cache (keys/mutate)   | Bring your own          | Bring your own     | **`@sometic/query` (Wave A)**        |

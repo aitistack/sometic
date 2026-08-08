@@ -30,12 +30,12 @@ import type { Store } from "@sometic/store";
 
 ## Adapters
 
-| Package            | Typing notes                                                           |
-| ------------------ | ---------------------------------------------------------------------- |
+| Package             | Typing notes                                                           |
+| ------------------- | ---------------------------------------------------------------------- |
 | `@sometic/react`    | Props types exported beside components; hooks typed to store selectors |
 | `@sometic/vue`      | Component props via shipped `.d.ts`; `useStore` returns `ComputedRef`  |
 | `@sometic/elements` | Element instance types + event detail types on `/events`               |
-| Wave B/C           | Narrow bind types (`AngularStoreBind`, …) and capability constants     |
+| Wave B/C            | Narrow bind types (`AngularStoreBind`, …) and capability constants     |
 
 ## Errors
 

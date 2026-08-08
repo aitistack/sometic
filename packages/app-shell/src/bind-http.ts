@@ -55,10 +55,7 @@ export function bindAuthToHttp(options: BindAuthToHttpOptions): BindAuthToHttpRe
 
     const http = createHttp({
         ...options.createHttpOptions,
-        interceptors: [
-            ...(options.createHttpOptions?.interceptors ?? []),
-            ...interceptors,
-        ],
+        interceptors: [...(options.createHttpOptions?.interceptors ?? []), ...interceptors],
     });
     return {
         http,

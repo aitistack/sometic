@@ -10,11 +10,11 @@ Prefer `@sometic/store/kinds`: `createUiStore` (no persist), `createPrefsStore` 
 
 ## Inventory
 
-| Page                                 | Package / import                                                       | Role                                                  |
-| ------------------------------------ | ---------------------------------------------------------------------- | ----------------------------------------------------- |
+| Page                                 | Package / import                                                          | Role                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------- |
 | [Store](/stores/store)               | `@sometic/store`, `@sometic/store/persistent`, `@sometic/store/cross-tab` | Core store, selectors, persistence, cross-tab         |
-| [Immer adapter](/stores/store-immer) | `@sometic/store-immer` (peer `immer`)                                   | Mutable draft updates via `produce`                   |
-| [Theme store](/stores/theme)         | `@sometic/theme` + `@sometic/store/persistent`                           | How theme preferences persist through the store layer |
+| [Immer adapter](/stores/store-immer) | `@sometic/store-immer` (peer `immer`)                                     | Mutable draft updates via `produce`                   |
+| [Theme store](/stores/theme)         | `@sometic/theme` + `@sometic/store/persistent`                            | How theme preferences persist through the store layer |
 
 ## When to use
 
@@ -24,8 +24,8 @@ Prefer `@sometic/store/kinds`: `createUiStore` (no persist), `createPrefsStore` 
 
 ## When not to use
 
-| Need                                          | Prefer                                                                          |
-| --------------------------------------------- | ------------------------------------------------------------------------------- |
+| Need                                          | Prefer                                                                           |
+| --------------------------------------------- | -------------------------------------------------------------------------------- |
 | Server lists / cached API data                | [`@sometic/query`](/utilities/query)                                             |
 | Component-local controlled/uncontrolled props | `@sometic/core/controllable-state`                                               |
 | Pub/sub events without retained state         | `@sometic/events`                                                                |
@@ -35,7 +35,7 @@ Prefer `@sometic/store/kinds`: `createUiStore` (no persist), `createPrefsStore` 
 
 | Surface                                | Budget   |
 | -------------------------------------- | -------- |
-| Store core (`@sometic/store`)           | ≤ 1.5 KB |
+| Store core (`@sometic/store`)          | ≤ 1.5 KB |
 | Persistent subpath                     | ≤ 3 KB   |
 | Cross-tab subpath                      | ≤ 2.5 KB |
 | Immer adapter (without `immer` itself) | ≤ 1 KB   |

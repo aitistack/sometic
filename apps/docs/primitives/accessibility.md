@@ -4,8 +4,8 @@
 
 ## Overview
 
-| Module                 | Import                              | Purpose                                      |
-| ---------------------- | ----------------------------------- | -------------------------------------------- |
+| Module                 | Import                               | Purpose                                      |
+| ---------------------- | ------------------------------------ | -------------------------------------------- |
 | Focus trap / tab order | `@sometic/accessibility/focus`       | Contain focus; restore to trigger            |
 | Keyboard bindings      | `@sometic/accessibility/keyboard`    | Declarative key matchers                     |
 | Dismissable layer      | `@sometic/accessibility/dismissable` | Escape / outside dismiss stacking            |

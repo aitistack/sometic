@@ -4,8 +4,8 @@ Internal inventory for Phase 13 consumer docs. Not part of VitePress navigation.
 
 ## Packages
 
-| Package                 | Primary exports (entry)                                                                           | Docs                           |
-| ----------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------ |
+| Package                  | Primary exports (entry)                                                                           | Docs                           |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------ |
 | `@sometic/core`          | environment, id, disposable, error, result, contracts, controllable-state, async-operation, utils | /primitives/core               |
 | `@sometic/events`        | emitter APIs                                                                                      | /primitives/events             |
 | `@sometic/store`         | createStore, persistence helpers                                                                  | /stores/store                  |
@@ -23,14 +23,14 @@ Internal inventory for Phase 13 consumer docs. Not part of VitePress navigation.
 | `@sometic/auth-supabase` | createSupabaseAuthProvider                                                                        | /authentication/supabase       |
 | `@sometic/auth-oidc`     | createOidcAuthProvider                                                                            | /authentication/oidc           |
 | `@sometic/http`          | createHttp, ./auth, ./retry                                                                       | /utilities/http                |
-| `@sometic/elements`      | sometic-* custom elements                                                                          | /frameworks/vanilla            |
+| `@sometic/elements`      | sometic-* custom elements                                                                         | /frameworks/vanilla            |
 | `@sometic/react`         | Button/Input/Form/Auth/Http adapters                                                              | /frameworks/react              |
 | `@sometic/vue`           | Vue adapters                                                                                      | /frameworks/vue                |
 | `@sometic/alpine`        | Alpine store/button Wave C                                                                        | /frameworks/alpine             |
 | `@sometic/jquery`        | jQuery store/button Wave C                                                                        | /frameworks/jquery             |
 | `@sometic/htmx`          | HTMX store/button Wave C                                                                          | /frameworks/htmx               |
 | `@sometic/registry`      | CLI templates + checksums                                                                         | /guide/cli                     |
-| `@sometic/cli`           | `sometic` CLI                                                                                      | /guide/cli                     |
+| `@sometic/cli`           | `sometic` CLI                                                                                     | /guide/cli                     |
 | `@sometic/date-*`        | date adapters                                                                                     | /primitives/date               |
 | `@sometic/eslint-config` | shareable ESLint config                                                                           | /api/packages                  |
 

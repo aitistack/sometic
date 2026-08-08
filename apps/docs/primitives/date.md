@@ -6,8 +6,8 @@ Date **input** controllers live in `@sometic/dom/input-date`. Calendar / DatePic
 
 ## Overview
 
-| Package               | Role                                         | Peer       |
-| --------------------- | -------------------------------------------- | ---------- |
+| Package                | Role                                         | Peer       |
+| ---------------------- | -------------------------------------------- | ---------- |
 | `@sometic/date-core`   | `DateAdapter` contract + `assertDateAdapter` | none       |
 | `@sometic/date-native` | Default `Date` implementation                | none       |
 | `@sometic/date-dayjs`  | Day.js bridge                                | `dayjs`    |
@@ -140,8 +140,8 @@ type DateUnit = "day" | "month" | "year";
 type ParseResult = { date: Date | null; valid: boolean };
 ```
 
-| Factory                                      | Package               |
-| -------------------------------------------- | --------------------- |
+| Factory                                      | Package                |
+| -------------------------------------------- | ---------------------- |
 | `createNativeDateAdapter(options?)`          | `@sometic/date-native` |
 | `createDayjsDateAdapter(dayjsApi, options?)` | `@sometic/date-dayjs`  |
 | `createDateFnsDateAdapter(options?)`         | `@sometic/date-fns`    |

@@ -4,10 +4,7 @@ import type { HttpReplayRequest } from "../replay.js";
 import type { HttpInterceptor, HttpRequestConfig } from "../types.js";
 
 export type { HttpReplayRequest };
-export {
-    createPolicyInterceptor,
-    type PolicyInterceptorOptions,
-} from "./policy.js";
+export { createPolicyInterceptor, type PolicyInterceptorOptions } from "./policy.js";
 
 export type AuthInterceptorOptions = {
     auth: AuthController;

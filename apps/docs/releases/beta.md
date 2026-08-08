@@ -4,10 +4,10 @@ Sometic `@sometic` packages are published as a **public beta**.
 
 ## Stability labels
 
-| Label            | Meaning                                                                                                                                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Beta**         | APIs are usable and tested; breaking changes may land in `0.x` minors with changelog notes                                                                                                                    |
-| **Experimental** | Wave B adapters (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX), contracts only; prefer React / Vue / Elements for production apps                                                         |
+| Label            | Meaning                                                                                                                                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Beta**         | APIs are usable and tested; breaking changes may land in `0.x` minors with changelog notes                                                                                                                     |
+| **Experimental** | Wave B adapters (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX), contracts only; prefer React / Vue / Elements for production apps                                                          |
 | **Deferred**     | Richer selection polish (multi-select, tags, sliders), date/time **picker UI**, command palette, **data tables**, feature flags / offline queue — not `@sometic/query` (server-state cache ships in this beta) |
 
 ## Supported runtimes (beta)

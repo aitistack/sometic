@@ -6,12 +6,12 @@ This page is the services-hub summary. Full guide: [HTTP utility](/utilities/htt
 
 ## Overview
 
-| Piece               | Role                               |
-| ------------------- | ---------------------------------- |
-| `createHttp`        | Build a disposable client          |
-| Interceptors        | Request / response / error hooks   |
+| Piece                | Role                                |
+| -------------------- | ----------------------------------- |
+| `createHttp`         | Build a disposable client           |
+| Interceptors         | Request / response / error hooks    |
 | `@sometic/http/auth` | Optional Sometic auth refresh queue |
-| `createMockFetcher` | Deterministic tests                |
+| `createMockFetcher`  | Deterministic tests                 |
 
 ### When to use
 

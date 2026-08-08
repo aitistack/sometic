@@ -14,7 +14,7 @@ test-results
 *.tgz
 
 .cursor/
-AGENTS.md
+/AGENTS.md
 docs/maintainer/
 docs/phases/
 product-scope-and-description.pdf

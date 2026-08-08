@@ -9,8 +9,7 @@ export type PolicyInterceptorOptions = {
         config: HttpRequestConfig,
     ) => AuthorizationPolicy | AuthorizationPolicy[] | null | undefined;
     attachTenantHeader?:
-        | string
-        | ((auth: AuthController) => Record<string, string> | null | undefined);
+        string | ((auth: AuthController) => Record<string, string> | null | undefined);
     tenantClaim?: string;
 };
 

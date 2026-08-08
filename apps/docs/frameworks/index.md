@@ -6,18 +6,18 @@ Sometic keeps one behavior model and ships framework-native adapters on top. Pre
 
 Production beta surface for interactive UI, forms, overlays, store binding, auth, and HTTP helpers.
 
-| Guide                                           | Package                              | Role                                       |
-| ----------------------------------------------- | ------------------------------------ | ------------------------------------------ |
+| Guide                                           | Package                                | Role                                        |
+| ----------------------------------------------- | -------------------------------------- | ------------------------------------------- |
 | [Vanilla / Web Components](/frameworks/vanilla) | `@sometic/elements` (+ `@sometic/dom`) | `sometic-*` custom elements and DOM engines |
-| [React](/frameworks/react)                      | `@sometic/react`                      | Native React components and hooks          |
-| [Vue](/frameworks/vue)                          | `@sometic/vue`                        | Native Vue components and composables      |
+| [React](/frameworks/react)                      | `@sometic/react`                       | Native React components and hooks           |
+| [Vue](/frameworks/vue)                          | `@sometic/vue`                         | Native Vue components and composables       |
 
 ## Wave B (Experimental)
 
 Store-bind foundations only. No button / input / form / overlay kits in these packages yet.
 
-| Guide                          | Package           | Capabilities |
-| ------------------------------ | ----------------- | ------------ |
+| Guide                          | Package            | Capabilities |
+| ------------------------------ | ------------------ | ------------ |
 | [Angular](/frameworks/angular) | `@sometic/angular` | `storeBind`  |
 | [Svelte](/frameworks/svelte)   | `@sometic/svelte`  | `storeBind`  |
 | [Solid](/frameworks/solid)     | `@sometic/solid`   | `storeBind`  |
@@ -27,8 +27,8 @@ Store-bind foundations only. No button / input / form / overlay kits in these pa
 
 HTML-first / legacy hosts. Claimed surface is **storeBind** plus lifecycle-safe **button** bind.
 
-| Guide                           | Package          | Capabilities          |
-| ------------------------------- | ---------------- | --------------------- |
+| Guide                           | Package           | Capabilities          |
+| ------------------------------- | ----------------- | --------------------- |
 | [Alpine.js](/frameworks/alpine) | `@sometic/alpine` | `storeBind`, `button` |
 | [jQuery](/frameworks/jquery)    | `@sometic/jquery` | `storeBind`, `button` |
 | [HTMX](/frameworks/htmx)        | `@sometic/htmx`   | `storeBind`, `button` |

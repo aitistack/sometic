@@ -11,10 +11,10 @@ Sometic prefers **native HTML semantics** first: real `<button>`, form controls,
 
 ## Package roles
 
-| Package                                              | Role                                                                                       |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `@sometic/accessibility`                              | Focus scopes, keyboard utilities, dismissable layers, live-region announcements, observers |
-| `@sometic/dom`                                        | Control engines that apply `aria-*`, `data-*`, and focus wiring                            |
+| Package                                                 | Role                                                                                       |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `@sometic/accessibility`                                | Focus scopes, keyboard utilities, dismissable layers, live-region announcements, observers |
+| `@sometic/dom`                                          | Control engines that apply `aria-*`, `data-*`, and focus wiring                            |
 | `@sometic/react` / `@sometic/vue` / `@sometic/elements` | Thin hosts that expose the engines                                                         |
 
 ## Overlays

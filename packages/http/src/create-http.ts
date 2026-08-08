@@ -147,11 +147,7 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
                     },
                 );
             }
-            const data = (await parseBody(
-                response,
-                responseType,
-                options.maxResponseBytes,
-            )) as T;
+            const data = (await parseBody(response, responseType, options.maxResponseBytes)) as T;
             return {
                 data,
                 status: response.status,

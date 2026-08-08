@@ -8,8 +8,8 @@ Prefer these pages when you need the behavior engine directly (Vanilla controlle
 
 ## Inventory
 
-| Package                          | Role                                                                                     | Docs                                       |
-| -------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------ |
+| Package                           | Role                                                                                     | Docs                                       |
+| --------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------ |
 | `@sometic/core`                   | Environment, ids, disposable, errors, result, controllable state, async operation, utils | [Core](/primitives/core)                   |
 | `@sometic/events`                 | Typed event emitters                                                                     | [Events](/primitives/events)               |
 | `@sometic/dom`                    | Imperative controllers for buttons, fields, inputs, overlays, toast, alert               | [DOM](/primitives/dom)                     |

@@ -4,8 +4,8 @@ Shared non-UI engines used across Sometic apps: HTTP, query (server state), docu
 
 ## Inventory
 
-| Utility            | Package             | Docs                                         |
-| ------------------ | ------------------- | -------------------------------------------- |
+| Utility            | Package              | Docs                                         |
+| ------------------ | -------------------- | -------------------------------------------- |
 | HTTP client        | `@sometic/http`      | [HTTP](/utilities/http)                      |
 | Query              | `@sometic/query`     | [Query](/utilities/query)                    |
 | Head / SEO         | `@sometic/head`      | [Head / SEO](/utilities/head)                |

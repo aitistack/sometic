@@ -102,15 +102,11 @@ export function createTwitterPatch(options: TwitterCardOptions): HeadPatch {
     return {
         meta: meta([
             options.card !== undefined ? { name: "twitter:card", content: options.card } : false,
-            options.title !== undefined
-                ? { name: "twitter:title", content: options.title }
-                : false,
+            options.title !== undefined ? { name: "twitter:title", content: options.title } : false,
             options.description !== undefined
                 ? { name: "twitter:description", content: options.description }
                 : false,
-            options.image !== undefined
-                ? { name: "twitter:image", content: options.image }
-                : false,
+            options.image !== undefined ? { name: "twitter:image", content: options.image } : false,
             options.site !== undefined ? { name: "twitter:site", content: options.site } : false,
             options.creator !== undefined
                 ? { name: "twitter:creator", content: options.creator }

@@ -141,7 +141,7 @@ Setting mode to `"dark"` or `"light"` also moves `themeId` to `darkThemeId` / `l
 | `direction`              | `ThemeDirection`             | `"ltr"`          | `ltr` or `rtl`                                   |
 | `highContrast`           | `SystemAwareFlag`            | `false`          | `true` \| `false` \| `"system"`                  |
 | `reducedMotion`          | `SystemAwareFlag`            | `"system"`       | `true` \| `false` \| `"system"`                  |
-| `prefix`                 | `string`                     | `"sometic"`       | CSS variable prefix                              |
+| `prefix`                 | `string`                     | `"sometic"`      | CSS variable prefix                              |
 | `persist`                | `boolean`                    | `false`          | Prefer [Theme store](/stores/theme)              |
 | `storage` / `storageKey` | adapter / string             | see store docs   | Persistence                                      |
 

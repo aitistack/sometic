@@ -4,25 +4,25 @@ Support is claimed only where automated tests exist. Prefer Wave A for productio
 
 ## Adapter packages
 
-| Framework    | Package                              | Wave           | Claimed capabilities                                                       | Peer                                  |
-| ------------ | ------------------------------------ | -------------- | -------------------------------------------------------------------------- | ------------------------------------- |
-| React        | `@sometic/react`                      | A              | button, field, input, form, selection, overlay, auth, http, store          | `react` `^18 \|\| ^19`                |
-| Vue          | `@sometic/vue`                        | A              | button, field, input, form, selection, overlay, auth, http, store          | `vue` `^3.5`                          |
+| Framework    | Package                                | Wave           | Claimed capabilities                                                        | Peer                                  |
+| ------------ | -------------------------------------- | -------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| React        | `@sometic/react`                       | A              | button, field, input, form, selection, overlay, auth, http, store           | `react` `^18 \|\| ^19`                |
+| Vue          | `@sometic/vue`                         | A              | button, field, input, form, selection, overlay, auth, http, store           | `vue` `^3.5`                          |
 | Vanilla / WC | `@sometic/elements` (+ `@sometic/dom`) | A              | `sometic-*` elements: button, input, form, selection, overlay, auth, events | none (browser CE)                     |
-| Angular      | `@sometic/angular`                    | B Experimental | `storeBind`                                                                | `@angular/core` `^19` (optional peer) |
-| Svelte       | `@sometic/svelte`                     | B Experimental | `storeBind`                                                                | `svelte` `^5` (optional peer)         |
-| Solid        | `@sometic/solid`                      | B Experimental | `storeBind`                                                                | `solid-js` `^1.8` (optional peer)     |
-| Preact       | `@sometic/preact`                     | B Experimental | `storeBind`                                                                | `preact` `^10` (optional peer)        |
-| Alpine.js    | `@sometic/alpine`                     | C Experimental | `storeBind`, `button`                                                      | `alpinejs` `^3.14` (optional peer)    |
-| jQuery       | `@sometic/jquery`                     | C Experimental | `storeBind`, `button`                                                      | `jquery` `^3.7` (optional peer)       |
-| HTMX         | `@sometic/htmx`                       | C Experimental | `storeBind`, `button`                                                      | `htmx.org` `^2` (optional peer)       |
+| Angular      | `@sometic/angular`                     | B Experimental | `storeBind`                                                                 | `@angular/core` `^19` (optional peer) |
+| Svelte       | `@sometic/svelte`                      | B Experimental | `storeBind`                                                                 | `svelte` `^5` (optional peer)         |
+| Solid        | `@sometic/solid`                       | B Experimental | `storeBind`                                                                 | `solid-js` `^1.8` (optional peer)     |
+| Preact       | `@sometic/preact`                      | B Experimental | `storeBind`                                                                 | `preact` `^10` (optional peer)        |
+| Alpine.js    | `@sometic/alpine`                      | C Experimental | `storeBind`, `button`                                                       | `alpinejs` `^3.14` (optional peer)    |
+| jQuery       | `@sometic/jquery`                      | C Experimental | `storeBind`, `button`                                                       | `jquery` `^3.7` (optional peer)       |
+| HTMX         | `@sometic/htmx`                        | C Experimental | `storeBind`, `button`                                                       | `htmx.org` `^2` (optional peer)       |
 
 ## Import maps (Wave A)
 
 ### `@sometic/react` / `@sometic/vue`
 
-| Subpath                          | Typical exports                                                                                               |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Subpath                           | Typical exports                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `@sometic/{react\|vue}/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
 | `@sometic/{react\|vue}/field`     | `Field`                                                                                                       |
 | `@sometic/{react\|vue}/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
@@ -37,8 +37,8 @@ Root `@sometic/react` and `@sometic/vue` re-export selected surfaces; prefer sub
 
 ### `@sometic/elements`
 
-| Subpath                      | Role                          |
-| ---------------------------- | ----------------------------- |
+| Subpath                       | Role                          |
+| ----------------------------- | ----------------------------- |
 | `@sometic/elements/button`    | Button family custom elements |
 | `@sometic/elements/input`     | Field / input custom elements |
 | `@sometic/elements/form`      | Form element                  |

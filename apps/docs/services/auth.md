@@ -6,12 +6,12 @@ This page is the services-hub summary. Full guides live under [Authentication](/
 
 ## Overview
 
-| Concern                         | Ownership                                         |
-| ------------------------------- | ------------------------------------------------- |
+| Concern                         | Ownership                                          |
+| ------------------------------- | -------------------------------------------------- |
 | Session lifecycle               | `@sometic/auth` via `createAuth`                   |
 | Provider SDKs                   | Optional `@sometic/auth-*` packages                |
 | Token attachment / 401 recovery | `@sometic/http/auth` + `auth.handleUnauthorized()` |
-| UI gates                        | `can()` / policies (UX only)                      |
+| UI gates                        | `can()` / policies (UX only)                       |
 
 ### When to use
 
@@ -82,8 +82,8 @@ const interceptor = createAuthInterceptor({ auth });
 
 ## Key APIs / subpaths
 
-| Import                       | Contents                          |
-| ---------------------------- | --------------------------------- |
+| Import                        | Contents                          |
+| ----------------------------- | --------------------------------- |
 | `@sometic/auth`               | `createAuth`, buses, errors       |
 | `@sometic/auth/provider`      | Provider types + capabilities     |
 | `@sometic/auth/session`       | Session helpers                   |

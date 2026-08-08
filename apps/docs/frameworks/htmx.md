@@ -8,7 +8,7 @@ Prefer [Elements](/frameworks/vanilla) or Wave A when you need forms, overlays, 
 
 | Item         | Value                                             |
 | ------------ | ------------------------------------------------- |
-| Package      | `@sometic/htmx`                                    |
+| Package      | `@sometic/htmx`                                   |
 | Exports      | `.` only                                          |
 | Capabilities | `storeBind`, `button` (`htmxAdapterCapabilities`) |
 | Peer         | `htmx.org` `^2` (optional peer)                   |

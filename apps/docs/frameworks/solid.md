@@ -8,7 +8,7 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 | Item         | Value                                    |
 | ------------ | ---------------------------------------- |
-| Package      | `@sometic/solid`                          |
+| Package      | `@sometic/solid`                         |
 | Exports      | `.` only                                 |
 | Capabilities | `storeBind` (`solidAdapterCapabilities`) |
 | Peer         | `solid-js` `^1.8` (optional peer)        |
@@ -48,12 +48,16 @@ bun add @sometic/solid @sometic/store
 ## API surface
 
 ```ts
-import { createSolidStoreBind, solidAdapterCapabilities, type SolidStoreBind } from "@sometic/solid";
+import {
+    createSolidStoreBind,
+    solidAdapterCapabilities,
+    type SolidStoreBind,
+} from "@sometic/solid";
 ```
 
 | Member                | Role                        |
 | --------------------- | --------------------------- |
-| `store`               | Underlying Sometic store     |
+| `store`               | Underlying Sometic store    |
 | `get()`               | Snapshot                    |
 | `set(state)`          | Replace state               |
 | `subscribe(listener)` | Listen; returns unsubscribe |

@@ -4,14 +4,14 @@
 
 ## Overview
 
-| Module                | Import                                         | Purpose                                  |
-| --------------------- | ---------------------------------------------- | ---------------------------------------- |
+| Module                | Import                                           | Purpose                                  |
+| --------------------- | ------------------------------------------------ | ---------------------------------------- |
 | Class resolver        | `@sometic/styling` or `@sometic/styling/classes` | Flatten / merge class values             |
 | Style / CSS variables | `@sometic/styling` or `@sometic/styling/styles`  | Merge style objects and `--*` vars       |
-| Styleable compose     | `@sometic/styling` → `resolveStyleable`         | Layered class + style composition        |
-| Slots                 | `@sometic/styling/slots`                        | Named part contracts and attributes      |
-| State attributes      | `@sometic/styling/state`                        | Stable `data-*` for disabled, invalid, … |
-| Polymorphic `as`      | `@sometic/styling/polymorphic`                  | Element swapping without framework Slot  |
+| Styleable compose     | `@sometic/styling` → `resolveStyleable`          | Layered class + style composition        |
+| Slots                 | `@sometic/styling/slots`                         | Named part contracts and attributes      |
+| State attributes      | `@sometic/styling/state`                         | Stable `data-*` for disabled, invalid, … |
+| Polymorphic `as`      | `@sometic/styling/polymorphic`                   | Element swapping without framework Slot  |
 
 ### When to use
 

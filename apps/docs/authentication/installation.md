@@ -30,10 +30,10 @@ bun add @sometic/auth
 
 | Backend                                        | Package                           | Extra peer (optional)            |
 | ---------------------------------------------- | --------------------------------- | -------------------------------- |
-| Own JSON REST API                              | `@sometic/auth-local`              | none                             |
-| Firebase Auth                                  | `@sometic/auth-firebase`           | `firebase` ^10 \|\| ^11 \|\| ^12 |
-| Supabase Auth                                  | `@sometic/auth-supabase`           | `@supabase/supabase-js` ^2       |
-| Generic IdP (Auth0, Keycloak, Cognito OIDC, …) | `@sometic/auth-oidc`               | none (uses `fetch` + PKCE)       |
+| Own JSON REST API                              | `@sometic/auth-local`             | none                             |
+| Firebase Auth                                  | `@sometic/auth-firebase`          | `firebase` ^10 \|\| ^11 \|\| ^12 |
+| Supabase Auth                                  | `@sometic/auth-supabase`          | `@supabase/supabase-js` ^2       |
+| Generic IdP (Auth0, Keycloak, Cognito OIDC, …) | `@sometic/auth-oidc`              | none (uses `fetch` + PKCE)       |
 | Unit / integration tests                       | built-in `createTestAuthProvider` | none                             |
 
 ::: code-group

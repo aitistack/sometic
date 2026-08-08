@@ -176,10 +176,10 @@ Same as core store: no import-time browser access. Immer runs wherever your bund
 
 ## Comparison
 
-| Approach                  | Tradeoff                                                |
-| ------------------------- | ------------------------------------------------------- |
-| Plain `update` spreads    | Zero Immer cost; verbose for deep trees                 |
-| `@sometic/store-immer`     | Draft DX; peer weight; object-only state                |
+| Approach                  | Tradeoff                                                 |
+| ------------------------- | -------------------------------------------------------- |
+| Plain `update` spreads    | Zero Immer cost; verbose for deep trees                  |
+| `@sometic/store-immer`    | Draft DX; peer weight; object-only state                 |
 | App-level Zustand + Immer | Fine at the app boundary; do not pull into Sometic cores |
 
 ## Related

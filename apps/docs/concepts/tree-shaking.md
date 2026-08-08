@@ -18,8 +18,8 @@ The same pattern applies to Vue, Elements registration entries, store subpaths, 
 
 ## Subpath map (representative)
 
-| Package            | Example subpaths                                                                            |
-| ------------------ | ------------------------------------------------------------------------------------------- |
+| Package             | Example subpaths                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------- |
 | `@sometic/react`    | `/button`, `/input`, `/form`, `/overlay`, `/structure`, `/store`, `/auth`, `/http`, `/head` |
 | `@sometic/vue`      | matching control and service entries                                                        |
 | `@sometic/elements` | `/button`, `/input`, `/structure`, … registration modules                                   |
@@ -44,10 +44,10 @@ If you wrap registration or CSS in your own package, do not mark those entries a
 
 Heavy or framework-specific code ships as separate packages or peer-backed adapters:
 
-| Concern                    | Package                                  |
-| -------------------------- | ---------------------------------------- |
-| Immer mutators             | `@sometic/store-immer`                    |
-| Firebase / Supabase / OIDC | `@sometic/auth-*`                         |
+| Concern                    | Package                                    |
+| -------------------------- | ------------------------------------------ |
+| Immer mutators             | `@sometic/store-immer`                     |
+| Firebase / Supabase / OIDC | `@sometic/auth-*`                          |
 | Day.js / date-fns          | `@sometic/date-dayjs`, `@sometic/date-fns` |
 | Framework UI               | `@sometic/react`, `@sometic/vue`, …        |
 

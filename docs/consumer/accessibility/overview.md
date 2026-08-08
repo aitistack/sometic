@@ -4,8 +4,8 @@
 
 ## Modules
 
-| Module                 | Import                              |
-| ---------------------- | ----------------------------------- |
+| Module                 | Import                               |
+| ---------------------- | ------------------------------------ |
 | Focus trap / tab order | `@sometic/accessibility/focus`       |
 | Keyboard bindings      | `@sometic/accessibility/keyboard`    |
 | Dismissable layer      | `@sometic/accessibility/dismissable` |

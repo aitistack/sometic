@@ -8,7 +8,7 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 | Item         | Value                                     |
 | ------------ | ----------------------------------------- |
-| Package      | `@sometic/svelte`                          |
+| Package      | `@sometic/svelte`                         |
 | Exports      | `.` only                                  |
 | Capabilities | `storeBind` (`svelteAdapterCapabilities`) |
 | Peer         | `svelte` `^5` (optional peer)             |
@@ -58,7 +58,7 @@ import {
 
 | Member            | Role                              |
 | ----------------- | --------------------------------- |
-| `store`           | Underlying Sometic store           |
+| `store`           | Underlying Sometic store          |
 | `subscribe(run)`  | Svelte store-compatible subscribe |
 | `set(value)`      | Replace state                     |
 | `update(updater)` | Functional update                 |

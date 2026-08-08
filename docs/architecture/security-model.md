@@ -5,7 +5,7 @@
 | Layer                                                           | Trust                                                    |
 | --------------------------------------------------------------- | -------------------------------------------------------- |
 | Browser UI, route guards, hidden buttons, client `can`/`cannot` | UX only — not enforcement                                |
-| `@sometic/auth` session/refresh orchestration                    | Client coordinator; follows provider + app backend rules |
+| `@sometic/auth` session/refresh orchestration                   | Client coordinator; follows provider + app backend rules |
 | Backend APIs and resource servers                               | **Authoritative** authorization and session validity     |
 | Provider SDKs                                                   | Live only in optional adapter packages as peers          |
 

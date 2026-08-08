@@ -4,8 +4,8 @@
 
 ## Modules
 
-| Module             | Subpath                           | Purpose                                   |
-| ------------------ | --------------------------------- | ----------------------------------------- |
+| Module             | Subpath                            | Purpose                                   |
+| ------------------ | ---------------------------------- | ----------------------------------------- |
 | Environment        | `@sometic/core/environment`        | SSR-safe runtime detection                |
 | Id                 | `@sometic/core/id`                 | Stable unique ids                         |
 | Disposable         | `@sometic/core/disposable`         | Cleanup contracts + stack                 |
