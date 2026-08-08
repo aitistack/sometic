@@ -1,0 +1,143 @@
+---
+layout: home
+hero:
+    text: One behavior model for UI, forms, auth, and HTTP across every JavaScript stack.
+    tagline: Shared controllers power the app. Thin adapters for React, Vue, and Web Components. Your design system stays yours. Swap the view layer without rewriting core logic.
+features:
+    - title: Same controller, any view
+      details: React, Vue, and sometic-* custom elements are thin shells over one engine. Behavior is portable; the framework is not the source of truth.
+    - title: Auth and HTTP as first-class
+      details: Session orchestration, token refresh queues, and fetch interceptors ship beside UI — not bolted on later, not locked to one SDK.
+    - title: Unstyled on purpose
+      details: Zero forced theme. Slots, data-state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS.
+    - title: Accessible by construction
+      details: Focus traps, dismiss layers, portals, and scroll locks live in the core, composed into overlays, not patched after ship.
+---
+
+<section class="sometic-home-band sometic-home-band--proofs">
+
+<h2>What makes Sometic different</h2>
+
+<p>Not another component kit. A portable application behavior system. Prove it in three moves.</p>
+
+<div class="sometic-home-proofs">
+<article class="sometic-home-proof">
+<span class="sometic-home-proof__index" aria-hidden="true">01</span>
+<h3>One engine → three surfaces</h3>
+<p>Write behavior once in a framework-agnostic controller. Bind it through React, Vue, or <code>sometic-*</code> elements without forking state, focus, or keyboard rules.</p>
+<p class="sometic-home-proof__link"><a href="/concepts/architecture">See the architecture →</a></p>
+</article>
+<article class="sometic-home-proof">
+<span class="sometic-home-proof__index" aria-hidden="true">02</span>
+<h3>Auth refresh + HTTP queue</h3>
+<p>When a request gets 401, Sometic coordinates refresh and retries through a shared queue. Provider SDKs stay optional peers. The orchestration stays in core.</p>
+<p class="sometic-home-proof__link"><a href="/authentication/">Authentication →</a> · <a href="/utilities/http">HTTP →</a></p>
+</article>
+<article class="sometic-home-proof">
+<span class="sometic-home-proof__index" aria-hidden="true">03</span>
+<h3>Same engine, your skin</h3>
+<p>No default look. Style with slots and state attributes. Keep brand CSS intact while the behavior layer stays patchable via npm.</p>
+<p class="sometic-home-proof__link"><a href="/guide/styling">Styling contract →</a></p>
+</article>
+</div>
+
+</section>
+
+<section class="sometic-home-band sometic-home-band--constraints">
+
+<h2>Built for real production constraints</h2>
+
+<p>Most UI kits assume your design system or force heavy third-party SDKs into your runtime. Sometic stays out of your way.</p>
+
+<div class="sometic-home-constraints">
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">01</span>
+<h3>Framework-agnostic controllers</h3>
+<p>State, focus, and interaction logic are completely decoupled from framework lifecycles. Swap your view layer tomorrow without rewriting a single line of core behavior.</p>
+</article>
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">02</span>
+<h3>Zero CSS contamination</h3>
+<p>No stylesheets, no default themes, no runtime CSS injection. You own design tokens and DOM structure completely.</p>
+</article>
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">03</span>
+<h3>Zero-dependency HTTP core</h3>
+<p>Built on native fetch with an interceptor pipeline and token refresh queue. No mandatory Axios or networking SDK in core.</p>
+</article>
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">04</span>
+<h3>SSR-safe from day one</h3>
+<p>Core controllers guard environment globals at import time, so Next.js, Nuxt, and Remix avoid hydration mismatches and window errors.</p>
+</article>
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">05</span>
+<h3>Tree-shakable subpath exports</h3>
+<p>Import only what you use. Feature-isolated packages keep production JavaScript lean and fast.</p>
+</article>
+<article class="sometic-home-constraint">
+<span class="sometic-home-constraint__index" aria-hidden="true">06</span>
+<h3>Declarative slot architecture</h3>
+<p>Layouts rely on native DOM slots and state attributes for precise control over rendered nodes and the accessibility tree.</p>
+</article>
+</div>
+
+</section>
+
+<section class="sometic-home-band sometic-home-band--waves">
+
+<h2>Where the adapters live</h2>
+
+<p>The engine is shared. Adapters are how you mount it. Wave A is production-ready; B and C are experimental binds.</p>
+
+<div class="sometic-home-waves">
+<article class="sometic-home-wave" data-wave="A">
+<span class="sometic-home-wave__mark" aria-hidden="true">A</span>
+<div class="sometic-home-wave__body">
+<p class="sometic-home-wave__label">Production adapters</p>
+<p class="sometic-home-wave__copy">Full wrappers over shared engines for React, Vue, and Vanilla Web Components.</p>
+</div>
+</article>
+<article class="sometic-home-wave" data-wave="B">
+<span class="sometic-home-wave__mark" aria-hidden="true">B</span>
+<div class="sometic-home-wave__body">
+<p class="sometic-home-wave__label">Store bindings <em>Experimental</em></p>
+<p class="sometic-home-wave__copy">State-slice integrations for Angular, Svelte, Solid, and Preact.</p>
+</div>
+</article>
+<article class="sometic-home-wave" data-wave="C">
+<span class="sometic-home-wave__mark" aria-hidden="true">C</span>
+<div class="sometic-home-wave__body">
+<p class="sometic-home-wave__label">HTML-first enhancements <em>Experimental</em></p>
+<p class="sometic-home-wave__copy">Progressive hooks for Alpine.js, jQuery, and HTMX.</p>
+</div>
+</article>
+</div>
+
+</section>
+
+<section class="sometic-home-band sometic-home-band--paths">
+
+<h2>Start where the system is</h2>
+
+<p>Enter through architecture and app services first. UI engines are included. They are not the product story.</p>
+
+<div class="sometic-home-destinations">
+<a class="sometic-home-dest" href="/concepts/architecture">
+<span class="sometic-home-dest__kicker">Architecture</span>
+<span class="sometic-home-dest__title">Controllers, layers, and adapters</span>
+<span class="sometic-home-dest__hint">Read the model</span>
+</a>
+<a class="sometic-home-dest" href="/authentication/">
+<span class="sometic-home-dest__kicker">Auth + HTTP</span>
+<span class="sometic-home-dest__title">Sessions, refresh, fetch orchestration</span>
+<span class="sometic-home-dest__hint">Open services</span>
+</a>
+<a class="sometic-home-dest" href="/guide/comparison">
+<span class="sometic-home-dest__kicker">Comparison</span>
+<span class="sometic-home-dest__title">Why not Radix, shadcn, or a visual kit</span>
+<span class="sometic-home-dest__hint">See the difference</span>
+</a>
+</div>
+
+</section>

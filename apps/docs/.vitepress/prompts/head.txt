@@ -1,0 +1,12 @@
+You are implementing document head / SEO with Sometic (@sometic/head).
+
+Rules:
+- Portable head controller: createHeadController, set/remove patches, get snapshot, subscribe
+- Browser: applyHead(document, snapshot); SSR: serializeHead(snapshot)
+- React: HeadProvider / Head / useHead from @sometic/react/head
+- Vue: provideHead / useHead from @sometic/vue/head
+- Nestable patches by id; not a React-only Helmet fork; same engine across stacks
+- Do not hardcode framework-only head APIs if the app may grow Vanilla/CE surfaces
+
+Docs: https://sometic.aitistack.com/utilities/head
+Scaffold title/meta patches for a page with SSR serialization in mind.

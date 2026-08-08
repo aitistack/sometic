@@ -1,0 +1,217 @@
+/* Sometic surface typography — docs + playgrounds only.
+   Publishable @sometic packages must not depend on these fonts.
+
+   Performance: latin-subset WOFF2 only (no italics on critical path).
+   Identity: display treatment echoes the Sometic wordmark’s chamfered geometry. */
+
+/* ——— Faces (critical path) ——— */
+
+@font-face {
+    font-family: "Urbanist";
+    src: url("/fonts/Urbanist/Urbanist-latin.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrains_Mono/JetBrainsMono-Regular-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: optional;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrains_Mono/JetBrainsMono-Medium-latin.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: optional;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrains_Mono/JetBrainsMono-SemiBold-latin.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: optional;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/Chakra_Petch/ChakraPetch-Medium-latin.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/Chakra_Petch/ChakraPetch-SemiBold-latin.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    src: url("/fonts/Chakra_Petch/ChakraPetch-Bold-latin.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
+        U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— Tokens ——— */
+
+:root {
+    --sometic-font-display: "Chakra Petch", system-ui, sans-serif;
+    --sometic-font-body: "Urbanist", system-ui, sans-serif;
+    --sometic-font-code: "JetBrains Mono", ui-monospace, monospace;
+
+    --sometic-text-xs: 0.75rem;
+    --sometic-text-sm: 0.875rem;
+    --sometic-text-md: 1rem;
+    --sometic-text-lg: 1.125rem;
+    --sometic-text-xl: 1.25rem;
+    --sometic-text-2xl: 1.5rem;
+    --sometic-text-3xl: 1.875rem;
+    --sometic-text-4xl: 2.25rem;
+    --sometic-text-5xl: 3rem;
+    --sometic-text-6xl: 3.75rem;
+
+    /* Wordmark-inspired rhythm: tight block display, airy architectural labels */
+    --sometic-tracking-display: -0.04em;
+    --sometic-tracking-tight: -0.025em;
+    --sometic-tracking-label: 0.16em;
+    --sometic-leading-display: 0.98;
+    --sometic-chamfer: 0.55rem;
+}
+
+/* ——— Base ——— */
+
+html,
+body {
+    font-family: var(--sometic-font-body);
+    font-weight: 400;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+.sometic-display,
+.sometic-hero-title {
+    font-family: var(--sometic-font-display);
+    font-weight: 700;
+    letter-spacing: var(--sometic-tracking-display);
+    line-height: var(--sometic-leading-display);
+    font-kerning: normal;
+    font-variant-ligatures: none;
+    text-wrap: balance;
+}
+
+h2,
+h3,
+.sometic-card-title,
+.sometic-section-title {
+    font-family: var(--sometic-font-display);
+    font-weight: 600;
+    letter-spacing: var(--sometic-tracking-tight);
+    line-height: 1.15;
+    font-variant-ligatures: none;
+    text-wrap: balance;
+}
+
+h4,
+h5,
+h6 {
+    font-family: var(--sometic-font-display);
+    font-weight: 600;
+    letter-spacing: var(--sometic-tracking-tight);
+    font-variant-ligatures: none;
+}
+
+/* Architectural label — echoes wordmark structure without competing with logos */
+.sometic-kicker,
+.sometic-label {
+    font-family: var(--sometic-font-body);
+    font-weight: 650;
+    font-size: var(--sometic-text-xs);
+    letter-spacing: var(--sometic-tracking-label);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* Chamfered identity mark — 45° cut motif from the Sometic wordmark */
+.sometic-chamfer {
+    display: inline-block;
+    width: var(--sometic-chamfer);
+    height: var(--sometic-chamfer);
+    background: currentColor;
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 55% 100%, 0 100%);
+    vertical-align: 0.05em;
+    flex-shrink: 0;
+}
+
+.sometic-title-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.sometic-title-row .sometic-chamfer {
+    color: var(--sometic-brand, #1e3e5b);
+}
+
+code,
+pre,
+kbd,
+samp,
+.sometic-code,
+.sometic-package-name {
+    font-family: var(--sometic-font-code);
+    font-variant-ligatures: none;
+    font-feature-settings:
+        "ss01" 0,
+        "calt" 0;
+}
+
+code,
+.sometic-code,
+.sometic-package-name {
+    font-weight: 500;
+}
+
+pre {
+    font-weight: 400;
+}
+
+/* Prefer composite GPU animations on surface chrome; avoid layout thrash */
+@media (prefers-reduced-motion: reduce) {
+    .sometic-display,
+    .sometic-hero-title,
+    .sometic-section-title {
+        text-wrap: pretty;
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "name": "@sometic/core",
+    "version": "0.0.1",
+    "description": "Framework-independent lifecycle, environment and shared primitive contracts for the Sometic ecosystem.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./environment": {
+            "types": "./dist/environment/index.d.ts",
+            "import": "./dist/environment/index.js"
+        },
+        "./id": {
+            "types": "./dist/id/index.d.ts",
+            "import": "./dist/id/index.js"
+        },
+        "./disposable": {
+            "types": "./dist/disposable/index.d.ts",
+            "import": "./dist/disposable/index.js"
+        },
+        "./error": {
+            "types": "./dist/error/index.d.ts",
+            "import": "./dist/error/index.js"
+        },
+        "./result": {
+            "types": "./dist/result/index.d.ts",
+            "import": "./dist/result/index.js"
+        },
+        "./contracts": {
+            "types": "./dist/contracts/index.d.ts",
+            "import": "./dist/contracts/index.js"
+        },
+        "./controllable-state": {
+            "types": "./dist/controllable-state/index.d.ts",
+            "import": "./dist/controllable-state/index.js"
+        },
+        "./async-operation": {
+            "types": "./dist/async-operation/index.d.ts",
+            "import": "./dist/async-operation/index.js"
+        },
+        "./utils": {
+            "types": "./dist/utils/index.d.ts",
+            "import": "./dist/utils/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/core"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "core environment",
+            "path": "dist/environment/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "core utils",
+            "path": "dist/utils/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "core disposable",
+            "path": "dist/disposable/index.js",
+            "limit": "1 kB",
+            "gzip": true
+        },
+        {
+            "name": "core controllable-state",
+            "path": "dist/controllable-state/index.js",
+            "limit": "1 kB",
+            "gzip": true
+        },
+        {
+            "name": "core async-operation",
+            "path": "dist/async-operation/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        }
+    ]
+}

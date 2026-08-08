@@ -1,0 +1,16 @@
+{
+    "name": "@sometic/typescript-config",
+    "version": "0.0.0",
+    "private": true,
+    "files": [
+        "tsconfig.base.json",
+        "tsconfig.package.json"
+    ],
+    "exports": {
+        ".": "./tsconfig.base.json",
+        "./tsconfig.base.json": "./tsconfig.base.json",
+        "./tsconfig.package.json": "./tsconfig.package.json"
+    },
+    "description": "Shared TypeScript configuration for Sometic packages.",
+    "homepage": "https://sometic.aitistack.com"
+}

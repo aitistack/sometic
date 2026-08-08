@@ -1,0 +1,8 @@
+{
+    "name": "@sometic/release-tools",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Release and package validation helpers for the Sometic monorepo.",
+    "homepage": "https://sometic.aitistack.com"
+}

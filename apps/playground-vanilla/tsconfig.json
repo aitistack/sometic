@@ -1,0 +1,10 @@
+{
+    "extends": "../../tooling/typescript/tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "noEmit": true,
+        "composite": false,
+        "lib": ["ES2022", "DOM", "DOM.Iterable"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "vite.config.ts"]
+}

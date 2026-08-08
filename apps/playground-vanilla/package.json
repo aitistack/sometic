@@ -1,0 +1,42 @@
+{
+    "name": "@sometic/playground-vanilla",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host 127.0.0.1 --port 5190",
+        "build": "vite build",
+        "preview": "vite preview --host 127.0.0.1 --port 5190",
+        "lint": "node -e \"process.exit(0)\"",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "node -e \"process.exit(0)\"",
+        "size": "node -e \"process.exit(0)\""
+    },
+    "dependencies": {
+        "@sometic/demo-kit": "workspace:*",
+        "@sometic/accessibility": "workspace:*",
+        "@sometic/app-shell": "workspace:*",
+        "@sometic/auth": "workspace:*",
+        "@sometic/auth-firebase": "workspace:*",
+        "@sometic/auth-local": "workspace:*",
+        "@sometic/auth-oidc": "workspace:*",
+        "@sometic/auth-supabase": "workspace:*",
+        "@sometic/date-native": "workspace:*",
+        "@sometic/dom": "workspace:*",
+        "@sometic/elements": "workspace:*",
+        "@sometic/forms": "workspace:*",
+        "@sometic/head": "workspace:*",
+        "@sometic/http": "workspace:*",
+        "@sometic/query": "workspace:*",
+        "@sometic/store": "workspace:*",
+        "@sometic/theme": "workspace:*",
+        "@sometic/validation": "workspace:*"
+    },
+    "devDependencies": {
+        "@sometic/typescript-config": "workspace:*",
+        "typescript": "^5.8.3",
+        "vite": "^7.0.5"
+    },
+    "description": "Interactive vanilla playground for Sometic primitives and components.",
+    "homepage": "https://sometic.aitistack.com"
+}

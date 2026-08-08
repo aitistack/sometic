@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.turbo
+.vitepress/cache
+.vitepress/dist
+apps/docs/.vitepress/cache
+apps/docs/.vitepress/dist
+pnpm-lock.yaml
+playwright-report
+test-results
+*.tgz
+CHANGELOG.md
+.cursor/plans/

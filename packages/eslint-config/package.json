@@ -1,0 +1,45 @@
+{
+    "name": "@sometic/eslint-config",
+    "version": "0.0.1",
+    "description": "Shared ESLint configuration for the Sometic monorepo.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "exports": {
+        ".": "./index.js"
+    },
+    "files": [
+        "index.js",
+        "rules",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/eslint-config"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "eslint": "^9.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@eslint/js": "^9.31.0",
+        "typescript-eslint": "^8.37.0"
+    },
+    "devDependencies": {
+        "eslint": "^9.31.0",
+        "typescript": "^5.8.3"
+    },
+    "scripts": {
+        "build": "node -e \"process.exit(0)\"",
+        "lint": "node -e \"process.exit(0)\"",
+        "typecheck": "node -e \"process.exit(0)\"",
+        "test": "node -e \"process.exit(0)\"",
+        "size": "node -e \"process.exit(0)\""
+    },
+    "homepage": "https://sometic.aitistack.com"
+}

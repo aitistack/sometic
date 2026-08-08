@@ -1,0 +1,422 @@
+{
+    "name": "@sometic/dom",
+    "version": "0.0.1",
+    "description": "DOM engines (button/input controllers, portal, scroll lock, observers) used by Sometic adapters and elements.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./button": {
+            "types": "./dist/button/index.d.ts",
+            "import": "./dist/button/index.js"
+        },
+        "./icon-button": {
+            "types": "./dist/icon-button/index.d.ts",
+            "import": "./dist/icon-button/index.js"
+        },
+        "./toggle-button": {
+            "types": "./dist/toggle-button/index.d.ts",
+            "import": "./dist/toggle-button/index.js"
+        },
+        "./async-button": {
+            "types": "./dist/async-button/index.d.ts",
+            "import": "./dist/async-button/index.js"
+        },
+        "./button-group": {
+            "types": "./dist/button-group/index.d.ts",
+            "import": "./dist/button-group/index.js"
+        },
+        "./field": {
+            "types": "./dist/field/index.d.ts",
+            "import": "./dist/field/index.js"
+        },
+        "./input": {
+            "types": "./dist/input/index.d.ts",
+            "import": "./dist/input/index.js"
+        },
+        "./input-password": {
+            "types": "./dist/input-password/index.d.ts",
+            "import": "./dist/input-password/index.js"
+        },
+        "./input-otp": {
+            "types": "./dist/input-otp/index.d.ts",
+            "import": "./dist/input-otp/index.js"
+        },
+        "./input-number": {
+            "types": "./dist/input-number/index.d.ts",
+            "import": "./dist/input-number/index.js"
+        },
+        "./input-file": {
+            "types": "./dist/input-file/index.d.ts",
+            "import": "./dist/input-file/index.js"
+        },
+        "./input-masked": {
+            "types": "./dist/input-masked/index.d.ts",
+            "import": "./dist/input-masked/index.js"
+        },
+        "./input-currency": {
+            "types": "./dist/input-currency/index.d.ts",
+            "import": "./dist/input-currency/index.js"
+        },
+        "./input-date": {
+            "types": "./dist/input-date/index.d.ts",
+            "import": "./dist/input-date/index.js"
+        },
+        "./checkbox": {
+            "types": "./dist/checkbox/index.d.ts",
+            "import": "./dist/checkbox/index.js"
+        },
+        "./radio": {
+            "types": "./dist/radio/index.d.ts",
+            "import": "./dist/radio/index.js"
+        },
+        "./switch": {
+            "types": "./dist/switch/index.d.ts",
+            "import": "./dist/switch/index.js"
+        },
+        "./select": {
+            "types": "./dist/select/index.d.ts",
+            "import": "./dist/select/index.js"
+        },
+        "./overlay": {
+            "types": "./dist/overlay/index.d.ts",
+            "import": "./dist/overlay/index.js"
+        },
+        "./dialog": {
+            "types": "./dist/dialog/index.d.ts",
+            "import": "./dist/dialog/index.js"
+        },
+        "./popover": {
+            "types": "./dist/popover/index.d.ts",
+            "import": "./dist/popover/index.js"
+        },
+        "./tooltip": {
+            "types": "./dist/tooltip/index.d.ts",
+            "import": "./dist/tooltip/index.js"
+        },
+        "./toast": {
+            "types": "./dist/toast/index.d.ts",
+            "import": "./dist/toast/index.js"
+        },
+        "./alert": {
+            "types": "./dist/alert/index.d.ts",
+            "import": "./dist/alert/index.js"
+        },
+        "./drawer": {
+            "types": "./dist/drawer/index.d.ts",
+            "import": "./dist/drawer/index.js"
+        },
+        "./menu": {
+            "types": "./dist/menu/index.d.ts",
+            "import": "./dist/menu/index.js"
+        },
+        "./context-menu": {
+            "types": "./dist/context-menu/index.d.ts",
+            "import": "./dist/context-menu/index.js"
+        },
+        "./tabs": {
+            "types": "./dist/tabs/index.d.ts",
+            "import": "./dist/tabs/index.js"
+        },
+        "./accordion": {
+            "types": "./dist/accordion/index.d.ts",
+            "import": "./dist/accordion/index.js"
+        },
+        "./breadcrumb": {
+            "types": "./dist/breadcrumb/index.d.ts",
+            "import": "./dist/breadcrumb/index.js"
+        },
+        "./combobox": {
+            "types": "./dist/combobox/index.d.ts",
+            "import": "./dist/combobox/index.js"
+        },
+        "./progress": {
+            "types": "./dist/progress/index.d.ts",
+            "import": "./dist/progress/index.js"
+        },
+        "./spinner": {
+            "types": "./dist/spinner/index.d.ts",
+            "import": "./dist/spinner/index.js"
+        },
+        "./skeleton": {
+            "types": "./dist/skeleton/index.d.ts",
+            "import": "./dist/skeleton/index.js"
+        },
+        "./badge": {
+            "types": "./dist/badge/index.d.ts",
+            "import": "./dist/badge/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/dom"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "dependencies": {
+        "@sometic/accessibility": "workspace:*",
+        "@sometic/core": "workspace:*",
+        "@sometic/date-core": "workspace:*",
+        "@sometic/positioning": "workspace:*",
+        "@sometic/styling": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/date-native": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "happy-dom": "^18.0.1",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "dom button",
+            "path": "dist/button/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom icon-button",
+            "path": "dist/icon-button/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom toggle-button",
+            "path": "dist/toggle-button/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom async-button",
+            "path": "dist/async-button/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom button-group",
+            "path": "dist/button-group/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom field",
+            "path": "dist/field/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input",
+            "path": "dist/input/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-password",
+            "path": "dist/input-password/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-otp",
+            "path": "dist/input-otp/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-number",
+            "path": "dist/input-number/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-file",
+            "path": "dist/input-file/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-masked",
+            "path": "dist/input-masked/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-currency",
+            "path": "dist/input-currency/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom input-date",
+            "path": "dist/input-date/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom checkbox",
+            "path": "dist/checkbox/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom radio",
+            "path": "dist/radio/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom switch",
+            "path": "dist/switch/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom select",
+            "path": "dist/select/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom overlay",
+            "path": "dist/overlay/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom dialog",
+            "path": "dist/dialog/index.js",
+            "limit": "3.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom popover",
+            "path": "dist/popover/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom tooltip",
+            "path": "dist/tooltip/index.js",
+            "limit": "3.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom toast",
+            "path": "dist/toast/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom alert",
+            "path": "dist/alert/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom drawer",
+            "path": "dist/drawer/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom menu",
+            "path": "dist/menu/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom context-menu",
+            "path": "dist/context-menu/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom tabs",
+            "path": "dist/tabs/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom accordion",
+            "path": "dist/accordion/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom breadcrumb",
+            "path": "dist/breadcrumb/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom combobox",
+            "path": "dist/combobox/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom progress",
+            "path": "dist/progress/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom spinner",
+            "path": "dist/spinner/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom skeleton",
+            "path": "dist/skeleton/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom badge",
+            "path": "dist/badge/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        }
+    ]
+}

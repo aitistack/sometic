@@ -1,0 +1,988 @@
+/* Landing page: professional Sometic home */
+
+:root {
+    --sometic-home-display: var(--sometic-font-display);
+    --sometic-home-sans: var(--sometic-font-body);
+    --sometic-home-mono: var(--sometic-font-code);
+}
+
+.VPHome {
+    margin-bottom: 0 !important;
+    padding-bottom: 2rem;
+    overflow-x: clip;
+    overflow-y: visible;
+    max-width: 100%;
+}
+
+/* Full-viewport hero — soft bottom fade into the page (no hard edge) */
+.VPHome .VPHero {
+    position: relative;
+    isolation: isolate;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100svh !important;
+    height: 100svh !important;
+    margin-top: calc(
+        (var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) * -1
+    ) !important;
+    margin-bottom: -3.5rem !important;
+    padding: calc(var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) 24px 3.5rem !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+    /* Blend hero into the content below */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 72%,
+        rgba(0, 0, 0, 0.55) 88%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 72%,
+        rgba(0, 0, 0, 0.55) 88%,
+        transparent 100%
+    );
+}
+
+@media (min-width: 640px) {
+    .VPHome .VPHero {
+        padding-inline: 48px !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .VPHome .VPHero {
+        padding: calc(var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) 48px 3.5rem !important;
+    }
+}
+
+/* Soft cloudy brand wash — very light mist only (light: navy · dark: teal) */
+.VPHome .VPHero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            58% 48% at 14% 12%,
+            color-mix(in srgb, var(--sometic-brand) 7%, transparent),
+            transparent 72%
+        ),
+        radial-gradient(
+            50% 44% at 90% 18%,
+            color-mix(in srgb, var(--sometic-brand) 5%, transparent),
+            transparent 70%
+        ),
+        radial-gradient(
+            64% 52% at 48% 100%,
+            color-mix(in srgb, var(--sometic-brand) 4%, transparent),
+            transparent 74%
+        ),
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--vp-c-bg-soft) 28%, transparent),
+            transparent 62%
+        );
+}
+
+.VPHome .VPHero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            44% 40% at 30% 55%,
+            color-mix(in srgb, var(--sometic-brand) 4%, transparent),
+            transparent 74%
+        ),
+        radial-gradient(
+            38% 34% at 62% 8%,
+            color-mix(in srgb, var(--sometic-brand) 3%, transparent),
+            transparent 70%
+        );
+}
+
+.dark .VPHome .VPHero::before {
+    background:
+        radial-gradient(58% 48% at 14% 12%, rgba(61, 214, 198, 0.055), transparent 72%),
+        radial-gradient(50% 44% at 90% 18%, rgba(61, 214, 198, 0.04), transparent 70%),
+        radial-gradient(64% 52% at 48% 100%, rgba(61, 214, 198, 0.035), transparent 74%),
+        linear-gradient(180deg, rgba(12, 17, 23, 0.2), transparent 62%);
+}
+
+.dark .VPHome .VPHero::after {
+    background:
+        radial-gradient(44% 40% at 30% 55%, rgba(61, 214, 198, 0.03), transparent 74%),
+        radial-gradient(38% 34% at 62% 8%, rgba(61, 214, 198, 0.025), transparent 70%);
+}
+
+.VPHome .VPHero .container {
+    /* Full-bleed centered hero shell */
+    position: relative;
+    z-index: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0;
+    width: 100%;
+    max-width: none !important;
+    height: 100%;
+    min-height: calc(100svh - var(--vp-nav-height, 64px));
+    margin: 0;
+    text-align: center;
+}
+
+@media (min-width: 960px) {
+    .VPHome .VPHero .container {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0;
+        text-align: center;
+        max-width: none !important;
+        width: 100%;
+        min-height: calc(100svh - var(--vp-nav-height, 64px));
+        margin: 0;
+        padding-inline: 0;
+    }
+}
+
+.VPHome .VPHero .main {
+    order: 1;
+    position: relative;
+    z-index: 3;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 40rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    animation: sometic-hero-fade 700ms ease both;
+}
+
+@media (min-width: 960px) {
+    .VPHome .VPHero .main {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 3;
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 40rem;
+        padding-right: 0;
+    }
+}
+
+/* Wordmark replaces text heading — no underline */
+.VPHome .VPHero .sometic-hero-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+}
+
+.VPHome .VPHero .sometic-hero-logo {
+    display: block;
+    width: 200px;
+    max-width: min(200px, 70vw);
+    height: auto;
+    aspect-ratio: 625 / 218;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 0 0.35rem;
+    filter: none;
+}
+
+@media (min-width: 640px) {
+    .VPHome .VPHero .sometic-hero-logo {
+        width: 200px;
+    }
+}
+
+@media (min-width: 960px) {
+    .VPHome .VPHero .sometic-hero-logo {
+        width: 200px;
+    }
+}
+
+.VPHome .VPHero .name {
+    display: none !important;
+}
+
+.VPHome .VPHero .text {
+    font-family: var(--sometic-home-sans);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    line-height: 1.3;
+    letter-spacing: -0.022em;
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 1rem;
+    color: var(--vp-c-text-1);
+    text-align: center;
+    text-wrap: balance;
+    white-space: normal !important;
+}
+
+.VPHome .VPHero .tagline {
+    font-family: var(--sometic-home-sans);
+    font-weight: 450;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    width: 100% !important;
+    max-width: 34rem !important;
+    margin-top: 0.9rem;
+    margin-inline: auto;
+    color: var(--vp-c-text-2);
+    text-align: center;
+    white-space: normal !important;
+}
+
+/* Hero CTAs: theme-paired fills + hover icon reveal */
+.sometic-home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    background: transparent;
+}
+
+.sometic-home-actions .pg-btn {
+    min-height: 2.75rem;
+    padding-inline: 1.15rem;
+}
+
+.VPHome .sometic-home-cta {
+    gap: 0;
+    overflow: hidden;
+}
+
+.VPHome .sometic-home-cta__label {
+    display: inline-block;
+}
+
+.VPHome .sometic-home-cta__icon {
+    flex: 0 0 auto;
+    width: 0;
+    height: 1em;
+    margin-inline-start: 0;
+    opacity: 0;
+    transform: translateX(-0.35rem);
+    overflow: hidden;
+    transition:
+        width 220ms ease,
+        margin-inline-start 220ms ease,
+        opacity 200ms ease,
+        transform 220ms ease;
+}
+
+.VPHome .sometic-home-cta:hover .sometic-home-cta__icon,
+.VPHome .sometic-home-cta:focus-visible .sometic-home-cta__icon {
+    width: 1em;
+    margin-inline-start: 0.45rem;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Dark: primary = theme green on hero-dark ink */
+.dark .VPHome .sometic-home-cta--primary {
+    --sometic-cta-fg: #0c1117;
+    --pg-btn-mark: color-mix(in srgb, var(--sometic-cta-fg) 55%, transparent);
+    --pg-accent-wash: transparent;
+    color: var(--sometic-cta-fg) !important;
+    background-color: var(--sometic-brand) !important;
+}
+
+.dark .VPHome .sometic-home-cta--primary:hover,
+.dark .VPHome .sometic-home-cta--primary:focus-visible {
+    --pg-btn-mark: var(--sometic-cta-fg);
+    color: var(--sometic-cta-fg) !important;
+    background-color: var(--sometic-brand-hover) !important;
+    transform: scale(1.03);
+}
+
+.dark .VPHome .sometic-home-cta--primary:active {
+    background-color: var(--sometic-brand-active) !important;
+    transform: scale(0.99);
+}
+
+.dark .VPHome .sometic-home-cta--secondary {
+    --pg-accent-wash: transparent;
+    color: var(--vp-c-text-1);
+    background-color: transparent !important;
+}
+
+.dark .VPHome .sometic-home-cta--secondary:hover,
+.dark .VPHome .sometic-home-cta--secondary:focus-visible {
+    --pg-btn-mark: var(--pg-accent-strong);
+    color: var(--sometic-brand);
+    background-color: var(--pg-control-bg-hover);
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Light: vice versa — primary = hero-dark fill, white ink */
+html:not(.dark) .VPHome .sometic-home-cta--primary {
+    --sometic-cta-bg: #0c1117;
+    --sometic-cta-fg: #ffffff;
+    --pg-btn-mark: color-mix(in srgb, var(--sometic-cta-fg) 55%, transparent);
+    --pg-accent-wash: transparent;
+    color: var(--sometic-cta-fg) !important;
+    background-color: var(--sometic-cta-bg) !important;
+}
+
+html:not(.dark) .VPHome .sometic-home-cta--primary:hover,
+html:not(.dark) .VPHome .sometic-home-cta--primary:focus-visible {
+    --pg-btn-mark: var(--sometic-cta-fg);
+    color: var(--sometic-cta-fg) !important;
+    background-color: #141b23 !important;
+    transform: scale(1.03);
+}
+
+html:not(.dark) .VPHome .sometic-home-cta--primary:active {
+    background-color: #0a0e13 !important;
+    transform: scale(0.99);
+}
+
+html:not(.dark) .VPHome .sometic-home-cta--secondary {
+    --pg-accent-wash: transparent;
+    color: var(--vp-c-text-1);
+    background-color: transparent !important;
+}
+
+html:not(.dark) .VPHome .sometic-home-cta--secondary:hover,
+html:not(.dark) .VPHome .sometic-home-cta--secondary:focus-visible {
+    --pg-btn-mark: var(--pg-accent-strong);
+    color: var(--sometic-brand);
+    background-color: var(--pg-control-bg-hover);
+    transform: translateY(-1px) scale(1.02);
+}
+
+.dark .VPHome .sometic-home-cta--prompt,
+html:not(.dark) .VPHome .sometic-home-cta--prompt {
+    --pg-accent-wash: transparent;
+    color: var(--vp-c-text-1);
+    background-color: transparent !important;
+    border: 1.5px dashed color-mix(in srgb, var(--sometic-brand) 55%, var(--vp-c-divider)) !important;
+    box-shadow: none !important;
+}
+
+.dark .VPHome .sometic-home-cta--prompt:hover,
+.dark .VPHome .sometic-home-cta--prompt:focus-visible,
+html:not(.dark) .VPHome .sometic-home-cta--prompt:hover,
+html:not(.dark) .VPHome .sometic-home-cta--prompt:focus-visible {
+    color: var(--sometic-brand);
+    border-color: var(--sometic-brand) !important;
+    background-color: color-mix(in srgb, var(--sometic-brand) 8%, transparent) !important;
+    transform: translateY(-1px) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .VPHome .sometic-home-cta__icon {
+        transition: none;
+    }
+
+    .VPHome .sometic-home-cta:hover .sometic-home-cta__icon,
+    .VPHome .sometic-home-cta:focus-visible .sometic-home-cta__icon {
+        transform: none;
+    }
+
+    .VPHome .sometic-home-cta--primary:hover,
+    .VPHome .sometic-home-cta--primary:focus-visible,
+    .VPHome .sometic-home-cta--primary:active,
+    .VPHome .sometic-home-cta--secondary:hover,
+    .VPHome .sometic-home-cta--secondary:focus-visible,
+    .VPHome .sometic-home-cta--prompt:hover,
+    .VPHome .sometic-home-cta--prompt:focus-visible {
+        transform: none;
+    }
+}
+
+/* Hide unused VitePress hero image slot (snippets removed) */
+.VPHome .VPHero .image {
+    display: none !important;
+}
+
+.VPHome .VPHero .image-bg,
+.VPHome .VPHero .image-src,
+.VPHome .VPHero .VPImage {
+    display: none !important;
+}
+
+@keyframes sometic-hero-fade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sometic-hero-rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .VPHome .VPHero .main,
+    .VPHome .VPHero .image-src,
+    .VPHome .VPHero .VPImage {
+        animation: none;
+    }
+}
+
+/* Features: one job, no card chrome — no top rule (hero blends in) */
+.VPHome .VPFeatures {
+    position: relative;
+    z-index: 1;
+    margin-top: 0 !important;
+    padding: 1.25rem 24px 1rem !important;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 480px;
+    background: transparent;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.VPHome .VPFeatures .container {
+    max-width: 1152px;
+}
+
+.VPHome .VPFeatures .items {
+    gap: 0 !important;
+    border-top: 0 !important;
+}
+
+.VPHome .VPFeature {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 1.5rem 1.1rem 1.5rem 0 !important;
+    border-bottom: 1px solid var(--vp-c-divider) !important;
+}
+
+.VPHome .VPFeature .title {
+    font-family: var(--sometic-home-sans);
+    font-weight: 650;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--vp-c-text-1);
+}
+
+.VPHome .VPFeature .details {
+    font-family: var(--sometic-home-sans);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--vp-c-text-2);
+}
+
+.VPHome .VPFeature .icon {
+    display: none;
+}
+
+.VPHome .vp-doc.container {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+.VPHome .sometic-home-band {
+    max-width: 1152px;
+    margin: 3.5rem auto 0;
+    padding: 0;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 640px;
+}
+
+.VPHome .sometic-home-band + .sometic-home-band {
+    margin-top: 4.25rem;
+}
+
+.sometic-home-band h2 {
+    font-family: var(--sometic-home-display);
+    font-weight: 600;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    letter-spacing: var(--sometic-tracking-tight, -0.025em);
+    font-variant-ligatures: none;
+    margin: 0 0 0.65rem;
+    border: 0;
+    padding: 0;
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.sometic-home-band > p {
+    max-width: 42rem;
+    font-family: var(--sometic-home-sans);
+    color: var(--vp-c-text-2);
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+}
+
+/* Proofs: three system moves — distinct from constraint cards */
+.sometic-home-proofs {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+}
+
+@media (min-width: 900px) {
+    .sometic-home-proofs {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.sometic-home-proof {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 1.65rem 1.4rem 1.5rem;
+    background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--sometic-brand) 8%, var(--vp-c-bg-soft)),
+        var(--vp-c-bg-soft) 55%
+    );
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+.sometic-home-proof:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--sometic-brand) 12%, var(--vp-c-bg-soft)),
+        color-mix(in srgb, var(--sometic-brand) 4%, var(--vp-c-bg-soft)) 60%
+    );
+}
+
+.sometic-home-proof__index {
+    display: block;
+    font-family: var(--sometic-home-mono, var(--sometic-home-sans));
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    color: var(--sometic-brand);
+    margin-bottom: 0.95rem;
+}
+
+.sometic-home-proof h3 {
+    font-family: var(--sometic-home-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    font-variant-ligatures: none;
+    color: var(--vp-c-text-1);
+    margin: 0 0 0.65rem;
+    border: 0;
+    padding: 0;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.sometic-home-proof > p {
+    font-family: var(--sometic-home-sans);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--vp-c-text-2);
+    margin: 0 0 0.75rem;
+}
+
+.sometic-home-proof > p:last-child {
+    margin-bottom: 0;
+}
+
+.sometic-home-proof__link {
+    margin-top: auto !important;
+    padding-top: 0.85rem;
+    font-size: 0.9rem !important;
+    font-weight: 600;
+}
+
+.sometic-home-proof__link a {
+    color: var(--sometic-brand);
+    text-decoration: none;
+}
+
+.sometic-home-proof__link a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Wave A/B/C: large letter marks in a soft wash strip */
+.sometic-home-waves {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 1.25rem;
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--sometic-brand) 9%, var(--vp-c-bg-soft)),
+        color-mix(in srgb, var(--vp-c-bg-soft) 88%, transparent)
+    );
+}
+
+@media (min-width: 900px) {
+    .sometic-home-waves {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        padding: 0;
+    }
+}
+
+.sometic-home-wave {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.35rem 1.25rem;
+    margin: 0;
+    background: color-mix(in srgb, var(--vp-c-bg) 72%, transparent);
+}
+
+@media (min-width: 900px) {
+    .sometic-home-wave {
+        padding: 1.75rem 1.5rem;
+        border-inline-end: 1px solid color-mix(in srgb, var(--sometic-brand) 14%, transparent);
+    }
+
+    .sometic-home-wave:last-child {
+        border-inline-end: 0;
+    }
+}
+
+.sometic-home-wave__mark {
+    font-family: var(--sometic-home-display);
+    font-size: clamp(2.75rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: var(--sometic-tracking-display, -0.04em);
+    font-variant-ligatures: none;
+    color: color-mix(in srgb, var(--sometic-brand) 78%, var(--vp-c-text-1));
+    user-select: none;
+}
+
+.sometic-home-wave__label {
+    font-family: var(--sometic-home-sans);
+    font-weight: 650;
+    font-size: 1.02rem;
+    letter-spacing: -0.01em;
+    color: var(--vp-c-text-1);
+    margin: 0.15rem 0 0.55rem;
+    line-height: 1.3;
+}
+
+.sometic-home-wave__label em {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.72em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sometic-brand);
+    margin-left: 0.35rem;
+    vertical-align: middle;
+}
+
+.sometic-home-wave__copy {
+    font-family: var(--sometic-home-sans);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--vp-c-text-2);
+    margin: 0;
+}
+
+/* Constraints: indexed stack with brand accent rail */
+.sometic-home-constraints {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+}
+
+@media (min-width: 900px) {
+    .sometic-home-constraints {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+.sometic-home-constraint {
+    position: relative;
+    margin: 0;
+    padding: 1.5rem 1.35rem 1.55rem;
+    background: var(--vp-c-bg-soft);
+    box-shadow: inset 3px 0 0 var(--sometic-brand);
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+.sometic-home-constraint:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--sometic-brand) 6%, var(--vp-c-bg-soft));
+}
+
+.sometic-home-constraint__index {
+    display: block;
+    font-family: var(--sometic-home-mono, var(--sometic-home-sans));
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.12em;
+    color: var(--sometic-brand);
+    margin-bottom: 0.85rem;
+}
+
+.sometic-home-constraint h3 {
+    font-family: var(--sometic-home-display);
+    font-weight: 600;
+    font-size: 1.08rem;
+    letter-spacing: -0.015em;
+    color: var(--vp-c-text-1);
+    margin: 0 0 0.55rem;
+    border: 0;
+    padding: 0;
+}
+
+.sometic-home-constraint p {
+    font-family: var(--sometic-home-sans);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--vp-c-text-2);
+    margin: 0;
+}
+
+/* Destinations: full-tile links (interaction containers) */
+.sometic-home-destinations {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .sometic-home-destinations {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+.sometic-home-dest {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1.35rem 1.25rem 1.2rem;
+    text-decoration: none !important;
+    color: inherit;
+    background: var(--vp-c-bg);
+    box-shadow: inset 0 0 0 1px var(--vp-c-divider);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+}
+
+.sometic-home-dest:hover {
+    transform: translateY(-3px);
+    background: color-mix(in srgb, var(--sometic-brand) 5%, var(--vp-c-bg));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sometic-brand) 45%, var(--vp-c-divider));
+}
+
+.sometic-home-dest__kicker {
+    font-family: var(--sometic-home-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: var(--sometic-tracking-label, 0.16em);
+    text-transform: uppercase;
+    color: var(--sometic-brand);
+}
+
+.sometic-home-dest__title {
+    font-family: var(--sometic-home-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: var(--sometic-tracking-tight, -0.025em);
+    font-variant-ligatures: none;
+    line-height: 1.2;
+    color: var(--vp-c-text-1);
+}
+
+.sometic-home-dest__hint {
+    margin-top: auto;
+    padding-top: 1rem;
+    font-family: var(--sometic-home-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--vp-c-text-2);
+}
+
+.sometic-home-dest:hover .sometic-home-dest__hint {
+    color: var(--sometic-brand);
+}
+
+.sometic-home-dest__hint::after {
+    content: " →";
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sometic-home-proof,
+    .sometic-home-constraint,
+    .sometic-home-dest {
+        transition: none;
+    }
+
+    .sometic-home-proof:hover,
+    .sometic-home-constraint:hover,
+    .sometic-home-dest:hover {
+        transform: none;
+    }
+}
+
+.VPFooter {
+    margin-top: 0;
+    border-top: 1px solid var(--vp-c-divider);
+    padding: 2.75rem 24px 2.25rem !important;
+}
+
+.VPFooter .message {
+    max-width: 40rem;
+    margin-inline: auto;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.VPFooter .message p {
+    margin: 0;
+}
+
+.VPFooter .sometic-footer-kicker {
+    margin: 0 0 2.15rem;
+    font-family: var(--sometic-font-body, var(--vp-font-family-base));
+    font-size: 0.84rem;
+    font-weight: 450;
+    color: var(--vp-c-text-3);
+    letter-spacing: 0.01em;
+}
+
+.VPFooter .sometic-footer-kicker a {
+    color: var(--vp-c-text-2);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--sometic-brand) 35%, transparent);
+    transition:
+        color 160ms ease,
+        border-color 160ms ease;
+}
+
+.VPFooter .sometic-footer-kicker a:hover {
+    color: var(--sometic-brand);
+    border-bottom-color: var(--sometic-brand);
+}
+
+.VPFooter .sometic-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem 1.15rem;
+    margin: 0;
+    padding: 0;
+}
+
+.VPFooter .sometic-footer-links a {
+    display: inline;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    font-family: var(--sometic-font-body, var(--vp-font-family-base));
+    font-size: 0.9rem;
+    font-weight: 550;
+    letter-spacing: 0.015em;
+    color: var(--vp-c-text-2);
+    text-decoration: none;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transition: color 160ms ease;
+}
+
+.VPFooter .sometic-footer-links a:hover,
+.VPFooter .sometic-footer-links a:focus-visible {
+    color: var(--sometic-brand);
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.VPFooter .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.75rem 0 0;
+}
+
+.VPFooter .sometic-footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.28rem;
+}
+
+.VPFooter .sometic-footer-logo {
+    width: 150px;
+    height: auto;
+    display: none;
+    opacity: 0.92;
+}
+
+html:not(.dark) .VPFooter .sometic-footer-logo.light {
+    display: inline-block;
+}
+
+.dark .VPFooter .sometic-footer-logo.dark {
+    display: inline-block;
+}
+
+.VPFooter .sometic-footer-by {
+    margin: 0;
+    font-family: var(--sometic-font-body, var(--vp-font-family-base));
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--vp-c-text-3);
+}
+
+.VPFooter .sometic-footer-by a {
+    color: var(--vp-c-text-2);
+    font-weight: 650;
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--sometic-brand) 40%, transparent);
+    transition:
+        color 160ms ease,
+        border-color 160ms ease;
+}
+
+.VPFooter .sometic-footer-by a:hover,
+.VPFooter .sometic-footer-by a:focus-visible {
+    color: var(--sometic-brand);
+    border-bottom-color: var(--sometic-brand);
+}

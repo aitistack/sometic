@@ -1,0 +1,11 @@
+{
+    "name": "@sometic/build-config",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./create-tsup-config.mjs"
+    },
+    "description": "Shared build configuration for Sometic packages.",
+    "homepage": "https://sometic.aitistack.com"
+}

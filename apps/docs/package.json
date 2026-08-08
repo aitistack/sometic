@@ -1,0 +1,27 @@
+{
+    "name": "@sometic/docs",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "docs:dev": "vitepress dev",
+        "docs:build": "vitepress build",
+        "build": "vitepress build",
+        "lint": "node -e \"process.exit(0)\"",
+        "typecheck": "node -e \"process.exit(0)\"",
+        "test": "node -e \"process.exit(0)\"",
+        "size": "node -e \"process.exit(0)\"",
+        "docs:preview": "vitepress preview",
+        "docs:check": "node ../../tooling/release/docs-check.mjs",
+        "docs:scope-check": "node ../../tooling/release/docs-scope-check.mjs",
+        "docs:links": "node ../../tooling/release/docs-check.mjs"
+    },
+    "dependencies": {
+        "@sometic/demo-kit": "workspace:*"
+    },
+    "devDependencies": {
+        "vitepress": "^1.6.3"
+    },
+    "description": "Consumer documentation site for Sometic (VitePress).",
+    "homepage": "https://sometic.aitistack.com"
+}

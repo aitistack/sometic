@@ -1,0 +1,9 @@
+{
+    "extends": "./tooling/typescript/tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "rootDir": "."
+    },
+    "include": ["playwright.config.ts", "e2e/**/*.ts"],
+    "exclude": ["node_modules", "dist", "coverage", ".turbo", "packages", "apps", "tests"]
+}

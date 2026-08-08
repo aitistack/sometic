@@ -1,0 +1,1300 @@
+:root {
+    color-scheme: light dark;
+    --pg-bg: #0c1117;
+    --pg-bg-elevated: #141b23;
+    --pg-surface: #1a232e;
+    --pg-ink: #e8eef5;
+    --pg-muted: #8b9aab;
+    --pg-line: rgba(232, 238, 245, 0.12);
+    --pg-accent: #3dd6c6;
+    --pg-accent-ink: #042422;
+    --pg-warn: #f0b429;
+    --pg-danger: #ff6b6b;
+    --pg-radius: 12px;
+    --pg-font: var(--sometic-font-body, "Urbanist", system-ui, sans-serif);
+    --pg-mono: var(--sometic-font-code, "JetBrains Mono", ui-monospace, monospace);
+    --pg-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    --pg-field-ink: #9fb0c2;
+    --pg-control-bg: rgba(8, 12, 18, 0.55);
+    --pg-control-bg-hover: rgba(10, 15, 22, 0.78);
+    --pg-control-bg-focus: rgba(12, 18, 26, 0.9);
+    --pg-control-bg-active: rgba(8, 12, 18, 0.98);
+    --pg-control-bg-group: rgba(0, 0, 0, 0.14);
+    --pg-panel-bg: rgba(8, 12, 18, 0.96);
+    --pg-panel-bg-soft: rgba(8, 12, 18, 0.85);
+    --pg-panel-bg-muted: rgba(8, 12, 18, 0.75);
+    --pg-panel-bg-faint: rgba(8, 12, 18, 0.65);
+    --pg-accent-wash: color-mix(in srgb, var(--pg-accent) 22%, transparent);
+    --pg-accent-soft: color-mix(in srgb, var(--pg-accent) 8%, transparent);
+    --pg-accent-mark: color-mix(in srgb, var(--pg-accent) 55%, transparent);
+    --pg-accent-strong: color-mix(in srgb, var(--pg-accent) 65%, transparent);
+    --pg-accent-mid: color-mix(in srgb, var(--pg-accent) 45%, transparent);
+    --pg-accent-glow: color-mix(in srgb, var(--pg-accent) 35%, transparent);
+    --pg-accent-ring: color-mix(in srgb, var(--pg-accent) 15%, transparent);
+    --pg-accent-ring-strong: color-mix(in srgb, var(--pg-accent) 28%, transparent);
+    --pg-accent-border: color-mix(in srgb, var(--pg-accent) 70%, transparent);
+    --pg-accent-border-soft: color-mix(in srgb, var(--pg-accent) 65%, transparent);
+    --pg-accent-line: color-mix(in srgb, var(--pg-accent) 20%, transparent);
+    --pg-accent-corner: color-mix(in srgb, var(--pg-accent) 28%, transparent);
+    --pg-placeholder: color-mix(in srgb, var(--pg-muted) 75%, transparent);
+    --pg-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233dd6c6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.sometic-pg-kit {
+    color-scheme: light dark;
+    --pg-bg: #0c1117;
+    --pg-bg-elevated: #141b23;
+    --pg-surface: #1a232e;
+    --pg-ink: #e8eef5;
+    --pg-muted: #8b9aab;
+    --pg-line: rgba(232, 238, 245, 0.12);
+    --pg-accent: #3dd6c6;
+    --pg-accent-ink: #042422;
+    --pg-warn: #f0b429;
+    --pg-danger: #ff6b6b;
+    --pg-radius: 12px;
+    --pg-font: var(--sometic-font-body, "Urbanist", system-ui, sans-serif);
+    --pg-mono: var(--sometic-font-code, "JetBrains Mono", ui-monospace, monospace);
+    --pg-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    --pg-field-ink: #9fb0c2;
+    --pg-control-bg: rgba(8, 12, 18, 0.55);
+    --pg-control-bg-hover: rgba(10, 15, 22, 0.78);
+    --pg-control-bg-focus: rgba(12, 18, 26, 0.9);
+    --pg-control-bg-active: rgba(8, 12, 18, 0.98);
+    --pg-control-bg-group: rgba(0, 0, 0, 0.14);
+    --pg-panel-bg: rgba(8, 12, 18, 0.96);
+    --pg-panel-bg-soft: rgba(8, 12, 18, 0.85);
+    --pg-panel-bg-muted: rgba(8, 12, 18, 0.75);
+    --pg-panel-bg-faint: rgba(8, 12, 18, 0.65);
+    --pg-accent-wash: color-mix(in srgb, var(--pg-accent) 22%, transparent);
+    --pg-accent-soft: color-mix(in srgb, var(--pg-accent) 8%, transparent);
+    --pg-accent-mark: color-mix(in srgb, var(--pg-accent) 55%, transparent);
+    --pg-accent-strong: color-mix(in srgb, var(--pg-accent) 65%, transparent);
+    --pg-accent-mid: color-mix(in srgb, var(--pg-accent) 45%, transparent);
+    --pg-accent-glow: color-mix(in srgb, var(--pg-accent) 35%, transparent);
+    --pg-accent-ring: color-mix(in srgb, var(--pg-accent) 15%, transparent);
+    --pg-accent-ring-strong: color-mix(in srgb, var(--pg-accent) 28%, transparent);
+    --pg-accent-border: color-mix(in srgb, var(--pg-accent) 70%, transparent);
+    --pg-accent-border-soft: color-mix(in srgb, var(--pg-accent) 65%, transparent);
+    --pg-accent-line: color-mix(in srgb, var(--pg-accent) 20%, transparent);
+    --pg-accent-corner: color-mix(in srgb, var(--pg-accent) 28%, transparent);
+    --pg-placeholder: color-mix(in srgb, var(--pg-muted) 75%, transparent);
+    --pg-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233dd6c6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    color: var(--pg-ink);
+    font-family: var(--pg-font);
+    background: var(--pg-bg);
+}
+
+/* Light palette — VitePress docs demos + playground theme controller */
+html:not(.dark) .sometic-demo .sometic-pg-kit,
+html:not(.dark) .sometic-home-actions.sometic-pg-kit,
+html[data-color-scheme="light"],
+html[data-color-scheme="light"] .sometic-pg-kit {
+    color-scheme: light;
+    --pg-bg: #f4f7fb;
+    --pg-bg-elevated: #ffffff;
+    --pg-surface: #e8eef5;
+    --pg-ink: #102033;
+    --pg-muted: #5a6b7d;
+    --pg-line: rgba(16, 32, 51, 0.12);
+    --pg-accent: #1e3e5b;
+    --pg-accent-ink: #f5f8fb;
+    --pg-warn: #b45309;
+    --pg-danger: #dc2626;
+    --pg-shadow: 0 18px 50px rgba(16, 32, 51, 0.12);
+    --pg-field-ink: #3d4f63;
+    --pg-control-bg: rgba(255, 255, 255, 0.92);
+    --pg-control-bg-hover: rgba(255, 255, 255, 0.98);
+    --pg-control-bg-focus: #ffffff;
+    --pg-control-bg-active: rgba(244, 247, 251, 0.98);
+    --pg-control-bg-group: rgba(16, 32, 51, 0.06);
+    --pg-panel-bg: #ffffff;
+    --pg-panel-bg-soft: rgba(255, 255, 255, 0.96);
+    --pg-panel-bg-muted: rgba(255, 255, 255, 0.92);
+    --pg-panel-bg-faint: rgba(255, 255, 255, 0.88);
+    --pg-placeholder: color-mix(in srgb, var(--pg-muted) 75%, transparent);
+    --pg-select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231e3e5b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+.pg-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.pg-label {
+    font-family: var(--pg-mono);
+    font-size: 0.75rem;
+    color: var(--pg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    min-width: 6.5rem;
+}
+
+:is(button, a).pg-btn,
+.pg-tools button {
+    --pg-btn-mark: rgba(159, 176, 194, 0.55);
+    appearance: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-size:
+        10px 1px,
+        1px 10px,
+        10px 1px,
+        1px 10px,
+        0% 2px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    color: var(--pg-ink);
+    padding: 0.62rem 1.05rem;
+    font: inherit;
+    font-weight: 650;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition:
+        color 140ms ease,
+        background-color 160ms ease,
+        background-size 180ms ease,
+        transform 140ms ease;
+}
+
+:is(button, a).pg-btn:hover,
+.pg-tools button:hover {
+    --pg-btn-mark: var(--pg-accent-strong);
+    color: var(--pg-accent);
+    background-color: var(--pg-control-bg-hover);
+    transform: translateY(-1px);
+}
+
+:is(button, a).pg-btn:active,
+.pg-tools button:active {
+    transform: translateY(1px);
+    background-color: var(--pg-control-bg-active);
+}
+
+:is(button, a).pg-btn:focus-visible,
+.pg-tools button:focus-visible {
+    outline: none;
+    --pg-btn-mark: var(--pg-accent);
+    background-size:
+        16px 2px,
+        2px 16px,
+        16px 2px,
+        2px 16px,
+        100% 2px;
+}
+
+:is(button, a).pg-btn[data-active="true"],
+:is(button, a).pg-btn[aria-pressed="true"] {
+    --pg-btn-mark: var(--pg-accent);
+    color: var(--pg-accent);
+    background-color: var(--pg-accent-soft);
+    background-size:
+        16px 2px,
+        2px 16px,
+        16px 2px,
+        2px 16px,
+        100% 2px;
+}
+
+:is(button, a).pg-btn:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+    transform: none;
+}
+
+:is(button, a).pg-btn[data-loading],
+:is(button, a).pg-btn[data-loading="true"] {
+    --pg-btn-mark: var(--pg-accent);
+    background-size:
+        10px 1px,
+        1px 10px,
+        10px 1px,
+        1px 10px,
+        70% 2px;
+    cursor: progress;
+}
+
+.pg-buttons-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+sometic-button,
+sometic-icon-button,
+sometic-toggle-button,
+sometic-async-button {
+    display: inline-block;
+}
+
+sometic-button button,
+sometic-icon-button button,
+sometic-toggle-button button,
+sometic-async-button button,
+#vanilla-bind {
+    --pg-btn-mark: rgba(159, 176, 194, 0.55);
+    appearance: none;
+    position: relative;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-btn-mark), var(--pg-btn-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-size:
+        10px 1px,
+        1px 10px,
+        10px 1px,
+        1px 10px,
+        0% 2px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    color: var(--pg-ink);
+    padding: 0.58rem 1rem;
+    font: inherit;
+    font-weight: 650;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition:
+        color 140ms ease,
+        background-color 160ms ease,
+        background-size 180ms ease,
+        transform 140ms ease;
+}
+
+sometic-button button:hover,
+sometic-icon-button button:hover,
+sometic-toggle-button button:hover,
+sometic-async-button button:hover,
+#vanilla-bind:hover {
+    --pg-btn-mark: var(--pg-accent-strong);
+    color: var(--pg-accent);
+    background-color: var(--pg-control-bg-hover);
+    transform: translateY(-1px);
+}
+
+sometic-button button:active,
+sometic-icon-button button:active,
+sometic-toggle-button button:active,
+sometic-async-button button:active,
+#vanilla-bind:active {
+    transform: translateY(1px);
+    background-color: var(--pg-control-bg-active);
+}
+
+sometic-button button:focus-visible,
+sometic-icon-button button:focus-visible,
+sometic-toggle-button button:focus-visible,
+sometic-async-button button:focus-visible,
+#vanilla-bind:focus-visible {
+    outline: none;
+    --pg-btn-mark: var(--pg-accent);
+    background-size:
+        16px 2px,
+        2px 16px,
+        16px 2px,
+        2px 16px,
+        100% 2px;
+}
+
+sometic-button button[disabled],
+sometic-icon-button button[disabled],
+sometic-toggle-button button[disabled],
+sometic-async-button button[disabled],
+#vanilla-bind:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+    transform: none;
+}
+
+sometic-button button[data-loading="true"],
+sometic-async-button button[data-loading="true"],
+#vanilla-bind[data-loading="true"] {
+    --pg-btn-mark: var(--pg-accent);
+    background-size:
+        10px 1px,
+        1px 10px,
+        10px 1px,
+        1px 10px,
+        70% 2px;
+}
+
+sometic-button button[data-loading="true"]::after,
+sometic-async-button button[data-loading="true"]::after,
+#vanilla-bind[data-loading="true"]::after {
+    content: " …";
+}
+
+sometic-button-group {
+    display: inline-flex;
+    gap: 0.45rem;
+    padding: 0.45rem 0.55rem;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--pg-control-bg-group);
+    background-image:
+        linear-gradient(var(--pg-accent-corner), var(--pg-accent-corner)),
+        linear-gradient(var(--pg-accent-corner), var(--pg-accent-corner)),
+        linear-gradient(var(--pg-accent-corner), var(--pg-accent-corner)),
+        linear-gradient(var(--pg-accent-corner), var(--pg-accent-corner));
+    background-repeat: no-repeat;
+    background-size:
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom;
+}
+
+sometic-toggle-button button[data-pressed="true"],
+sometic-toggle-button button[aria-pressed="true"] {
+    --pg-btn-mark: var(--pg-accent);
+    color: var(--pg-accent);
+    background-color: var(--pg-accent-soft);
+    background-size:
+        16px 2px,
+        2px 16px,
+        16px 2px,
+        2px 16px,
+        100% 2px;
+}
+
+.pg-input {
+    --pg-field-mark: rgba(159, 176, 194, 0.55);
+    width: 100%;
+    min-width: 0;
+    min-height: 2.9rem;
+    padding: 0.75rem 0.9rem;
+    border: 0;
+    border-radius: 0;
+    color: var(--pg-ink);
+    font: inherit;
+    line-height: 1.3;
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-size:
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px,
+        0% 2px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    transition:
+        background-color 160ms ease,
+        background-size 180ms ease,
+        color 140ms ease;
+}
+
+.pg-input::placeholder {
+    color: var(--pg-placeholder);
+    font-family: var(--pg-mono);
+    font-size: 0.86em;
+    letter-spacing: 0.02em;
+}
+
+.pg-input:hover {
+    --pg-field-mark: var(--pg-accent-mark);
+    background-color: var(--pg-control-bg-hover);
+}
+
+.pg-input:focus {
+    outline: none;
+    --pg-field-mark: var(--pg-accent);
+    background-color: var(--pg-control-bg-focus);
+    background-size:
+        18px 2px,
+        2px 18px,
+        18px 2px,
+        2px 18px,
+        100% 2px;
+}
+
+.pg-input:active {
+    background-color: var(--pg-control-bg-active);
+}
+
+.pg-input-block {
+    max-width: 28rem;
+}
+
+.pg-field {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    max-width: 28rem;
+}
+
+.pg-field-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.pg-field-description {
+    margin: 0;
+    color: var(--pg-muted);
+    font-size: 0.9rem;
+}
+
+.pg-field-error {
+    margin: 0;
+    min-height: 1.15em;
+    color: var(--pg-danger);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    text-transform: none;
+    letter-spacing: normal;
+    font-family: var(--pg-font);
+}
+
+.pg-input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+    align-items: start;
+}
+
+.pg-control {
+    display: grid;
+    grid-template-rows: auto auto minmax(1.15em, auto);
+    gap: 0.45rem;
+    align-content: start;
+    font-size: 0.85rem;
+    color: var(--pg-muted);
+}
+
+.pg-control-label {
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pg-muted);
+}
+
+.pg-control > span:first-child:not(.pg-field-error) {
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pg-password {
+    position: relative;
+    display: grid;
+}
+
+.pg-password-input {
+    padding-right: 4.6rem;
+}
+
+.pg-password-toggle {
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    right: 0.35rem;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 0;
+    border-left: 1px solid rgba(159, 176, 194, 0.28);
+    border-radius: 0;
+    background: transparent;
+    color: var(--pg-muted);
+    font-family: var(--pg-mono);
+    font-size: 0.68rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.55rem 0.4rem 0.7rem;
+    cursor: pointer;
+    transition:
+        color 140ms ease,
+        border-color 140ms ease;
+}
+
+.pg-password-toggle::before {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    border: 1.5px solid currentColor;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1.5px transparent;
+    transition: box-shadow 140ms ease;
+}
+
+.pg-password-toggle:hover {
+    color: var(--pg-accent);
+    border-left-color: var(--pg-accent-mid);
+}
+
+.pg-password-toggle:focus-visible {
+    outline: none;
+    color: var(--pg-accent);
+}
+
+.pg-password[data-revealed="true"] .pg-password-toggle {
+    color: var(--pg-accent);
+}
+
+.pg-password[data-revealed="true"] .pg-password-toggle::before {
+    box-shadow: inset 0 0 0 1.5px currentColor;
+}
+
+.pg-otp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    padding: 0.35rem 0;
+}
+
+.pg-otp-cell {
+    width: 2.85rem;
+    height: 3.15rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: var(--pg-mono);
+    font-size: 1.28rem;
+    font-weight: 650;
+    border: 0;
+    border-radius: 0;
+    color: var(--pg-ink);
+    caret-color: var(--pg-accent);
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(rgba(159, 176, 194, 0.45), rgba(159, 176, 194, 0.45)),
+        linear-gradient(rgba(159, 176, 194, 0.45), rgba(159, 176, 194, 0.45)),
+        linear-gradient(var(--pg-accent-line), var(--pg-accent-line));
+    background-repeat: no-repeat;
+    background-size:
+        100% 1px,
+        100% 1px,
+        0% 2px;
+    background-position:
+        left top,
+        left bottom,
+        left bottom;
+    transition:
+        background-color 150ms ease,
+        background-size 180ms ease,
+        transform 140ms ease,
+        color 140ms ease;
+}
+
+.pg-otp-cell + .pg-otp-cell {
+    margin-left: 0.55rem;
+    position: relative;
+}
+
+.pg-otp-cell + .pg-otp-cell::before {
+    content: "";
+    position: absolute;
+    left: -0.4rem;
+    top: 50%;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 999px;
+    background: var(--pg-accent-glow);
+    transform: translateY(-50%);
+}
+
+.pg-otp-cell[data-filled="true"] {
+    color: var(--pg-accent);
+    background-size:
+        100% 1px,
+        100% 1px,
+        100% 2px;
+}
+
+.pg-otp-cell:hover {
+    transform: translateY(-2px);
+}
+
+.pg-otp-cell:focus,
+.pg-otp-cell[data-active="true"] {
+    outline: none;
+    background-color: var(--pg-control-bg-focus);
+    background-size:
+        100% 2px,
+        100% 2px,
+        100% 2px;
+    transform: translateY(-2px);
+}
+
+.pg-otp[data-progress="6"] .pg-otp-cell {
+    background-size:
+        100% 1px,
+        100% 1px,
+        100% 2px;
+}
+
+.pg-otp[data-progress="6"] .pg-otp-cell + .pg-otp-cell::before {
+    background: var(--pg-accent);
+    box-shadow: 0 0 0 3px var(--pg-accent-ring);
+}
+
+sometic-input.pg-ce-input,
+sometic-password-input.pg-ce-input,
+sometic-otp-input.pg-ce-input,
+sometic-number-input.pg-ce-input,
+sometic-masked-input.pg-ce-input,
+sometic-currency-input.pg-ce-input,
+sometic-date-input.pg-ce-input {
+    display: block;
+    width: 100%;
+}
+
+sometic-input.pg-ce-input input,
+sometic-password-input.pg-ce-input input,
+sometic-otp-input.pg-ce-input input,
+sometic-number-input.pg-ce-input input,
+sometic-masked-input.pg-ce-input input,
+sometic-currency-input.pg-ce-input input,
+sometic-date-input.pg-ce-input input {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.75rem 0.9rem;
+    border: 0;
+    border-radius: 0;
+    color: var(--pg-ink);
+    font: inherit;
+    line-height: 1.3;
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(rgba(159, 176, 194, 0.55), rgba(159, 176, 194, 0.55)),
+        linear-gradient(rgba(159, 176, 194, 0.55), rgba(159, 176, 194, 0.55)),
+        linear-gradient(rgba(159, 176, 194, 0.55), rgba(159, 176, 194, 0.55)),
+        linear-gradient(rgba(159, 176, 194, 0.55), rgba(159, 176, 194, 0.55)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-size:
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px,
+        0% 2px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    transition:
+        background-color 160ms ease,
+        background-size 180ms ease;
+}
+
+sometic-password-input.pg-ce-input {
+    position: relative;
+}
+
+sometic-password-input.pg-ce-input input {
+    padding-right: 4.6rem;
+}
+
+sometic-password-input.pg-ce-input button[data-reveal] {
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    right: 0.35rem;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: 0;
+    border-left: 1px solid rgba(159, 176, 194, 0.28);
+    border-radius: 0;
+    background: transparent;
+    color: var(--pg-muted);
+    font-family: var(--pg-mono);
+    font-size: 0.68rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.55rem 0.4rem 0.7rem;
+    cursor: pointer;
+}
+
+sometic-password-input.pg-ce-input button[data-reveal]:hover {
+    color: var(--pg-accent);
+    border-left-color: var(--pg-accent-mid);
+}
+
+sometic-input.pg-ce-input input:hover,
+sometic-password-input.pg-ce-input input:hover {
+    background-color: var(--pg-control-bg-hover);
+}
+
+sometic-input.pg-ce-input input:focus,
+sometic-password-input.pg-ce-input input:focus {
+    outline: none;
+    background-color: var(--pg-control-bg-focus);
+    background-size:
+        18px 2px,
+        2px 18px,
+        18px 2px,
+        2px 18px,
+        100% 2px;
+}
+
+.pg-selection-row {
+    grid-template-rows: auto auto;
+    width: max-content;
+    max-width: 100%;
+    justify-self: start;
+}
+
+.pg-ce-check,
+.pg-ce-switch {
+    display: inline-block;
+    width: max-content;
+    max-width: 100%;
+    vertical-align: top;
+}
+
+.pg-check,
+.pg-ce-check input[type="checkbox"] {
+    appearance: none;
+    width: 1.35rem;
+    height: 1.35rem;
+    max-width: 1.35rem;
+    margin: 0;
+    border: 1.5px solid rgba(159, 176, 194, 0.55);
+    border-radius: 0;
+    background: var(--pg-panel-bg-faint);
+    color: var(--pg-accent-ink);
+    display: inline-grid;
+    place-content: center;
+    cursor: pointer;
+    transition:
+        border-color 140ms ease,
+        background-color 140ms ease,
+        box-shadow 140ms ease;
+}
+
+.pg-check::after,
+.pg-ce-check input[type="checkbox"]::after {
+    content: "";
+    width: 0.42rem;
+    height: 0.7rem;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: scale(0) rotate(45deg);
+    transition: transform 120ms ease;
+}
+
+.pg-check:hover,
+.pg-ce-check input[type="checkbox"]:hover {
+    border-color: var(--pg-accent-border);
+}
+
+.pg-check:checked,
+.pg-ce-check input[type="checkbox"]:checked,
+.pg-ce-check[checked] input[type="checkbox"] {
+    background: var(--pg-accent);
+    border-color: var(--pg-accent);
+}
+
+.pg-check:checked::after,
+.pg-ce-check input[type="checkbox"]:checked::after,
+.pg-ce-check[checked] input[type="checkbox"]::after {
+    transform: scale(1) rotate(45deg);
+}
+
+.pg-check:focus-visible,
+.pg-ce-check input[type="checkbox"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--pg-accent-ring-strong);
+}
+
+.pg-check:indeterminate,
+.pg-ce-check input[type="checkbox"]:indeterminate {
+    background: var(--pg-accent);
+    border-color: var(--pg-accent);
+}
+
+.pg-check:indeterminate::after,
+.pg-ce-check input[type="checkbox"]:indeterminate::after {
+    width: 0.55rem;
+    height: 0;
+    border-width: 0 0 2px 0;
+    transform: scale(1);
+}
+
+.pg-switch,
+.pg-ce-switch input[type="checkbox"],
+.pg-ce-switch input[role="switch"] {
+    appearance: none;
+    position: relative;
+    width: 2.85rem;
+    max-width: 2.85rem;
+    height: 1.55rem;
+    margin: 0;
+    border: 1.5px solid rgba(159, 176, 194, 0.45);
+    border-radius: 0;
+    background: var(--pg-panel-bg-muted);
+    cursor: pointer;
+    transition:
+        background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 180ms ease;
+}
+
+.pg-switch::before,
+.pg-ce-switch input[type="checkbox"]::before,
+.pg-ce-switch input[role="switch"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0.18rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 0;
+    background: #d7e2ee;
+    transform: translate3d(0, -50%, 0);
+    transition:
+        transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.pg-switch:hover,
+.pg-ce-switch input[type="checkbox"]:hover,
+.pg-ce-switch input[role="switch"]:hover {
+    border-color: var(--pg-accent-strong);
+}
+
+.pg-switch:checked,
+.pg-ce-switch input[type="checkbox"]:checked,
+.pg-ce-switch input[role="switch"]:checked,
+.pg-ce-switch[checked] input {
+    background: var(--pg-accent);
+    border-color: var(--pg-accent);
+}
+
+.pg-switch:checked::before,
+.pg-ce-switch input[type="checkbox"]:checked::before,
+.pg-ce-switch input[role="switch"]:checked::before,
+.pg-ce-switch[checked] input::before {
+    transform: translate3d(1.25rem, -50%, 0);
+    background: var(--pg-accent-ink);
+}
+
+.pg-switch:focus-visible,
+.pg-ce-switch input[type="checkbox"]:focus-visible,
+.pg-ce-switch input[role="switch"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--pg-accent-ring-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pg-switch,
+    .pg-ce-switch input[type="checkbox"],
+    .pg-ce-switch input[role="switch"],
+    .pg-switch::before,
+    .pg-ce-switch input[type="checkbox"]::before,
+    .pg-ce-switch input[role="switch"]::before {
+        transition: none;
+    }
+}
+
+.pg-overlay-panel {
+    position: fixed;
+    inset: 20% 50% auto;
+    transform: translateX(-50%);
+    z-index: 50;
+    width: min(28rem, calc(100vw - 2rem));
+    padding: 1rem 1.1rem;
+    border-radius: 0;
+    background: var(--pg-panel-bg);
+    color: var(--pg-ink);
+    box-shadow: inset 0 0 0 1px var(--pg-line);
+}
+
+.pg-toast-region {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+}
+
+.pg-toast-region [data-slot="toast"] {
+    padding: 0.7rem 0.85rem;
+    background: var(--pg-panel-bg-soft);
+    box-shadow: inset 0 0 0 1px var(--pg-line);
+    color: var(--pg-ink);
+    font-size: 0.9rem;
+}
+
+.pg-alert {
+    display: block;
+    margin-top: 0.75rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--pg-control-bg);
+    box-shadow: inset 0 0 0 1px var(--pg-line);
+    color: var(--pg-ink);
+}
+
+.pg-radio-group {
+    border: 0;
+    border-radius: 0;
+    padding: 0.85rem 1rem 1rem;
+    margin: 0;
+    width: max-content;
+    max-width: 100%;
+    justify-self: start;
+    background: var(--pg-control-bg);
+    box-shadow: inset 0 0 0 1px var(--pg-line);
+    display: grid;
+    gap: 0.55rem;
+}
+
+.pg-radio-group legend {
+    padding: 0 0.35rem;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pg-muted);
+}
+
+.pg-radio-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--pg-ink);
+    font-size: 0.92rem;
+    cursor: pointer;
+}
+
+.pg-radio {
+    appearance: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0;
+    border: 1.5px solid rgba(159, 176, 194, 0.55);
+    border-radius: 999px;
+    background: var(--pg-panel-bg-faint);
+    display: inline-grid;
+    place-content: center;
+    cursor: pointer;
+    transition:
+        border-color 140ms ease,
+        box-shadow 140ms ease;
+}
+
+.pg-radio::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: var(--pg-accent);
+    transform: scale(0);
+    transition: transform 120ms ease;
+}
+
+.pg-radio:hover {
+    border-color: var(--pg-accent-border);
+}
+
+.pg-radio:checked {
+    border-color: var(--pg-accent);
+}
+
+.pg-radio:checked::after {
+    transform: scale(1);
+}
+
+.pg-radio:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--pg-accent-ring-strong);
+}
+
+.pg-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.2rem;
+    cursor: pointer;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b9aab' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-position:
+        right 0.75rem center,
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    background-size:
+        0.95rem 0.95rem,
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px,
+        0% 2px;
+}
+
+.pg-select::-ms-expand {
+    display: none;
+}
+
+.pg-select:hover {
+    --pg-field-mark: var(--pg-accent-mark);
+    background-image:
+        var(--pg-select-chevron), linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-position:
+        right 0.75rem center,
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    background-size:
+        0.95rem 0.95rem,
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px,
+        0% 2px;
+}
+
+.pg-select:focus {
+    --pg-field-mark: var(--pg-accent);
+    background-image:
+        var(--pg-select-chevron), linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-position:
+        right 0.75rem center,
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    background-size:
+        0.95rem 0.95rem,
+        18px 2px,
+        2px 18px,
+        18px 2px,
+        2px 18px,
+        100% 2px;
+}
+
+.pg-select option {
+    color: #102033;
+    background: #f4f7fb;
+}
+
+sometic-file-input.pg-file-input,
+sometic-file-input.pg-ce-input {
+    --pg-field-mark: rgba(159, 176, 194, 0.55);
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 2.9rem;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--pg-ink);
+    background-color: var(--pg-control-bg);
+    background-image:
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-field-mark), var(--pg-field-mark)),
+        linear-gradient(var(--pg-accent-wash), var(--pg-accent-wash));
+    background-repeat: no-repeat;
+    background-size:
+        12px 1px,
+        1px 12px,
+        12px 1px,
+        1px 12px,
+        0% 2px;
+    background-position:
+        left top,
+        left top,
+        right bottom,
+        right bottom,
+        left bottom;
+    box-shadow: none;
+    transition:
+        background-color 160ms ease,
+        background-size 180ms ease;
+}
+
+sometic-file-input.pg-file-input:hover,
+sometic-file-input.pg-ce-input:hover {
+    --pg-field-mark: var(--pg-accent-mark);
+    background-color: var(--pg-control-bg-hover);
+}
+
+sometic-file-input.pg-file-input:focus-within,
+sometic-file-input.pg-ce-input:focus-within {
+    --pg-field-mark: var(--pg-accent);
+    background-color: var(--pg-control-bg-focus);
+    background-size:
+        18px 2px,
+        2px 18px,
+        18px 2px,
+        2px 18px,
+        100% 2px;
+}
+
+sometic-file-input.pg-file-input [data-slot="face"],
+sometic-file-input.pg-ce-input [data-slot="face"] {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: center;
+    min-height: 2.9rem;
+    padding: 0.35rem 0.75rem;
+    pointer-events: none;
+}
+
+sometic-file-input.pg-file-input [data-slot="icon"],
+sometic-file-input.pg-ce-input [data-slot="icon"] {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0;
+    color: var(--pg-muted);
+    background: transparent;
+    box-shadow: none;
+}
+
+sometic-file-input.pg-file-input [data-slot="icon"] svg,
+sometic-file-input.pg-ce-input [data-slot="icon"] svg {
+    width: 1.05rem;
+    height: 1.05rem;
+}
+
+sometic-file-input.pg-file-input [data-slot="copy"],
+sometic-file-input.pg-ce-input [data-slot="copy"] {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+sometic-file-input.pg-file-input [data-slot="title"],
+sometic-file-input.pg-ce-input [data-slot="title"] {
+    color: var(--pg-ink);
+    font-size: 0.92rem;
+    font-weight: 550;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+sometic-file-input.pg-file-input [data-slot="hint"],
+sometic-file-input.pg-ce-input [data-slot="hint"] {
+    display: none;
+}
+
+sometic-file-input.pg-file-input input[type="file"],
+sometic-file-input.pg-ce-input input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="image"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="image"] [data-slot="icon"] {
+    color: #7dd3fc;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="pdf"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="pdf"] [data-slot="icon"] {
+    color: #fb7185;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="video"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="video"] [data-slot="icon"] {
+    color: #c084fc;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="audio"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="audio"] [data-slot="icon"] {
+    color: #fbbf24;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="archive"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="archive"] [data-slot="icon"] {
+    color: #fdba74;
+}
+
+sometic-file-input.pg-file-input[data-file-kind="code"] [data-slot="icon"],
+sometic-file-input.pg-ce-input[data-file-kind="code"] [data-slot="icon"] {
+    color: #86efac;
+}
+
+.pg-step-fields {
+    display: grid;
+    gap: 1rem;
+}

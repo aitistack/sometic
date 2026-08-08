@@ -1,0 +1,184 @@
+{
+    "name": "@sometic/react",
+    "version": "0.0.1",
+    "description": "Native React adapters and components powered by the Sometic framework-independent primitive engine.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./button": {
+            "types": "./dist/button/index.d.ts",
+            "import": "./dist/button/index.js"
+        },
+        "./field": {
+            "types": "./dist/field/index.d.ts",
+            "import": "./dist/field/index.js"
+        },
+        "./input": {
+            "types": "./dist/input/index.d.ts",
+            "import": "./dist/input/index.js"
+        },
+        "./form": {
+            "types": "./dist/form/index.d.ts",
+            "import": "./dist/form/index.js"
+        },
+        "./auth": {
+            "types": "./dist/auth/index.d.ts",
+            "import": "./dist/auth/index.js"
+        },
+        "./http": {
+            "types": "./dist/http/index.d.ts",
+            "import": "./dist/http/index.js"
+        },
+        "./head": {
+            "types": "./dist/head/index.d.ts",
+            "import": "./dist/head/index.js"
+        },
+        "./store": {
+            "types": "./dist/store/index.d.ts",
+            "import": "./dist/store/index.js"
+        },
+        "./selection": {
+            "types": "./dist/selection/index.d.ts",
+            "import": "./dist/selection/index.js"
+        },
+        "./overlay": {
+            "types": "./dist/overlay/index.d.ts",
+            "import": "./dist/overlay/index.js"
+        },
+        "./structure": {
+            "types": "./dist/structure/index.d.ts",
+            "import": "./dist/structure/index.js"
+        },
+        "./query": {
+            "types": "./dist/query/index.d.ts",
+            "import": "./dist/query/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/react"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0 || ^19.0.0"
+    },
+    "dependencies": {
+        "@sometic/auth": "workspace:*",
+        "@sometic/date-core": "workspace:*",
+        "@sometic/dom": "workspace:*",
+        "@sometic/forms": "workspace:*",
+        "@sometic/http": "workspace:*",
+        "@sometic/head": "workspace:*",
+        "@sometic/query": "workspace:*",
+        "@sometic/store": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@types/react": "^19.1.8",
+        "@types/react-dom": "^19.1.6",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "happy-dom": "^18.0.1",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4",
+        "@sometic/adapter-contract": "workspace:*"
+    },
+    "size-limit": [
+        {
+            "name": "react button",
+            "path": "dist/button/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "react input",
+            "path": "dist/input/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "react field",
+            "path": "dist/field/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "react form",
+            "path": "dist/form/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "react auth",
+            "path": "dist/auth/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "react http",
+            "path": "dist/http/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "react selection",
+            "path": "dist/selection/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "react overlay",
+            "path": "dist/overlay/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "react query",
+            "path": "dist/query/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        }
+    ]
+}

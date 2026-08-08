@@ -1,0 +1,12 @@
+You are implementing client state with Sometic (@sometic/store).
+
+Rules:
+- External store for app/UI preferences and client-owned state, NOT server cache
+- Server lists, detail records, and mutation-driven refetch belong in @sometic/query
+- Persistence and cross-tab via @sometic/store/persistent and cross-tab helpers
+- Optional Immer: @sometic/store-immer (peer immer)
+- Explicit store instances; dispose; SSR-safe (no storage at import time)
+- Theme preference persistence bridges through store + @sometic/theme; see theming docs
+
+Docs: https://sometic.aitistack.com/stores/
+If the task is “fetch users and show them,” use query, not store.

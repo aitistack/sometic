@@ -1,0 +1,143 @@
+{
+    "name": "@sometic/accessibility",
+    "version": "0.0.1",
+    "description": "Focus, keyboard, dismissable and announcement primitives for accessible Sometic UIs.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./focus": {
+            "types": "./dist/focus/index.d.ts",
+            "import": "./dist/focus/index.js"
+        },
+        "./keyboard": {
+            "types": "./dist/keyboard/index.d.ts",
+            "import": "./dist/keyboard/index.js"
+        },
+        "./dismissable": {
+            "types": "./dist/dismissable/index.d.ts",
+            "import": "./dist/dismissable/index.js"
+        },
+        "./portal": {
+            "types": "./dist/portal/index.d.ts",
+            "import": "./dist/portal/index.js"
+        },
+        "./scroll-lock": {
+            "types": "./dist/scroll-lock/index.d.ts",
+            "import": "./dist/scroll-lock/index.js"
+        },
+        "./announcer": {
+            "types": "./dist/announcer/index.d.ts",
+            "import": "./dist/announcer/index.js"
+        },
+        "./observers": {
+            "types": "./dist/observers/index.d.ts",
+            "import": "./dist/observers/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/accessibility"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "dependencies": {
+        "@sometic/core": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "happy-dom": "^18.0.1",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "accessibility root",
+            "path": "dist/index.js",
+            "limit": "6 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility focus",
+            "path": "dist/focus/index.js",
+            "limit": "2.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility keyboard",
+            "path": "dist/keyboard/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility dismissable",
+            "path": "dist/dismissable/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility portal",
+            "path": "dist/portal/index.js",
+            "limit": "1 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility scroll-lock",
+            "path": "dist/scroll-lock/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility announcer",
+            "path": "dist/announcer/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility observers",
+            "path": "dist/observers/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        }
+    ]
+}

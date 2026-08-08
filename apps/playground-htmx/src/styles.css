@@ -1,0 +1,6 @@
+@import "@sometic/demo-kit/typography.css";
+
+#app {
+    padding: 2rem;
+    max-width: 40rem;
+}

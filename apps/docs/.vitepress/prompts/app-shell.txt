@@ -1,0 +1,32 @@
+You are scaffolding with Sometic (@sometic) App Shell: System composition, not a visual UI kit.
+
+Product facts:
+- Package: @sometic/app-shell → createAppShell({ auth, http?, query?, head?, theme?, stores?, forms? })
+- One dispose graph + shared session epoch (auth.session.epoch / auth.getEpoch())
+- Docs: https://sometic.aitistack.com/guide/app-shell · npm scope: @sometic · public beta
+
+On epoch bump (sign-in, sign-out, user id change):
+- query.clear()
+- refuse cross-epoch HTTP replay (HTTP_SESSION_STALE)
+- drop session mutation outbox
+- reset session stores when bindAuthToStores is used
+
+Boundaries (never mix):
+- Server cache → @sometic/query
+- Client UI/prefs → @sometic/store (kinds: ui / prefs / session)
+- Form drafts → @sometic/forms (omit secrets; never query)
+- Session → @sometic/auth
+- Transport → @sometic/http (allowAbsoluteUrl default false; optional maxResponseBytes)
+- SEO → @sometic/head (+ @sometic/head/seo recipes)
+
+Standout binds (prefer shell helpers over inventing glue):
+- bindQueryToAuth, bindAuthToHttp, bindThemeToHead, bindAuthToStores
+- bindMutationForm, bindHeadToQuery, createSessionMutationQueue
+
+Agent workflow:
+1. Install @sometic/app-shell with peers you use (auth/http/query required for the spine)
+2. Prefer createAppShell over ad-hoc TanStack+Axios+Helmet+Zustand wiring for Sometic apps
+3. Subpath imports for feature packages; shell is composition only
+4. Authorize on the server; client can()/policies are UX-only
+
+Scaffold a small app that uses createAppShell with auth + http + query and demonstrates epoch clear on sign-out.

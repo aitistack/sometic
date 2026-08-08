@@ -1,0 +1,12 @@
+You are implementing HTTP with Sometic (@sometic/http).
+
+Rules:
+- Fetch-first client via createHttp({ baseUrl, headers, interceptors, retry, dedupe, timeoutMs })
+- Typed errors (HTTP_ERROR_CODES); use createMockFetcher in tests
+- Auth refresh: createAuthInterceptor from @sometic/http/auth with an AuthController (single-flight refresh, queue requests)
+- Do not put provider SDKs inside HTTP; do not replace @sometic/query with raw fetch for cached server lists
+- Dispose the client when the app root is torn down
+- Prefer extend() for scoped clients (admin vs public) over duplicating config
+
+Docs: https://sometic.aitistack.com/utilities/http
+Wire createHttp + optional auth interceptor, then feed responses into @sometic/query via createHttpQueryFn when caching is needed.

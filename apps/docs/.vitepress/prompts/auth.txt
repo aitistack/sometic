@@ -1,0 +1,12 @@
+You are implementing authentication with Sometic (@sometic/auth).
+
+Rules:
+- Auth core is provider-independent session orchestration (sign-in/out, hydrate, refresh, storage, capabilities)
+- Do NOT embed Firebase/Supabase/OIDC SDKs in app UI code. Use optional adapters: @sometic/auth-local, auth-firebase, auth-supabase, auth-oidc
+- Client can()/policies are UX-only; authorize on the server
+- Pair HTTP 401 handling with @sometic/http/auth createAuthInterceptor (refresh queue), not ad-hoc retries in every call site
+- Explicit createAuth({ provider, storage }); dispose when the app root unmounts; no hidden singletons
+- SSR-safe: no window/document/storage at import time
+
+Docs: https://sometic.aitistack.com/authentication/
+Copy this boundary into code: AuthController owns session; HTTP owns transport; Query owns server cache refetch after re-auth.

@@ -1,0 +1,66 @@
+{
+    "name": "sometic-packages",
+    "private": true,
+    "packageManager": "pnpm@10.14.0",
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev --parallel",
+        "lint": "turbo run lint",
+        "typecheck": "turbo run typecheck",
+        "test": "turbo run test",
+        "test:coverage": "turbo run test:coverage",
+        "test:e2e": "playwright test",
+        "size": "turbo run size",
+        "docs:dev": "pnpm --filter @sometic/docs docs:dev",
+        "docs:build": "pnpm --filter @sometic/docs docs:build",
+        "playground:vanilla": "pnpm --filter @sometic/playground-vanilla dev",
+        "playground:react": "pnpm --filter @sometic/playground-react dev",
+        "playground:vue": "pnpm --filter @sometic/playground-vue dev",
+        "playground:alpine": "pnpm --filter @sometic/playground-alpine dev",
+        "playground:jquery": "pnpm --filter @sometic/playground-jquery dev",
+        "playground:htmx": "pnpm --filter @sometic/playground-htmx dev",
+        "sometic": "pnpm --filter @sometic/cli exec node ./dist/bin.js",
+        "circular": "node tooling/release/check-circular.mjs",
+        "knip": "knip",
+        "packages:validate": "node tooling/release/validate-packages.mjs",
+        "changeset": "changeset",
+        "changeset:status": "node tooling/release/changeset-status.mjs",
+        "version-packages": "changeset version",
+        "release:dry-run": "pnpm --filter @sometic/core exec npm pack --dry-run",
+        "audit:deps": "pnpm audit --audit-level=high",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "test:consumers": "pnpm build && node tests/consumers/javascript/smoke.mjs && pnpm exec tsc -p tests/consumers/typescript/tsconfig.json",
+        "prepare": "husky || true",
+        "docs:preview": "pnpm --filter @sometic/docs docs:preview",
+        "docs:check": "pnpm --filter @sometic/docs docs:check",
+        "docs:scope-check": "pnpm --filter @sometic/docs docs:scope-check",
+        "bundler:smoke": "pnpm --filter @sometic/core build && pnpm --filter @sometic/head build && pnpm --filter @sometic/http build && pnpm --filter @sometic/react build && pnpm --filter @sometic/bundler-smoke-vite build && pnpm --filter @sometic/bundler-smoke-rollup build"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.29.5",
+        "@playwright/test": "^1.54.1",
+        "@size-limit/file": "^11.2.0",
+        "@types/node": "^22.16.5",
+        "dependency-cruiser": "^16.10.2",
+        "husky": "^9.1.7",
+        "knip": "^5.88.1",
+        "prettier": "^3.6.2",
+        "size-limit": "^11.2.0",
+        "turbo": "^2.5.4",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4",
+        "@sometic/typescript-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/build-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
+    }
+}

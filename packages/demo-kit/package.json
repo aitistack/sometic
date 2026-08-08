@@ -1,0 +1,29 @@
+{
+    "name": "@sometic/demo-kit",
+    "version": "0.0.0",
+    "private": true,
+    "description": "Shared playground and docs control styles for Sometic demos.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": [
+        "./src/controls.css",
+        "./src/typography.css"
+    ],
+    "exports": {
+        ".": "./src/controls.css",
+        "./controls.css": "./src/controls.css",
+        "./typography.css": "./src/typography.css",
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "src"
+    ],
+    "scripts": {
+        "build": "node -e \"process.exit(0)\"",
+        "lint": "node -e \"process.exit(0)\"",
+        "typecheck": "node -e \"process.exit(0)\"",
+        "test": "node -e \"process.exit(0)\"",
+        "size": "node -e \"process.exit(0)\""
+    },
+    "homepage": "https://sometic.aitistack.com"
+}

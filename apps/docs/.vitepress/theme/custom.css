@@ -1,0 +1,437 @@
+:root {
+    color-scheme: light;
+    --sometic-brand: #0b4f9c;
+    --sometic-brand-hover: #0a4285;
+    --sometic-brand-active: #08356c;
+    --sometic-brand-soft: rgba(11, 79, 156, 0.12);
+    --sometic-docs-version: "0.1.0-beta";
+    --vp-font-family-base: var(--sometic-font-body);
+    --vp-font-family-mono: var(--sometic-font-code);
+    --vp-c-brand-1: var(--sometic-brand);
+    --vp-c-brand-2: var(--sometic-brand-hover);
+    --vp-c-brand-3: var(--sometic-brand-active);
+    --vp-c-brand-soft: var(--sometic-brand-soft);
+    --vp-button-brand-bg: var(--sometic-brand);
+    --vp-button-brand-hover-bg: var(--sometic-brand-hover);
+    --vp-button-brand-active-bg: var(--sometic-brand-active);
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(120deg, #00c8e8 10%, #0b4f9c 90%);
+    --sometic-scrollbar-thumb: color-mix(in srgb, var(--vp-c-text-3) 55%, transparent);
+    --sometic-scrollbar-thumb-hover: color-mix(in srgb, var(--vp-c-text-2) 65%, transparent);
+    --sometic-scrollbar-track: transparent;
+}
+
+.dark {
+    color-scheme: dark;
+    --sometic-brand: #00d4ff;
+    --sometic-brand-hover: #33ddff;
+    --sometic-brand-active: #00b8e0;
+    --sometic-brand-soft: rgba(0, 212, 255, 0.18);
+    --vp-home-hero-name-background: linear-gradient(120deg, #00d4ff 10%, #2f6bff 90%);
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sometic-scrollbar-thumb) var(--sometic-scrollbar-track);
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+html,
+body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.Layout,
+.VPNav,
+.VPContent,
+.VPFooter,
+.VPHome,
+.VPHero,
+.container {
+    max-width: 100%;
+}
+
+.Layout,
+.VPHome,
+.VPHero,
+.VPContent {
+    overflow-x: clip;
+}
+
+html::-webkit-scrollbar,
+.VPSidebar::-webkit-scrollbar,
+.VPContent::-webkit-scrollbar,
+.VPDoc::-webkit-scrollbar,
+.VPLocalNav::-webkit-scrollbar,
+.aside-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-track,
+.VPSidebar::-webkit-scrollbar-track,
+.VPContent::-webkit-scrollbar-track,
+.VPDoc::-webkit-scrollbar-track,
+.VPLocalNav::-webkit-scrollbar-track,
+.aside-container::-webkit-scrollbar-track {
+    background: var(--sometic-scrollbar-track);
+}
+
+html::-webkit-scrollbar-thumb,
+.VPSidebar::-webkit-scrollbar-thumb,
+.VPContent::-webkit-scrollbar-thumb,
+.VPDoc::-webkit-scrollbar-thumb,
+.VPLocalNav::-webkit-scrollbar-thumb,
+.aside-container::-webkit-scrollbar-thumb {
+    background-color: var(--sometic-scrollbar-thumb);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+.VPSidebar::-webkit-scrollbar-thumb:hover,
+.VPContent::-webkit-scrollbar-thumb:hover,
+.VPDoc::-webkit-scrollbar-thumb:hover,
+.VPLocalNav::-webkit-scrollbar-thumb:hover,
+.aside-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sometic-scrollbar-thumb-hover);
+}
+
+.VPSidebar,
+.VPContent,
+.VPDoc,
+.VPLocalNav,
+.aside-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sometic-scrollbar-thumb) var(--sometic-scrollbar-track);
+}
+
+.VPNavBarTitle .VPImage.logo {
+    height: 32px;
+    width: 32px;
+    max-height: 32px;
+    max-width: 32px;
+    object-fit: contain;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+}
+
+.VPNavBarTitle .title {
+    border: none;
+    gap: 0.55rem;
+}
+
+.VPNavBar .VPNavBarMenu {
+    gap: 0.15rem;
+}
+
+.VPNavBarMenu .VPNavBarMenuLink,
+.VPNavBarMenu .VPNavBarMenuGroup .button {
+    font-size: 0.9rem;
+    padding: 0 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Nav responsiveness — collapse desktop menu earlier than VitePress (768px)  */
+/* Dense Sometic nav overflows below ~960px; use hamburger through that range. */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 959.98px) {
+    .VPNavBar .VPNavBarMenu {
+        display: none !important;
+    }
+
+    .VPNavBar .VPNavBarHamburger {
+        display: flex !important;
+    }
+
+    /* VitePress hides the screen menu from 768px up — keep it available here */
+    .VPNavScreen {
+        display: block !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .VPNavBar .VPNavBarMenu {
+        display: flex !important;
+    }
+
+    .VPNavBar .VPNavBarHamburger {
+        display: none !important;
+    }
+
+    .VPNavScreen {
+        display: none !important;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Search — never collapse into a cramped pill                                */
+/* -------------------------------------------------------------------------- */
+
+.VPNavBarSearch {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: min(28rem, 46vw);
+    margin-right: 0.75rem;
+}
+
+.VPNavBarSearch #local-search,
+.VPNavBarSearch #docsearch {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+}
+
+.VPNavBarSearch .DocSearch-Button {
+    width: 100% !important;
+    max-width: none;
+    min-height: 2.25rem;
+    justify-content: space-between;
+    margin-left: 0;
+    border: 1px solid var(--vp-c-divider);
+    background: var(--vp-c-bg-soft);
+    border-radius: 999px;
+}
+
+.VPNavBarSearch .DocSearch-Button:hover {
+    border-color: color-mix(in srgb, var(--sometic-brand) 45%, var(--vp-c-divider));
+    background: var(--vp-c-bg-alt);
+}
+
+.VPNavBarSearch .DocSearch-Button-Placeholder {
+    display: inline-block !important;
+    padding: 0 0.65rem 0 0.15rem;
+}
+
+/* Tablet / hamburger range: search fills remaining space beside logo + menu */
+@media (max-width: 959.98px) {
+    .VPNavBarSearch {
+        flex: 1 1 auto;
+        max-width: none;
+        margin-right: 0.35rem;
+        padding-left: 0.5rem !important;
+    }
+
+    .VPNavBarSearch .DocSearch-Button {
+        height: 2.25rem !important;
+        min-height: 2.25rem;
+        padding: 0 0.75rem 0 0.7rem !important;
+        justify-content: flex-start;
+    }
+
+    .VPNavBarSearch .DocSearch-Button-Keys {
+        display: none !important;
+    }
+}
+
+/* Phone: keep a real usable search control — not a 48px icon stub */
+@media (max-width: 767.98px) {
+    .VPNavBar .wrapper {
+        padding-inline: 12px !important;
+    }
+
+    .VPNavBarSearch {
+        flex: 1 1 auto;
+        min-width: 9.5rem;
+        max-width: none;
+        margin-right: 0.25rem;
+        padding-left: 0.35rem !important;
+    }
+
+    .VPNavBarSearch .DocSearch-Button {
+        width: 100% !important;
+        min-width: 9.5rem;
+        height: 2.35rem !important;
+        min-height: 2.35rem;
+        padding: 0 0.85rem 0 0.75rem !important;
+        justify-content: flex-start !important;
+        border-radius: 999px !important;
+        background: var(--vp-c-bg-soft) !important;
+        border: 1px solid var(--vp-c-divider) !important;
+    }
+
+    .VPNavBarSearch .DocSearch-Button .DocSearch-Search-Icon {
+        width: 15px;
+        height: 15px;
+        margin-right: 0.45rem;
+        flex-shrink: 0;
+    }
+
+    .VPNavBarSearch .DocSearch-Button-Placeholder {
+        display: inline-block !important;
+        margin: 0;
+        padding: 0;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
+    .VPNavBarSearch .DocSearch-Button-Keys {
+        display: none !important;
+    }
+
+    /* Prevent title + beta from crushing the search slot */
+    .VPNavBarTitle {
+        flex-shrink: 0;
+    }
+
+    .VPNavBar .content {
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+
+    .VPNavBar .content-body {
+        min-width: 0;
+        flex: 1 1 auto;
+        justify-content: flex-end;
+        gap: 0.15rem;
+    }
+}
+
+@media (min-width: 960px) {
+    .VPNavBarSearch {
+        max-width: min(28rem, 46vw);
+    }
+}
+
+div[class*="language-"] {
+    position: relative;
+}
+
+div[class*="language-"] > button.copy {
+    top: 0.65rem;
+    right: 0.65rem;
+    z-index: 3;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--vp-c-divider);
+    background-color: var(--vp-c-bg-soft);
+    background-position: 50%;
+}
+
+div[class*="language-"] > span.lang {
+    right: 3.1rem;
+    top: 0.7rem;
+    z-index: 2;
+    pointer-events: none;
+}
+
+div[class*="language-"] > pre {
+    padding-top: 1.1rem;
+}
+
+.vp-code-group .tabs {
+    margin-top: 0;
+}
+
+.vp-code-group .tabs label {
+    font-weight: 600;
+}
+
+.sometic-sidebar-extras {
+    margin-top: 1.75rem;
+    padding: 1rem 0.15rem 1.5rem;
+    border-top: 1px solid var(--vp-c-divider);
+}
+
+.sometic-sidebar-extras__label {
+    margin: 0 0 0.55rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vp-c-text-3);
+}
+
+.sometic-sidebar-extras ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+}
+
+.sometic-sidebar-extras a {
+    color: var(--vp-c-text-2);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.sometic-sidebar-extras a:hover {
+    color: var(--sometic-brand);
+}
+
+.VPSidebar {
+    padding-bottom: 2rem !important;
+}
+
+.VPSidebarItem.level-0 .items {
+    padding-bottom: 0.35rem;
+}
+
+/* Short docs pages: don't stretch the outline column to full viewport */
+.VPDoc .aside-content {
+    min-height: unset;
+}
+
+@media (min-width: 960px) {
+    .VPDoc .content {
+        padding-bottom: 48px;
+    }
+}
+
+.VPDocFooter {
+    margin-top: 2rem;
+}
+
+/* Doc titles — block display rhythm from the Sometic wordmark */
+.VPDoc .content h1 {
+    font-family: var(--sometic-font-display);
+    font-weight: 700;
+    letter-spacing: var(--sometic-tracking-display, -0.04em);
+    line-height: var(--sometic-leading-display, 0.98);
+    font-variant-ligatures: none;
+    text-wrap: balance;
+}
+
+.VPDoc .content h2,
+.VPDoc .content h3 {
+    font-family: var(--sometic-font-display);
+    font-weight: 600;
+    letter-spacing: var(--sometic-tracking-tight, -0.025em);
+    font-variant-ligatures: none;
+    text-wrap: balance;
+}
+
+html:not(.dark) .custom-block.tip {
+    background-color: var(--sometic-brand);
+    border-color: var(--sometic-brand-active);
+    color: #ffffff;
+}
+
+html:not(.dark) .custom-block.tip .custom-block-title {
+    color: #ffffff;
+}
+
+html:not(.dark) .custom-block.tip a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+}
+
+html:not(.dark) .custom-block.tip a:hover {
+    color: #ffffff;
+    opacity: 0.88;
+}
+
+html:not(.dark) .custom-block.tip code {
+    color: #ffffff;
+    background-color: color-mix(in srgb, #ffffff 16%, transparent);
+}

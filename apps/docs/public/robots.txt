@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# AI / LLM discovery
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+
+# Legal
+Allow: /legal/
+
+Sitemap: https://sometic.aitistack.com/sitemap.xml

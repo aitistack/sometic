@@ -1,0 +1,5 @@
+/* Sometic replaces VitePress Inter with self-hosted Urbanist / Chakra / JetBrains.
+   Empty stub — aliased over theme-default/styles/fonts.css to avoid:
+   - Google Fonts third-party request
+   - ~400KB+ of unused Inter woff2 subsets in the bundle
+*/

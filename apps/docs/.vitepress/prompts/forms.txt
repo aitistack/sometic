@@ -1,0 +1,12 @@
+You are implementing forms with Sometic (@sometic/forms + @sometic/validation).
+
+Rules:
+- Framework-independent form engine; React/Vue/sometic-form are thin adapters
+- Native HTML semantics first (labels, autofill, disabled/readonly/required, submit)
+- Use validators from @sometic/validation; compose sync/async; map server errors into field feedback
+- Controlled/uncontrolled field patterns follow Sometic conventions (value, defaultValue, onValueChange)
+- Do not reimplement validation separately per framework adapter
+- Drafts / field arrays / submit abort: use the forms engine APIs, not ad-hoc local state sprawl
+
+Docs: https://sometic.aitistack.com/forms/
+Scaffold a form with validation and a clear submit path that talks to @sometic/http (and invalidates @sometic/query keys on success when server lists change).

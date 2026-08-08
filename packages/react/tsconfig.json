@@ -1,0 +1,12 @@
+{
+    "extends": "../../tooling/typescript/tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "noEmit": true,
+        "composite": false,
+        "jsx": "react-jsx",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

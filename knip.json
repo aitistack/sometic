@@ -1,0 +1,56 @@
+{
+    "$schema": "https://unpkg.com/knip@5/schema.json",
+    "workspaces": {
+        "packages/core": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/events": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/store": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/store-immer": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/styling": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/theme": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/accessibility": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/dom": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/react": {
+            "entry": ["src/**/*.{ts,tsx}"],
+            "project": ["src/**/*.{ts,tsx}"]
+        },
+        "packages/vue": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/elements": {
+            "entry": ["src/**/*.ts"],
+            "project": ["src/**/*.ts"]
+        },
+        "packages/eslint-config": {
+            "entry": ["index.js", "rules/**/*.js"],
+            "project": ["**/*.js"]
+        }
+    },
+    "ignore": ["dependency-cruiser.cjs", "tests/**", "apps/**", "tooling/**", "e2e/**"],
+    "ignoreWorkspaces": ["apps/**", "tooling/**"],
+    "exclude": ["dependencies", "devDependencies", "unlisted", "binaries", "unresolved", "files"]
+}

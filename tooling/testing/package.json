@@ -1,0 +1,11 @@
+{
+    "name": "@sometic/testing-config",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./vitest": "./vitest.shared.mjs"
+    },
+    "description": "Shared Vitest testing configuration for Sometic packages.",
+    "homepage": "https://sometic.aitistack.com"
+}

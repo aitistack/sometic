@@ -1,0 +1,81 @@
+{
+    "name": "@sometic/alpine",
+    "version": "0.0.1",
+    "description": "Alpine.js adapters for Sometic (store bind, button bind, lifecycle cleanup).",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/alpine"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "dependencies": {
+        "@sometic/adapter-contract": "workspace:*",
+        "@sometic/core": "workspace:*",
+        "@sometic/dom": "workspace:*",
+        "@sometic/store": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "eslint": "^9.31.0",
+        "happy-dom": "^18.0.1",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "alpine root",
+            "path": "dist/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        }
+    ],
+    "peerDependencies": {
+        "alpinejs": "^3.14.0"
+    },
+    "peerDependenciesMeta": {
+        "alpinejs": {
+            "optional": true
+        }
+    }
+}

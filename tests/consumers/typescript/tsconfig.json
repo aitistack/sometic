@@ -1,0 +1,21 @@
+{
+    "extends": "../../../tooling/typescript/tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "paths": {
+            "@sometic/core": ["../../../packages/core/dist/index.d.ts"],
+            "@sometic/core/*": ["../../../packages/core/dist/*"],
+            "@sometic/events": ["../../../packages/events/dist/index.d.ts"],
+            "@sometic/store": ["../../../packages/store/dist/index.d.ts"],
+            "@sometic/styling": ["../../../packages/styling/dist/index.d.ts"],
+            "@sometic/styling/*": ["../../../packages/styling/dist/*"],
+            "@sometic/theme": ["../../../packages/theme/dist/index.d.ts"],
+            "@sometic/theme/*": ["../../../packages/theme/dist/*"],
+            "@sometic/accessibility": ["../../../packages/accessibility/dist/index.d.ts"],
+            "@sometic/accessibility/*": ["../../../packages/accessibility/dist/*"],
+            "@sometic/dom": ["../../../packages/dom/dist/index.d.ts"],
+            "@sometic/dom/*": ["../../../packages/dom/dist/*"]
+        }
+    },
+    "include": ["./**/*.ts"]
+}

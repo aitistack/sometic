@@ -1,0 +1,124 @@
+{
+    "name": "@sometic/theme",
+    "version": "0.0.1",
+    "description": "Runtime design-token and theme management for framework-independent JavaScript applications.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./tokens": {
+            "types": "./dist/tokens/index.d.ts",
+            "import": "./dist/tokens/index.js"
+        },
+        "./css-variables": {
+            "types": "./dist/css-variables/index.d.ts",
+            "import": "./dist/css-variables/index.js"
+        },
+        "./contrast": {
+            "types": "./dist/contrast/index.d.ts",
+            "import": "./dist/contrast/index.js"
+        },
+        "./system": {
+            "types": "./dist/system/index.d.ts",
+            "import": "./dist/system/index.js"
+        },
+        "./presets": {
+            "types": "./dist/presets/index.d.ts",
+            "import": "./dist/presets/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "directory": "packages/theme"
+    },
+    "bugs": {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+    },
+    "homepage": "https://sometic.aitistack.com",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "dependencies": {
+        "@sometic/core": "workspace:*",
+        "@sometic/store": "workspace:*",
+        "@sometic/styling": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "theme root",
+            "path": "dist/index.js",
+            "limit": "5 kB",
+            "gzip": true
+        },
+        {
+            "name": "theme tokens",
+            "path": "dist/tokens/index.js",
+            "limit": "1 kB",
+            "gzip": true
+        },
+        {
+            "name": "theme css-variables",
+            "path": "dist/css-variables/index.js",
+            "limit": "1 kB",
+            "gzip": true
+        },
+        {
+            "name": "theme contrast",
+            "path": "dist/contrast/index.js",
+            "limit": "2.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "theme system",
+            "path": "dist/system/index.js",
+            "limit": "1.5 kB",
+            "gzip": true
+        },
+        {
+            "name": "theme presets",
+            "path": "dist/presets/index.js",
+            "limit": "2 kB",
+            "gzip": true
+        }
+    ]
+}

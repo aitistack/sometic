@@ -1,0 +1,8 @@
+# Sometic AI / agent entry
+
+- Curated docs index for LLMs: https://sometic.aitistack.com/llms.txt
+- Full consumer documentation export: https://sometic.aitistack.com/llms-full.txt
+- How to use Copy Prompt, llms files, and the package graph: https://sometic.aitistack.com/guide/agents
+- Contributing: https://sometic.aitistack.com/guide/contributing
+
+Product: portable application behavior (`@sometic`). Controllers + adapters for UI, forms, auth, HTTP, query, and head. Not a visual UI kit.

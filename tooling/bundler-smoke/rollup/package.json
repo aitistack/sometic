@@ -1,0 +1,17 @@
+{
+    "name": "@sometic/bundler-smoke-rollup",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "dependencies": {
+        "@sometic/core": "workspace:*",
+        "@sometic/head": "workspace:*",
+        "@sometic/http": "workspace:*"
+    },
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "rollup": "^4.44.1"
+    }
+}

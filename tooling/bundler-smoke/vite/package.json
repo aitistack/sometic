@@ -1,0 +1,20 @@
+{
+    "name": "@sometic/bundler-smoke-vite",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build"
+    },
+    "dependencies": {
+        "@sometic/core": "workspace:*",
+        "@sometic/head": "workspace:*",
+        "@sometic/http": "workspace:*",
+        "@sometic/react": "workspace:*",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.5.2",
+        "vite": "^6.3.5"
+    }
+}

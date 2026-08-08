@@ -1,0 +1,6 @@
+import { createTsupConfig } from "@sometic/build-config";
+
+export default createTsupConfig({
+    entry: { index: "src/index.ts" },
+    external: ["node:crypto"],
+});
