@@ -37,25 +37,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 ## Installation
 
-::: code-group
-
-```bash [npm]
-npm install @sometic/app-shell @sometic/auth @sometic/http @sometic/query
-```
-
-```bash [pnpm]
-pnpm add @sometic/app-shell @sometic/auth @sometic/http @sometic/query
-```
-
-```bash [yarn]
-yarn add @sometic/app-shell @sometic/auth @sometic/http @sometic/query
-```
-
-```bash [bun]
-bun add @sometic/app-shell @sometic/auth @sometic/http @sometic/query
-```
-
-:::
+<InstallCommands packages="@sometic/app-shell @sometic/auth @sometic/http @sometic/query" />
 
 Optional peers: `@sometic/head`, `@sometic/theme`, `@sometic/store`, `@sometic/forms`.
 

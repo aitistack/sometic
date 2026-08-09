@@ -12,6 +12,10 @@ In the ecosystem, this package sits above [`@sometic/core`](https://www.npmjs.co
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/primitives/dom)
+
 ```bash
 pnpm add @sometic/dom
 ```

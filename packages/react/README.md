@@ -12,6 +12,10 @@ In the ecosystem, React sits above the engines and beside Vue and Web Components
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 Peer: `react` `^18 || ^19`.
 
 ```bash

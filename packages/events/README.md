@@ -12,6 +12,10 @@ In the ecosystem, events sits on [`@sometic/core`](https://www.npmjs.com/package
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/primitives/events)
+
 ```bash
 pnpm add @sometic/events
 ```

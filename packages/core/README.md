@@ -41,6 +41,10 @@ In the ecosystem, core sits under every foundation and feature package. Install 
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/primitives/core)
+
 ```bash
 pnpm add @sometic/core
 ```

@@ -12,6 +12,10 @@ In the ecosystem this pairs with Angular, Solid, and Preact Wave B packages. Con
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 Peer (optional meta): `svelte` `^5`.
 
 ```bash

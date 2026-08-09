@@ -12,6 +12,10 @@ Works with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@so
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 ```bash
 pnpm add @sometic/auth-oidc @sometic/auth
 ```

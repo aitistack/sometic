@@ -12,6 +12,10 @@ In the ecosystem, Vue sits with React and Web Components as a production adapter
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 Peer: `vue` `^3.5`.
 
 ```bash

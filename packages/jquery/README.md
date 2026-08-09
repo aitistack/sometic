@@ -12,6 +12,10 @@ Ecosystem: Wave C with Alpine and HTMX. Contracts: [`@sometic/adapter-contract`]
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 Peer (optional meta): `jquery` `^3.7`.
 
 ```bash

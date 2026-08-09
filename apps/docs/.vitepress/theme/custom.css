@@ -314,6 +314,16 @@ div[class*="language-"] > button.copy {
     border: 1px solid var(--vp-c-divider);
     background-color: var(--vp-c-bg-soft);
     background-position: 50%;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+div[class*="language-"]:hover > button.copy,
+div[class*="language-"] > button.copy:focus,
+div[class*="language-"] > button.copy:focus-visible,
+div[class*="language-"] > button.copy.copied {
+    opacity: 1;
 }
 
 div[class*="language-"] > span.lang {

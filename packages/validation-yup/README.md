@@ -12,6 +12,10 @@ Pair with [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) and t
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 ```bash
 pnpm add @sometic/validation-yup yup
 ```

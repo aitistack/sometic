@@ -12,6 +12,10 @@ In the ecosystem the CLI sits beside publishable packages and docs, not inside t
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 No framework peers. Node `>=20.18`. Prefer one-shot `dlx` / `npx`:
 
 ```bash

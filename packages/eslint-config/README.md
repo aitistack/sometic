@@ -14,6 +14,10 @@ Use it when you maintain Sometic packages or want the same comment and TypeScrip
 
 ## Install
 
+One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+
+[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+
 Peers: `eslint` `^9`, `typescript` `^5`.
 
 ```bash
