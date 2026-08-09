@@ -1,10 +1,4 @@
 #!/usr/bin/env node
-/**
- * Replace stale hosting strings with YOUR_ORG / YOUR_REPO / DOCS_URL.
- *
- * Usage:
- *   node scripts/set-repo-identity.mjs --org aitistack --repo sometic --docs https://sometic.aitistack.com
- */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -32,11 +26,7 @@ if (org === "aitistack" && repo === "sometic") {
 const gitUrl = `git+https://github.com/${org}/${repo}.git`;
 const issuesUrl = `https://github.com/${org}/${repo}/issues`;
 const homeUrl = docs.replace(/\/$/, "");
-
-const OLD_GIT = /git\+https:\/\/github\.com\/aitistack\/sometic\.git/g;
-const OLD_ISSUES = /https:\/\/github\.com\/aitistack\/sometic\/issues/g;
-const OLD_HOME = /https:\/\/sometic\.aitistack\.com/g;
-const OLD_REPO_DIR = /github\.com\/aitistack\/sometic/g;
+const repoHost = `github.com/${org}/${repo}`;
 
 function walk(dir, out = []) {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -62,34 +52,94 @@ function walk(dir, out = []) {
     return out;
 }
 
+function rewriteText(text) {
+    return text
+        .replace(/git\+https:\/\/github\.com\/YOUR_ORG\/YOUR_REPO\.git/g, gitUrl)
+        .replace(/https:\/\/github\.com\/YOUR_ORG\/YOUR_REPO\/issues/g, issuesUrl)
+        .replace(/github\.com\/YOUR_ORG\/YOUR_REPO/g, repoHost)
+        .replace(/git\+https:\/\/github\.com\/aitistack\/sometic\.git/g, gitUrl)
+        .replace(/https:\/\/github\.com\/aitistack\/sometic\/issues/g, issuesUrl)
+        .replace(/github\.com\/aitistack\/sometic/g, repoHost)
+        .replace(/https:\/\/sometic\.aitistack\.com/g, homeUrl);
+}
+
+function isPublishablePackageJson(file, json) {
+    const relative = path.relative(root, file).replace(/\\/g, "/");
+    return (
+        relative.startsWith("packages/") &&
+        relative.endsWith("/package.json") &&
+        json.private !== true &&
+        typeof json.name === "string" &&
+        json.name.startsWith("@sometic/")
+    );
+}
+
 let changed = 0;
 for (const file of walk(root)) {
     const before = fs.readFileSync(file, "utf8");
-    let next = before
-        .replace(OLD_GIT, gitUrl)
-        .replace(OLD_ISSUES, issuesUrl)
-        .replace(OLD_HOME, homeUrl)
-        .replace(OLD_REPO_DIR, `github.com/${org}/${repo}`);
+    let next = rewriteText(before);
+
     if (file.endsWith("package.json")) {
         try {
             const json = JSON.parse(next);
-            if (json.repository && typeof json.repository === "object") {
-                json.repository.url = gitUrl;
+            let touched = false;
+
+            if (isPublishablePackageJson(file, json)) {
+                if (!json.repository || typeof json.repository !== "object") {
+                    json.repository = { type: "git" };
+                    touched = true;
+                }
+                if (json.repository.url !== gitUrl) {
+                    json.repository.url = gitUrl;
+                    touched = true;
+                }
+                if (json.repository.type !== "git") {
+                    json.repository.type = "git";
+                    touched = true;
+                }
+                if (!json.bugs || typeof json.bugs !== "object") {
+                    json.bugs = {};
+                    touched = true;
+                }
+                if (json.bugs.url !== issuesUrl) {
+                    json.bugs.url = issuesUrl;
+                    touched = true;
+                }
+                if (json.homepage !== homeUrl) {
+                    json.homepage = homeUrl;
+                    touched = true;
+                }
+            } else {
+                if (json.repository && typeof json.repository === "object") {
+                    if (json.repository.url !== gitUrl) {
+                        json.repository.url = gitUrl;
+                        touched = true;
+                    }
+                }
+                if (json.bugs && typeof json.bugs === "object") {
+                    if (json.bugs.url !== issuesUrl) {
+                        json.bugs.url = issuesUrl;
+                        touched = true;
+                    }
+                }
+                if (
+                    typeof json.homepage === "string" &&
+                    /aitistack|sometic\.aitistack\.com|aitiStack|YOUR_ORG/.test(json.homepage)
+                ) {
+                    json.homepage = homeUrl;
+                    touched = true;
+                }
             }
-            if (json.bugs && typeof json.bugs === "object") {
-                json.bugs.url = issuesUrl;
+
+            const serialized = `${JSON.stringify(json, null, 4)}\n`;
+            if (touched || serialized !== before) {
+                next = serialized;
             }
-            if (
-                typeof json.homepage === "string" &&
-                /aitistack|sometic\.aitistack\.com|aitiStack/.test(json.homepage)
-            ) {
-                json.homepage = homeUrl;
-            }
-            next = `${JSON.stringify(json, null, 4)}\n`;
         } catch {
             /* leave text replace */
         }
     }
+
     if (next !== before) {
         fs.writeFileSync(file, next, "utf8");
         changed += 1;

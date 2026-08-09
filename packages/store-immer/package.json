@@ -23,7 +23,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "url": "git+https://github.com/aitistack/sometic.git",
         "directory": "packages/store-immer"
     },
     "publishConfig": {
@@ -65,5 +65,19 @@
             "gzip": true
         }
     ],
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.aitistack.com",
+    "bugs": {
+        "url": "https://github.com/aitistack/sometic/issues"
+    },
+    "keywords": [
+        "sometic",
+        "typescript",
+        "javascript",
+        "ssr",
+        "a11y",
+        "immer",
+        "store",
+        "immutable",
+        "state"
+    ]
 }

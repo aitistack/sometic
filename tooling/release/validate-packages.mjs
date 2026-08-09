@@ -81,9 +81,39 @@ function validatePackage(dirName) {
         errors.push(`${pkg.name}: files must include "dist"`);
     }
 
+    const repositoryUrl =
+        pkg.repository && typeof pkg.repository === "object" ? pkg.repository.url : undefined;
+    const bugsUrl = pkg.bugs && typeof pkg.bugs === "object" ? pkg.bugs.url : undefined;
+    for (const [label, value] of [
+        ["repository.url", repositoryUrl],
+        ["bugs.url", bugsUrl],
+    ]) {
+        if (typeof value === "string" && /YOUR_ORG|YOUR_REPO/.test(value)) {
+            errors.push(`${pkg.name}: ${label} still contains YOUR_ORG/YOUR_REPO placeholder`);
+        }
+    }
+    if (typeof repositoryUrl === "string" && !/github\.com\/[^/]+\/[^/]+/.test(repositoryUrl)) {
+        errors.push(`${pkg.name}: repository.url must point at a GitHub repository`);
+    }
+    if (!bugsUrl) {
+        errors.push(`${pkg.name}: missing bugs.url`);
+    }
+
+    if (!Array.isArray(pkg.keywords) || pkg.keywords.length < 4) {
+        errors.push(`${pkg.name}: keywords must be an array with at least 4 entries`);
+    }
+
     const readmePath = path.join(dir, "README.md");
     if (!fs.existsSync(readmePath)) {
         errors.push(`${pkg.name}: missing README.md`);
+    } else {
+        const readme = fs.readFileSync(readmePath, "utf8");
+        if (readme.trim().length < 1200) {
+            errors.push(`${pkg.name}: README.md must be at least 1200 characters for npm consumers`);
+        }
+        if (readme.includes("\u2014")) {
+            errors.push(`${pkg.name}: README.md must not use em dashes`);
+        }
     }
 
     const licensePath = path.join(dir, "LICENSE");

@@ -6,7 +6,7 @@ Sometic (by aitiStack) is a portable application behavior system, not a pre-styl
 
 - Docs: https://sometic.aitistack.com
 - npm scope: `@sometic`
-- Repository: https://github.com/YOUR_ORG/YOUR_REPO
+- Repository: https://github.com/aitistack/sometic
 - License: MIT
 - Maturity: public beta (`0.1.0-beta` track)
 

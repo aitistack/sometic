@@ -60,7 +60,7 @@ Strings and identities: `@aitistack`, `aitistack`, `AitiStack`, `aiti-*`, Univer
 
 ### URLs
 
-- Repository: `github.com/YOUR_ORG/YOUR_REPO` (retain until org move).
+- Repository: `github.com/aitistack/sometic` (retain until org move).
 - Planned docs: `https://sometic.aitistack.com` (not deployed).
 
 ### Migration compatibility

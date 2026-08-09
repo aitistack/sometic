@@ -31,11 +31,11 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "url": "git+https://github.com/aitistack/sometic.git",
         "directory": "packages/query"
     },
     "bugs": {
-        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+        "url": "https://github.com/aitistack/sometic/issues"
     },
     "homepage": "https://sometic.aitistack.com",
     "publishConfig": {
@@ -98,5 +98,16 @@
             "limit": "1.5 kB",
             "gzip": true
         }
+    ],
+    "keywords": [
+        "sometic",
+        "typescript",
+        "javascript",
+        "ssr",
+        "a11y",
+        "query",
+        "data-fetching",
+        "async",
+        "cache"
     ]
 }

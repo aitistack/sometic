@@ -16,7 +16,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "url": "git+https://github.com/aitistack/sometic.git",
         "directory": "packages/eslint-config"
     },
     "publishConfig": {
@@ -41,5 +41,19 @@
         "test": "node -e \"process.exit(0)\"",
         "size": "node -e \"process.exit(0)\""
     },
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.aitistack.com",
+    "bugs": {
+        "url": "https://github.com/aitistack/sometic/issues"
+    },
+    "keywords": [
+        "sometic",
+        "typescript",
+        "javascript",
+        "ssr",
+        "a11y",
+        "eslint",
+        "lint",
+        "config",
+        "dx"
+    ]
 }

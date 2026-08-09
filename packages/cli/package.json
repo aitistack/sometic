@@ -26,11 +26,11 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YOUR_ORG/YOUR_REPO.git",
+        "url": "git+https://github.com/aitistack/sometic.git",
         "directory": "packages/cli"
     },
     "bugs": {
-        "url": "https://github.com/YOUR_ORG/YOUR_REPO/issues"
+        "url": "https://github.com/aitistack/sometic/issues"
     },
     "homepage": "https://sometic.aitistack.com",
     "publishConfig": {
@@ -75,5 +75,16 @@
             "limit": "12 kB",
             "gzip": true
         }
+    ],
+    "keywords": [
+        "sometic",
+        "typescript",
+        "javascript",
+        "ssr",
+        "a11y",
+        "cli",
+        "codegen",
+        "scaffolding",
+        "dx"
     ]
 }
