@@ -1,6 +1,6 @@
 {
     "name": "@sometic/dom",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "DOM engines (button/input controllers, portal, scroll lock, observers) used by Sometic adapters and elements.",
     "license": "MIT",
     "type": "module",

@@ -1,6 +1,6 @@
 {
     "name": "@sometic/query",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Portable server-state query client for Sometic: keys, cache, mutations, invalidation.",
     "license": "MIT",
     "type": "module",
