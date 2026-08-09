@@ -1,6 +1,6 @@
 {
     "name": "@sometic/adapter-contract",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Shared framework adapter contract types, fixtures and test helpers for Sometic.",
     "license": "MIT",
     "type": "module",
