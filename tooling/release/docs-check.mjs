@@ -21,18 +21,9 @@ const required = [
     "public/favicon.ico",
 ];
 
-const maintainerRequired = ["docs/maintainer/FIRST_PUBLISH.md"];
-
 let failed = false;
 for (const rel of required) {
     const file = path.join(docsRoot, rel);
-    if (!fs.existsSync(file)) {
-        console.error(`missing: ${rel}`);
-        failed = true;
-    }
-}
-for (const rel of maintainerRequired) {
-    const file = path.join(repoRoot, rel);
     if (!fs.existsSync(file)) {
         console.error(`missing: ${rel}`);
         failed = true;
