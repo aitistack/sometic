@@ -48,22 +48,15 @@ head.subscribe((snapshot) => {
 Build SEO patches with the seo subpath:
 
 ```ts
-import {
-    createCanonicalLink,
-    createOpenGraphPatch,
-    createPageSeoPatch,
-} from "@sometic/head/seo";
+import { createCanonicalLink, createOpenGraphPatch, createPageSeoPatch } from "@sometic/head/seo";
 
-head.set(
-    "product",
-    {
-        ...createPageSeoPatch({
-            title: "Notebook",
-            description: "A portable notebook",
-        }),
-        link: [createCanonicalLink("https://example.com/notebook")],
-    },
-);
+head.set("product", {
+    ...createPageSeoPatch({
+        title: "Notebook",
+        description: "A portable notebook",
+    }),
+    link: [createCanonicalLink("https://example.com/notebook")],
+});
 
 head.set(
     "product-og",

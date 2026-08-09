@@ -29,11 +29,7 @@ yarn add @sometic/theme
 Create a controller and apply a snapshot to the document element:
 
 ```ts
-import {
-    applyThemeToElement,
-    createThemeController,
-    defineSemanticTokens,
-} from "@sometic/theme";
+import { applyThemeToElement, createThemeController, defineSemanticTokens } from "@sometic/theme";
 
 const lightTokens = defineSemanticTokens({
     color: {

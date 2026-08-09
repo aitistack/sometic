@@ -35,22 +35,15 @@ registerButtonElements();
 ```
 
 ```html
-<sometic-button type="button" size="md" variant="primary">
-    Save
-</sometic-button>
+<sometic-button type="button" size="md" variant="primary"> Save </sometic-button>
 
-<sometic-async-button>
-    Run action
-</sometic-async-button>
+<sometic-async-button> Run action </sometic-async-button>
 ```
 
 Register overlays and listen for open changes:
 
 ```ts
-import {
-    registerOverlayElements,
-    type SometicOpenChangeDetail,
-} from "@sometic/elements/overlay";
+import { registerOverlayElements, type SometicOpenChangeDetail } from "@sometic/elements/overlay";
 
 registerOverlayElements();
 

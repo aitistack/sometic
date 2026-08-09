@@ -53,12 +53,7 @@ console.log(auth.getSession().status, auth.getEpoch());
 Authorize against roles/permissions:
 
 ```ts
-import {
-    assertAuthorized,
-    createPolicy,
-    requireAuthenticated,
-    requireRole,
-} from "@sometic/auth";
+import { assertAuthorized, createPolicy, requireAuthenticated, requireRole } from "@sometic/auth";
 
 const policy = createPolicy(requireAuthenticated(), requireRole("admin"));
 assertAuthorized(auth.getSession(), policy);

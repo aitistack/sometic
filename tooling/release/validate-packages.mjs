@@ -109,7 +109,9 @@ function validatePackage(dirName) {
     } else {
         const readme = fs.readFileSync(readmePath, "utf8");
         if (readme.trim().length < 1200) {
-            errors.push(`${pkg.name}: README.md must be at least 1200 characters for npm consumers`);
+            errors.push(
+                `${pkg.name}: README.md must be at least 1200 characters for npm consumers`,
+            );
         }
         if (readme.includes("\u2014")) {
             errors.push(`${pkg.name}: README.md must not use em dashes`);

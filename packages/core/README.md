@@ -12,32 +12,32 @@ In the ecosystem, core sits under every foundation and feature package. Install 
 
 ## Modules
 
-| Module | Subpath | Purpose |
-| --- | --- | --- |
-| Environment | `@sometic/core/environment` | SSR-safe runtime and DOM capability detection |
-| Id | `@sometic/core/id` | Stable unique and prefixed ids |
-| Disposable | `@sometic/core/disposable` | Cleanup contracts and `DisposableStack` |
-| Error | `@sometic/core/error` | Typed errors with stable codes |
-| Result | `@sometic/core/result` | Explicit success and failure values |
-| Contracts | `@sometic/core/contracts` | Plugin, adapter, and lifecycle types |
-| Controllable state | `@sometic/core/controllable-state` | Controlled and uncontrolled value ownership |
-| Async operation | `@sometic/core/async-operation` | Pending, success, error, and abort orchestration |
-| Utils | `@sometic/core/utils` | Debounce, throttle, abort helpers, safe JSON |
+| Module             | Subpath                            | Purpose                                          |
+| ------------------ | ---------------------------------- | ------------------------------------------------ |
+| Environment        | `@sometic/core/environment`        | SSR-safe runtime and DOM capability detection    |
+| Id                 | `@sometic/core/id`                 | Stable unique and prefixed ids                   |
+| Disposable         | `@sometic/core/disposable`         | Cleanup contracts and `DisposableStack`          |
+| Error              | `@sometic/core/error`              | Typed errors with stable codes                   |
+| Result             | `@sometic/core/result`             | Explicit success and failure values              |
+| Contracts          | `@sometic/core/contracts`          | Plugin, adapter, and lifecycle types             |
+| Controllable state | `@sometic/core/controllable-state` | Controlled and uncontrolled value ownership      |
+| Async operation    | `@sometic/core/async-operation`    | Pending, success, error, and abort orchestration |
+| Utils              | `@sometic/core/utils`              | Debounce, throttle, abort helpers, safe JSON     |
 
 ## Used by
 
-| Package | How it uses core |
-| --- | --- |
-| [`@sometic/events`](https://www.npmjs.com/package/@sometic/events) | Disposable subscriptions and cleanup |
-| [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) | Errors, utils, disposable store lifecycle |
-| [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling) | Shared contracts for unstyled primitives |
+| Package                                                                          | How it uses core                            |
+| -------------------------------------------------------------------------------- | ------------------------------------------- |
+| [`@sometic/events`](https://www.npmjs.com/package/@sometic/events)               | Disposable subscriptions and cleanup        |
+| [`@sometic/store`](https://www.npmjs.com/package/@sometic/store)                 | Errors, utils, disposable store lifecycle   |
+| [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling)             | Shared contracts for unstyled primitives    |
 | [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility) | Disposable focus, dismiss, announcer layers |
-| [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) | Environment-safe DOM controllers |
-| [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) | Async, abort, and typed error boundaries |
-| [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth) | Session lifecycle and disposable cleanup |
-| [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) | Controllable field state and async submit |
-| [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation) | Result-shaped validation outcomes |
-| Framework adapters (`@sometic/react`, Vue, and siblings) | Thin bindings over core contracts |
+| [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom)                     | Environment-safe DOM controllers            |
+| [`@sometic/http`](https://www.npmjs.com/package/@sometic/http)                   | Async, abort, and typed error boundaries    |
+| [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth)                   | Session lifecycle and disposable cleanup    |
+| [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms)                 | Controllable field state and async submit   |
+| [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation)       | Result-shaped validation outcomes           |
+| Framework adapters (`@sometic/react`, Vue, and siblings)                         | Thin bindings over core contracts           |
 
 ## Install
 
@@ -58,11 +58,7 @@ yarn add @sometic/core
 Controllable state and disposable cleanup:
 
 ```ts
-import {
-    createControllableState,
-    createDisposable,
-    DisposableStack,
-} from "@sometic/core";
+import { createControllableState, createDisposable, DisposableStack } from "@sometic/core";
 
 const value = createControllableState({
     defaultValue: "",
@@ -87,13 +83,16 @@ Async operations with abort-aware concurrency:
 ```ts
 import { createAsyncOperation, isBrowserEnvironment } from "@sometic/core";
 
-const loadUser = createAsyncOperation(async (signal, userId: string) => {
-    const response = await fetch(`/api/users/${userId}`, { signal });
-    if (!response.ok) {
-        throw new Error("request failed");
-    }
-    return response.json() as Promise<{ id: string }>;
-}, { concurrency: "latest" });
+const loadUser = createAsyncOperation(
+    async (signal, userId: string) => {
+        const response = await fetch(`/api/users/${userId}`, { signal });
+        if (!response.ok) {
+            throw new Error("request failed");
+        }
+        return response.json() as Promise<{ id: string }>;
+    },
+    { concurrency: "latest" },
+);
 
 if (isBrowserEnvironment()) {
     await loadUser.execute("42");

@@ -53,19 +53,21 @@ if (reference instanceof Element && floating instanceof Element) {
 Use rects and the default adapter (handy in tests or SSR-shaped code):
 
 ```ts
-import {
-    createDefaultPositioningAdapter,
-    type Rect,
-} from "@sometic/positioning";
+import { createDefaultPositioningAdapter, type Rect } from "@sometic/positioning";
 
 const reference: Rect = { x: 40, y: 80, width: 120, height: 32 };
 const floating: Rect = { x: 0, y: 0, width: 200, height: 96 };
 const adapter = createDefaultPositioningAdapter();
 
-const result = adapter.computePosition(reference, floating, {
-    placement: "top",
-    flip: true,
-}, { width: 1280, height: 720 });
+const result = adapter.computePosition(
+    reference,
+    floating,
+    {
+        placement: "top",
+        flip: true,
+    },
+    { width: 1280, height: 720 },
+);
 
 console.log(result.x, result.y, result.middlewareData.flipped);
 ```

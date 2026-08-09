@@ -31,10 +31,7 @@ yarn add @sometic/adapter-contract
 Assert a manifest claims required capabilities:
 
 ```ts
-import {
-    WAVE_A_MANIFESTS,
-    assertManifestCapabilities,
-} from "@sometic/adapter-contract";
+import { WAVE_A_MANIFESTS, assertManifestCapabilities } from "@sometic/adapter-contract";
 
 const react = WAVE_A_MANIFESTS.find((item) => item.id === "react")!;
 assertManifestCapabilities(react, ["button", "form", "auth"]);

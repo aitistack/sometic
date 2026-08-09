@@ -32,10 +32,7 @@ Store bind + Alpine plugin:
 
 ```ts
 import Alpine from "alpinejs";
-import {
-    createAlpineSometicPlugin,
-    createAlpineStoreBind,
-} from "@sometic/alpine";
+import { createAlpineSometicPlugin, createAlpineStoreBind } from "@sometic/alpine";
 
 const ui = createAlpineStoreBind({ busy: false });
 

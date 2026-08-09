@@ -31,10 +31,7 @@ Run native validators against a value:
 ```ts
 import { email, minLength, required, runValidators } from "@sometic/validation";
 
-const result = await runValidators("user@example.com", [
-    required("Email is required"),
-    email(),
-]);
+const result = await runValidators("user@example.com", [required("Email is required"), email()]);
 
 const password = await runValidators("secret12", [
     required(),

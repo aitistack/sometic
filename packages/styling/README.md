@@ -50,19 +50,12 @@ const attrs = resolveStateAttributes({
 Slots for part styling:
 
 ```ts
-import {
-    createSlotAttributes,
-    defineSlots,
-    pickSlotValue,
-} from "@sometic/styling";
+import { createSlotAttributes, defineSlots, pickSlotValue } from "@sometic/styling";
 
 const slots = defineSlots(["root", "label", "icon"] as const);
 
 const rootAttrs = createSlotAttributes("root");
-const labelClass = pickSlotValue(
-    { root: "field", label: "field__label" },
-    "label",
-);
+const labelClass = pickSlotValue({ root: "field", label: "field__label" }, "label");
 
 console.log(slots, rootAttrs, labelClass);
 ```

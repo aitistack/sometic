@@ -62,11 +62,7 @@ await onSubmit();
 Persist drafts and build FormData for native multipart posts:
 
 ```ts
-import {
-    createDraftController,
-    createMemoryDraftStorage,
-    valuesToFormData,
-} from "@sometic/forms";
+import { createDraftController, createMemoryDraftStorage, valuesToFormData } from "@sometic/forms";
 
 const drafts = createDraftController({
     key: "login-draft",

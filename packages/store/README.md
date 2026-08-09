@@ -49,10 +49,7 @@ store.batch(() => {
 Persist with a memory adapter (swap for `createWebStorageAdapter` in the browser):
 
 ```ts
-import {
-    createMemoryStorage,
-    createPersistentStore,
-} from "@sometic/store/persistent";
+import { createMemoryStorage, createPersistentStore } from "@sometic/store/persistent";
 
 const storage = createMemoryStorage();
 

@@ -29,10 +29,7 @@ yarn add @sometic/accessibility
 Focus trap plus dismissable layer for an overlay:
 
 ```ts
-import {
-    createDismissableLayer,
-    createFocusTrap,
-} from "@sometic/accessibility";
+import { createDismissableLayer, createFocusTrap } from "@sometic/accessibility";
 
 const dialog = document.querySelector<HTMLElement>("#dialog");
 if (!dialog) {
@@ -61,10 +58,7 @@ dismiss.activate();
 Live announcements and keyboard bindings:
 
 ```ts
-import {
-    createKeyboardBindings,
-    createLiveAnnouncer,
-} from "@sometic/accessibility";
+import { createKeyboardBindings, createLiveAnnouncer } from "@sometic/accessibility";
 
 const announcer = createLiveAnnouncer({ politeness: "polite" });
 announcer.announce("Saved");

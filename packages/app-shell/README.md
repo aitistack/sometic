@@ -31,11 +31,7 @@ Add optional peers (`@sometic/head`, `@sometic/theme`, `@sometic/store`, `@somet
 Compose auth + query with session epoch refetch:
 
 ```ts
-import {
-    createAuth,
-    createMemoryAuthStorage,
-    createTestAuthProvider,
-} from "@sometic/auth";
+import { createAuth, createMemoryAuthStorage, createTestAuthProvider } from "@sometic/auth";
 import { createAppShell } from "@sometic/app-shell";
 import { createQueryClient } from "@sometic/query";
 

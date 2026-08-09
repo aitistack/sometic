@@ -31,11 +31,7 @@ yarn add @sometic/htmx htmx.org
 Swap-safe binder root:
 
 ```ts
-import {
-    bindHtmxButton,
-    createHtmxBinderRoot,
-    createHtmxStoreBind,
-} from "@sometic/htmx";
+import { bindHtmxButton, createHtmxBinderRoot, createHtmxStoreBind } from "@sometic/htmx";
 
 const ui = createHtmxStoreBind({ loading: false });
 const root = createHtmxBinderRoot(document.body);

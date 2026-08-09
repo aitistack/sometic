@@ -45,11 +45,7 @@ console.log(files.map((file) => file.path));
 Checksum helpers:
 
 ```ts
-import {
-    checksumContent,
-    createRegistryFile,
-    verifyRegistryChecksums,
-} from "@sometic/registry";
+import { checksumContent, createRegistryFile, verifyRegistryChecksums } from "@sometic/registry";
 
 const file = createRegistryFile("note.ts", "export const ok = true;\n");
 console.log(file.checksum === checksumContent(file.content));

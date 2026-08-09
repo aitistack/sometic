@@ -7,7 +7,7 @@
 | Location                                     | Reason                                                                   |
 | -------------------------------------------- | ------------------------------------------------------------------------ |
 | Parent-brand footers / README attribution    | “Sometic by aitiStack”                                                   |
-| `github.com/aitistack/sometic`              | Repository URL until org move                                            |
+| `github.com/aitistack/sometic`               | Repository URL until org move                                            |
 | `demo@aitistack.dev` playground emails       | Demo identity on parent domain                                           |
 | release history historical reports           | Historical record                                                        |
 | `docs/migrations/*`, consumer migration page | Old→new mapping examples                                                 |
