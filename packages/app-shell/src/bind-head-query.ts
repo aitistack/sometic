@@ -17,7 +17,7 @@ export type BindHeadToQueryOptions<TData> = {
     auth?: AuthController;
 };
 
-export type BindHeadToQueryResult = {
+type BindHeadToQueryResult = {
     dispose: () => void;
 };
 

@@ -1,5 +1,5 @@
 import type { AuthController } from "@sometic/auth";
-import type { QueryClient, QueryKey } from "@sometic/query";
+import type { QueryClient } from "@sometic/query";
 
 export type SessionMutationJob<TVariables = unknown> = {
     id: string;
@@ -8,7 +8,7 @@ export type SessionMutationJob<TVariables = unknown> = {
     rollback?: () => void;
 };
 
-export type SessionMutationQueueOptions = {
+type SessionMutationQueueOptions = {
     getEpoch: () => number;
     onDrop?: (job: SessionMutationJob) => void;
 };
@@ -83,5 +83,3 @@ export function bindMutationQueueToAuth(
         queue.clear();
     });
 }
-
-export type { QueryKey };

@@ -21,7 +21,7 @@ export type BindMutationFormOptions<
     getVariables?: () => TVariables;
 };
 
-export type BindMutationFormResult<TData = unknown> = {
+type BindMutationFormResult<TData = unknown> = {
     submit: () => Promise<TData | undefined>;
     dispose: () => void;
 };

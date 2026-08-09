@@ -46,7 +46,7 @@
             "project": ["src/**/*.ts"]
         },
         "packages/eslint-config": {
-            "entry": ["index.js", "rules/**/*.js"],
+            "entry": ["rules/**/*.js"],
             "project": ["**/*.js"]
         }
     },

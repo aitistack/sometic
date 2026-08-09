@@ -9,7 +9,7 @@ export type BindQueryToAuthOptions = {
     onEpochChange?: (epoch: number) => void;
 };
 
-export type BindQueryToAuthResult = {
+type BindQueryToAuthResult = {
     dispose: () => void;
 };
 

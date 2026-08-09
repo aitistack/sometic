@@ -26,4 +26,5 @@ export {
     dedupeKey,
     joinUrl,
     mergeHeaders,
+    type SafeUrlOptions,
 } from "./url.js";

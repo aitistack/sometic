@@ -8,7 +8,7 @@ export type BindThemeToHeadOptions = {
     themeColorDark?: string;
 };
 
-export type BindThemeToHeadResult = {
+type BindThemeToHeadResult = {
     dispose: () => void;
 };
 
@@ -48,7 +48,7 @@ export function bindThemeToHead(
     };
 }
 
-export type SessionStoreLike = {
+type SessionStoreLike = {
     get?: () => unknown;
     set?: (state: never) => void;
     dispose?: () => void;

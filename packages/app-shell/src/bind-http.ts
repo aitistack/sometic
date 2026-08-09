@@ -18,7 +18,7 @@ export type BindAuthToHttpOptions = {
     ownHttp?: boolean;
 };
 
-export type BindAuthToHttpResult = {
+type BindAuthToHttpResult = {
     http: HttpClient;
     owned: boolean;
     dispose: () => void;
