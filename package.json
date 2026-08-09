@@ -1,6 +1,7 @@
 {
     "name": "sometic-packages",
     "private": true,
+    "version": "0.1.0",
     "packageManager": "pnpm@10.14.0",
     "engines": {
         "node": ">=20.18.0"
