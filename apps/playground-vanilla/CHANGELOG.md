@@ -1,5 +1,28 @@
 # @sometic/playground-vanilla
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [c2f3d2b]
+    - @sometic/accessibility@1.0.2
+    - @sometic/app-shell@1.0.2
+    - @sometic/auth@1.0.2
+    - @sometic/auth-firebase@1.0.2
+    - @sometic/auth-local@1.0.2
+    - @sometic/auth-oidc@1.0.2
+    - @sometic/auth-supabase@1.0.2
+    - @sometic/date-native@1.0.2
+    - @sometic/dom@1.0.2
+    - @sometic/elements@1.0.2
+    - @sometic/forms@1.0.2
+    - @sometic/head@0.0.4
+    - @sometic/http@1.0.2
+    - @sometic/query@1.0.2
+    - @sometic/store@1.0.2
+    - @sometic/theme@1.0.2
+    - @sometic/validation@1.0.2
+
 ## 0.0.2
 
 ### Patch Changes

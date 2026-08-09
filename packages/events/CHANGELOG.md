@@ -1,5 +1,13 @@
 # @sometic/events
 
+## 1.0.2
+
+### Patch Changes
+
+- c2f3d2b: Add docs Copy links on package Install sections. npm cannot host clipboard buttons, so READMEs point at docs install controls.
+- Updated dependencies [c2f3d2b]
+    - @sometic/core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

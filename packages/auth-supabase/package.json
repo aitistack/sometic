@@ -1,6 +1,6 @@
 {
     "name": "@sometic/auth-supabase",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Supabase Auth provider adapter for Sometic.",
     "license": "MIT",
     "type": "module",

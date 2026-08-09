@@ -1,5 +1,11 @@
 # @sometic/registry
 
+## 0.1.2
+
+### Patch Changes
+
+- c2f3d2b: Add docs Copy links on package Install sections. npm cannot host clipboard buttons, so READMEs point at docs install controls.
+
 ## 0.1.1
 
 ### Patch Changes

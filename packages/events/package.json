@@ -1,6 +1,6 @@
 {
     "name": "@sometic/events",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Typed event emitters and subscription helpers for Sometic applications.",
     "license": "MIT",
     "type": "module",

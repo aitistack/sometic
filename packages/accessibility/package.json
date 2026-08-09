@@ -1,6 +1,6 @@
 {
     "name": "@sometic/accessibility",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Focus, keyboard, dismissable and announcement primitives for accessible Sometic UIs.",
     "license": "MIT",
     "type": "module",

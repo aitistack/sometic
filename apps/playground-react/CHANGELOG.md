@@ -1,5 +1,14 @@
 # @sometic/playground-react
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [c2f3d2b]
+    - @sometic/react@1.0.2
+    - @sometic/store@1.0.2
+    - @sometic/theme@1.0.2
+
 ## 0.0.2
 
 ### Patch Changes

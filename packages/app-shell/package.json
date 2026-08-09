@@ -1,6 +1,6 @@
 {
     "name": "@sometic/app-shell",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Sometic System composition: createAppShell with session epoch binds across auth, http, query, head, theme, stores, and forms.",
     "license": "MIT",
     "type": "module",
