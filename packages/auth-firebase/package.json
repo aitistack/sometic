@@ -1,6 +1,6 @@
 {
     "name": "@sometic/auth-firebase",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Firebase Auth provider adapter for Sometic.",
     "license": "MIT",
     "type": "module",
