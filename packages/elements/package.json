@@ -1,6 +1,6 @@
 {
     "name": "@sometic/elements",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Vanilla custom elements powered by Sometic primitive engines.",
     "license": "MIT",
     "type": "module",

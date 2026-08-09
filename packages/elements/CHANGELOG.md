@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- adc1fbd: Fix npm package metadata and consumer READMEs: real GitHub repository and bugs URLs, keywords on every publishable package, and deep npm-facing documentation with install and usage examples.
+- Updated dependencies [adc1fbd]
+    - @sometic/auth@1.0.1
+    - @sometic/date-core@1.0.1
+    - @sometic/date-native@1.0.1
+    - @sometic/dom@1.0.1
+    - @sometic/forms@1.0.1
+    - @sometic/validation@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

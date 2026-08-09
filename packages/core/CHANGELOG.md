@@ -1,5 +1,11 @@
 # @sometic/core
 
+## 1.0.1
+
+### Patch Changes
+
+- adc1fbd: Fix npm package metadata and consumer READMEs: real GitHub repository and bugs URLs, keywords on every publishable package, and deep npm-facing documentation with install and usage examples.
+
 ## 1.0.0
 
 ### Major Changes

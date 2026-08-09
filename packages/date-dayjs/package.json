@@ -1,6 +1,6 @@
 {
     "name": "@sometic/date-dayjs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Day.js date adapter for Sometic.",
     "license": "MIT",
     "type": "module",

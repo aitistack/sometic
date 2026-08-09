@@ -1,6 +1,6 @@
 {
     "name": "@sometic/positioning",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "First-party overlay positioning with flip, shift, and size for Sometic anchored surfaces.",
     "license": "MIT",
     "type": "module",
