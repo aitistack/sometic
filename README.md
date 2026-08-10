@@ -4,7 +4,7 @@
 
 **Sometic** is portable application behavior (`@sometic`): shared controllers, thin adapters for React, Vue, and Web Components. By [AitiStack](https://portfolio.aitistack.com).
 
-Documentation: [https://sometic.aitistack.com](https://sometic.aitistack.com)
+Documentation: [https://sometic.aitistack.com](https://sometic.aitistack.com) (VitePress in `apps/docs`, deployed to GitHub Pages on pushes to `main`).
 
 ## Requirements
 
