@@ -1,3 +1,9 @@
+---
+description: >-
+    Install Sometic packages from npm (@sometic/core, @sometic/react, @sometic/vue,
+    and more). Peer-friendly installs for React, Vue, and vanilla Web Components.
+---
+
 # Installation
 
 Install only the packages you need from the `@sometic` scope.

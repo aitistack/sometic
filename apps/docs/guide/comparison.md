@@ -1,6 +1,13 @@
+---
+description: >-
+    Compare Sometic (@sometic) to Radix, React Aria, Headless UI, MUI, Chakra,
+    and shadcn. Portable application behavior across React, Vue, and Web Components
+    vs React-only UI kits.
+---
+
 # Comparison
 
-How Sometic differs from common alternatives. Choose the tool that matches your constraints.
+How Sometic (`@sometic`) differs from common alternatives. Choose the tool that matches your constraints.
 
 ## The uniqueness test
 

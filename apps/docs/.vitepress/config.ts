@@ -5,7 +5,7 @@ export default defineConfig({
     title: "Sometic",
     titleTemplate: ":title | Sometic",
     description:
-        "Portable application behavior for JavaScript — shared controllers for UI, forms, auth, and HTTP, with thin adapters for React, Vue, and Web Components.",
+        "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: shared controllers for UI, forms, auth, and HTTP, with thin React, Vue, and Web Components adapters.",
     lang: "en-US",
     cleanUrls: true,
     lastUpdated: true,
@@ -116,25 +116,23 @@ export default defineConfig({
         ["link", { rel: "author", href: "/.well-known/security.txt" }],
         ["meta", { property: "og:type", content: "website" }],
         ["meta", { property: "og:site_name", content: "Sometic" }],
-        ["meta", { property: "og:title", content: "Sometic" }],
         [
             "meta",
             {
                 property: "og:description",
                 content:
-                    "Portable application behavior for JavaScript — shared controllers for UI, forms, auth, and HTTP across React, Vue, and Web Components.",
+                    "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
         ["meta", { property: "og:url", content: "https://sometic.aitistack.com" }],
         ["meta", { property: "og:image", content: "https://sometic.aitistack.com/icon.png" }],
         ["meta", { name: "twitter:card", content: "summary" }],
-        ["meta", { name: "twitter:title", content: "Sometic" }],
         [
             "meta",
             {
                 name: "twitter:description",
                 content:
-                    "Portable application behavior for JavaScript — shared controllers for UI, forms, auth, and HTTP across React, Vue, and Web Components.",
+                    "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
         ["meta", { name: "twitter:image", content: "https://sometic.aitistack.com/icon.png" }],
@@ -148,21 +146,43 @@ export default defineConfig({
                         "@type": "Organization",
                         "@id": "https://sometic.aitistack.com/#organization",
                         name: "Sometic",
+                        alternateName: ["@sometic", "Sometic by AitiStack"],
                         url: "https://sometic.aitistack.com",
                         logo: "https://sometic.aitistack.com/icon.png",
+                        sameAs: [
+                            "https://github.com/aitistack/sometic",
+                            "https://www.npmjs.com/org/sometic",
+                        ],
                         parentOrganization: {
                             "@type": "Organization",
                             name: "AitiStack",
+                            url: "https://portfolio.aitistack.com",
                         },
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://sometic.aitistack.com/#website",
+                        name: "Sometic Docs",
+                        url: "https://sometic.aitistack.com",
+                        description:
+                            "Documentation for Sometic, the open-source @sometic TypeScript library for portable UI, forms, auth, and HTTP behavior across JavaScript frameworks.",
+                        publisher: { "@id": "https://sometic.aitistack.com/#organization" },
+                        inLanguage: "en-US",
                     },
                     {
                         "@type": "SoftwareApplication",
                         "@id": "https://sometic.aitistack.com/#software",
                         name: "Sometic",
+                        alternateName: ["@sometic", "Sometic UI", "Sometic React"],
                         applicationCategory: "DeveloperApplication",
+                        applicationSubCategory: "JavaScript library",
                         operatingSystem: "Any",
                         url: "https://sometic.aitistack.com",
                         downloadUrl: "https://www.npmjs.com/org/sometic",
+                        sameAs: [
+                            "https://github.com/aitistack/sometic",
+                            "https://www.npmjs.com/org/sometic",
+                        ],
                         softwareVersion: "0.1.0-beta",
                         license: "https://opensource.org/licenses/MIT",
                         author: { "@id": "https://sometic.aitistack.com/#organization" },
@@ -172,12 +192,34 @@ export default defineConfig({
                             priceCurrency: "USD",
                         },
                         description:
-                            "Portable application behavior for JavaScript — shared controllers for UI, forms, auth, HTTP, query, and document head, with thin adapters for React, Vue, and Web Components.",
+                            "Sometic is an open-source TypeScript / JavaScript library (npm scope @sometic), not a sociogram tool. It provides portable application behavior engines for UI, forms, authentication, HTTP, query, and document head, with thin adapters for React, Vue, and Web Components (sometic-* custom elements).",
+                        featureList: [
+                            "Framework-agnostic behavior controllers",
+                            "React, Vue, and Web Components adapters",
+                            "Forms and validation engines",
+                            "Auth orchestration with optional providers",
+                            "Fetch-first HTTP client with refresh queue",
+                            "Unstyled, design-system friendly APIs",
+                        ],
+                        keywords:
+                            "Sometic, @sometic, TypeScript, React, Vue, Web Components, headless UI, forms, authentication, HTTP client, portable application behavior",
                     },
                 ],
             }),
         ],
     ],
+    transformHead({ pageData }) {
+        const pageTitle =
+            pageData.relativePath === "index.md"
+                ? "Home"
+                : pageData.title?.trim() || "Sometic";
+        const fullTitle =
+            pageTitle === "Sometic" ? "Sometic" : `${pageTitle} | Sometic`;
+        return [
+            ["meta", { property: "og:title", content: fullTitle }],
+            ["meta", { name: "twitter:title", content: fullTitle }],
+        ];
+    },
     themeConfig: {
         logo: {
             light: "/icon.png",

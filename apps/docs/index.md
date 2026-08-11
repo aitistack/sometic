@@ -1,5 +1,10 @@
 ---
 layout: home
+title: Home
+description: >-
+    Sometic is an open-source TypeScript library (npm @sometic) by AitiStack:
+    portable application behavior for UI, forms, auth, and HTTP with thin
+    React, Vue, and Web Components adapters. Unstyled engines. Your design system.
 hero:
     text: One behavior model for UI, forms, auth, and HTTP across every JavaScript stack.
     tagline: Shared controllers power the app. Thin adapters for React, Vue, and Web Components. Your design system stays yours. Swap the view layer without rewriting core logic.
@@ -7,7 +12,7 @@ features:
     - title: Same controller, any view
       details: React, Vue, and sometic-* custom elements are thin shells over one engine. Behavior is portable; the framework is not the source of truth.
     - title: Auth and HTTP as first-class
-      details: Session orchestration, token refresh queues, and fetch interceptors ship beside UI — not bolted on later, not locked to one SDK.
+      details: Session orchestration, token refresh queues, and fetch interceptors ship beside UI, not bolted on later, not locked to one SDK.
     - title: Unstyled on purpose
       details: Zero forced theme. Slots, data-state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS.
     - title: Accessible by construction
