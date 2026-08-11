@@ -27,25 +27,8 @@ This page is the services-hub summary. Full guide: [HTTP utility](/utilities/htt
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/http" />
 
-```bash [npm]
-npm install @sometic/http
-```
-
-```bash [pnpm]
-pnpm add @sometic/http
-```
-
-```bash [yarn]
-yarn add @sometic/http
-```
-
-```bash [bun]
-bun add @sometic/http
-```
-
-:::
 
 Optional peer for auth interceptors: `@sometic/auth`.
 

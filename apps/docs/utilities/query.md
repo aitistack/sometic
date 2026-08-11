@@ -34,25 +34,8 @@ Keep server / cache data here, **not** in `@sometic/store`. On logout / user swi
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/query" />
 
-```bash [npm]
-npm install @sometic/query
-```
-
-```bash [pnpm]
-pnpm add @sometic/query
-```
-
-```bash [yarn]
-yarn add @sometic/query
-```
-
-```bash [bun]
-bun add @sometic/query
-```
-
-:::
 
 Optional HTTP peer and React adapter:
 

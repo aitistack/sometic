@@ -12,9 +12,9 @@ Place in the ecosystem: depends on [`@sometic/core`](https://www.npmjs.com/packa
 
 ## Install
 
-One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
 
-[Copy install commands on the docs](https://sometic.aitistack.com/authentication/)
+[Open install commands with Copy](https://sometic.aitistack.com/authentication/)
 
 ```bash
 pnpm add @sometic/auth

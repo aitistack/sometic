@@ -19,49 +19,15 @@ Theme is a workspace package with declared dependencies on `@sometic/core`, `@so
 
 ## Install
 
-::: code-group
+<InstallCommands packages="@sometic/theme" />
 
-```bash [npm]
-npm install @sometic/theme
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme
-```
-
-```bash [yarn]
-yarn add @sometic/theme
-```
-
-```bash [bun]
-bun add @sometic/theme
-```
-
-:::
 
 ### With persistence helpers
 
 If your app constructs storage adapters directly:
 
-::: code-group
+<InstallCommands packages="@sometic/theme @sometic/store" />
 
-```bash [npm]
-npm install @sometic/theme @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/theme @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/theme @sometic/store
-```
-
-:::
 
 ## Usage
 

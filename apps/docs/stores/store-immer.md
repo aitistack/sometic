@@ -28,25 +28,8 @@ State must be an `object` (Immer's `produce` constraint). You still get `get`, `
 
 Install the adapter **and** the peer:
 
-::: code-group
+<InstallCommands packages="@sometic/store-immer immer @sometic/store" />
 
-```bash [npm]
-npm install @sometic/store-immer immer @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/store-immer immer @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/store-immer immer @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/store-immer immer @sometic/store
-```
-
-:::
 
 `@sometic/store` is also a peer (`>=0.0.1`). `immer` must satisfy `^10.0.0`.
 

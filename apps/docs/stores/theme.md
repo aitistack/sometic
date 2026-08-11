@@ -26,25 +26,8 @@ A second internal store derives the public `ThemeSnapshot` (tokens, CSS variable
 
 Theme depends on store already. Install the theme package (and store if you call persistence APIs yourself):
 
-::: code-group
+<InstallCommands packages="@sometic/theme @sometic/store" />
 
-```bash [npm]
-npm install @sometic/theme @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/theme @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/theme @sometic/store
-```
-
-:::
 
 ## How persistence is wired
 

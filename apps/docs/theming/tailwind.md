@@ -25,25 +25,8 @@ Recommended pattern:
 
 Install theme (and Tailwind in your app as usual):
 
-::: code-group
+<InstallCommands packages="@sometic/theme" />
 
-```bash [npm]
-npm install @sometic/theme
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme
-```
-
-```bash [yarn]
-yarn add @sometic/theme
-```
-
-```bash [bun]
-bun add @sometic/theme
-```
-
-:::
 
 Tailwind remains your dependency (`tailwindcss`, PostCSS, etc.). Sometic never takes a runtime dependency on it.
 

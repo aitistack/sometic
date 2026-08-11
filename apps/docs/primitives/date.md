@@ -29,51 +29,18 @@ Date **input** controllers live in `@sometic/dom/input-date`. Calendar / DatePic
 
 Default (native):
 
-::: code-group
+<InstallCommands packages="@sometic/date-core @sometic/date-native" />
 
-```bash [npm]
-npm install @sometic/date-core @sometic/date-native
-```
-
-```bash [pnpm]
-pnpm add @sometic/date-core @sometic/date-native
-```
-
-```bash [yarn]
-yarn add @sometic/date-core @sometic/date-native
-```
-
-```bash [bun]
-bun add @sometic/date-core @sometic/date-native
-```
-
-:::
 
 Optional peers:
 
-::: code-group
+Day.js:
 
-```bash [npm]
-npm install @sometic/date-dayjs dayjs
-npm install @sometic/date-fns date-fns
-```
+<InstallCommands packages="@sometic/date-dayjs dayjs" />
 
-```bash [pnpm]
-pnpm add @sometic/date-dayjs dayjs
-pnpm add @sometic/date-fns date-fns
-```
+date-fns:
 
-```bash [yarn]
-yarn add @sometic/date-dayjs dayjs
-yarn add @sometic/date-fns date-fns
-```
-
-```bash [bun]
-bun add @sometic/date-dayjs dayjs
-bun add @sometic/date-fns date-fns
-```
-
-:::
+<InstallCommands packages="@sometic/date-fns date-fns" />
 
 ## Usage
 

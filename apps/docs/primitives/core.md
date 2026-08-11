@@ -31,25 +31,8 @@ Shared behavior that must stay small, SSR-safe, and free of framework imports: c
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/core" />
 
-```bash [npm]
-npm install @sometic/core
-```
-
-```bash [pnpm]
-pnpm add @sometic/core
-```
-
-```bash [yarn]
-yarn add @sometic/core
-```
-
-```bash [bun]
-bun add @sometic/core
-```
-
-:::
 
 Peer-free. No browser globals are touched at import time.
 

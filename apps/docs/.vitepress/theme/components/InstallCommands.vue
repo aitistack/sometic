@@ -110,22 +110,23 @@ async function copyCommand(manager: string): Promise<void> {
 
 .sometic-install-commands__copy {
     appearance: none;
-    border: 1px solid var(--vp-c-divider);
+    border: 1px solid var(--sometic-brand, var(--vp-c-brand-1));
     border-radius: 999px;
-    background: var(--vp-c-bg);
-    color: var(--vp-c-text-1);
+    background: var(--sometic-brand, var(--vp-c-brand-1));
+    color: #fff;
     font: inherit;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1;
-    padding: 0.4rem 0.75rem;
+    padding: 0.45rem 0.85rem;
     cursor: pointer;
 }
 
 .sometic-install-commands__copy:hover,
 .sometic-install-commands__copy:focus-visible {
-    border-color: var(--vp-c-brand-1);
-    color: var(--vp-c-brand-1);
+    background: var(--sometic-brand-hover, var(--vp-c-brand-2));
+    border-color: var(--sometic-brand-hover, var(--vp-c-brand-2));
+    color: #fff;
     outline: none;
 }
 

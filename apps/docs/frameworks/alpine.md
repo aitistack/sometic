@@ -25,25 +25,8 @@ Prefer [Elements](/frameworks/vanilla) or Wave A frameworks when you need the fu
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/alpine @sometic/store" />
 
-```bash [npm]
-npm install @sometic/alpine @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/alpine @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/alpine @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/alpine @sometic/store
-```
-
-:::
 
 ## API surface
 

@@ -25,25 +25,8 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/solid @sometic/store" />
 
-```bash [npm]
-npm install @sometic/solid @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/solid @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/solid @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/solid @sometic/store
-```
-
-:::
 
 ## API surface
 

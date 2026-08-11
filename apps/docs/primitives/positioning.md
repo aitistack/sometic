@@ -26,25 +26,8 @@ A Floating UI adapter remains a future opt-in (see [Package index](/api/packages
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/positioning" />
 
-```bash [npm]
-npm install @sometic/positioning
-```
-
-```bash [pnpm]
-pnpm add @sometic/positioning
-```
-
-```bash [yarn]
-yarn add @sometic/positioning
-```
-
-```bash [bun]
-bun add @sometic/positioning
-```
-
-:::
 
 ## Usage
 

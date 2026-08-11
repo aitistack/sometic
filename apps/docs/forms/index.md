@@ -10,25 +10,8 @@ Framework-independent form engine (`@sometic/forms`) paired with `@sometic/valid
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/forms @sometic/validation" />
 
-```bash [npm]
-npm install @sometic/forms @sometic/validation
-```
-
-```bash [pnpm]
-pnpm add @sometic/forms @sometic/validation
-```
-
-```bash [yarn]
-yarn add @sometic/forms @sometic/validation
-```
-
-```bash [bun]
-bun add @sometic/forms @sometic/validation
-```
-
-:::
 
 Framework UI:
 

@@ -26,25 +26,8 @@ Building overlays, dialogs, popovers, tooltips, toasts, or any interactive surfa
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/accessibility" />
 
-```bash [npm]
-npm install @sometic/accessibility
-```
-
-```bash [pnpm]
-pnpm add @sometic/accessibility
-```
-
-```bash [yarn]
-yarn add @sometic/accessibility
-```
-
-```bash [bun]
-bun add @sometic/accessibility
-```
-
-:::
 
 ## Usage
 

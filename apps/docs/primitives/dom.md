@@ -28,25 +28,8 @@ Early stubs described this package as “portal / scroll lock only.” Those hel
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/dom" />
 
-```bash [npm]
-npm install @sometic/dom
-```
-
-```bash [pnpm]
-pnpm add @sometic/dom
-```
-
-```bash [yarn]
-yarn add @sometic/dom
-```
-
-```bash [bun]
-bun add @sometic/dom
-```
-
-:::
 
 Depends on foundation packages such as core, styling, accessibility, positioning, and date-core as needed by each subpath. Prefer **subpath imports**.
 

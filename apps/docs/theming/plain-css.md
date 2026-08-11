@@ -25,25 +25,8 @@ Your CSS references those hooks. No Sometic CSS file is required (presets are to
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/theme" />
 
-```bash [npm]
-npm install @sometic/theme
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme
-```
-
-```bash [yarn]
-yarn add @sometic/theme
-```
-
-```bash [bun]
-bun add @sometic/theme
-```
-
-:::
 
 ## Usage
 
