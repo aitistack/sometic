@@ -29,25 +29,8 @@
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/events" />
 
-```bash [npm]
-npm install @sometic/events
-```
-
-```bash [pnpm]
-pnpm add @sometic/events
-```
-
-```bash [yarn]
-yarn add @sometic/events
-```
-
-```bash [bun]
-bun add @sometic/events
-```
-
-:::
 
 Depends on `@sometic/core` for the `Disposable` contract. No browser globals at import time.
 

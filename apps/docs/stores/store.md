@@ -24,25 +24,8 @@ Shared application or engine state that must work across frameworks without pull
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/store" />
 
-```bash [npm]
-npm install @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/store
-```
-
-:::
 
 Peer-free core. Depends on `@sometic/core` for disposable, error, and JSON helpers used by persistence.
 

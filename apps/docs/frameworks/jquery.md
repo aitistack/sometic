@@ -26,25 +26,8 @@ Prefer Wave A ([React](/frameworks/react), [Vue](/frameworks/vue), [Elements](/f
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/jquery jquery" />
 
-```bash [npm]
-npm install @sometic/jquery jquery
-```
-
-```bash [pnpm]
-pnpm add @sometic/jquery jquery
-```
-
-```bash [yarn]
-yarn add @sometic/jquery jquery
-```
-
-```bash [bun]
-bun add @sometic/jquery jquery
-```
-
-:::
 
 ## API surface
 

@@ -23,25 +23,8 @@ Two complementary approaches:
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/theme" />
 
-```bash [npm]
-npm install @sometic/theme
-```
-
-```bash [pnpm]
-pnpm add @sometic/theme
-```
-
-```bash [yarn]
-yarn add @sometic/theme
-```
-
-```bash [bun]
-bun add @sometic/theme
-```
-
-:::
 
 Install Bootstrap yourself (`bootstrap` package, CDN, or Sass pipeline). Sometic never lists Bootstrap as a dependency.
 

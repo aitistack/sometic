@@ -27,25 +27,8 @@ This page is the services-hub summary. Full guides live under [Authentication](/
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/auth" />
 
-```bash [npm]
-npm install @sometic/auth
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth
-```
-
-```bash [yarn]
-yarn add @sometic/auth
-```
-
-```bash [bun]
-bun add @sometic/auth
-```
-
-:::
 
 Add one provider package as needed: `@sometic/auth-local`, `@sometic/auth-firebase` (+ optional peer `firebase`), `@sometic/auth-supabase` (+ optional peer `@supabase/supabase-js`), or `@sometic/auth-oidc`.
 

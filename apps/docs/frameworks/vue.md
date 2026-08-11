@@ -19,25 +19,8 @@ Wave A Vue 3 adapters for Sometic. Thin SFC-friendly wrappers over the same engi
 
 Peer: `vue` `^3.5`.
 
-::: code-group
+<InstallCommands packages="@sometic/vue" />
 
-```bash [npm]
-npm install @sometic/vue
-```
-
-```bash [pnpm]
-pnpm add @sometic/vue
-```
-
-```bash [yarn]
-yarn add @sometic/vue
-```
-
-```bash [bun]
-bun add @sometic/vue
-```
-
-:::
 
 ## Import map
 

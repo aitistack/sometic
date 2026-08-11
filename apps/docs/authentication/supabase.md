@@ -15,25 +15,8 @@
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/auth @sometic/auth-supabase @supabase/supabase-js" />
 
-```bash [npm]
-npm install @sometic/auth @sometic/auth-supabase @supabase/supabase-js
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth @sometic/auth-supabase @supabase/supabase-js
-```
-
-```bash [yarn]
-yarn add @sometic/auth @sometic/auth-supabase @supabase/supabase-js
-```
-
-```bash [bun]
-bun add @sometic/auth @sometic/auth-supabase @supabase/supabase-js
-```
-
-:::
 
 Peer: `@supabase/supabase-js` ^2 (optional peer metadata; install in the consuming app).
 

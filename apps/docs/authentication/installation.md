@@ -2,27 +2,11 @@
 
 Install the provider-independent core first. Add exactly one production provider package for your backend. Provider SDKs (Firebase, Supabase) are optional peers on those adapters, not dependencies of `@sometic/auth`.
 
+Each block has a **Copy** button.
+
 ## Core
 
-::: code-group
-
-```bash [npm]
-npm install @sometic/auth
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth
-```
-
-```bash [yarn]
-yarn add @sometic/auth
-```
-
-```bash [bun]
-bun add @sometic/auth
-```
-
-:::
+<InstallCommands packages="@sometic/auth" />
 
 `@sometic/auth` depends on `@sometic/core` only. No Firebase, Supabase, or OIDC SDK is pulled transitively.
 
@@ -36,25 +20,21 @@ bun add @sometic/auth
 | Generic IdP (Auth0, Keycloak, Cognito OIDC, …) | `@sometic/auth-oidc`              | none (uses `fetch` + PKCE)       |
 | Unit / integration tests                       | built-in `createTestAuthProvider` | none                             |
 
-::: code-group
+### Local REST
 
-```bash [local]
-pnpm add @sometic/auth-local
-```
+<InstallCommands packages="@sometic/auth-local" />
 
-```bash [firebase]
-pnpm add @sometic/auth-firebase firebase
-```
+### Firebase
 
-```bash [supabase]
-pnpm add @sometic/auth-supabase @supabase/supabase-js
-```
+<InstallCommands packages="@sometic/auth-firebase firebase" />
 
-```bash [oidc]
-pnpm add @sometic/auth-oidc
-```
+### Supabase
 
-:::
+<InstallCommands packages="@sometic/auth-supabase @supabase/supabase-js" />
+
+### OIDC
+
+<InstallCommands packages="@sometic/auth-oidc" />
 
 Firebase and Supabase peers are marked optional so the adapter packages can install without forcing every monorepo consumer to take the SDK. Your app must still install the peer when you use that adapter at runtime.
 
@@ -62,25 +42,7 @@ Firebase and Supabase peers are marked optional so the adapter packages can inst
 
 For Bearer attachment and 401 refresh/replay:
 
-::: code-group
-
-```bash [npm]
-npm install @sometic/http
-```
-
-```bash [pnpm]
-pnpm add @sometic/http
-```
-
-```bash [yarn]
-yarn add @sometic/http
-```
-
-```bash [bun]
-bun add @sometic/http
-```
-
-:::
+<InstallCommands packages="@sometic/http" />
 
 `@sometic/auth` is an optional peer of `@sometic/http`. Import `@sometic/http/auth` only when you wire `createAuthInterceptor`. See [Interceptors](/authentication/interceptors) and [HTTP](/utilities/http).
 
@@ -88,11 +50,13 @@ bun add @sometic/http
 
 Wave A surfaces:
 
-```bash
-pnpm add @sometic/react   # /auth subpath
-pnpm add @sometic/vue     # /auth subpath
-pnpm add @sometic/elements
-```
+<InstallCommands packages="@sometic/react" />
+
+<InstallCommands packages="@sometic/vue" />
+
+<InstallCommands packages="@sometic/elements" />
+
+React and Vue expose auth on `/auth` subpaths.
 
 ## Verify imports
 

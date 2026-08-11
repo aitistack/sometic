@@ -15,25 +15,8 @@
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/auth @sometic/auth-local" />
 
-```bash [npm]
-npm install @sometic/auth @sometic/auth-local
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth @sometic/auth-local
-```
-
-```bash [yarn]
-yarn add @sometic/auth @sometic/auth-local
-```
-
-```bash [bun]
-bun add @sometic/auth @sometic/auth-local
-```
-
-:::
 
 No optional peer SDK.
 

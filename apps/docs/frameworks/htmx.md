@@ -25,25 +25,8 @@ Prefer [Elements](/frameworks/vanilla) or Wave A when you need forms, overlays, 
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/htmx" />
 
-```bash [npm]
-npm install @sometic/htmx
-```
-
-```bash [pnpm]
-pnpm add @sometic/htmx
-```
-
-```bash [yarn]
-yarn add @sometic/htmx
-```
-
-```bash [bun]
-bun add @sometic/htmx
-```
-
-:::
 
 Install `htmx.org` in the page when you rely on HTMX events. The peer is optional so the bind helpers can load in tests without HTMX.
 

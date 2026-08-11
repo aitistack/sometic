@@ -12,9 +12,9 @@ In the ecosystem this package is tooling infrastructure next to the CLI, not a r
 
 ## Install
 
-One-click **Copy** controls (npm package pages cannot host clipboard buttons):
+**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
 
-[Copy install commands on the docs](https://sometic.aitistack.com/guide/installation)
+[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
 
 Typically pulled in by `@sometic/cli`. Direct install for tooling:
 

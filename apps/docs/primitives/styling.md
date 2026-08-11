@@ -25,25 +25,8 @@ Building headless or lightly styled components that must work with the consumerâ
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/styling" />
 
-```bash [npm]
-npm install @sometic/styling
-```
-
-```bash [pnpm]
-pnpm add @sometic/styling
-```
-
-```bash [yarn]
-yarn add @sometic/styling
-```
-
-```bash [bun]
-bun add @sometic/styling
-```
-
-:::
 
 ## Usage
 

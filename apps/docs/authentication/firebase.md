@@ -15,25 +15,8 @@
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/auth @sometic/auth-firebase firebase" />
 
-```bash [npm]
-npm install @sometic/auth @sometic/auth-firebase firebase
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth @sometic/auth-firebase firebase
-```
-
-```bash [yarn]
-yarn add @sometic/auth @sometic/auth-firebase firebase
-```
-
-```bash [bun]
-bun add @sometic/auth @sometic/auth-firebase firebase
-```
-
-:::
 
 Peer range: `firebase` ^10 || ^11 || ^12 (optional peer metadata; install it in the app that imports the adapter).
 

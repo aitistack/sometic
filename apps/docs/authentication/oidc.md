@@ -15,25 +15,8 @@
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/auth @sometic/auth-oidc" />
 
-```bash [npm]
-npm install @sometic/auth @sometic/auth-oidc
-```
-
-```bash [pnpm]
-pnpm add @sometic/auth @sometic/auth-oidc
-```
-
-```bash [yarn]
-yarn add @sometic/auth @sometic/auth-oidc
-```
-
-```bash [bun]
-bun add @sometic/auth @sometic/auth-oidc
-```
-
-:::
 
 No optional peer SDK.
 

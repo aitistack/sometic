@@ -35,25 +35,8 @@ Shared HTTP behavior across Vanilla, React, and Vue without pulling Axios into e
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/http" />
 
-```bash [npm]
-npm install @sometic/http
-```
-
-```bash [pnpm]
-pnpm add @sometic/http
-```
-
-```bash [yarn]
-yarn add @sometic/http
-```
-
-```bash [bun]
-bun add @sometic/http
-```
-
-:::
 
 For auth interceptors also install `@sometic/auth` (optional peer):
 

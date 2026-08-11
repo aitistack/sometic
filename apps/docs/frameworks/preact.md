@@ -26,25 +26,8 @@ Prefer `@sometic/react` when you run React, or [Elements](/frameworks/vanilla) f
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/preact @sometic/store" />
 
-```bash [npm]
-npm install @sometic/preact @sometic/store
-```
-
-```bash [pnpm]
-pnpm add @sometic/preact @sometic/store
-```
-
-```bash [yarn]
-yarn add @sometic/preact @sometic/store
-```
-
-```bash [bun]
-bun add @sometic/preact @sometic/store
-```
-
-:::
 
 ## API surface
 

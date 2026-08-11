@@ -24,21 +24,15 @@ Use `@sometic/head/seo` for page/OG/Twitter/canonical/hreflang/JSON-LD patches, 
 
 ## Installation
 
-```bash
-pnpm add @sometic/head
-```
+<InstallCommands packages="@sometic/head" />
 
 React adapter (peer):
 
-```bash
-pnpm add @sometic/react @sometic/head
-```
+<InstallCommands packages="@sometic/react @sometic/head" />
 
 Vue adapter (peer):
 
-```bash
-pnpm add @sometic/vue @sometic/head
-```
+<InstallCommands packages="@sometic/vue @sometic/head" />
 
 ## Usage
 

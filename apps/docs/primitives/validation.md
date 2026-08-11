@@ -31,25 +31,8 @@ Use it alone for value checks, or with [`@sometic/forms`](/forms/) for form-wide
 
 ## Installation
 
-::: code-group
+<InstallCommands packages="@sometic/validation" />
 
-```bash [npm]
-npm install @sometic/validation
-```
-
-```bash [pnpm]
-pnpm add @sometic/validation
-```
-
-```bash [yarn]
-yarn add @sometic/validation
-```
-
-```bash [bun]
-bun add @sometic/validation
-```
-
-:::
 
 ## Usage
 

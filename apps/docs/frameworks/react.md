@@ -19,25 +19,8 @@ Wave A React adapters for Sometic. Thin wrappers over shared engines (`@sometic/
 
 Peer: `react` `^18 || ^19`.
 
-::: code-group
+<InstallCommands packages="@sometic/react" />
 
-```bash [npm]
-npm install @sometic/react
-```
-
-```bash [pnpm]
-pnpm add @sometic/react
-```
-
-```bash [yarn]
-yarn add @sometic/react
-```
-
-```bash [bun]
-bun add @sometic/react
-```
-
-:::
 
 Add foundation packages as needed (`@sometic/theme`, `@sometic/store`, `@sometic/auth`, …). Workspace dependencies of `@sometic/react` install transitively when using a package manager that hoists correctly; pin peers explicitly in apps.
 
