@@ -4,6 +4,8 @@ Thanks for helping improve Sometic. Changes land through pull requests with CI a
 
 Full guide: **[Contributing](https://sometic.aitistack.com/guide/contributing)** (or `/guide/contributing` when running the docs site locally).
 
+Canonical product docs are the VitePress site at [https://sometic.aitistack.com](https://sometic.aitistack.com). The GitHub Wiki is intentionally unused; do not enable it or add Wiki links.
+
 ## Requirements
 
 - Node.js `>=20.18.0`
