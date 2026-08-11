@@ -1,42 +1,85 @@
-# Sometic Packages
+# Sometic
 
 > One behavior model for UI, forms, auth, HTTP, and document head across every JavaScript stack. Your styling system.
 
-**Sometic** is portable application behavior (`@sometic`): shared controllers, thin adapters for React, Vue, and Web Components. By [AitiStack](https://portfolio.aitistack.com).
+**Sometic** is a portable application behavior system. Shared controllers power the app; thin adapters give you React, Vue, and `sometic-*` custom elements. Styling stays yours: slots, state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS.
 
-Documentation: [https://sometic.aitistack.com](https://sometic.aitistack.com) (VitePress in `apps/docs`, deployed to GitHub Pages on pushes to `main`).
+By [AitiStack](https://portfolio.aitistack.com).
 
-## Requirements
+**Docs:** [https://sometic.aitistack.com](https://sometic.aitistack.com)
 
-- Node.js `>=20.18.0`
-- pnpm `10.14.0` (see `packageManager` field)
+## Install
 
-## Setup
+Pick the stack you ship. Prefer [subpath imports](https://sometic.aitistack.com/guide/installation) so you only pull what you use.
 
-```bash
-pnpm install
-pnpm build
-pnpm test
-pnpm docs:dev
-pnpm playground:vanilla
-```
-
-## Install (consumers)
+### React
 
 ```bash
-pnpm add @sometic/react @sometic/dom
+pnpm add @sometic/react @sometic/core @sometic/theme
 ```
 
-Also: `npm install`, `yarn add`, `bun add` with the same package names. Prefer subpath imports (`@sometic/react/button`, `@sometic/http`, `@sometic/head`).
+```bash
+npm install @sometic/react @sometic/core @sometic/theme
+```
 
-## Workspace layout
+```bash
+yarn add @sometic/react @sometic/core @sometic/theme
+```
 
-- `packages/` — publishable libraries
-- `apps/docs` — consumer VitePress documentation
-- `apps/playground-vanilla` — interactive demos
-- `tooling/` — shared TypeScript, build, test, and release helpers
-- `docs/architecture` · `docs/decisions` — public architecture and ADRs
+### Vue
+
+```bash
+pnpm add @sometic/vue @sometic/core @sometic/theme
+```
+
+### Vanilla / Web Components
+
+```bash
+pnpm add @sometic/elements @sometic/theme
+```
+
+Copy-ready install blocks for every package live on the [Installation](https://sometic.aitistack.com/guide/installation) page.
+
+## Quick start (React)
+
+```tsx
+import { Button } from "@sometic/react/button";
+
+export function SaveAction() {
+    return (
+        <Button type="button" onClick={() => {}}>
+            Save
+        </Button>
+    );
+}
+```
+
+More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction](https://sometic.aitistack.com/guide/introduction) and component guides.
+
+## What you get
+
+| Area | Examples |
+| ---- | -------- |
+| UI & forms | Button family, fields, selection, overlays, tabs, accordion, progress |
+| Application | Forms engine, auth orchestration, HTTP client with refresh queue, query, document head |
+| Adapters | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`) |
+| Styling | Unstyled by default; theme tokens optional via `@sometic/theme` |
+
+Honest beta inventory: [What’s included](https://sometic.aitistack.com/guide/whats-included). Why this vs alternatives: [Comparison](https://sometic.aitistack.com/guide/comparison).
+
+## Learn more
+
+- [Introduction](https://sometic.aitistack.com/guide/introduction)
+- [Architecture](https://sometic.aitistack.com/concepts/architecture)
+- [Styling contract](https://sometic.aitistack.com/guide/styling)
+- [Authentication](https://sometic.aitistack.com/authentication/)
+- [HTTP](https://sometic.aitistack.com/utilities/http)
+- [Components](https://sometic.aitistack.com/components/)
+
+## License
+
+MIT. See [LICENSE](./LICENSE).
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) and [https://sometic.aitistack.com/guide/contributing](https://sometic.aitistack.com/guide/contributing).
+Want to work on the monorepo? See [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Contributing guide](https://sometic.aitistack.com/guide/contributing).

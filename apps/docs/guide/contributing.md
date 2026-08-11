@@ -1,6 +1,48 @@
 # Contributing
 
-Sometic is open source under MIT. Contributions are welcome via GitHub pull requests.
+Sometic is open source under MIT. Contributions are welcome via GitHub pull requests. Pushes to `main` are restricted; changes land through PRs with required checks and approval.
+
+## Requirements
+
+- Node.js `>=20.18.0`
+- pnpm `10.14.0` (see the repository root `packageManager` field)
+
+## Setup
+
+```bash
+git clone https://github.com/aitistack/sometic.git
+cd sometic
+pnpm install
+pnpm build
+```
+
+## Common commands
+
+| Command | Purpose |
+| ------- | ------- |
+| `pnpm build` | Build packages (Turbo) |
+| `pnpm lint` | Lint |
+| `pnpm typecheck` | Typecheck |
+| `pnpm test` | Unit / package tests |
+| `pnpm test:coverage` | Coverage |
+| `pnpm test:e2e` | Playwright e2e |
+| `pnpm size` | Bundle size budgets |
+| `pnpm packages:validate` | Package metadata / export checks |
+| `pnpm docs:dev` | Docs site (VitePress) |
+| `pnpm docs:build` | Build docs |
+| `pnpm docs:check` | Docs validation |
+| `pnpm playground:vanilla` | Vanilla / Web Components playground → http://127.0.0.1:5190 |
+| `pnpm playground:react` | React playground |
+| `pnpm playground:vue` | Vue playground |
+| `pnpm format` / `pnpm format:check` | Prettier |
+| `pnpm changeset` | Add a Changeset for publishable changes |
+| `pnpm changeset:status` | Changeset status |
+
+Local quality gate:
+
+```bash
+pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size && pnpm packages:validate
+```
 
 ## Before you start
 
@@ -13,11 +55,10 @@ Sometic is open source under MIT. Contributions are welcome via GitHub pull requ
 1. Fork the repository (or branch, if you have write access)
 2. Create a branch from `main`
 3. Implement with tests and docs (FAQ/comparison for public modules)
-4. Run the local gate: `pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size && pnpm packages:validate`
-5. Add a Changeset for publishable package changes: `pnpm changeset`
-6. Open a pull request and wait for CI + maintainer review
-
-Pushes to `main` are restricted. Changes land through PRs with required checks and approval.
+4. Add playground coverage for new interactive / browser-visible surfaces
+5. Run the local quality gate above
+6. Add a Changeset for publishable package changes: `pnpm changeset`
+7. Open a pull request and wait for CI + maintainer review
 
 ## What we look for
 
