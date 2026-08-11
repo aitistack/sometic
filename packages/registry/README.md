@@ -12,10 +12,6 @@ In the ecosystem this package is tooling infrastructure next to the CLI, not a r
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Typically pulled in by `@sometic/cli`. Direct install for tooling:
 
 ```bash

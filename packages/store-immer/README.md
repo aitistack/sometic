@@ -12,10 +12,6 @@ In the ecosystem, install this only when Immer is already (or will be) a peer in
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 ```bash
 pnpm add @sometic/store-immer @sometic/store immer
 ```

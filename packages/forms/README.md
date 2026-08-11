@@ -12,10 +12,6 @@ This package sits on [`@sometic/core`](https://www.npmjs.com/package/@sometic/co
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/forms/)
-
 ```bash
 pnpm add @sometic/forms
 ```

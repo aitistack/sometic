@@ -2,8 +2,6 @@
 
 Install the provider-independent core first. Add exactly one production provider package for your backend. Provider SDKs (Firebase, Supabase) are optional peers on those adapters, not dependencies of `@sometic/auth`.
 
-Each block has a **Copy** button.
-
 ## Core
 
 <InstallCommands packages="@sometic/auth" />

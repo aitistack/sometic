@@ -12,10 +12,6 @@ Works with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@so
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 ```bash
 pnpm add @sometic/auth-oidc @sometic/auth
 ```
