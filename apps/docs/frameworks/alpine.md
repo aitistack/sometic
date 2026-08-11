@@ -27,7 +27,6 @@ Prefer [Elements](/frameworks/vanilla) or Wave A frameworks when you need the fu
 
 <InstallCommands packages="@sometic/alpine @sometic/store" />
 
-
 ## API surface
 
 ```ts

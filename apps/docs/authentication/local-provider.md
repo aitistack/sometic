@@ -17,7 +17,6 @@
 
 <InstallCommands packages="@sometic/auth @sometic/auth-local" />
 
-
 No optional peer SDK.
 
 ## Usage

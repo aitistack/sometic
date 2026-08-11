@@ -12,7 +12,6 @@ Framework-independent form engine (`@sometic/forms`) paired with `@sometic/valid
 
 <InstallCommands packages="@sometic/forms @sometic/validation" />
 
-
 Framework UI:
 
 ```bash

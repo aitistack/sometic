@@ -17,7 +17,6 @@
 
 <InstallCommands packages="@sometic/auth @sometic/auth-firebase firebase" />
 
-
 Peer range: `firebase` ^10 || ^11 || ^12 (optional peer metadata; install it in the app that imports the adapter).
 
 ## Usage

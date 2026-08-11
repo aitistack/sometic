@@ -27,7 +27,6 @@ Building headless or lightly styled components that must work with the consumerâ
 
 <InstallCommands packages="@sometic/styling" />
 
-
 ## Usage
 
 ### Resolve styleable layers

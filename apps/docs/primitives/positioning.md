@@ -28,7 +28,6 @@ A Floating UI adapter remains a future opt-in (see [Package index](/api/packages
 
 <InstallCommands packages="@sometic/positioning" />
 
-
 ## Usage
 
 ::: code-group

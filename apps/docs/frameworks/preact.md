@@ -28,7 +28,6 @@ Prefer `@sometic/react` when you run React, or [Elements](/frameworks/vanilla) f
 
 <InstallCommands packages="@sometic/preact @sometic/store" />
 
-
 ## API surface
 
 ```ts

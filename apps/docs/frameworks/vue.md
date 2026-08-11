@@ -21,7 +21,6 @@ Peer: `vue` `^3.5`.
 
 <InstallCommands packages="@sometic/vue" />
 
-
 ## Import map
 
 Prefer **subpath imports**.

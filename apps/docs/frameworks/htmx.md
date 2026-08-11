@@ -27,7 +27,6 @@ Prefer [Elements](/frameworks/vanilla) or Wave A when you need forms, overlays, 
 
 <InstallCommands packages="@sometic/htmx" />
 
-
 Install `htmx.org` in the page when you rely on HTMX events. The peer is optional so the bind helpers can load in tests without HTMX.
 
 ## API surface

@@ -29,7 +29,6 @@ This page is the services-hub summary. Full guide: [HTTP utility](/utilities/htt
 
 <InstallCommands packages="@sometic/http" />
 
-
 Optional peer for auth interceptors: `@sometic/auth`.
 
 ## Usage

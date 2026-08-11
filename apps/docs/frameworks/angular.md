@@ -28,7 +28,6 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 <InstallCommands packages="@sometic/angular @sometic/store" />
 
-
 ## API surface
 
 ```ts

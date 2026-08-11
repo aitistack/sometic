@@ -33,7 +33,6 @@ Use it alone for value checks, or with [`@sometic/forms`](/forms/) for form-wide
 
 <InstallCommands packages="@sometic/validation" />
 
-
 ## Usage
 
 ### Native validators

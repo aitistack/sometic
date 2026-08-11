@@ -18,7 +18,6 @@ Wave A path for apps without React or Vue: DOM engines in `@sometic/dom` plus `s
 
 <InstallCommands packages="@sometic/elements" />
 
-
 Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@sometic/auth`. Engines also live in `@sometic/dom` if you bind plain HTML without custom elements.
 
 ## Import map

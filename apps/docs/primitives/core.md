@@ -33,7 +33,6 @@ Shared behavior that must stay small, SSR-safe, and free of framework imports: c
 
 <InstallCommands packages="@sometic/core" />
 
-
 Peer-free. No browser globals are touched at import time.
 
 ## Usage

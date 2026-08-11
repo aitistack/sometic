@@ -30,7 +30,6 @@ Install the adapter **and** the peer:
 
 <InstallCommands packages="@sometic/store-immer immer @sometic/store" />
 
-
 `@sometic/store` is also a peer (`>=0.0.1`). `immer` must satisfy `^10.0.0`.
 
 ## Usage
