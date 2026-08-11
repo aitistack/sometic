@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.6
+
+### Patch Changes
+
+- b996efd: Clean package Install sections: commands only, no meta copy about npm clipboard limits.
+- Updated dependencies [b996efd]
+    - @sometic/validation@1.0.4
+
 ## 0.0.5
 
 ### Patch Changes

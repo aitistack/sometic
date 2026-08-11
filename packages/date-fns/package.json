@@ -1,6 +1,6 @@
 {
     "name": "@sometic/date-fns",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "date-fns date adapter for Sometic.",
     "license": "MIT",
     "type": "module",

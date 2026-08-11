@@ -1,6 +1,6 @@
 {
     "name": "@sometic/forms",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Framework-independent form engine, fields and validation orchestration for Sometic.",
     "license": "MIT",
     "type": "module",

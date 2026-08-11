@@ -1,5 +1,11 @@
 # @sometic/registry
 
+## 0.1.4
+
+### Patch Changes
+
+- b996efd: Clean package Install sections: commands only, no meta copy about npm clipboard limits.
+
 ## 0.1.3
 
 ### Patch Changes

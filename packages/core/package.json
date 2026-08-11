@@ -1,6 +1,6 @@
 {
     "name": "@sometic/core",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Framework-independent lifecycle, environment and shared primitive contracts for the Sometic ecosystem.",
     "license": "MIT",
     "type": "module",
