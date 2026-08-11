@@ -1,5 +1,20 @@
 # @sometic/app-shell
 
+## 1.0.3
+
+### Patch Changes
+
+- ea4e41a: Clarify npm README install CTAs and ship docs Installation sections with always-visible Copy buttons via InstallCommands (npm cannot host clipboard UI).
+- Updated dependencies [ea4e41a]
+    - @sometic/auth@1.0.3
+    - @sometic/core@1.0.3
+    - @sometic/forms@1.0.3
+    - @sometic/head@0.0.5
+    - @sometic/http@1.0.3
+    - @sometic/query@1.0.3
+    - @sometic/store@1.0.3
+    - @sometic/theme@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

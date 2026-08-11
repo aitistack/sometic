@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.5
+
+### Patch Changes
+
+- ea4e41a: Clarify npm README install CTAs and ship docs Installation sections with always-visible Copy buttons via InstallCommands (npm cannot host clipboard UI).
+- Updated dependencies [ea4e41a]
+    - @sometic/validation@1.0.3
+
 ## 0.0.4
 
 ### Patch Changes

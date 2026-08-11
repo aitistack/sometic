@@ -1,5 +1,11 @@
 # @sometic/core
 
+## 1.0.3
+
+### Patch Changes
+
+- ea4e41a: Clarify npm README install CTAs and ship docs Installation sections with always-visible Copy buttons via InstallCommands (npm cannot host clipboard UI).
+
 ## 1.0.2
 
 ### Patch Changes

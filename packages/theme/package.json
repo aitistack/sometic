@@ -1,6 +1,6 @@
 {
     "name": "@sometic/theme",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Runtime design-token and theme management for framework-independent JavaScript applications.",
     "license": "MIT",
     "type": "module",
