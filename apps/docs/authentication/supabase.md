@@ -17,7 +17,6 @@
 
 <InstallCommands packages="@sometic/auth @sometic/auth-supabase @supabase/supabase-js" />
 
-
 Peer: `@supabase/supabase-js` ^2 (optional peer metadata; install in the consuming app).
 
 ## Usage

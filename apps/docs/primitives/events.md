@@ -31,7 +31,6 @@
 
 <InstallCommands packages="@sometic/events" />
 
-
 Depends on `@sometic/core` for the `Disposable` contract. No browser globals at import time.
 
 ## Usage

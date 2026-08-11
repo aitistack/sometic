@@ -27,7 +27,6 @@ Your CSS references those hooks. No Sometic CSS file is required (presets are to
 
 <InstallCommands packages="@sometic/theme" />
 
-
 ## Usage
 
 ### Apply and subscribe

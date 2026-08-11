@@ -28,7 +28,6 @@ Building overlays, dialogs, popovers, tooltips, toasts, or any interactive surfa
 
 <InstallCommands packages="@sometic/accessibility" />
 
-
 ## Usage
 
 ### Focus trap

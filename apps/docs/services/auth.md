@@ -29,7 +29,6 @@ This page is the services-hub summary. Full guides live under [Authentication](/
 
 <InstallCommands packages="@sometic/auth" />
 
-
 Add one provider package as needed: `@sometic/auth-local`, `@sometic/auth-firebase` (+ optional peer `firebase`), `@sometic/auth-supabase` (+ optional peer `@supabase/supabase-js`), or `@sometic/auth-oidc`.
 
 ## Usage

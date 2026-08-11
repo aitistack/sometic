@@ -28,7 +28,6 @@ Theme depends on store already. Install the theme package (and store if you call
 
 <InstallCommands packages="@sometic/theme @sometic/store" />
 
-
 ## How persistence is wired
 
 From `@sometic/theme`'s controller (simplified):

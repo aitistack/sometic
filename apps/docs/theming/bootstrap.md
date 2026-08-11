@@ -25,7 +25,6 @@ Two complementary approaches:
 
 <InstallCommands packages="@sometic/theme" />
 
-
 Install Bootstrap yourself (`bootstrap` package, CDN, or Sass pipeline). Sometic never lists Bootstrap as a dependency.
 
 ## Usage

@@ -58,12 +58,12 @@ More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction]
 
 ## What you get
 
-| Area | Examples |
-| ---- | -------- |
-| UI & forms | Button family, fields, selection, overlays, tabs, accordion, progress |
+| Area        | Examples                                                                               |
+| ----------- | -------------------------------------------------------------------------------------- |
+| UI & forms  | Button family, fields, selection, overlays, tabs, accordion, progress                  |
 | Application | Forms engine, auth orchestration, HTTP client with refresh queue, query, document head |
-| Adapters | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`) |
-| Styling | Unstyled by default; theme tokens optional via `@sometic/theme` |
+| Adapters    | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`)                    |
+| Styling     | Unstyled by default; theme tokens optional via `@sometic/theme`                        |
 
 Honest beta inventory: [What’s included](https://sometic.aitistack.com/guide/whats-included). Why this vs alternatives: [Comparison](https://sometic.aitistack.com/guide/comparison).
 

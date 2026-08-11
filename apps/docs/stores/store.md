@@ -26,7 +26,6 @@ Shared application or engine state that must work across frameworks without pull
 
 <InstallCommands packages="@sometic/store" />
 
-
 Peer-free core. Depends on `@sometic/core` for disposable, error, and JSON helpers used by persistence.
 
 ## Usage

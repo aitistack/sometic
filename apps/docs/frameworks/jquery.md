@@ -28,7 +28,6 @@ Prefer Wave A ([React](/frameworks/react), [Vue](/frameworks/vue), [Elements](/f
 
 <InstallCommands packages="@sometic/jquery jquery" />
 
-
 ## API surface
 
 ```ts

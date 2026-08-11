@@ -30,7 +30,6 @@ Early stubs described this package as “portal / scroll lock only.” Those hel
 
 <InstallCommands packages="@sometic/dom" />
 
-
 Depends on foundation packages such as core, styling, accessibility, positioning, and date-core as needed by each subpath. Prefer **subpath imports**.
 
 ## Usage

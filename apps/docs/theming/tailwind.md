@@ -27,7 +27,6 @@ Install theme (and Tailwind in your app as usual):
 
 <InstallCommands packages="@sometic/theme" />
 
-
 Tailwind remains your dependency (`tailwindcss`, PostCSS, etc.). Sometic never takes a runtime dependency on it.
 
 ## Usage

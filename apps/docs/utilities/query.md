@@ -36,7 +36,6 @@ Keep server / cache data here, **not** in `@sometic/store`. On logout / user swi
 
 <InstallCommands packages="@sometic/query" />
 
-
 Optional HTTP peer and React adapter:
 
 ```bash

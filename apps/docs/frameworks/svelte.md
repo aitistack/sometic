@@ -28,7 +28,6 @@ Prefer [React](/frameworks/react), [Vue](/frameworks/vue), or [Elements](/framew
 
 <InstallCommands packages="@sometic/svelte @sometic/store" />
 
-
 ## API surface
 
 ```ts

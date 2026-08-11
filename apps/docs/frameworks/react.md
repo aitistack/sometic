@@ -21,7 +21,6 @@ Peer: `react` `^18 || ^19`.
 
 <InstallCommands packages="@sometic/react" />
 
-
 Add foundation packages as needed (`@sometic/theme`, `@sometic/store`, `@sometic/auth`, …). Workspace dependencies of `@sometic/react` install transitively when using a package manager that hoists correctly; pin peers explicitly in apps.
 
 ## Import map

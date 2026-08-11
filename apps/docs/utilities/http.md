@@ -37,7 +37,6 @@ Shared HTTP behavior across Vanilla, React, and Vue without pulling Axios into e
 
 <InstallCommands packages="@sometic/http" />
 
-
 For auth interceptors also install `@sometic/auth` (optional peer):
 
 ```bash

@@ -21,13 +21,11 @@ Theme is a workspace package with declared dependencies on `@sometic/core`, `@so
 
 <InstallCommands packages="@sometic/theme" />
 
-
 ### With persistence helpers
 
 If your app constructs storage adapters directly:
 
 <InstallCommands packages="@sometic/theme @sometic/store" />
-
 
 ## Usage
 
