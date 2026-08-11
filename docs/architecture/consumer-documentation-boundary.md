@@ -7,6 +7,8 @@
 
 One public VitePress app at `apps/docs` is the **consumer-only** Sometic documentation site destined for `https://sometic.aitistack.com`.
 
+The GitHub Wiki feature is intentionally unused. Do not enable it or publish product docs there; the canonical URL is `https://sometic.aitistack.com` only.
+
 ## Included in VitePress
 
 - Guide (product install/usage)
