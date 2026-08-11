@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- b996efd: Clean package Install sections: commands only, no meta copy about npm clipboard limits.
+- Updated dependencies [b996efd]
+    - @sometic/accessibility@1.0.4
+    - @sometic/core@1.0.4
+    - @sometic/date-core@1.0.4
+    - @sometic/positioning@0.1.4
+    - @sometic/styling@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

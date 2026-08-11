@@ -1,6 +1,6 @@
 {
     "name": "@sometic/store",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Framework-independent reactive store, selectors and persistence for Sometic.",
     "license": "MIT",
     "type": "module",
