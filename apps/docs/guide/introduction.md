@@ -1,10 +1,17 @@
+---
+description: >-
+    Sometic (@sometic) is an open-source portable application behavior system for
+    TypeScript by AitiStack: shared controllers for UI, forms, auth, and HTTP with
+    React, Vue, and Web Components adapters.
+---
+
 # Introduction
 
-Sometic is a **portable application behavior system** for TypeScript.
+**Sometic** (`@sometic`) is an open-source **portable application behavior system** for TypeScript, published by AitiStack.
 
 Shared controllers power UI engines, forms, authentication, HTTP, theming, accessibility, and overlays. Thin adapters expose native DX for React, Vue, and vanilla custom elements (`sometic-*`). You keep your styling system.
 
-**Not** another pre-styled component kit. The product is the **one behavior model** — components are how you touch it.
+**Not** another pre-styled component kit. The product is the **one behavior model**. Components are how you touch it.
 
 ## What you get today (beta)
 
