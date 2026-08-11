@@ -1,6 +1,6 @@
 {
     "name": "@sometic/auth-local",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Configurable REST auth provider adapter for Sometic.",
     "license": "MIT",
     "type": "module",

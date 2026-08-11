@@ -1,6 +1,6 @@
 {
     "name": "@sometic/styling",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Class, style and slot resolvers for unstyled Sometic primitives.",
     "license": "MIT",
     "type": "module",

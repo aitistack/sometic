@@ -1,5 +1,14 @@
 # @sometic/adapter-contract
 
+## 0.1.3
+
+### Patch Changes
+
+- ea4e41a: Clarify npm README install CTAs and ship docs Installation sections with always-visible Copy buttons via InstallCommands (npm cannot host clipboard UI).
+- Updated dependencies [ea4e41a]
+    - @sometic/core@1.0.3
+    - @sometic/store@1.0.3
+
 ## 0.1.2
 
 ### Patch Changes
