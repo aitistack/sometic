@@ -1,8 +1,6 @@
 # Installation
 
-Install only the packages you need from the `@sometic` scope. **Every block below has a Copy button.**
-
-npm package pages cannot run clipboard UI. Use this page (or each package’s docs Installation section) when you need one-click Copy.
+Install only the packages you need from the `@sometic` scope.
 
 ## Core
 

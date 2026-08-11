@@ -12,10 +12,6 @@ Most application code never imports this package directly. Adapter maintainers a
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Usually a transitive dependency of adapters. Install directly for adapter tests or custom adapters:
 
 ```bash

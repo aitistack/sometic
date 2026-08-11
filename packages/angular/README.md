@@ -12,10 +12,6 @@ In the ecosystem this sits under Wave B with Svelte, Solid, and Preact. Shared t
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Peer (optional meta): `@angular/core` `^19`.
 
 ```bash

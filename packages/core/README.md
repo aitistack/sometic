@@ -41,10 +41,6 @@ In the ecosystem, core sits under every foundation and feature package. Install 
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/primitives/core)
-
 ```bash
 pnpm add @sometic/core
 ```

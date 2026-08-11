@@ -12,10 +12,6 @@ Ecosystem: Wave B with Angular, Svelte, and Solid. Contracts: [`@sometic/adapter
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Peer (optional meta): `preact` `^10`.
 
 ```bash

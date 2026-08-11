@@ -12,10 +12,6 @@ In the ecosystem the CLI sits beside publishable packages and docs, not inside t
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 No framework peers. Node `>=20.18`. Prefer one-shot `dlx` / `npx`:
 
 ```bash

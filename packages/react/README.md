@@ -12,10 +12,6 @@ In the ecosystem, React sits above the engines and beside Vue and Web Components
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Peer: `react` `^18 || ^19`.
 
 ```bash

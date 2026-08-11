@@ -12,10 +12,6 @@ Ecosystem: Wave C with Alpine and jQuery. Contracts: [`@sometic/adapter-contract
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Peer (optional meta): `htmx.org` `^2`.
 
 ```bash

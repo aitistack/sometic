@@ -14,10 +14,6 @@ Use it when you maintain Sometic packages or want the same comment and TypeScrip
 
 ## Install
 
-**Copy** buttons live on the docs (npm pages cannot run clipboard UI). Open the link, then click **Copy** next to pnpm / npm / yarn:
-
-[Open install commands with Copy](https://sometic.aitistack.com/guide/installation)
-
 Peers: `eslint` `^9`, `typescript` `^5`.
 
 ```bash

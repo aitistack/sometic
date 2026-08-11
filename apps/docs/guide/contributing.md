@@ -2,8 +2,6 @@
 
 Sometic is open source under MIT. Contributions are welcome via GitHub pull requests. Pushes to `main` are restricted; changes land through PRs with required checks and approval.
 
-Canonical product docs are this site ([https://sometic.aitistack.com](https://sometic.aitistack.com)). The GitHub Wiki is intentionally unused; do not enable it or publish docs there.
-
 ## Requirements
 
 - Node.js `>=20.18.0`
