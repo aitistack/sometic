@@ -19,5 +19,7 @@
 | [ADR-0015](./ADR-0015-sometic-npm-scope.md)                  | Sometic npm scope (historical)        | Superseded by ADR-0017 |
 | [ADR-0016](./ADR-0016-app-shell-composition.md)              | App Shell composition package         | Accepted               |
 | [ADR-0017](./ADR-0017-sometic-product-identity.md)           | Sometic product identity (current)    | Accepted               |
+| [ADR-0018](./ADR-0018-data-business-package-map.md)          | Data & business package map           | Accepted               |
+| [ADR-0019](./ADR-0019-upload-transport-boundary.md)          | Upload transport boundary             | Accepted               |
 
 Template: use the ADR template kept by maintainers (not published in this repository).

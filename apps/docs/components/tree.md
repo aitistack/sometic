@@ -209,6 +209,8 @@ const items: TreeItem[] = [
 | Nested navigation / file trees | Flat lists → Tabs or Menu |
 | Expand/collapse with single selection | Multi-select / drag-drop (deferred) |
 
+**Vs React Aria Tree / Headless UI.** Prefer React Aria when you need multi-select, dense grid trees, or React-only depth today. Sometic Tree is single-select, no built-in virtualization, and honest about large-list limits. App chrome (navbars, sidebars) stays composition: layout + [Menu](/components/menu) + maybe Tree.
+
 ## Edges
 
 - Disabled nodes are skipped by keyboard.
@@ -221,12 +223,15 @@ const items: TreeItem[] = [
 
 Deferred. Option A is single selection only.
 
+### Virtualization?
+
+Not in this phase. Keep visible trees modest, or virtualize outside the engine.
+
 ### Custom elements?
 
 Not shipped. Use React, Vue, or `@sometic/dom/tree`.
 
 ## Related
 
-- [Structure FAQ](/components/structure-faq)
-- [Structure comparison](/components/structure-comparison)
 - [Accordion](/components/accordion)
+- [Menu](/components/menu)

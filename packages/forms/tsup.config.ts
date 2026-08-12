@@ -9,6 +9,7 @@ export default createTsupConfig({
         "a11y/index": "src/a11y/index.ts",
         feedback: "src/feedback.ts",
         "server/index": "src/server/index.ts",
+        "schema-form/index": "src/schema-form/index.ts",
     },
     external: ["@sometic/core", "@sometic/validation", "@sometic/validation/path"],
 });

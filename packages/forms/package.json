@@ -37,6 +37,10 @@
             "types": "./dist/server/index.d.ts",
             "import": "./dist/server/index.js"
         },
+        "./schema-form": {
+            "types": "./dist/schema-form/index.d.ts",
+            "import": "./dist/schema-form/index.js"
+        },
         "./package.json": "./package.json"
     },
     "files": [

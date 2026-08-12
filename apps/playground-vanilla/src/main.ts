@@ -13,6 +13,15 @@ import { mountHttpSection } from "./sections/http.js";
 import { mountAuthProvidersSection } from "./sections/auth-providers.js";
 import { mountQuerySection } from "./sections/query.js";
 import { mountAppShellSection } from "./sections/app-shell.js";
+import { mountStatusSection } from "./sections/status.js";
+import { mountDataTableSection } from "./sections/data-table.js";
+import { mountQueryBuilderSection } from "./sections/query-builder.js";
+import { mountUploadSection } from "./sections/upload.js";
+import { mountSchemaFormSection } from "./sections/schema-form.js";
+import { mountPermissionsSection } from "./sections/permissions.js";
+import { mountActivitySection } from "./sections/activity.js";
+import { mountApprovalSection } from "./sections/approval.js";
+import { mountNotificationsSection } from "./sections/notifications.js";
 
 const app = document.querySelector("#app");
 if (!(app instanceof HTMLElement)) {
@@ -45,6 +54,15 @@ app.innerHTML = `
       <a href="#http">HTTP</a>
       <a href="#query">Query</a>
       <a href="#app-shell">App Shell</a>
+      <a href="#status">Status</a>
+      <a href="#data-table">Data table</a>
+      <a href="#query-builder">Query builder</a>
+      <a href="#upload">Upload</a>
+      <a href="#schema-form">Schema form</a>
+      <a href="#permissions">Permissions</a>
+      <a href="#activity">Activity</a>
+      <a href="#approval">Approval</a>
+      <a href="#notifications">Notifications</a>
     </nav>
   </header>
 
@@ -714,6 +732,67 @@ app.innerHTML = `
     </div>
     <p class="pg-status" data-shell-status></p>
   </section>
+
+  <section class="pg-section" id="status">
+    <h2>Status</h2>
+    <p class="pg-lead">Empty, error, offline, and conflict resolve surfaces from <code>@sometic/dom/status</code>.</p>
+    <div class="pg-status-gallery" data-status-gallery></div>
+  </section>
+
+  <section class="pg-section" id="data-table">
+    <h2>Data table</h2>
+    <p class="pg-lead">Client-mode sorting, selection, pagination, and virtual window from <code>@sometic/data-table</code>.</p>
+    <div data-data-table></div>
+    <p class="pg-status" data-data-table-meta></p>
+  </section>
+
+  <section class="pg-section" id="query-builder">
+    <h2>Query builder</h2>
+    <p class="pg-lead">Filter AST distinct from <code>@sometic/query</code> cache. Bridges to table filters.</p>
+    <div data-query-builder></div>
+    <pre class="pg-auth-session" data-query-builder-out></pre>
+  </section>
+
+  <section class="pg-section" id="upload">
+    <h2>Upload</h2>
+    <p class="pg-lead">Queue with progress, cancel, and mock transport.</p>
+    <div class="pg-panel" data-upload-dropzone></div>
+    <ul data-upload-list></ul>
+  </section>
+
+  <section class="pg-section" id="schema-form">
+    <h2>Schema form</h2>
+    <p class="pg-lead"><code>createSchemaForm</code> over the forms engine.</p>
+    <div data-schema-form></div>
+    <pre class="pg-auth-session" data-schema-form-out></pre>
+  </section>
+
+  <section class="pg-section" id="permissions">
+    <h2>Permission matrix</h2>
+    <p class="pg-lead">Resources × actions bound to permission strings.</p>
+    <div data-permission-matrix></div>
+  </section>
+
+  <section class="pg-section" id="activity">
+    <h2>Activity</h2>
+    <p class="pg-lead">Append-only audit feed.</p>
+    <button type="button" class="pg-btn" data-activity-add>Append</button>
+    <ul data-activity-list></ul>
+  </section>
+
+  <section class="pg-section" id="approval">
+    <h2>Approval</h2>
+    <p class="pg-lead">Multi-step approval with parallel assignees.</p>
+    <div data-approval></div>
+    <p class="pg-status" data-approval-status></p>
+  </section>
+
+  <section class="pg-section" id="notifications">
+    <h2>Notifications</h2>
+    <p class="pg-lead">Inbox with read/dismiss.</p>
+    <button type="button" class="pg-btn" data-notifications-add>Push</button>
+    <div data-notifications></div>
+  </section>
 `;
 
 const cleanups = [
@@ -730,6 +809,15 @@ const cleanups = [
     mountHttpSection(app),
     mountQuerySection(app),
     mountAppShellSection(app),
+    mountStatusSection(app),
+    mountDataTableSection(app),
+    mountQueryBuilderSection(app),
+    mountUploadSection(app),
+    mountSchemaFormSection(app),
+    mountPermissionsSection(app),
+    mountActivitySection(app),
+    mountApprovalSection(app),
+    mountNotificationsSection(app),
 ];
 mountFormsSection(app);
 

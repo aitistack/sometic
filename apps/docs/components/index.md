@@ -68,11 +68,26 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 | Spinner      | [Spinner](/components/spinner)           |
 | Skeleton     | [Skeleton](/components/skeleton)         |
 | Badge        | [Badge](/components/badge)               |
+| Status       | [Status](/components/status)             |
+| Empty state  | [Empty state](/components/empty-state)   |
+| Error state  | [Error state](/components/error-state)   |
+| Offline state| [Offline state](/components/offline-state) |
+| Conflict state | [Conflict state](/components/conflict-state) |
 
-## Structure family docs
+## Data & business
 
-React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`.
+| Component | Docs |
+| --------- | ---- |
+| Data table | [Data table](/components/data-table) |
+| Query builder | [Query builder](/components/query-builder) |
+| Upload | [Upload](/components/upload) |
+| Schema form | [Schema form](/components/schema-form) |
+| Permission matrix | [Permission matrix](/components/permission-matrix) |
+| Activity | [Activity](/components/activity) |
+| Approval | [Approval](/components/approval) |
+| Notification center | [Notification center](/components/notification-center) |
 
-- [Structure FAQ](/components/structure-faq)
-- [Structure comparison](/components/structure-comparison)
+## Structure
+
+React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`. FAQs and comparisons live on each component page.
 

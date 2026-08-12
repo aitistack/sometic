@@ -15,6 +15,7 @@ export default createTsupConfig({
         "overlay/index": "src/overlay/index.tsx",
         "structure/index": "src/structure/index.tsx",
         "query/index": "src/query/index.tsx",
+        "data/index": "src/data/index.tsx",
     },
     external: [
         "react",
@@ -62,7 +63,15 @@ export default createTsupConfig({
         "@sometic/date-core",
         "@sometic/forms",
         "@sometic/forms/a11y",
+        "@sometic/forms/schema-form",
         "@sometic/validation",
+        "@sometic/dom/data-table",
+        "@sometic/dom/upload",
+        "@sometic/dom/permission-matrix",
+        "@sometic/dom/notification-center",
+        "@sometic/dom/status",
+        "@sometic/dom/command-palette",
+        "@sometic/dom/tree",
     ],
     esbuildOptions(options) {
         options.jsx = "automatic";

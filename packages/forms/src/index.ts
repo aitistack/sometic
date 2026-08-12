@@ -60,3 +60,15 @@ export {
     type FormFeedbackKind,
     type FormFeedbackOption,
 } from "./feedback.js";
+export {
+    buildSchemaFormDefaults,
+    createSchemaForm,
+    defaultValueForSchemaFieldType,
+    listSchemaFieldNames,
+    type CreateSchemaFormOptions,
+    type SchemaFieldDescriptor,
+    type SchemaFieldOption,
+    type SchemaFieldType,
+    type SchemaFormController,
+    type SchemaFormValues,
+} from "./schema-form/index.js";

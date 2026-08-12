@@ -191,11 +191,15 @@ Target `[data-state="open"|"closed"]`, `[data-slot="trigger"|"content"]`.
 
 **Do not use** when only one panel should ever exist as tabs ([Tabs](/components/tabs)).
 
+**Vs Radix / React Aria.** Same portable story as Tabs: shared `@sometic/dom` controller plus unstyled adapters. Prefer Radix/React Aria when you are React-only and already invested.
+
 ## FAQ
 
 **Must AccordionItem live under Accordion?** Yes. Context is required.
 
 **Single vs multiple?** `type="single"` stores a string; `type="multiple"` stores `string[]`.
+
+**Lazy mount?** Adapters default to `lazyMount` (inactive panels are not mounted). Pass `forceMount` to keep DOM for CSS transitions or SSR hydration needs.
 
 **Is there an `sometic-accordion`?** No. CE not shipped.
 
