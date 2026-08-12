@@ -72,7 +72,7 @@ Extends `HTMLAttributes<HTMLSpanElement>`. Remaining native span attrs are forwa
 
 ### Vue
 
-No Vue `Badge` component. `@sometic/vue/structure` re-exports `resolveBadge`. Prefer React, CE, or resolve.
+`Badge` from `@sometic/vue/structure`. Prop: `tone`. Default slot is the label.
 
 ### Custom element (`sometic-badge`)
 
@@ -101,7 +101,7 @@ Target `[data-tone]`. Unstyled by default.
 
 **Tone values?** `neutral`, `info`, `success`, `warning`, `danger`.
 
-**Vue component?** Not shipped. React + Elements primary.
+**Vue component?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto the `<span>`.
 

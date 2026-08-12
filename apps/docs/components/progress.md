@@ -72,7 +72,7 @@ Extends `HTMLAttributes<HTMLDivElement>`. Remaining native div attrs are forward
 
 ### Vue
 
-No Vue `Progress` component. `@sometic/vue/structure` re-exports `resolveProgress`. Prefer React, CE, or `resolveProgress` directly.
+`Progress` from `@sometic/vue/structure`. Props: `value`, `max`, `indeterminate`. Native attrs forward to the root `div`.
 
 ### Custom element (`sometic-progress`)
 
@@ -104,7 +104,7 @@ Target `[role="progressbar"]`, `[data-state="determinate"|"indeterminate"]`, `[d
 
 **CE indeterminate?** Omit the `value` attribute.
 
-**Vue component?** Not shipped. React + Elements (or resolve) primary.
+**Vue component?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto the root div.
 

@@ -28,6 +28,20 @@ Prefer `@sometic/react` when you run React, or [Elements](/frameworks/vanilla) f
 
 <InstallCommands packages="@sometic/preact @sometic/store" />
 
+This is the full Preact install for this beta. Do not add `@sometic/preact/button` or `@sometic/preact/structure`: those subpaths do not exist.
+
+## Components
+
+**Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Phase 20 surfaces live here:
+
+| Surface | Package |
+| ------- | ------- |
+| Tabs, Accordion, Breadcrumb, Command palette, Tree, Badge, Progress, Spinner, Skeleton | `@sometic/react/structure` or `@sometic/vue/structure` |
+| Vanilla / no framework UI | `@sometic/dom` controllers or `@sometic/elements` where a CE exists |
+| Preact UI in this beta | Host [custom elements](/frameworks/vanilla) next to `createPreactStoreBind`, or write your own Preact views over `@sometic/dom` |
+
+`preact/compat` plus `@sometic/react` is **not** a claimed support path.
+
 ## API surface
 
 ```ts
@@ -68,7 +82,8 @@ bind.dispose();
 ## Limits (honest)
 
 - Capabilities: `["storeBind"]` only.
-- No button / form / overlay / auth / HTTP Preact adapters.
+- No button / form / overlay / structure / auth / HTTP Preact adapters.
+- Phase 20 Command palette and Tree are React, Vue, and Vanilla only.
 - Not validated as a compat layer over `@sometic/react`.
 - CLI does not scaffold Preact.
 

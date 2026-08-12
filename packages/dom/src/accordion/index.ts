@@ -1,4 +1,5 @@
 import { createControllableState, type ControllableState } from "@sometic/core/controllable-state";
+import { createDisposable, type Disposable } from "@sometic/core/disposable";
 import type { ClassMerger, ClassValue } from "@sometic/styling/classes";
 import { resolveStyleable, type StyleableProps, type StyleValue } from "@sometic/styling";
 
@@ -88,15 +89,31 @@ export function resolveAccordionItem(options: ResolveAccordionItemOptions): Acco
     };
 }
 
+export function shouldMountAccordionPanel(options: {
+    open: boolean;
+    lazyMount?: boolean;
+    forceMount?: boolean;
+}): boolean {
+    if (options.forceMount === true) {
+        return true;
+    }
+    if (options.lazyMount === true) {
+        return options.open;
+    }
+    return true;
+}
+
 export type CreateAccordionControllerOptions = {
     type?: AccordionType;
     value?: string | string[];
     defaultValue?: string | string[];
     onValueChange?: (value: string | string[]) => void;
+    collapsible?: boolean;
 };
 
 export type AccordionController = {
     readonly type: AccordionType;
+    readonly collapsible: boolean;
     readonly value: ControllableState<string | string[]>;
     resolve(options?: ResolveAccordionOptions): AccordionViewModel;
     resolveItem(options: Omit<ResolveAccordionItemOptions, "open">): AccordionItemViewModel;
@@ -109,6 +126,7 @@ export function createAccordionController(
     options: CreateAccordionControllerOptions = {},
 ): AccordionController {
     const type = options.type ?? "single";
+    const collapsible = options.collapsible !== false;
     const defaultValue = options.defaultValue ?? (type === "multiple" ? ([] as string[]) : "");
     const value = createControllableState<string | string[]>({
         defaultValue,
@@ -123,6 +141,7 @@ export function createAccordionController(
 
     return {
         type,
+        collapsible,
         value,
         resolve(styleOptions = {}) {
             return resolveAccordion({ ...styleOptions, type });
@@ -147,10 +166,123 @@ export function createAccordionController(
                 value.set(list);
                 return;
             }
-            value.set(isOpen(item) ? "" : item);
+            if (isOpen(item)) {
+                if (collapsible) {
+                    value.set("");
+                }
+                return;
+            }
+            value.set(item);
         },
         setValue(next) {
             value.set(next);
         },
     };
+}
+
+export type AccordionKeyboardItem = {
+    value: string;
+    disabled?: boolean;
+    trigger?: HTMLElement | null;
+};
+
+export type BindAccordionKeyboardOptions = {
+    getItems: () => AccordionKeyboardItem[];
+    toggle: (value: string) => void;
+    loop?: boolean;
+};
+
+export function getAccordionKeyboardAction(
+    event: Pick<KeyboardEvent, "key">,
+    options: {
+        items: AccordionKeyboardItem[];
+        currentValue: string;
+        loop?: boolean;
+    },
+): { focus?: string; toggle?: string } | undefined {
+    const key = event.key;
+    const enabled = options.items.filter((item) => item.disabled !== true);
+    if (enabled.length === 0) {
+        return undefined;
+    }
+    const currentIndex = enabled.findIndex((item) => item.value === options.currentValue);
+    const loop = options.loop !== false;
+
+    if (key === "Enter" || key === " ") {
+        return { toggle: options.currentValue };
+    }
+    if (key === "ArrowDown" || key === "ArrowRight") {
+        let next = currentIndex + 1;
+        if (loop) {
+            next = ((next % enabled.length) + enabled.length) % enabled.length;
+        } else {
+            next = Math.min(enabled.length - 1, Math.max(0, next));
+        }
+        const focus = enabled[next]?.value;
+        return focus === undefined ? undefined : { focus };
+    }
+    if (key === "ArrowUp" || key === "ArrowLeft") {
+        let next = currentIndex - 1;
+        if (loop) {
+            next = ((next % enabled.length) + enabled.length) % enabled.length;
+        } else {
+            next = Math.min(enabled.length - 1, Math.max(0, next));
+        }
+        const focus = enabled[next]?.value;
+        return focus === undefined ? undefined : { focus };
+    }
+    if (key === "Home") {
+        const focus = enabled[0]?.value;
+        return focus === undefined ? undefined : { focus };
+    }
+    if (key === "End") {
+        const focus = enabled[enabled.length - 1]?.value;
+        return focus === undefined ? undefined : { focus };
+    }
+    return undefined;
+}
+
+export function bindAccordionKeyboard(options: BindAccordionKeyboardOptions): Disposable {
+    const onKeyDown = (event: Event): void => {
+        if (!(event instanceof KeyboardEvent)) {
+            return;
+        }
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+            return;
+        }
+        const items = options.getItems();
+        const match = items.find((item) => item.trigger === target);
+        if (!match) {
+            return;
+        }
+        const action = getAccordionKeyboardAction(event, {
+            items,
+            currentValue: match.value,
+            ...(options.loop === undefined ? {} : { loop: options.loop }),
+        });
+        if (!action) {
+            return;
+        }
+        if (action.toggle) {
+            event.preventDefault();
+            options.toggle(action.toggle);
+            return;
+        }
+        if (action.focus) {
+            event.preventDefault();
+            const next = items.find((item) => item.value === action.focus);
+            next?.trigger?.focus();
+        }
+    };
+
+    for (const item of options.getItems()) {
+        item.trigger?.addEventListener("keydown", onKeyDown);
+    }
+
+    return createDisposable(() => {
+        for (const item of options.getItems()) {
+            item.trigger?.removeEventListener("keydown", onKeyDown);
+        }
+    });
 }

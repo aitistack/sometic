@@ -13,7 +13,6 @@ import { mountHttpSection } from "./sections/http.js";
 import { mountAuthProvidersSection } from "./sections/auth-providers.js";
 import { mountQuerySection } from "./sections/query.js";
 import { mountAppShellSection } from "./sections/app-shell.js";
-import Logo from "./assets/logo.png";
 
 const app = document.querySelector("#app");
 if (!(app instanceof HTMLElement)) {
@@ -22,7 +21,10 @@ if (!(app instanceof HTMLElement)) {
 
 app.innerHTML = `
   <header class="pg-hero">
-    <div class="pg-brand"><img data-pg-logo alt="Sometic" class="pg-brand-logo" /></div>
+    <div class="pg-brand">
+      <img src="/logo.png" alt="Sometic" class="pg-brand-logo pg-brand-logo--light" />
+      <img src="/logo-dark.png" alt="Sometic" class="pg-brand-logo pg-brand-logo--dark" />
+    </div>
     <h1>Vanilla playground</h1>
     <p>
       Click-through harness for Theme, Accessibility, Buttons, Input/Field, Forms, Structure,
@@ -272,7 +274,7 @@ app.innerHTML = `
   <section class="pg-section" id="structure">
     <h2>Structure &amp; feedback</h2>
     <p class="pg-lead">
-      Tabs, accordion, combobox, and breadcrumb via <code>@sometic/dom</code> controllers/resolve,
+      Tabs, accordion, combobox, breadcrumb, command palette, and tree via <code>@sometic/dom</code>,
       plus <code>sometic-badge|progress|spinner|skeleton</code> custom elements.
     </p>
 
@@ -294,12 +296,12 @@ app.innerHTML = `
       <h3 class="pg-demo-title">Accordion</h3>
       <div class="pg-accordion" data-accordion-root>
         <div class="pg-accordion-item" data-accordion-item="a">
-          <button type="button" class="pg-accordion-trigger" data-accordion-trigger>Shipping</button>
-          <div class="pg-accordion-panel" data-accordion-panel>Single-type accordion opens one item at a time.</div>
+          <button type="button" class="pg-accordion-trigger" data-accordion-trigger>Accessibility</button>
+          <div class="pg-accordion-panel" data-accordion-panel>Focus, dismiss, and ARIA live in the core engines.</div>
         </div>
         <div class="pg-accordion-item" data-accordion-item="b">
-          <button type="button" class="pg-accordion-trigger" data-accordion-trigger>Returns</button>
-          <div class="pg-accordion-panel" data-accordion-panel hidden>Toggle calls createAccordionController.</div>
+          <button type="button" class="pg-accordion-trigger" data-accordion-trigger>Styling</button>
+          <div class="pg-accordion-panel" data-accordion-panel hidden>Unstyled by default. Own tokens and layout.</div>
         </div>
       </div>
     </div>
@@ -326,6 +328,20 @@ app.innerHTML = `
           <li class="pg-breadcrumb-item" data-breadcrumb-item data-current-page>Structure</li>
         </ol>
       </nav>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Command palette</h3>
+      <button type="button" class="pg-btn" data-command-open>Open command palette</button>
+      <div class="pg-command-palette" data-command-palette hidden>
+        <input class="pg-input" data-command-filter placeholder="Filter commands" autocomplete="off" />
+        <div class="pg-command-list" data-command-list role="listbox"></div>
+      </div>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Tree</h3>
+      <div class="pg-tree" data-tree-root tabindex="0"></div>
     </div>
 
     <div class="pg-demo-block">
@@ -699,11 +715,6 @@ app.innerHTML = `
     <p class="pg-status" data-shell-status></p>
   </section>
 `;
-
-const logoEl = app.querySelector<HTMLImageElement>("[data-pg-logo]");
-if (logoEl) {
-    logoEl.src = Logo;
-}
 
 const cleanups = [
     mountThemeSection(app),

@@ -1,8 +1,78 @@
 import { createAccordionController } from "@sometic/dom/accordion";
 import { resolveBreadcrumb, resolveBreadcrumbItem } from "@sometic/dom/breadcrumb";
 import { createComboboxController } from "@sometic/dom/combobox";
-import { createTabsController } from "@sometic/dom/tabs";
+import {
+    createCommandPaletteController,
+    getCommandPaletteKeyboardAction,
+    resolveCommandItem,
+    type CommandPaletteCommand,
+} from "@sometic/dom/command-palette";
+import { bindTabsKeyboard, createTabsController } from "@sometic/dom/tabs";
+import {
+    createTreeController,
+    getTreeKeyboardAction,
+    resolveTree,
+    resolveTreeItem,
+    type TreeItem,
+} from "@sometic/dom/tree";
 import "@sometic/elements/structure";
+
+const STRUCTURE_COMMANDS: CommandPaletteCommand[] = [
+    {
+        id: "docs",
+        label: "Open docs",
+        keywords: ["guide", "documentation"],
+        group: "Navigation",
+    },
+    {
+        id: "status",
+        label: "Focus playground status",
+        keywords: ["log"],
+        group: "Navigation",
+    },
+    {
+        id: "theme",
+        label: "Toggle theme",
+        keywords: ["dark", "light"],
+        group: "Theme",
+    },
+    { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
+    { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
+    { id: "compare", label: "Open comparison", keywords: ["vs"], group: "Docs" },
+];
+
+const STRUCTURE_TREE: TreeItem[] = [
+    {
+        id: "docs",
+        label: "Docs",
+        children: [
+            {
+                id: "guide",
+                label: "Guide",
+                children: [
+                    { id: "intro", label: "Introduction" },
+                    { id: "install", label: "Installation" },
+                ],
+            },
+            {
+                id: "components",
+                label: "Components",
+                children: [
+                    { id: "tabs", label: "Tabs" },
+                    { id: "tree", label: "Tree" },
+                ],
+            },
+        ],
+    },
+    {
+        id: "packages",
+        label: "Packages",
+        children: [
+            { id: "dom", label: "@sometic/dom" },
+            { id: "react", label: "@sometic/react", disabled: true },
+        ],
+    },
+];
 
 function applyAttributes(el: HTMLElement, attributes: Record<string, string>): void {
     for (const [key, value] of Object.entries(attributes)) {
@@ -43,6 +113,7 @@ export function mountStructureSection(root: HTMLElement): () => void {
             });
             applyAttributes(panel, view.attributes);
             panel.id = `tab-panel-${value}`;
+            panel.hidden = !view.selected;
         }
     };
 
@@ -67,6 +138,18 @@ export function mountStructureSection(root: HTMLElement): () => void {
     for (const trigger of tabTriggers) {
         trigger.addEventListener("click", onTabClick);
     }
+    const tabsKeyboard = bindTabsKeyboard({
+        getTabs: () =>
+            tabTriggers.map((element) => ({
+                value: element.dataset.tab ?? "",
+                disabled: element.disabled,
+                element,
+            })),
+        getSelected: () => tabs.value.get(),
+        setSelected: (value) => tabs.setValue(value),
+        getOrientation: () => tabs.orientation,
+        getDir: () => tabs.dir,
+    });
     syncTabs();
 
     const accordionRoot = root.querySelector<HTMLElement>("[data-accordion-root]");
@@ -202,6 +285,175 @@ export function mountStructureSection(root: HTMLElement): () => void {
         }
     }
 
+    const commandPanel = root.querySelector<HTMLElement>("[data-command-palette]");
+    const commandList = root.querySelector<HTMLElement>("[data-command-list]");
+    const commandFilter = root.querySelector<HTMLInputElement>("[data-command-filter]");
+    const commandOpen = root.querySelector<HTMLButtonElement>("[data-command-open]");
+
+    const syncCommand = (): void => {
+        if (!commandPanel || !commandList || !commandFilter) {
+            return;
+        }
+        const open = command.open.get();
+        commandPanel.hidden = !open;
+        commandFilter.value = command.filter.get();
+        commandList.replaceChildren();
+        const entries = command.getFilteredCommands();
+        if (entries.length === 0) {
+            const empty = document.createElement("p");
+            empty.className = "pg-command-empty";
+            empty.textContent = "No commands found";
+            commandList.append(empty);
+            command.overlay.sync();
+            return;
+        }
+        let lastGroup: string | undefined;
+        for (const entry of entries) {
+            if (entry.group && entry.group !== lastGroup) {
+                const heading = document.createElement("div");
+                heading.className = "pg-command-group";
+                heading.textContent = entry.group;
+                commandList.append(heading);
+                lastGroup = entry.group;
+            }
+            const view = resolveCommandItem({
+                id: entry.id,
+                selected: command.getActiveId() === entry.id,
+                ...(entry.disabled === undefined ? {} : { disabled: entry.disabled }),
+            });
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = entry.label;
+            button.className = "pg-command-item";
+            applyAttributes(button, view.attributes);
+            button.disabled = entry.disabled === true;
+            button.addEventListener("click", () => {
+                command.setActive(entry.id);
+                command.selectActive();
+            });
+            commandList.append(button);
+        }
+        command.overlay.sync();
+    };
+
+    const command = createCommandPaletteController({
+        defaultOpen: false,
+        commands: STRUCTURE_COMMANDS,
+        getContent: () => commandPanel,
+        onOpenChange: () => {
+            syncCommand();
+            log(`command open=${String(command.open.get())}`);
+        },
+        onFilterChange: () => syncCommand(),
+        onValueChange: () => syncCommand(),
+        onSelect: (entry) => log(`command select=${entry.id}`),
+    });
+
+    const onCommandOpen = (): void => {
+        command.setOpen(true);
+        commandFilter?.focus();
+    };
+    const onCommandFilter = (): void => {
+        if (!commandFilter) {
+            return;
+        }
+        command.setFilter(commandFilter.value);
+    };
+    const onCommandKeyDown = (event: KeyboardEvent): void => {
+        const action = getCommandPaletteKeyboardAction(event, { open: command.open.get() });
+        if (!action) {
+            return;
+        }
+        event.preventDefault();
+        if (action === "close") {
+            command.setOpen(false);
+        } else if (action === "next") {
+            command.moveActive(1);
+            syncCommand();
+        } else if (action === "previous") {
+            command.moveActive(-1);
+            syncCommand();
+        } else if (action === "select") {
+            command.selectActive();
+        }
+    };
+    commandOpen?.addEventListener("click", onCommandOpen);
+    commandFilter?.addEventListener("input", onCommandFilter);
+    commandPanel?.addEventListener("keydown", onCommandKeyDown);
+    syncCommand();
+
+    const treeRoot = root.querySelector<HTMLElement>("[data-tree-root]");
+    const tree = createTreeController({
+        items: STRUCTURE_TREE,
+        defaultValue: "tree",
+        defaultExpanded: ["docs", "guide", "components"],
+        onValueChange: (value) => {
+            syncTree();
+            log(`tree value=${value}`);
+        },
+        onExpandedChange: () => syncTree(),
+    });
+
+    const syncTree = (): void => {
+        if (!treeRoot) {
+            return;
+        }
+        applyAttributes(treeRoot, resolveTree().attributes);
+        treeRoot.replaceChildren();
+        for (const node of tree.getVisibleNodes()) {
+            const view = resolveTreeItem({
+                id: node.item.id,
+                level: node.level,
+                hasChildren: node.hasChildren,
+                selected: tree.isSelected(node.item.id),
+                expanded: tree.isExpanded(node.item.id),
+                ...(node.item.disabled === undefined ? {} : { disabled: node.item.disabled }),
+            });
+            const row = document.createElement("button");
+            row.type = "button";
+            row.className = "pg-tree-item";
+            row.textContent = node.item.label;
+            applyAttributes(row, view.attributes);
+            row.style.setProperty("--pg-tree-level", String(node.level));
+            row.disabled = node.item.disabled === true;
+            row.addEventListener("click", () => {
+                if (node.item.disabled === true) {
+                    return;
+                }
+                tree.setValue(node.item.id);
+                if (node.hasChildren) {
+                    tree.toggleExpanded(node.item.id);
+                }
+            });
+            treeRoot.append(row);
+        }
+    };
+
+    const onTreeKeyDown = (event: KeyboardEvent): void => {
+        const action = getTreeKeyboardAction(event, {
+            nodes: tree.getVisibleNodes(),
+            selected: tree.value.get(),
+            expanded: new Set(tree.expanded.get()),
+            dir: tree.dir,
+        });
+        if (!action) {
+            return;
+        }
+        event.preventDefault();
+        if (action.expand) {
+            tree.expand(action.expand);
+        }
+        if (action.collapse) {
+            tree.collapse(action.collapse);
+        }
+        if (action.select) {
+            tree.setValue(action.select);
+        }
+        syncTree();
+    };
+    treeRoot?.addEventListener("keydown", onTreeKeyDown);
+    syncTree();
+
     const progress = root.querySelector<HTMLElement>("sometic-progress");
     const bump = root.querySelector<HTMLButtonElement>("[data-progress-bump]");
     const syncProgressBar = (value: number): void => {
@@ -227,9 +479,10 @@ export function mountStructureSection(root: HTMLElement): () => void {
     };
     bump?.addEventListener("click", onBump);
 
-    log("Structure ready · tabs / accordion / combobox / breadcrumb + feedback CEs");
+    log("Structure ready · tabs / accordion / command / tree / breadcrumb + feedback CEs");
 
     return () => {
+        tabsKeyboard.dispose();
         for (const trigger of tabTriggers) {
             trigger.removeEventListener("click", onTabClick);
         }
@@ -244,6 +497,11 @@ export function mountStructureSection(root: HTMLElement): () => void {
         for (const option of comboboxOptions) {
             option.removeEventListener("click", onComboboxOptionClick);
         }
+        commandOpen?.removeEventListener("click", onCommandOpen);
+        commandFilter?.removeEventListener("input", onCommandFilter);
+        commandPanel?.removeEventListener("keydown", onCommandKeyDown);
+        command.dispose();
+        treeRoot?.removeEventListener("keydown", onTreeKeyDown);
         bump?.removeEventListener("click", onBump);
     };
 }

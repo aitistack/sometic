@@ -67,11 +67,11 @@ Extends `HTMLAttributes<HTMLDivElement>`. Remaining native div attrs are forward
 
 ### Vue
 
-No Vue `Skeleton` component. `@sometic/vue/structure` re-exports `resolveSkeleton`. Prefer React, CE, or resolve.
+`Skeleton` from `@sometic/vue/structure`. Prop: `animated`.
 
 ### Custom element (`sometic-skeleton`)
 
-No observed attributes today. Connect renders the default animated skeleton. For `animated={false}`, use React or `resolveSkeleton({ animated: false })` in Vanilla JS.
+No observed attributes today. Connect renders the default animated skeleton. For `animated={false}`, use React, Vue, or `resolveSkeleton({ animated: false })` in Vanilla JS.
 
 ## Events / callbacks
 
@@ -98,7 +98,7 @@ Target `[data-slot="root"][aria-hidden="true"]`, `[data-animated]`.
 
 **CE `animated` attr?** Not observed. Use React or resolve for non-animated.
 
-**Vue component?** Not shipped. React + Elements primary.
+**Vue component?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto the root div.
 

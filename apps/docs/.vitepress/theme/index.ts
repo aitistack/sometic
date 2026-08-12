@@ -6,6 +6,7 @@ import InstallCommands from "./components/InstallCommands.vue";
 import { previewComponents } from "./previews/index";
 import "@sometic/demo-kit/typography.css";
 import "@sometic/demo-kit/controls.css";
+import "@sometic/demo-kit/structure-demo.css";
 import "./custom.css";
 import "./demo.css";
 import "./home.css";

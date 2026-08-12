@@ -57,7 +57,7 @@ Extends `HTMLAttributes<HTMLDivElement>`. Remaining native div attrs are forward
 
 ### Vue
 
-No Vue `Spinner` component. `@sometic/vue/structure` re-exports `resolveSpinner`. Prefer React, CE, or resolve.
+`Spinner` from `@sometic/vue/structure`. Prop: `label` (maps to `aria-label`).
 
 ### Custom element (`sometic-spinner`)
 
@@ -86,7 +86,7 @@ Target `[role="status"][data-slot="root"]`. Add your own CSS animation.
 
 **Default label?** `"Loading"`.
 
-**Vue component?** Not shipped. React + Elements primary.
+**Vue component?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto the root div.
 
