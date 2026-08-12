@@ -1,7 +1,7 @@
 # Privacy policy
 
 **Last updated:** 6 August 2026  
-**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com) (the “Site”), operated in connection with the Sometic open-source project by aitiStack (“we”, “us”).
+**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com) (the “Site”), operated in connection with the Sometic open-source project by [AitiStack](https://portfolio.aitistack.com) (“we”, “us”).
 
 This policy explains what information is involved when you use the Site. It is written for transparency. It is **not** legal advice.
 

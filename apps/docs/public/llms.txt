@@ -2,7 +2,7 @@
 
 > Portable application behavior for JavaScript. Shared controllers for UI, forms, auth, HTTP, query (server state), document head, and App Shell composition, with thin adapters for React, Vue, and Web Components.
 
-Sometic (by aitiStack) is a portable application behavior system, not a pre-styled component kit. Framework-independent controllers power UI engines, forms, authentication, HTTP, query cache, head/SEO, and System composition via `@sometic/app-shell`. Thin adapters expose native DX for React, Vue, and `sometic-*` custom elements. Packages are unstyled by default. Bring Tailwind, Bootstrap, design tokens, or plain CSS.
+Sometic is a portable application behavior system, not a pre-styled component kit. Framework-independent controllers power UI engines, forms, authentication, HTTP, query cache, head/SEO, and System composition via `@sometic/app-shell`. Thin adapters expose native DX for React, Vue, and `sometic-*` custom elements. Packages are unstyled by default. Bring Tailwind, Bootstrap, design tokens, or plain CSS.
 
 - Docs: https://sometic.aitistack.com
 - npm scope: `@sometic`
