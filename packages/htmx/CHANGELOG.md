@@ -1,5 +1,12 @@
 # @sometic/htmx
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies [179a92a]
+    - @sometic/dom@1.1.0
+
 ## 0.1.4
 
 ### Patch Changes

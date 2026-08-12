@@ -1,5 +1,13 @@
 # @sometic/playground-vanilla
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [179a92a]
+    - @sometic/dom@1.1.0
+    - @sometic/elements@1.0.5
+
 ## 0.0.5
 
 ### Patch Changes
