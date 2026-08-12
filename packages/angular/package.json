@@ -69,7 +69,7 @@
         }
     ],
     "peerDependencies": {
-        "@angular/core": "^19.0.0"
+        "@angular/core": "^20.3.25 || ^21.2.17 || ^22.0.1"
     },
     "peerDependenciesMeta": {
         "@angular/core": {
