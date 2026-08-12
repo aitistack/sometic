@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- 179a92a: Phase 20 Option A: harden Tabs/Accordion/Breadcrumb (keyboard, lazy mount, URL sync), add Command Palette and Tree engines with React and Vue structure adapters.
+
 ## 1.0.4
 
 ### Patch Changes

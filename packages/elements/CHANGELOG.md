@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [179a92a]
+    - @sometic/dom@1.1.0
+
 ## 1.0.4
 
 ### Patch Changes
