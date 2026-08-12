@@ -1,5 +1,12 @@
 # @sometic/app-shell
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [ba36fbf]
+    - @sometic/forms@1.1.0
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @sometic/jquery
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [ba36fbf]
+    - @sometic/dom@1.2.0
+
 ## 0.1.5
 
 ### Patch Changes

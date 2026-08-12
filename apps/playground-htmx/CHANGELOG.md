@@ -1,5 +1,11 @@
 # @sometic/playground-htmx
 
+## 0.0.7
+
+### Patch Changes
+
+- @sometic/htmx@0.1.6
+
 ## 0.0.6
 
 ### Patch Changes

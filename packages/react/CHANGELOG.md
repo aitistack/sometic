@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- ba36fbf: Phase 21 Data & business catalog: table, query-builder, upload, schema-form, permission matrix, activity, approval, notifications, and status surfaces with Wave A adapters.
+
+### Patch Changes
+
+- Updated dependencies [ba36fbf]
+    - @sometic/dom@1.2.0
+    - @sometic/forms@1.1.0
+
 ## 1.1.0
 
 ### Minor Changes

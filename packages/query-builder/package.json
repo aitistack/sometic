@@ -1,6 +1,6 @@
 {
     "name": "@sometic/query-builder",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Portable filter/query AST builder for Sometic. Distinct from @sometic/query server-state cache.",
     "license": "MIT",
     "type": "module",
