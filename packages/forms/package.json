@@ -121,6 +121,12 @@
             "path": "dist/server/index.js",
             "limit": "1.5 kB",
             "gzip": true
+        },
+        {
+            "name": "forms schema-form",
+            "path": "dist/schema-form/index.js",
+            "limit": "5.5 kB",
+            "gzip": true
         }
     ],
     "keywords": [

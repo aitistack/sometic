@@ -21,6 +21,7 @@ Minimal size and strong runtime performance are major product goals — not afte
 | Auth provider adapter (excl. peers) | ≤ 4–5 KB                            |
 | Validation root                     | ≤ 3 KB                              |
 | Forms root                          | ≤ 6.5 KB                            |
+| Forms schema-form (subpath)         | ≤ 5.5 KB                            |
 | Provider adapters                   | Adapter logic only (peers external) |
 
 Measure published/entry exports consumers actually import. Prefer subpath imports for optional features.
