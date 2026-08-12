@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  happy-dom: ^20.8.9
+  vitepress>vite: 6.4.3
+  '@angular/core': ^20.3.25
+
 importers:
 
   .:
@@ -55,7 +60,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   apps/docs:
     dependencies:
@@ -65,7 +70,7 @@ importers:
     devDependencies:
       vitepress:
         specifier: ^1.6.3
-        version: 1.6.4(@algolia/client-search@5.56.0)(@types/node@22.20.1)(postcss@8.5.25)(search-insights@2.17.3)(typescript@5.9.3)
+        version: 1.6.4(@algolia/client-search@5.56.0)(@types/node@22.20.1)(jiti@2.7.0)(postcss@8.5.25)(search-insights@2.17.3)(typescript@5.9.3)(yaml@2.9.0)
 
   apps/playground-alpine:
     dependencies:
@@ -294,13 +299,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -312,7 +317,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/activity:
     dependencies:
@@ -337,7 +342,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -352,7 +357,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/adapter-contract:
     dependencies:
@@ -392,7 +397,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/alpine:
     dependencies:
@@ -431,8 +436,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -444,13 +449,13 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/angular:
     dependencies:
       '@angular/core':
-        specifier: ^19.0.0
-        version: 19.2.25(rxjs@7.8.2)(zone.js@0.15.1)
+        specifier: ^20.3.25
+        version: 20.3.27(rxjs@7.8.2)(zone.js@0.15.1)
       '@sometic/adapter-contract':
         specifier: workspace:*
         version: link:../adapter-contract
@@ -490,7 +495,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/app-shell:
     dependencies:
@@ -536,13 +541,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -554,7 +559,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/approval:
     dependencies:
@@ -579,7 +584,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -594,7 +599,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/auth:
     dependencies:
@@ -619,13 +624,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -637,7 +642,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/auth-firebase:
     dependencies:
@@ -668,13 +673,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -686,7 +691,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/auth-local:
     dependencies:
@@ -714,13 +719,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -732,7 +737,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/auth-oidc:
     dependencies:
@@ -760,13 +765,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -778,7 +783,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/auth-supabase:
     dependencies:
@@ -809,13 +814,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -827,7 +832,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/cli:
     dependencies:
@@ -867,7 +872,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/core:
     devDependencies:
@@ -888,7 +893,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -903,7 +908,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/data-table:
     dependencies:
@@ -928,13 +933,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -946,7 +951,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/date-core:
     devDependencies:
@@ -967,7 +972,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -982,7 +987,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/date-dayjs:
     dependencies:
@@ -1007,7 +1012,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       dayjs:
         specifier: ^1.11.13
         version: 1.11.21
@@ -1025,7 +1030,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/date-fns:
     dependencies:
@@ -1050,7 +1055,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       date-fns:
         specifier: ^4.1.0
         version: 4.4.0
@@ -1068,7 +1073,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/date-native:
     dependencies:
@@ -1093,7 +1098,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1108,7 +1113,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/demo-kit: {}
 
@@ -1162,13 +1167,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1180,7 +1185,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/elements:
     dependencies:
@@ -1220,13 +1225,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1238,7 +1243,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/eslint-config:
     dependencies:
@@ -1279,7 +1284,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1294,7 +1299,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/forms:
     dependencies:
@@ -1322,13 +1327,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1340,7 +1345,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/head:
     dependencies:
@@ -1365,13 +1370,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1383,7 +1388,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/htmx:
     dependencies:
@@ -1422,8 +1427,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1435,7 +1440,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/http:
     dependencies:
@@ -1463,13 +1468,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1481,7 +1486,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/jquery:
     dependencies:
@@ -1520,8 +1525,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1533,7 +1538,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/notifications:
     dependencies:
@@ -1558,7 +1563,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1573,7 +1578,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/positioning:
     dependencies:
@@ -1598,13 +1603,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1616,7 +1621,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/preact:
     dependencies:
@@ -1662,7 +1667,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/query:
     dependencies:
@@ -1690,13 +1695,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1708,7 +1713,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/query-builder:
     dependencies:
@@ -1733,7 +1738,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1748,7 +1753,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/react:
     dependencies:
@@ -1803,13 +1808,13 @@ importers:
         version: 19.2.4(@types/react@19.2.18)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       react:
         specifier: ^19.1.0
         version: 19.2.8
@@ -1827,7 +1832,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/registry:
     devDependencies:
@@ -1863,7 +1868,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/solid:
     dependencies:
@@ -1909,7 +1914,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/store:
     dependencies:
@@ -1934,7 +1939,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1949,7 +1954,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/store-immer:
     devDependencies:
@@ -1973,7 +1978,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1991,7 +1996,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/styling:
     devDependencies:
@@ -2012,7 +2017,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -2027,7 +2032,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/svelte:
     dependencies:
@@ -2073,7 +2078,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/theme:
     dependencies:
@@ -2104,7 +2109,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -2119,7 +2124,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/upload:
     dependencies:
@@ -2147,13 +2152,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -2165,7 +2170,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/validation:
     devDependencies:
@@ -2186,7 +2191,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -2201,7 +2206,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
   packages/validation-yup:
     dependencies:
@@ -2226,7 +2231,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -2241,7 +2246,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
       yup:
         specifier: ^1.6.1
         version: 1.7.1
@@ -2269,7 +2274,7 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -2284,7 +2289,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
       zod:
         specifier: ^3.24.2
         version: 3.25.76
@@ -2336,13 +2341,13 @@ importers:
         version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
-        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       happy-dom:
-        specifier: ^18.0.1
-        version: 18.0.1
+        specifier: ^20.8.9
+        version: 20.11.2
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -2354,7 +2359,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^3.2.4
-        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
       vue:
         specifier: ^3.5.17
         version: 3.5.40(typescript@5.9.3)
@@ -2407,7 +2412,7 @@ importers:
         specifier: ^4.5.2
         version: 4.7.0(vite@6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))
       vite:
-        specifier: ^6.3.5
+        specifier: ^6.4.3
         version: 6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)
 
   tooling/release: {}
@@ -2498,12 +2503,18 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@angular/core@19.2.25':
-    resolution: {integrity: sha512-j7/irbbdO4rmZfRXS+sphCerzgcRlpGFwxHc/76Ual+ckwJG0MPsNFkllz2SIEZzE1EZkmIunGrHbjeRBJjyvg==}
-    engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
+  '@angular/core@20.3.27':
+    resolution: {integrity: sha512-8EfYIUST5CKldOF4MAYWTFFRB7EtwqUoQBZdar6US39/EEzWm/wm/iRNkH2jmKe4YuPa2GoeHS1WQ8VRuOk7Dg==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     peerDependencies:
+      '@angular/compiler': 20.3.27
       rxjs: ^6.5.3 || ^7.4.0
       zone.js: ~0.15.0
+    peerDependenciesMeta:
+      '@angular/compiler':
+        optional: true
+      zone.js:
+        optional: true
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -2683,12 +2694,6 @@ packages:
   '@emnapi/wasi-threads@1.2.2':
     resolution: {integrity: sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==}
 
-  '@esbuild/aix-ppc64@0.21.5':
-    resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
-    engines: {node: '>=12'}
-    cpu: [ppc64]
-    os: [aix]
-
   '@esbuild/aix-ppc64@0.25.12':
     resolution: {integrity: sha512-Hhmwd6CInZ3dwpuGTF8fJG6yoWmsToE+vYgD4nytZVxcu1ulHpUQRAB1UJ8+N1Am3Mz4+xOByoQoSZf4D+CpkA==}
     engines: {node: '>=18'}
@@ -2707,12 +2712,6 @@ packages:
     cpu: [ppc64]
     os: [aix]
 
-  '@esbuild/android-arm64@0.21.5':
-    resolution: {integrity: sha512-c0uX9VAUBQ7dTDCjq+wdyGLowMdtR/GoC2U5IYk/7D1H1JYC0qseD7+11iMP2mRLN9RcCMRcjC4YMclCzGwS/A==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [android]
-
   '@esbuild/android-arm64@0.25.12':
     resolution: {integrity: sha512-6AAmLG7zwD1Z159jCKPvAxZd4y/VTO0VkprYy+3N2FtJ8+BQWFXU+OxARIwA46c5tdD9SsKGZ/1ocqBS/gAKHg==}
     engines: {node: '>=18'}
@@ -2729,12 +2728,6 @@ packages:
     resolution: {integrity: sha512-34EGEbCIAgosYz6goLcopX6Mo7NyGv9tfwEM2/7Ce2VcVRk568iSvniGWcUXIy7wEDR1wzolcxcriFVrWYcwBg==}
     engines: {node: '>=18'}
     cpu: [arm64]
-    os: [android]
-
-  '@esbuild/android-arm@0.21.5':
-    resolution: {integrity: sha512-vCPvzSjpPHEi1siZdlvAlsPxXl7WbOVUBBAowWug4rJHb68Ox8KualB+1ocNvT5fjv6wpkX6o/iEpbDrf68zcg==}
-    engines: {node: '>=12'}
-    cpu: [arm]
     os: [android]
 
   '@esbuild/android-arm@0.25.12':
@@ -2755,12 +2748,6 @@ packages:
     cpu: [arm]
     os: [android]
 
-  '@esbuild/android-x64@0.21.5':
-    resolution: {integrity: sha512-D7aPRUUNHRBwHxzxRvp856rjUHRFW1SdQATKXH2hqA0kAZb1hKmi02OpYRacl0TxIGz/ZmXWlbZgjwWYaCakTA==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [android]
-
   '@esbuild/android-x64@0.25.12':
     resolution: {integrity: sha512-5jbb+2hhDHx5phYR2By8GTWEzn6I9UqR11Kwf22iKbNpYrsmRB18aX/9ivc5cabcUiAT/wM+YIZ6SG9QO6a8kg==}
     engines: {node: '>=18'}
@@ -2779,12 +2766,6 @@ packages:
     cpu: [x64]
     os: [android]
 
-  '@esbuild/darwin-arm64@0.21.5':
-    resolution: {integrity: sha512-DwqXqZyuk5AiWWf3UfLiRDJ5EDd49zg6O9wclZ7kUMv2WRFr4HKjXp/5t8JZ11QbQfUS6/cRCKGwYhtNAY88kQ==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [darwin]
-
   '@esbuild/darwin-arm64@0.25.12':
     resolution: {integrity: sha512-N3zl+lxHCifgIlcMUP5016ESkeQjLj/959RxxNYIthIg+CQHInujFuXeWbWMgnTo4cp5XVHqFPmpyu9J65C1Yg==}
     engines: {node: '>=18'}
@@ -2801,12 +2782,6 @@ packages:
     resolution: {integrity: sha512-TZbWkQY7kvTAXbXUT7uVACR5cMHsDiSz9z7ZKAX/RTq/WJEk3QyRr0wZpNhBDX+/0CtdqUIJlOiodQcta6tY3Q==}
     engines: {node: '>=18'}
     cpu: [arm64]
-    os: [darwin]
-
-  '@esbuild/darwin-x64@0.21.5':
-    resolution: {integrity: sha512-se/JjF8NlmKVG4kNIuyWMV/22ZaerB+qaSi5MdrXtd6R08kvs2qCN4C09miupktDitvh8jRFflwGFBQcxZRjbw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [darwin]
 
   '@esbuild/darwin-x64@0.25.12':
@@ -2827,12 +2802,6 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@esbuild/freebsd-arm64@0.21.5':
-    resolution: {integrity: sha512-5JcRxxRDUJLX8JXp/wcBCy3pENnCgBR9bN6JsY4OmhfUtIHe3ZW0mawA7+RDAcMLrMIZaf03NlQiX9DGyB8h4g==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [freebsd]
-
   '@esbuild/freebsd-arm64@0.25.12':
     resolution: {integrity: sha512-gA0Bx759+7Jve03K1S0vkOu5Lg/85dou3EseOGUes8flVOGxbhDDh/iZaoek11Y8mtyKPGF3vP8XhnkDEAmzeg==}
     engines: {node: '>=18'}
@@ -2849,12 +2818,6 @@ packages:
     resolution: {integrity: sha512-wG2EA8ENdEI0qhkSZMjfqrdY+ziCYCPMmtZjjIwOmXFjmyzEHn+UUxk5of+SYsjtfs3VpnlC7QLzSI5hY/rOAw==}
     engines: {node: '>=18'}
     cpu: [arm64]
-    os: [freebsd]
-
-  '@esbuild/freebsd-x64@0.21.5':
-    resolution: {integrity: sha512-J95kNBj1zkbMXtHVH29bBriQygMXqoVQOQYA+ISs0/2l3T9/kj42ow2mpqerRBxDJnmkUDCaQT/dfNXWX/ZZCQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [freebsd]
 
   '@esbuild/freebsd-x64@0.25.12':
@@ -2875,12 +2838,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
 
-  '@esbuild/linux-arm64@0.21.5':
-    resolution: {integrity: sha512-ibKvmyYzKsBeX8d8I7MH/TMfWDXBF3db4qM6sy+7re0YXya+K1cem3on9XgdT2EQGMu4hQyZhan7TeQ8XkGp4Q==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [linux]
-
   '@esbuild/linux-arm64@0.25.12':
     resolution: {integrity: sha512-8bwX7a8FghIgrupcxb4aUmYDLp8pX06rGh5HqDT7bB+8Rdells6mHvrFHHW2JAOPZUbnjUpKTLg6ECyzvas2AQ==}
     engines: {node: '>=18'}
@@ -2897,12 +2854,6 @@ packages:
     resolution: {integrity: sha512-yHs+0uc8+nvEAfAfxrWQKK5peSNzBc4PegcMO0EJ2hT71uA7vB8Ihg2e77R2P7SG5uYjPbHlLLmve4LLLRCf0g==}
     engines: {node: '>=18'}
     cpu: [arm64]
-    os: [linux]
-
-  '@esbuild/linux-arm@0.21.5':
-    resolution: {integrity: sha512-bPb5AHZtbeNGjCKVZ9UGqGwo8EUu4cLq68E95A53KlxAPRmUyYv2D6F0uUI65XisGOL1hBP5mTronbgo+0bFcA==}
-    engines: {node: '>=12'}
-    cpu: [arm]
     os: [linux]
 
   '@esbuild/linux-arm@0.25.12':
@@ -2923,12 +2874,6 @@ packages:
     cpu: [arm]
     os: [linux]
 
-  '@esbuild/linux-ia32@0.21.5':
-    resolution: {integrity: sha512-YvjXDqLRqPDl2dvRODYmmhz4rPeVKYvppfGYKSNGdyZkA01046pLWyRKKI3ax8fbJoK5QbxblURkwK/MWY18Tg==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [linux]
-
   '@esbuild/linux-ia32@0.25.12':
     resolution: {integrity: sha512-0y9KrdVnbMM2/vG8KfU0byhUN+EFCny9+8g202gYqSSVMonbsCfLjUO+rCci7pM0WBEtz+oK/PIwHkzxkyharA==}
     engines: {node: '>=18'}
@@ -2945,12 +2890,6 @@ packages:
     resolution: {integrity: sha512-d1z4ZuP0ajrfz/FhGT4vv278rX8KnPPJx8i5+AtK7TYbx9Le9F1hyzurZpkEyjkGa9dUGhQow4C1NmeGvqxN2w==}
     engines: {node: '>=18'}
     cpu: [ia32]
-    os: [linux]
-
-  '@esbuild/linux-loong64@0.21.5':
-    resolution: {integrity: sha512-uHf1BmMG8qEvzdrzAqg2SIG/02+4/DHB6a9Kbya0XDvwDEKCoC8ZRWI5JJvNdUjtciBGFQ5PuBlpEOXQj+JQSg==}
-    engines: {node: '>=12'}
-    cpu: [loong64]
     os: [linux]
 
   '@esbuild/linux-loong64@0.25.12':
@@ -2971,12 +2910,6 @@ packages:
     cpu: [loong64]
     os: [linux]
 
-  '@esbuild/linux-mips64el@0.21.5':
-    resolution: {integrity: sha512-IajOmO+KJK23bj52dFSNCMsz1QP1DqM6cwLUv3W1QwyxkyIWecfafnI555fvSGqEKwjMXVLokcV5ygHW5b3Jbg==}
-    engines: {node: '>=12'}
-    cpu: [mips64el]
-    os: [linux]
-
   '@esbuild/linux-mips64el@0.25.12':
     resolution: {integrity: sha512-iyRrM1Pzy9GFMDLsXn1iHUm18nhKnNMWscjmp4+hpafcZjrr2WbT//d20xaGljXDBYHqRcl8HnxbX6uaA/eGVw==}
     engines: {node: '>=18'}
@@ -2993,12 +2926,6 @@ packages:
     resolution: {integrity: sha512-mRObBZeHh2OxcBFPWE/FjylkRgZdYuiTR3vaTozquCGOH14iP9oN4x4Ge81CoIDYQrXmIxpFumJBu5MtZpnQJQ==}
     engines: {node: '>=18'}
     cpu: [mips64el]
-    os: [linux]
-
-  '@esbuild/linux-ppc64@0.21.5':
-    resolution: {integrity: sha512-1hHV/Z4OEfMwpLO8rp7CvlhBDnjsC3CttJXIhBi+5Aj5r+MBvy4egg7wCbe//hSsT+RvDAG7s81tAvpL2XAE4w==}
-    engines: {node: '>=12'}
-    cpu: [ppc64]
     os: [linux]
 
   '@esbuild/linux-ppc64@0.25.12':
@@ -3019,12 +2946,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
 
-  '@esbuild/linux-riscv64@0.21.5':
-    resolution: {integrity: sha512-2HdXDMd9GMgTGrPWnJzP2ALSokE/0O5HhTUvWIbD3YdjME8JwvSCnNGBnTThKGEB91OZhzrJ4qIIxk/SBmyDDA==}
-    engines: {node: '>=12'}
-    cpu: [riscv64]
-    os: [linux]
-
   '@esbuild/linux-riscv64@0.25.12':
     resolution: {integrity: sha512-Zr7KR4hgKUpWAwb1f3o5ygT04MzqVrGEGXGLnj15YQDJErYu/BGg+wmFlIDOdJp0PmB0lLvxFIOXZgFRrdjR0w==}
     engines: {node: '>=18'}
@@ -3043,12 +2964,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
 
-  '@esbuild/linux-s390x@0.21.5':
-    resolution: {integrity: sha512-zus5sxzqBJD3eXxwvjN1yQkRepANgxE9lgOW2qLnmr8ikMTphkjgXu1HR01K4FJg8h1kEEDAqDcZQtbrRnB41A==}
-    engines: {node: '>=12'}
-    cpu: [s390x]
-    os: [linux]
-
   '@esbuild/linux-s390x@0.25.12':
     resolution: {integrity: sha512-MsKncOcgTNvdtiISc/jZs/Zf8d0cl/t3gYWX8J9ubBnVOwlk65UIEEvgBORTiljloIWnBzLs4qhzPkJcitIzIg==}
     engines: {node: '>=18'}
@@ -3065,12 +2980,6 @@ packages:
     resolution: {integrity: sha512-/lAIjX8aYFRByhh6L5rYtPEDRqa9de/4V/juOXcta5frjvzXO4/sqEtyytse0g3zZFuWu5cDN0MkLz2qRDD2Ag==}
     engines: {node: '>=18'}
     cpu: [s390x]
-    os: [linux]
-
-  '@esbuild/linux-x64@0.21.5':
-    resolution: {integrity: sha512-1rYdTpyv03iycF1+BhzrzQJCdOuAOtaqHTWJZCWvijKD2N5Xu0TtVC8/+1faWqcP9iBCWOmjmhoH94dH82BxPQ==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [linux]
 
   '@esbuild/linux-x64@0.25.12':
@@ -3109,12 +3018,6 @@ packages:
     cpu: [arm64]
     os: [netbsd]
 
-  '@esbuild/netbsd-x64@0.21.5':
-    resolution: {integrity: sha512-Woi2MXzXjMULccIwMnLciyZH4nCIMpWQAs049KEeMvOcNADVxo0UBIQPfSmxB3CWKedngg7sWZdLvLczpe0tLg==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [netbsd]
-
   '@esbuild/netbsd-x64@0.25.12':
     resolution: {integrity: sha512-Ld5pTlzPy3YwGec4OuHh1aCVCRvOXdH8DgRjfDy/oumVovmuSzWfnSJg+VtakB9Cm0gxNO9BzWkj6mtO1FMXkQ==}
     engines: {node: '>=18'}
@@ -3149,12 +3052,6 @@ packages:
     resolution: {integrity: sha512-MEFJe5C3R8pwXdZ5Y21oo6m7ePiS0d9pWucn99O/wvyJZChoIQKrQDxKrGeW8F5+T0okTHesAmDeiHDTIq0V/Q==}
     engines: {node: '>=18'}
     cpu: [arm64]
-    os: [openbsd]
-
-  '@esbuild/openbsd-x64@0.21.5':
-    resolution: {integrity: sha512-HLNNw99xsvx12lFBUwoT8EVCsSvRNDVxNpjZ7bPn947b8gJPzeHWyNVhFsaerc0n3TsbOINvRP2byTZ5LKezow==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [openbsd]
 
   '@esbuild/openbsd-x64@0.25.12':
@@ -3193,12 +3090,6 @@ packages:
     cpu: [arm64]
     os: [openharmony]
 
-  '@esbuild/sunos-x64@0.21.5':
-    resolution: {integrity: sha512-6+gjmFpfy0BHU5Tpptkuh8+uw3mnrvgs+dSPQXQOv3ekbordwnzTVEb4qnIvQcYXq6gzkyTnoZ9dZG+D4garKg==}
-    engines: {node: '>=12'}
-    cpu: [x64]
-    os: [sunos]
-
   '@esbuild/sunos-x64@0.25.12':
     resolution: {integrity: sha512-3wGSCDyuTHQUzt0nV7bocDy72r2lI33QL3gkDNGkod22EsYl04sMf0qLb8luNKTOmgF/eDEDP5BFNwoBKH441w==}
     engines: {node: '>=18'}
@@ -3216,12 +3107,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [sunos]
-
-  '@esbuild/win32-arm64@0.21.5':
-    resolution: {integrity: sha512-Z0gOTd75VvXqyq7nsl93zwahcTROgqvuAcYDUr+vOv8uHhNSKROyU961kgtCD1e95IqPKSQKH7tBTslnS3tA8A==}
-    engines: {node: '>=12'}
-    cpu: [arm64]
-    os: [win32]
 
   '@esbuild/win32-arm64@0.25.12':
     resolution: {integrity: sha512-rMmLrur64A7+DKlnSuwqUdRKyd3UE7oPJZmnljqEptesKM8wx9J8gx5u0+9Pq0fQQW8vqeKebwNXdfOyP+8Bsg==}
@@ -3241,12 +3126,6 @@ packages:
     cpu: [arm64]
     os: [win32]
 
-  '@esbuild/win32-ia32@0.21.5':
-    resolution: {integrity: sha512-SWXFF1CL2RVNMaVs+BBClwtfZSvDgtL//G/smwAc5oVK/UPu2Gu9tIaRgFmYFFKrmg3SyAjSrElf0TiJ1v8fYA==}
-    engines: {node: '>=12'}
-    cpu: [ia32]
-    os: [win32]
-
   '@esbuild/win32-ia32@0.25.12':
     resolution: {integrity: sha512-HkqnmmBoCbCwxUKKNPBixiWDGCpQGVsrQfJoVGYLPT41XWF8lHuE5N6WhVia2n4o5QK5M4tYr21827fNhi4byQ==}
     engines: {node: '>=18'}
@@ -3263,12 +3142,6 @@ packages:
     resolution: {integrity: sha512-zvb/mB2bSCoJOpoCBgYKKpX6YM6mJBlBUVUtVj41DlZJVEB6/0CKlRYxP5wWl1C1ILiCoAU5wZZ4q1P3qeS6Eg==}
     engines: {node: '>=18'}
     cpu: [ia32]
-    os: [win32]
-
-  '@esbuild/win32-x64@0.21.5':
-    resolution: {integrity: sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==}
-    engines: {node: '>=12'}
-    cpu: [x64]
     os: [win32]
 
   '@esbuild/win32-x64@0.25.12':
@@ -4076,9 +3949,6 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.19.43':
-    resolution: {integrity: sha512-6oYBAi5ikg4Pl+kGsoYtawUMBT2zZMCvPNF7pVLnHZfd1zf38DRiWn/gT01RYCdUqkv7Fhr+C9ot4/tb+2sVvA==}
-
   '@types/node@22.20.1':
     resolution: {integrity: sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==}
 
@@ -4104,6 +3974,9 @@ packages:
 
   '@types/whatwg-mimetype@3.0.2':
     resolution: {integrity: sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA==}
+
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
   '@typescript-eslint/eslint-plugin@8.66.0':
     resolution: {integrity: sha512-p088eaGrzYz1s+7cov0aMOCkNGTJlVxF4jgubf28c8L0Cv9Rloj8YBHnv4hXLq6IIEE1AsjNWavO+k+8kP2Y0A==}
@@ -4437,6 +4310,10 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
+  buffer-image-size@0.6.4:
+    resolution: {integrity: sha512-nEh+kZOPY1w+gcCMobZ6ETUp9WfibndnosbpwB1iJk/8Gt5ZF2bhS6+B6bPYz424KtwsR6Rflc3tCz1/ghX2dQ==}
+    engines: {node: '>=4.0'}
+
   bundle-require@5.1.0:
     resolution: {integrity: sha512-3WrrOuZiyaaZPWiEt4G3+IffISVC9HYlWueJEBWED4ZH4aIAC2PnkdnuRrR94M+w6yGWn4AglWtJtBI8YqvgoA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -4618,11 +4495,6 @@ packages:
 
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
-
-  esbuild@0.21.5:
-    resolution: {integrity: sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==}
-    engines: {node: '>=12'}
-    hasBin: true
 
   esbuild@0.25.12:
     resolution: {integrity: sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==}
@@ -4855,8 +4727,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  happy-dom@18.0.1:
-    resolution: {integrity: sha512-qn+rKOW7KWpVTtgIUi6RVmTBZJSe2k0Db0vh1f7CWrWclkkc7/Q+FrOfkZIb2eiErLyqu5AXEzE7XthO9JVxRA==}
+  happy-dom@20.11.2:
+    resolution: {integrity: sha512-7MB+bJLkxu3SowAfBJbjW+c55kNz5tkR45gu2qzrxznezhLeN5YIlJbwUgSzlGc+qWoZ8Ykg71H5ezz69xixrw==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -5811,37 +5683,6 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite@5.4.21:
-    resolution: {integrity: sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      sass-embedded: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-
   vite@6.4.3:
     resolution: {integrity: sha512-NTKlcQjlAK7MlQoyb6LgaqHc8sso/pVyUJYWMws3jg21uTJw/LddqIFPcPqP6PzpgbIcZyKI85sFE4HBrQDA8A==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -5944,7 +5785,7 @@ packages:
       '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
       '@vitest/browser': 3.2.7
       '@vitest/ui': 3.2.7
-      happy-dom: '*'
+      happy-dom: ^20.8.9
       jsdom: '*'
     peerDependenciesMeta:
       '@edge-runtime/vm':
@@ -6015,6 +5856,18 @@ packages:
   wrap-ansi@8.1.0:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
+
+  ws@8.21.3:
+    resolution: {integrity: sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
 
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
@@ -6177,10 +6030,11 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@angular/core@19.2.25(rxjs@7.8.2)(zone.js@0.15.1)':
+  '@angular/core@20.3.27(rxjs@7.8.2)(zone.js@0.15.1)':
     dependencies:
       rxjs: 7.8.2
       tslib: 2.8.1
+    optionalDependencies:
       zone.js: 0.15.1
 
   '@babel/code-frame@7.29.7':
@@ -6483,9 +6337,6 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@esbuild/aix-ppc64@0.21.5':
-    optional: true
-
   '@esbuild/aix-ppc64@0.25.12':
     optional: true
 
@@ -6493,9 +6344,6 @@ snapshots:
     optional: true
 
   '@esbuild/aix-ppc64@0.28.1':
-    optional: true
-
-  '@esbuild/android-arm64@0.21.5':
     optional: true
 
   '@esbuild/android-arm64@0.25.12':
@@ -6507,9 +6355,6 @@ snapshots:
   '@esbuild/android-arm64@0.28.1':
     optional: true
 
-  '@esbuild/android-arm@0.21.5':
-    optional: true
-
   '@esbuild/android-arm@0.25.12':
     optional: true
 
@@ -6517,9 +6362,6 @@ snapshots:
     optional: true
 
   '@esbuild/android-arm@0.28.1':
-    optional: true
-
-  '@esbuild/android-x64@0.21.5':
     optional: true
 
   '@esbuild/android-x64@0.25.12':
@@ -6531,9 +6373,6 @@ snapshots:
   '@esbuild/android-x64@0.28.1':
     optional: true
 
-  '@esbuild/darwin-arm64@0.21.5':
-    optional: true
-
   '@esbuild/darwin-arm64@0.25.12':
     optional: true
 
@@ -6541,9 +6380,6 @@ snapshots:
     optional: true
 
   '@esbuild/darwin-arm64@0.28.1':
-    optional: true
-
-  '@esbuild/darwin-x64@0.21.5':
     optional: true
 
   '@esbuild/darwin-x64@0.25.12':
@@ -6555,9 +6391,6 @@ snapshots:
   '@esbuild/darwin-x64@0.28.1':
     optional: true
 
-  '@esbuild/freebsd-arm64@0.21.5':
-    optional: true
-
   '@esbuild/freebsd-arm64@0.25.12':
     optional: true
 
@@ -6565,9 +6398,6 @@ snapshots:
     optional: true
 
   '@esbuild/freebsd-arm64@0.28.1':
-    optional: true
-
-  '@esbuild/freebsd-x64@0.21.5':
     optional: true
 
   '@esbuild/freebsd-x64@0.25.12':
@@ -6579,9 +6409,6 @@ snapshots:
   '@esbuild/freebsd-x64@0.28.1':
     optional: true
 
-  '@esbuild/linux-arm64@0.21.5':
-    optional: true
-
   '@esbuild/linux-arm64@0.25.12':
     optional: true
 
@@ -6589,9 +6416,6 @@ snapshots:
     optional: true
 
   '@esbuild/linux-arm64@0.28.1':
-    optional: true
-
-  '@esbuild/linux-arm@0.21.5':
     optional: true
 
   '@esbuild/linux-arm@0.25.12':
@@ -6603,9 +6427,6 @@ snapshots:
   '@esbuild/linux-arm@0.28.1':
     optional: true
 
-  '@esbuild/linux-ia32@0.21.5':
-    optional: true
-
   '@esbuild/linux-ia32@0.25.12':
     optional: true
 
@@ -6613,9 +6434,6 @@ snapshots:
     optional: true
 
   '@esbuild/linux-ia32@0.28.1':
-    optional: true
-
-  '@esbuild/linux-loong64@0.21.5':
     optional: true
 
   '@esbuild/linux-loong64@0.25.12':
@@ -6627,9 +6445,6 @@ snapshots:
   '@esbuild/linux-loong64@0.28.1':
     optional: true
 
-  '@esbuild/linux-mips64el@0.21.5':
-    optional: true
-
   '@esbuild/linux-mips64el@0.25.12':
     optional: true
 
@@ -6637,9 +6452,6 @@ snapshots:
     optional: true
 
   '@esbuild/linux-mips64el@0.28.1':
-    optional: true
-
-  '@esbuild/linux-ppc64@0.21.5':
     optional: true
 
   '@esbuild/linux-ppc64@0.25.12':
@@ -6651,9 +6463,6 @@ snapshots:
   '@esbuild/linux-ppc64@0.28.1':
     optional: true
 
-  '@esbuild/linux-riscv64@0.21.5':
-    optional: true
-
   '@esbuild/linux-riscv64@0.25.12':
     optional: true
 
@@ -6663,9 +6472,6 @@ snapshots:
   '@esbuild/linux-riscv64@0.28.1':
     optional: true
 
-  '@esbuild/linux-s390x@0.21.5':
-    optional: true
-
   '@esbuild/linux-s390x@0.25.12':
     optional: true
 
@@ -6673,9 +6479,6 @@ snapshots:
     optional: true
 
   '@esbuild/linux-s390x@0.28.1':
-    optional: true
-
-  '@esbuild/linux-x64@0.21.5':
     optional: true
 
   '@esbuild/linux-x64@0.25.12':
@@ -6696,9 +6499,6 @@ snapshots:
   '@esbuild/netbsd-arm64@0.28.1':
     optional: true
 
-  '@esbuild/netbsd-x64@0.21.5':
-    optional: true
-
   '@esbuild/netbsd-x64@0.25.12':
     optional: true
 
@@ -6715,9 +6515,6 @@ snapshots:
     optional: true
 
   '@esbuild/openbsd-arm64@0.28.1':
-    optional: true
-
-  '@esbuild/openbsd-x64@0.21.5':
     optional: true
 
   '@esbuild/openbsd-x64@0.25.12':
@@ -6738,9 +6535,6 @@ snapshots:
   '@esbuild/openharmony-arm64@0.28.1':
     optional: true
 
-  '@esbuild/sunos-x64@0.21.5':
-    optional: true
-
   '@esbuild/sunos-x64@0.25.12':
     optional: true
 
@@ -6748,9 +6542,6 @@ snapshots:
     optional: true
 
   '@esbuild/sunos-x64@0.28.1':
-    optional: true
-
-  '@esbuild/win32-arm64@0.21.5':
     optional: true
 
   '@esbuild/win32-arm64@0.25.12':
@@ -6762,9 +6553,6 @@ snapshots:
   '@esbuild/win32-arm64@0.28.1':
     optional: true
 
-  '@esbuild/win32-ia32@0.21.5':
-    optional: true
-
   '@esbuild/win32-ia32@0.25.12':
     optional: true
 
@@ -6772,9 +6560,6 @@ snapshots:
     optional: true
 
   '@esbuild/win32-ia32@0.28.1':
-    optional: true
-
-  '@esbuild/win32-x64@0.21.5':
     optional: true
 
   '@esbuild/win32-x64@0.25.12':
@@ -7598,10 +7383,6 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.19.43':
-    dependencies:
-      undici-types: 6.21.0
-
   '@types/node@22.20.1':
     dependencies:
       undici-types: 6.21.0
@@ -7623,6 +7404,10 @@ snapshots:
   '@types/web-bluetooth@0.0.21': {}
 
   '@types/whatwg-mimetype@3.0.2': {}
+
+  '@types/ws@8.18.1':
+    dependencies:
+      '@types/node': 22.20.1
 
   '@typescript-eslint/eslint-plugin@8.66.0(@typescript-eslint/parser@8.66.0(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)':
     dependencies:
@@ -7741,9 +7526,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.2.4(vite@5.4.21(@types/node@22.20.1))(vue@3.5.40(typescript@5.9.3))':
+  '@vitejs/plugin-vue@5.2.4(vite@6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.40(typescript@5.9.3))':
     dependencies:
-      vite: 5.4.21(@types/node@22.20.1)
+      vite: 6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)
       vue: 3.5.40(typescript@5.9.3)
 
   '@vitejs/plugin-vue@6.0.8(vite@7.3.6(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.40(typescript@5.9.3))':
@@ -7752,7 +7537,7 @@ snapshots:
       vite: 7.3.6(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)
       vue: 3.5.40(typescript@5.9.3)
 
-  '@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))':
+  '@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
@@ -7767,7 +7552,7 @@ snapshots:
       std-env: 3.10.0
       test-exclude: 7.0.2
       tinyrainbow: 2.0.0
-      vitest: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+      vitest: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -8040,6 +7825,10 @@ snapshots:
       node-releases: 2.0.52
       update-browserslist-db: 1.2.3(browserslist@4.28.7)
 
+  buffer-image-size@0.6.4:
+    dependencies:
+      '@types/node': 22.20.1
+
   bundle-require@5.1.0(esbuild@0.27.7):
     dependencies:
       esbuild: 0.27.7
@@ -8198,32 +7987,6 @@ snapshots:
   es-errors@1.3.0: {}
 
   es-module-lexer@1.7.0: {}
-
-  esbuild@0.21.5:
-    optionalDependencies:
-      '@esbuild/aix-ppc64': 0.21.5
-      '@esbuild/android-arm': 0.21.5
-      '@esbuild/android-arm64': 0.21.5
-      '@esbuild/android-x64': 0.21.5
-      '@esbuild/darwin-arm64': 0.21.5
-      '@esbuild/darwin-x64': 0.21.5
-      '@esbuild/freebsd-arm64': 0.21.5
-      '@esbuild/freebsd-x64': 0.21.5
-      '@esbuild/linux-arm': 0.21.5
-      '@esbuild/linux-arm64': 0.21.5
-      '@esbuild/linux-ia32': 0.21.5
-      '@esbuild/linux-loong64': 0.21.5
-      '@esbuild/linux-mips64el': 0.21.5
-      '@esbuild/linux-ppc64': 0.21.5
-      '@esbuild/linux-riscv64': 0.21.5
-      '@esbuild/linux-s390x': 0.21.5
-      '@esbuild/linux-x64': 0.21.5
-      '@esbuild/netbsd-x64': 0.21.5
-      '@esbuild/openbsd-x64': 0.21.5
-      '@esbuild/sunos-x64': 0.21.5
-      '@esbuild/win32-arm64': 0.21.5
-      '@esbuild/win32-ia32': 0.21.5
-      '@esbuild/win32-x64': 0.21.5
 
   esbuild@0.25.12:
     optionalDependencies:
@@ -8573,11 +8336,18 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  happy-dom@18.0.1:
+  happy-dom@20.11.2:
     dependencies:
-      '@types/node': 20.19.43
+      '@types/node': 22.20.1
       '@types/whatwg-mimetype': 3.0.2
+      '@types/ws': 8.18.1
+      buffer-image-size: 0.6.4
+      entities: 7.0.1
       whatwg-mimetype: 3.0.0
+      ws: 8.21.3
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   has-flag@4.0.0: {}
 
@@ -9531,15 +9301,6 @@ snapshots:
       - tsx
       - yaml
 
-  vite@5.4.21(@types/node@22.20.1):
-    dependencies:
-      esbuild: 0.21.5
-      postcss: 8.5.25
-      rollup: 4.62.4
-    optionalDependencies:
-      '@types/node': 22.20.1
-      fsevents: 2.3.3
-
   vite@6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       esbuild: 0.25.12
@@ -9568,7 +9329,7 @@ snapshots:
       jiti: 2.7.0
       yaml: 2.9.0
 
-  vitepress@1.6.4(@algolia/client-search@5.56.0)(@types/node@22.20.1)(postcss@8.5.25)(search-insights@2.17.3)(typescript@5.9.3):
+  vitepress@1.6.4(@algolia/client-search@5.56.0)(@types/node@22.20.1)(jiti@2.7.0)(postcss@8.5.25)(search-insights@2.17.3)(typescript@5.9.3)(yaml@2.9.0):
     dependencies:
       '@docsearch/css': 3.8.2
       '@docsearch/js': 3.8.2(@algolia/client-search@5.56.0)(search-insights@2.17.3)
@@ -9577,7 +9338,7 @@ snapshots:
       '@shikijs/transformers': 2.5.0
       '@shikijs/types': 2.5.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 5.2.4(vite@5.4.21(@types/node@22.20.1))(vue@3.5.40(typescript@5.9.3))
+      '@vitejs/plugin-vue': 5.2.4(vite@6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.40(typescript@5.9.3))
       '@vue/devtools-api': 7.7.10
       '@vue/shared': 3.5.40
       '@vueuse/core': 12.8.2(typescript@5.9.3)
@@ -9586,7 +9347,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 2.5.0
-      vite: 5.4.21(@types/node@22.20.1)
+      vite: 6.4.3(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0)
       vue: 3.5.40(typescript@5.9.3)
     optionalDependencies:
       postcss: 8.5.25
@@ -9600,6 +9361,7 @@ snapshots:
       - drauu
       - fuse.js
       - idb-keyval
+      - jiti
       - jwt-decode
       - less
       - lightningcss
@@ -9615,10 +9377,12 @@ snapshots:
       - stylus
       - sugarss
       - terser
+      - tsx
       - typescript
       - universal-cookie
+      - yaml
 
-  vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0):
+  vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.7
@@ -9645,7 +9409,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.20.1
-      happy-dom: 18.0.1
+      happy-dom: 20.11.2
     transitivePeerDependencies:
       - jiti
       - less
@@ -9709,6 +9473,8 @@ snapshots:
       string-width: 5.1.2
       strip-ansi: 7.2.0
 
+  ws@8.21.3: {}
+
   y18n@5.0.8: {}
 
   yallist@3.1.1: {}
@@ -9742,6 +9508,7 @@ snapshots:
 
   zod@4.4.3: {}
 
-  zone.js@0.15.1: {}
+  zone.js@0.15.1:
+    optional: true
 
   zwitch@2.0.4: {}

@@ -12,7 +12,7 @@ In the ecosystem this sits under Wave B with Svelte, Solid, and Preact. Shared t
 
 ## Install
 
-Peer (optional meta): `@angular/core` `^19`.
+Peer (optional meta): `@angular/core` `^20.3.25 || ^21.2.17 || ^22.0.1` (Angular 19 has no security patch for current advisories).
 
 ```bash
 pnpm add @sometic/angular @angular/core
