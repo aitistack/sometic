@@ -34,11 +34,7 @@ const stopRecovery = bindOfflineRecovery({
 ```
 
 ```ts [TS]
-import {
-    bindOfflineRecovery,
-    resolveStatus,
-    type StatusViewModel,
-} from "@sometic/dom/status";
+import { bindOfflineRecovery, resolveStatus, type StatusViewModel } from "@sometic/dom/status";
 
 export function mountOffline(panel: HTMLElement, refetch: () => void): () => void {
     const view: StatusViewModel = resolveStatus({ kind: "offline", hasAction: true });

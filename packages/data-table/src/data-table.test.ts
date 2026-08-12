@@ -25,7 +25,9 @@ const columns: DataTableColumn<Person>[] = [
     { id: "active", header: "Active", hidden: true },
 ];
 
-function createClientTable(overrides: Partial<Parameters<typeof createDataTableController<Person>>[0]> = {}) {
+function createClientTable(
+    overrides: Partial<Parameters<typeof createDataTableController<Person>>[0]> = {},
+) {
     return createDataTableController<Person>({
         columns,
         getRowId: (row) => row.id,
@@ -244,12 +246,10 @@ describe("createDataTableController server mode", () => {
     });
 
     it("loads rows and exposes loading then success status", async () => {
-        const fetchRows = vi.fn(
-            async (): Promise<FetchRowsResult<Person>> => ({
-                rows: people.slice(0, 2),
-                total: 5,
-            }),
-        );
+        const fetchRows = vi.fn(async (): Promise<FetchRowsResult<Person>> => ({
+            rows: people.slice(0, 2),
+            total: 5,
+        }));
 
         const table = createDataTableController<Person>({
             columns,
@@ -315,9 +315,10 @@ describe("createDataTableController server mode", () => {
     });
 
     it("reloads when sorting, filters, or pagination change after the first load", async () => {
-        const fetchRows = vi.fn(
-            async (): Promise<FetchRowsResult<Person>> => ({ rows: [], total: 0 }),
-        );
+        const fetchRows = vi.fn(async (): Promise<FetchRowsResult<Person>> => ({
+            rows: [],
+            total: 0,
+        }));
         const table = createDataTableController<Person>({
             columns,
             getRowId: (row) => row.id,
@@ -337,9 +338,10 @@ describe("createDataTableController server mode", () => {
     });
 
     it("does not reload when autoReload is disabled", async () => {
-        const fetchRows = vi.fn(
-            async (): Promise<FetchRowsResult<Person>> => ({ rows: [], total: 0 }),
-        );
+        const fetchRows = vi.fn(async (): Promise<FetchRowsResult<Person>> => ({
+            rows: [],
+            total: 0,
+        }));
         const table = createDataTableController<Person>({
             columns,
             getRowId: (row) => row.id,
@@ -402,9 +404,10 @@ describe("createDataTableController server mode", () => {
     });
 
     it("ignores load after dispose", async () => {
-        const fetchRows = vi.fn(
-            async (): Promise<FetchRowsResult<Person>> => ({ rows: [], total: 0 }),
-        );
+        const fetchRows = vi.fn(async (): Promise<FetchRowsResult<Person>> => ({
+            rows: [],
+            total: 0,
+        }));
         const table = createDataTableController<Person>({
             columns,
             getRowId: (row) => row.id,
@@ -419,9 +422,9 @@ describe("createDataTableController server mode", () => {
 
 describe("getVirtualItems", () => {
     it("returns an empty window for zero rows", () => {
-        expect(getVirtualItems({ count: 0, scrollTop: 0, viewportHeight: 300, rowHeight: 30 })).toEqual(
-            { items: [], totalSize: 0, startIndex: 0, endIndex: -1 },
-        );
+        expect(
+            getVirtualItems({ count: 0, scrollTop: 0, viewportHeight: 300, rowHeight: 30 }),
+        ).toEqual({ items: [], totalSize: 0, startIndex: 0, endIndex: -1 });
     });
 
     it("returns an empty window when no size information is usable", () => {

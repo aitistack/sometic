@@ -43,51 +43,53 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 
 ## Overlay & feedback
 
-| Component                      | Summary                                      |
-| ------------------------------ | -------------------------------------------- |
-| [Dialog](/components/dialog)   | Modal dialog with focus and dismiss behavior |
-| [Popover](/components/popover) | Anchored non-modal popover                   |
-| [Tooltip](/components/tooltip) | Hover/focus tooltip                          |
-| [Toast](/components/toast)     | Toast queue and region                       |
-| [Alert](/components/alert)     | Inline status alert                          |
-
-## Launch essentials
-
-| Component    | Docs                                     |
-| ------------ | ---------------------------------------- |
-| Drawer       | [Drawer](/components/drawer)             |
-| Menu         | [Menu](/components/menu)                 |
-| Context menu | [Context menu](/components/context-menu) |
-| Tabs         | [Tabs](/components/tabs)                 |
-| Accordion    | [Accordion](/components/accordion)       |
-| Breadcrumb   | [Breadcrumb](/components/breadcrumb)     |
-| Command palette | [Command palette](/components/command-palette) |
-| Tree         | [Tree](/components/tree)                 |
-| Combobox     | [Combobox](/components/combobox)         |
-| Progress     | [Progress](/components/progress)         |
-| Spinner      | [Spinner](/components/spinner)           |
-| Skeleton     | [Skeleton](/components/skeleton)         |
-| Badge        | [Badge](/components/badge)               |
-| Status       | [Status](/components/status)             |
-| Empty state  | [Empty state](/components/empty-state)   |
-| Error state  | [Error state](/components/error-state)   |
-| Offline state| [Offline state](/components/offline-state) |
-| Conflict state | [Conflict state](/components/conflict-state) |
-
-## Data & business
-
-| Component | Docs |
-| --------- | ---- |
-| Data table | [Data table](/components/data-table) |
-| Query builder | [Query builder](/components/query-builder) |
-| Upload | [Upload](/components/upload) |
-| Schema form | [Schema form](/components/schema-form) |
-| Permission matrix | [Permission matrix](/components/permission-matrix) |
-| Activity | [Activity](/components/activity) |
-| Approval | [Approval](/components/approval) |
-| Notification center | [Notification center](/components/notification-center) |
+| Component                                | Summary                                      |
+| ---------------------------------------- | -------------------------------------------- |
+| [Dialog](/components/dialog)             | Modal dialog with focus and dismiss behavior |
+| [Popover](/components/popover)           | Anchored non-modal popover                   |
+| [Tooltip](/components/tooltip)           | Hover/focus tooltip                          |
+| [Toast](/components/toast)               | Toast queue and region                       |
+| [Alert](/components/alert)               | Inline status alert                          |
+| [Drawer](/components/drawer)             | Modal side panel                             |
+| [Menu](/components/menu)                 | Action menu                                  |
+| [Context menu](/components/context-menu) | Pointer-triggered context menu               |
 
 ## Structure
 
-React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`. FAQs and comparisons live on each component page.
+| Component                                      | Summary                                 |
+| ---------------------------------------------- | --------------------------------------- |
+| [Tabs](/components/tabs)                       | Tablist selection with keyboard resolve |
+| [Accordion](/components/accordion)             | Expandable panels                       |
+| [Breadcrumb](/components/breadcrumb)           | Hierarchical path navigation            |
+| [Command palette](/components/command-palette) | Filterable command list                 |
+| [Tree](/components/tree)                       | Hierarchical selection tree             |
+| [Combobox](/components/combobox)               | Filterable listbox over free text       |
+| [Progress](/components/progress)               | Determinate progress indicator          |
+| [Spinner](/components/spinner)                 | Indeterminate loading indicator         |
+| [Skeleton](/components/skeleton)               | Placeholder loading surface             |
+| [Badge](/components/badge)                     | Compact status label                    |
 
+React and Vue ship these from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`. FAQs and comparisons live on each component page.
+
+## Status surfaces
+
+| Component                                    | Summary                                     |
+| -------------------------------------------- | ------------------------------------------- |
+| [Status](/components/status)                 | Shared empty/error/offline/conflict resolve |
+| [Empty state](/components/empty-state)       | Empty collection surface                    |
+| [Error state](/components/error-state)       | Error recovery surface                      |
+| [Offline state](/components/offline-state)   | Offline recovery surface                    |
+| [Conflict state](/components/conflict-state) | Conflict resolution surface                 |
+
+## Data & business
+
+| Component           | Docs                                                   |
+| ------------------- | ------------------------------------------------------ |
+| Data table          | [Data table](/components/data-table)                   |
+| Query builder       | [Query builder](/components/query-builder)             |
+| Upload              | [Upload](/components/upload)                           |
+| Schema form         | [Schema form](/components/schema-form)                 |
+| Permission matrix   | [Permission matrix](/components/permission-matrix)     |
+| Activity            | [Activity](/components/activity)                       |
+| Approval            | [Approval](/components/approval)                       |
+| Notification center | [Notification center](/components/notification-center) |

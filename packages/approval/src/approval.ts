@@ -156,9 +156,7 @@ export function createApprovalController(
     const stepIndexState = createControllableState<number>({
         defaultValue: options.defaultStepIndex ?? 0,
         ...(options.stepIndex === undefined ? {} : { value: options.stepIndex }),
-        ...(options.onStepIndexChange === undefined
-            ? {}
-            : { onChange: options.onStepIndexChange }),
+        ...(options.onStepIndexChange === undefined ? {} : { onChange: options.onStepIndexChange }),
     });
 
     let lastStatus: ApprovalStatus = "pending";

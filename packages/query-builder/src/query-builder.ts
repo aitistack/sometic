@@ -141,7 +141,8 @@ export function createQueryBuilderController(
                 id: createNodeId(),
                 field: field.id,
                 operator,
-                value: init?.value === undefined ? defaultValueForField(field, operator) : init.value,
+                value:
+                    init?.value === undefined ? defaultValueForField(field, operator) : init.value,
                 ...(init?.disabled === undefined ? {} : { disabled: init.disabled }),
             };
 

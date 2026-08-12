@@ -3,7 +3,7 @@
 Resources by actions grid from `@sometic/dom/permission-matrix`. A baseline `can(resource, action)` check (typically your auth authorization helper) provides the current answer, and edits are stored as a sparse override map, so you always know what the admin changed versus what the policy already allowed. Grid keyboard navigation, tri-state cells, read-only mode, and per-cell disabling are built in. React and Vue ship `PermissionMatrix`.
 
 ::: tip System standout: UX, not authz
-Cells are editable allow/deny overrides for admin chrome. The server (and `@sometic/auth` claims) remain the security boundary. Preview uses posts/users × read/write like the playground.
+Cells are editable allow/deny overrides for admin chrome. The server (and `@sometic/auth` claims) remain the security boundary. Preview uses posts/users × read/write.
 :::
 
 <PreviewPermissionMatrix />
@@ -139,9 +139,9 @@ export function Example(): JSX.Element {
             const position = matrix.getFocusedCell();
             const resource = matrix.getResources()[position.row];
             const target = matrix.getActions()[position.column];
-            host
-                .querySelector(`[data-resource="${resource.id}"][data-action="${target.id}"]`)
-                ?.focus();
+            host.querySelector(
+                `[data-resource="${resource.id}"][data-action="${target.id}"]`,
+            )?.focus();
             return;
         }
         const position = matrix.getFocusedCell();
@@ -172,15 +172,15 @@ Custom element **not shipped** for Permission matrix. Vanilla uses `@sometic/dom
 
 ## Anatomy
 
-| Part        | `data-slot`  | Role / notes                                             |
-| ----------- | ------------ | -------------------------------------------------------- |
-| Root        | `root`       | `role="grid"`, `data-readonly`, `data-empty`              |
-| Header row  | `header-row` | `role="row"` holding the action headers                   |
-| Corner      | `corner`     | Empty top-left cell                                       |
-| Action header | `header`   | `role="columnheader"`, action label                       |
-| Row         | `row`        | `role="row"` per resource                                 |
-| Row header  | `row-header` | `role="rowheader"`, resource label                        |
-| Cell        | `cell`       | `role="gridcell"`, `aria-checked`, `data-state`, button   |
+| Part          | `data-slot`  | Role / notes                                            |
+| ------------- | ------------ | ------------------------------------------------------- |
+| Root          | `root`       | `role="grid"`, `data-readonly`, `data-empty`            |
+| Header row    | `header-row` | `role="row"` holding the action headers                 |
+| Corner        | `corner`     | Empty top-left cell                                     |
+| Action header | `header`     | `role="columnheader"`, action label                     |
+| Row           | `row`        | `role="row"` per resource                               |
+| Row header    | `row-header` | `role="rowheader"`, resource label                      |
+| Cell          | `cell`       | `role="gridcell"`, `aria-checked`, `data-state`, button |
 
 ## Props / attributes
 
@@ -188,18 +188,18 @@ Custom element **not shipped** for Permission matrix. Vanilla uses `@sometic/dom
 
 Extends `HTMLAttributes<HTMLDivElement>` minus `children`.
 
-| Prop             | Type                                                              | Default      | Description                                    |
-| ---------------- | ------------------------------------------------------------------ | ------------ | ---------------------------------------------- |
-| `resources`      | `readonly PermissionMatrixResource[]`                             | **required** | Rows, `{ id, label? }`                         |
-| `actions`        | `readonly PermissionMatrixAction[]`                               | **required** | Columns, `{ id, label? }`                      |
-| `can`            | `(resourceId: string, actionId: string) => boolean \| undefined`   | -            | Baseline policy, `undefined` means unknown     |
-| `value`          | `PermissionMatrixValue`                                           | -            | Controlled override map                        |
-| `defaultValue`   | `PermissionMatrixValue`                                           | `{}`         | Uncontrolled initial overrides                 |
-| `onValueChange`  | `(value: PermissionMatrixValue) => void`                          | -            | Fires with the next override map               |
-| `readOnly`       | `boolean`                                                         | `false`      | Renders the grid but blocks every write        |
-| `isCellDisabled` | `(resourceId: string, actionId: string) => boolean`               | -            | Per-cell lock, for example an inherited grant  |
-| `label`          | `string`                                                          | -            | `aria-label` on the grid                       |
-| Native attrs     | remaining div HTML attrs                                          | -            | Forwarded to the root                          |
+| Prop             | Type                                                             | Default      | Description                                   |
+| ---------------- | ---------------------------------------------------------------- | ------------ | --------------------------------------------- |
+| `resources`      | `readonly PermissionMatrixResource[]`                            | **required** | Rows, `{ id, label? }`                        |
+| `actions`        | `readonly PermissionMatrixAction[]`                              | **required** | Columns, `{ id, label? }`                     |
+| `can`            | `(resourceId: string, actionId: string) => boolean \| undefined` | -            | Baseline policy, `undefined` means unknown    |
+| `value`          | `PermissionMatrixValue`                                          | -            | Controlled override map                       |
+| `defaultValue`   | `PermissionMatrixValue`                                          | `{}`         | Uncontrolled initial overrides                |
+| `onValueChange`  | `(value: PermissionMatrixValue) => void`                         | -            | Fires with the next override map              |
+| `readOnly`       | `boolean`                                                        | `false`      | Renders the grid but blocks every write       |
+| `isCellDisabled` | `(resourceId: string, actionId: string) => boolean`              | -            | Per-cell lock, for example an inherited grant |
+| `label`          | `string`                                                         | -            | `aria-label` on the grid                      |
+| Native attrs     | remaining div HTML attrs                                         | -            | Forwarded to the root                         |
 
 ### Controller options and API
 
@@ -250,13 +250,13 @@ function onValueChange(value: Record<string, boolean>): void {
 
 ## Events / callbacks
 
-| Surface        | Event            | Payload                        |
-| -------------- | ---------------- | ------------------------------ |
-| React          | `onValueChange`  | `PermissionMatrixValue`        |
-| Vue            | `valueChange`    | `PermissionMatrixValue`        |
-| Custom element | -                | -                              |
-| DOM controller | `onValueChange`  | `PermissionMatrixValue`        |
-| DOM controller | `onAnnounce`     | `string`, for example `write on posts denied` |
+| Surface        | Event           | Payload                                       |
+| -------------- | --------------- | --------------------------------------------- |
+| React          | `onValueChange` | `PermissionMatrixValue`                       |
+| Vue            | `valueChange`   | `PermissionMatrixValue`                       |
+| Custom element | -               | -                                             |
+| DOM controller | `onValueChange` | `PermissionMatrixValue`                       |
+| DOM controller | `onAnnounce`    | `string`, for example `write on posts denied` |
 
 There is no per-cell event: the whole override map is the change payload, which keeps saving a role a single request.
 
@@ -334,5 +334,3 @@ State is one flat object of overrides, and reads are O(resources times actions) 
 - [Activity](/components/activity)
 - [Approval](/components/approval)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the controller in section `#permissions` with `posts` and `users` resources and `read` and `write` actions.

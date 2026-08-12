@@ -54,11 +54,7 @@ export function mountQueryBuilderSection(root: HTMLElement): () => void {
             remove.addEventListener("click", () => {
                 builder.removeRule(child.id);
             });
-            row.append(
-                document.createTextNode(`${child.field} ${child.operator} `),
-                input,
-                remove,
-            );
+            row.append(document.createTextNode(`${child.field} ${child.operator} `), input, remove);
             host.append(row);
         }
         const add = document.createElement("button");

@@ -3,7 +3,7 @@
 Descriptor-driven forms from `@sometic/forms/schema-form`. You describe fields as data (`name`, `type`, `label`, `validators`, `enabled`, `transform`) and `createSchemaForm` builds a full `FormController` on top of `createForm`: defaults per type, registration, validation modes, meta, and submit. React and Vue ship a `SchemaForm` component that renders a default control per descriptor, or hands you the controller through a render prop or slot.
 
 ::: tip System standout: same forms core
-Schema form is a thin catalog over the portable forms engine, not a second validation stack. Title, count, and published in the preview match the playground so docs and demos stay aligned.
+Schema form is a thin catalog over the portable forms engine, not a second validation stack. Title, count, and published in the preview keep docs demos aligned.
 :::
 
 <PreviewSchemaForm />
@@ -138,12 +138,12 @@ Custom element **not shipped** for Schema form. Vanilla uses `createSchemaForm` 
 
 | Part          | `data-slot` | Notes                                                        |
 | ------------- | ----------- | ------------------------------------------------------------ |
-| Form host     | -           | Real `<form noValidate>`, submit wired to `handleSubmit`      |
-| Field wrapper | `field`     | `<label>` with `data-invalid` reflecting field meta           |
-| Field label   | `label`     | `field.label` or the field name                               |
-| Control       | -           | Native input typed from `field.type`, `checked` for checkbox  |
-| Error         | `error`     | Rendered when `getFieldMeta(name).error` is set               |
-| Submit        | `submit`    | Button labeled by `submitLabel`                               |
+| Form host     | -           | Real `<form noValidate>`, submit wired to `handleSubmit`     |
+| Field wrapper | `field`     | `<label>` with `data-invalid` reflecting field meta          |
+| Field label   | `label`     | `field.label` or the field name                              |
+| Control       | -           | Native input typed from `field.type`, `checked` for checkbox |
+| Error         | `error`     | Rendered when `getFieldMeta(name).error` is set              |
+| Submit        | `submit`    | Button labeled by `submitLabel`                              |
 
 ## Props / attributes
 
@@ -151,32 +151,32 @@ Custom element **not shipped** for Schema form. Vanilla uses `createSchemaForm` 
 
 Extends `HTMLAttributes<HTMLFormElement>` minus `children` and `onSubmit` (submit belongs to the controller).
 
-| Prop             | Type                                                   | Default      | Description                                    |
-| ---------------- | ------------------------------------------------------ | ------------ | ---------------------------------------------- |
-| `fields`         | `readonly SchemaFieldDescriptor[]`                     | **required** | Field descriptors, re-applied when they change |
-| `defaultValues`  | `SchemaFormValues`                                     | -            | Overrides descriptor defaults on creation      |
-| `onSubmitValues` | `(values: SchemaFormValues) => void \| Promise<void>`  | -            | Runs on a valid submit                         |
-| `submitLabel`    | `string`                                               | `"Submit"`   | Submit button text                             |
-| `children`       | `(form: SchemaFormController) => ReactNode`            | default rows | Render prop for custom controls                |
-| Native attrs     | remaining form HTML attrs                              | -            | Forwarded to `<form>`                          |
+| Prop             | Type                                                  | Default      | Description                                    |
+| ---------------- | ----------------------------------------------------- | ------------ | ---------------------------------------------- |
+| `fields`         | `readonly SchemaFieldDescriptor[]`                    | **required** | Field descriptors, re-applied when they change |
+| `defaultValues`  | `SchemaFormValues`                                    | -            | Overrides descriptor defaults on creation      |
+| `onSubmitValues` | `(values: SchemaFormValues) => void \| Promise<void>` | -            | Runs on a valid submit                         |
+| `submitLabel`    | `string`                                              | `"Submit"`   | Submit button text                             |
+| `children`       | `(form: SchemaFormController) => ReactNode`           | default rows | Render prop for custom controls                |
+| Native attrs     | remaining form HTML attrs                             | -            | Forwarded to `<form>`                          |
 
 ### `SchemaFieldDescriptor`
 
-| Field          | Type                                                                             | Description                                        |
-| -------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `name`         | `string`                                                                         | Field path, unique per form                        |
-| `label`        | `string`                                                                         | Visible label, falls back to `name`                |
-| `type`         | `"text" \| "email" \| "password" \| "number" \| "checkbox" \| "select" \| "textarea" \| "date"` | Drives default value and default control |
-| `description`  | `string`                                                                         | Helper text you render                             |
-| `placeholder`  | `string`                                                                         | Passed to the default control                      |
-| `required`     | `boolean`                                                                        | Sets the native `required` attribute on default rows |
-| `defaultValue` | `unknown`                                                                        | Overrides the type default                         |
-| `validators`   | `readonly Validator[]`                                                           | From `@sometic/validation` or your own             |
-| `validateOn`   | `"onChange" \| "onBlur" \| "onSubmit" \| "onTouched"`                            | Per-field validation mode                          |
-| `debounceMs`   | `number`                                                                         | Debounce for `onChange` validation                 |
-| `enabled`      | `boolean \| ((values: unknown) => boolean)`                                      | Conditional fields, drives `registration.disabled` |
-| `transform`    | `(value: unknown) => unknown`                                                    | Normalizes input before it reaches values          |
-| `options`      | `readonly { value: string; label?: string; disabled?: boolean }[]`               | Choices for `select` controls you render           |
+| Field          | Type                                                                                            | Description                                          |
+| -------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `name`         | `string`                                                                                        | Field path, unique per form                          |
+| `label`        | `string`                                                                                        | Visible label, falls back to `name`                  |
+| `type`         | `"text" \| "email" \| "password" \| "number" \| "checkbox" \| "select" \| "textarea" \| "date"` | Drives default value and default control             |
+| `description`  | `string`                                                                                        | Helper text you render                               |
+| `placeholder`  | `string`                                                                                        | Passed to the default control                        |
+| `required`     | `boolean`                                                                                       | Sets the native `required` attribute on default rows |
+| `defaultValue` | `unknown`                                                                                       | Overrides the type default                           |
+| `validators`   | `readonly Validator[]`                                                                          | From `@sometic/validation` or your own               |
+| `validateOn`   | `"onChange" \| "onBlur" \| "onSubmit" \| "onTouched"`                                           | Per-field validation mode                            |
+| `debounceMs`   | `number`                                                                                        | Debounce for `onChange` validation                   |
+| `enabled`      | `boolean \| ((values: unknown) => boolean)`                                                     | Conditional fields, drives `registration.disabled`   |
+| `transform`    | `(value: unknown) => unknown`                                                                   | Normalizes input before it reaches values            |
+| `options`      | `readonly { value: string; label?: string; disabled?: boolean }[]`                              | Choices for `select` controls you render             |
 
 ### `CreateSchemaFormOptions`
 
@@ -220,12 +220,12 @@ function onSubmitValues(values) {
 
 ## Events / callbacks
 
-| Surface        | Event                    | Payload                       |
-| -------------- | ------------------------ | ----------------------------- |
-| React          | `onSubmitValues`         | `SchemaFormValues`            |
-| Vue            | `submitValues`           | `SchemaFormValues`            |
-| Custom element | -                        | -                             |
-| Controller     | `subscribe(listener)`    | void, any state change        |
+| Surface        | Event                                                                | Payload                                 |
+| -------------- | -------------------------------------------------------------------- | --------------------------------------- |
+| React          | `onSubmitValues`                                                     | `SchemaFormValues`                      |
+| Vue            | `submitValues`                                                       | `SchemaFormValues`                      |
+| Custom element | -                                                                    | -                                       |
+| Controller     | `subscribe(listener)`                                                | void, any state change                  |
 | Controller     | `handleSubmit({ onValid, onInvalid, successMessage, errorMessage })` | values with an `AbortSignal`, or issues |
 
 `onValid` receives `{ signal }`; pass it to `fetch` so a submit that unmounts cancels cleanly.
@@ -299,5 +299,3 @@ One controller per form; subscriptions are form-wide, so very large schemas re-r
 - [Validation](/forms/validation)
 - [Field](/components/field)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the engine in section `#schema-form` with `title`, `count`, and `published` fields.

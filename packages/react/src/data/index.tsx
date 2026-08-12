@@ -6,6 +6,7 @@ import {
     useRef,
     useState,
     type HTMLAttributes,
+    type ChangeEvent as ReactChangeEvent,
     type KeyboardEvent as ReactKeyboardEvent,
     type ReactElement,
     type ReactNode,
@@ -314,9 +315,11 @@ export function DataTable<TRow>(props: DataTableProps<TRow>): ReactElement {
                       const cell = resolveDataTableCell({
                           columnId: column.id,
                           columnIndex: gridColumn,
-                          focused: focusedCell.row === rowIndex && focusedCell.column === gridColumn,
+                          focused:
+                              focusedCell.row === rowIndex && focusedCell.column === gridColumn,
                       });
-                      const value = column.accessor === undefined ? undefined : column.accessor(row);
+                      const value =
+                          column.accessor === undefined ? undefined : column.accessor(row);
                       return createElement(
                           "td",
                           {
@@ -381,42 +384,82 @@ export function DataTable<TRow>(props: DataTableProps<TRow>): ReactElement {
                   );
               });
 
-    const footer =
-        pagination && state.pageCount > 1
-            ? createElement(
-                  "div",
-                  { "data-slot": "pagination" },
-                  createElement(
-                      "button",
-                      {
-                          type: "button",
-                          "data-slot": "previous-page",
-                          disabled: state.pagination.pageIndex === 0,
-                          onClick: () => {
-                              table.setPageIndex(state.pagination.pageIndex - 1);
-                          },
+    const footer = pagination
+        ? createElement(
+              "div",
+              { "data-slot": "pagination" },
+              createElement(
+                  "button",
+                  {
+                      type: "button",
+                      "data-slot": "first-page",
+                      disabled: state.pagination.pageIndex === 0,
+                      onClick: () => {
+                          table.setPageIndex(0);
                       },
-                      "Previous",
-                  ),
-                  createElement(
-                      "span",
-                      { "data-slot": "page-status" },
-                      `Page ${state.pagination.pageIndex + 1} of ${state.pageCount}`,
-                  ),
-                  createElement(
-                      "button",
-                      {
-                          type: "button",
-                          "data-slot": "next-page",
-                          disabled: state.pagination.pageIndex >= state.pageCount - 1,
-                          onClick: () => {
-                              table.setPageIndex(state.pagination.pageIndex + 1);
-                          },
+                  },
+                  "First",
+              ),
+              createElement(
+                  "button",
+                  {
+                      type: "button",
+                      "data-slot": "previous-page",
+                      disabled: state.pagination.pageIndex === 0,
+                      onClick: () => {
+                          table.setPageIndex(state.pagination.pageIndex - 1);
                       },
-                      "Next",
+                  },
+                  "Previous",
+              ),
+              createElement(
+                  "span",
+                  { "data-slot": "page-status" },
+                  `Page ${state.pagination.pageIndex + 1} of ${state.pageCount}`,
+              ),
+              createElement(
+                  "button",
+                  {
+                      type: "button",
+                      "data-slot": "next-page",
+                      disabled:
+                          state.pageCount === 0 ||
+                          state.pagination.pageIndex >= state.pageCount - 1,
+                      onClick: () => {
+                          table.setPageIndex(state.pagination.pageIndex + 1);
+                      },
+                  },
+                  "Next",
+              ),
+              createElement(
+                  "button",
+                  {
+                      type: "button",
+                      "data-slot": "last-page",
+                      disabled:
+                          state.pageCount === 0 ||
+                          state.pagination.pageIndex >= state.pageCount - 1,
+                      onClick: () => {
+                          table.setPageIndex(state.pageCount - 1);
+                      },
+                  },
+                  "Last",
+              ),
+              createElement(
+                  "select",
+                  {
+                      "data-slot": "page-size",
+                      value: state.pagination.pageSize,
+                      onChange: (event: ReactChangeEvent<HTMLSelectElement>) => {
+                          table.setPageSize(Number(event.currentTarget.value));
+                      },
+                  },
+                  ...[5, 8, 10, 25].map((size) =>
+                      createElement("option", { key: size, value: size }, String(size)),
                   ),
-              )
-            : null;
+              ),
+          )
+        : null;
 
     return createElement(
         "div",
@@ -475,7 +518,9 @@ export function UploadDropzone(props: UploadDropzoneProps): ReactElement {
             transport,
             ...(concurrency === undefined ? {} : { concurrency }),
             ...(maxBytes === undefined ? {} : { maxBytes }),
-            ...(accept === undefined ? {} : { accept: accept.split(",").map((rule) => rule.trim()) }),
+            ...(accept === undefined
+                ? {}
+                : { accept: accept.split(",").map((rule) => rule.trim()) }),
             onChange: (items) => {
                 onItemsChangeRef.current?.(items);
                 rerender();
@@ -619,7 +664,9 @@ export function UploadList(props: UploadListProps): ReactElement {
                                   controller.cancel(item.id);
                               },
                           },
-                          item.status === "error" || item.status === "canceled" ? "Retry" : "Cancel",
+                          item.status === "error" || item.status === "canceled"
+                              ? "Retry"
+                              : "Cancel",
                       )
                     : null,
             );

@@ -401,7 +401,7 @@ Adapters (@sometic/react, vue, elements, …)
 - **HTTP** owns transport and 401 refresh; **auth** owns session; **query** refetches after re-auth.
 - Prefer **subpath imports** (`@sometic/react/query`, `@sometic/react/button`).
 - Custom elements use the `sometic-*` prefix.
-- Publishable packages are font-agnostic; brand fonts are docs/playground only.
+- Publishable packages are font-agnostic; brand fonts are docs and demo surfaces only.
 
 ## Start paths
 
@@ -1441,9 +1441,9 @@ Source: https://sometic.aitistack.com/guide/styling
 
 Sometic cores and adapters are **unstyled by default**. You bring Tailwind, Bootstrap, plain CSS, or design tokens. The behavior engines stay free of a mandatory CSS framework runtime.
 
-## Brand typography (docs and playgrounds)
+## Brand typography (docs and demo surfaces)
 
-Sometic docs and playgrounds use a locked surface triad: **Chakra Petch** (display), **Urbanist** (UI/body), and **JetBrains Mono** (code). Those fonts are self-hosted for marketing and demo chrome only.
+Sometic docs and demo surfaces use a locked surface triad: **Chakra Petch** (display), **Urbanist** (UI/body), and **JetBrains Mono** (code). Those fonts are self-hosted for marketing and demo chrome only.
 
 Publishable `@sometic/*` packages do **not** ship fonts and do not set a mandatory `font-family`. Components inherit the consumer application's type system.
 

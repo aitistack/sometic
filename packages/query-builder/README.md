@@ -2,7 +2,7 @@
 
 Filter and query **AST** builder for Sometic: nested `and` / `or` groups, per-field operator catalogs, JSON serialize and parse, validation, and a bridge that turns a query into [`@sometic/data-table`](https://www.npmjs.com/package/@sometic/data-table) filters.
 
-This is not [`@sometic/query`](https://www.npmjs.com/package/@sometic/query). That package is the server-state cache for fetching and invalidating data. This package models the *user built filter* that a person edits in an advanced search panel, then hands to a table, an API, or your own SQL layer.
+This is not [`@sometic/query`](https://www.npmjs.com/package/@sometic/query). That package is the server-state cache for fetching and invalidating data. This package models the _user built filter_ that a person edits in an advanced search panel, then hands to a table, an API, or your own SQL layer.
 
 `createQueryBuilderController` owns an immutable AST. Every mutation clones, applies, and commits, so subscribers always receive a fresh value and callers cannot corrupt internal state by holding a reference. Operators are validated against the field catalog, so a string field can never end up with a numeric comparison.
 

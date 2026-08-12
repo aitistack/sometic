@@ -163,7 +163,11 @@ export function createActivityController(
         if (maxEntries === undefined || records.length <= maxEntries) {
             return;
         }
-        const keep = new Set(sorted().slice(0, maxEntries).map((record) => record.id));
+        const keep = new Set(
+            sorted()
+                .slice(0, maxEntries)
+                .map((record) => record.id),
+        );
         for (let index = records.length - 1; index >= 0; index -= 1) {
             const record = records[index];
             if (record && !keep.has(record.id)) {

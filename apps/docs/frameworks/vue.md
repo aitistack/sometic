@@ -25,19 +25,19 @@ Peer: `vue` `^3.5`.
 
 Prefer **subpath imports**.
 
-| Import                   | Exports                                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `@sometic/vue/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
-| `@sometic/vue/field`     | `Field`                                                                                                       |
-| `@sometic/vue/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
-| `@sometic/vue/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
-| `@sometic/vue/selection` | `Checkbox`, `Radio`, `Select`, `Switch`                                                                       |
-| `@sometic/vue/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`                                                        |
+| Import                   | Exports                                                                                                                                                              |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@sometic/vue/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                                                                                 |
+| `@sometic/vue/field`     | `Field`                                                                                                                                                              |
+| `@sometic/vue/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput`                                                        |
+| `@sometic/vue/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`                                                                 |
+| `@sometic/vue/selection` | `Checkbox`, `Radio`, `Select`, `Switch`                                                                                                                              |
+| `@sometic/vue/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`                                                                                                               |
 | `@sometic/vue/structure` | `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, `Badge`, `Progress`, `Spinner`, `Skeleton` |
-| `@sometic/vue/store`     | `useStore`                                                                                                    |
-| `@sometic/vue/auth`      | `useAuth`, `useSession`, `useCan`                                                                             |
-| `@sometic/vue/http`      | `useHttp`                                                                                                     |
-| `@sometic/vue`           | Root barrel (prefer subpaths)                                                                                 |
+| `@sometic/vue/store`     | `useStore`                                                                                                                                                           |
+| `@sometic/vue/auth`      | `useAuth`, `useSession`, `useCan`                                                                                                                                    |
+| `@sometic/vue/http`      | `useHttp`                                                                                                                                                            |
+| `@sometic/vue`           | Root barrel (prefer subpaths)                                                                                                                                        |
 
 Note: Vue auth / HTTP expose composables (`useAuth`, `useHttp`) rather than React-style provider components. Pass a shared `AuthController` / `HttpClient` (or create options) into the composable.
 

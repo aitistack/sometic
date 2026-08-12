@@ -172,12 +172,12 @@ import { Tabs, TabTrigger, TabPanel } from "@sometic/vue/structure";
 
 ## Events / callbacks
 
-| Surface        | Event           | Payload  |
-| -------------- | --------------- | -------- |
-| React          | `onValueChange` | `string` |
+| Surface        | Event                          | Payload  |
+| -------------- | ------------------------------ | -------- |
+| React          | `onValueChange`                | `string` |
 | Vue            | `valueChange` / `update:value` | `string` |
-| Custom element | —               | —        |
-| DOM controller | `onValueChange` | `string` |
+| Custom element | —                              | —        |
+| DOM controller | `onValueChange`                | `string` |
 
 `TabTrigger` also preserves native `onClick` (fires before selection update).
 

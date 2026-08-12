@@ -1,10 +1,4 @@
-export type UploadItemStatus =
-    | "queued"
-    | "uploading"
-    | "paused"
-    | "success"
-    | "error"
-    | "canceled";
+export type UploadItemStatus = "queued" | "uploading" | "paused" | "success" | "error" | "canceled";
 
 export type UploadTransportResult = {
     url?: string;

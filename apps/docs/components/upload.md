@@ -3,7 +3,7 @@
 Upload queue behavior over `@sometic/upload`: concurrency-limited transfers, per-item progress, cancel, pause, resume, retry with attempt counts, accept and size gates, plus a drag-and-drop dropzone controller in `@sometic/dom/upload`. Transport is pluggable, so the same queue drives `fetch`, XHR, S3 presigned PUT, or a mock in tests. React and Vue ship `UploadDropzone` and `UploadList`.
 
 ::: tip System standout: transport boundary
-The queue never hardcodes HTTP. You pass `UploadTransport.upload(file, { signal, onProgress })`. Swap `createHttpUploadTransport` for a mock in the playground or a presigned PUT in production without rewriting cancel, retry, or list ARIA.
+The queue never hardcodes HTTP. You pass `UploadTransport.upload(file, { signal, onProgress })`. Swap `createHttpUploadTransport` for a mock in tests or a presigned PUT in production without rewriting cancel, retry, or list ARIA.
 :::
 
 <PreviewUpload />
@@ -184,17 +184,17 @@ Custom element **not shipped** for Upload. Vanilla uses `@sometic/dom/upload` (w
 
 ## Anatomy
 
-| Part          | `data-slot`  | Role / notes                                                     |
-| ------------- | ------------ | ---------------------------------------------------------------- |
-| Wrapper       | `upload`     | React and Vue wrapper around dropzone, input, and list           |
-| Dropzone      | `dropzone`   | `role="button"`, `tabindex`, `data-dragging`, `data-state`        |
-| Hidden input  | `file-input` | Real `<input type="file">`, keeps native picker and a11y          |
-| List          | `list`       | `role="list"`, `aria-live="polite"`, `data-count`, `data-empty`   |
-| Item          | `item`       | `data-status`, `data-progress`, `aria-busy` while uploading       |
-| Item name     | `name`       | File name text                                                   |
-| Progress      | `progress`   | `role="progressbar"` with `aria-valuenow` and `aria-valuetext`    |
-| Cancel        | `cancel`     | Shown while queued, uploading, or paused                          |
-| Retry         | `retry`      | Shown for `error` and `canceled` items (React reuses `cancel` slot text) |
+| Part         | `data-slot`  | Role / notes                                                             |
+| ------------ | ------------ | ------------------------------------------------------------------------ |
+| Wrapper      | `upload`     | React and Vue wrapper around dropzone, input, and list                   |
+| Dropzone     | `dropzone`   | `role="button"`, `tabindex`, `data-dragging`, `data-state`               |
+| Hidden input | `file-input` | Real `<input type="file">`, keeps native picker and a11y                 |
+| List         | `list`       | `role="list"`, `aria-live="polite"`, `data-count`, `data-empty`          |
+| Item         | `item`       | `data-status`, `data-progress`, `aria-busy` while uploading              |
+| Item name    | `name`       | File name text                                                           |
+| Progress     | `progress`   | `role="progressbar"` with `aria-valuenow` and `aria-valuetext`           |
+| Cancel       | `cancel`     | Shown while queued, uploading, or paused                                 |
+| Retry        | `retry`      | Shown for `error` and `canceled` items (React reuses `cancel` slot text) |
 
 ## Props / attributes
 
@@ -202,41 +202,41 @@ Custom element **not shipped** for Upload. Vanilla uses `@sometic/dom/upload` (w
 
 Extends `HTMLAttributes<HTMLDivElement>` minus `children`. Remaining native attrs land on the dropzone element.
 
-| Prop            | Type                                          | Default       | Description                                    |
-| --------------- | --------------------------------------------- | ------------- | ---------------------------------------------- |
-| `transport`     | `UploadTransport`                             | **required**  | How bytes leave the browser                    |
-| `accept`        | `string`                                      | -             | Comma-separated rules, also split for the queue |
-| `multiple`      | `boolean`                                     | `true`        | Single-file mode keeps only the first file      |
-| `maxBytes`      | `number`                                      | -             | Per-file size gate                             |
-| `concurrency`   | `number`                                      | queue default | Parallel transfers                             |
-| `disabled`      | `boolean`                                     | `false`       | Blocks drop, click, and keyboard opening       |
-| `label`         | `string`                                      | `"Upload files"` | `aria-label` on the dropzone                 |
-| `onItemsChange` | `(items: readonly UploadItem[]) => void`      | -             | Fires on every queue change                    |
-| `children`      | `ReactNode`                                   | default text  | Dropzone content                               |
+| Prop            | Type                                     | Default          | Description                                     |
+| --------------- | ---------------------------------------- | ---------------- | ----------------------------------------------- |
+| `transport`     | `UploadTransport`                        | **required**     | How bytes leave the browser                     |
+| `accept`        | `string`                                 | -                | Comma-separated rules, also split for the queue |
+| `multiple`      | `boolean`                                | `true`           | Single-file mode keeps only the first file      |
+| `maxBytes`      | `number`                                 | -                | Per-file size gate                              |
+| `concurrency`   | `number`                                 | queue default    | Parallel transfers                              |
+| `disabled`      | `boolean`                                | `false`          | Blocks drop, click, and keyboard opening        |
+| `label`         | `string`                                 | `"Upload files"` | `aria-label` on the dropzone                    |
+| `onItemsChange` | `(items: readonly UploadItem[]) => void` | -                | Fires on every queue change                     |
+| `children`      | `ReactNode`                              | default text     | Dropzone content                                |
 
 ### React `UploadListProps`
 
-| Prop         | Type                       | Default    | Description                                  |
-| ------------ | -------------------------- | ---------- | -------------------------------------------- |
-| `items`      | `readonly UploadItem[]`    | **required** | Items to render                            |
-| `controller` | `UploadController`         | -          | Enables the cancel and retry buttons          |
-| `label`      | `string`                   | `"Uploads"` | `aria-label` on the list                     |
-| Native attrs | remaining `ul` HTML attrs  | -          | Forwarded to the list                         |
+| Prop         | Type                      | Default      | Description                          |
+| ------------ | ------------------------- | ------------ | ------------------------------------ |
+| `items`      | `readonly UploadItem[]`   | **required** | Items to render                      |
+| `controller` | `UploadController`        | -            | Enables the cancel and retry buttons |
+| `label`      | `string`                  | `"Uploads"`  | `aria-label` on the list             |
+| Native attrs | remaining `ul` HTML attrs | -            | Forwarded to the list                |
 
 ### `CreateUploadControllerOptions`
 
-| Option            | Type                            | Default | Description                                          |
-| ----------------- | ------------------------------- | ------- | ---------------------------------------------------- |
-| `transport`       | `UploadTransport`               | **required** | Transfer implementation                         |
-| `concurrency`     | `number`                        | `3`     | Max simultaneous uploads                             |
-| `accept`          | `string[]`                      | -       | Extension (`.png`), mime (`image/png`), or wildcard (`image/*`) rules |
-| `maxBytes`        | `number`                        | -       | Per-file size gate                                   |
-| `allowEmptyFiles` | `boolean`                       | `true`  | Set `false` to reject zero-byte files                |
-| `autoStart`       | `boolean`                       | `true`  | Start transfers when files are added                 |
-| `maxAttempts`     | `number`                        | `0`     | Automatic re-queue ceiling per item (`0` disables it) |
-| `onChange`        | `(items: UploadItem[]) => void` | -       | Any queue change                                     |
-| `onItemSuccess`   | `(item: UploadItem) => void`    | -       | Per-item success                                     |
-| `onItemError`     | `(item: UploadItem) => void`    | -       | Per-item failure                                     |
+| Option            | Type                            | Default      | Description                                                           |
+| ----------------- | ------------------------------- | ------------ | --------------------------------------------------------------------- |
+| `transport`       | `UploadTransport`               | **required** | Transfer implementation                                               |
+| `concurrency`     | `number`                        | `3`          | Max simultaneous uploads                                              |
+| `accept`          | `string[]`                      | -            | Extension (`.png`), mime (`image/png`), or wildcard (`image/*`) rules |
+| `maxBytes`        | `number`                        | -            | Per-file size gate                                                    |
+| `allowEmptyFiles` | `boolean`                       | `true`       | Set `false` to reject zero-byte files                                 |
+| `autoStart`       | `boolean`                       | `true`       | Start transfers when files are added                                  |
+| `maxAttempts`     | `number`                        | `0`          | Automatic re-queue ceiling per item (`0` disables it)                 |
+| `onChange`        | `(items: UploadItem[]) => void` | -            | Any queue change                                                      |
+| `onItemSuccess`   | `(item: UploadItem) => void`    | -            | Per-item success                                                      |
+| `onItemError`     | `(item: UploadItem) => void`    | -            | Per-item failure                                                      |
 
 Controller methods: `getItems`, `getItem`, `getSummary`, `addFiles`, `start`, `remove`, `clear`, `retry`, `cancel`, `pause`, `resume`, `subscribe`, `dispose`. `getSummary()` returns counts per status plus an aggregate `progress`.
 
@@ -273,15 +273,15 @@ const transport = createHttpUploadTransport({ url: "/api/uploads" });
 
 ## Events / callbacks
 
-| Surface        | Event                        | Payload                   |
-| -------------- | ---------------------------- | ------------------------- |
-| React          | `onItemsChange`              | `readonly UploadItem[]`   |
-| Vue            | `itemsChange`                | `readonly UploadItem[]`   |
-| Custom element | -                            | -                         |
-| Queue          | `onChange`                   | `UploadItem[]`            |
+| Surface        | Event                          | Payload                 |
+| -------------- | ------------------------------ | ----------------------- |
+| React          | `onItemsChange`                | `readonly UploadItem[]` |
+| Vue            | `itemsChange`                  | `readonly UploadItem[]` |
+| Custom element | -                              | -                       |
+| Queue          | `onChange`                     | `UploadItem[]`          |
 | Queue          | `onItemSuccess`, `onItemError` | `UploadItem`            |
-| Queue          | `subscribe(listener)`        | `UploadItem[]`            |
-| Transport      | `onProgress(progress)`       | `number` from 0 to 1      |
+| Queue          | `subscribe(listener)`          | `UploadItem[]`          |
+| Transport      | `onProgress(progress)`         | `number` from 0 to 1    |
 
 Native drag events still fire on the dropzone element; the controller only calls `preventDefault` so the browser does not navigate to the dropped file.
 
@@ -376,5 +376,3 @@ Unstyled. Target `[data-slot="dropzone"][data-dragging="true"]`, `[data-slot="dr
 - [Status surfaces](/components/status)
 - [HTTP client](/utilities/http)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the queue in section `#upload` with a mock transport that steps progress in five ticks.

@@ -4,9 +4,5 @@ export default createTsupConfig({
     entry: {
         index: "src/index.ts",
     },
-    external: [
-        "@sometic/core",
-        "@sometic/core/controllable-state",
-        "@sometic/core/disposable",
-    ],
+    external: ["@sometic/core", "@sometic/core/controllable-state", "@sometic/core/disposable"],
 });

@@ -27,19 +27,19 @@ Add foundation packages as needed (`@sometic/theme`, `@sometic/store`, `@sometic
 
 Prefer **subpath imports** so unused families stay out of your bundle.
 
-| Import                     | Exports                                                                                                       |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `@sometic/react/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
-| `@sometic/react/field`     | `Field`                                                                                                       |
-| `@sometic/react/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
-| `@sometic/react/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
-| `@sometic/react/selection` | `Checkbox`, `Radio`, `Select`, `Switch`, `Combobox`                                                           |
-| `@sometic/react/overlay`   | `Alert`, `Dialog`, `Drawer`, `Menu`, `MenuItem`, `ContextMenu`, `Popover`, `Tooltip`, `ToastRegion`            |
+| Import                     | Exports                                                                                                                                                              |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@sometic/react/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                                                                                 |
+| `@sometic/react/field`     | `Field`                                                                                                                                                              |
+| `@sometic/react/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput`                                                        |
+| `@sometic/react/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`                                                                 |
+| `@sometic/react/selection` | `Checkbox`, `Radio`, `Select`, `Switch`, `Combobox`                                                                                                                  |
+| `@sometic/react/overlay`   | `Alert`, `Dialog`, `Drawer`, `Menu`, `MenuItem`, `ContextMenu`, `Popover`, `Tooltip`, `ToastRegion`                                                                  |
 | `@sometic/react/structure` | `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, `Badge`, `Progress`, `Spinner`, `Skeleton` |
-| `@sometic/react/store`     | `useStore`                                                                                                    |
-| `@sometic/react/auth`      | `AuthProvider`, `useAuth`, `useSession`, `useCan`                                                             |
-| `@sometic/react/http`      | `HttpProvider`, `useHttp`                                                                                     |
-| `@sometic/react`           | Root barrel (prefer subpaths)                                                                                 |
+| `@sometic/react/store`     | `useStore`                                                                                                                                                           |
+| `@sometic/react/auth`      | `AuthProvider`, `useAuth`, `useSession`, `useCan`                                                                                                                    |
+| `@sometic/react/http`      | `HttpProvider`, `useHttp`                                                                                                                                            |
+| `@sometic/react`           | Root barrel (prefer subpaths)                                                                                                                                        |
 
 ## Usage
 

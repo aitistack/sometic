@@ -92,7 +92,11 @@ export function resolvePermissionMatrixCell(
     const disabled = options.disabled === true;
     const readOnly = options.readOnly === true;
     const ariaChecked =
-        options.state === "indeterminate" ? "mixed" : options.state === "allowed" ? "true" : "false";
+        options.state === "indeterminate"
+            ? "mixed"
+            : options.state === "allowed"
+              ? "true"
+              : "false";
     return {
         resourceId: options.resourceId,
         actionId: options.actionId,
@@ -148,7 +152,10 @@ export type PermissionMatrixController = {
     getGrantedKeys(): readonly string[];
     getFocusedCell(): GridPosition;
     setFocusedCell(position: GridPosition): void;
-    getKeyboardAction(event: GridKeyboardEvent, dir?: "ltr" | "rtl"): GridKeyboardAction | undefined;
+    getKeyboardAction(
+        event: GridKeyboardEvent,
+        dir?: "ltr" | "rtl",
+    ): GridKeyboardAction | undefined;
     resolve(options?: ResolvePermissionMatrixOptions): PermissionMatrixViewModel;
     resolveCell(
         resourceId: string,

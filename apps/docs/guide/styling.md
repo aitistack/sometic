@@ -2,9 +2,9 @@
 
 Sometic cores and adapters are **unstyled by default**. You bring Tailwind, Bootstrap, plain CSS, or design tokens. The behavior engines stay free of a mandatory CSS framework runtime.
 
-## Brand typography (docs and playgrounds)
+## Brand typography (docs and demo surfaces)
 
-Sometic docs and playgrounds use a locked surface triad: **Chakra Petch** (display), **Urbanist** (UI/body), and **JetBrains Mono** (code). Those fonts are self-hosted for marketing and demo chrome only.
+Sometic docs and demo surfaces use a locked surface triad: **Chakra Petch** (display), **Urbanist** (UI/body), and **JetBrains Mono** (code). Those fonts are self-hosted for marketing and demo chrome only.
 
 Publishable `@sometic/*` packages do **not** ship fonts and do not set a mandatory `font-family`. Components inherit the consumer application's type system.
 

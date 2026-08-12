@@ -42,13 +42,21 @@ export function resolveDataTable(options: ResolveDataTableOptions = {}): DataTab
             ...(busy ? { "aria-busy": "true" } : {}),
             ...(options.rowCount === undefined
                 ? {}
-                : { "aria-rowcount": String(Math.max(0, Math.floor(options.rowCount)) + headerRows) }),
+                : {
+                      "aria-rowcount": String(
+                          Math.max(0, Math.floor(options.rowCount)) + headerRows,
+                      ),
+                  }),
             ...(options.columnCount === undefined
                 ? {}
                 : { "aria-colcount": String(Math.max(0, Math.floor(options.columnCount))) }),
             ...(options.selectionCount === undefined
                 ? {}
-                : { "data-selection-count": String(Math.max(0, Math.floor(options.selectionCount))) }),
+                : {
+                      "data-selection-count": String(
+                          Math.max(0, Math.floor(options.selectionCount)),
+                      ),
+                  }),
             ...(options.label === undefined ? {} : { "aria-label": options.label }),
             ...(options.labelledBy === undefined ? {} : { "aria-labelledby": options.labelledBy }),
         },
@@ -105,9 +113,7 @@ export function resolveDataTableHeader(
             ...(options.columnIndex === undefined
                 ? {}
                 : {
-                      "aria-colindex": String(
-                          Math.max(0, Math.floor(options.columnIndex)) + 1,
-                      ),
+                      "aria-colindex": String(Math.max(0, Math.floor(options.columnIndex)) + 1),
                   }),
             ...(options.focused === undefined ? {} : { tabindex: options.focused ? "0" : "-1" }),
             ...(disabled ? { "aria-disabled": "true", "data-disabled": "" } : {}),
@@ -191,9 +197,7 @@ export function resolveDataTableCell(options: ResolveDataTableCellOptions): Data
             ...(options.columnIndex === undefined
                 ? {}
                 : {
-                      "aria-colindex": String(
-                          Math.max(0, Math.floor(options.columnIndex)) + 1,
-                      ),
+                      "aria-colindex": String(Math.max(0, Math.floor(options.columnIndex)) + 1),
                   }),
             ...(options.focused === undefined ? {} : { tabindex: options.focused ? "0" : "-1" }),
             ...(disabled ? { "aria-disabled": "true", "data-disabled": "" } : {}),
@@ -228,9 +232,11 @@ export function resolveDataTableCheckbox(
     const scope = options.scope ?? "row";
     const pageSelection = options.pageSelection;
     const indeterminate = pageSelection === "some";
-    const checked = pageSelection === undefined ? options.checked === true : pageSelection === "all";
+    const checked =
+        pageSelection === undefined ? options.checked === true : pageSelection === "all";
     const disabled = options.disabled === true;
-    const label = options.label ?? (scope === "page" ? "Select all rows on this page" : "Select row");
+    const label =
+        options.label ?? (scope === "page" ? "Select all rows on this page" : "Select row");
     return {
         scope,
         checked,

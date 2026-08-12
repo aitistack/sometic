@@ -26,4 +26,4 @@ Dispose controllers on route change. Bound concurrency. Avoid retaining File blo
 
 ## Still stuck?
 
-See [FAQ](./faq), [component docs](/components/upload), and playground `#upload`.
+See [FAQ](./faq) and [component docs](/components/upload).

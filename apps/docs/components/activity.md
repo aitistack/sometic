@@ -106,7 +106,7 @@ const entries: ActivityEntry[] = page.items;
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.
 
-Activity is **engine only**. There is no `Activity` component in `@sometic/react/data` or `@sometic/vue/data` and no custom element: feed rows differ too much between products (avatars, diffs, icons, grouping) to freeze markup. Import `@sometic/activity` from any framework and render your own list, which is what the preview and playground do.
+Activity is **engine only**. There is no `Activity` component in `@sometic/react/data` or `@sometic/vue/data` and no custom element: feed rows differ too much between products (avatars, diffs, icons, grouping) to freeze markup. Import `@sometic/activity` from any framework and render your own list, which is what the preview does.
 
 ## How it works
 
@@ -120,12 +120,12 @@ Activity is **engine only**. There is no `Activity` component in `@sometic/react
 
 ## Anatomy
 
-| Part      | Shape                    | Notes                                                          |
-| --------- | ------------------------ | -------------------------------------------------------------- |
-| Entry     | `ActivityEntry`          | `id`, `type`, `message`, `createdAt`, `actorId`, `resourceId`, `meta` |
-| Filter    | `ActivityFilter`         | `type`, `types`, `actorId`, `resourceId`, `since`, `until`      |
-| Page      | `ActivityPage`           | `items`, `nextCursor`, `hasMore`                                |
-| Feed row  | your markup              | Suggested: `<li>` with a `<time datetime>` and a typed data attribute |
+| Part     | Shape            | Notes                                                                 |
+| -------- | ---------------- | --------------------------------------------------------------------- |
+| Entry    | `ActivityEntry`  | `id`, `type`, `message`, `createdAt`, `actorId`, `resourceId`, `meta` |
+| Filter   | `ActivityFilter` | `type`, `types`, `actorId`, `resourceId`, `since`, `until`            |
+| Page     | `ActivityPage`   | `items`, `nextCursor`, `hasMore`                                      |
+| Feed row | your markup      | Suggested: `<li>` with a `<time datetime>` and a typed data attribute |
 
 Because no markup ships, a useful convention is to mirror Sometic data attributes yourself: `data-slot="item"` and `data-activity-type="update"` on each row so one CSS file styles every framework.
 
@@ -133,39 +133,39 @@ Because no markup ships, a useful convention is to mirror Sometic data attribute
 
 ### `CreateActivityControllerOptions`
 
-| Option       | Type                                | Default    | Description                                  |
-| ------------ | ----------------------------------- | ---------- | -------------------------------------------- |
-| `entries`    | `ActivityEntryInput[]`              | `[]`       | Seed entries, usually hydrated from your API |
-| `pageSize`   | `number`                            | `20`       | Default `limit` for `getPage`                |
-| `maxEntries` | `number`                            | unlimited  | Keeps the newest N in memory                 |
-| `now`        | `() => number`                      | `Date.now` | Injectable clock for tests and SSR           |
-| `onChange`   | `(entries: ActivityEntry[]) => void` | -         | Fires with the full snapshot after each write |
+| Option       | Type                                 | Default    | Description                                   |
+| ------------ | ------------------------------------ | ---------- | --------------------------------------------- |
+| `entries`    | `ActivityEntryInput[]`               | `[]`       | Seed entries, usually hydrated from your API  |
+| `pageSize`   | `number`                             | `20`       | Default `limit` for `getPage`                 |
+| `maxEntries` | `number`                             | unlimited  | Keeps the newest N in memory                  |
+| `now`        | `() => number`                       | `Date.now` | Injectable clock for tests and SSR            |
+| `onChange`   | `(entries: ActivityEntry[]) => void` | -          | Fires with the full snapshot after each write |
 
 ### `ActivityEntryInput`
 
-| Field        | Type                        | Description                                            |
-| ------------ | --------------------------- | ------------------------------------------------------ |
-| `type`       | `string`                    | **Required.** Your event vocabulary (`create`, `update`, `delete`, `login`) |
-| `message`    | `string`                    | **Required.** Human-readable summary                    |
-| `id`         | `string`                    | Stable id for server-sourced entries                    |
-| `createdAt`  | `number`                    | Epoch milliseconds, defaults to `now()`                 |
-| `actorId`    | `string`                    | Who did it                                              |
-| `resourceId` | `string`                    | What it happened to                                     |
-| `meta`       | `Record<string, unknown>`   | Structured extras (diffs, ip, request id)               |
+| Field        | Type                      | Description                                                                 |
+| ------------ | ------------------------- | --------------------------------------------------------------------------- |
+| `type`       | `string`                  | **Required.** Your event vocabulary (`create`, `update`, `delete`, `login`) |
+| `message`    | `string`                  | **Required.** Human-readable summary                                        |
+| `id`         | `string`                  | Stable id for server-sourced entries                                        |
+| `createdAt`  | `number`                  | Epoch milliseconds, defaults to `now()`                                     |
+| `actorId`    | `string`                  | Who did it                                                                  |
+| `resourceId` | `string`                  | What it happened to                                                         |
+| `meta`       | `Record<string, unknown>` | Structured extras (diffs, ip, request id)                                   |
 
 ### Controller API
 
-| Member                     | Description                                                   |
-| -------------------------- | -------------------------------------------------------------- |
-| `append(input)`            | Adds one entry, returns the stored entry                        |
-| `appendMany(inputs)`       | Adds a batch and emits once                                     |
-| `getEntries(filter?)`      | Sorted snapshot, newest first                                   |
-| `getEntry(id)`             | One entry or `undefined`                                        |
-| `count(filter?)`           | Number of matching entries                                      |
-| `getPage(options?)`        | `{ items, nextCursor, hasMore }` with `cursor`, `limit`, `filter` |
-| `clear()`                  | Removes everything and emits                                    |
-| `subscribe(listener)`      | Snapshot on every change, returns an unsubscribe                |
-| `dispose()` / `disposed`   | Releases listeners, blocks further writes                       |
+| Member                   | Description                                                       |
+| ------------------------ | ----------------------------------------------------------------- |
+| `append(input)`          | Adds one entry, returns the stored entry                          |
+| `appendMany(inputs)`     | Adds a batch and emits once                                       |
+| `getEntries(filter?)`    | Sorted snapshot, newest first                                     |
+| `getEntry(id)`           | One entry or `undefined`                                          |
+| `count(filter?)`         | Number of matching entries                                        |
+| `getPage(options?)`      | `{ items, nextCursor, hasMore }` with `cursor`, `limit`, `filter` |
+| `clear()`                | Removes everything and emits                                      |
+| `subscribe(listener)`    | Snapshot on every change, returns an unsubscribe                  |
+| `dispose()` / `disposed` | Releases listeners, blocks further writes                         |
 
 ### React and Vue
 
@@ -177,12 +177,12 @@ No component ships. Create the controller in a `useRef` or `useState` initialize
 
 ## Events / callbacks
 
-| Surface        | Event                 | Payload             |
-| -------------- | --------------------- | ------------------- |
-| Engine         | `onChange`            | `ActivityEntry[]`   |
-| Engine         | `subscribe(listener)` | `ActivityEntry[]`   |
-| React / Vue    | your own props        | -                   |
-| Custom element | -                     | -                   |
+| Surface        | Event                 | Payload           |
+| -------------- | --------------------- | ----------------- |
+| Engine         | `onChange`            | `ActivityEntry[]` |
+| Engine         | `subscribe(listener)` | `ActivityEntry[]` |
+| React / Vue    | your own props        | -                 |
+| Custom element | -                     | -                 |
 
 `append`, `appendMany`, and `clear` each emit exactly once, so a batch of twenty entries costs one render.
 
@@ -256,5 +256,3 @@ Every read sorts and copies the filtered list, so it is O(n log n) per call: sna
 - [Permission matrix](/components/permission-matrix)
 - [Query](/utilities/query)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the engine in section `#activity` with an add button that appends `Event N`.

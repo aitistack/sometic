@@ -46,11 +46,7 @@ const items = [
 
 export function Example() {
     return (
-        <Tree
-            items={items}
-            defaultValue="tree"
-            defaultExpanded={["docs", "guide", "components"]}
-        />
+        <Tree items={items} defaultValue="tree" defaultExpanded={["docs", "guide", "components"]} />
     );
 }
 ```
@@ -93,11 +89,7 @@ const items: TreeItem[] = [
 
 export function Example(): JSX.Element {
     return (
-        <Tree
-            items={items}
-            defaultValue="tree"
-            defaultExpanded={["docs", "guide", "components"]}
-        />
+        <Tree items={items} defaultValue="tree" defaultExpanded={["docs", "guide", "components"]} />
     );
 }
 ```
@@ -184,29 +176,25 @@ const items: TreeItem[] = [
 </script>
 
 <template>
-    <Tree
-        :items="items"
-        default-value="tree"
-        :default-expanded="['docs', 'guide', 'components']"
-    />
+    <Tree :items="items" default-value="tree" :default-expanded="['docs', 'guide', 'components']" />
 </template>
 ```
 
 ## Keyboard
 
-| Key | Behavior |
-| --- | -------- |
-| ArrowUp / ArrowDown | Move selection among visible nodes |
-| ArrowRight (LTR) / ArrowLeft (RTL) | Expand, or move into first child |
-| ArrowLeft (LTR) / ArrowRight (RTL) | Collapse, or move to parent |
-| Home / End | First / last visible |
-| Enter / Space | Select focused node |
+| Key                                | Behavior                           |
+| ---------------------------------- | ---------------------------------- |
+| ArrowUp / ArrowDown                | Move selection among visible nodes |
+| ArrowRight (LTR) / ArrowLeft (RTL) | Expand, or move into first child   |
+| ArrowLeft (LTR) / ArrowRight (RTL) | Collapse, or move to parent        |
+| Home / End                         | First / last visible               |
+| Enter / Space                      | Select focused node                |
 
 ## When to use / when not
 
-| Use when | Prefer something else when |
-| -------- | -------------------------- |
-| Nested navigation / file trees | Flat lists → Tabs or Menu |
+| Use when                              | Prefer something else when          |
+| ------------------------------------- | ----------------------------------- |
+| Nested navigation / file trees        | Flat lists → Tabs or Menu           |
 | Expand/collapse with single selection | Multi-select / drag-drop (deferred) |
 
 **Vs React Aria Tree / Headless UI.** Prefer React Aria when you need multi-select, dense grid trees, or React-only depth today. Sometic Tree is single-select, no built-in virtualization, and honest about large-list limits. App chrome (navbars, sidebars) stays composition: layout + [Menu](/components/menu) + maybe Tree.

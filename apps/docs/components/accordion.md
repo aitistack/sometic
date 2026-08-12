@@ -164,12 +164,12 @@ import { Accordion, AccordionItem } from "@sometic/vue/structure";
 
 ## Events / callbacks
 
-| Surface        | Event           | Payload              |
-| -------------- | --------------- | -------------------- |
-| React          | `onValueChange` | `string \| string[]` |
+| Surface        | Event                          | Payload              |
+| -------------- | ------------------------------ | -------------------- |
+| React          | `onValueChange`                | `string \| string[]` |
 | Vue            | `valueChange` / `update:value` | `string \| string[]` |
-| Custom element | —               | —                    |
-| DOM controller | `onValueChange` | `string \| string[]` |
+| Custom element | —                              | —                    |
+| DOM controller | `onValueChange`                | `string \| string[]` |
 
 ## Controlled vs uncontrolled
 

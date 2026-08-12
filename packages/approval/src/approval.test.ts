@@ -7,7 +7,12 @@ function createFlow(overrides: Partial<CreateApprovalControllerOptions> = {}) {
     return createApprovalController({
         steps: [
             { id: "review", label: "Review", assigneeIds: ["reviewer"] },
-            { id: "legal", label: "Legal", assigneeIds: ["lawyer-a", "lawyer-b"], requireAll: true },
+            {
+                id: "legal",
+                label: "Legal",
+                assigneeIds: ["lawyer-a", "lawyer-b"],
+                requireAll: true,
+            },
             { id: "finance", assigneeIds: ["cfo"] },
         ],
         now: () => {
@@ -38,11 +43,7 @@ describe("createApprovalController", () => {
         expect(state.status).toBe("pending");
         expect(state.stepIndex).toBe(0);
         expect(state.closed).toBe(false);
-        expect(state.steps.map((step) => step.status)).toEqual([
-            "pending",
-            "pending",
-            "pending",
-        ]);
+        expect(state.steps.map((step) => step.status)).toEqual(["pending", "pending", "pending"]);
         expect(flow.getStep("finance")?.label).toBe("finance");
         expect(flow.getStep("legal")?.requireAll).toBe(true);
         expect(flow.getStep("review")?.requireAll).toBe(false);

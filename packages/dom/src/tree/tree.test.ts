@@ -20,9 +20,11 @@ const items = [
 describe("tree", () => {
     it("flattens visible nodes based on expansion", () => {
         expect(flattenVisibleTreeItems(items, new Set()).map((n) => n.item.id)).toEqual(["root"]);
-        expect(
-            flattenVisibleTreeItems(items, new Set(["root"])).map((n) => n.item.id),
-        ).toEqual(["root", "child", "disabled"]);
+        expect(flattenVisibleTreeItems(items, new Set(["root"])).map((n) => n.item.id)).toEqual([
+            "root",
+            "child",
+            "disabled",
+        ]);
     });
 
     it("expands, selects, and handles keyboard", () => {
@@ -43,7 +45,11 @@ describe("tree", () => {
         expect(
             getTreeKeyboardAction(
                 { key: "ArrowRight" },
-                { nodes: flattenVisibleTreeItems(items, new Set()), selected: "root", expanded: new Set() },
+                {
+                    nodes: flattenVisibleTreeItems(items, new Set()),
+                    selected: "root",
+                    expanded: new Set(),
+                },
             ),
         ).toEqual({ expand: "root" });
         expect(shouldMountTreeChildren({ expanded: false, lazyMount: true })).toBe(false);

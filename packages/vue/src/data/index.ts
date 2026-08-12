@@ -348,9 +348,7 @@ export const DataTable = defineComponent({
                                 const row = pageRows[focused.value.row];
                                 if (row !== undefined) {
                                     event.preventDefault();
-                                    table.toggleRowSelected(
-                                        props.getRowId(row, focused.value.row),
-                                    );
+                                    table.toggleRowSelected(props.getRowId(row, focused.value.row));
                                 }
                             }
                         },
@@ -359,9 +357,21 @@ export const DataTable = defineComponent({
                 ),
             ];
 
-            if (props.pagination && state.pageCount > 1) {
+            if (props.pagination) {
                 children.push(
                     h("div", { "data-slot": "pagination" }, [
+                        h(
+                            "button",
+                            {
+                                type: "button",
+                                "data-slot": "first-page",
+                                disabled: state.pagination.pageIndex === 0,
+                                onClick: () => {
+                                    table.setPageIndex(0);
+                                },
+                            },
+                            "First",
+                        ),
                         h(
                             "button",
                             {
@@ -384,12 +394,44 @@ export const DataTable = defineComponent({
                             {
                                 type: "button",
                                 "data-slot": "next-page",
-                                disabled: state.pagination.pageIndex >= state.pageCount - 1,
+                                disabled:
+                                    state.pageCount === 0 ||
+                                    state.pagination.pageIndex >= state.pageCount - 1,
                                 onClick: () => {
                                     table.setPageIndex(state.pagination.pageIndex + 1);
                                 },
                             },
                             "Next",
+                        ),
+                        h(
+                            "button",
+                            {
+                                type: "button",
+                                "data-slot": "last-page",
+                                disabled:
+                                    state.pageCount === 0 ||
+                                    state.pagination.pageIndex >= state.pageCount - 1,
+                                onClick: () => {
+                                    table.setPageIndex(state.pageCount - 1);
+                                },
+                            },
+                            "Last",
+                        ),
+                        h(
+                            "select",
+                            {
+                                "data-slot": "page-size",
+                                value: state.pagination.pageSize,
+                                onChange: (event: Event) => {
+                                    const target = event.target;
+                                    if (target instanceof HTMLSelectElement) {
+                                        table.setPageSize(Number(target.value));
+                                    }
+                                },
+                            },
+                            [5, 8, 10, 25].map((size) =>
+                                h("option", { key: size, value: size }, String(size)),
+                            ),
                         ),
                     ]),
                 );
@@ -586,7 +628,9 @@ export const PermissionMatrix = defineComponent({
         },
         actions: { type: Array as PropType<readonly PermissionMatrixAction[]>, required: true },
         can: {
-            type: Function as PropType<(resourceId: string, actionId: string) => boolean | undefined>,
+            type: Function as PropType<
+                (resourceId: string, actionId: string) => boolean | undefined
+            >,
             default: undefined,
         },
         defaultValue: {
@@ -760,7 +804,13 @@ export const NotificationCenter = defineComponent({
                         "ul",
                         view.listAttributes,
                         items.length === 0
-                            ? [h("li", { role: "listitem", "data-slot": "empty" }, props.emptyLabel)]
+                            ? [
+                                  h(
+                                      "li",
+                                      { role: "listitem", "data-slot": "empty" },
+                                      props.emptyLabel,
+                                  ),
+                              ]
                             : items.map((item: NotificationItem) => {
                                   const itemView = center.resolveItem(item.id);
                                   return h(
@@ -856,7 +906,8 @@ export const SchemaForm = defineComponent({
                             h("span", { "data-slot": "label" }, field.label ?? field.name),
                             h("input", {
                                 name: field.name,
-                                type: field.type === "checkbox" ? "checkbox" : (field.type ?? "text"),
+                                type:
+                                    field.type === "checkbox" ? "checkbox" : (field.type ?? "text"),
                                 disabled: registration.disabled,
                                 required: field.required === true,
                                 ...(field.placeholder === undefined

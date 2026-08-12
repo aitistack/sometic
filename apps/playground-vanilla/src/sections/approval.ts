@@ -36,7 +36,8 @@ export function mountApprovalSection(root: HTMLElement): () => void {
                             });
                         } catch (error) {
                             if (status instanceof HTMLElement) {
-                                status.textContent = error instanceof Error ? error.message : "error";
+                                status.textContent =
+                                    error instanceof Error ? error.message : "error";
                             }
                         }
                         render();

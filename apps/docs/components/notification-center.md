@@ -87,7 +87,7 @@ export function Example(): JSX.Element {
         },
     });
 
-    center.notifications.push({ title: "Notification 1", source: "playground" });
+    center.notifications.push({ title: "Notification 1", source: "inbox" });
 
     const applyAttributes = (element, attributes) => {
         for (const [key, value] of Object.entries(attributes)) {
@@ -149,15 +149,15 @@ Custom element **not shipped** for Notification center. Vanilla uses `@sometic/d
 
 ## Anatomy
 
-| Part          | `data-slot`    | Role / notes                                                    |
-| ------------- | -------------- | ---------------------------------------------------------------- |
-| Region        | `root`         | `role="region"`, `data-unread`, `hidden` when closed              |
-| List          | `list`         | `role="list"`, polite live region, `data-count`                   |
-| Item          | `item`         | `role="listitem"`, `data-state`, `data-priority`, `data-source`   |
-| Read trigger  | `read-trigger` | Default item button that marks the item read                      |
-| Dismiss       | `dismiss`      | Button with `aria-label="Dismiss <title>"`                        |
-| Empty         | `empty`        | Rendered with `emptyLabel` when there are no items                |
-| Trigger       | -              | App-owned bell button; keep its `aria-expanded` in sync           |
+| Part         | `data-slot`    | Role / notes                                                    |
+| ------------ | -------------- | --------------------------------------------------------------- |
+| Region       | `root`         | `role="region"`, `data-unread`, `hidden` when closed            |
+| List         | `list`         | `role="list"`, polite live region, `data-count`                 |
+| Item         | `item`         | `role="listitem"`, `data-state`, `data-priority`, `data-source` |
+| Read trigger | `read-trigger` | Default item button that marks the item read                    |
+| Dismiss      | `dismiss`      | Button with `aria-label="Dismiss <title>"`                      |
+| Empty        | `empty`        | Rendered with `emptyLabel` when there are no items              |
+| Trigger      | -              | App-owned bell button; keep its `aria-expanded` in sync         |
 
 ## Props / attributes
 
@@ -165,18 +165,18 @@ Custom element **not shipped** for Notification center. Vanilla uses `@sometic/d
 
 Extends `HTMLAttributes<HTMLDivElement>` minus `children`.
 
-| Prop            | Type                                                | Default              | Description                                        |
-| --------------- | ---------------------------------------------------- | -------------------- | -------------------------------------------------- |
-| `notifications` | `NotificationsController`                           | created internally   | Share one store across surfaces                    |
-| `open`          | `boolean`                                           | -                    | Controlled open state                              |
-| `defaultOpen`   | `boolean`                                           | `true`               | Uncontrolled initial open state                    |
-| `onOpenChange`  | `(open: boolean) => void`                           | -                    | Open state changes                                 |
-| `groupBy`       | `"day" \| "source"`                                 | `"day"`              | Grouping used by `getGroups()`                     |
-| `label`         | `string`                                            | `"Notifications"`    | `aria-label` on the region                         |
-| `emptyLabel`    | `string`                                            | `"No notifications"` | Empty row text                                     |
-| `renderItem`    | `(item: NotificationItem) => ReactNode`             | title button         | Custom item body                                   |
-| `children`      | `(center: NotificationCenterController) => ReactNode` | -                  | Render prop above the list (toolbar, mark all read) |
-| Native attrs    | remaining div HTML attrs                            | -                    | Forwarded to the region                            |
+| Prop            | Type                                                  | Default              | Description                                         |
+| --------------- | ----------------------------------------------------- | -------------------- | --------------------------------------------------- |
+| `notifications` | `NotificationsController`                             | created internally   | Share one store across surfaces                     |
+| `open`          | `boolean`                                             | -                    | Controlled open state                               |
+| `defaultOpen`   | `boolean`                                             | `true`               | Uncontrolled initial open state                     |
+| `onOpenChange`  | `(open: boolean) => void`                             | -                    | Open state changes                                  |
+| `groupBy`       | `"day" \| "source"`                                   | `"day"`              | Grouping used by `getGroups()`                      |
+| `label`         | `string`                                              | `"Notifications"`    | `aria-label` on the region                          |
+| `emptyLabel`    | `string`                                              | `"No notifications"` | Empty row text                                      |
+| `renderItem`    | `(item: NotificationItem) => ReactNode`               | title button         | Custom item body                                    |
+| `children`      | `(center: NotificationCenterController) => ReactNode` | -                    | Render prop above the list (toolbar, mark all read) |
+| Native attrs    | remaining div HTML attrs                              | -                    | Forwarded to the region                             |
 
 ### `NotificationItem`
 
@@ -184,13 +184,13 @@ Extends `HTMLAttributes<HTMLDivElement>` minus `children`.
 
 ### `createNotificationsController` options
 
-| Option       | Type                                    | Default | Description                                   |
-| ------------ | --------------------------------------- | ------- | --------------------------------------------- |
-| `items`      | `NotificationInput[]`                   | `[]`    | Seed items, same shape minus generated fields |
-| `maxItems`   | `number`                                | -       | Keeps the newest N, trims the rest            |
-| `now`        | `() => number`                          | `Date.now` | Injectable clock for tests                 |
-| `onChange`   | `(items: NotificationItem[]) => void`   | -       | Any store change                              |
-| `onAnnounce` | `(item: NotificationItem) => void`      | -       | Fires for each new unread item                |
+| Option       | Type                                  | Default    | Description                                   |
+| ------------ | ------------------------------------- | ---------- | --------------------------------------------- |
+| `items`      | `NotificationInput[]`                 | `[]`       | Seed items, same shape minus generated fields |
+| `maxItems`   | `number`                              | -          | Keeps the newest N, trims the rest            |
+| `now`        | `() => number`                        | `Date.now` | Injectable clock for tests                    |
+| `onChange`   | `(items: NotificationItem[]) => void` | -          | Any store change                              |
+| `onAnnounce` | `(item: NotificationItem) => void`    | -          | Fires for each new unread item                |
 
 Store methods: `getItems`, `getItem`, `getUnreadCount`, `push`, `pushMany`, `markRead`, `markUnread`, `markAllRead`, `dismiss`, `dismissAll`, `groupBy`, `subscribe`, `dispose`.
 
@@ -220,14 +220,14 @@ notifications.push({ title: "Notification 1", source: "billing" });
 
 ## Events / callbacks
 
-| Surface        | Event                 | Payload                       |
-| -------------- | --------------------- | ----------------------------- |
-| React          | `onOpenChange`        | `boolean`                     |
-| Vue            | `openChange`          | `boolean`                     |
-| Custom element | -                     | -                             |
-| Center         | `onOpenChange`        | `boolean`                     |
-| Center         | `subscribe(listener)` | `readonly NotificationItem[]` |
-| Store          | `onChange`            | `NotificationItem[]`          |
+| Surface        | Event                 | Payload                                   |
+| -------------- | --------------------- | ----------------------------------------- |
+| React          | `onOpenChange`        | `boolean`                                 |
+| Vue            | `openChange`          | `boolean`                                 |
+| Custom element | -                     | -                                         |
+| Center         | `onOpenChange`        | `boolean`                                 |
+| Center         | `subscribe(listener)` | `readonly NotificationItem[]`             |
+| Store          | `onChange`            | `NotificationItem[]`                      |
 | Store          | `onAnnounce`          | `NotificationItem`, new unread items only |
 
 ## Controlled vs uncontrolled
@@ -300,5 +300,3 @@ Each read (`getItems`, `groupBy`) sorts and copies, so snapshot once per render 
 - [Activity](/components/activity)
 - [Popover](/components/popover)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the store in section `#notifications` with an add button that pushes `Notification N`.

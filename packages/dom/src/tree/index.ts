@@ -294,9 +294,7 @@ export function getTreeKeyboardAction(
         expanded: ReadonlySet<string>;
         dir?: "ltr" | "rtl";
     },
-):
-    | { select?: string; expand?: string; collapse?: string; focus?: string }
-    | undefined {
+): { select?: string; expand?: string; collapse?: string; focus?: string } | undefined {
     const nodes = options.nodes.filter((node) => node.item.disabled !== true);
     if (nodes.length === 0) {
         return undefined;

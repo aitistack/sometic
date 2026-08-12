@@ -26,4 +26,4 @@ Import from `@sometic/data-table` and `@sometic/dom/data-table` subpaths. Avoid 
 
 ## Still stuck?
 
-See [FAQ](./faq), [component docs](/components/data-table), and the vanilla playground `#data-table` section.
+See [FAQ](./faq) and [component docs](/components/data-table).

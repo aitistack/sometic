@@ -10,9 +10,7 @@ export type GridKeyboardEvent = {
 };
 
 export type GridKeyboardAction =
-    | { type: "move"; position: GridPosition }
-    | { type: "toggle" }
-    | { type: "activate" };
+    { type: "move"; position: GridPosition } | { type: "toggle" } | { type: "activate" };
 
 export type GetGridKeyboardActionOptions = {
     rowCount: number;
