@@ -258,6 +258,8 @@ The AST is cloned on read and write, so trees stay immutable for change detectio
 
 **Do not use** for a fixed set of two or three filter inputs (drive `setFilters` on the data table directly), for full SQL authoring, or for caching and deduplicating requests. That is [Query](/utilities/query).
 
+**Vs react-querybuilder.** Prefer react-querybuilder when you want a React-only visual builder with batteries included. Sometic Query builder is an AST engine (validate, serialize, `toDataTableFilters`) without a frozen rule-row design: bring your own selects and layout.
+
 ## FAQ
 
 **Is this the same as `@sometic/query`?** No. `@sometic/query` is the server-state cache (fetch, cache, revalidate). `@sometic/query-builder` produces a filter expression tree. They compose well: build the AST, convert it, fetch with the cache.
@@ -281,8 +283,6 @@ The AST is cloned on read and write, so trees stay immutable for change detectio
 ## Related links
 
 - [Data table](/components/data-table)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Query](/utilities/query)
 - [Validation](/primitives/validation)
 - [Controlled state](/concepts/controlled-state)

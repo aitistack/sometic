@@ -2,6 +2,10 @@
 
 Resources by actions grid from `@sometic/dom/permission-matrix`. A baseline `can(resource, action)` check (typically your auth authorization helper) provides the current answer, and edits are stored as a sparse override map, so you always know what the admin changed versus what the policy already allowed. Grid keyboard navigation, tri-state cells, read-only mode, and per-cell disabling are built in. React and Vue ship `PermissionMatrix`.
 
+::: tip System standout: UX, not authz
+Cells are editable allow/deny overrides for admin chrome. The server (and `@sometic/auth` claims) remain the security boundary. Preview uses posts/users × read/write like the playground.
+:::
+
 <PreviewPermissionMatrix />
 
 ## Usage
@@ -301,7 +305,7 @@ State is one flat object of overrides, and reads are O(resources times actions) 
 
 **Use** for role and policy editors, per-tenant permission screens, and any resources-by-actions grid that must behave the same in React, Vue, and Vanilla while your auth layer supplies the baseline.
 
-**Do not use** as an authorization check (call your auth layer for that: see [Authorization](/authentication/authorization)), for hierarchical or attribute-based policies that do not fit a two-axis grid, or for a simple list of toggles where [Checkbox](/components/checkbox) is enough.
+**Do not use** as an authorization check (call your auth layer for that: see [Authorization](/authentication/authorization)), for hierarchical or attribute-based policies that do not fit a two-axis grid, or for a simple list of toggles where [Checkbox](/components/checkbox) is enough. Keep Casbin/CASL/OPA (or your API) as the source of truth; use the matrix to edit a projection the server already understands.
 
 ## FAQ
 
@@ -329,8 +333,6 @@ State is one flat object of overrides, and reads are O(resources times actions) 
 - [Data table](/components/data-table)
 - [Activity](/components/activity)
 - [Approval](/components/approval)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Beta maturity](/releases/beta)
 
 The vanilla playground demos the controller in section `#permissions` with `posts` and `users` resources and `read` and `write` actions.

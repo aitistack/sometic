@@ -365,6 +365,8 @@ State is plain objects, and `getState()` returns fresh copies of the slices it e
 
 **Do not use** for a short static list (plain `<table>` markup is cheaper), for spreadsheet features such as cell editing, column resizing, grouping, or pivots (not in this beta), or as a data cache. Server caching, retries, and deduplication belong to [Query](/utilities/query) and [HTTP client](/utilities/http).
 
+**Vs TanStack Table / AG Grid.** Choose TanStack when you are React-only and want its plugin depth. Choose AG Grid when you need pivots and cell editing out of the box. Choose Sometic when table behavior must match forms, HTTP, and [Query builder](/components/query-builder) bridges across stacks.
+
 ## FAQ
 
 **Does this render a styled table?** No. React and Vue render semantic table markup with `data-slot` and ARIA attributes and zero CSS. Vanilla renders nothing until you build the DOM from the resolve helpers.
@@ -387,14 +389,24 @@ State is plain objects, and `getState()` returns fresh copies of the slices it e
 
 **Why does my controlled sorting snap back?** A controlled slice needs its callback. Pass `onSortingChange` and store the value, or switch to `defaultSorting`.
 
+---
+
+**Table stays empty in server mode?** Confirm `fetchRows` resolves `{ rows, total }` and that `load()` ran (React calls it when `fetchRows` is set; Vanilla must call `table.load()`). Check `getState().error` and abort races: a newer request cancels the previous one.
+
+**Sort clicks do nothing?** Column needs `sortable: true`. Controlled `sorting` without `onSortingChange` snaps back. Verify header button wiring to `toggleSort`.
+
+**Page select-all skips rows?** Those rows are disabled via `isRowDisabled`, or you are in `allFiltered` mode with exclusions. Inspect `getPageSelectionState()` and `getSelectedIds()`.
+
+**URL sync fights the controller?** Decode once on boot into defaults, then write on `on*Change`. Do not set controlled props from the URL on every history tick without updating local state.
+
+**Keyboard focus feels stuck?** Ensure cells use the resolve `tabindex` pattern and move focus via `getDataTableKeyboardAction`. Do not put `tabindex="0"` on every cell.
+
 ## Related links
 
 The vanilla playground demos this engine in section `#data-table` (`pnpm playground:vanilla`, 40 rows labeled Person 1 to Person 40 with Admin and Editor roles).
 
 - [Query builder](/components/query-builder)
 - [Status surfaces](/components/status)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Query](/utilities/query)
 - [Controlled state](/concepts/controlled-state)
 - [Styling slots](/concepts/styling-slots)

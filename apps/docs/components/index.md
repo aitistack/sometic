@@ -87,15 +87,7 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 | Approval | [Approval](/components/approval) |
 | Notification center | [Notification center](/components/notification-center) |
 
-Family docs:
+## Structure
 
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
-
-## Structure family docs
-
-React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`.
-
-- [Structure FAQ](/components/structure-faq)
-- [Structure comparison](/components/structure-comparison)
+React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`. FAQs and comparisons live on each component page.
 

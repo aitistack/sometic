@@ -1,6 +1,6 @@
 # Status
 
-Shared empty, error, offline, and conflict view models from `@sometic/dom/status`. Pure resolve helpers (plus offline recovery bind). No React shell and no custom element: apply attributes to your markup. Short pages for each kind link here.
+Empty, error, offline, and conflict chrome from `@sometic/dom/status`. `resolveStatus` returns a pure view model (role, live region, `data-status`, default title) for the state a list, table, or panel is in; `resolveConflictStatus` adds local and remote version labels; `resolveStatusAction` gives the recovery button its attributes; `bindOfflineRecovery` re-runs your callback when the browser comes back online. No markup and no CSS ship: you own both.
 
 ::: tip System standout: four status kinds, one contract
 Empty, error, offline, and conflict share `resolveStatus` / `resolveStatusAction` so tables, forms, and uploads can reuse the same card slots and action buttons.
@@ -12,179 +12,268 @@ Empty, error, offline, and conflict share `resolveStatus` / `resolveStatusAction
 
 ::: code-group
 
-```tsx [JS]
+```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
-export function EmptyPeople() {
-    const view = resolveStatus({
-        kind: "empty",
-        hasAction: true,
-        title: "No people",
-        description: "No rows match the name and role filters.",
-    });
-    const action = resolveStatusAction();
+const panel = document.querySelector("#panel");
+const view = resolveStatus({ kind: "empty", hasAction: true, title: "No rows" });
 
-    return (
-        <div className={view.className} style={view.style} {...view.attributes}>
-            <h3>{view.title}</h3>
-            <p>{view.description}</p>
-            <button type="button" {...action.attributes}>
-                Clear filters
-            </button>
-        </div>
-    );
-}
-```
-
-```tsx [TS]
-import {
-    resolveStatus,
-    resolveStatusAction,
-    type StatusViewModel,
-} from "@sometic/dom/status";
-
-export function EmptyPeople(): JSX.Element {
-    const view: StatusViewModel = resolveStatus({
-        kind: "empty",
-        hasAction: true,
-        title: "No people",
-        description: "No rows match the name and role filters.",
-    });
-    const action = resolveStatusAction();
-
-    return (
-        <div className={view.className} style={view.style} {...view.attributes}>
-            <h3>{view.title}</h3>
-            <p>{view.description}</p>
-            <button type="button" {...action.attributes}>
-                Clear filters
-            </button>
-        </div>
-    );
-}
-```
-
-```js [Vanilla]
-import {
-    resolveStatus,
-    resolveConflictStatus,
-    resolveStatusAction,
-    bindOfflineRecovery,
-} from "@sometic/dom/status";
-
-const panel = document.querySelector("#status");
-const view = resolveStatus({ kind: "offline", hasAction: true });
 panel.className = view.className;
 for (const [key, value] of Object.entries(view.attributes)) {
     panel.setAttribute(key, value);
 }
-panel.querySelector("h3").textContent = view.title;
 
-const action = resolveStatusAction();
-const button = panel.querySelector("[data-slot='action']");
-for (const [key, value] of Object.entries(action.attributes)) {
-    button.setAttribute(key, value);
+const heading = document.createElement("h3");
+heading.textContent = view.title;
+
+const retry = document.createElement("button");
+const actionView = resolveStatusAction();
+for (const [key, value] of Object.entries(actionView.attributes)) {
+    retry.setAttribute(key, value);
 }
+retry.textContent = "Create the first row";
 
-const stop = bindOfflineRecovery({
-    onOnline: () => {
-        panel.textContent = "Back online";
-    },
-});
+panel.replaceChildren(heading, retry);
+```
+
+```ts [TS]
+import {
+    resolveStatus,
+    resolveStatusAction,
+    type StatusKind,
+    type StatusViewModel,
+} from "@sometic/dom/status";
+
+export function renderStatus(panel: HTMLElement, kind: StatusKind): void {
+    const view: StatusViewModel = resolveStatus({ kind, hasAction: true });
+    panel.className = view.className;
+    for (const [key, value] of Object.entries(view.attributes)) {
+        panel.setAttribute(key, value);
+    }
+
+    const heading = document.createElement("h3");
+    heading.textContent = view.title ?? kind;
+
+    const action = document.createElement("button");
+    for (const [key, value] of Object.entries(resolveStatusAction().attributes)) {
+        action.setAttribute(key, value);
+    }
+    action.textContent = "Try again";
+
+    panel.replaceChildren(heading, action);
+}
+```
+
+```html [Vanilla]
+<section id="status-panel"></section>
+
+<script type="module">
+    import {
+        bindOfflineRecovery,
+        resolveConflictStatus,
+        resolveStatus,
+        resolveStatusAction,
+    } from "@sometic/dom/status";
+
+    const panel = document.querySelector("#status-panel");
+
+    const applyAttributes = (element, attributes) => {
+        for (const [key, value] of Object.entries(attributes)) {
+            element.setAttribute(key, value);
+        }
+    };
+
+    function paint(kind) {
+        const view =
+            kind === "conflict"
+                ? resolveConflictStatus({ kind: "conflict", hasAction: true })
+                : resolveStatus({ kind, hasAction: true });
+
+        panel.className = view.className;
+        applyAttributes(panel, view.attributes);
+
+        const title = document.createElement("h3");
+        title.textContent = view.title;
+
+        const description = document.createElement("p");
+        description.textContent =
+            kind === "conflict"
+                ? `${view.localLabel} vs ${view.remoteLabel}`
+                : (view.description ?? "");
+
+        const action = document.createElement("button");
+        applyAttributes(action, resolveStatusAction().attributes);
+        action.textContent = kind === "offline" ? "Retry when online" : "Try again";
+
+        panel.replaceChildren(title, description, action);
+    }
+
+    const stopOfflineRecovery = bindOfflineRecovery({
+        onOnline: () => paint("empty"),
+    });
+
+    paint("offline");
+</script>
 ```
 
 :::
 
-> Custom element **not shipped**. Kind-specific docs: [Empty](/components/empty-state), [Error](/components/error-state), [Offline](/components/offline-state), [Conflict](/components/conflict-state).
+> Custom element not shipped for status surfaces; these are resolve-only view models.
+
+**Resolve only.** There is no React, Vue, or custom element wrapper for status surfaces, and there does not need to be: the output is a small attribute bag you spread onto your own markup in any framework. Import `@sometic/dom/status` from React, Vue, or Vanilla alike.
 
 ## How it works
 
-1. **`resolveStatus({ kind })`**: returns class/style/attributes. Defaults titles per kind. `role="alert"` + assertive live for error/conflict; `role="status"` + polite for empty/offline.
-2. **`resolveStatusAction`**: button attributes (`data-slot="action"`, disabled wiring).
-3. **`resolveConflictStatus`**: conflict root plus `localLabel` / `remoteLabel` (defaults "Your version" / "Server version").
-4. **`bindOfflineRecovery`**: registers `online` without reading `window` at import time; returns a disposer.
+1. **Kind drives semantics**: `empty` and `offline` resolve to `role="status"` with `aria-live="polite"`; `error` and `conflict` resolve to `role="alert"` with `aria-live="assertive"`. Pass `live` to override, including `live: "off"` to drop the live region entirely.
+2. **Titles have defaults**: `Nothing here yet`, `Something went wrong`, `You are offline`, `Conflicting changes`. Pass `title` to replace one; `description` has no default and is returned as-is.
+3. **Attributes**: `data-slot="root"`, `data-status="<kind>"`, and `data-has-action="true" | "false"` so CSS can style the four states and the with-action variant without a class system.
+4. **Actions are explicit**: `hasAction` is a declaration, not an inference. `resolveStatusAction` returns `type="button"`, `data-slot="action"`, and `disabled` plus `aria-disabled` when disabled.
+5. **Conflict adds labels**: `resolveConflictStatus` forces `kind: "conflict"` and adds `localLabel` and `remoteLabel`, defaulting to `Your version` and `Server version`.
+6. **Offline recovery is a callback**: `bindOfflineRecovery({ onOnline })` registers an `online` listener behind an `AbortController` and returns a dispose function. It never touches `window` at import time, accepts an injected `addEventListener` for tests, and no-ops when you pass no callback.
+7. **Styling contract**: every resolver accepts the shared styleable options (`unstyled`, `classes`, `styles`, `cssVariables`, `defaults`, `variants`, `merge`), so a design system can inject classes without wrappers.
 
 ## Anatomy
 
-| Part | Role |
-| ---- | ---- |
-| Root | `status` or `alert` + `data-status` |
-| Title / description | App-owned text nodes |
-| Actions | Optional `resolveStatusAction` button |
-| Conflict labels | Local / remote version captions |
+| Part        | `data-slot`  | Role / notes                                                        |
+| ----------- | ------------ | -------------------------------------------------------------------- |
+| Root        | `root`       | `role="status"` or `role="alert"`, `data-status`, `data-has-action`   |
+| Title       | `title`      | Your heading element; text comes from `view.title`                    |
+| Description | `description`| Optional supporting text                                              |
+| Actions     | `actions`    | Optional wrapper for one or more recovery controls                    |
+| Action      | `action`     | Button attributes from `resolveStatusAction`                          |
+
+`title`, `description`, and `actions` are slot names in the styling contract (`classes.title`, `styles.actions`), so you can target them even though the resolver does not render them.
 
 ## Props / attributes
 
-### `ResolveStatusOptions`
+### `resolveStatus(options)`
 
-| Option | Type | Default | Description |
-| ------ | ---- | ------- | ----------- |
-| `kind` | `empty` \| `error` \| `offline` \| `conflict` | required | Surface kind |
-| `title` | `string` | per-kind default | Heading |
-| `description` | `string` | `-` | Supporting copy |
-| `hasAction` | `boolean` | `false` | `data-has-action` |
-| `live` | `polite` \| `assertive` \| `off` | kind default | `aria-live` |
-| Styling | `unstyled`, `classes`, `styles`, `cssVariables` | `-` | Styleable root |
+| Option        | Type                                        | Default              | Description                                  |
+| ------------- | ------------------------------------------- | -------------------- | -------------------------------------------- |
+| `kind`        | `"empty" \| "error" \| "offline" \| "conflict"` | **required**     | Drives role, live region, and default title  |
+| `title`       | `string`                                    | per kind             | Overrides the default title                  |
+| `description` | `string`                                    | -                    | Returned as-is, never invented               |
+| `hasAction`   | `boolean`                                   | `false`              | Sets `data-has-action` and `view.hasAction`  |
+| `live`        | `"polite" \| "assertive" \| "off"`          | per kind             | Overrides the live region                    |
+| `unstyled`, `classes`, `styles`, `cssVariables`, `defaults`, `variants`, `merge` | styling contract | - | Shared with every Sometic resolver |
 
-### Conflict
+Returns `{ kind, title, description, hasAction, className, style, attributes }`.
 
-`resolveConflictStatus` accepts the same options plus `versions: { localLabel?, remoteLabel? }`.
+### `resolveStatusAction(options?)`
 
-### Offline recovery
+| Option     | Type      | Default | Description                                 |
+| ---------- | --------- | ------- | ------------------------------------------- |
+| `disabled` | `boolean` | `false` | Adds `disabled` and `aria-disabled="true"`  |
+| styling contract | - | - | Same slots as above (`root`)             |
 
-| Option | Type | Description |
-| ------ | ---- | ----------- |
-| `onOnline` | `() => void` | Callback when back online |
-| `addEventListener` | injectable | Test seam |
-| `signal` | `AbortSignal` | Auto-dispose |
+Returns `{ disabled, className, style, attributes }`.
+
+### `resolveConflictStatus(options)`
+
+Everything `resolveStatus` takes (with `kind` forced to `conflict`) plus `versions: { localLabel?, remoteLabel? }`. Returns the status view model plus `localLabel` and `remoteLabel`.
+
+### `bindOfflineRecovery(options?)`
+
+| Option            | Type                                    | Default            | Description                                   |
+| ----------------- | --------------------------------------- | ------------------ | --------------------------------------------- |
+| `onOnline`        | `() => void`                            | -                  | Called on the `online` event; omit to no-op   |
+| `addEventListener`| injected listener registrar             | `globalThis`       | For tests and non-browser hosts               |
+| `signal`          | `AbortSignal`                           | -                  | Ties the listener to an existing lifecycle    |
+
+Returns a dispose function. Already-aborted signals skip registration entirely.
+
+### React and Vue
+
+No components ship. Call the resolvers in render and spread the result:
+
+```tsx
+import { resolveStatus } from "@sometic/dom/status";
+
+export function EmptyRows(): JSX.Element {
+    const view = resolveStatus({ kind: "empty", hasAction: true, title: "No rows" });
+    return (
+        <div className={view.className} style={view.style} {...view.attributes}>
+            <h3 data-slot="title">{view.title}</h3>
+        </div>
+    );
+}
+```
+
+### Custom element
+
+**CE not shipped.** Status surfaces are resolve-only by design.
 
 ## Events / callbacks
 
-Resolve helpers are pure (no events). `bindOfflineRecovery` invokes `onOnline` when the environment fires `online`.
+| Surface        | Event                            | Payload |
+| -------------- | -------------------------------- | ------- |
+| Resolvers      | none, they are pure functions    | -       |
+| `bindOfflineRecovery` | `onOnline`                | none    |
+| React / Vue    | your own props                   | -       |
+| Custom element | -                                | -       |
+
+Recovery is intentionally a callback rather than an automatic refetch: only your app knows whether coming back online should retry a mutation, revalidate a query, or do nothing.
 
 ## Controlled vs uncontrolled
 
-Status is a view model, not a controller. Your app decides which `kind` to show from load/error/offline/conflict state.
+There is no internal state. Which kind renders is entirely your decision, derived from your data: `rows.length === 0` gives `empty`, a rejected request gives `error`, `navigator.onLine === false` or a network error gives `offline`, and a version mismatch gives `conflict`. Because the resolvers are pure, they are safe to call on every render, on the server, and inside `useMemo` alike.
 
 ## Accessibility
 
-- Match role/live defaults unless you have a reason to override with `live: "off"`.
-- Keep a clear title; prefer description for recovery hints.
-- Action buttons should be real `<button type="button">` with the resolve attributes.
-- Do not use conflict dual labels for generic alerts.
+- Roles are chosen for you and match severity: `status` (polite) for empty and offline, `alert` (assertive) for error and conflict. That prevents the common bug of announcing an empty list as urgently as a failure.
+- Override with `live` when context demands it, for example `live: "off"` for a status that is already inside a live region, which avoids double announcements.
+- Give the region a heading whose text matches `view.title`, so sighted and screen reader users get the same message.
+- Recovery actions are real buttons with `type="button"`, so they never submit a surrounding form by accident.
+- Disabled actions carry both `disabled` and `aria-disabled="true"`, so the state is announced rather than only visually greyed.
+- Conflict labels (`Your version`, `Server version`) are provided as strings so you can localize them and label the two panes explicitly instead of relying on left and right positioning.
+- Do not swap a table's content for a status region without moving focus deliberately, otherwise focus can land on `<body>` after a refetch.
 
 ## Styling
 
-Target `[data-status]`, `[data-slot="root"|"action"]`, `[data-has-action]`, `[role="status"|"alert"]`. Compose with your empty/error illustrations; helpers stay unstyled.
+Unstyled. Target `[data-status="empty"]`, `[data-status="error"]`, `[data-status="offline"]`, `[data-status="conflict"]`, and `[data-has-action="true"]`. Slot names (`root`, `title`, `description`, `actions`) work with the shared styling contract, so `classes: { root: "card", title: "h3" }` and `cssVariables: { "--gap": "1rem" }` both flow through `resolveStyleable`. Keep one status stylesheet for the whole app: the same four kinds appear under tables, uploads, approvals, and inboxes.
 
 ## Edge cases
 
-- **Missing action**, omit the button and leave `hasAction: false`.
-- **Conflict without versions**, defaults to Your version / Server version.
-- **Offline bind without `onOnline`**, disposer no-ops.
-- **SSR**, call resolve anytime (pure); only bind recovery in the browser.
+- **No action**: `hasAction: false` (the default) sets `data-has-action="false"`, so CSS can collapse the action area rather than leaving a gap.
+- **Custom `live`**: `"off"` removes `aria-live` entirely but keeps the role, which is right when a parent already announces.
+- **Missing description**: stays `undefined`. The resolver never invents copy, so your empty state cannot ship placeholder text by accident.
+- **Conflict outside conflict UI**: `resolveConflictStatus` always returns `kind: "conflict"` even if you pass another kind, so the labels and the semantics stay in agreement.
+- **`bindOfflineRecovery` without `onOnline`** returns a no-op dispose and registers nothing.
+- **Aborted signal**: passing an already-aborted `signal` skips registration, which makes it safe in strict-mode double effects.
+- **Non-browser host**: with no `globalThis.addEventListener`, registration is skipped instead of throwing, so SSR and Node tests are safe.
+- **Double dispose** is harmless; the controller abort is idempotent.
+- **Offline detection is a hint**: `online` fires for interface changes, not reachability. Treat recovery as "try again now", not "the network works".
+- **SSR**: all four resolvers are pure and can render on the server. Only `bindOfflineRecovery` needs a browser, and it degrades quietly.
 
 ## Performance notes
 
-Resolve is cheap and pure. Avoid rebinding offline recovery every render; keep one disposer per page.
+The resolvers are pure functions over a small options object with no allocation beyond the returned view model, so calling them per render is fine and memoizing is usually unnecessary. `bindOfflineRecovery` adds exactly one listener per call, tied to an `AbortController`; dispose it with your component (or pass `signal`) so route changes do not accumulate listeners. The `@sometic/dom/status` subpath is tiny and tracked by its own `size-limit` entry, so importing it does not pull the rest of the DOM package.
 
 ## When to use / When not
 
-**Use** for consistent empty/error/offline/conflict chrome on tables, uploads, and panels.
+**Use** when a list, table, panel, or upload area needs consistent empty, error, offline, and conflict chrome with correct roles and live regions, shared across React, Vue, and Vanilla.
 
-**Do not use** for field validation ([Form](/components/form) feedback), transient toasts ([Toast](/components/toast)), or blocking modals ([Dialog](/components/dialog)).
+**Do not use** for inline field validation (that is [Form](/components/form) feedback), for transient confirmations ([Toast](/components/toast)), or for a persistent inline message that is not one of the four kinds ([Alert](/components/alert)). Conflict here is dual-version chrome for optimistic merge UI, not a generic warning. Prefer a design-system Empty component when you need illustration kits; keep Sometic when the same resolve contract must work in Vanilla and adapters.
 
 ## FAQ
 
-**Why four kinds?** Shared roles and live defaults so Product, Data table, and Upload demos stay consistent.
+**Why are error and conflict assertive?** Because both block the user's intent: something failed, or their edit collides with someone else's. Empty and offline are informational, so they stay polite. Override with `live` when your context differs.
 
-**React package?** Use `@sometic/dom/status` from React as shown; no dedicated component.
+**Do I have to use the default titles?** No. They exist so a quick empty state is never blank, but real products should pass domain copy (`No invoices for this period`) and localize it.
 
-**Assertive vs polite?** Errors and conflicts assert; empty/offline stay polite unless overridden.
+**How do I detect offline?** However your app already does: `navigator.onLine`, a failed request, or your HTTP layer. The resolver only renders the state; `bindOfflineRecovery` tells you when the browser thinks the connection is back.
 
-**CE?** Not shipped.
+**Does it refetch when I come back online?** No, and that is deliberate. `onOnline` is your hook: revalidate with [Query](/utilities/query), retry a mutation, or just re-enable a button.
 
-**Playground?** Vanilla `#status` gallery exercises all four kinds.
+**How do I render a conflict merge UI?** Use `resolveConflictStatus` for the region and labels, then render the two versions side by side yourself with the labels as headings. The engine does not diff or merge.
+
+**Why is there no React component?** Because there is nothing to own: no state, no effects, no lifecycle. A component would only spread the same attributes, so the resolver plus your markup is smaller and more flexible.
+
+**Are the four state pages different components?** No. [Empty state](/components/empty-state), [Error state](/components/error-state), [Offline state](/components/offline-state), and [Conflict state](/components/conflict-state) are the same resolvers with a different `kind`.
+
+**Can I add my own kinds?** Not through `kind`, which is a closed union so semantics stay predictable. Add your own `data-*` attribute alongside the resolved ones for product-specific variants.
+
+**Alert or status?** [Alert](/components/alert) is a general inline message component. Status surfaces are the standard chrome for the four data-state cases and are what the data table, upload, approval, and notification demos share.
 
 ## Related links
 
@@ -195,3 +284,7 @@ Resolve is cheap and pure. Avoid rebinding offline recovery every render; keep o
 - [Alert](/components/alert)
 - [Toast](/components/toast)
 - [Data table](/components/data-table)
+- [Accessibility](/guide/accessibility)
+- [Styling slots](/concepts/styling-slots)
+
+The vanilla playground demos all four kinds in section `#status`, including the offline recovery callback.

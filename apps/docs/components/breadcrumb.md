@@ -149,7 +149,9 @@ Target `nav[aria-label="Breadcrumb"]`, `[data-current]`, list separators in CSS 
 
 ## FAQ
 
-**Controller?** No — pure resolve. No open/value state.
+**Controller?** No: pure resolve. No open/value state.
+
+**Overflow / ellipsis?** Use `collapseBreadcrumbItems` / `resolveBreadcrumbEllipsis` from `@sometic/dom/breadcrumb`, and compose [Menu](/components/menu) for the ellipsis actions if needed.
 
 **Is there an `sometic-breadcrumb`?** No. CE not shipped.
 

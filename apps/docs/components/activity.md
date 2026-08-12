@@ -2,6 +2,10 @@
 
 Append-only activity and audit log state from `@sometic/activity`. Entries are typed, timestamped, and attributed to an actor and a resource; reads are filtered and cursor-paged. The engine is deliberately headless: no markup, no dates formatting, no storage. It gives you a correct, testable feed model that behaves the same in React, Vue, and Vanilla.
 
+::: tip System standout: append-only timeline
+Activity is an audit-style feed (Event N in the preview), not an inbox. Use [Notification center](/components/notification-center) for read/dismiss workflows.
+:::
+
 <PreviewActivity />
 
 ## Usage
@@ -250,8 +254,6 @@ Every read sorts and copies the filtered list, so it is O(n log n) per call: sna
 - [Notification center](/components/notification-center)
 - [Approval](/components/approval)
 - [Permission matrix](/components/permission-matrix)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Query](/utilities/query)
 - [Beta maturity](/releases/beta)
 

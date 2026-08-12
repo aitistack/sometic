@@ -389,8 +389,6 @@ export default defineConfig({
                         { text: "Activity", link: "/components/activity" },
                         { text: "Approval", link: "/components/approval" },
                         { text: "Notification center", link: "/components/notification-center" },
-                        { text: "Data FAQ", link: "/components/data-faq" },
-                        { text: "Data comparison", link: "/components/data-comparison" },
                     ],
                 },
                 {
@@ -401,8 +399,6 @@ export default defineConfig({
                         { text: "Breadcrumb", link: "/components/breadcrumb" },
                         { text: "Command palette", link: "/components/command-palette" },
                         { text: "Tree", link: "/components/tree" },
-                        { text: "Structure FAQ", link: "/components/structure-faq" },
-                        { text: "Structure comparison", link: "/components/structure-comparison" },
                     ],
                 },
             ],

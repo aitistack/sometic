@@ -202,17 +202,25 @@ Target `[role="tablist"]`, `[data-state="active"|"inactive"]`, `[aria-selected]`
 
 **Do not use** for site navigation links (use links / [Breadcrumb](/components/breadcrumb)).
 
+**Vs Radix / React Aria.** Choose Radix or React Aria when you are React-only and already invested. Choose Sometic when the same tab behavior must survive a framework change: one controller in `@sometic/dom`, unstyled resolve slots, React and Vue adapters.
+
 ## FAQ
 
 **Must TabTrigger live under Tabs?** Yes. Context is required.
 
-**Can panels stay mounted?** React returns `null` when inactive. Compose differently if you need keep-alive.
+**Can panels stay mounted?** React returns `null` when inactive by default (`lazyMount`). Pass `forceMount` to keep DOM for CSS transitions or SSR hydration needs.
+
+**Do Tabs own arrow-key roving focus?** Yes. Horizontal/vertical orientation and RTL reverse horizontal arrows. Home/End jump to first/last enabled tab. Adapters and `bindTabsKeyboard` / `getTabsKeyboardTarget` share the same rules.
+
+**URL sync?** Opt-in via `syncTabsToUrl` (Vanilla) or React `urlParam` / `syncUrlHash`. No router dependency: you provide get/set for search params or hash.
 
 **Is there an `sometic-tabs`?** No. CE not shipped.
 
 **Vue components?** Yes. `@sometic/vue/structure`.
 
-**Does React forward native attrs?** Yes — div attrs on Tabs/TabPanel, button attrs on TabTrigger.
+**Does React forward native attrs?** Yes: div attrs on Tabs/TabPanel, button attrs on TabTrigger.
+
+**SSR?** No browser globals at import time. Create controllers and bind keyboard after hydration.
 
 ## Related links
 

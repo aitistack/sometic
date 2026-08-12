@@ -2,6 +2,10 @@
 
 Inbox behavior: `@sometic/notifications` owns the item store (push, read and unread, dismiss, priority, filters, day or source grouping, `maxItems` trimming) and `@sometic/dom/notification-center` adds open state plus the region and item view models. This is the persistent bell-and-panel inbox, not the transient queue in [Toast](/components/toast). React and Vue ship `NotificationCenter`.
 
+::: tip System standout: inbox, not toast
+Use this for persistent unread items. Ephemeral feedback stays on [Toast](/components/toast). Push delivery stays in your backend; feed items into the controller.
+:::
+
 <PreviewNotificationCenter />
 
 ## Usage
@@ -267,7 +271,7 @@ Each read (`getItems`, `groupBy`) sorts and copies, so snapshot once per render 
 
 **Use** for a persistent inbox: a bell with an unread badge, a notifications page, activity digests grouped by day or source, and websocket-fed alerts that must survive navigation.
 
-**Do not use** for transient confirmations ([Toast](/components/toast)), for a single inline message ([Alert](/components/alert)), or as an audit trail. Immutable history belongs in [Activity](/components/activity).
+**Do not use** for transient confirmations ([Toast](/components/toast)), for a single inline message ([Alert](/components/alert)), or as an audit trail. Immutable history belongs in [Activity](/components/activity). Push and email delivery stay in your backend or vendor SDKs; feed items into `@sometic/notifications`.
 
 ## FAQ
 
@@ -295,8 +299,6 @@ Each read (`getItems`, `groupBy`) sorts and copies, so snapshot once per render 
 - [Alert](/components/alert)
 - [Activity](/components/activity)
 - [Popover](/components/popover)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Beta maturity](/releases/beta)
 
 The vanilla playground demos the store in section `#notifications` with an add button that pushes `Notification N`.

@@ -133,8 +133,9 @@ const commands: CommandPaletteCommand[] = [
 
 | Use when | Prefer something else when |
 | -------- | -------------------------- |
-| Global quick actions (⌘K-style) | Inline autocomplete in a form field → [Combobox](/components/combobox) |
-| Modal focus with filter + run | Anchored contextual actions → [Menu](/components/menu) |
+| Modal quick actions / command menus | Inline filterable field → [Combobox](/components/combobox); anchored action list → [Menu](/components/menu) |
+
+**Vs cmdk.** cmdk is excellent for React command UIs. Sometic Command palette is a smaller, portable engine composed with overlay chrome, without locking you to React or a styled kit.
 
 ## Edges
 
@@ -154,7 +155,6 @@ No. Filtering and list keyboard live in the command-palette engine.
 
 ## Related
 
-- [Structure FAQ](/components/structure-faq)
-- [Structure comparison](/components/structure-comparison)
 - [Dialog](/components/dialog)
 - [Combobox](/components/combobox)
+- [Menu](/components/menu)

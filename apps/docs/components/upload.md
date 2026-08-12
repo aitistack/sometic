@@ -331,6 +331,8 @@ Unstyled. Target `[data-slot="dropzone"][data-dragging="true"]`, `[data-slot="dr
 
 **Do not use** for a single file in a form (use [File input](/components/file-input)), for resumable chunked protocols such as tus without writing that transport yourself, or as authorization. The server must still validate type, size, and permissions: client gates are UX only.
 
+**Vs native file input / Uppy.** Native `<input type="file">` is enough for one field. Uppy and similar kits own chrome and transports. Sometic Upload is a queue + dropzone resolve + pluggable `UploadTransport` (HTTP helper included), so progress, cancel, and retry stay portable without a visual kit.
+
 ## FAQ
 
 **Which transport should I use?** `createHttpUploadTransport` for a plain `POST` endpoint. Write your own for presigned S3 PUT, XHR-based byte progress, or chunked protocols: it is one `upload(file, { signal, onProgress })` method.
@@ -353,13 +355,25 @@ Unstyled. Target `[data-slot="dropzone"][data-dragging="true"]`, `[data-slot="dr
 
 **Do I need `UploadList` if I write my own rows?** No. Use `resolveUploadItem` and `resolveUploadList` for the ARIA and data attributes, and render whatever markup you want.
 
+---
+
+**Files never start?** Check `autoStart`. Call `start` or ensure the dropzone path calls `addFiles`. Verify the transport `upload` resolves and does not hang without `onProgress`.
+
+**Accept rejects valid files?** Normalize MIME vs extension rules. Prefer extension rules when `file.type` is empty. Mirror rules on the hidden input `accept` attribute.
+
+**Cancel does nothing?** Call `controller.cancel(id)` and ensure the transport respects `signal`. UI should move to `canceled`.
+
+**`upload_fetch_unavailable`?** Pass `fetchImpl` into `createHttpUploadTransport` for tests or non-browser runtimes.
+
+**Rejected files look silent?** Rejected files still appear as `error` items; render `item.error.message`.
+
+**Same file cannot be picked twice?** Clear the file input `value` after change (React/Vue adapters already do).
+
 ## Related links
 
 - [File input](/components/file-input)
 - [Progress](/components/progress)
 - [Status surfaces](/components/status)
-- [Upload troubleshooting](/components/data-faq#upload-troubleshooting)
-- [Data comparison](/components/data-comparison)
 - [HTTP client](/utilities/http)
 - [Beta maturity](/releases/beta)
 

@@ -2,6 +2,10 @@
 
 Descriptor-driven forms from `@sometic/forms/schema-form`. You describe fields as data (`name`, `type`, `label`, `validators`, `enabled`, `transform`) and `createSchemaForm` builds a full `FormController` on top of `createForm`: defaults per type, registration, validation modes, meta, and submit. React and Vue ship a `SchemaForm` component that renders a default control per descriptor, or hands you the controller through a render prop or slot.
 
+::: tip System standout: same forms core
+Schema form is a thin catalog over the portable forms engine, not a second validation stack. Title, count, and published in the preview match the playground so docs and demos stay aligned.
+:::
+
 <PreviewSchemaForm />
 
 ## Usage
@@ -266,7 +270,7 @@ One controller per form; subscriptions are form-wide, so very large schemas re-r
 
 **Use** when the field list is data: admin CRUD screens, settings pages, API-driven or per-tenant forms, and anywhere the same schema must render in React, Vue, and Vanilla.
 
-**Do not use** when the layout is bespoke and static (hand-write fields with [Form](/components/form)), when you need a rich JSON Schema dialect with `$ref`, `oneOf`, and nested objects (descriptors are flat and deliberately small), or as a validation library on its own. Validators come from [Validation](/primitives/validation).
+**Do not use** when the layout is bespoke and static (hand-write fields with [Form](/components/form)), when you need a rich JSON Schema dialect with `$ref`, `oneOf`, and nested objects (descriptors are flat and deliberately small), or as a validation library on its own. Validators come from [Validation](/primitives/validation). Prefer the full [Forms](/forms/) engine when you need complex dirty tracking, field arrays, or server error maps beyond schema fields.
 
 ## FAQ
 
@@ -294,8 +298,6 @@ One controller per form; subscriptions are form-wide, so very large schemas re-r
 - [Forms overview](/forms/)
 - [Validation](/forms/validation)
 - [Field](/components/field)
-- [Data FAQ](/components/data-faq)
-- [Data comparison](/components/data-comparison)
 - [Beta maturity](/releases/beta)
 
 The vanilla playground demos the engine in section `#schema-form` with `title`, `count`, and `published` fields.

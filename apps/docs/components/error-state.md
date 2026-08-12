@@ -1,6 +1,6 @@
 # Error state
 
-Error panel chrome built on [`resolveStatus({ kind: "error" })`](/components/status) (`role="alert"`, assertive live by default). Prefer the shared Status page for full API detail.
+Failure chrome from `resolveStatus({ kind: "error" })` in `@sometic/dom/status`. Assertive live region, `role="alert"`, `data-status="error"`, and the default title `Something went wrong`. Same resolver as [Empty state](/components/empty-state), [Offline state](/components/offline-state), and [Conflict state](/components/conflict-state), with a different `kind`.
 
 <PreviewStatus />
 
@@ -8,55 +8,92 @@ Error panel chrome built on [`resolveStatus({ kind: "error" })`](/components/sta
 
 ::: code-group
 
-```tsx [JS]
+```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
-const view = resolveStatus({
-    kind: "error",
-    hasAction: true,
-    title: "Could not load people",
-    description: "The Admin and Editor roster failed to load.",
-});
-const action = resolveStatusAction();
-```
+const panel = document.querySelector("#rows-error");
 
-```tsx [TS]
-import {
-    resolveStatus,
-    resolveStatusAction,
-    type StatusViewModel,
-} from "@sometic/dom/status";
+function showError(error, retry) {
+    const view = resolveStatus({
+        kind: "error",
+        title: "We could not load these rows",
+        description: error.message,
+        hasAction: true,
+    });
 
-const view: StatusViewModel = resolveStatus({
-    kind: "error",
-    hasAction: true,
-    title: "Could not load people",
-    description: "The Admin and Editor roster failed to load.",
-});
-const action = resolveStatusAction();
-```
+    panel.className = view.className;
+    for (const [key, value] of Object.entries(view.attributes)) {
+        panel.setAttribute(key, value);
+    }
 
-```js [Vanilla]
-import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
+    const action = document.createElement("button");
+    for (const [key, value] of Object.entries(resolveStatusAction().attributes)) {
+        action.setAttribute(key, value);
+    }
+    action.textContent = "Try again";
+    action.addEventListener("click", retry);
 
-const view = resolveStatus({
-    kind: "error",
-    hasAction: true,
-    title: "Could not load people",
-});
-const root = document.querySelector("#error");
-for (const [key, value] of Object.entries(view.attributes)) {
-    root.setAttribute(key, value);
+    panel.replaceChildren(action);
 }
-const action = resolveStatusAction();
+```
+
+```ts [TS]
+import { resolveStatus, type StatusViewModel } from "@sometic/dom/status";
+
+export function rowsError(error: Error): StatusViewModel {
+    return resolveStatus({
+        kind: "error",
+        title: "We could not load these rows",
+        description: error.message,
+        hasAction: true,
+    });
+}
+```
+
+```html [Vanilla]
+<section id="rows-error"></section>
+
+<script type="module">
+    import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
+
+    const panel = document.querySelector("#rows-error");
+    const view = resolveStatus({ kind: "error", hasAction: true });
+
+    panel.className = view.className;
+    for (const [key, value] of Object.entries(view.attributes)) {
+        panel.setAttribute(key, value);
+    }
+
+    const title = document.createElement("h3");
+    title.dataset.slot = "title";
+    title.textContent = view.title;
+
+    const action = document.createElement("button");
+    for (const [key, value] of Object.entries(resolveStatusAction().attributes)) {
+        action.setAttribute(key, value);
+    }
+    action.textContent = "Try again";
+
+    panel.replaceChildren(title, action);
+</script>
 ```
 
 :::
 
-Custom element **not shipped**. Full spine: [Status](/components/status).
+## Notes
+
+- Error is **assertive** by default (`role="alert"`), because a failed load blocks the user. Pass `live: "polite"` when the region already sits inside another live region.
+- Show a message a user can act on. Put the raw technical detail behind a details toggle or in logs, not in the title.
+- Pair the action with a real retry path. In a data table that usually means calling `load()` again; with [Query](/utilities/query) it means revalidating.
+- A failed request caused by connectivity is usually better rendered as [Offline state](/components/offline-state), which comes with a recovery hook.
+- Never leave focus stranded: if the error replaces a focused table, move focus to the region or the retry button.
+
+Full API, accessibility, styling, edge cases, and FAQ: [Status surfaces](/components/status).
 
 ## Related links
 
-- [Status](/components/status)
-- [Alert](/components/alert)
+- [Status surfaces](/components/status)
+- [Empty state](/components/empty-state)
 - [Offline state](/components/offline-state)
+- [Conflict state](/components/conflict-state)
+- [Alert](/components/alert)
