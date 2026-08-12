@@ -3,7 +3,7 @@
 Multi-step approval state machine from `@sometic/approval`. Steps carry assignees and an optional "everyone must approve" rule; decisions are recorded with actor, timestamp, and note; illegal moves throw typed errors instead of silently corrupting the flow. Status is derived, never stored, so the flow cannot drift out of sync with its steps.
 
 ::: tip System standout: require-all then any
-Manager steps can require every assignee; Director steps can accept any one. Preview mirrors Manager (a, b) then Director (c) like the playground. Persist decisions on the server; this is not a durable workflow runtime.
+Manager steps can require every assignee; Director steps can accept any one. Preview mirrors Manager (a, b) then Director (c). Persist decisions on the server; this is not a durable workflow runtime.
 :::
 
 <PreviewApproval />
@@ -110,7 +110,7 @@ const unsubscribe = approval.subscribe((state: ApprovalState) => {
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.
 
-Approval is **engine only**. There is no `Approval` component in `@sometic/react/data` or `@sometic/vue/data` and no custom element: approval UIs range from a two-button bar to a full timeline with avatars and notes. Import `@sometic/approval` from any framework and render your own steps, which is what the preview and playground do.
+Approval is **engine only**. There is no `Approval` component in `@sometic/react/data` or `@sometic/vue/data` and no custom element: approval UIs range from a two-button bar to a full timeline with avatars and notes. Import `@sometic/approval` from any framework and render your own steps, which is what the preview does.
 
 ## How it works
 
@@ -124,13 +124,13 @@ Approval is **engine only**. There is no `Approval` component in `@sometic/react
 
 ## Anatomy
 
-| Part            | Shape                     | Notes                                                        |
-| --------------- | ------------------------- | ------------------------------------------------------------ |
-| Step            | `ApprovalStep`            | `id`, `label`, `assigneeIds`, `requireAll`, `status`, `decisions` |
-| Decision record | `ApprovalDecisionRecord`  | `id`, `stepId`, `decision`, `actorId`, `at`, `note`           |
-| State           | `ApprovalState`           | `status`, `stepIndex`, `steps`, `history`, `closed`           |
-| Step status     | `ApprovalStepStatus`      | `pending`, `approved`, `rejected`, `changes-requested`        |
-| Flow status     | `ApprovalStatus`          | Same four values, derived from all steps                      |
+| Part            | Shape                    | Notes                                                             |
+| --------------- | ------------------------ | ----------------------------------------------------------------- |
+| Step            | `ApprovalStep`           | `id`, `label`, `assigneeIds`, `requireAll`, `status`, `decisions` |
+| Decision record | `ApprovalDecisionRecord` | `id`, `stepId`, `decision`, `actorId`, `at`, `note`               |
+| State           | `ApprovalState`          | `status`, `stepIndex`, `steps`, `history`, `closed`               |
+| Step status     | `ApprovalStepStatus`     | `pending`, `approved`, `rejected`, `changes-requested`            |
+| Flow status     | `ApprovalStatus`         | Same four values, derived from all steps                          |
 
 No markup ships. A useful convention is `data-step="manager"` and `data-status="pending"` per row so one stylesheet covers every framework.
 
@@ -138,19 +138,19 @@ No markup ships. A useful convention is `data-step="manager"` and `data-status="
 
 ### `CreateApprovalControllerOptions`
 
-| Option               | Type                                            | Default    | Description                                     |
-| -------------------- | ----------------------------------------------- | ---------- | ----------------------------------------------- |
-| `steps`              | `ApprovalStepInput[]`                           | **required** | At least one step, unique ids                 |
-| `stepIndex`          | `number`                                        | -          | Controlled active step                          |
-| `defaultStepIndex`   | `number`                                        | `0`        | Uncontrolled initial active step                |
-| `onStepIndexChange`  | `(stepIndex: number) => void`                   | -          | Fires when the flow advances or reopens         |
-| `onDecision`         | `(record: ApprovalDecisionRecord) => void`      | -          | Fires for every recorded decision               |
-| `onStatusChange`     | `(status: ApprovalStatus) => void`              | -          | Fires only when the derived status changes      |
-| `now`                | `() => number`                                  | `Date.now` | Injectable clock for tests                      |
+| Option              | Type                                       | Default      | Description                                |
+| ------------------- | ------------------------------------------ | ------------ | ------------------------------------------ |
+| `steps`             | `ApprovalStepInput[]`                      | **required** | At least one step, unique ids              |
+| `stepIndex`         | `number`                                   | -            | Controlled active step                     |
+| `defaultStepIndex`  | `number`                                   | `0`          | Uncontrolled initial active step           |
+| `onStepIndexChange` | `(stepIndex: number) => void`              | -            | Fires when the flow advances or reopens    |
+| `onDecision`        | `(record: ApprovalDecisionRecord) => void` | -            | Fires for every recorded decision          |
+| `onStatusChange`    | `(status: ApprovalStatus) => void`         | -            | Fires only when the derived status changes |
+| `now`               | `() => number`                             | `Date.now`   | Injectable clock for tests                 |
 
 ### `ApprovalStepInput`
 
-| Field         | Type       | Description                                                     |
+| Field         | Type       | Description                                                      |
 | ------------- | ---------- | ---------------------------------------------------------------- |
 | `id`          | `string`   | Unique within the flow, used by `stepId` and `reopen`            |
 | `label`       | `string`   | Display label, falls back to `id`                                |
@@ -159,18 +159,18 @@ No markup ships. A useful convention is `data-step="manager"` and `data-status="
 
 ### Controller API
 
-| Member                                  | Description                                                  |
-| --------------------------------------- | ------------------------------------------------------------- |
-| `getState()`                            | `{ status, stepIndex, steps, history, closed }` (deep copies)  |
-| `getSteps()` / `getStep(id)`            | Step snapshots                                                 |
-| `getActiveStep()`                       | The step at `stepIndex`, or `undefined`                        |
+| Member                                   | Description                                                   |
+| ---------------------------------------- | ------------------------------------------------------------- |
+| `getState()`                             | `{ status, stepIndex, steps, history, closed }` (deep copies) |
+| `getSteps()` / `getStep(id)`             | Step snapshots                                                |
+| `getActiveStep()`                        | The step at `stepIndex`, or `undefined`                       |
 | `getStepIndex()` / `setStepIndex(index)` | Read or move the active step, throws when out of range        |
-| `getStatus()` / `getHistory()`          | Derived status and the full decision log                       |
-| `decide(input)`                         | Records a decision, returns the record                         |
-| `approve` / `reject` / `requestChanges` | Shorthands taking `{ actorId, stepId?, note? }`                |
-| `reopen(stepId)`                        | Resets a settled step to `pending` and makes it active         |
-| `subscribe(listener)`                   | Receives the new `ApprovalState` after every change            |
-| `dispose()` / `disposed`                | Releases listeners and blocks further decisions                |
+| `getStatus()` / `getHistory()`           | Derived status and the full decision log                      |
+| `decide(input)`                          | Records a decision, returns the record                        |
+| `approve` / `reject` / `requestChanges`  | Shorthands taking `{ actorId, stepId?, note? }`               |
+| `reopen(stepId)`                         | Resets a settled step to `pending` and makes it active        |
+| `subscribe(listener)`                    | Receives the new `ApprovalState` after every change           |
+| `dispose()` / `disposed`                 | Releases listeners and blocks further decisions               |
 
 ### React and Vue
 
@@ -182,14 +182,14 @@ No component ships. Create the controller in a `useRef` initializer (React) or `
 
 ## Events / callbacks
 
-| Surface        | Event                 | Payload                     |
-| -------------- | --------------------- | --------------------------- |
-| Engine         | `onDecision`          | `ApprovalDecisionRecord`    |
+| Surface        | Event                 | Payload                          |
+| -------------- | --------------------- | -------------------------------- |
+| Engine         | `onDecision`          | `ApprovalDecisionRecord`         |
 | Engine         | `onStatusChange`      | `ApprovalStatus`, only on change |
-| Engine         | `onStepIndexChange`   | `number`                    |
-| Engine         | `subscribe(listener)` | `ApprovalState`             |
-| React / Vue    | your own props        | -                           |
-| Custom element | -                     | -                           |
+| Engine         | `onStepIndexChange`   | `number`                         |
+| Engine         | `subscribe(listener)` | `ApprovalState`                  |
+| React / Vue    | your own props        | -                                |
+| Custom element | -                     | -                                |
 
 `subscribe` fires on every decision, `setStepIndex`, and `reopen`. `onStatusChange` fires only when the derived status actually changes, so it is safe to drive a toast or a server sync from it.
 
@@ -269,5 +269,3 @@ State is small and copied defensively on every read: `getState()` clones steps, 
 - [Notification center](/components/notification-center)
 - [Dialog](/components/dialog)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the engine in section `#approval` with a Manager step (two assignees, `requireAll`) and a Director step.

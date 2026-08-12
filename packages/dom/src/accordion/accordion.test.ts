@@ -32,15 +32,15 @@ describe("accordion", () => {
 
     it("computes keyboard focus and toggle actions", () => {
         const items = [{ value: "a" }, { value: "b", disabled: true }, { value: "c" }];
-        expect(
-            getAccordionKeyboardAction({ key: " " }, { items, currentValue: "a" }),
-        ).toEqual({ toggle: "a" });
+        expect(getAccordionKeyboardAction({ key: " " }, { items, currentValue: "a" })).toEqual({
+            toggle: "a",
+        });
         expect(
             getAccordionKeyboardAction({ key: "ArrowDown" }, { items, currentValue: "a" }),
         ).toEqual({ focus: "c" });
-        expect(
-            getAccordionKeyboardAction({ key: "Home" }, { items, currentValue: "c" }),
-        ).toEqual({ focus: "a" });
+        expect(getAccordionKeyboardAction({ key: "Home" }, { items, currentValue: "c" })).toEqual({
+            focus: "a",
+        });
     });
 
     it("respects lazyMount panel policy", () => {

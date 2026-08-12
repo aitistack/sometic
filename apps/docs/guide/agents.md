@@ -43,7 +43,7 @@ Adapters (@sometic/react, vue, elements, …)
 - **HTTP** owns transport and 401 refresh; **auth** owns session; **query** refetches after re-auth.
 - Prefer **subpath imports** (`@sometic/react/query`, `@sometic/react/button`).
 - Custom elements use the `sometic-*` prefix.
-- Publishable packages are font-agnostic; brand fonts are docs/playground only.
+- Publishable packages are font-agnostic; brand fonts are docs and demo surfaces only.
 
 ## Start paths
 

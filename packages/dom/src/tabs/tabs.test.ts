@@ -18,11 +18,7 @@ describe("tabs", () => {
     });
 
     it("moves selection with keyboard including RTL", () => {
-        const tabs = [
-            { value: "a" },
-            { value: "b", disabled: true },
-            { value: "c" },
-        ];
+        const tabs = [{ value: "a" }, { value: "b", disabled: true }, { value: "c" }];
         expect(
             getTabsKeyboardTarget(
                 { key: "ArrowRight" },
@@ -35,12 +31,8 @@ describe("tabs", () => {
                 { tabs, selected: "a", orientation: "horizontal", dir: "rtl" },
             ),
         ).toBe("c");
-        expect(
-            getTabsKeyboardTarget({ key: "Home" }, { tabs, selected: "c" }),
-        ).toBe("a");
-        expect(
-            getTabsKeyboardTarget({ key: "End" }, { tabs, selected: "a" }),
-        ).toBe("c");
+        expect(getTabsKeyboardTarget({ key: "Home" }, { tabs, selected: "c" })).toBe("a");
+        expect(getTabsKeyboardTarget({ key: "End" }, { tabs, selected: "a" })).toBe("c");
     });
 
     it("respects lazyMount panel policy", () => {

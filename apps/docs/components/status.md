@@ -134,13 +134,13 @@ export function renderStatus(panel: HTMLElement, kind: StatusKind): void {
 
 ## Anatomy
 
-| Part        | `data-slot`  | Role / notes                                                        |
-| ----------- | ------------ | -------------------------------------------------------------------- |
-| Root        | `root`       | `role="status"` or `role="alert"`, `data-status`, `data-has-action`   |
-| Title       | `title`      | Your heading element; text comes from `view.title`                    |
-| Description | `description`| Optional supporting text                                              |
-| Actions     | `actions`    | Optional wrapper for one or more recovery controls                    |
-| Action      | `action`     | Button attributes from `resolveStatusAction`                          |
+| Part        | `data-slot`   | Role / notes                                                        |
+| ----------- | ------------- | ------------------------------------------------------------------- |
+| Root        | `root`        | `role="status"` or `role="alert"`, `data-status`, `data-has-action` |
+| Title       | `title`       | Your heading element; text comes from `view.title`                  |
+| Description | `description` | Optional supporting text                                            |
+| Actions     | `actions`     | Optional wrapper for one or more recovery controls                  |
+| Action      | `action`      | Button attributes from `resolveStatusAction`                        |
 
 `title`, `description`, and `actions` are slot names in the styling contract (`classes.title`, `styles.actions`), so you can target them even though the resolver does not render them.
 
@@ -148,23 +148,23 @@ export function renderStatus(panel: HTMLElement, kind: StatusKind): void {
 
 ### `resolveStatus(options)`
 
-| Option        | Type                                        | Default              | Description                                  |
-| ------------- | ------------------------------------------- | -------------------- | -------------------------------------------- |
-| `kind`        | `"empty" \| "error" \| "offline" \| "conflict"` | **required**     | Drives role, live region, and default title  |
-| `title`       | `string`                                    | per kind             | Overrides the default title                  |
-| `description` | `string`                                    | -                    | Returned as-is, never invented               |
-| `hasAction`   | `boolean`                                   | `false`              | Sets `data-has-action` and `view.hasAction`  |
-| `live`        | `"polite" \| "assertive" \| "off"`          | per kind             | Overrides the live region                    |
-| `unstyled`, `classes`, `styles`, `cssVariables`, `defaults`, `variants`, `merge` | styling contract | - | Shared with every Sometic resolver |
+| Option                                                                           | Type                                            | Default      | Description                                 |
+| -------------------------------------------------------------------------------- | ----------------------------------------------- | ------------ | ------------------------------------------- |
+| `kind`                                                                           | `"empty" \| "error" \| "offline" \| "conflict"` | **required** | Drives role, live region, and default title |
+| `title`                                                                          | `string`                                        | per kind     | Overrides the default title                 |
+| `description`                                                                    | `string`                                        | -            | Returned as-is, never invented              |
+| `hasAction`                                                                      | `boolean`                                       | `false`      | Sets `data-has-action` and `view.hasAction` |
+| `live`                                                                           | `"polite" \| "assertive" \| "off"`              | per kind     | Overrides the live region                   |
+| `unstyled`, `classes`, `styles`, `cssVariables`, `defaults`, `variants`, `merge` | styling contract                                | -            | Shared with every Sometic resolver          |
 
 Returns `{ kind, title, description, hasAction, className, style, attributes }`.
 
 ### `resolveStatusAction(options?)`
 
-| Option     | Type      | Default | Description                                 |
-| ---------- | --------- | ------- | ------------------------------------------- |
-| `disabled` | `boolean` | `false` | Adds `disabled` and `aria-disabled="true"`  |
-| styling contract | - | - | Same slots as above (`root`)             |
+| Option           | Type      | Default | Description                                |
+| ---------------- | --------- | ------- | ------------------------------------------ |
+| `disabled`       | `boolean` | `false` | Adds `disabled` and `aria-disabled="true"` |
+| styling contract | -         | -       | Same slots as above (`root`)               |
 
 Returns `{ disabled, className, style, attributes }`.
 
@@ -174,11 +174,11 @@ Everything `resolveStatus` takes (with `kind` forced to `conflict`) plus `versio
 
 ### `bindOfflineRecovery(options?)`
 
-| Option            | Type                                    | Default            | Description                                   |
-| ----------------- | --------------------------------------- | ------------------ | --------------------------------------------- |
-| `onOnline`        | `() => void`                            | -                  | Called on the `online` event; omit to no-op   |
-| `addEventListener`| injected listener registrar             | `globalThis`       | For tests and non-browser hosts               |
-| `signal`          | `AbortSignal`                           | -                  | Ties the listener to an existing lifecycle    |
+| Option             | Type                        | Default      | Description                                 |
+| ------------------ | --------------------------- | ------------ | ------------------------------------------- |
+| `onOnline`         | `() => void`                | -            | Called on the `online` event; omit to no-op |
+| `addEventListener` | injected listener registrar | `globalThis` | For tests and non-browser hosts             |
+| `signal`           | `AbortSignal`               | -            | Ties the listener to an existing lifecycle  |
 
 Returns a dispose function. Already-aborted signals skip registration entirely.
 
@@ -205,12 +205,12 @@ export function EmptyRows(): JSX.Element {
 
 ## Events / callbacks
 
-| Surface        | Event                            | Payload |
-| -------------- | -------------------------------- | ------- |
-| Resolvers      | none, they are pure functions    | -       |
-| `bindOfflineRecovery` | `onOnline`                | none    |
-| React / Vue    | your own props                   | -       |
-| Custom element | -                                | -       |
+| Surface               | Event                         | Payload |
+| --------------------- | ----------------------------- | ------- |
+| Resolvers             | none, they are pure functions | -       |
+| `bindOfflineRecovery` | `onOnline`                    | none    |
+| React / Vue           | your own props                | -       |
+| Custom element        | -                             | -       |
 
 Recovery is intentionally a callback rather than an automatic refetch: only your app knows whether coming back online should retry a mutation, revalidate a query, or do nothing.
 
@@ -286,5 +286,3 @@ The resolvers are pure functions over a small options object with no allocation 
 - [Data table](/components/data-table)
 - [Accessibility](/guide/accessibility)
 - [Styling slots](/concepts/styling-slots)
-
-The vanilla playground demos all four kinds in section `#status`, including the offline recovery callback.

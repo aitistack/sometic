@@ -48,7 +48,12 @@ describe("resolveUploadList", () => {
 
 describe("resolveUploadItem", () => {
     it("resolves progress bar semantics", () => {
-        const view = resolveUploadItem({ id: "a", status: "uploading", progress: 0.5, name: "a.txt" });
+        const view = resolveUploadItem({
+            id: "a",
+            status: "uploading",
+            progress: 0.5,
+            name: "a.txt",
+        });
         expect(view.percent).toBe(50);
         expect(view.progressAttributes["aria-valuenow"]).toBe("50");
         expect(view.progressAttributes["aria-label"]).toBe("a.txt");

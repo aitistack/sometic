@@ -19,7 +19,7 @@ const commands: PaletteCommand[] = [
     },
     {
         id: "status",
-        label: "Focus playground status",
+        label: "Focus status log",
         keywords: ["log"],
         group: "Navigation",
     },
@@ -92,7 +92,7 @@ function moveActive(delta: number): void {
     }
     const current = ids.indexOf(activeId.value);
     const start = current >= 0 ? current : 0;
-    const next = ((start + delta) % ids.length + ids.length) % ids.length;
+    const next = (((start + delta) % ids.length) + ids.length) % ids.length;
     activeId.value = ids[next] ?? "";
 }
 

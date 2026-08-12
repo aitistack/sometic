@@ -64,7 +64,12 @@ describe("createNotificationCenterController", () => {
         center.notifications.push({ title: "Two", source: "deploys" });
         center.markRead(first.id);
         expect(center.getItems().find((item) => item.id === first.id)?.read).toBe(true);
-        expect(center.getGroups().map((group) => group.key).sort()).toEqual(["billing", "deploys"]);
+        expect(
+            center
+                .getGroups()
+                .map((group) => group.key)
+                .sort(),
+        ).toEqual(["billing", "deploys"]);
         center.dismiss(first.id);
         expect(center.getItems()).toHaveLength(1);
         center.dispose();

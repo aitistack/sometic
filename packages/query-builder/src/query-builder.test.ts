@@ -29,7 +29,9 @@ function createIdFactory(): () => string {
     };
 }
 
-function createController(overrides: Partial<Parameters<typeof createQueryBuilderController>[0]> = {}) {
+function createController(
+    overrides: Partial<Parameters<typeof createQueryBuilderController>[0]> = {},
+) {
     return createQueryBuilderController({
         fields,
         createNodeId: createIdFactory(),
@@ -162,16 +164,15 @@ describe("query builder ast helpers", () => {
         expect(() => parseQuery("{")).toThrow(/valid JSON/);
         expect(() => parseQuery(JSON.stringify({ kind: "rule", id: "r1" }))).toThrow(/group node/);
         expect(() => parseQuery(JSON.stringify({ kind: "group", id: "g" }))).toThrow(/group node/);
-        expect(
-            () =>
-                parseQuery(
-                    JSON.stringify({
-                        kind: "group",
-                        id: "g",
-                        combinator: "and",
-                        children: [{ kind: "rule", id: "r", field: "name", operator: "nope" }],
-                    }),
-                ),
+        expect(() =>
+            parseQuery(
+                JSON.stringify({
+                    kind: "group",
+                    id: "g",
+                    combinator: "and",
+                    children: [{ kind: "rule", id: "r", field: "name", operator: "nope" }],
+                }),
+            ),
         ).toThrow(/group node/);
         expect(safeParseQuery("nope")).toBeUndefined();
     });
@@ -213,7 +214,9 @@ describe("createQueryBuilderController", () => {
 
         expect(controller.addRule("missing-group")).toBeUndefined();
         expect(controller.addRule(undefined, { field: "ghost" })).toBeUndefined();
-        expect(controller.addRule(undefined, { field: "name", operator: "greaterThan" })).toBeUndefined();
+        expect(
+            controller.addRule(undefined, { field: "name", operator: "greaterThan" }),
+        ).toBeUndefined();
         expect(controller.getValue().children).toEqual([]);
         controller.dispose();
     });
@@ -282,7 +285,11 @@ describe("createQueryBuilderController", () => {
         expect(group?.combinator).toBe("or");
         const groupId = group?.id ?? "";
 
-        const nested = controller.addRule(groupId, { field: "age", operator: "lessThan", value: 5 });
+        const nested = controller.addRule(groupId, {
+            field: "age",
+            operator: "lessThan",
+            value: 5,
+        });
         expect(nested).toBeDefined();
         expect(controller.getValue().children).toHaveLength(1);
         expect(countRules(controller.getValue())).toBe(1);
@@ -486,8 +493,8 @@ describe("toDataTableFilters", () => {
         };
 
         expect(toDataTableFilters(ast)).toEqual([]);
-        expect(toDataTableFilters({ kind: "group", id: "e", combinator: "and", children: [] })).toEqual(
-            [],
-        );
+        expect(
+            toDataTableFilters({ kind: "group", id: "e", combinator: "and", children: [] }),
+        ).toEqual([]);
     });
 });

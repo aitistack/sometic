@@ -41,7 +41,9 @@ export function resolveUploadDropzone(
                 ? {}
                 : { "data-multiple": options.multiple ? "true" : "false" }),
             ...(options.accept === undefined ? {} : { "data-accept": options.accept }),
-            ...(options.describedBy === undefined ? {} : { "aria-describedby": options.describedBy }),
+            ...(options.describedBy === undefined
+                ? {}
+                : { "aria-describedby": options.describedBy }),
             ...(disabled ? { "aria-disabled": "true", "data-disabled": "" } : {}),
         },
     };

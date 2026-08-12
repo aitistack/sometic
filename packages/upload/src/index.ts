@@ -1,8 +1,4 @@
-export {
-    createUploadController,
-    matchesAcceptRule,
-    type UploadController,
-} from "./upload.js";
+export { createUploadController, matchesAcceptRule, type UploadController } from "./upload.js";
 export {
     createHttpUploadTransport,
     resolveUploadFetch,

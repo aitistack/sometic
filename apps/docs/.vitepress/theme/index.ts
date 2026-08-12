@@ -7,6 +7,7 @@ import { previewComponents } from "./previews/index";
 import "@sometic/demo-kit/typography.css";
 import "@sometic/demo-kit/controls.css";
 import "@sometic/demo-kit/structure-demo.css";
+import "@sometic/demo-kit/data-demo.css";
 import "./custom.css";
 import "./demo.css";
 import "./home.css";

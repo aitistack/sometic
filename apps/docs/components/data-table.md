@@ -8,6 +8,21 @@ Table and grid behavior over `@sometic/data-table`: sorting, filtering, paginati
 
 <PreviewDataTable />
 
+## Features
+
+The data table engine and adapters support:
+
+- **Client and server modes**: filter, sort, and slice locally, or delegate paging to `fetchRows` with abort-safe reloads.
+- **Multi-sort**: stack sort keys with `multiSort`; `toggleSort` cycles ascending, descending, then removed.
+- **Filters**: `setFilters` / controlled `filters` with operators such as `contains` and `equals`.
+- **Column visibility**: `setColumnHidden` and `columnVisibility` state hide columns without dropping their descriptors.
+- **Page selection**: per-row checkboxes plus page select-all with indeterminate state.
+- **All-filtered selection**: `selectAllFiltered` plus `excludedIds` for bulk actions without loading every row id.
+- **Extended pagination**: First, Previous, page status, Next, Last, and a page-size select (5 / 8 / 10 / 25) in the React and Vue footers whenever `pagination` is true.
+- **URL sync**: `syncDataTableToUrl` mirrors sorting, pagination, and filters into search params you own.
+- **Virtual window helper**: `getVirtualItems` returns a pure scroll window for large lists.
+- **Keyboard grid navigation**: `getDataTableKeyboardAction` drives roving cell focus and Space/Enter activation.
+
 ## Usage
 
 ::: code-group
@@ -15,10 +30,11 @@ Table and grid behavior over `@sometic/data-table`: sorting, filtering, paginati
 ```jsx [JS]
 import { DataTable } from "@sometic/react/data";
 
-const rows = Array.from({ length: 40 }, (_, index) => ({
+const rows = Array.from({ length: 48 }, (_, index) => ({
     id: String(index + 1),
     name: `Person ${index + 1}`,
     role: index % 2 === 0 ? "Admin" : "Editor",
+    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
 }));
 
 export function Example() {
@@ -28,11 +44,23 @@ export function Example() {
             columns={[
                 { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
                 { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+                { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
             ]}
             rows={rows}
             getRowId={(row) => row.id}
             pageSize={8}
-            onSelectionChange={(selection) => console.log(selection.ids)}
+            multiSort
+            toolbar={(table) => (
+                <div data-slot="toolbar">
+                    <button type="button" onClick={() => table.selectAllFiltered()}>
+                        Select all filtered
+                    </button>
+                    <button type="button" onClick={() => table.clearSelection()}>
+                        Clear selection
+                    </button>
+                </div>
+            )}
+            onSelectionChange={(selection) => console.log(selection)}
         />
     );
 }
@@ -41,17 +69,19 @@ export function Example() {
 ```tsx [TS]
 import { DataTable, type DataTableColumn } from "@sometic/react/data";
 
-type Member = { id: string; name: string; role: string };
+type Member = { id: string; name: string; role: string; team: string };
 
-const rows: Member[] = Array.from({ length: 40 }, (_, index) => ({
+const rows: Member[] = Array.from({ length: 48 }, (_, index) => ({
     id: String(index + 1),
     name: `Person ${index + 1}`,
     role: index % 2 === 0 ? "Admin" : "Editor",
+    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
 }));
 
 const columns: DataTableColumn<Member>[] = [
     { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
     { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+    { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
 ];
 
 export function Example(): JSX.Element {
@@ -62,7 +92,18 @@ export function Example(): JSX.Element {
             rows={rows}
             getRowId={(row) => row.id}
             pageSize={8}
-            onSelectionChange={(selection) => console.log(selection.ids)}
+            multiSort
+            toolbar={(table) => (
+                <div data-slot="toolbar">
+                    <button type="button" onClick={() => table.selectAllFiltered()}>
+                        Select all filtered
+                    </button>
+                    <button type="button" onClick={() => table.clearSelection()}>
+                        Clear selection
+                    </button>
+                </div>
+            )}
+            onSelectionChange={(selection) => console.log(selection)}
         />
     );
 }
@@ -80,17 +121,23 @@ import {
 
 const host = document.querySelector("#table");
 
+const rows = Array.from({ length: 48 }, (_, index) => ({
+    id: String(index + 1),
+    name: `Person ${index + 1}`,
+    role: index % 2 === 0 ? "Admin" : "Editor",
+    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
+}));
+
 const table = createDataTableController({
     columns: [
         { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
         { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+        { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
     ],
     getRowId: (row) => row.id,
-    rows: [
-        { id: "1", name: "Person 1", role: "Admin" },
-        { id: "2", name: "Person 2", role: "Editor" },
-    ],
+    rows,
     mode: "client",
+    multiSort: true,
     defaultPagination: { pageIndex: 0, pageSize: 8 },
 });
 
@@ -102,9 +149,10 @@ function applyAttributes(element, attributes) {
 
 function render() {
     const state = table.getState();
+    const pageRows = table.getPageRows();
     const columns = table.getVisibleColumns();
     const rootView = resolveDataTable({
-        rowCount: state.rows.length,
+        rowCount: pageRows.length,
         columnCount: columns.length + 1,
         mode: state.mode,
         busy: state.loading,
@@ -149,41 +197,115 @@ function render() {
     });
 
     const body = document.createElement("tbody");
-    state.rows.forEach((row, rowIndex) => {
-        const tr = document.createElement("tr");
-        applyAttributes(
-            tr,
-            resolveDataTableRow({
-                rowId: row.id,
-                rowIndex,
-                selected: table.isRowSelected(row.id),
-            }).attributes,
-        );
+    if (pageRows.length === 0) {
+        const empty = document.createElement("tr");
+        const cell = document.createElement("td");
+        cell.colSpan = columns.length + 1;
+        cell.textContent = "No rows match the current filters.";
+        empty.append(cell);
+        body.append(empty);
+    } else {
+        pageRows.forEach((row, rowIndex) => {
+            const tr = document.createElement("tr");
+            applyAttributes(
+                tr,
+                resolveDataTableRow({
+                    rowId: row.id,
+                    rowIndex,
+                    selected: table.isRowSelected(row.id),
+                }).attributes,
+            );
 
-        const selectCell = document.createElement("td");
-        const checkbox = document.createElement("input");
-        applyAttributes(
-            checkbox,
-            resolveDataTableCheckbox({ checked: table.isRowSelected(row.id) }).attributes,
-        );
-        checkbox.addEventListener("change", () => table.toggleRowSelected(row.id));
-        selectCell.append(checkbox);
-        tr.append(selectCell);
+            const selectCell = document.createElement("td");
+            const checkbox = document.createElement("input");
+            applyAttributes(
+                checkbox,
+                resolveDataTableCheckbox({ checked: table.isRowSelected(row.id) }).attributes,
+            );
+            checkbox.addEventListener("change", () => table.toggleRowSelected(row.id));
+            selectCell.append(checkbox);
+            tr.append(selectCell);
 
-        for (const column of columns) {
-            const td = document.createElement("td");
-            applyAttributes(td, resolveDataTableCell({ columnId: column.id }).attributes);
-            td.textContent = String(column.accessor?.(row) ?? "");
-            tr.append(td);
-        }
-        body.append(tr);
-    });
+            for (const column of columns) {
+                const td = document.createElement("td");
+                applyAttributes(td, resolveDataTableCell({ columnId: column.id }).attributes);
+                td.textContent = String(column.accessor?.(row) ?? "");
+                tr.append(td);
+            }
+            body.append(tr);
+        });
+    }
 
     const head = document.createElement("thead");
     head.append(headRow);
     tableElement.append(head, body);
     host.append(tableElement);
+
+    const pager = document.createElement("div");
+    pager.setAttribute("data-slot", "pagination");
+
+    const first = document.createElement("button");
+    first.type = "button";
+    first.setAttribute("data-slot", "first-page");
+    first.textContent = "First";
+    first.disabled = state.pagination.pageIndex <= 0;
+    first.addEventListener("click", () => table.setPageIndex(0));
+
+    const prev = document.createElement("button");
+    prev.type = "button";
+    prev.setAttribute("data-slot", "previous-page");
+    prev.textContent = "Prev";
+    prev.disabled = state.pagination.pageIndex <= 0;
+    prev.addEventListener("click", () => {
+        table.setPageIndex(Math.max(0, state.pagination.pageIndex - 1));
+    });
+
+    const pageStatus = document.createElement("span");
+    pageStatus.setAttribute("data-slot", "page-status");
+    const pageCount = Math.max(1, state.pageCount);
+    pageStatus.textContent = `Page ${state.pagination.pageIndex + 1} of ${pageCount}`;
+
+    const next = document.createElement("button");
+    next.type = "button";
+    next.setAttribute("data-slot", "next-page");
+    next.textContent = "Next";
+    next.disabled = state.pagination.pageIndex >= pageCount - 1;
+    next.addEventListener("click", () => {
+        table.setPageIndex(Math.min(pageCount - 1, state.pagination.pageIndex + 1));
+    });
+
+    const last = document.createElement("button");
+    last.type = "button";
+    last.setAttribute("data-slot", "last-page");
+    last.textContent = "Last";
+    last.disabled = state.pagination.pageIndex >= pageCount - 1;
+    last.addEventListener("click", () => table.setPageIndex(pageCount - 1));
+
+    const pageSize = document.createElement("select");
+    pageSize.setAttribute("data-slot", "page-size");
+    for (const size of [5, 8, 10, 25]) {
+        const option = document.createElement("option");
+        option.value = String(size);
+        option.textContent = String(size);
+        pageSize.append(option);
+    }
+    pageSize.value = String(state.pagination.pageSize);
+    pageSize.addEventListener("change", () => {
+        const nextSize = Number(pageSize.value);
+        table.setPageSize(Number.isFinite(nextSize) && nextSize > 0 ? nextSize : 8);
+        table.setPageIndex(0);
+    });
+
+    pager.append(first, prev, pageStatus, next, last, pageSize);
+    host.append(pager);
 }
+
+table.setFilters([
+    { id: "name", value: "Person 1", operator: "contains" },
+    { id: "role", value: "Admin", operator: "equals" },
+]);
+table.setColumnHidden("team", true);
+table.selectAllFiltered();
 
 const unsubscribe = table.subscribe(render);
 render();
@@ -206,17 +328,17 @@ Custom element **not shipped** for Data table. Vanilla uses `@sometic/dom/data-t
 
 ## Anatomy
 
-| Part            | `data-slot`                        | Role / notes                                          |
-| --------------- | ---------------------------------- | ----------------------------------------------------- |
-| Wrapper (React) | `data-table`                       | Holds toolbar, table, pagination                      |
-| Table root      | `root`                             | `role="grid"` (or `table` with `interactive: false`)   |
-| Header cell     | `header`                           | `role="columnheader"`, `aria-sort` when sortable      |
-| Sort trigger    | `sort-trigger`                     | Button inside sortable React headers                  |
-| Row             | `row`                              | `data-row-id`, `data-state="selected" \| "unselected"` |
-| Cell            | `cell`                             | `data-column`, `aria-colindex`, roving `tabindex`      |
-| Select checkbox | `checkbox`                         | `data-scope="row" \| "page"`                           |
-| Empty row       | `empty`                            | Rendered with `emptyLabel` when the page has no rows   |
-| Pagination      | `pagination`, `previous-page`, `next-page`, `page-status` | React footer, shown when `pageCount > 1` |
+| Part            | `data-slot`                                                                                       | Role / notes                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Wrapper (React) | `data-table`                                                                                      | Holds toolbar, table, pagination                                                                                  |
+| Table root      | `root`                                                                                            | `role="grid"` (or `table` with `interactive: false`)                                                              |
+| Header cell     | `header`                                                                                          | `role="columnheader"`, `aria-sort` when sortable                                                                  |
+| Sort trigger    | `sort-trigger`                                                                                    | Button inside sortable React headers                                                                              |
+| Row             | `row`                                                                                             | `data-row-id`, `data-state="selected" \| "unselected"`                                                            |
+| Cell            | `cell`                                                                                            | `data-column`, `aria-colindex`, roving `tabindex`                                                                 |
+| Select checkbox | `checkbox`                                                                                        | `data-scope="row" \| "page"`                                                                                      |
+| Empty row       | `empty`                                                                                           | Rendered with `emptyLabel` when the page has no rows                                                              |
+| Pagination      | `pagination`, `first-page`, `previous-page`, `page-status`, `next-page`, `last-page`, `page-size` | React and Vue footers when `pagination` is true; First/Last disabled on edges; page-size options are 5, 8, 10, 25 |
 
 ## Props / attributes
 
@@ -224,42 +346,42 @@ Custom element **not shipped** for Data table. Vanilla uses `@sometic/dom/data-t
 
 Extends `HTMLAttributes<HTMLTableElement>` minus `children`. Remaining native attrs are forwarded to the `<table>`.
 
-| Prop                | Type                                                     | Default          | Description                                     |
-| ------------------- | -------------------------------------------------------- | ---------------- | ----------------------------------------------- |
-| `columns`           | `readonly DataTableColumn<TRow>[]`                       | **required**     | Column descriptors                              |
-| `getRowId`          | `(row: TRow, index: number) => string`                   | **required**     | Stable row identity for selection               |
-| `rows`              | `readonly TRow[]`                                        | `[]`             | Client rows, synced through `setRows`           |
-| `mode`              | `"client" \| "server"`                                   | inferred         | `"server"` when `fetchRows` is present          |
-| `fetchRows`         | `(args: FetchRowsArgs) => Promise<FetchRowsResult<TRow>>` | -                | Server loader, receives an `AbortSignal`        |
-| `pageSize`          | `number`                                                 | `10`             | Initial page size                               |
-| `multiSort`         | `boolean`                                                | `false`          | Allow more than one active sort                 |
-| `selectable`        | `boolean`                                                | `true`           | Adds the leading checkbox column                |
-| `label`             | `string`                                                 | -                | `aria-label` on the grid                        |
-| `emptyLabel`        | `string`                                                 | `"No rows"`      | Empty row text                                  |
-| `isRowDisabled`     | `(row: TRow) => boolean`                                 | -                | Marks rows disabled and blocks their checkbox   |
-| `sorting`           | `SortingState`                                           | -                | Controlled sorting                              |
-| `defaultSorting`    | `SortingState`                                           | `[]`             | Uncontrolled initial sorting                    |
-| `onSortingChange`   | `(sorting: SortingState) => void`                        | -                | Sort changes                                    |
-| `selection`         | `SelectionState`                                         | -                | Controlled selection                            |
-| `defaultSelection`  | `SelectionState`                                         | empty            | Uncontrolled initial selection                  |
-| `onSelectionChange` | `(selection: SelectionState) => void`                    | -                | Selection changes                               |
-| `renderCell`        | `(row: TRow, column: DataTableColumn<TRow>) => ReactNode`| accessor string  | Custom cell rendering                           |
-| `toolbar`           | `(table: DataTableController<TRow>) => ReactNode`        | -                | Render prop above the table                     |
-| `pagination`        | `boolean`                                                | `true`           | Render the footer pager                         |
-| Native attrs        | remaining table HTML attrs                               | -                | Forwarded to `<table>`                          |
+| Prop                | Type                                                      | Default         | Description                                                                      |
+| ------------------- | --------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------- |
+| `columns`           | `readonly DataTableColumn<TRow>[]`                        | **required**    | Column descriptors                                                               |
+| `getRowId`          | `(row: TRow, index: number) => string`                    | **required**    | Stable row identity for selection                                                |
+| `rows`              | `readonly TRow[]`                                         | `[]`            | Client rows, synced through `setRows`                                            |
+| `mode`              | `"client" \| "server"`                                    | inferred        | `"server"` when `fetchRows` is present                                           |
+| `fetchRows`         | `(args: FetchRowsArgs) => Promise<FetchRowsResult<TRow>>` | -               | Server loader, receives an `AbortSignal`                                         |
+| `pageSize`          | `number`                                                  | `10`            | Initial page size                                                                |
+| `multiSort`         | `boolean`                                                 | `false`         | Allow more than one active sort                                                  |
+| `selectable`        | `boolean`                                                 | `true`          | Adds the leading checkbox column                                                 |
+| `label`             | `string`                                                  | -               | `aria-label` on the grid                                                         |
+| `emptyLabel`        | `string`                                                  | `"No rows"`     | Empty row text                                                                   |
+| `isRowDisabled`     | `(row: TRow) => boolean`                                  | -               | Marks rows disabled and blocks their checkbox                                    |
+| `sorting`           | `SortingState`                                            | -               | Controlled sorting                                                               |
+| `defaultSorting`    | `SortingState`                                            | `[]`            | Uncontrolled initial sorting                                                     |
+| `onSortingChange`   | `(sorting: SortingState) => void`                         | -               | Sort changes                                                                     |
+| `selection`         | `SelectionState`                                          | -               | Controlled selection                                                             |
+| `defaultSelection`  | `SelectionState`                                          | empty           | Uncontrolled initial selection                                                   |
+| `onSelectionChange` | `(selection: SelectionState) => void`                     | -               | Selection changes                                                                |
+| `renderCell`        | `(row: TRow, column: DataTableColumn<TRow>) => ReactNode` | accessor string | Custom cell rendering                                                            |
+| `toolbar`           | `(table: DataTableController<TRow>) => ReactNode`         | -               | Render prop above the table                                                      |
+| `pagination`        | `boolean`                                                 | `true`          | Render the extended footer (First / Previous / status / Next / Last / page size) |
+| Native attrs        | remaining table HTML attrs                                | -               | Forwarded to `<table>`                                                           |
 
 ### `DataTableColumn<TRow>`
 
-| Field        | Type                                             | Description                          |
-| ------------ | ------------------------------------------------ | ------------------------------------ |
-| `id`         | `string`                                         | Column key, also the filter id       |
-| `header`     | `string`                                         | Header text, falls back to `id`      |
-| `accessor`   | `(row: TRow) => unknown`                         | Value reader, falls back to `row[id]` |
-| `sortable`   | `boolean`                                        | Enables `aria-sort` and click sorting |
-| `filterable` | `boolean`                                        | Marks the column filterable in your UI |
-| `hidden`     | `boolean`                                        | Hidden unless overridden by visibility state |
-| `compare`    | `(left: unknown, right: unknown) => number`      | Custom sort comparator                |
-| `filterFn`   | `(row: TRow, filter: DataTableFilter) => boolean` | Custom filter predicate              |
+| Field        | Type                                              | Description                                  |
+| ------------ | ------------------------------------------------- | -------------------------------------------- |
+| `id`         | `string`                                          | Column key, also the filter id               |
+| `header`     | `string`                                          | Header text, falls back to `id`              |
+| `accessor`   | `(row: TRow) => unknown`                          | Value reader, falls back to `row[id]`        |
+| `sortable`   | `boolean`                                         | Enables `aria-sort` and click sorting        |
+| `filterable` | `boolean`                                         | Marks the column filterable in your UI       |
+| `hidden`     | `boolean`                                         | Hidden unless overridden by visibility state |
+| `compare`    | `(left: unknown, right: unknown) => number`       | Custom sort comparator                       |
+| `filterFn`   | `(row: TRow, filter: DataTableFilter) => boolean` | Custom filter predicate                      |
 
 ### Controller options (Vanilla)
 
@@ -275,17 +397,20 @@ Controller methods: `getState`, `subscribe`, `setRows`, `setSorting`, `setPagina
 <script setup lang="ts">
 import { DataTable } from "@sometic/vue/data";
 
-const rows = [
-    { id: "1", name: "Person 1", role: "Admin" },
-    { id: "2", name: "Person 2", role: "Editor" },
-];
+const rows = Array.from({ length: 48 }, (_, index) => ({
+    id: String(index + 1),
+    name: `Person ${index + 1}`,
+    role: index % 2 === 0 ? "Admin" : "Editor",
+    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
+}));
 const columns = [
     { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
     { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+    { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
 ];
 
 function onSelectionChange(selection) {
-    console.log(selection.ids);
+    console.log(selection);
 }
 </script>
 
@@ -296,6 +421,7 @@ function onSelectionChange(selection) {
         :rows="rows"
         :get-row-id="(row) => row.id"
         :page-size="8"
+        multi-sort
         @selection-change="onSelectionChange"
     />
 </template>
@@ -307,14 +433,14 @@ function onSelectionChange(selection) {
 
 ## Events / callbacks
 
-| Surface        | Event                              | Payload                       |
-| -------------- | ---------------------------------- | ----------------------------- |
-| React          | `onSortingChange`                  | `SortingState`                |
-| React          | `onSelectionChange`                | `SelectionState`              |
-| Vue            | `sortingChange`, `selectionChange` | `SortingState` / `SelectionState` |
-| Custom element | -                                  | -                             |
-| DOM controller | `subscribe(listener)`              | void, fires on any state change |
-| DOM controller | `onSortingChange`, `onPaginationChange`, `onSelectionChange`, `onFiltersChange`, `onColumnVisibilityChange` | matching state slice |
+| Surface        | Event                                                                                                       | Payload                           |
+| -------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| React          | `onSortingChange`                                                                                           | `SortingState`                    |
+| React          | `onSelectionChange`                                                                                         | `SelectionState`                  |
+| Vue            | `sortingChange`, `selectionChange`                                                                          | `SortingState` / `SelectionState` |
+| Custom element | -                                                                                                           | -                                 |
+| DOM controller | `subscribe(listener)`                                                                                       | void, fires on any state change   |
+| DOM controller | `onSortingChange`, `onPaginationChange`, `onSelectionChange`, `onFiltersChange`, `onColumnVisibilityChange` | matching state slice              |
 
 React also preserves native `onKeyDown` on the table; it runs before grid keyboard handling.
 
@@ -402,8 +528,6 @@ State is plain objects, and `getState()` returns fresh copies of the slices it e
 **Keyboard focus feels stuck?** Ensure cells use the resolve `tabindex` pattern and move focus via `getDataTableKeyboardAction`. Do not put `tabindex="0"` on every cell.
 
 ## Related links
-
-The vanilla playground demos this engine in section `#data-table` (`pnpm playground:vanilla`, 40 rows labeled Person 1 to Person 40 with Admin and Editor roles).
 
 - [Query builder](/components/query-builder)
 - [Status surfaces](/components/status)

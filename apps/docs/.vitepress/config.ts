@@ -210,11 +210,8 @@ export default defineConfig({
     ],
     transformHead({ pageData }) {
         const pageTitle =
-            pageData.relativePath === "index.md"
-                ? "Home"
-                : pageData.title?.trim() || "Sometic";
-        const fullTitle =
-            pageTitle === "Sometic" ? "Sometic" : `${pageTitle} | Sometic`;
+            pageData.relativePath === "index.md" ? "Home" : pageData.title?.trim() || "Sometic";
+        const fullTitle = pageTitle === "Sometic" ? "Sometic" : `${pageTitle} | Sometic`;
         return [
             ["meta", { property: "og:title", content: fullTitle }],
             ["meta", { name: "twitter:title", content: fullTitle }],

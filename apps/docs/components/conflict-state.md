@@ -35,10 +35,7 @@ for (const label of [view.localLabel, view.remoteLabel]) {
 ```
 
 ```ts [TS]
-import {
-    resolveConflictStatus,
-    type ConflictStatusViewModel,
-} from "@sometic/dom/status";
+import { resolveConflictStatus, type ConflictStatusViewModel } from "@sometic/dom/status";
 
 export function recordConflict(): ConflictStatusViewModel {
     return resolveConflictStatus({

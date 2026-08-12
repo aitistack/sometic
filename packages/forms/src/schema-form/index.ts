@@ -8,14 +8,7 @@ import type {
 } from "../types.js";
 
 export type SchemaFieldType =
-    | "text"
-    | "email"
-    | "password"
-    | "number"
-    | "checkbox"
-    | "select"
-    | "textarea"
-    | "date";
+    "text" | "email" | "password" | "number" | "checkbox" | "select" | "textarea" | "date";
 
 export type SchemaFieldOption = {
     value: string;

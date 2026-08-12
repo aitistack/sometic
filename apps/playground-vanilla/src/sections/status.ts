@@ -11,6 +11,13 @@ function applyAttrs(el: HTMLElement, attributes: Record<string, string>): void {
     }
 }
 
+const DESCRIPTIONS = {
+    empty: "No rows match the current filters yet.",
+    error: "The last request failed. Retry or check your connection.",
+    offline: "Changes pause until the browser is back online.",
+    conflict: "Local and remote edits disagree. Choose which version to keep.",
+} as const;
+
 export function mountStatusSection(root: HTMLElement): () => void {
     const gallery = root.querySelector("[data-status-gallery]");
     if (!(gallery instanceof HTMLElement)) {
@@ -22,11 +29,18 @@ export function mountStatusSection(root: HTMLElement): () => void {
 
     for (const kind of kinds) {
         const card = document.createElement("div");
-        card.className = "pg-status-card";
         const view =
             kind === "conflict"
-                ? resolveConflictStatus({ kind: "conflict", hasAction: true })
-                : resolveStatus({ kind, hasAction: true });
+                ? resolveConflictStatus({
+                      kind: "conflict",
+                      hasAction: true,
+                      description: DESCRIPTIONS.conflict,
+                  })
+                : resolveStatus({
+                      kind,
+                      hasAction: true,
+                      description: DESCRIPTIONS[kind],
+                  });
         applyAttrs(card, view.attributes);
         card.className = `pg-status-card ${view.className}`.trim();
 
@@ -37,12 +51,19 @@ export function mountStatusSection(root: HTMLElement): () => void {
             view.description ??
             (kind === "conflict"
                 ? `${"localLabel" in view ? view.localLabel : "Local"} vs ${"remoteLabel" in view ? view.remoteLabel : "Remote"}`
-                : `Demo ${kind} surface`);
+                : DESCRIPTIONS[kind]);
         const action = document.createElement("button");
         const actionView = resolveStatusAction();
         applyAttrs(action, actionView.attributes);
         action.className = `pg-btn ${actionView.className}`.trim();
-        action.textContent = kind === "offline" ? "Retry when online" : "Primary action";
+        action.textContent =
+            kind === "offline"
+                ? "Retry when online"
+                : kind === "conflict"
+                  ? "Resolve conflict"
+                  : kind === "error"
+                    ? "Retry"
+                    : "Create item";
         card.append(title, description, action);
         gallery.append(card);
 

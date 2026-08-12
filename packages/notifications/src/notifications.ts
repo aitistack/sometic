@@ -107,7 +107,10 @@ export function createNotificationsController(
         }
     };
 
-    const matches = (record: NotificationRecord, filter: NotificationFilter | undefined): boolean => {
+    const matches = (
+        record: NotificationRecord,
+        filter: NotificationFilter | undefined,
+    ): boolean => {
         if (!filter) {
             return true;
         }
@@ -168,7 +171,11 @@ export function createNotificationsController(
         if (maxItems === undefined || records.length <= maxItems) {
             return;
         }
-        const keep = new Set(sorted().slice(0, maxItems).map((record) => record.id));
+        const keep = new Set(
+            sorted()
+                .slice(0, maxItems)
+                .map((record) => record.id),
+        );
         for (let index = records.length - 1; index >= 0; index -= 1) {
             const record = records[index];
             if (record && !keep.has(record.id)) {
@@ -273,7 +280,8 @@ export function createNotificationsController(
         groupBy(mode, filter) {
             const groups = new Map<string, NotificationItem[]>();
             for (const record of sorted(filter)) {
-                const key = mode === "source" ? (record.source ?? "unknown") : dayKey(record.createdAt);
+                const key =
+                    mode === "source" ? (record.source ?? "unknown") : dayKey(record.createdAt);
                 const bucket = groups.get(key);
                 if (bucket) {
                     bucket.push(toItem(record));

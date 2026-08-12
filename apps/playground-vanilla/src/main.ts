@@ -37,7 +37,8 @@ app.innerHTML = `
     <h1>Vanilla playground</h1>
     <p>
       Click-through harness for Theme, Accessibility, Buttons, Input/Field, Forms, Structure,
-      Overlay, Head, Auth, HTTP, Query, and App Shell. Use this page after each phase ships interactive surfaces.
+      Overlay, Head, Auth, HTTP, Query, App Shell, and Data &amp; business. Use this page after each
+      phase ships interactive surfaces.
     </p>
     <nav class="pg-nav" aria-label="Sections">
       <a href="#theme">Theme</a>
@@ -290,10 +291,11 @@ app.innerHTML = `
   </section>
 
   <section class="pg-section" id="structure">
-    <h2>Structure &amp; feedback</h2>
+    <h2>Structure</h2>
     <p class="pg-lead">
-      Tabs, accordion, combobox, breadcrumb, command palette, and tree via <code>@sometic/dom</code>,
-      plus <code>sometic-badge|progress|spinner|skeleton</code> custom elements.
+      Tabs, Accordion, Combobox, Breadcrumb, Command palette, and Tree via <code>@sometic/dom</code>,
+      plus feedback CEs <code>sometic-badge</code>, <code>sometic-progress</code>,
+      <code>sometic-spinner</code>, and <code>sometic-skeleton</code>.
     </p>
 
     <div class="pg-demo-block">
@@ -735,63 +737,96 @@ app.innerHTML = `
 
   <section class="pg-section" id="status">
     <h2>Status</h2>
-    <p class="pg-lead">Empty, error, offline, and conflict resolve surfaces from <code>@sometic/dom/status</code>.</p>
+    <p class="pg-lead">
+      Empty, error, offline, and conflict resolve surfaces from <code>@sometic/dom/status</code>,
+      including offline recovery binding.
+    </p>
     <div class="pg-status-gallery" data-status-gallery></div>
   </section>
 
   <section class="pg-section" id="data-table">
     <h2>Data table</h2>
-    <p class="pg-lead">Client-mode sorting, selection, pagination, and virtual window from <code>@sometic/data-table</code>.</p>
-    <div data-data-table></div>
+    <p class="pg-lead">
+      Client-mode multi-sort, filters, column visibility, page and all-filtered selection, and
+      extended pagination from <code>@sometic/data-table</code> via <code>@sometic/dom/data-table</code>.
+    </p>
+    <div class="pg-row pg-tools">
+      <label class="pg-label" for="pg-data-table-filter">Name</label>
+      <input id="pg-data-table-filter" class="pg-input" type="search" placeholder="Contains…" data-data-table-filter />
+      <label class="pg-label" for="pg-data-table-role">Role</label>
+      <select id="pg-data-table-role" class="pg-input" data-data-table-role>
+        <option value="">All</option>
+        <option value="Admin">Admin</option>
+        <option value="Editor">Editor</option>
+      </select>
+      <label class="pg-label" for="pg-data-table-page-size">Page size</label>
+      <select id="pg-data-table-page-size" class="pg-input" data-data-table-page-size>
+        <option value="5">5</option>
+        <option value="8" selected>8</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+      </select>
+      <button type="button" class="pg-btn" data-data-table-toggle-team>Hide team</button>
+      <button type="button" class="pg-btn" data-data-table-select-filtered>Select all filtered</button>
+      <button type="button" class="pg-btn" data-data-table-clear-selection>Clear selection</button>
+    </div>
+    <div class="pg-data-table" data-data-table></div>
     <p class="pg-status" data-data-table-meta></p>
   </section>
 
   <section class="pg-section" id="query-builder">
     <h2>Query builder</h2>
-    <p class="pg-lead">Filter AST distinct from <code>@sometic/query</code> cache. Bridges to table filters.</p>
-    <div data-query-builder></div>
+    <p class="pg-lead">
+      Filter AST distinct from <code>@sometic/query</code> cache. Bridges to data-table filters via
+      <code>toDataTableFilters</code>.
+    </p>
+    <div class="pg-demo-block" data-query-builder></div>
     <pre class="pg-auth-session" data-query-builder-out></pre>
   </section>
 
   <section class="pg-section" id="upload">
     <h2>Upload</h2>
-    <p class="pg-lead">Queue with progress, cancel, and mock transport.</p>
-    <div class="pg-panel" data-upload-dropzone></div>
-    <ul data-upload-list></ul>
+    <p class="pg-lead">Queue with progress, cancel, concurrency, and mock transport.</p>
+    <div class="pg-panel pg-upload-dropzone" data-upload-dropzone></div>
+    <ul class="pg-upload-list" data-upload-list></ul>
   </section>
 
   <section class="pg-section" id="schema-form">
     <h2>Schema form</h2>
-    <p class="pg-lead"><code>createSchemaForm</code> over the forms engine.</p>
-    <div data-schema-form></div>
+    <p class="pg-lead"><code>createSchemaForm</code> over the forms engine with field descriptors.</p>
+    <div class="pg-demo-block" data-schema-form></div>
     <pre class="pg-auth-session" data-schema-form-out></pre>
   </section>
 
   <section class="pg-section" id="permissions">
     <h2>Permission matrix</h2>
-    <p class="pg-lead">Resources × actions bound to permission strings.</p>
-    <div data-permission-matrix></div>
+    <p class="pg-lead">Resources × actions grid bound to permission evaluation.</p>
+    <div class="pg-permission-matrix" data-permission-matrix></div>
   </section>
 
   <section class="pg-section" id="activity">
     <h2>Activity</h2>
-    <p class="pg-lead">Append-only audit feed.</p>
-    <button type="button" class="pg-btn" data-activity-add>Append</button>
-    <ul data-activity-list></ul>
+    <p class="pg-lead">Append-only audit feed with timestamps and actors.</p>
+    <div class="pg-row pg-tools">
+      <button type="button" class="pg-btn" data-activity-add>Append</button>
+    </div>
+    <ul class="pg-activity-list" data-activity-list></ul>
   </section>
 
   <section class="pg-section" id="approval">
     <h2>Approval</h2>
-    <p class="pg-lead">Multi-step approval with parallel assignees.</p>
-    <div data-approval></div>
+    <p class="pg-lead">Multi-step approval workflow with parallel assignees.</p>
+    <div class="pg-demo-block" data-approval></div>
     <p class="pg-status" data-approval-status></p>
   </section>
 
   <section class="pg-section" id="notifications">
     <h2>Notifications</h2>
-    <p class="pg-lead">Inbox with read/dismiss.</p>
-    <button type="button" class="pg-btn" data-notifications-add>Push</button>
-    <div data-notifications></div>
+    <p class="pg-lead">Inbox with unread count, mark read, and dismiss.</p>
+    <div class="pg-row pg-tools">
+      <button type="button" class="pg-btn" data-notifications-add>Push</button>
+    </div>
+    <div class="pg-notifications" data-notifications></div>
   </section>
 `;
 

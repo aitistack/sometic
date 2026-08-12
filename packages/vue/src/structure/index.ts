@@ -103,7 +103,8 @@ export const Tabs = defineComponent({
     setup(props, { slots, emit, attrs }) {
         const uncontrolled = ref(props.defaultValue);
         const isControlled = (): boolean => props.value !== undefined;
-        const current = (): string => (isControlled() ? (props.value as string) : uncontrolled.value);
+        const current = (): string =>
+            isControlled() ? (props.value as string) : uncontrolled.value;
         const controller = createTabsController({
             defaultValue: current(),
             orientation: props.orientation,

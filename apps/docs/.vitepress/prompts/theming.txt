@@ -6,7 +6,7 @@ Rules:
 - applyThemeToElement on documentElement or a scoped subtree
 - Consumer CSS reads variables and data-* attributes; publishable @sometic packages stay font-agnostic
 - Preference persistence via @sometic/store/persistent (see theme store docs)
-- Docs/playground brand fonts (Chakra Petch / Urbanist / JetBrains Mono) are demo-kit only; never ship those from component packages
+- Docs and demo-surface brand fonts (Chakra Petch / Urbanist / JetBrains Mono) are demo-kit only; never ship those from component packages
 
 Docs: https://sometic.aitistack.com/theming/
 Scaffold tokens + light/dark switching without locking the app to one CSS framework.

@@ -8,13 +8,15 @@
     "sideEffects": [
         "./src/controls.css",
         "./src/typography.css",
-        "./src/structure-demo.css"
+        "./src/structure-demo.css",
+        "./src/data-demo.css"
     ],
     "exports": {
         ".": "./src/controls.css",
         "./controls.css": "./src/controls.css",
         "./typography.css": "./src/typography.css",
         "./structure-demo.css": "./src/structure-demo.css",
+        "./data-demo.css": "./src/data-demo.css",
         "./package.json": "./package.json"
     },
     "files": [

@@ -4,9 +4,10 @@ export type ToDataTableFiltersOptions = {
     includeDisabled?: boolean;
 };
 
-function mapOperator(
-    operator: QueryOperator,
-): { operator: DataTableFilterLike["operator"]; value?: boolean } {
+function mapOperator(operator: QueryOperator): {
+    operator: DataTableFilterLike["operator"];
+    value?: boolean;
+} {
     if (operator === "isTrue") {
         return { operator: "equals", value: true };
     }

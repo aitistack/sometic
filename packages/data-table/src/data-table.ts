@@ -131,7 +131,11 @@ export function createDataTableController<TRow>(
         if (mode === "server") {
             return serverRows.slice();
         }
-        return sortRows(filterRows(sourceRows, columns, filtersState.get()), columns, sortingState.get());
+        return sortRows(
+            filterRows(sourceRows, columns, filtersState.get()),
+            columns,
+            sortingState.get(),
+        );
     };
 
     const getTotal = (): number => {

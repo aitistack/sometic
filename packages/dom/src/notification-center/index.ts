@@ -156,8 +156,7 @@ export function createNotificationCenterController(
         ...(options.onOpenChange === undefined ? {} : { onChange: options.onOpenChange }),
     });
 
-    const unreadCount = (): number =>
-        notifications.getItems().filter((item) => !item.read).length;
+    const unreadCount = (): number => notifications.getItems().filter((item) => !item.read).length;
 
     return {
         notifications,
@@ -202,8 +201,8 @@ export function createNotificationCenterController(
                 id,
                 read: item?.read === true,
                 priority: item?.priority ?? "normal",
-                ...(item?.title === undefined ? {} : { title: item.title }),
-                ...(item?.source === undefined ? {} : { source: item.source }),
+                ...(typeof item?.title === "string" ? { title: item.title } : {}),
+                ...(typeof item?.source === "string" ? { source: item.source } : {}),
             });
         },
         dispose() {

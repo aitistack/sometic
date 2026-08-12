@@ -119,7 +119,9 @@ describe("resolveDataTableCell", () => {
 
 describe("resolveDataTableCheckbox", () => {
     it("resolves page selection tri-state", () => {
-        expect(resolveDataTableCheckbox({ scope: "page", pageSelection: "all" }).checked).toBe(true);
+        expect(resolveDataTableCheckbox({ scope: "page", pageSelection: "all" }).checked).toBe(
+            true,
+        );
         const partial = resolveDataTableCheckbox({ scope: "page", pageSelection: "some" });
         expect(partial.indeterminate).toBe(true);
         expect(partial.attributes["aria-checked"]).toBe("mixed");
@@ -164,7 +166,10 @@ describe("getDataTableKeyboardAction", () => {
 
     it("clamps at edges and returns nothing when the cell does not move", () => {
         expect(
-            getDataTableKeyboardAction({ key: "ArrowUp" }, { ...grid, position: { row: 0, column: 0 } }),
+            getDataTableKeyboardAction(
+                { key: "ArrowUp" },
+                { ...grid, position: { row: 0, column: 0 } },
+            ),
         ).toBeUndefined();
         expect(getDataTableKeyboardAction({ key: "End", ctrlKey: true }, grid)).toEqual({
             type: "move",

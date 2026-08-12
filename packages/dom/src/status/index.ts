@@ -78,7 +78,9 @@ export type StatusActionViewModel = {
     attributes: Record<string, string>;
 };
 
-export function resolveStatusAction(options: ResolveStatusActionOptions = {}): StatusActionViewModel {
+export function resolveStatusAction(
+    options: ResolveStatusActionOptions = {},
+): StatusActionViewModel {
     const disabled = options.disabled === true;
     const styled = resolveStyleable({
         ...(options.unstyled === undefined ? {} : { unstyled: options.unstyled }),
@@ -117,7 +119,9 @@ export type ConflictStatusViewModel = StatusViewModel & {
     remoteLabel: string;
 };
 
-export function resolveConflictStatus(options: ResolveConflictStatusOptions): ConflictStatusViewModel {
+export function resolveConflictStatus(
+    options: ResolveConflictStatusOptions,
+): ConflictStatusViewModel {
     const base = resolveStatus({ ...options, kind: "conflict" });
     return {
         ...base,

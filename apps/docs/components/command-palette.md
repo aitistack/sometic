@@ -14,7 +14,7 @@ import { CommandPalette } from "@sometic/react/structure";
 
 const commands = [
     { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
-    { id: "status", label: "Focus playground status", keywords: ["log"], group: "Navigation" },
+    { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
     { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
     { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
     { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
@@ -45,7 +45,7 @@ import { CommandPalette, type CommandPaletteCommand } from "@sometic/react/struc
 
 const commands: CommandPaletteCommand[] = [
     { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
-    { id: "status", label: "Focus playground status", keywords: ["log"], group: "Navigation" },
+    { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
     { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
     { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
     { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
@@ -77,8 +77,13 @@ const panel = document.querySelector("#palette");
 const controller = createCommandPaletteController({
     defaultOpen: false,
     commands: [
-        { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
-        { id: "status", label: "Focus playground status", keywords: ["log"], group: "Navigation" },
+        {
+            id: "docs",
+            label: "Open docs",
+            keywords: ["guide", "documentation"],
+            group: "Navigation",
+        },
+        { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
         { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
         { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
         { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
@@ -104,7 +109,7 @@ import { CommandPalette, type CommandPaletteCommand } from "@sometic/vue/structu
 const open = ref(false);
 const commands: CommandPaletteCommand[] = [
     { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
-    { id: "status", label: "Focus playground status", keywords: ["log"], group: "Navigation" },
+    { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
     { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
     { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
     { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
@@ -131,8 +136,8 @@ const commands: CommandPaletteCommand[] = [
 
 ## When to use / when not
 
-| Use when | Prefer something else when |
-| -------- | -------------------------- |
+| Use when                            | Prefer something else when                                                                                  |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | Modal quick actions / command menus | Inline filterable field → [Combobox](/components/combobox); anchored action list → [Menu](/components/menu) |
 
 **Vs cmdk.** cmdk is excellent for React command UIs. Sometic Command palette is a smaller, portable engine composed with overlay chrome, without locking you to React or a styled kit.

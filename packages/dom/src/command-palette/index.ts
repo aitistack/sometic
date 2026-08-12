@@ -260,7 +260,7 @@ export function createCommandPaletteController(
             const currentIndex = filtered.findIndex((command) => command.id === value.get());
             const start = currentIndex >= 0 ? currentIndex : 0;
             const nextIndex =
-                ((start + delta) % filtered.length + filtered.length) % filtered.length;
+                (((start + delta) % filtered.length) + filtered.length) % filtered.length;
             value.set(filtered[nextIndex]?.id ?? "");
         },
         setActive(id) {

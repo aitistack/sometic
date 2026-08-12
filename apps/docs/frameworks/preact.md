@@ -34,11 +34,11 @@ This is the full Preact install for this beta. Do not add `@sometic/preact/butto
 
 **Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Phase 20 surfaces live here:
 
-| Surface | Package |
-| ------- | ------- |
-| Tabs, Accordion, Breadcrumb, Command palette, Tree, Badge, Progress, Spinner, Skeleton | `@sometic/react/structure` or `@sometic/vue/structure` |
-| Vanilla / no framework UI | `@sometic/dom` controllers or `@sometic/elements` where a CE exists |
-| Preact UI in this beta | Host [custom elements](/frameworks/vanilla) next to `createPreactStoreBind`, or write your own Preact views over `@sometic/dom` |
+| Surface                                                                                | Package                                                                                                                         |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Tabs, Accordion, Breadcrumb, Command palette, Tree, Badge, Progress, Spinner, Skeleton | `@sometic/react/structure` or `@sometic/vue/structure`                                                                          |
+| Vanilla / no framework UI                                                              | `@sometic/dom` controllers or `@sometic/elements` where a CE exists                                                             |
+| Preact UI in this beta                                                                 | Host [custom elements](/frameworks/vanilla) next to `createPreactStoreBind`, or write your own Preact views over `@sometic/dom` |
 
 `preact/compat` plus `@sometic/react` is **not** a claimed support path.
 

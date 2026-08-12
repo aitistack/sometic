@@ -21,8 +21,18 @@ import {
 
 const builder = createQueryBuilderController({
     fields: [
-        { id: "name", label: "Name", type: "string", operators: defaultOperatorsForFieldType("string") },
-        { id: "role", label: "Role", type: "string", operators: defaultOperatorsForFieldType("string") },
+        {
+            id: "name",
+            label: "Name",
+            type: "string",
+            operators: defaultOperatorsForFieldType("string"),
+        },
+        {
+            id: "role",
+            label: "Role",
+            type: "string",
+            operators: defaultOperatorsForFieldType("string"),
+        },
     ],
 });
 
@@ -45,8 +55,18 @@ import {
 } from "@sometic/query-builder";
 
 const fields: QueryBuilderField[] = [
-    { id: "name", label: "Name", type: "string", operators: defaultOperatorsForFieldType("string") },
-    { id: "role", label: "Role", type: "string", operators: defaultOperatorsForFieldType("string") },
+    {
+        id: "name",
+        label: "Name",
+        type: "string",
+        operators: defaultOperatorsForFieldType("string"),
+    },
+    {
+        id: "role",
+        label: "Role",
+        type: "string",
+        operators: defaultOperatorsForFieldType("string"),
+    },
 ];
 
 const builder: QueryBuilderController = createQueryBuilderController({ fields });
@@ -105,11 +125,7 @@ const filters: DataTableFilterLike[] = toDataTableFilters(builder.getValue());
             remove.type = "button";
             remove.textContent = "Remove";
             remove.addEventListener("click", () => builder.removeRule(child.id));
-            row.append(
-                document.createTextNode(`${child.field} ${child.operator} `),
-                input,
-                remove,
-            );
+            row.append(document.createTextNode(`${child.field} ${child.operator} `), input, remove);
             host.append(row);
         }
         output.textContent = JSON.stringify(toDataTableFilters(builder.getValue()), null, 2);
@@ -141,57 +157,57 @@ Query builder is **engine only**. There is no `QueryBuilder` component in `@some
 
 ## Anatomy
 
-| Part            | Shape                                                        | Notes                                       |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------- |
-| Root group      | `QueryGroup`                                                 | Always present, holds `combinator`          |
-| Rule            | `QueryRule`                                                  | Field, operator, value, optional `disabled` |
-| Nested group    | `QueryGroup`                                                 | Created by `addGroup(parentId, combinator)` |
-| Field catalog   | `QueryBuilderField[]`                                        | `id`, `label`, `type`, `operators`, `options`, `defaultValue` |
-| Issue           | `QueryAstIssue`                                              | `code`, `message`, optional `nodeId`        |
+| Part          | Shape                 | Notes                                                         |
+| ------------- | --------------------- | ------------------------------------------------------------- |
+| Root group    | `QueryGroup`          | Always present, holds `combinator`                            |
+| Rule          | `QueryRule`           | Field, operator, value, optional `disabled`                   |
+| Nested group  | `QueryGroup`          | Created by `addGroup(parentId, combinator)`                   |
+| Field catalog | `QueryBuilderField[]` | `id`, `label`, `type`, `operators`, `options`, `defaultValue` |
+| Issue         | `QueryAstIssue`       | `code`, `message`, optional `nodeId`                          |
 
-Because there is no shipped markup, you own the slots. The playground and preview use one row per rule with the field and operator as text, an input for the value, and a Remove button.
+Because there is no shipped markup, you own the slots. The preview uses one row per rule with the field and operator as text, an input for the value, and a Remove button.
 
 ## Props / attributes
 
 ### `CreateQueryBuilderControllerOptions`
 
-| Option          | Type                                    | Default              | Description                            |
-| --------------- | --------------------------------------- | -------------------- | -------------------------------------- |
-| `fields`        | `QueryBuilderField[]`                   | **required**         | Field catalog, drives allowed operators |
-| `value`         | `QueryBuilderAst`                       | -                    | Controlled AST                          |
-| `defaultValue`  | `QueryBuilderAst`                       | empty `and` group    | Uncontrolled initial AST                |
-| `onValueChange` | `(value: QueryBuilderAst) => void`      | -                    | Fires on every mutation                 |
-| `createNodeId`  | `() => string`                          | prefixed id          | Deterministic ids for tests and SSR     |
-| `maxDepth`      | `number`                                | unlimited            | Rejects deeper groups and reports `max-depth-exceeded` |
+| Option          | Type                               | Default           | Description                                            |
+| --------------- | ---------------------------------- | ----------------- | ------------------------------------------------------ |
+| `fields`        | `QueryBuilderField[]`              | **required**      | Field catalog, drives allowed operators                |
+| `value`         | `QueryBuilderAst`                  | -                 | Controlled AST                                         |
+| `defaultValue`  | `QueryBuilderAst`                  | empty `and` group | Uncontrolled initial AST                               |
+| `onValueChange` | `(value: QueryBuilderAst) => void` | -                 | Fires on every mutation                                |
+| `createNodeId`  | `() => string`                     | prefixed id       | Deterministic ids for tests and SSR                    |
+| `maxDepth`      | `number`                           | unlimited         | Rejects deeper groups and reports `max-depth-exceeded` |
 
 ### `QueryBuilderField`
 
-| Field          | Type                                                        | Description                                  |
-| -------------- | ----------------------------------------------------------- | -------------------------------------------- |
-| `id`           | `string`                                                    | Matches the rule `field` and the table column id |
-| `label`        | `string`                                                    | Display label, falls back to `id`            |
-| `type`         | `"string" \| "number" \| "boolean" \| "date" \| "enum"`      | Drives default operators and default values  |
-| `operators`    | `QueryOperator[]`                                           | Allowed operators, defaults per type         |
-| `options`      | `{ value: unknown; label?: string }[]`                      | Choices for `enum` fields                    |
-| `defaultValue` | `unknown`                                                   | Overrides the type default for new rules     |
+| Field          | Type                                                    | Description                                      |
+| -------------- | ------------------------------------------------------- | ------------------------------------------------ |
+| `id`           | `string`                                                | Matches the rule `field` and the table column id |
+| `label`        | `string`                                                | Display label, falls back to `id`                |
+| `type`         | `"string" \| "number" \| "boolean" \| "date" \| "enum"` | Drives default operators and default values      |
+| `operators`    | `QueryOperator[]`                                       | Allowed operators, defaults per type             |
+| `options`      | `{ value: unknown; label?: string }[]`                  | Choices for `enum` fields                        |
+| `defaultValue` | `unknown`                                               | Overrides the type default for new rules         |
 
 ### Controller API
 
-| Member                                        | Description                                            |
-| --------------------------------------------- | ------------------------------------------------------ |
-| `getValue()` / `setValue(ast)`                | Read or replace the whole tree                         |
-| `getFields()` / `getOperatorsForField(id)`    | Field catalog and allowed operators                    |
-| `addRule(groupId?, init?)`                    | Adds to the root or a group, returns the new rule       |
-| `updateRule(ruleId, patch)`                   | Patch `field`, `operator`, `value`, or `disabled`       |
-| `removeRule(ruleId)` / `removeGroup(groupId)` | Returns `false` when the id is unknown                  |
-| `addGroup(parentGroupId?, combinator?)`       | Nested group, respects `maxDepth`                      |
-| `setCombinator(groupId, combinator)`          | Switch a group between `and` and `or`                  |
-| `setRuleDisabled(ruleId, disabled)`           | Keeps the rule visible but out of the filter output     |
-| `clear()`                                     | Resets to an empty root group                           |
-| `validate()`                                  | `{ valid, issues }`                                     |
-| `serialize()`                                 | JSON string of the current AST                          |
-| `subscribe(listener)`                         | Called with the new AST on every change                 |
-| `dispose()` / `disposed`                      | Releases listeners                                      |
+| Member                                        | Description                                         |
+| --------------------------------------------- | --------------------------------------------------- |
+| `getValue()` / `setValue(ast)`                | Read or replace the whole tree                      |
+| `getFields()` / `getOperatorsForField(id)`    | Field catalog and allowed operators                 |
+| `addRule(groupId?, init?)`                    | Adds to the root or a group, returns the new rule   |
+| `updateRule(ruleId, patch)`                   | Patch `field`, `operator`, `value`, or `disabled`   |
+| `removeRule(ruleId)` / `removeGroup(groupId)` | Returns `false` when the id is unknown              |
+| `addGroup(parentGroupId?, combinator?)`       | Nested group, respects `maxDepth`                   |
+| `setCombinator(groupId, combinator)`          | Switch a group between `and` and `or`               |
+| `setRuleDisabled(ruleId, disabled)`           | Keeps the rule visible but out of the filter output |
+| `clear()`                                     | Resets to an empty root group                       |
+| `validate()`                                  | `{ valid, issues }`                                 |
+| `serialize()`                                 | JSON string of the current AST                      |
+| `subscribe(listener)`                         | Called with the new AST on every change             |
+| `dispose()` / `disposed`                      | Releases listeners                                  |
 
 ### Helpers
 
@@ -203,12 +219,12 @@ Because there is no shipped markup, you own the slots. The playground and previe
 
 ## Events / callbacks
 
-| Surface        | Event                 | Payload            |
-| -------------- | --------------------- | ------------------ |
-| Engine         | `onValueChange`       | `QueryBuilderAst`  |
-| Engine         | `subscribe(listener)` | `QueryBuilderAst`  |
-| React / Vue    | your own props        | -                  |
-| Custom element | -                     | -                  |
+| Surface        | Event                 | Payload           |
+| -------------- | --------------------- | ----------------- |
+| Engine         | `onValueChange`       | `QueryBuilderAst` |
+| Engine         | `subscribe(listener)` | `QueryBuilderAst` |
+| React / Vue    | your own props        | -                 |
+| Custom element | -                     | -                 |
 
 Every mutating method (`addRule`, `updateRule`, `removeRule`, `addGroup`, `removeGroup`, `setCombinator`, `setRuleDisabled`, `clear`, `setValue`) triggers one notification with the next tree.
 
@@ -287,5 +303,3 @@ The AST is cloned on read and write, so trees stay immutable for change detectio
 - [Validation](/primitives/validation)
 - [Controlled state](/concepts/controlled-state)
 - [Beta maturity](/releases/beta)
-
-The vanilla playground demos the engine in section `#query-builder` with `name` and `role` fields.

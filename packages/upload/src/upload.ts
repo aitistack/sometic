@@ -62,9 +62,7 @@ function snapshot(item: UploadItem): UploadItem {
     return { ...item };
 }
 
-export function createUploadController(
-    options: CreateUploadControllerOptions,
-): UploadController {
+export function createUploadController(options: CreateUploadControllerOptions): UploadController {
     const concurrency = Math.max(1, Math.floor(options.concurrency ?? 3));
     const autoStart = options.autoStart !== false;
     const allowEmptyFiles = options.allowEmptyFiles !== false;
@@ -94,8 +92,7 @@ export function createUploadController(
         }
     };
 
-    const findItem = (id: string): UploadItem | undefined =>
-        items.find((entry) => entry.id === id);
+    const findItem = (id: string): UploadItem | undefined => items.find((entry) => entry.id === id);
 
     const createItem = (file: File, status: UploadItemStatus, error: Error | null): UploadItem => ({
         id: createPrefixedId("upload"),
