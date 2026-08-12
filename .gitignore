@@ -2,8 +2,8 @@ node_modules
 dist
 coverage
 .turbo
-.vitepress/cache
-.vitepress/dist
+**/.vitepress/cache/
+**/.vitepress/dist/
 *.log
 .DS_Store
 .env
