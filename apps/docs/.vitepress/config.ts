@@ -5,7 +5,7 @@ export default defineConfig({
     title: "Sometic",
     titleTemplate: ":title | Sometic",
     description:
-        "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: shared controllers for UI, forms, auth, and HTTP, with thin React, Vue, and Web Components adapters.",
+        "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: shared controllers for UI, forms, auth, and HTTP, with thin React, Vue, and Web Components adapters.",
     lang: "en-US",
     cleanUrls: true,
     lastUpdated: true,
@@ -121,7 +121,7 @@ export default defineConfig({
             {
                 property: "og:description",
                 content:
-                    "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
+                    "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
         ["meta", { property: "og:url", content: "https://sometic.aitistack.com" }],
@@ -132,7 +132,7 @@ export default defineConfig({
             {
                 name: "twitter:description",
                 content:
-                    "Sometic (@sometic) is an open-source TypeScript library by AitiStack for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
+                    "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
         ["meta", { name: "twitter:image", content: "https://sometic.aitistack.com/icon.png" }],
@@ -146,7 +146,7 @@ export default defineConfig({
                         "@type": "Organization",
                         "@id": "https://sometic.aitistack.com/#organization",
                         name: "Sometic",
-                        alternateName: ["@sometic", "Sometic by AitiStack"],
+                        alternateName: ["@sometic"],
                         url: "https://sometic.aitistack.com",
                         logo: "https://sometic.aitistack.com/icon.png",
                         sameAs: [

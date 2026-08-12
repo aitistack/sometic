@@ -1,6 +1,6 @@
 # Why Sometic
 
-Sometic (`@sometic` on npm) is a **portable application behavior system** by AitiStack: shared controllers for UI, forms, auth, and HTTP, with thin framework adapters and **your** styling system.
+Sometic (`@sometic` on npm) is a **portable application behavior system**: shared controllers for UI, forms, auth, and HTTP, with thin framework adapters and **your** styling system.
 
 It is **not** another pre-styled React component kit, and it is **not** related to sociogram tools or brands with similar names. If the first thing you need is buttons that look like a brand out of the box, use a visual library. If you need **one behavior model that survives a framework change**, keep reading.
 

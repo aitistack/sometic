@@ -5,7 +5,6 @@
 Site: https://sometic.aitistack.com
 npm scope: @sometic
 License: MIT
-Parent brand: AitiStack
 Maturity: public beta
 
 
@@ -1131,11 +1130,11 @@ Source: https://sometic.aitistack.com/guide/introduction
 
 # Introduction
 
-Sometic is a **portable application behavior system** for TypeScript.
+**Sometic** (`@sometic`) is an open-source **portable application behavior system** for TypeScript, published by [AitiStack](https://portfolio.aitistack.com).
 
 Shared controllers power UI engines, forms, authentication, HTTP, theming, accessibility, and overlays. Thin adapters expose native DX for React, Vue, and vanilla custom elements (`sometic-*`). You keep your styling system.
 
-**Not** another pre-styled component kit. The product is the **one behavior model** — components are how you touch it.
+**Not** another pre-styled component kit. The product is the **one behavior model**. Components are how you touch it.
 
 ## What you get today (beta)
 
@@ -20712,7 +20711,7 @@ Source: https://sometic.aitistack.com/legal/privacy
 # Privacy policy
 
 **Last updated:** 6 August 2026  
-**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com) (the “Site”), operated in connection with the Sometic open-source project by aitiStack (“we”, “us”).
+**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com) (the “Site”), operated in connection with the Sometic open-source project by [AitiStack](https://portfolio.aitistack.com) (“we”, “us”).
 
 This policy explains what information is involved when you use the Site. It is written for transparency. It is **not** legal advice.
 
