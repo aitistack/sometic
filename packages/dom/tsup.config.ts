@@ -35,6 +35,8 @@ export default createTsupConfig({
         "breadcrumb/index": "src/breadcrumb/index.ts",
         "accordion/index": "src/accordion/index.ts",
         "tabs/index": "src/tabs/index.ts",
+        "command-palette/index": "src/command-palette/index.ts",
+        "tree/index": "src/tree/index.ts",
         "context-menu/index": "src/context-menu/index.ts",
         "menu/index": "src/menu/index.ts",
         "drawer/index": "src/drawer/index.ts",

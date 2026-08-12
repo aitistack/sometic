@@ -93,7 +93,7 @@ for (const trigger of root.querySelectorAll("[data-tab]")) {
 
 > Custom element not shipped in this beta; use the DOM controller.
 
-Custom element **not shipped** for Tabs. Vanilla uses `@sometic/dom/tabs`. React + DOM are primary; Vue re-exports resolve/controller helpers from `@sometic/dom` but has no Tabs component.
+Custom element **not shipped** for Tabs. Vanilla uses `@sometic/dom/tabs`. React and Vue ship `Tabs` / `TabTrigger` / `TabPanel` from `@sometic/*/structure`.
 
 ## How it works
 
@@ -149,18 +149,33 @@ Extends `HTMLAttributes<HTMLDivElement>`. Remaining native div attrs are forward
 
 ### Vue
 
-No Vue `Tabs` / `TabTrigger` / `TabPanel` components. `@sometic/vue/structure` re-exports DOM resolve/controller helpers. Prefer React or Vanilla DOM.
+`Tabs`, `TabTrigger`, and `TabPanel` from `@sometic/vue/structure`. Same props as React (`value`, `defaultValue`, `orientation`, `dir`, `lazyMount`, `forceMount`). Emits `update:value` and `valueChange`.
+
+```vue
+<script setup lang="ts">
+import { Tabs, TabTrigger, TabPanel } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Tabs default-value="overview">
+        <TabTrigger value="overview">Overview</TabTrigger>
+        <TabTrigger value="api">API</TabTrigger>
+        <TabPanel value="overview">Portable tab selection with ARIA resolve.</TabPanel>
+        <TabPanel value="api">createTabsController + resolveTabTrigger/Panel.</TabPanel>
+    </Tabs>
+</template>
+```
 
 ### Custom element
 
-**CE not shipped.** Use Vanilla DOM controller or React.
+**CE not shipped.** Use Vanilla DOM controller, React, or Vue.
 
 ## Events / callbacks
 
 | Surface        | Event           | Payload  |
 | -------------- | --------------- | -------- |
 | React          | `onValueChange` | `string` |
-| Vue            | —               | —        |
+| Vue            | `valueChange` / `update:value` | `string` |
 | Custom element | —               | —        |
 | DOM controller | `onValueChange` | `string` |
 
@@ -174,7 +189,8 @@ Pass `value` + `onValueChange` for controlled apps (routes, query params). Omit 
 
 - Selected tab: `aria-selected="true"`, `tabindex="0"`.
 - Inactive tabs: `tabindex="-1"`.
-- Wire arrow-key roving focus in your app if you need full WAI-ARIA authoring practices beyond click activation.
+- Arrow / Home / End roving focus is built into adapters and `getTabsKeyboardTarget` / `bindTabsKeyboard` (RTL-aware for horizontal tabs).
+- Inactive panels default to lazy mount in React/Vue (`lazyMount`); use `forceMount` to keep them in the DOM.
 
 ## Styling
 
@@ -194,7 +210,7 @@ Target `[role="tablist"]`, `[data-state="active"|"inactive"]`, `[aria-selected]`
 
 **Is there an `sometic-tabs`?** No. CE not shipped.
 
-**Vue components?** Not shipped. React + DOM primary.
+**Vue components?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes — div attrs on Tabs/TabPanel, button attrs on TabTrigger.
 

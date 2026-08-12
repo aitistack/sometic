@@ -63,3 +63,19 @@ Optional peers: `@sometic/head`, `@sometic/theme`, `@sometic/store`, `@sometic/f
 ### Theme
 
 <InstallCommands packages="@sometic/theme" />
+
+## Experimental Wave B (store bind)
+
+These packages do **not** ship component kits. There is no `@sometic/preact/button`, `@sometic/preact/structure`, or equivalent for Angular / Svelte / Solid. They bind [`@sometic/store`](/stores/) into the host subscription model. For UI, use [Elements](/frameworks/vanilla) or a Wave A adapter ([React](/frameworks/react), [Vue](/frameworks/vue)).
+
+### Preact
+
+Peer: `preact` `^10` (optional). Capabilities: `storeBind` only.
+
+<InstallCommands packages="@sometic/preact @sometic/store" />
+
+See [Preact](/frameworks/preact) for `createPreactStoreBind`. Phase 20 structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) are on `@sometic/react/structure` and `@sometic/vue/structure`, not Preact.
+
+### Angular, Svelte, Solid
+
+Same Wave B contract: store bind, no component subpaths. Guides: [Angular](/frameworks/angular), [Svelte](/frameworks/svelte), [Solid](/frameworks/solid).

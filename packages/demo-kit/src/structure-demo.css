@@ -1,0 +1,275 @@
+.pg-nav a,
+.pg-tab,
+.pg-badge,
+.pg-section,
+.pg-panel,
+.pg-scroll-box,
+.pg-swatch,
+.pg-accordion-item,
+.pg-combobox-list,
+.pg-combobox-option,
+.pg-menu,
+.pg-menu-item,
+.pg-alert,
+.pg-skeleton,
+.pg-progress,
+.pg-progress::after,
+.pg-query-item,
+.pg-command-palette,
+.pg-command-item,
+.pg-tree-item {
+    border-radius: 0;
+}
+
+.pg-tabs-list,
+.pg-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.2rem;
+    margin-bottom: 0.85rem;
+}
+
+.pg-tab {
+    appearance: none;
+    border: 1px solid var(--pg-line, var(--vp-c-divider));
+    background: transparent;
+    color: var(--pg-ink, var(--vp-c-text-2));
+    padding: 0.4rem 0.85rem;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pg-tab:hover {
+    color: var(--pg-ink, var(--vp-c-text-1));
+}
+
+.pg-tab[data-state="active"],
+.pg-tab[aria-selected="true"] {
+    background: var(--pg-bg-elevated, var(--vp-c-bg));
+    color: var(--pg-ink, var(--vp-c-text-1));
+    box-shadow: inset 0 0 0 1px var(--pg-line, var(--vp-c-divider));
+}
+
+.pg-tab-panel,
+.pg-tabpanel {
+    color: var(--pg-muted, var(--vp-c-text-2));
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.pg-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--pg-line, var(--vp-c-divider));
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.pg-breadcrumb,
+.pg-breadcrumb-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+    white-space: nowrap;
+}
+
+.pg-breadcrumb li,
+.pg-breadcrumb-item {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: baseline;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.pg-breadcrumb li:not(:last-child)::after,
+.pg-breadcrumb-item:not(:last-child)::after {
+    content: "/";
+    margin: 0 0.5rem;
+    color: var(--pg-muted, var(--vp-c-text-3));
+    opacity: 0.7;
+    line-height: inherit;
+}
+
+.pg-breadcrumb a,
+.pg-breadcrumb-item a {
+    color: var(--pg-accent, var(--vp-c-brand-1));
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    border-radius: 0;
+    line-height: inherit;
+}
+
+.pg-breadcrumb [aria-current="page"],
+.pg-breadcrumb-item[aria-current="page"],
+.pg-breadcrumb-item[data-current],
+.pg-breadcrumb-item[data-current-page] {
+    color: var(--pg-ink, var(--vp-c-text-1));
+    font-weight: 600;
+}
+
+.pg-command-palette {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--pg-line, var(--vp-c-divider));
+    background: var(--pg-bg-elevated, var(--vp-c-bg-soft));
+    max-width: 28rem;
+}
+
+.pg-command-palette[hidden] {
+    display: none;
+}
+
+.pg-command-list {
+    display: grid;
+    gap: 0.15rem;
+    margin-top: 0.5rem;
+}
+
+.pg-command-group {
+    margin: 0.45rem 0 0.15rem;
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pg-muted, var(--vp-c-text-3));
+}
+
+.pg-command-item {
+    display: block;
+    width: 100%;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pg-ink, var(--vp-c-text-1));
+    text-align: left;
+    padding: 0.45rem 0.55rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.pg-command-item[data-state="active"],
+.pg-command-item[aria-selected="true"] {
+    background: color-mix(in srgb, var(--pg-accent, var(--vp-c-brand-1)) 12%, transparent);
+}
+
+.pg-command-item[aria-disabled="true"],
+.pg-command-item:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.pg-command-empty {
+    padding: 0.55rem 0.15rem;
+    color: var(--pg-muted, var(--vp-c-text-3));
+    font-size: 0.88rem;
+}
+
+.pg-tree {
+    display: grid;
+    gap: 0.1rem;
+    outline: none;
+}
+
+.pg-tree-item {
+    display: block;
+    width: 100%;
+    appearance: none;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--pg-ink, var(--vp-c-text-1));
+    text-align: left;
+    padding: 0.35rem 0.55rem;
+    font: inherit;
+    cursor: pointer;
+    margin-inline-start: calc((var(--pg-tree-level, 1) - 1) * 12px);
+}
+
+.pg-tree-item[data-state="selected"],
+.pg-tree-item[aria-selected="true"] {
+    border-color: var(--pg-line, var(--vp-c-divider));
+    background: color-mix(in srgb, var(--pg-accent, var(--vp-c-brand-1)) 10%, transparent);
+}
+
+.pg-tree-item[aria-disabled="true"],
+.pg-tree-item:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.pg-breadcrumb-nav {
+    width: 100%;
+}
+
+.pg-accordion {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.pg-accordion-item {
+    border: 1px solid var(--pg-line, var(--vp-c-divider));
+    background: color-mix(in srgb, var(--pg-ink, var(--vp-c-text-1)) 6%, transparent);
+}
+
+.pg-accordion-trigger {
+    width: 100%;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pg-ink, var(--vp-c-text-1));
+    text-align: left;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pg-accordion-panel,
+.pg-accordion-content {
+    padding: 0 0.9rem 0.85rem;
+    color: var(--pg-muted, var(--vp-c-text-2));
+    font-size: 0.92rem;
+}
+
+.pg-badge[data-tone="info"] {
+    border-color: color-mix(in srgb, var(--pg-accent, var(--vp-c-brand-1)) 45%, transparent);
+    color: var(--pg-accent, var(--vp-c-brand-1));
+}
+
+.pg-badge[data-tone="success"] {
+    border-color: color-mix(in srgb, #7ddea0 45%, transparent);
+    color: #7ddea0;
+}
+
+.pg-badge[data-tone="warning"] {
+    border-color: color-mix(in srgb, #f0b429 45%, transparent);
+    color: #f0b429;
+}
+
+.pg-badge[data-tone="danger"] {
+    border-color: color-mix(in srgb, var(--pg-danger, #dc2626) 45%, transparent);
+    color: var(--pg-danger, #dc2626);
+}
+
+.pg-command-palette .pg-input {
+    width: 100%;
+}
+
+.pg-status {
+    font-family: var(--pg-mono, var(--sometic-font-code, ui-monospace, monospace));
+    font-size: 0.8rem;
+    color: var(--pg-muted, var(--vp-c-text-3));
+    white-space: pre-wrap;
+}

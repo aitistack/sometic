@@ -13,7 +13,7 @@ Wave A Vue 3 adapters for Sometic. Thin SFC-friendly wrappers over the same engi
 
 - Vue 2 / Options-only legacy stacks without a Vue 3 migration path.
 - No Vue runtime → [Vanilla / elements](/frameworks/vanilla).
-- Later-phase catalogs (data tables, command palette, date picker UI) are not shipped yet. See [What’s included](/guide/whats-included).
+- Data tables and date picker UI are not shipped yet. See [What’s included](/guide/whats-included).
 
 ## Installation
 
@@ -33,6 +33,7 @@ Prefer **subpath imports**.
 | `@sometic/vue/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
 | `@sometic/vue/selection` | `Checkbox`, `Radio`, `Select`, `Switch`                                                                       |
 | `@sometic/vue/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`                                                        |
+| `@sometic/vue/structure` | `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, `Badge`, `Progress`, `Spinner`, `Skeleton` |
 | `@sometic/vue/store`     | `useStore`                                                                                                    |
 | `@sometic/vue/auth`      | `useAuth`, `useSession`, `useCan`                                                                             |
 | `@sometic/vue/http`      | `useHttp`                                                                                                     |
@@ -133,6 +134,70 @@ const open = ref(false);
 ```
 
 Dialog follows the same modal controller rules as React: focus trap, scroll lock, Escape dismiss; outside press does not dismiss in beta. Provide `titleId` / `descriptionId` (or an accessible name).
+
+### Structure
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import {
+    Tabs,
+    TabTrigger,
+    TabPanel,
+    Accordion,
+    AccordionItem,
+    Breadcrumb,
+    BreadcrumbItem,
+    CommandPalette,
+    Tree,
+} from "@sometic/vue/structure";
+
+const paletteOpen = ref(false);
+const commands = [
+    { id: "docs", label: "Open docs", keywords: ["guide"], group: "Navigation" },
+    { id: "theme", label: "Toggle theme", group: "Theme" },
+];
+const treeItems = [
+    {
+        id: "docs",
+        label: "Docs",
+        children: [{ id: "intro", label: "Introduction" }],
+    },
+];
+</script>
+
+<template>
+    <Tabs default-value="overview">
+        <TabTrigger value="overview">Overview</TabTrigger>
+        <TabTrigger value="api">API</TabTrigger>
+        <TabPanel value="overview">Portable tab selection with ARIA resolve.</TabPanel>
+        <TabPanel value="api">createTabsController + resolveTabTrigger/Panel.</TabPanel>
+    </Tabs>
+    <Accordion type="single" default-value="a">
+        <AccordionItem value="a" title="Accessibility">
+            Focus, dismiss, and ARIA live in the core engines.
+        </AccordionItem>
+        <AccordionItem value="b" title="Styling">
+            Unstyled by default. Own tokens and layout.
+        </AccordionItem>
+    </Accordion>
+    <Breadcrumb>
+        <BreadcrumbItem>
+            <a href="/">Docs</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem current>Structure</BreadcrumbItem>
+    </Breadcrumb>
+    <button type="button" @click="paletteOpen = true">Open command palette</button>
+    <CommandPalette
+        v-model:open="paletteOpen"
+        :commands="commands"
+        @select="(command) => console.log(command.id)"
+    />
+    <Tree :items="treeItems" default-value="docs" :default-expanded="['docs']" />
+</template>
+```
+
+Import from `@sometic/vue/structure`. Keyboard, lazy mount, and overlay chrome for Command palette come from the same `@sometic/dom` engines as React.
 
 ### Store
 
@@ -239,7 +304,11 @@ No. Use `@sometic/vue` or `@sometic/elements`.
 
 ### Where is Menu / Combobox?
 
-Deferred. See [Beta maturity](/releases/beta).
+Not in `@sometic/vue/overlay` or `@sometic/vue/selection` yet. Use React or `@sometic/dom` for Menu and Combobox. See [Beta maturity](/releases/beta).
+
+### Where is Command palette / Tree / Tabs?
+
+`@sometic/vue/structure`: `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, plus `Badge`, `Progress`, `Spinner`, `Skeleton`.
 
 ### Does `useStore` return a ref?
 

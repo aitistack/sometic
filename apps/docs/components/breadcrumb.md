@@ -20,7 +20,7 @@ export function Example() {
             <BreadcrumbItem>
                 <a href="/components">Components</a>
             </BreadcrumbItem>
-            <BreadcrumbItem current>Breadcrumb</BreadcrumbItem>
+            <BreadcrumbItem current>Structure</BreadcrumbItem>
         </Breadcrumb>
     );
 }
@@ -38,7 +38,7 @@ export function Example(): JSX.Element {
             <BreadcrumbItem>
                 <a href="/components">Components</a>
             </BreadcrumbItem>
-            <BreadcrumbItem current>Breadcrumb</BreadcrumbItem>
+            <BreadcrumbItem current>Structure</BreadcrumbItem>
         </Breadcrumb>
     );
 }
@@ -67,7 +67,7 @@ for (const item of nav.querySelectorAll("li")) {
 
 > Custom element not shipped in this beta; use the DOM controller.
 
-Custom element **not shipped** for Breadcrumb. Vanilla uses `@sometic/dom/breadcrumb` resolve helpers (no controller — pure attributes). React + DOM are primary; Vue re-exports resolve helpers only.
+Custom element **not shipped** for Breadcrumb. Vanilla uses `@sometic/dom/breadcrumb` resolve helpers (no controller: pure attributes). React and Vue ship `Breadcrumb` / `BreadcrumbItem` from `@sometic/*/structure`.
 
 ## How it works
 
@@ -104,11 +104,29 @@ Extends `HTMLAttributes<HTMLLIElement>`. Remaining native `li` attrs are forward
 
 ### Vue
 
-No Vue Breadcrumb components. `@sometic/vue/structure` re-exports resolve helpers. Prefer React or Vanilla resolve.
+`Breadcrumb` and `BreadcrumbItem` from `@sometic/vue/structure`. `BreadcrumbItem` takes `current` (boolean).
+
+```vue
+<script setup lang="ts">
+import { Breadcrumb, BreadcrumbItem } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Breadcrumb>
+        <BreadcrumbItem>
+            <a href="/">Docs</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+            <a href="/components">Components</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem current>Structure</BreadcrumbItem>
+    </Breadcrumb>
+</template>
+```
 
 ### Custom element
 
-**CE not shipped.** Use Vanilla resolve helpers or React.
+**CE not shipped.** Use Vanilla resolve helpers, React, or Vue.
 
 ## Events / callbacks
 
@@ -135,7 +153,7 @@ Target `nav[aria-label="Breadcrumb"]`, `[data-current]`, list separators in CSS 
 
 **Is there an `sometic-breadcrumb`?** No. CE not shipped.
 
-**Vue components?** Not shipped. React + DOM primary.
+**Vue components?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto `<nav>` and each `<li>`.
 

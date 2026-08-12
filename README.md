@@ -78,7 +78,7 @@ Honest beta inventory: [What’s included](https://sometic.aitistack.com/guide/w
 
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+MIT, copyright AitiStack contributors. See [LICENSE](./LICENSE).
 
 ## Contributing
 

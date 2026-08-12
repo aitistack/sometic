@@ -133,6 +133,14 @@
             "types": "./dist/breadcrumb/index.d.ts",
             "import": "./dist/breadcrumb/index.js"
         },
+        "./command-palette": {
+            "types": "./dist/command-palette/index.d.ts",
+            "import": "./dist/command-palette/index.js"
+        },
+        "./tree": {
+            "types": "./dist/tree/index.d.ts",
+            "import": "./dist/tree/index.js"
+        },
         "./combobox": {
             "types": "./dist/combobox/index.d.ts",
             "import": "./dist/combobox/index.js"
@@ -373,19 +381,31 @@
         {
             "name": "dom tabs",
             "path": "dist/tabs/index.js",
-            "limit": "3 kB",
+            "limit": "4 kB",
             "gzip": true
         },
         {
             "name": "dom accordion",
             "path": "dist/accordion/index.js",
-            "limit": "3 kB",
+            "limit": "4 kB",
             "gzip": true
         },
         {
             "name": "dom breadcrumb",
             "path": "dist/breadcrumb/index.js",
             "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom command-palette",
+            "path": "dist/command-palette/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom tree",
+            "path": "dist/tree/index.js",
+            "limit": "4 kB",
             "gzip": true
         },
         {

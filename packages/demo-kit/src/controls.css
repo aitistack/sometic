@@ -10,7 +10,7 @@
     --pg-accent-ink: #042422;
     --pg-warn: #f0b429;
     --pg-danger: #ff6b6b;
-    --pg-radius: 12px;
+    --pg-radius: 0;
     --pg-font: var(--sometic-font-body, "Urbanist", system-ui, sans-serif);
     --pg-mono: var(--sometic-font-code, "JetBrains Mono", ui-monospace, monospace);
     --pg-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
@@ -52,7 +52,7 @@
     --pg-accent-ink: #042422;
     --pg-warn: #f0b429;
     --pg-danger: #ff6b6b;
-    --pg-radius: 12px;
+    --pg-radius: 0;
     --pg-font: var(--sometic-font-body, "Urbanist", system-ui, sans-serif);
     --pg-mono: var(--sometic-font-code, "JetBrains Mono", ui-monospace, monospace);
     --pg-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);

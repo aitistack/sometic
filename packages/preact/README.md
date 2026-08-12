@@ -2,7 +2,7 @@
 
 Preact external-store foundation adapters for Sometic (store bind; component kit expands later).
 
-`@sometic/preact` is a Wave B foundation package. It provides `createPreactStoreBind`, shaped for Preact’s external-store pattern (`getSnapshot` + `subscribe`) over [`@sometic/store`](https://www.npmjs.com/package/@sometic/store). It does not yet re-export a full Preact component kit. If you need Wave A components today, use `@sometic/react` (or Vanilla/elements) and keep this package for store bridging, or wait for the Preact component surface to expand.
+`@sometic/preact` is a Wave B foundation package. It provides `createPreactStoreBind`, shaped for Preact’s external-store pattern (`getSnapshot` + `subscribe`) over [`@sometic/store`](https://www.npmjs.com/package/@sometic/store). It does not re-export a Preact component kit: there is no `@sometic/preact/button` or `@sometic/preact/structure`. Phase 20 structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) ship on [`@sometic/react/structure`](https://www.npmjs.com/package/@sometic/react) and [`@sometic/vue/structure`](https://www.npmjs.com/package/@sometic/vue), or via [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) / Elements. Keep this package for store bridging.
 
 Sometic’s adapters stay thin. Preact should not fork store or auth engines. This bind keeps the same store semantics as other frameworks, asserts no import-time `window` access through `@sometic/adapter-contract`, and exposes `dispose()` for cleanup when the host unmounts.
 

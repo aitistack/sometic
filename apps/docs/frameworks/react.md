@@ -13,7 +13,7 @@ Wave A React adapters for Sometic. Thin wrappers over shared engines (`@sometic/
 
 - No React runtime → use [Vanilla / elements](/frameworks/vanilla) or another adapter.
 - You only need a store bind in Preact → prefer `@sometic/preact` (Experimental) or React if you already use React.
-- Later-phase catalogs (data tables, command palette, date picker UI) are not in this package yet. See [What’s included](/guide/whats-included).
+- Data tables and date picker UI are not in this package yet. See [What’s included](/guide/whats-included).
 
 ## Installation
 
@@ -33,8 +33,9 @@ Prefer **subpath imports** so unused families stay out of your bundle.
 | `@sometic/react/field`     | `Field`                                                                                                       |
 | `@sometic/react/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
 | `@sometic/react/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
-| `@sometic/react/selection` | `Checkbox`, `Radio`, `Select`, `Switch`                                                                       |
-| `@sometic/react/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`                                                        |
+| `@sometic/react/selection` | `Checkbox`, `Radio`, `Select`, `Switch`, `Combobox`                                                           |
+| `@sometic/react/overlay`   | `Alert`, `Dialog`, `Drawer`, `Menu`, `MenuItem`, `ContextMenu`, `Popover`, `Tooltip`, `ToastRegion`            |
+| `@sometic/react/structure` | `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, `Badge`, `Progress`, `Spinner`, `Skeleton` |
 | `@sometic/react/store`     | `useStore`                                                                                                    |
 | `@sometic/react/auth`      | `AuthProvider`, `useAuth`, `useSession`, `useCan`                                                             |
 | `@sometic/react/http`      | `HttpProvider`, `useHttp`                                                                                     |
@@ -147,6 +148,70 @@ export function ConfirmDialog() {
 ```
 
 Dialog uses the shared modal overlay controller (focus trap, body scroll lock, Escape dismiss). Outside press does not dismiss in the current beta. Pass `titleId` / `descriptionId` or an accessible name. See [Beta maturity](/releases/beta).
+
+### Structure
+
+```tsx
+import { useState } from "react";
+import {
+    Tabs,
+    TabTrigger,
+    TabPanel,
+    Accordion,
+    AccordionItem,
+    Breadcrumb,
+    BreadcrumbItem,
+    CommandPalette,
+    Tree,
+} from "@sometic/react/structure";
+
+const commands = [
+    { id: "docs", label: "Open docs", keywords: ["guide"], group: "Navigation" },
+    { id: "theme", label: "Toggle theme", group: "Theme" },
+];
+const treeItems = [
+    {
+        id: "docs",
+        label: "Docs",
+        children: [{ id: "intro", label: "Introduction" }],
+    },
+];
+
+export function StructureExample() {
+    const [open, setOpen] = useState(false);
+    return (
+        <>
+            <Tabs defaultValue="overview">
+                <TabTrigger value="overview">Overview</TabTrigger>
+                <TabPanel value="overview">Portable tab selection with ARIA resolve.</TabPanel>
+            </Tabs>
+            <Accordion type="single" defaultValue="a">
+                <AccordionItem value="a" title="Accessibility">
+                    Focus, dismiss, and ARIA live in the core engines.
+                </AccordionItem>
+            </Accordion>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <a href="/">Docs</a>
+                </BreadcrumbItem>
+                <BreadcrumbItem current>Structure</BreadcrumbItem>
+            </Breadcrumb>
+            <button type="button" onClick={() => setOpen(true)}>
+                Open command palette
+            </button>
+            <CommandPalette
+                open={open}
+                onOpenChange={setOpen}
+                commands={commands}
+                onSelect={(command) => console.log(command.id)}
+            />
+            <Tree items={treeItems} defaultValue="docs" defaultExpanded={["docs"]} />
+        </>
+    );
+}
+```
+
+Import from `@sometic/react/structure`. Same engines as Vue and Vanilla.
 
 ### Store
 
@@ -301,7 +366,7 @@ Not a claimed support path. Use `@sometic/react` with React, or Experimental `@s
 
 ### Where is Menu / Combobox / Tabs?
 
-Deferred. Do not treat Popover or Select as those APIs. Track [Beta maturity](/releases/beta).
+Shipped. `Menu` / `MenuItem` / `ContextMenu` / `Drawer` from `@sometic/react/overlay`. `Combobox` from `@sometic/react/selection`. `Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, and `Tree` from `@sometic/react/structure`.
 
 ### Why subpath imports?
 

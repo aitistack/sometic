@@ -1,6 +1,7 @@
 .sometic-demo {
     margin: 1.25rem 0 1.75rem;
     border: 1px solid var(--vp-c-divider);
+    border-radius: 0;
     background:
         linear-gradient(
             180deg,

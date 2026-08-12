@@ -91,7 +91,7 @@ for (const trigger of root.querySelectorAll("[data-slot='trigger']")) {
 
 > Custom element not shipped in this beta; use the DOM controller.
 
-Custom element **not shipped** for Accordion. Vanilla uses `@sometic/dom/accordion`. React + DOM are primary; Vue re-exports resolve/controller helpers only.
+Custom element **not shipped** for Accordion. Vanilla uses `@sometic/dom/accordion`. React and Vue ship `Accordion` / `AccordionItem` from `@sometic/*/structure`.
 
 ## How it works
 
@@ -139,18 +139,35 @@ When `title` is omitted, clicking the item root toggles (plus any `onClick` you 
 
 ### Vue
 
-No Vue Accordion components. `@sometic/vue/structure` re-exports DOM helpers. Prefer React or Vanilla DOM.
+`Accordion` and `AccordionItem` from `@sometic/vue/structure`. Props: `type`, `value`, `defaultValue`, `collapsible`, `lazyMount`, `forceMount` on the root; `value`, `disabled`, `title` on items. Emits `update:value` and `valueChange`.
+
+```vue
+<script setup lang="ts">
+import { Accordion, AccordionItem } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Accordion type="single" default-value="a">
+        <AccordionItem value="a" title="Accessibility">
+            Focus, dismiss, and ARIA live in the core engines.
+        </AccordionItem>
+        <AccordionItem value="b" title="Styling">
+            Unstyled by default. Own tokens and layout.
+        </AccordionItem>
+    </Accordion>
+</template>
+```
 
 ### Custom element
 
-**CE not shipped.** Use Vanilla DOM controller or React.
+**CE not shipped.** Use Vanilla DOM controller, React, or Vue.
 
 ## Events / callbacks
 
 | Surface        | Event           | Payload              |
 | -------------- | --------------- | -------------------- |
 | React          | `onValueChange` | `string \| string[]` |
-| Vue            | —               | —                    |
+| Vue            | `valueChange` / `update:value` | `string \| string[]` |
 | Custom element | —               | —                    |
 | DOM controller | `onValueChange` | `string \| string[]` |
 
@@ -182,7 +199,7 @@ Target `[data-state="open"|"closed"]`, `[data-slot="trigger"|"content"]`.
 
 **Is there an `sometic-accordion`?** No. CE not shipped.
 
-**Vue components?** Not shipped. React + DOM primary.
+**Vue components?** Yes. `@sometic/vue/structure`.
 
 **Does React forward native attrs?** Yes, onto Accordion and AccordionItem roots.
 

@@ -27,6 +27,23 @@ The React package is a **thin shell**. State, focus, and interaction live in sha
 pnpm add @sometic/vue @sometic/dom
 ```
 
+```vue
+<script setup lang="ts">
+import { Button } from "@sometic/vue/button";
+import { Tabs, TabTrigger, TabPanel } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Button type="button">Save</Button>
+    <Tabs default-value="overview">
+        <TabTrigger value="overview">Overview</TabTrigger>
+        <TabPanel value="overview">Portable tab selection with ARIA resolve.</TabPanel>
+    </Tabs>
+</template>
+```
+
+The Vue package is the same thin shell: engines in `@sometic/dom`, Vue owns templates and reactivity.
+
 ### Vanilla / Web Components
 
 ```bash

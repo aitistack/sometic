@@ -61,8 +61,18 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 | Tabs         | [Tabs](/components/tabs)                 |
 | Accordion    | [Accordion](/components/accordion)       |
 | Breadcrumb   | [Breadcrumb](/components/breadcrumb)     |
+| Command palette | [Command palette](/components/command-palette) |
+| Tree         | [Tree](/components/tree)                 |
 | Combobox     | [Combobox](/components/combobox)         |
 | Progress     | [Progress](/components/progress)         |
 | Spinner      | [Spinner](/components/spinner)           |
 | Skeleton     | [Skeleton](/components/skeleton)         |
 | Badge        | [Badge](/components/badge)               |
+
+## Structure family docs
+
+React and Vue both ship Tabs, Accordion, Breadcrumb, Command palette, Tree, and feedback primitives from `@sometic/react/structure` and `@sometic/vue/structure`. Custom elements are not shipped for the navigation surfaces; use those adapters or `@sometic/dom`.
+
+- [Structure FAQ](/components/structure-faq)
+- [Structure comparison](/components/structure-comparison)
+
