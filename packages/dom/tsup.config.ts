@@ -40,6 +40,11 @@ export default createTsupConfig({
         "context-menu/index": "src/context-menu/index.ts",
         "menu/index": "src/menu/index.ts",
         "drawer/index": "src/drawer/index.ts",
+        "status/index": "src/status/index.ts",
+        "data-table/index": "src/data-table/index.ts",
+        "upload/index": "src/upload/index.ts",
+        "permission-matrix/index": "src/permission-matrix/index.ts",
+        "notification-center/index": "src/notification-center/index.ts",
     },
     external: [
         "@sometic/core",
@@ -60,5 +65,9 @@ export default createTsupConfig({
         "@sometic/accessibility/scroll-lock",
         "@sometic/accessibility/announcer",
         "@sometic/positioning",
+        "@sometic/data-table",
+        "@sometic/upload",
+        "@sometic/notifications",
+        "@sometic/auth",
     ],
 });

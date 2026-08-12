@@ -68,6 +68,24 @@ Framework-native adapters and custom elements over shared Sometic behavior engin
 | Spinner      | [Spinner](/components/spinner)           |
 | Skeleton     | [Skeleton](/components/skeleton)         |
 | Badge        | [Badge](/components/badge)               |
+| Status       | [Status](/components/status)             |
+| Empty state  | [Empty state](/components/empty-state)   |
+| Error state  | [Error state](/components/error-state)   |
+| Offline state| [Offline state](/components/offline-state) |
+| Conflict state | [Conflict state](/components/conflict-state) |
+
+## Data & business
+
+| Component | Docs |
+| --------- | ---- |
+| Data table | [Data table](/components/data-table) |
+| Query builder | [Query builder](/components/query-builder) |
+| Upload | [Upload](/components/upload) |
+| Schema form | [Schema form](/components/schema-form) |
+| Permission matrix | [Permission matrix](/components/permission-matrix) |
+| Activity | [Activity](/components/activity) |
+| Approval | [Approval](/components/approval) |
+| Notification center | [Notification center](/components/notification-center) |
 
 ## Structure family docs
 

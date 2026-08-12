@@ -161,6 +161,26 @@
             "types": "./dist/badge/index.d.ts",
             "import": "./dist/badge/index.js"
         },
+        "./status": {
+            "types": "./dist/status/index.d.ts",
+            "import": "./dist/status/index.js"
+        },
+        "./data-table": {
+            "types": "./dist/data-table/index.d.ts",
+            "import": "./dist/data-table/index.js"
+        },
+        "./upload": {
+            "types": "./dist/upload/index.d.ts",
+            "import": "./dist/upload/index.js"
+        },
+        "./permission-matrix": {
+            "types": "./dist/permission-matrix/index.d.ts",
+            "import": "./dist/permission-matrix/index.js"
+        },
+        "./notification-center": {
+            "types": "./dist/notification-center/index.d.ts",
+            "import": "./dist/notification-center/index.js"
+        },
         "./package.json": "./package.json"
     },
     "files": [
@@ -189,7 +209,10 @@
         "@sometic/core": "workspace:*",
         "@sometic/date-core": "workspace:*",
         "@sometic/positioning": "workspace:*",
-        "@sometic/styling": "workspace:*"
+        "@sometic/styling": "workspace:*",
+        "@sometic/data-table": "workspace:*",
+        "@sometic/upload": "workspace:*",
+        "@sometic/notifications": "workspace:*"
     },
     "scripts": {
         "build": "tsup",
@@ -437,6 +460,36 @@
             "path": "dist/badge/index.js",
             "limit": "3 kB",
             "gzip": true
+        },
+        {
+            "name": "dom status",
+            "path": "dist/status/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom data-table",
+            "path": "dist/data-table/index.js",
+            "limit": "6 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom upload",
+            "path": "dist/upload/index.js",
+            "limit": "5 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom permission-matrix",
+            "path": "dist/permission-matrix/index.js",
+            "limit": "4 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom notification-center",
+            "path": "dist/notification-center/index.js",
+            "limit": "4 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -449,5 +502,13 @@
         "controllers",
         "vanilla",
         "web-components"
-    ]
+    ],
+    "peerDependencies": {
+        "@sometic/auth": "workspace:*"
+    },
+    "peerDependenciesMeta": {
+        "@sometic/auth": {
+            "optional": true
+        }
+    }
 }

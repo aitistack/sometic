@@ -28,6 +28,12 @@
         "@sometic/head": "workspace:*",
         "@sometic/http": "workspace:*",
         "@sometic/query": "workspace:*",
+        "@sometic/query-builder": "workspace:*",
+        "@sometic/data-table": "workspace:*",
+        "@sometic/upload": "workspace:*",
+        "@sometic/activity": "workspace:*",
+        "@sometic/approval": "workspace:*",
+        "@sometic/notifications": "workspace:*",
         "@sometic/store": "workspace:*",
         "@sometic/theme": "workspace:*",
         "@sometic/validation": "workspace:*"

@@ -15,6 +15,7 @@ export default createTsupConfig({
         "overlay/index": "src/overlay/index.ts",
         "structure/index": "src/structure/index.ts",
         "query/index": "src/query/index.ts",
+        "data/index": "src/data/index.ts",
     },
     external: [
         "vue",
@@ -47,7 +48,13 @@ export default createTsupConfig({
         "@sometic/dom/tooltip",
         "@sometic/dom/toast",
         "@sometic/dom/alert",
+        "@sometic/dom/data-table",
+        "@sometic/dom/upload",
+        "@sometic/dom/permission-matrix",
+        "@sometic/dom/notification-center",
+        "@sometic/dom/status",
         "@sometic/date-core",
         "@sometic/forms",
+        "@sometic/forms/schema-form",
     ],
 });

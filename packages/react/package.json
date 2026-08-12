@@ -61,6 +61,10 @@
             "types": "./dist/query/index.d.ts",
             "import": "./dist/query/index.js"
         },
+        "./data": {
+            "types": "./dist/data/index.d.ts",
+            "import": "./dist/data/index.js"
+        },
         "./package.json": "./package.json"
     },
     "files": [

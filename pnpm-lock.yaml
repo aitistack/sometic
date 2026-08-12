@@ -11,6 +11,12 @@ importers:
       '@changesets/cli':
         specifier: ^2.29.5
         version: 2.31.1(@types/node@22.20.1)
+      '@playwright/test':
+        specifier: ^1.54.1
+        version: 1.62.1
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:tooling/build
@@ -23,12 +29,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:tooling/typescript
-      '@playwright/test':
-        specifier: ^1.54.1
-        version: 1.62.1
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@types/node':
         specifier: ^22.16.5
         version: 22.20.1
@@ -166,9 +166,15 @@ importers:
       '@sometic/accessibility':
         specifier: workspace:*
         version: link:../../packages/accessibility
+      '@sometic/activity':
+        specifier: workspace:*
+        version: link:../../packages/activity
       '@sometic/app-shell':
         specifier: workspace:*
         version: link:../../packages/app-shell
+      '@sometic/approval':
+        specifier: workspace:*
+        version: link:../../packages/approval
       '@sometic/auth':
         specifier: workspace:*
         version: link:../../packages/auth
@@ -184,6 +190,9 @@ importers:
       '@sometic/auth-supabase':
         specifier: workspace:*
         version: link:../../packages/auth-supabase
+      '@sometic/data-table':
+        specifier: workspace:*
+        version: link:../../packages/data-table
       '@sometic/date-native':
         specifier: workspace:*
         version: link:../../packages/date-native
@@ -205,15 +214,24 @@ importers:
       '@sometic/http':
         specifier: workspace:*
         version: link:../../packages/http
+      '@sometic/notifications':
+        specifier: workspace:*
+        version: link:../../packages/notifications
       '@sometic/query':
         specifier: workspace:*
         version: link:../../packages/query
+      '@sometic/query-builder':
+        specifier: workspace:*
+        version: link:../../packages/query-builder
       '@sometic/store':
         specifier: workspace:*
         version: link:../../packages/store
       '@sometic/theme':
         specifier: workspace:*
         version: link:../../packages/theme
+      '@sometic/upload':
+        specifier: workspace:*
+        version: link:../../packages/upload
       '@sometic/validation':
         specifier: workspace:*
         version: link:../../packages/validation
@@ -259,6 +277,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -271,9 +292,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -296,15 +314,15 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
 
-  packages/adapter-contract:
+  packages/activity:
     dependencies:
       '@sometic/core':
         specifier: workspace:*
         version: link:../core
-      '@sometic/store':
-        specifier: workspace:*
-        version: link:../store
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -317,9 +335,49 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/adapter-contract:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+      '@sometic/store':
+        specifier: workspace:*
+        version: link:../store
+    devDependencies:
       '@size-limit/file':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -354,6 +412,9 @@ importers:
         specifier: ^3.14.0
         version: 3.15.12
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -366,9 +427,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -403,6 +461,9 @@ importers:
         specifier: workspace:*
         version: link:../store
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -415,9 +476,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -440,6 +498,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/auth':
         specifier: workspace:*
         version: link:../auth
@@ -473,9 +534,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -498,12 +556,15 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
 
-  packages/auth:
+  packages/approval:
     dependencies:
       '@sometic/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -516,9 +577,46 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/auth:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
       '@size-limit/file':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -553,6 +651,9 @@ importers:
         specifier: ^10.0.0 || ^11.0.0 || ^12.0.0
         version: 12.17.1
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -565,9 +666,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -599,6 +697,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -611,9 +712,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -645,6 +743,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -657,9 +758,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -694,6 +792,9 @@ importers:
         specifier: ^2.0.0
         version: 2.112.1
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -706,9 +807,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -737,6 +835,9 @@ importers:
         specifier: workspace:*
         version: link:../registry
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -749,9 +850,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@types/node':
         specifier: ^22.16.5
         version: 22.20.1
@@ -773,6 +871,9 @@ importers:
 
   packages/core:
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -785,9 +886,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -807,8 +905,15 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
 
-  packages/date-core:
+  packages/data-table:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -821,9 +926,45 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      happy-dom:
+        specifier: ^18.0.1
+        version: 18.0.1
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/date-core:
+    devDependencies:
       '@size-limit/file':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -849,6 +990,9 @@ importers:
         specifier: workspace:*
         version: link:../date-core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -861,9 +1005,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -892,6 +1033,9 @@ importers:
         specifier: workspace:*
         version: link:../date-core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -904,9 +1048,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -935,6 +1076,9 @@ importers:
         specifier: workspace:*
         version: link:../date-core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -947,9 +1091,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -976,19 +1117,34 @@ importers:
       '@sometic/accessibility':
         specifier: workspace:*
         version: link:../accessibility
+      '@sometic/auth':
+        specifier: workspace:*
+        version: link:../auth
       '@sometic/core':
         specifier: workspace:*
         version: link:../core
+      '@sometic/data-table':
+        specifier: workspace:*
+        version: link:../data-table
       '@sometic/date-core':
         specifier: workspace:*
         version: link:../date-core
+      '@sometic/notifications':
+        specifier: workspace:*
+        version: link:../notifications
       '@sometic/positioning':
         specifier: workspace:*
         version: link:../positioning
       '@sometic/styling':
         specifier: workspace:*
         version: link:../styling
+      '@sometic/upload':
+        specifier: workspace:*
+        version: link:../upload
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1004,9 +1160,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1050,6 +1203,9 @@ importers:
         specifier: workspace:*
         version: link:../validation
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1062,9 +1218,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1109,6 +1262,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1121,9 +1277,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1152,6 +1305,9 @@ importers:
         specifier: workspace:*
         version: link:../validation
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1164,9 +1320,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1195,6 +1348,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1207,9 +1363,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1250,6 +1403,9 @@ importers:
         specifier: ^2.0.0
         version: 2.0.10
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1262,9 +1418,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1290,6 +1443,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/auth':
         specifier: workspace:*
         version: link:../auth
@@ -1305,9 +1461,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1348,6 +1501,9 @@ importers:
         specifier: ^3.7.0
         version: 3.7.1
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1360,9 +1516,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1382,12 +1535,15 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
 
-  packages/positioning:
+  packages/notifications:
     dependencies:
       '@sometic/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1400,9 +1556,46 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/positioning:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
       '@size-limit/file':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1440,6 +1633,9 @@ importers:
         specifier: ^10.0.0
         version: 10.29.8
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1452,9 +1648,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1477,6 +1670,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1492,9 +1688,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1504,6 +1697,46 @@ importers:
       happy-dom:
         specifier: ^18.0.1
         version: 18.0.1
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/query-builder:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1544,6 +1777,9 @@ importers:
         specifier: workspace:*
         version: link:../store
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/adapter-contract':
         specifier: workspace:*
         version: link:../adapter-contract
@@ -1559,9 +1795,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@types/react':
         specifier: ^19.1.8
         version: 19.2.18
@@ -1598,6 +1831,9 @@ importers:
 
   packages/registry:
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1610,9 +1846,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@types/node':
         specifier: ^22.16.5
         version: 22.20.1
@@ -1647,6 +1880,9 @@ importers:
         specifier: ^1.8.0
         version: 1.9.14
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1659,9 +1895,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1684,6 +1917,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1696,9 +1932,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1720,6 +1953,9 @@ importers:
 
   packages/store-immer:
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1735,9 +1971,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1762,6 +1995,9 @@ importers:
 
   packages/styling:
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1774,9 +2010,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1811,6 +2044,9 @@ importers:
         specifier: ^5.0.0
         version: 5.56.8(@typescript-eslint/types@8.66.0)
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1823,9 +2059,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       eslint:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
@@ -1854,6 +2087,9 @@ importers:
         specifier: workspace:*
         version: link:../styling
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1866,9 +2102,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1888,8 +2121,18 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
 
-  packages/validation:
+  packages/upload:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+      '@sometic/http':
+        specifier: workspace:*
+        version: link:../http
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1902,9 +2145,45 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      happy-dom:
+        specifier: ^18.0.1
+        version: 18.0.1
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/validation:
+    devDependencies:
       '@size-limit/file':
         specifier: ^11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1930,6 +2209,9 @@ importers:
         specifier: workspace:*
         version: link:../validation
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1942,9 +2224,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -1973,6 +2252,9 @@ importers:
         specifier: workspace:*
         version: link:../validation
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1985,9 +2267,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -2037,6 +2316,9 @@ importers:
         specifier: workspace:*
         version: link:../store
     devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
       '@sometic/adapter-contract':
         specifier: workspace:*
         version: link:../adapter-contract
@@ -2052,9 +2334,6 @@ importers:
       '@sometic/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@18.0.1)(jiti@2.7.0)(yaml@2.9.0))
