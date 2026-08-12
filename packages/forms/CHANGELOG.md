@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- ba36fbf: Phase 21 Data & business catalog: table, query-builder, upload, schema-form, permission matrix, activity, approval, notifications, and status surfaces with Wave A adapters.
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @sometic/playground-vanilla
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [ba36fbf]
+    - @sometic/data-table@0.2.0
+    - @sometic/query-builder@0.2.0
+    - @sometic/upload@0.2.0
+    - @sometic/activity@0.2.0
+    - @sometic/approval@0.2.0
+    - @sometic/notifications@0.2.0
+    - @sometic/dom@1.2.0
+    - @sometic/forms@1.1.0
+    - @sometic/elements@1.0.6
+    - @sometic/app-shell@2.0.0
+
 ## 0.0.6
 
 ### Patch Changes

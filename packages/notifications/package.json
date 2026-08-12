@@ -1,6 +1,6 @@
 {
     "name": "@sometic/notifications",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Portable notification center inbox state for Sometic.",
     "license": "MIT",
     "type": "module",

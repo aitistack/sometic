@@ -1,6 +1,6 @@
 {
     "name": "@sometic/data-table",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Framework-free data table and grid state for Sometic: columns, sorting, filtering, pagination, bulk selection, URL sync, and virtual window math.",
     "license": "MIT",
     "type": "module",
