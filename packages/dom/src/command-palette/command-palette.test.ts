@@ -37,7 +37,12 @@ describe("command-palette", () => {
         expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({ id: "b" }));
         expect(controller.open.get()).toBe(false);
         expect(resolveCommandPalette({ open: true }).attributes.role).toBe("dialog");
-        expect(getCommandPaletteKeyboardAction({ key: "ArrowDown" }, { open: true })).toBe("next");
+        expect(
+            getCommandPaletteKeyboardAction(
+                { key: "ArrowDown", isComposing: false },
+                { open: true },
+            ),
+        ).toBe("next");
         expect(
             getCommandPaletteKeyboardAction({ key: "Enter", isComposing: true }, { open: true }),
         ).toBeUndefined();
