@@ -1,37 +1,45 @@
-# notifications FAQ
+# Notifications FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/notifications
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+For the center UI: `@sometic/dom/notification-center` and React `NotificationCenter` from `@sometic/react/data`. Peer: `@sometic/core`.
 
-## JS / TS
+## Push requirements?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+`title` is required (non-empty). Optional: `body`, `source`, `href`, `priority`, `read`, `createdAt`, `id`.
 
-## Controlled state
+## Read / dismiss APIs?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+`markRead`, `markUnread`, `markAllRead`, `dismiss`, `dismissAll`. Unread count via `getUnreadCount()`.
 
-## SSR
+## Grouping?
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+`groupBy("day" | "source")` on the engine, or pass `groupBy` into the notification center controller / React props.
 
-## Accessibility
+## Announce hook?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+`onAnnounce` fires when you want a live region / toast companion for new items (especially high priority).
 
-## Size
+## Center open state?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+`createNotificationCenterController` / React `NotificationCenter` support controlled `open` or `defaultOpen`.
 
-## Security
+## maxItems?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+Optional cap trims oldest notifications when exceeded.
 
-## Migrations
+## Toast vs center?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+[Toast](/components/toast) is ephemeral. Notifications are an inbox. You can push to both.
+
+## SSR?
+
+Import safe. Create controllers on the client; dispose center and notifications when the shell unmounts.
+
+## Security?
+
+Treat `href` as untrusted if it comes from a server payload (open-redirect). Authorize notification fetches server-side.

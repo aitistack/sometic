@@ -1,9 +1,10 @@
-# notifications comparison
+# Notifications comparison
 
-## Why Sometic
+| Option | Strengths | Tradeoffs |
+| ------ | --------- | --------- |
+| **`@sometic/notifications` + center** | Portable inbox model, group/read/dismiss, DOM/React center | Not push-provider SDKs; no CE |
+| **Firebase / OneSignal inboxes** | Delivery infrastructure | Provider lock-in; still need UI state |
+| **Toast-only** | Simple feedback | No history or unread count |
+| **Email** | Durable out-of-band | Not in-app UX |
 
-Shared behavior engine plus thin adapters. Your styling system. Works across JS stacks.
-
-## Alternatives
-
-Use stack-specific libraries (TanStack Table, native file input, custom approval FSMs) when you are single-framework and do not need portable adapters. Choose Sometic when auth, forms, HTTP, and data surfaces must share one mental model across Vanilla, React, and Vue.
+Choose Sometic for in-app inbox behavior shared across stacks. Keep provider SDKs at the delivery edge and map payloads into `push` / `pushMany`.

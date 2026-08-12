@@ -1,9 +1,10 @@
-# query-builder comparison
+# Query builder comparison
 
-## Why Sometic
+| Option | Strengths | Tradeoffs |
+| ------ | --------- | --------- |
+| **`@sometic/query-builder`** | Typed AST, validation, serialize, data-table bridge, framework-agnostic | No visual builder CE/React shell yet; not SQL |
+| **react-querybuilder** | Polished React UI for rules | React-first; separate model from Sometic tables |
+| **Hand-rolled filter form** | Fast for 1–2 fields | Nested AND/OR and operator catalogs grow messy |
+| **SQL / ORMs directly in UI** | Powerful | Unsafe if you expose raw SQL; poor a11y story |
 
-Shared behavior engine plus thin adapters. Your styling system. Works across JS stacks.
-
-## Alternatives
-
-Use stack-specific libraries (TanStack Table, native file input, custom approval FSMs) when you are single-framework and do not need portable adapters. Choose Sometic when auth, forms, HTTP, and data surfaces must share one mental model across Vanilla, React, and Vue.
+Choose Sometic when filters must round-trip into `@sometic/data-table` and stay portable. Choose react-querybuilder when you want a ready-made React chrome and can map its JSON to your API. Prefer a simple form when you only need name contains + role equals.

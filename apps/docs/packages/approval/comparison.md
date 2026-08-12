@@ -1,9 +1,10 @@
-# approval comparison
+# Approval comparison
 
-## Why Sometic
+| Option | Strengths | Tradeoffs |
+| ------ | --------- | --------- |
+| **`@sometic/approval`** | Multi-step assignees, require-all, three decision kinds, history, portable | Not BPMN; no visual stepper CE yet |
+| **Workflow engines (Temporal, Camunda)** | Durable orchestration, timers, compensation | Ops weight; overkill for simple UI approvals |
+| **Ad-hoc boolean flags** | Quick | Breaks on multi-approver and request-changes |
+| **Ticket systems** | Human process tools | Not embeddable as app behavior |
 
-Shared behavior engine plus thin adapters. Your styling system. Works across JS stacks.
-
-## Alternatives
-
-Use stack-specific libraries (TanStack Table, native file input, custom approval FSMs) when you are single-framework and do not need portable adapters. Choose Sometic when auth, forms, HTTP, and data surfaces must share one mental model across Vanilla, React, and Vue.
+Choose Sometic when in-product approvals must behave identically in React and Vanilla. Choose a workflow engine when approvals span days, webhooks, and compensations across services.

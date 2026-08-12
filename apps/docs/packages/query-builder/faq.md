@@ -1,37 +1,51 @@
-# query-builder FAQ
+# Query builder FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/query-builder
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+Depends on `@sometic/core`. No React component in this beta; use `createQueryBuilderController` from JS/TS/Vanilla.
 
-## JS / TS
+## How do fields and operators relate?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+Each `QueryBuilderField` has a `type` (`string`, `number`, `boolean`, `date`, `enum`). Default operators come from `defaultOperatorsForFieldType` / `operatorsForField`. Override with `operators`.
 
-## Controlled state
+## How do I feed a data table?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+```ts
+import { toDataTableFilters } from "@sometic/query-builder";
 
-## SSR
+table.setFilters(toDataTableFilters(builder.getValue()));
+```
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+`isTrue` / `isFalse` map to equals true/false. Disabled rules are skipped unless `includeDisabled: true`.
 
-## Accessibility
+## Can I nest groups?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+Yes. `addGroup` nests under a parent. `validate({ maxDepth })` / controller `maxDepth` reject excessive nesting.
 
-## Size
+## Serialize for storage?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+`serializeQuery` / `parseQuery` / `safeParseQuery`. Prefer safe parse at trust boundaries.
 
-## Security
+## Controlled AST?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+Pass `value` + `onValueChange`. Otherwise use `defaultValue` or the empty `and` group.
 
-## Migrations
+## SSR?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+Pure engine; safe to import. Create controllers per session/request as needed; dispose when done.
+
+## Accessibility?
+
+You own the UI. Label field/operator/value controls and keep remove actions clear.
+
+## Security?
+
+Treat AST from the client as untrusted. Re-validate operators/fields server-side before querying a database.
+
+## Why not a full SQL builder?
+
+Scope is product filters, not arbitrary SQL. See [comparison](./comparison).

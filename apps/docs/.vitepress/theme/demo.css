@@ -82,6 +82,109 @@
     max-width: 100%;
 }
 
+.sometic-demo__stage table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.sometic-demo table th,
+.sometic-demo table td {
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--pg-line, var(--vp-c-divider));
+}
+
+.sometic-demo table th {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pg-muted, var(--vp-c-text-3));
+}
+
+.sometic-demo__stage .pg-lead {
+    margin: 0;
+    color: var(--pg-muted, var(--vp-c-text-2));
+}
+
+.sometic-demo__stage .pg-panel {
+    padding: 0.85rem 1rem;
+    border: 1px dashed var(--pg-line, var(--vp-c-divider));
+    background: color-mix(in srgb, var(--pg-ink, var(--vp-c-text-1)) 5%, transparent);
+}
+
+.pg-status-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.pg-status-card {
+    display: grid;
+    align-content: start;
+    gap: 0.4rem;
+    padding: 0.85rem 0.95rem;
+    background: var(--pg-panel-bg, var(--vp-c-bg));
+    box-shadow: inset 0 0 0 1px var(--pg-line, var(--vp-c-divider));
+}
+
+.pg-status-card h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 650;
+    line-height: 1.3;
+}
+
+.pg-status-card p {
+    margin: 0;
+    color: var(--pg-muted, var(--vp-c-text-2));
+    font-size: 0.88rem;
+}
+
+.pg-status-card .pg-btn {
+    justify-self: start;
+}
+
+.pg-status-card[data-status="error"],
+.pg-status-card[data-status="conflict"] {
+    box-shadow: inset 0 0 0 1px
+        color-mix(in srgb, var(--pg-danger, #dc2626) 45%, var(--pg-line, transparent));
+}
+
+.pg-status-card[data-status="offline"] {
+    box-shadow: inset 0 0 0 1px
+        color-mix(in srgb, var(--pg-warn, #b45309) 45%, var(--pg-line, transparent));
+}
+
+.pg-upload-drop {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 5rem;
+    padding: 1rem;
+    border: 1px dashed var(--pg-line, var(--vp-c-divider));
+    background: color-mix(in srgb, var(--pg-ink, var(--vp-c-text-1)) 4%, transparent);
+    color: var(--pg-muted, var(--vp-c-text-2));
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color 140ms ease,
+        color 140ms ease;
+}
+
+.pg-upload-drop:hover,
+.pg-upload-drop:focus-visible {
+    outline: none;
+    border-color: var(--pg-accent, var(--vp-c-brand-1));
+    color: var(--pg-ink, var(--vp-c-text-1));
+}
+
+.pg-upload-drop[data-state="busy"] {
+    border-color: var(--pg-accent, var(--vp-c-brand-1));
+}
+
 .sometic-demo__tip {
     position: relative;
     display: inline-flex;

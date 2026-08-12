@@ -1,37 +1,45 @@
-# approval FAQ
+# Approval FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/approval
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+Peer: `@sometic/core`. Engine-only in this beta (`createApprovalController`).
 
-## JS / TS
+## What decisions exist?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+`approve`, `reject`, and `request-changes` (via `approve` / `reject` / `requestChanges` or `decide`).
 
-## Controlled state
+## requireAll vs any?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+`requireAll: true` needs every `assigneeId` to approve before the step advances. Otherwise one approve is enough. Reject / request-changes follow the engine’s closing rules for the active step.
 
-## SSR
+## Can I reopen?
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+Yes. `reopen(stepId)` after a closed flow (subject to engine rules). Use it for “send back to manager” product flows.
 
-## Accessibility
+## Notes and history?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+Pass `note` on decision inputs. `getHistory()` / state `history` lists decision records with actor and timestamp.
 
-## Size
+## Controlled step index?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+`stepIndex` + `onStepIndexChange` for tests or deep links. Prefer letting decisions advance the index in normal UIs.
 
-## Security
+## Empty or duplicate steps?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+Create throws `approval_empty_flow` or `approval_duplicate_step`.
 
-## Migrations
+## SSR?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+Pure engine aside from your UI. Create per flow instance; dispose when the dialog unmounts.
+
+## Security?
+
+Never trust client “approved” flags. Persist decisions server-side and verify `actorId` against the session.
+
+## Related?
+
+[Comparison](./comparison) · [Component](/components/approval) · [Activity](/packages/activity/faq).

@@ -1,9 +1,10 @@
-# upload comparison
+# Upload comparison
 
-## Why Sometic
+| Option | Strengths | Tradeoffs |
+| ------ | --------- | --------- |
+| **`@sometic/upload`** | Queue, concurrency, abort, progress, HTTP helper, DOM dropzone, React shell | Not resumable chunks out of the box; no CE |
+| **Uppy** | Plugins, resumable uploads, polished UI | Larger surface; visual opinions |
+| **filepond** | Beautiful UX, framework wrappers | Styling lock-in; less “engine only” |
+| **Native `<input type="file">`** | Tiny | No queue, progress, or shared adapters |
 
-Shared behavior engine plus thin adapters. Your styling system. Works across JS stacks.
-
-## Alternatives
-
-Use stack-specific libraries (TanStack Table, native file input, custom approval FSMs) when you are single-framework and do not need portable adapters. Choose Sometic when auth, forms, HTTP, and data surfaces must share one mental model across Vanilla, React, and Vue.
+Choose Sometic when uploads should match Sometic’s headless model and you will style the dropzone yourself. Choose Uppy when you need tus/S3 multipart plugins immediately. Use native input for a single optional attachment with no progress UI.

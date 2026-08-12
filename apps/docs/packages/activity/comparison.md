@@ -1,9 +1,10 @@
-# activity comparison
+# Activity comparison
 
-## Why Sometic
+| Option | Strengths | Tradeoffs |
+| ------ | --------- | --------- |
+| **`@sometic/activity`** | Portable append/filter/page API, disposable, injectable clock | In-memory; no UI shell; not a compliance store |
+| **Custom Redux/store list** | Fits existing app state | Reimplement pagination cursors and filters per app |
+| **Full audit platforms** | Durability, search, retention policies | Heavy; server-centric |
+| **Notification center** | Read/unread inbox UX | Different product job (alerts vs timeline) |
 
-Shared behavior engine plus thin adapters. Your styling system. Works across JS stacks.
-
-## Alternatives
-
-Use stack-specific libraries (TanStack Table, native file input, custom approval FSMs) when you are single-framework and do not need portable adapters. Choose Sometic when auth, forms, HTTP, and data surfaces must share one mental model across Vanilla, React, and Vue.
+Choose Sometic activity for a shared client timeline model next to notifications and approval. Use a dedicated audit service when regulators need durable, queryable history.

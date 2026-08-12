@@ -1,37 +1,45 @@
-# data-table FAQ
+# Data table FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/data-table
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+For React UI: also use `@sometic/react` (`DataTable` from `@sometic/react/data`) and `@sometic/dom` resolve helpers. Peer: `@sometic/core`.
 
-## JS / TS
+## Client or server mode?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+Omit `fetchRows` for client mode (filter/sort/page in memory). Pass `fetchRows` (or `mode: "server"`) for remote pages. Server create throws if `fetchRows` is missing.
 
-## Controlled state
+## How does selection work across pages?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+`SelectionState` supports explicit `ids` or `allFiltered` with `excludedIds`. `selectAllPage` toggles the current page; `selectAllFiltered` can take an optional id list from the server.
 
-## SSR
+## Can I sync sort/filters to the URL?
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+Yes. Use `syncDataTableToUrl`, `encodeDataTableSorting` / `decodeDataTableFilters`, and friends. You provide the URL read/write target; no router package is required.
 
-## Accessibility
+## Is there virtualization?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+`getVirtualItems` computes a window over a total count. You still render the slice. It does not ship a scrolling container.
 
-## Size
+## JS vs TypeScript?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+Same runtime. Types ship as `.d.ts`. React examples use `DataTableColumn<TRow>` for column accessors.
 
-## Security
+## SSR safe?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+No browser globals at import time. Create controllers and bind keyboard after hydration.
 
-## Migrations
+## Accessibility baseline?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+DOM resolve emits grid/table roles, `aria-sort`, busy state, and keyboard helpers. Always provide `label` or `labelledBy`.
+
+## Security?
+
+Selection and filters are UX state. Enforce authorization and row visibility on the server, especially in server mode.
+
+## Migrations / related packages?
+
+Additive Phase 21 surface. Pair with `@sometic/query` for fetch caching and `@sometic/query-builder` via `toDataTableFilters`. See [comparison](./comparison) and [troubleshooting](./troubleshooting).

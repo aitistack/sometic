@@ -1,37 +1,45 @@
-# upload FAQ
+# Upload FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/upload
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+React dropzone: `@sometic/react/data` + `@sometic/dom/upload`. Peer: `@sometic/core`.
 
-## JS / TS
+## What is a transport?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+Any `{ upload(file, { signal, onProgress }) }` implementation. `createHttpUploadTransport({ url })` posts multipart `FormData`. Inject `fetchImpl` when `fetch` is unavailable.
 
-## Controlled state
+## How do accept and maxBytes work?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+`accept` rules are MIME or extensions (`matchesAcceptRule`). `maxBytes` rejects oversized files on add. Empty files rejected unless `allowEmptyFiles`.
 
-## SSR
+## Cancel, pause, retry?
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+Controller supports cancel (aborts signal), pause, and retry from `error` / `canceled`. React list wires cancel/retry buttons.
 
-## Accessibility
+## Concurrency?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+Set `concurrency` on the controller / `UploadDropzone`. Queued items start as slots free when `autoStart` is enabled.
 
-## Size
+## Downloads?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+`downloadBlob` and `downloadFromUrl` help with download UX; they are separate from the upload queue.
 
-## Security
+## SSR?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+Do not touch `File` / drag events on the server. Create controllers in effects or Vanilla entry scripts.
 
-## Migrations
+## Accessibility?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+Dropzone resolve uses `role="button"` and keyboard open. List is a live region. Keep cancel/retry labelled.
+
+## Security?
+
+Validate MIME/size again on the server. Do not trust client `accept`. Use auth headers via transport `headers` / cookies carefully (CSRF).
+
+## More help?
+
+[Comparison](./comparison) · [Troubleshooting](./troubleshooting) · [Component](/components/upload).

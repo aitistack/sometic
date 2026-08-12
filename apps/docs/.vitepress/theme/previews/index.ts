@@ -40,6 +40,15 @@ const loaders: Record<string, Loader> = {
     PreviewSkeleton: () => import("./PreviewSkeleton.vue"),
     PreviewBadge: () => import("./PreviewBadge.vue"),
     PreviewForm: () => import("./PreviewForm.vue"),
+    PreviewDataTable: () => import("./PreviewDataTable.vue"),
+    PreviewQueryBuilder: () => import("./PreviewQueryBuilder.vue"),
+    PreviewUpload: () => import("./PreviewUpload.vue"),
+    PreviewSchemaForm: () => import("./PreviewSchemaForm.vue"),
+    PreviewPermissionMatrix: () => import("./PreviewPermissionMatrix.vue"),
+    PreviewActivity: () => import("./PreviewActivity.vue"),
+    PreviewApproval: () => import("./PreviewApproval.vue"),
+    PreviewNotificationCenter: () => import("./PreviewNotificationCenter.vue"),
+    PreviewStatus: () => import("./PreviewStatus.vue"),
 };
 
 /** Async preview map — keeps the home route free of preview chunk weight. */

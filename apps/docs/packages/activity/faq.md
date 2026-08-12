@@ -1,37 +1,45 @@
-# activity FAQ
+# Activity FAQ
 
-## Install / peers
+## How do I install it?
 
 ```bash
 pnpm add @sometic/activity
 ```
 
-Depends on `@sometic/core`. See the package README for optional peers.
+Peer: `@sometic/core`. No React/CE adapter in this beta; call `createActivityController` from your UI.
 
-## JS / TS
+## What does an entry look like?
 
-TypeScript-first with emitted `.d.ts`. Same runtime for JS consumers.
+Required: `type`, `message`. Optional: `id`, `createdAt`, `actorId`, `resourceId`, `meta`. Empty `type` throws `activity_invalid_entry`.
 
-## Controlled state
+## How does pagination work?
 
-Engines support controlled and uncontrolled patterns via `@sometic/core` controllable state where applicable.
+`getPage({ cursor, limit, filter })` returns `{ items, nextCursor, hasMore }` newest-first. Pass `nextCursor` back for the next page. Do not invent cursors.
 
-## SSR
+## Can I filter?
 
-No browser globals at import time. Create controllers after hydration when DOM is required.
+Yes: `type` / `types`, `actorId`, `resourceId`, `since`, `until` on `getEntries`, `count`, and `getPage`.
 
-## Accessibility
+## Retention?
 
-DOM adapters expose roles and keyboard hooks. Compose with your markup.
+Set `maxEntries` to drop oldest records when the cap is exceeded. Without it, the in-memory list grows until you `clear` or dispose.
 
-## Size
+## Controlled feed?
 
-Gzip budgets live in each package `package.json` `size-limit` field.
+The engine owns entries. Seed with `entries`, then `append` / `appendMany`. Mirror into `@sometic/store` if you need cross-route state.
 
-## Security
+## SSR?
 
-Enforce authorization and uploads on the server. Client matrices and queues are UX state.
+Import is safe. Prefer one controller per client session; do not share mutable controllers across requests.
 
-## Migrations
+## Accessibility?
 
-Additive Phase 21 packages. `@sometic/query` remains the server-state cache.
+You render the list. Use semantic lists and announce critical appends if the feed is visible.
+
+## Security / compliance?
+
+Client activity is UX. Persist and authorize audit events on the server.
+
+## Related?
+
+[Comparison](./comparison) · [Component](/components/activity) · [Notifications](/packages/notifications/faq).

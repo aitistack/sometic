@@ -389,6 +389,8 @@ export default defineConfig({
                         { text: "Activity", link: "/components/activity" },
                         { text: "Approval", link: "/components/approval" },
                         { text: "Notification center", link: "/components/notification-center" },
+                        { text: "Data FAQ", link: "/components/data-faq" },
+                        { text: "Data comparison", link: "/components/data-comparison" },
                     ],
                 },
                 {
