@@ -41,7 +41,9 @@
             "types": "./dist/schema-form/index.d.ts",
             "import": "./dist/schema-form/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-forms.esm.js": "./dist/cdn/sometic-forms.esm.js",
+        "./cdn/sometic-forms.iife.js": "./dist/cdn/sometic-forms.iife.js"
     },
     "files": [
         "dist",
@@ -69,7 +71,7 @@
         "@sometic/validation": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -127,6 +129,18 @@
             "path": "dist/schema-form/index.js",
             "limit": "5.5 kB",
             "gzip": true
+        },
+        {
+            "name": "forms CDN esm",
+            "path": "dist/cdn/sometic-forms.esm.js",
+            "limit": "80 kB",
+            "gzip": true
+        },
+        {
+            "name": "forms CDN iife",
+            "path": "dist/cdn/sometic-forms.iife.js",
+            "limit": "80 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -139,5 +153,7 @@
         "validation",
         "form-state",
         "fields"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-forms.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-forms.iife.js"
 }

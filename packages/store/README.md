@@ -67,6 +67,29 @@ prefs.update((state) => ({ ...state, themeId: "dark" }));
 await prefs.persistNow();
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/stores/store](https://sometic.dev/stores/store). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.iife.js"></script>
+<script>
+    const store = SometicStore.createStore({ count: 0 });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+
+    const store = createStore({ count: 0 });
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). No framework peers. Use this for portable shared state; do not use it as a Redux replacement with middleware ecosystems, and do not reach for it when a local `createControllableState` from core is enough for one field. Add Immer only via [`@sometic/store-immer`](https://www.npmjs.com/package/@sometic/store-immer) when mutable draft updates are worth the peer cost.

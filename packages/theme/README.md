@@ -73,6 +73,29 @@ if (!result.ok) {
 }
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/stores/theme](https://sometic.dev/stores/theme). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.iife.js"></script>
+<script>
+    const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+
+    const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
+```
+
 ## Peers / when not to use
 
 Runtime dependencies: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling). No framework peers. Do not use theme as a CSS-in-JS library or as a replacement for static design-token pipelines when you only need build-time CSS. Prefer class/slot resolvers in [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling) when you are only merging classes without runtime mode switching.

@@ -84,11 +84,19 @@ unsubscribe();
 store.dispose();
 ```
 
-```js [CDN]
-import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.iife.js"></script>
+<script>
+    const store = SometicStore.createStore({ count: 0 });
+    store.update((s) => ({ count: s.count + 1 }));
+</script>
 
-const store = createStore({ count: 0 });
-store.setState((s) => ({ count: s.count + 1 }));
+<script type="module">
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+
+    const store = createStore({ count: 0 });
+    store.update((s) => ({ count: s.count + 1 }));
+</script>
 ```
 
 :::

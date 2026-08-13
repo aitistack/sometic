@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>SometicDom CDN smoke</title>
+    </head>
+    <body>
+        <p id="out">loading…</p>
+        <script src="./sometic-dom.iife.js"></script>
+        <script>
+            const keys = Object.keys(SometicDom).slice(0, 8).join(", ");
+            document.getElementById("out").textContent = "SometicDom CDN ok: " + keys;
+            console.log("SometicDom", SometicDom);
+        </script>
+    </body>
+</html>

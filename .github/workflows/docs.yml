@@ -42,7 +42,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Build CDN mirrors for docs
-              run: pnpm exec turbo run build --filter=@sometic/http... --filter=@sometic/query... --filter=@sometic/auth... --filter=@sometic/store... --filter=@sometic/theme... --filter=@sometic/head... --filter=@sometic/app-shell... --filter=@sometic/elements...
+              run: pnpm exec turbo run build --filter=@sometic/http... --filter=@sometic/query... --filter=@sometic/auth... --filter=@sometic/store... --filter=@sometic/theme... --filter=@sometic/head... --filter=@sometic/app-shell... --filter=@sometic/elements... --filter=@sometic/core... --filter=@sometic/events... --filter=@sometic/forms... --filter=@sometic/styling... --filter=@sometic/accessibility... --filter=@sometic/positioning... --filter=@sometic/dom...
 
             - name: Build docs
               run: pnpm docs:build

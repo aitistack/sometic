@@ -551,7 +551,7 @@ export default defineConfig({
             message:
                 '<p class="sometic-footer-kicker">Open source under the <a href="/legal/license">MIT License</a></p><nav class="sometic-footer-links" aria-label="Legal and trust"><a href="/guide/contributing">Contributing</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/security">Security</a><a href="/llms.txt">llms.txt</a></nav>',
             copyright:
-                '<div class="sometic-footer-brand"><img class="sometic-footer-logo light" src="/logo.png" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" alt="Sometic" /><p class="sometic-footer-by">Sometic</p></div>',
+                '<div class="sometic-footer-brand"><img class="sometic-footer-logo light" src="/logo.png" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" alt="Sometic" /></div>',
         },
         search: {
             provider: "local",

@@ -119,6 +119,37 @@ CDN (after npm publish; pin a version in production):
 </script>
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/guide/app-shell](https://sometic.dev/guide/app-shell). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+<script>
+    const app = SometicAppShell.createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+
+    const app = createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+</script>
+```
+
 ## Peers / when not to use
 
 Required peers in practice: `@sometic/auth`, `@sometic/http`, `@sometic/query`. Optional: `@sometic/forms`, `@sometic/head`, `@sometic/store`, `@sometic/theme`. Depends on `@sometic/core`.

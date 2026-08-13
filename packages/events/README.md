@@ -71,6 +71,30 @@ controller.abort();
 emitter.dispose();
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/events). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.iife.js"></script>
+<script>
+    const emitter = SometicEvents.createEventEmitter();
+    emitter.emit("ready", { ok: true });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createEventEmitter } from "https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.esm.js";
+
+    const emitter = createEventEmitter();
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) (installed automatically as a dependency). Prefer [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) when you need continuous shared state and selectors rather than fire-and-forget events. Do not use this package as a replacement for native DOM events on form controls; preserve native events at the UI boundary and emit high-level events only for high-level behavior.

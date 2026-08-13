@@ -120,10 +120,17 @@ theme.subscribe((snapshot) => {
 theme.setMode("dark");
 ```
 
-```js [CDN]
-import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.iife.js"></script>
+<script>
+    const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
 
-const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+<script type="module">
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+
+    const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
 ```
 
 :::

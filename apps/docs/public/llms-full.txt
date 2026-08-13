@@ -449,19 +449,19 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 ## Overview
 
-| Concern         | API                                                                                |
-| --------------- | ---------------------------------------------------------------------------------- |
+| Concern         | API                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------- |
 | Easy spine      | `createSometicApp({ auth, baseUrl?, theme?, … })` → `app.http`, `app.query`, `app.whenReauth` |
-| Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`       |
-| Epoch           | `app.epoch` / `app.getEpoch()` / `app.whenReauth` / `app.onEpochChange`            |
-| Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                |
-| Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                      |
-| Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)               |
-| Theme ↔ head    | `bindThemeToHead`                                                                  |
-| Auth ↔ stores   | `bindAuthToStores`                                                                 |
-| Mutation ↔ form | `bindMutationForm`                                                                 |
-| Query → head    | `bindHeadToQuery`                                                                  |
-| Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline) |
+| Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`                  |
+| Epoch           | `app.epoch` / `app.getEpoch()` / `app.whenReauth` / `app.onEpochChange`                       |
+| Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                           |
+| Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                                 |
+| Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)                          |
+| Theme ↔ head    | `bindThemeToHead`                                                                             |
+| Auth ↔ stores   | `bindAuthToStores`                                                                            |
+| Mutation ↔ form | `bindMutationForm`                                                                            |
+| Query → head    | `bindHeadToQuery`                                                                             |
+| Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline)            |
 
 ### When to use
 
@@ -563,19 +563,34 @@ app.dispose();
 auth.dispose();
 ```
 
-```js [CDN]
-import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+<script>
+    const app = SometicAppShell.createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+    app.http.get("/me").then((me) => {
+        console.log(me);
+    });
+    app.dispose();
+</script>
 
-// Provide a real AuthController from @sometic/auth (CDN or npm).
-const app = createSometicApp({
-    auth,
-    baseUrl: "/api",
-    query: true,
-});
+<script type="module">
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
 
-const me = await app.http.get("/me");
-app.dispose();
+    const app = createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+
+    const me = await app.http.get("/me");
+    app.dispose();
+</script>
 ```
+
 :::
 
 Engine-level `createHttp` / `createQueryClient` / `createAppShell` remain supported when you need finer control.
@@ -1080,22 +1095,22 @@ pnpm build
 
 ## Common commands
 
-| Command                             | Purpose                                  |
-| ----------------------------------- | ---------------------------------------- |
-| `pnpm build`                        | Build packages (Turbo)                   |
-| `pnpm lint`                         | Lint                                     |
-| `pnpm typecheck`                    | Typecheck                                |
-| `pnpm test`                         | Unit / package tests                     |
-| `pnpm test:coverage`                | Coverage                                 |
-| `pnpm test:e2e`                     | Playwright e2e                           |
-| `pnpm size`                         | Bundle size budgets                      |
-| `pnpm packages:validate`            | Package metadata / export checks         |
-| `pnpm docs:dev`                     | Docs site (VitePress)                    |
-| `pnpm docs:build`                   | Build docs                               |
-| `pnpm docs:check`                   | Docs validation                          |
-| `pnpm format` / `pnpm format:check` | Prettier                                 |
-| `pnpm changeset`                    | Add a Changeset for publishable changes  |
-| `pnpm changeset:status`             | Changeset status                         |
+| Command                             | Purpose                                 |
+| ----------------------------------- | --------------------------------------- |
+| `pnpm build`                        | Build packages (Turbo)                  |
+| `pnpm lint`                         | Lint                                    |
+| `pnpm typecheck`                    | Typecheck                               |
+| `pnpm test`                         | Unit / package tests                    |
+| `pnpm test:coverage`                | Coverage                                |
+| `pnpm test:e2e`                     | Playwright e2e                          |
+| `pnpm size`                         | Bundle size budgets                     |
+| `pnpm packages:validate`            | Package metadata / export checks        |
+| `pnpm docs:dev`                     | Docs site (VitePress)                   |
+| `pnpm docs:build`                   | Build docs                              |
+| `pnpm docs:check`                   | Docs validation                         |
+| `pnpm format` / `pnpm format:check` | Prettier                                |
+| `pnpm changeset`                    | Add a Changeset for publishable changes |
+| `pnpm changeset:status`             | Changeset status                        |
 
 Local quality gate:
 
@@ -1220,37 +1235,62 @@ Optional peers: `@sometic/head`, `@sometic/theme`, `@sometic/store`, `@sometic/f
 
 ## CDN (browser bundles)
 
-Prefer npm + a bundler for apps. Use CDN for demos, HTML-first pages, and progressive enhancement. After publish, jsDelivr mirrors each package. Pin a version in production (`@1.x.x`). Docs also mirror the same files under `/cdn/` after build.
+Prefer npm + a bundler for apps. Use CDN for demos, HTML-first pages, and progressive enhancement. After publish, jsDelivr mirrors each package. Pin a version in production (`@x.y.z`), not only `@latest`. Docs also mirror the same files under `/cdn/` after build. IIFE (`<script src>` without `type="module"`) is the HTML-first path. ESM is optional.
 
-### Custom elements (Web Components)
+### Custom elements (Web Components) {#cdn-web-components}
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
 
-IIFE (registers on load):
+ESM alternative:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
+
+<sometic-button type="button">Save</sometic-button>
 ```
 
 The elements CDN covers **shipped** tags only (button/input/form/selection/overlay feedback/structure feedback/auth-status). Surfaces without custom elements still use `@sometic/dom` or React/Vue. See [Vanilla](/frameworks/vanilla) and [What’s included](/guide/whats-included).
 
-### System engines
+### Browser bundles
 
-| Package | ESM | IIFE global |
-| --- | --- | --- |
-| `@sometic/http` | `…/dist/cdn/sometic-http.esm.js` | `SometicHttp` |
-| `@sometic/query` | `…/dist/cdn/sometic-query.esm.js` | `SometicQuery` |
-| `@sometic/auth` | `…/dist/cdn/sometic-auth.esm.js` | `SometicAuth` |
-| `@sometic/store` | `…/dist/cdn/sometic-store.esm.js` | `SometicStore` |
-| `@sometic/theme` | `…/dist/cdn/sometic-theme.esm.js` | `SometicTheme` |
-| `@sometic/head` | `…/dist/cdn/sometic-head.esm.js` | `SometicHead` |
-| `@sometic/app-shell` | `…/dist/cdn/sometic-app-shell.esm.js` | `SometicAppShell` |
+Full jsDelivr URLs. Replace `@latest` with a pinned version in production.
 
-Example (HTTP):
+| Package                  | IIFE global            | IIFE                                                                                                | ESM                                                                                                |
+| ------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `@sometic/elements`      | `SometicElements`      | `https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js`           | `https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js`           |
+| `@sometic/http`          | `SometicHttp`          | `https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js`                   |
+| `@sometic/query`         | `SometicQuery`         | `https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js`                 |
+| `@sometic/auth`          | `SometicAuth`          | `https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js`                   |
+| `@sometic/store`         | `SometicStore`         | `https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js`                 |
+| `@sometic/theme`         | `SometicTheme`         | `https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js`                 |
+| `@sometic/head`          | `SometicHead`          | `https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js`                   |
+| `@sometic/app-shell`     | `SometicAppShell`      | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js`         | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js`         |
+| `@sometic/core`          | `SometicCore`          | `https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.esm.js`                   |
+| `@sometic/events`        | `SometicEvents`        | `https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.iife.js`               | `https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.esm.js`               |
+| `@sometic/forms`         | `SometicForms`         | `https://cdn.jsdelivr.net/npm/@sometic/forms@latest/dist/cdn/sometic-forms.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/forms@latest/dist/cdn/sometic-forms.esm.js`                 |
+| `@sometic/styling`       | `SometicStyling`       | `https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.iife.js`             | `https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.esm.js`             |
+| `@sometic/accessibility` | `SometicAccessibility` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.iife.js` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.esm.js` |
+| `@sometic/positioning`   | `SometicPositioning`   | `https://cdn.jsdelivr.net/npm/@sometic/positioning@latest/dist/cdn/sometic-positioning.iife.js`     | `https://cdn.jsdelivr.net/npm/@sometic/positioning@latest/dist/cdn/sometic-positioning.esm.js`     |
+| `@sometic/dom`           | `SometicDom`           | `https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.iife.js`                     | `https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.esm.js`                     |
+
+Example (HTTP, IIFE then ESM):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js"></script>
+<script>
+    const http = SometicHttp.createHttp({ baseUrl: "/api" });
+    http.get("/me").then((me) => {
+        console.log(me);
+    });
+</script>
+```
 
 ```html
 <script type="module">
@@ -1264,8 +1304,31 @@ Example (HTTP):
 App shell façade:
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+<script>
+    const app = SometicAppShell.createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+</script>
+```
+
+```html
 <script type="module">
     import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+</script>
+```
+
+Vanilla `bind*` without a bundler uses `@sometic/dom`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.iife.js"></script>
+<script>
+    const button = document.querySelector("button");
+    if (button) {
+        SometicDom.bindButton(button, () => ({ type: "button" }));
+    }
 </script>
 ```
 
@@ -1877,14 +1940,14 @@ Prefer React, Vue, or Elements for production apps in this beta.
 
 Honest adapter coverage for production paths. **CE** means a `sometic-*` custom element. **DOM** means `@sometic/dom` controllers / resolve (always available for engines).
 
-| Area | React | Vue | CE | DOM |
-| ---- | ----- | --- | -- | --- |
-| Button / Field / Selection (non-combobox) | Yes | Yes | Yes | Yes |
-| Overlay dialog/popover/tooltip/toast/alert | Yes | Yes | Yes | Yes |
-| Menu / Context menu / Drawer / Combobox | Yes | Partial or not shipped | No | Yes |
-| Tabs / Accordion / Breadcrumb / Command palette / Tree | Yes | Yes | No | Yes |
-| Data table / Upload / Schema form / Permissions / Notifications | Yes (`/data`) | Yes (`/data`) | No | Yes |
-| Auth / HTTP / Query / Store / App shell | Hooks + engines | Hooks + engines | `sometic-auth-status` only | Engines + `createSometicApp` |
+| Area                                                            | React           | Vue                    | CE                         | DOM                          |
+| --------------------------------------------------------------- | --------------- | ---------------------- | -------------------------- | ---------------------------- |
+| Button / Field / Selection (non-combobox)                       | Yes             | Yes                    | Yes                        | Yes                          |
+| Overlay dialog/popover/tooltip/toast/alert                      | Yes             | Yes                    | Yes                        | Yes                          |
+| Menu / Context menu / Drawer / Combobox                         | Yes             | Partial or not shipped | No                         | Yes                          |
+| Tabs / Accordion / Breadcrumb / Command palette / Tree          | Yes             | Yes                    | No                         | Yes                          |
+| Data table / Upload / Schema form / Permissions / Notifications | Yes (`/data`)   | Yes (`/data`)          | No                         | Yes                          |
+| Auth / HTTP / Query / Store / App shell                         | Hooks + engines | Hooks + engines        | `sometic-auth-status` only | Engines + `createSometicApp` |
 
 ## Deferred (later phases)
 
@@ -1947,12 +2010,12 @@ Teams rebuild the same application behavior for every stack (forms, auth refresh
 
 ## Why this approach (under the hood)
 
-| Choice                            | Why                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------- |
-| Controllers + resolve view models | One testable behavior surface; adapters only map to framework DX                            |
-| Controllable state                | Same controlled/uncontrolled pattern across components                                      |
-| App shell + session epoch         | Auth, HTTP, query, and stores clear together without per-app glue                           |
-| Custom elements as first-class    | Vanilla and multi-framework embedding; CDN bundle for shipped Wave A tags                   |
+| Choice                            | Why                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------- |
+| Controllers + resolve view models | One testable behavior surface; adapters only map to framework DX          |
+| Controllable state                | Same controlled/uncontrolled pattern across components                    |
+| App shell + session epoch         | Auth, HTTP, query, and stores clear together without per-app glue         |
+| Custom elements as first-class    | Vanilla and multi-framework embedding; CDN bundle for shipped Wave A tags |
 
 ## Related
 
@@ -2004,9 +2067,7 @@ import { Accordion, AccordionItem } from "@sometic/vue/structure";
         <AccordionItem value="a11y" title="Accessibility">
             Accessibility lives in core engines.
         </AccordionItem>
-        <AccordionItem value="style" title="Styling">
-            Bring your own design tokens.
-        </AccordionItem>
+        <AccordionItem value="style" title="Styling"> Bring your own design tokens. </AccordionItem>
     </Accordion>
 </template>
 ```
@@ -2063,6 +2124,7 @@ for (const trigger of root.querySelectorAll("[data-slot='trigger']")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -2207,6 +2269,14 @@ Activity is an audit-style feed (Event N in the preview), not an inbox. Use [Not
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/activity (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/activity (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { createActivityController } from "@sometic/activity";
 
@@ -2280,6 +2350,7 @@ const unsubscribe = activity.subscribe((entries) => console.log(entries.length))
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.
@@ -2489,10 +2560,15 @@ el.textContent = "Profile saved.";
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
 ```
+
 :::
 
 ## Vue
@@ -2657,6 +2733,14 @@ Manager steps can require every assignee; Director steps can accept any one. Pre
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/approval (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/approval (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { createApprovalController } from "@sometic/approval";
 
@@ -2737,6 +2821,7 @@ console.log(approval.getActiveStep()?.id);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.
@@ -2966,10 +3051,15 @@ createAsyncButtonController({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-async-button>Save</sometic-async-button>
 ```
+
 :::
 
 ## Vue
@@ -3185,12 +3275,17 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-badge>Neutral</sometic-badge>
 <sometic-badge tone="success">Ready</sometic-badge>
 <sometic-badge tone="danger">Failed</sometic-badge>
 ```
+
 :::
 
 ## How it works
@@ -3334,6 +3429,7 @@ for (const item of nav.querySelectorAll("li")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -3470,9 +3566,9 @@ import { Button, ButtonGroup } from "@sometic/vue/button";
 
 <template>
     <ButtonGroup>
-  <Button>One</Button>
-  <Button>Two</Button>
-</ButtonGroup>
+        <Button>One</Button>
+        <Button>Two</Button>
+    </ButtonGroup>
 </template>
 ```
 
@@ -3499,13 +3595,18 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
     <sometic-button type="button">CSV</sometic-button>
     <sometic-button type="button">JSON</sometic-button>
 </sometic-button-group>
 ```
+
 :::
 
 ## Vue
@@ -3700,10 +3801,15 @@ bindButton(button, {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-button>Save</sometic-button>
 ```
+
 :::
 
 ## How it works
@@ -3910,10 +4016,15 @@ bindCheckbox(input, () => ({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-checkbox></sometic-checkbox>
 ```
+
 :::
 
 ## How it works
@@ -4138,6 +4249,7 @@ for (const option of list.querySelectorAll("[data-option]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -4339,6 +4451,7 @@ controller.setOpen(true);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ### Vue
@@ -4422,6 +4535,14 @@ Two-version chrome from `resolveConflictStatus` in `@sometic/dom/status`. Everyt
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveConflictStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -4489,6 +4610,7 @@ for (const label of [view.localLabel, view.remoteLabel]) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ## Notes
@@ -4594,6 +4716,7 @@ for (const item of panel.querySelectorAll("[data-menuitem]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -4729,12 +4852,7 @@ const amount = ref(null);
 </script>
 
 <template>
-    <CurrencyInput
-        v-model="amount"
-        currency="USD"
-        locale="en-US"
-        :fraction-digits="2"
-    />
+    <CurrencyInput v-model="amount" currency="USD" locale="en-US" :fraction-digits="2" />
 </template>
 ```
 
@@ -4774,10 +4892,15 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
 ```
+
 :::
 
 ## Vue
@@ -5243,6 +5366,7 @@ render();
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller, React, or Vue.
@@ -5541,11 +5665,16 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
 <sometic-date-input></sometic-date-input>
 ```
+
 :::
 
 ## Vue
@@ -5773,11 +5902,16 @@ document.querySelector("#open").addEventListener("click", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <button type="button" id="open">Open</button>
 <sometic-dialog>Confirm?</sometic-dialog>
 ```
+
 :::
 
 ## How it works
@@ -5965,6 +6099,7 @@ document.querySelector("#open-drawer").addEventListener("click", () => {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -6074,6 +6209,14 @@ Empty-collection chrome from `resolveStatus({ kind: "empty" })` in `@sometic/dom
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -6133,6 +6276,7 @@ panel.append(action);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ## Notes
@@ -6165,6 +6309,14 @@ Failure chrome from `resolveStatus({ kind: "error" })` in `@sometic/dom/status`.
 ## Usage
 
 ::: code-group
+
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
 
 ```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
@@ -6230,6 +6382,7 @@ function showError(error, retry) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ## Notes
@@ -6324,7 +6477,11 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
      element's internal parts or prefer React/Vue Field for full chrome props. -->
@@ -6332,6 +6489,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
     <sometic-input type="email" name="email"></sometic-input>
 </sometic-field>
 ```
+
 :::
 
 ## Vue
@@ -6556,10 +6714,15 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
 ```
+
 :::
 
 ## Vue
@@ -6778,13 +6941,18 @@ formEl.addEventListener("submit", (event) => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-form>
     <input name="email" />
     <button type="submit">Send</button>
 </sometic-form>
 ```
+
 :::
 
 > React/Vue `Form` props use **`onValid`** / optional **`onInvalid`** (see below). Wire submit through those handlers; the preview Usage snippet above is illustrative of composition shape.
@@ -6986,12 +7154,17 @@ bindButton(button, { onPress() {} });
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-icon-button aria-label="Search">
     <!-- icon markup -->
 </sometic-icon-button>
 ```
+
 :::
 
 ## Vue
@@ -7321,10 +7494,15 @@ bindInput(input, () => ({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-input placeholder="Name"></sometic-input>
 ```
+
 :::
 
 ## How it works
@@ -7537,10 +7715,15 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
 ```
+
 :::
 
 ## Vue
@@ -7766,6 +7949,7 @@ for (const item of panel.querySelectorAll("[data-menuitem]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -8006,6 +8190,7 @@ const notifications = createNotificationsController({
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller or the React and Vue components.
@@ -8239,10 +8424,15 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-number-input min="0" max="100"></sometic-number-input>
 ```
+
 :::
 
 ## Vue
@@ -8395,6 +8585,14 @@ Connectivity chrome from `resolveStatus({ kind: "offline" })` in `@sometic/dom/s
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { bindOfflineRecovery, resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -8461,6 +8659,7 @@ const stopRecovery = bindOfflineRecovery({
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ## Notes
@@ -8560,10 +8759,15 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-otp-input length="6"></sometic-otp-input>
 ```
+
 :::
 
 ## Vue
@@ -8753,11 +8957,7 @@ const revealed = ref(false);
 </script>
 
 <template>
-    <PasswordInput
-        v-model="value"
-        v-model:revealed="revealed"
-        autocomplete="current-password"
-    />
+    <PasswordInput v-model="value" v-model:revealed="revealed" autocomplete="current-password" />
 </template>
 ```
 
@@ -8799,10 +8999,15 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
 ```
+
 :::
 
 ## Vue
@@ -9121,6 +9326,7 @@ const actions = [
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller or the React and Vue components.
@@ -9379,11 +9585,16 @@ document.querySelector("#trigger").addEventListener("click", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <button type="button" id="trigger">Open</button>
 <sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
 ```
+
 :::
 
 ## Vue
@@ -9588,11 +9799,16 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
 <sometic-progress></sometic-progress>
 ```
+
 :::
 
 Omit `value` on the custom element for indeterminate (engine treats missing value as indeterminate). React can also pass `indeterminate`.
@@ -9681,6 +9897,14 @@ Filter AST behavior from `@sometic/query-builder`: nested and/or groups, sixteen
 ## Usage
 
 ::: code-group
+
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/query-builder (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/query-builder (same API as Vanilla). -->
+```
 
 ```js [JS]
 import {
@@ -9786,6 +10010,7 @@ const unsubscribe = builder.subscribe((ast) => {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.
@@ -10059,13 +10284,18 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <div role="radiogroup" aria-label="Plan">
     <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
     <sometic-radio name="plan" value="pro" checked aria-label="Pro"></sometic-radio>
 </div>
 ```
+
 :::
 
 ## Vue
@@ -10279,9 +10509,11 @@ const fields = [
     <SchemaForm
         :fields="fields"
         submit-label="Save"
-        @submit-values="async (values) => {
-            await fetch('/api/posts', { method: 'POST', body: JSON.stringify(values) });
-        }"
+        @submit-values="
+            async (values) => {
+                await fetch('/api/posts', { method: 'POST', body: JSON.stringify(values) });
+            }
+        "
     />
 </template>
 ```
@@ -10356,6 +10588,7 @@ const fields = [
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine or the React and Vue components.
@@ -10610,13 +10843,18 @@ bindSelect(select, () => ({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-select>
     <option value="a">Alpha</option>
     <option value="b">Beta</option>
 </sometic-select>
 ```
+
 :::
 
 > React `SelectProps` requires an `options: readonly SelectOption[]` array. You may still pass `children` to override the generated `<option>` list (as in the Usage snippet). Prefer `options={…}` for data-driven lists.
@@ -10798,10 +11036,15 @@ const staticView = resolveSkeleton({ animated: false });
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-skeleton></sometic-skeleton>
 ```
+
 :::
 
 ## How it works
@@ -10919,10 +11162,15 @@ for (const [key, attr] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-spinner label="Loading results"></sometic-spinner>
 ```
+
 :::
 
 ## How it works
@@ -11007,6 +11255,14 @@ Empty, error, offline, and conflict share `resolveStatus` / `resolveStatusAction
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -11090,6 +11346,7 @@ panel.replaceChildren(heading, retry);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for status surfaces; these are resolve-only view models.
@@ -11350,7 +11607,11 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-switch
     checked
@@ -11359,6 +11620,7 @@ input.addEventListener("change", () => {
     aria-label="Email notifications"
 ></sometic-switch>
 ```
+
 :::
 
 ## Vue
@@ -11608,6 +11870,7 @@ for (const trigger of root.querySelectorAll("[data-tab]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.
@@ -11849,11 +12112,16 @@ document.querySelector("#go").addEventListener("click", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <button type="button" id="go">Toast</button>
 <sometic-toast-region></sometic-toast-region>
 ```
+
 :::
 
 ## Vue
@@ -12058,10 +12326,15 @@ createToggleButtonController({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-toggle-button>Bold</sometic-toggle-button>
 ```
+
 :::
 
 ## Vue
@@ -12308,13 +12581,18 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-tooltip placement="top">
     <button type="button">Save</button>
     <div data-slot="content">Save (Ctrl+S)</div>
 </sometic-tooltip>
 ```
+
 :::
 
 ## Vue
@@ -12557,11 +12835,7 @@ const items = [
 </script>
 
 <template>
-    <Tree
-        :items="items"
-        default-value="tree"
-        :default-expanded="['docs', 'guide', 'components']"
-    />
+    <Tree :items="items" default-value="tree" :default-expanded="['docs', 'guide', 'components']" />
 </template>
 ```
 
@@ -12609,6 +12883,7 @@ for (const node of tree.getVisibleNodes()) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ### Vue
@@ -12881,6 +13156,7 @@ const transport = createHttpUploadTransport({ url: "/api/uploads" });
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controllers or the React and Vue components.
@@ -14423,18 +14699,20 @@ Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@some
 Wave A **shipped** tags can load from a single browser bundle (inlines the required `@sometic/*` graph for those elements):
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+
+<sometic-button type="button">Save</sometic-button>
+```
+
+ESM alternative:
+
+```html
 <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
-```
-
-IIFE:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
 ```
 
 Pin a version in production. Docs site also mirrors the same files under `/cdn/` after build. CDN covers shipped CEs only; Tabs/Tree/Data table and other non-CE surfaces use `@sometic/dom` or React/Vue. See [Installation](/guide/installation#cdn-web-components) and [What’s included](/guide/whats-included).
@@ -19990,12 +20268,21 @@ auth.isAuthenticated();
 auth.dispose();
 ```
 
-```js [CDN]
-import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.iife.js"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+    auth.signIn({ email: "a@b.c", password: "secret" });
+</script>
 
-const auth = createAuth({ provider });
-await auth.signIn({ email: "a@b.c", password: "…" });
+<script type="module">
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+
+    const auth = createAuth({ provider });
+    await auth.signIn({ email: "a@b.c", password: "secret" });
+</script>
 ```
+
 :::
 
 Swap the provider for production:
@@ -20167,11 +20454,19 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 
 ::: code-group
 
-```js [CDN]
-import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.iife.js"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+</script>
 
-const auth = createAuth({ provider });
+<script type="module">
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+
+    const auth = createAuth({ provider });
+</script>
 ```
+
 :::
 
 
@@ -22789,12 +23084,21 @@ unsubscribe();
 store.dispose();
 ```
 
-```js [CDN]
-import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.iife.js"></script>
+<script>
+    const store = SometicStore.createStore({ count: 0 });
+    store.update((s) => ({ count: s.count + 1 }));
+</script>
 
-const store = createStore({ count: 0 });
-store.setState((s) => ({ count: s.count + 1 }));
+<script type="module">
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+
+    const store = createStore({ count: 0 });
+    store.update((s) => ({ count: s.count + 1 }));
+</script>
 ```
+
 :::
 
 ### Batch
@@ -23293,11 +23597,19 @@ theme.subscribe((snapshot) => {
 theme.setMode("dark");
 ```
 
-```js [CDN]
-import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.iife.js"></script>
+<script>
+    const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
 
-const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+<script type="module">
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+
+    const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+</script>
 ```
+
 :::
 
 ### Without persistence
@@ -23517,12 +23829,21 @@ applyHead(document, head.get());
 const tags = serializeHead(head.get());
 ```
 
-```js [CDN]
-import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.iife.js"></script>
+<script>
+    const head = SometicHead.createHeadController();
+    head.patch({ title: "Docs" });
+</script>
 
-const head = createHeadController();
-head.patch({ title: "Docs" });
+<script type="module">
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+
+    const head = createHeadController();
+    head.patch({ title: "Docs" });
+</script>
 ```
+
 :::
 
 ### React
@@ -23835,12 +24156,23 @@ const users = await http.get("/users");
 http.dispose();
 ```
 
-```js [CDN]
-import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js"></script>
+<script>
+    const http = SometicHttp.createHttp({ baseUrl: "/api" });
+    http.get("/me").then((me) => {
+        console.log(me);
+    });
+</script>
 
-const http = createHttp({ baseUrl: "/api" });
-const me = await http.get("/me");
+<script type="module">
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+
+    const http = createHttp({ baseUrl: "/api" });
+    const me = await http.get("/me");
+</script>
 ```
+
 :::
 
 ### Auth refresh queue
@@ -24294,11 +24626,19 @@ observer.destroy();
 queryClient.dispose();
 ```
 
-```js [CDN]
-import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.iife.js"></script>
+<script>
+    const client = SometicQuery.createQueryClient();
+</script>
 
-const client = createQueryClient();
+<script type="module">
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+
+    const client = createQueryClient();
+</script>
 ```
+
 :::
 
 ## Query keys

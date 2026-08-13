@@ -59,6 +59,29 @@ const policy = createPolicy(requireAuthenticated(), requireRole("admin"));
 assertAuthorized(auth.getSession(), policy);
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/authentication/](https://sometic.dev/authentication/). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.iife.js"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+
+    const auth = createAuth({ provider });
+</script>
+```
+
 ## Peers / when not to use
 
 No framework peers. Depends on `@sometic/core`.

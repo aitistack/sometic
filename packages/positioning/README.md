@@ -72,6 +72,29 @@ const result = adapter.computePosition(
 console.log(result.x, result.y, result.middlewareData.flipped);
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/positioning](https://sometic.dev/primitives/positioning). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/positioning@latest/dist/cdn/sometic-positioning.iife.js"></script>
+<script>
+    const result = SometicPositioning.computePosition(anchor, floating);
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { computePosition } from "https://cdn.jsdelivr.net/npm/@sometic/positioning@latest/dist/cdn/sometic-positioning.esm.js";
+
+    const result = computePosition(anchor, floating);
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). No framework peers. Do not use this when you need collision detection middleware ecosystems, virtual reference advanced plugins, or auto-update loops from Floating UI: bring those in at the app layer if required. Prefer this package for Sometic overlays that need a small, first-party flip/shift path.

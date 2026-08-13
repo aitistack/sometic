@@ -181,7 +181,9 @@
             "types": "./dist/notification-center/index.d.ts",
             "import": "./dist/notification-center/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-dom.esm.js": "./dist/cdn/sometic-dom.esm.js",
+        "./cdn/sometic-dom.iife.js": "./dist/cdn/sometic-dom.iife.js"
     },
     "files": [
         "dist",
@@ -215,7 +217,7 @@
         "@sometic/notifications": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -490,6 +492,18 @@
             "path": "dist/notification-center/index.js",
             "limit": "4 kB",
             "gzip": true
+        },
+        {
+            "name": "dom CDN esm",
+            "path": "dist/cdn/sometic-dom.esm.js",
+            "limit": "250 kB",
+            "gzip": true
+        },
+        {
+            "name": "dom CDN iife",
+            "path": "dist/cdn/sometic-dom.iife.js",
+            "limit": "250 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -510,5 +524,7 @@
         "@sometic/auth": {
             "optional": true
         }
-    }
+    },
+    "unpkg": "./dist/cdn/sometic-dom.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-dom.iife.js"
 }

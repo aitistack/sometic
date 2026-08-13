@@ -69,6 +69,31 @@ head.set(
 );
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/utilities/head](https://sometic.dev/utilities/head). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.iife.js"></script>
+<script>
+    const head = SometicHead.createHeadController();
+    head.patch({ title: "Docs" });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+
+    const head = createHeadController();
+    head.patch({ title: "Docs" });
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on `@sometic/core`. No framework peers.

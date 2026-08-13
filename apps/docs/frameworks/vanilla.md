@@ -25,18 +25,20 @@ Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@some
 Wave A **shipped** tags can load from a single browser bundle (inlines the required `@sometic/*` graph for those elements):
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+
+<sometic-button type="button">Save</sometic-button>
+```
+
+ESM alternative:
+
+```html
 <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
-```
-
-IIFE:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
 ```
 
 Pin a version in production. Docs site also mirrors the same files under `/cdn/` after build. CDN covers shipped CEs only; Tabs/Tree/Data table and other non-CE surfaces use `@sometic/dom` or React/Vue. See [Installation](/guide/installation#cdn-web-components) and [What’s included](/guide/whats-included).
