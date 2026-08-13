@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- f550946: Sometic.dev identity cutover plus System engine and elements CDN browser bundles (ESM + IIFE) for docs Usage and jsDelivr. ESLint ignores tsup.cdn.config.ts.
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/auth@1.1.0
+    - @sometic/dom@2.0.0
+    - @sometic/date-core@1.0.4
+    - @sometic/date-native@1.0.4
+    - @sometic/forms@1.1.0
+    - @sometic/validation@1.0.4
+
 ## 1.0.6
 
 ### Patch Changes

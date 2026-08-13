@@ -1,6 +1,6 @@
 {
     "name": "@sometic/jquery",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "jQuery adapters for Sometic (store bind, button plugin, destroy cleanup).",
     "license": "MIT",
     "type": "module",

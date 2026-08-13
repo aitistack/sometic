@@ -1,5 +1,13 @@
 # @sometic/playground-htmx
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/store@1.1.0
+    - @sometic/htmx@0.1.7
+
 ## 0.0.7
 
 ### Patch Changes

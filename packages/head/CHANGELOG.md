@@ -1,5 +1,15 @@
 # @sometic/head
 
+## 0.1.0
+
+### Minor Changes
+
+- f550946: Sometic.dev identity cutover plus System engine and elements CDN browser bundles (ESM + IIFE) for docs Usage and jsDelivr. ESLint ignores tsup.cdn.config.ts.
+
+### Patch Changes
+
+- @sometic/core@1.0.4
+
 ## 0.0.6
 
 ### Patch Changes

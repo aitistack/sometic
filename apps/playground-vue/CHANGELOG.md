@@ -1,5 +1,13 @@
 # @sometic/playground-vue
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/store@1.1.0
+    - @sometic/vue@1.2.1
+
 ## 0.0.7
 
 ### Patch Changes
