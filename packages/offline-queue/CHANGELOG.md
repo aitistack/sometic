@@ -1,5 +1,16 @@
 # @sometic/offline-queue
 
+## 0.2.0
+
+### Minor Changes
+
+- 100c5c9: Phase 22 app primitives: feature flags, app drafts, commands, history, conflict, durable offline queue, permission controller, and optional app-shell composition.
+
+### Patch Changes
+
+- Updated dependencies [100c5c9]
+    - @sometic/conflict@0.2.0
+
 ## 0.1.0
 
 - Initial Phase 22 release.

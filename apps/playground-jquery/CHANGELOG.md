@@ -1,5 +1,11 @@
 # @sometic/playground-jquery
 
+## 0.0.11
+
+### Patch Changes
+
+- @sometic/jquery@0.1.10
+
 ## 0.0.10
 
 ### Patch Changes

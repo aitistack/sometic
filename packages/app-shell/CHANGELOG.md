@@ -1,5 +1,23 @@
 # @sometic/app-shell
 
+## 4.0.0
+
+### Minor Changes
+
+- 100c5c9: Phase 22 app primitives: feature flags, app drafts, commands, history, conflict, durable offline queue, permission controller, and optional app-shell composition.
+
+### Patch Changes
+
+- Updated dependencies [100c5c9]
+    - @sometic/feature-flags@0.2.0
+    - @sometic/drafts@0.2.0
+    - @sometic/commands@0.2.0
+    - @sometic/history@0.2.0
+    - @sometic/offline-queue@0.2.0
+    - @sometic/auth@1.2.0
+    - @sometic/http@3.0.0
+    - @sometic/query@3.0.0
+
 ## 3.0.3
 
 ### Patch Changes

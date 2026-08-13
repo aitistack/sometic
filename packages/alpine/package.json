@@ -1,6 +1,6 @@
 {
     "name": "@sometic/alpine",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "Alpine.js adapters for Sometic (store bind, button bind, lifecycle cleanup).",
     "license": "MIT",
     "type": "module",
