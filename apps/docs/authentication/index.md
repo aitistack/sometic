@@ -101,13 +101,13 @@ auth.isAuthenticated();
 auth.dispose();
 ```
 
-
 ```js [CDN]
 import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
 
 const auth = createAuth({ provider });
 await auth.signIn({ email: "a@b.c", password: "…" });
 ```
+
 :::
 
 Swap the provider for production:

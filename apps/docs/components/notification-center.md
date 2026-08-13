@@ -133,6 +133,7 @@ const notifications = createNotificationsController({
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller or the React and Vue components.

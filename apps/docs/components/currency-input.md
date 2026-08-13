@@ -35,12 +35,7 @@ const amount = ref(null);
 </script>
 
 <template>
-    <CurrencyInput
-        v-model="amount"
-        currency="USD"
-        locale="en-US"
-        :fraction-digits="2"
-    />
+    <CurrencyInput v-model="amount" currency="USD" locale="en-US" :fraction-digits="2" />
 </template>
 ```
 
@@ -80,10 +75,14 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
 ```
+
 :::
 
 ## Vue

@@ -33,12 +33,12 @@ Teams rebuild the same application behavior for every stack (forms, auth refresh
 
 ## Why this approach (under the hood)
 
-| Choice                            | Why                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------- |
-| Controllers + resolve view models | One testable behavior surface; adapters only map to framework DX                            |
-| Controllable state                | Same controlled/uncontrolled pattern across components                                      |
-| App shell + session epoch         | Auth, HTTP, query, and stores clear together without per-app glue                           |
-| Custom elements as first-class    | Vanilla and multi-framework embedding; CDN bundle for shipped Wave A tags                   |
+| Choice                            | Why                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------- |
+| Controllers + resolve view models | One testable behavior surface; adapters only map to framework DX          |
+| Controllable state                | Same controlled/uncontrolled pattern across components                    |
+| App shell + session epoch         | Auth, HTTP, query, and stores clear together without per-app glue         |
+| Custom elements as first-class    | Vanilla and multi-framework embedding; CDN bundle for shipped Wave A tags |
 
 ## Related
 

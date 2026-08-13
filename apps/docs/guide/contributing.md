@@ -18,22 +18,22 @@ pnpm build
 
 ## Common commands
 
-| Command                             | Purpose                                  |
-| ----------------------------------- | ---------------------------------------- |
-| `pnpm build`                        | Build packages (Turbo)                   |
-| `pnpm lint`                         | Lint                                     |
-| `pnpm typecheck`                    | Typecheck                                |
-| `pnpm test`                         | Unit / package tests                     |
-| `pnpm test:coverage`                | Coverage                                 |
-| `pnpm test:e2e`                     | Playwright e2e                           |
-| `pnpm size`                         | Bundle size budgets                      |
-| `pnpm packages:validate`            | Package metadata / export checks         |
-| `pnpm docs:dev`                     | Docs site (VitePress)                    |
-| `pnpm docs:build`                   | Build docs                               |
-| `pnpm docs:check`                   | Docs validation                          |
-| `pnpm format` / `pnpm format:check` | Prettier                                 |
-| `pnpm changeset`                    | Add a Changeset for publishable changes  |
-| `pnpm changeset:status`             | Changeset status                         |
+| Command                             | Purpose                                 |
+| ----------------------------------- | --------------------------------------- |
+| `pnpm build`                        | Build packages (Turbo)                  |
+| `pnpm lint`                         | Lint                                    |
+| `pnpm typecheck`                    | Typecheck                               |
+| `pnpm test`                         | Unit / package tests                    |
+| `pnpm test:coverage`                | Coverage                                |
+| `pnpm test:e2e`                     | Playwright e2e                          |
+| `pnpm size`                         | Bundle size budgets                     |
+| `pnpm packages:validate`            | Package metadata / export checks        |
+| `pnpm docs:dev`                     | Docs site (VitePress)                   |
+| `pnpm docs:build`                   | Build docs                              |
+| `pnpm docs:check`                   | Docs validation                         |
+| `pnpm format` / `pnpm format:check` | Prettier                                |
+| `pnpm changeset`                    | Add a Changeset for publishable changes |
+| `pnpm changeset:status`             | Changeset status                        |
 
 Local quality gate:
 

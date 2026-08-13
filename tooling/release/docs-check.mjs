@@ -60,9 +60,7 @@ for (const name of fs.readdirSync(componentsDir)) {
         }
     }
     if (/```\w* \[CE\]/.test(usageBlock)) {
-        console.error(
-            `${rel}: Usage still uses [CE]; use [Custom Elements (Web Components)]`,
-        );
+        console.error(`${rel}: Usage still uses [CE]; use [Custom Elements (Web Components)]`);
         failed = true;
     }
 }
@@ -70,6 +68,4 @@ for (const name of fs.readdirSync(componentsDir)) {
 if (failed) {
     process.exit(1);
 }
-console.log(
-    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)",
-);
+console.log("docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)");

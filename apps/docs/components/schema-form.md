@@ -49,9 +49,11 @@ const fields = [
     <SchemaForm
         :fields="fields"
         submit-label="Save"
-        @submit-values="async (values) => {
-            await fetch('/api/posts', { method: 'POST', body: JSON.stringify(values) });
-        }"
+        @submit-values="
+            async (values) => {
+                await fetch('/api/posts', { method: 'POST', body: JSON.stringify(values) });
+            }
+        "
     />
 </template>
 ```
@@ -126,6 +128,7 @@ const fields = [
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine or the React and Vue components.

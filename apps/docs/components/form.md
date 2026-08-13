@@ -65,13 +65,17 @@ formEl.addEventListener("submit", (event) => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-form>
     <input name="email" />
     <button type="submit">Send</button>
 </sometic-form>
 ```
+
 :::
 
 > React/Vue `Form` props use **`onValid`** / optional **`onInvalid`** (see below). Wire submit through those handlers; the preview Usage snippet above is illustrative of composition shape.

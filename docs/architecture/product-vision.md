@@ -66,14 +66,14 @@ Shallow or demo-quality components are out of scope for public release. Prefer f
 
 ## Naming (ADR-0012)
 
-| Item                  | Locked value                  |
-| --------------------- | ----------------------------- |
-| Product name          | Sometic                       |
-| Parent brand          | Sometic                     |
-| npm scope             | `@sometic`                    |
-| Monorepo root name    | `sometic-packages`            |
-| Custom element prefix | `sometic-*`                   |
-| CLI package (planned) | `@sometic/cli`                |
+| Item                  | Locked value        |
+| --------------------- | ------------------- |
+| Product name          | Sometic             |
+| Parent brand          | Sometic             |
+| npm scope             | `@sometic`          |
+| Monorepo root name    | `sometic-packages`  |
+| Custom element prefix | `sometic-*`         |
+| CLI package (planned) | `@sometic/cli`      |
 | Docs URL              | https://sometic.dev |
 
 ## Out of Scope (cores)

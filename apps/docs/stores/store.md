@@ -84,13 +84,13 @@ unsubscribe();
 store.dispose();
 ```
 
-
 ```js [CDN]
 import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
 
 const store = createStore({ count: 0 });
 store.setState((s) => ({ count: s.count + 1 }));
 ```
+
 :::
 
 ### Batch

@@ -96,13 +96,13 @@ applyHead(document, head.get());
 const tags = serializeHead(head.get());
 ```
 
-
 ```js [CDN]
 import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
 
 const head = createHeadController();
 head.patch({ title: "Docs" });
 ```
+
 :::
 
 ### React

@@ -97,4 +97,5 @@ import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/di
 
 const auth = createAuth({ provider });
 ```
+
 :::

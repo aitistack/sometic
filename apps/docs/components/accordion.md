@@ -35,9 +35,7 @@ import { Accordion, AccordionItem } from "@sometic/vue/structure";
         <AccordionItem value="a11y" title="Accessibility">
             Accessibility lives in core engines.
         </AccordionItem>
-        <AccordionItem value="style" title="Styling">
-            Bring your own design tokens.
-        </AccordionItem>
+        <AccordionItem value="style" title="Styling"> Bring your own design tokens. </AccordionItem>
     </Accordion>
 </template>
 ```
@@ -94,6 +92,7 @@ for (const trigger of root.querySelectorAll("[data-slot='trigger']")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

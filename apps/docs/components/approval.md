@@ -100,6 +100,7 @@ console.log(approval.getActiveStep()?.id);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.

@@ -48,10 +48,14 @@ const staticView = resolveSkeleton({ animated: false });
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-skeleton></sometic-skeleton>
 ```
+
 :::
 
 ## How it works

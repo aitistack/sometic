@@ -67,11 +67,15 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
 <sometic-date-input></sometic-date-input>
 ```
+
 :::
 
 ## Vue
