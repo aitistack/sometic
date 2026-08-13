@@ -82,6 +82,7 @@ const stopRecovery = bindOfflineRecovery({
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ## Notes

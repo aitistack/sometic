@@ -10,19 +10,19 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 ## Overview
 
-| Concern         | API                                                                                |
-| --------------- | ---------------------------------------------------------------------------------- |
+| Concern         | API                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------- |
 | Easy spine      | `createSometicApp({ auth, baseUrl?, theme?, … })` → `app.http`, `app.query`, `app.whenReauth` |
-| Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`       |
-| Epoch           | `app.epoch` / `app.getEpoch()` / `app.whenReauth` / `app.onEpochChange`            |
-| Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                |
-| Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                      |
-| Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)               |
-| Theme ↔ head    | `bindThemeToHead`                                                                  |
-| Auth ↔ stores   | `bindAuthToStores`                                                                 |
-| Mutation ↔ form | `bindMutationForm`                                                                 |
-| Query → head    | `bindHeadToQuery`                                                                  |
-| Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline) |
+| Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`                  |
+| Epoch           | `app.epoch` / `app.getEpoch()` / `app.whenReauth` / `app.onEpochChange`                       |
+| Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                           |
+| Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                                 |
+| Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)                          |
+| Theme ↔ head    | `bindThemeToHead`                                                                             |
+| Auth ↔ stores   | `bindAuthToStores`                                                                            |
+| Mutation ↔ form | `bindMutationForm`                                                                            |
+| Query → head    | `bindHeadToQuery`                                                                             |
+| Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline)            |
 
 ### When to use
 
@@ -124,7 +124,6 @@ app.dispose();
 auth.dispose();
 ```
 
-
 ```js [CDN]
 import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
 
@@ -138,6 +137,7 @@ const app = createSometicApp({
 const me = await app.http.get("/me");
 app.dispose();
 ```
+
 :::
 
 Engine-level `createHttp` / `createQueryClient` / `createAppShell` remain supported when you need finer control.

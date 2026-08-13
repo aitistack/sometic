@@ -59,12 +59,16 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-badge>Neutral</sometic-badge>
 <sometic-badge tone="success">Ready</sometic-badge>
 <sometic-badge tone="danger">Failed</sometic-badge>
 ```
+
 :::
 
 ## How it works

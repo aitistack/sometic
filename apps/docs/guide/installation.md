@@ -71,7 +71,10 @@ Prefer npm + a bundler for apps. Use CDN for demos, HTML-first pages, and progre
 ### Custom elements (Web Components)
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -86,14 +89,14 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ### System engines
 
-| Package | ESM | IIFE global |
-| --- | --- | --- |
-| `@sometic/http` | `…/dist/cdn/sometic-http.esm.js` | `SometicHttp` |
-| `@sometic/query` | `…/dist/cdn/sometic-query.esm.js` | `SometicQuery` |
-| `@sometic/auth` | `…/dist/cdn/sometic-auth.esm.js` | `SometicAuth` |
-| `@sometic/store` | `…/dist/cdn/sometic-store.esm.js` | `SometicStore` |
-| `@sometic/theme` | `…/dist/cdn/sometic-theme.esm.js` | `SometicTheme` |
-| `@sometic/head` | `…/dist/cdn/sometic-head.esm.js` | `SometicHead` |
+| Package              | ESM                                   | IIFE global       |
+| -------------------- | ------------------------------------- | ----------------- |
+| `@sometic/http`      | `…/dist/cdn/sometic-http.esm.js`      | `SometicHttp`     |
+| `@sometic/query`     | `…/dist/cdn/sometic-query.esm.js`     | `SometicQuery`    |
+| `@sometic/auth`      | `…/dist/cdn/sometic-auth.esm.js`      | `SometicAuth`     |
+| `@sometic/store`     | `…/dist/cdn/sometic-store.esm.js`     | `SometicStore`    |
+| `@sometic/theme`     | `…/dist/cdn/sometic-theme.esm.js`     | `SometicTheme`    |
+| `@sometic/head`      | `…/dist/cdn/sometic-head.esm.js`      | `SometicHead`     |
 | `@sometic/app-shell` | `…/dist/cdn/sometic-app-shell.esm.js` | `SometicAppShell` |
 
 Example (HTTP):

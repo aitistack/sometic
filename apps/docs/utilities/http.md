@@ -94,13 +94,13 @@ const users = await http.get("/users");
 http.dispose();
 ```
 
-
 ```js [CDN]
 import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
 
 const http = createHttp({ baseUrl: "/api" });
 const me = await http.get("/me");
 ```
+
 :::
 
 ### Auth refresh queue

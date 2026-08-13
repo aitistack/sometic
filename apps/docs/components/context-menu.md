@@ -79,6 +79,7 @@ for (const item of panel.querySelectorAll("[data-menuitem]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

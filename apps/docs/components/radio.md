@@ -103,13 +103,17 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <div role="radiogroup" aria-label="Plan">
     <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
     <sometic-radio name="plan" value="pro" checked aria-label="Pro"></sometic-radio>
 </div>
 ```
+
 :::
 
 ## Vue

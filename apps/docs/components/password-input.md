@@ -37,11 +37,7 @@ const revealed = ref(false);
 </script>
 
 <template>
-    <PasswordInput
-        v-model="value"
-        v-model:revealed="revealed"
-        autocomplete="current-password"
-    />
+    <PasswordInput v-model="value" v-model:revealed="revealed" autocomplete="current-password" />
 </template>
 ```
 
@@ -83,10 +79,14 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
 ```
+
 :::
 
 ## Vue

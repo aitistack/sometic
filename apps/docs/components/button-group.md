@@ -28,9 +28,9 @@ import { Button, ButtonGroup } from "@sometic/vue/button";
 
 <template>
     <ButtonGroup>
-  <Button>One</Button>
-  <Button>Two</Button>
-</ButtonGroup>
+        <Button>One</Button>
+        <Button>Two</Button>
+    </ButtonGroup>
 </template>
 ```
 
@@ -57,13 +57,17 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
     <sometic-button type="button">CSV</sometic-button>
     <sometic-button type="button">JSON</sometic-button>
 </sometic-button-group>
 ```
+
 :::
 
 ## Vue

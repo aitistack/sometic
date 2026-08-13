@@ -103,6 +103,7 @@ panel.replaceChildren(heading, retry);
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for status surfaces; these are resolve-only view models.

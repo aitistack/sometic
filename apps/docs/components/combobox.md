@@ -85,6 +85,7 @@ for (const option of list.querySelectorAll("[data-option]")) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

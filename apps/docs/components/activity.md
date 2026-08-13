@@ -93,6 +93,7 @@ const unsubscribe = activity.subscribe((entries) => console.log(entries.length))
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.

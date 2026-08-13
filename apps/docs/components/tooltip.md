@@ -89,13 +89,17 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-tooltip placement="top">
     <button type="button">Save</button>
     <div data-slot="content">Save (Ctrl+S)</div>
 </sometic-tooltip>
 ```
+
 :::
 
 ## Vue

@@ -90,11 +90,7 @@ const items = [
 </script>
 
 <template>
-    <Tree
-        :items="items"
-        default-value="tree"
-        :default-expanded="['docs', 'guide', 'components']"
-    />
+    <Tree :items="items" default-value="tree" :default-expanded="['docs', 'guide', 'components']" />
 </template>
 ```
 
@@ -142,6 +138,7 @@ for (const node of tree.getVisibleNodes()) {
 ```html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 ```
+
 :::
 
 ### Vue

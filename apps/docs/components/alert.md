@@ -48,10 +48,14 @@ el.textContent = "Profile saved.";
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
 ```
+
 :::
 
 ## Vue

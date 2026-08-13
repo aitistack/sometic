@@ -68,7 +68,10 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
      element's internal parts or prefer React/Vue Field for full chrome props. -->
@@ -76,6 +79,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
     <sometic-input type="email" name="email"></sometic-input>
 </sometic-field>
 ```
+
 :::
 
 ## Vue

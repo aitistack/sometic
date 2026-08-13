@@ -67,13 +67,17 @@ bindSelect(select, () => ({
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-select>
     <option value="a">Alpha</option>
     <option value="b">Beta</option>
 </sometic-select>
 ```
+
 :::
 
 > React `SelectProps` requires an `options: readonly SelectOption[]` array. You may still pass `children` to override the generated `<option>` list (as in the Usage snippet). Prefer `options={…}` for data-driven lists.

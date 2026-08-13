@@ -6,6 +6,8 @@ coverage
 .vitepress/dist
 apps/docs/.vitepress/cache
 apps/docs/.vitepress/dist
+apps/docs/public/cdn/*.js
+apps/docs/public/cdn/*.js.map
 pnpm-lock.yaml
 playwright-report
 test-results

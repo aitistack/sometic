@@ -49,11 +49,15 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```
 
 ```html [CDN]
-<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
 <sometic-progress></sometic-progress>
 ```
+
 :::
 
 Omit `value` on the custom element for indeterminate (engine treats missing value as indeterminate). React can also pass `indeterminate`.

@@ -154,12 +154,12 @@ observer.destroy();
 queryClient.dispose();
 ```
 
-
 ```js [CDN]
 import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
 
 const client = createQueryClient();
 ```
+
 :::
 
 ## Query keys
