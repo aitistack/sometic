@@ -103,7 +103,8 @@ export function createHistoryController(
                     result,
                     undo: entry.undo as (result: unknown) => void | Promise<void>,
                     redo:
-                        (entry.redo as ((result: unknown) => unknown | Promise<unknown>) | undefined) ??
+                        (entry.redo as
+                            ((result: unknown) => unknown | Promise<unknown>) | undefined) ??
                         (async () => entry.execute()),
                 });
                 while (undoStack.length > maxDepth) {

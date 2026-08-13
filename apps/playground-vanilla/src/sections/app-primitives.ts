@@ -4,10 +4,7 @@ import {
     clientWinsStrategy,
     serverWinsStrategy,
 } from "@sometic/conflict";
-import {
-    createDraftController,
-    createMemoryDraftStorage,
-} from "@sometic/drafts";
+import { createDraftController, createMemoryDraftStorage } from "@sometic/drafts";
 import { createFeatureFlagController } from "@sometic/feature-flags";
 import { createHistoryController } from "@sometic/history";
 import {

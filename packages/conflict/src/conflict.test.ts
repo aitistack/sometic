@@ -18,9 +18,7 @@ describe("built-in conflict strategies", () => {
             status: "open" as const,
         };
         expect(lastWriteWinsStrategy.resolve(base)).toBe("remote");
-        expect(
-            lastWriteWinsStrategy.resolve({ ...base, localUpdatedAt: 30 }),
-        ).toBe("local");
+        expect(lastWriteWinsStrategy.resolve({ ...base, localUpdatedAt: 30 })).toBe("local");
         expect(clientWinsStrategy.resolve(base)).toBe("local");
         expect(serverWinsStrategy.resolve(base)).toBe("remote");
     });
@@ -82,9 +80,9 @@ describe("createConflictController", () => {
     });
 
     it("registers custom strategies and rejects duplicates and unknown defaults", () => {
-        expect(() =>
-            createConflictController({ defaultStrategyId: "missing" }),
-        ).toThrow(/Unknown default strategy/);
+        expect(() => createConflictController({ defaultStrategyId: "missing" })).toThrow(
+            /Unknown default strategy/,
+        );
 
         const conflicts = createConflictController({
             strategies: [
@@ -125,9 +123,7 @@ describe("createConflictController", () => {
 
     it("rejects invalid keys and unknown conflict ids", () => {
         const conflicts = createConflictController();
-        expect(() =>
-            conflicts.open({ key: " ", local: 1, remote: 2 }),
-        ).toThrow(/non-empty string/);
+        expect(() => conflicts.open({ key: " ", local: 1, remote: 2 })).toThrow(/non-empty string/);
         expect(() => conflicts.resolve("missing")).toThrow(/Unknown conflict/);
         expect(() => conflicts.resolveWith("missing", 1)).toThrow(/Unknown conflict/);
         const opened = conflicts.open({ key: "ok", local: 1, remote: 2 });
@@ -162,9 +158,7 @@ describe("createConflictController", () => {
 
         conflicts.dispose();
         expect(conflicts.disposed).toBe(true);
-        expect(() => conflicts.open({ key: "doc", local: 1, remote: 2 })).toThrow(
-            /disposed/,
-        );
+        expect(() => conflicts.open({ key: "doc", local: 1, remote: 2 })).toThrow(/disposed/);
         expect(() => conflicts.list()).toThrow(/disposed/);
         expect(() => conflicts.subscribe(() => undefined)).toThrow(/disposed/);
     });

@@ -52,8 +52,8 @@ describe("createLocalStorageDraftStorage", () => {
             },
         });
 
-        storage.setItem("draft", "{\"ok\":true}");
-        expect(storage.getItem("draft")).toBe("{\"ok\":true}");
+        storage.setItem("draft", '{"ok":true}');
+        expect(storage.getItem("draft")).toBe('{"ok":true}');
         storage.removeItem("draft");
         expect(storage.getItem("draft")).toBeNull();
     });
@@ -124,10 +124,7 @@ describe("createDraftController", () => {
 
     it("returns null for version mismatch without migrate, and migrates when provided", async () => {
         const map = new Map<string, string>();
-        map.set(
-            "doc",
-            JSON.stringify({ version: 1, savedAt: 1, values: { title: "old" } }),
-        );
+        map.set("doc", JSON.stringify({ version: 1, savedAt: 1, values: { title: "old" } }));
         let values = { title: "" };
         const withoutMigrate = createDraftController({
             key: "doc",

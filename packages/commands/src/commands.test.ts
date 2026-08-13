@@ -39,17 +39,17 @@ describe("createCommandRegistry", () => {
 
     it("rejects invalid and duplicate ids", () => {
         const registry = createCommandRegistry();
-        expect(() =>
-            registry.register({ id: " ", execute: () => undefined }),
-        ).toThrow(/non-empty string/);
-        expect(() =>
-            registry.register({ id: "", execute: () => undefined }),
-        ).toThrow(/non-empty string/);
+        expect(() => registry.register({ id: " ", execute: () => undefined })).toThrow(
+            /non-empty string/,
+        );
+        expect(() => registry.register({ id: "", execute: () => undefined })).toThrow(
+            /non-empty string/,
+        );
 
         registry.register({ id: "save", execute: () => undefined });
-        expect(() =>
-            registry.register({ id: "save", execute: () => undefined }),
-        ).toThrow(/already registered/);
+        expect(() => registry.register({ id: "save", execute: () => undefined })).toThrow(
+            /already registered/,
+        );
         registry.dispose();
     });
 
@@ -116,9 +116,7 @@ describe("createCommandRegistry", () => {
         expect(() => unregister()).not.toThrow();
         expect(() => registry.has("save")).toThrow(/disposed/);
         expect(() => registry.list()).toThrow(/disposed/);
-        expect(() => registry.register({ id: "x", execute: () => undefined })).toThrow(
-            /disposed/,
-        );
+        expect(() => registry.register({ id: "x", execute: () => undefined })).toThrow(/disposed/);
         expect(() => registry.subscribe(() => undefined)).toThrow(/disposed/);
     });
 });

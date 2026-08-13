@@ -1,6 +1,4 @@
-export {
-    createFeatureFlagController,
-} from "./feature-flags.js";
+export { createFeatureFlagController } from "./feature-flags.js";
 export type {
     CreateFeatureFlagControllerOptions,
     FeatureFlagController,

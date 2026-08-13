@@ -5,9 +5,9 @@ export default createTsupConfig({
         index: "src/index.ts",
     },
     external: [
-    "@sometic/core",
-    "@sometic/core/disposable",
-    "@sometic/core/error",
-    "@sometic/core/id"
-],
+        "@sometic/core",
+        "@sometic/core/disposable",
+        "@sometic/core/error",
+        "@sometic/core/id",
+    ],
 });

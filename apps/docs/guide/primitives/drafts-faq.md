@@ -36,4 +36,4 @@ Import is safe. Do not call `createLocalStorageDraftStorage()` at module top lev
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives) · [Forms persistence](/forms/persistence)
+[Comparison](/guide/primitives/drafts-comparison) · [App primitives](/guide/app-primitives) · [Forms persistence](/forms/persistence)

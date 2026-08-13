@@ -3,12 +3,7 @@ import { createError } from "@sometic/core/error";
 import { createPrefixedId } from "@sometic/core/id";
 import type { ConflictController } from "@sometic/conflict";
 
-export type OfflineQueueJobStatus =
-    | "pending"
-    | "flushing"
-    | "failed"
-    | "completed"
-    | "cancelled";
+export type OfflineQueueJobStatus = "pending" | "flushing" | "failed" | "completed" | "cancelled";
 
 export type OfflineQueueJob<TVariables = unknown> = {
     id: string;
@@ -59,9 +54,7 @@ export type OfflineMutationQueue<TVariables = unknown, TResult = unknown> = {
     dispose: () => void;
 };
 
-export function createMemoryOfflineQueueStorage(
-    seed: OfflineQueueJob[] = [],
-): OfflineQueueStorage {
+export function createMemoryOfflineQueueStorage(seed: OfflineQueueJob[] = []): OfflineQueueStorage {
     let jobs = seed.map((job) => ({ ...job }));
     return {
         load: () => jobs.map((job) => ({ ...job })),
@@ -281,8 +274,7 @@ export function createOfflineMutationQueue<TVariables = unknown, TResult = unkno
         },
         size() {
             assertActive();
-            return jobs.filter((job) => job.status === "pending" || job.status === "failed")
-                .length;
+            return jobs.filter((job) => job.status === "pending" || job.status === "failed").length;
         },
         subscribe(listener) {
             assertActive();

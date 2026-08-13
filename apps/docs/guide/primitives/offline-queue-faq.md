@@ -30,4 +30,4 @@ A second `flush` while one is in progress throws `OFFLINE_QUEUE_FLUSH_IN_PROGRES
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives) · [App Shell](/guide/app-shell) · [Conflict FAQ](/packages/conflict/faq)
+[Comparison](/guide/primitives/offline-queue-comparison) · [App primitives](/guide/app-primitives) · [App Shell](/guide/app-shell) · [Conflict FAQ](/guide/primitives/conflict-faq)

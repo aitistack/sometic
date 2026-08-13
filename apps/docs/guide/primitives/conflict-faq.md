@@ -26,4 +26,4 @@ Resolving an already resolved conflict returns the existing record.
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives) · [Offline queue FAQ](/packages/offline-queue/faq)
+[Comparison](/guide/primitives/conflict-comparison) · [App primitives](/guide/app-primitives) · [Offline queue FAQ](/guide/primitives/offline-queue-faq)

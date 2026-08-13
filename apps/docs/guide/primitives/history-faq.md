@@ -26,8 +26,8 @@ Operations are serialized on an internal promise chain so reentrancy cannot corr
 
 ## Is this an audit log?
 
-No. Use [`@sometic/activity`](/packages/activity/faq) for append-only timelines. History is a reversible local stack.
+No. Use `@sometic/activity` for append-only timelines (see the Activity component docs). History is a reversible local stack.
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives) · [Commands FAQ](/packages/commands/faq)
+[Comparison](/guide/primitives/history-comparison) · [App primitives](/guide/app-primitives) · [Commands FAQ](/guide/primitives/commands-faq)

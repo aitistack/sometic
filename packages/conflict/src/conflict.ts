@@ -38,10 +38,7 @@ export type ConflictController = {
         remoteUpdatedAt?: number;
         id?: string;
     }) => ConflictRecord<TValue>;
-    resolve: <TValue = unknown>(
-        id: string,
-        strategyId?: string,
-    ) => ConflictRecord<TValue>;
+    resolve: <TValue = unknown>(id: string, strategyId?: string) => ConflictRecord<TValue>;
     resolveWith: <TValue>(id: string, value: TValue) => ConflictRecord<TValue>;
     get: (id: string) => ConflictRecord | undefined;
     list: (status?: ConflictRecord["status"]) => ConflictRecord[];
@@ -111,8 +108,7 @@ export function createConflictController(
         }
     };
 
-    const snapshot = (): ConflictRecord[] =>
-        [...conflicts.values()].map((item) => ({ ...item }));
+    const snapshot = (): ConflictRecord[] => [...conflicts.values()].map((item) => ({ ...item }));
 
     const emit = (): void => {
         const next = snapshot();
