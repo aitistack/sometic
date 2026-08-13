@@ -8,7 +8,7 @@ Why it exists: an audit trail looks trivial until you need cursor pagination tha
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) only. No browser globals at import time, so it is safe in SSR, workers, and Node.
 
-Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [https://sometic.aitistack.com](https://sometic.aitistack.com).
+Docs: [introduction](https://sometic.dev/guide/introduction) and [https://sometic.dev](https://sometic.dev).
 
 ## Install
 
@@ -69,7 +69,7 @@ Skip it when the feed is a plain server rendered list with no client filtering o
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
+- [Introduction](https://sometic.dev/guide/introduction)
 - [Notifications](https://www.npmjs.com/package/@sometic/notifications)
 
 ## License

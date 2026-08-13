@@ -12,6 +12,14 @@ Filter AST behavior from `@sometic/query-builder`: nested and/or groups, sixteen
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/query-builder (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/query-builder (same API as Vanilla). -->
+```
+
 ```js [JS]
 import {
     createQueryBuilderController,
@@ -42,37 +50,6 @@ builder.addRule(undefined, { field: "role", operator: "equals", value: "Admin" }
 const unsubscribe = builder.subscribe((ast) => {
     console.log(builder.validate().valid, toDataTableFilters(ast));
 });
-```
-
-```ts [TS]
-import {
-    createQueryBuilderController,
-    defaultOperatorsForFieldType,
-    toDataTableFilters,
-    type QueryBuilderController,
-    type QueryBuilderField,
-    type DataTableFilterLike,
-} from "@sometic/query-builder";
-
-const fields: QueryBuilderField[] = [
-    {
-        id: "name",
-        label: "Name",
-        type: "string",
-        operators: defaultOperatorsForFieldType("string"),
-    },
-    {
-        id: "role",
-        label: "Role",
-        type: "string",
-        operators: defaultOperatorsForFieldType("string"),
-    },
-];
-
-const builder: QueryBuilderController = createQueryBuilderController({ fields });
-builder.addRule(undefined, { field: "name", operator: "contains", value: "Person" });
-
-const filters: DataTableFilterLike[] = toDataTableFilters(builder.getValue());
 ```
 
 ```html [Vanilla]
@@ -140,6 +117,13 @@ const filters: DataTableFilterLike[] = toDataTableFilters(builder.getValue());
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.

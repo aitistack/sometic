@@ -1,5 +1,5 @@
-Contact: https://github.com/aitistack
+Contact: https://github.com/aitistack/sometic/security
 Preferred-Languages: en
-Canonical: https://sometic.aitistack.com/legal/security
-Policy: https://sometic.aitistack.com/legal/security
+Canonical: https://sometic.dev/legal/security
+Policy: https://sometic.dev/legal/security
 Expires: 2027-08-06T00:00:00.000Z

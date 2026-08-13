@@ -8,5 +8,5 @@ Rules:
 - Nestable patches by id; not a React-only Helmet fork; same engine across stacks
 - Do not hardcode framework-only head APIs if the app may grow Vanilla/CE surfaces
 
-Docs: https://sometic.aitistack.com/utilities/head
+Docs: https://sometic.dev/utilities/head
 Scaffold title/meta patches for a page with SSR serialization in mind.

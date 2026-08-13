@@ -8,7 +8,7 @@ Choose this when your codebase already standardizes on date-fns formatting and a
 
 Standout behavior: ISO/`yyyy-MM-dd` parsing paths, format tokens via date-fns `format`, and `assertDateAdapter` on construction. `DateAdapterOptions` are accepted for contract symmetry with other adapters.
 
-Related: [`@sometic/date-core`](https://www.npmjs.com/package/@sometic/date-core), [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native), [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [date primitives](https://sometic.aitistack.com/primitives/date).
+Related: [`@sometic/date-core`](https://www.npmjs.com/package/@sometic/date-core), [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native), [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [date primitives](https://sometic.dev/primitives/date).
 
 ## Install
 
@@ -54,9 +54,9 @@ Do not install this adapter unless you already want date-fns in the dependency g
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Date primitives](https://sometic.aitistack.com/primitives/date)
-- [Date packages](https://sometic.aitistack.com/packages/date/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Date primitives](https://sometic.dev/primitives/date)
+- [Date packages](https://sometic.dev/packages/date/)
 
 ## License
 

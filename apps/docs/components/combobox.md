@@ -8,7 +8,7 @@ Combobox root with `role="combobox"`, `aria-expanded`, and `aria-haspopup="listb
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Combobox } from "@sometic/react/selection";
 
@@ -23,19 +23,8 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Combobox } from "@sometic/react/selection";
-
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState<string | null>(null);
-    return (
-        <Combobox open={open} onOpenChange={setOpen} value={value} onValueChange={setValue}>
-            {value ?? "Pick a framework"}
-        </Combobox>
-    );
-}
+```vue [Vue]
+<!-- Vue adapter not shipped for this surface yet. Use React or @sometic/dom (Vanilla). -->
 ```
 
 ```js [Vanilla]
@@ -89,6 +78,13 @@ for (const option of list.querySelectorAll("[data-option]")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

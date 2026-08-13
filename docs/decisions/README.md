@@ -21,5 +21,7 @@
 | [ADR-0017](./ADR-0017-sometic-product-identity.md)           | Sometic product identity (current)    | Accepted               |
 | [ADR-0018](./ADR-0018-data-business-package-map.md)          | Data & business package map           | Accepted               |
 | [ADR-0019](./ADR-0019-upload-transport-boundary.md)          | Upload transport boundary             | Accepted               |
+| [ADR-0020](./ADR-0020-elements-cdn-browser-bundles.md)       | Elements CDN browser bundles          | Accepted               |
+| [ADR-0021](./ADR-0021-system-engine-cdn-browser-bundles.md)  | System engine CDN browser bundles     | Accepted               |
 
 Template: use the ADR template kept by maintainers (not published in this repository).

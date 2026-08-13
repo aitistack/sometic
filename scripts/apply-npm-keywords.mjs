@@ -87,7 +87,7 @@ for (const entry of fs.readdirSync(packagesDir, { withFileTypes: true })) {
         }
     }
     pkg.bugs.url = "https://github.com/aitistack/sometic/issues";
-    pkg.homepage = "https://sometic.aitistack.com";
+    pkg.homepage = "https://sometic.dev";
 
     fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 4)}\n`, "utf8");
     updated += 1;

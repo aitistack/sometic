@@ -1,8 +1,37 @@
 # Quick start
 
-Sometic is a **behavior system**, not a styled component kit. Start by wiring an adapter, then attach app services (auth / HTTP / head). UI engines are included. They are not the product story.
+Sometic is a **behavior system**, not a styled component kit. Start with the **app spine**, then mount the same UI engine through React, Vue, and Web Components.
 
-## 1. Pick an adapter
+## 1. App spine (the differentiator)
+
+```bash
+pnpm add @sometic/app-shell @sometic/auth @sometic/http @sometic/query @sometic/auth-local
+```
+
+```ts
+import { createAuth } from "@sometic/auth";
+import { createLocalAuthProvider } from "@sometic/auth-local";
+import { createSometicApp } from "@sometic/app-shell";
+
+const auth = createAuth({
+    provider: createLocalAuthProvider({ baseUrl: "https://api.example.com" }),
+});
+
+const app = createSometicApp({
+    auth,
+    baseUrl: "https://api.example.com",
+});
+
+app.whenReauth(() => {
+    console.log("session epoch", app.epoch);
+});
+
+const me = await app.http.get("/me");
+```
+
+`createSometicApp` wraps [`createAppShell`](/guide/app-shell): auth-aware HTTP, query client, and session epoch. Engine-level APIs (`createHttp`, `createQueryClient`) remain available when you need them.
+
+## 2. Same button, three surfaces
 
 ### React
 
@@ -12,14 +41,11 @@ pnpm add @sometic/react @sometic/dom
 
 ```tsx
 import { Button } from "@sometic/react/button";
-import { Tabs, TabTrigger, TabPanel } from "@sometic/react/structure";
 
 export function Save() {
     return <Button type="button">Save</Button>;
 }
 ```
-
-The React package is a **thin shell**. State, focus, and interaction live in shared engines. The same ones Vue and custom elements use.
 
 ### Vue
 
@@ -30,19 +56,12 @@ pnpm add @sometic/vue @sometic/dom
 ```vue
 <script setup lang="ts">
 import { Button } from "@sometic/vue/button";
-import { Tabs, TabTrigger, TabPanel } from "@sometic/vue/structure";
 </script>
 
 <template>
     <Button type="button">Save</Button>
-    <Tabs default-value="overview">
-        <TabTrigger value="overview">Overview</TabTrigger>
-        <TabPanel value="overview">Portable tab selection with ARIA resolve.</TabPanel>
-    </Tabs>
 </template>
 ```
-
-The Vue package is the same thin shell: engines in `@sometic/dom`, Vue owns templates and reactivity.
 
 ### Vanilla / Web Components
 
@@ -51,70 +70,50 @@ pnpm add @sometic/elements @sometic/dom
 ```
 
 ```ts
-import { defineButtonElements } from "@sometic/elements/button";
+import { registerButtonElements } from "@sometic/elements/button";
 
-defineButtonElements();
+registerButtonElements();
 ```
 
 ```html
 <sometic-button type="button">Save</sometic-button>
 ```
 
-## 2. Add app services (the differentiator)
+Or load the **CDN bundle** for shipped elements (see [Installation](/guide/installation#cdn-web-components)).
 
-### HTTP with auth refresh awareness
+## 3. Document head / theme (optional)
 
 ```bash
-pnpm add @sometic/http @sometic/auth
+pnpm add @sometic/head @sometic/theme
 ```
 
 ```ts
-import { createHttp } from "@sometic/http";
-
-const http = createHttp({
-    baseUrl: "https://api.example.com",
-});
-```
-
-See [HTTP](/utilities/http) and [Authentication](/authentication/).
-
-### Document head / SEO
-
-```bash
-pnpm add @sometic/head
-```
-
-```ts
-import { createHeadController, serializeHead } from "@sometic/head";
+import { createHeadController } from "@sometic/head";
+import { createThemeController, applyThemeToElement } from "@sometic/theme";
 
 const head = createHeadController({
     initial: { titleTemplate: "%s | My App" },
 });
 head.set("home", { title: "Home" });
-```
-
-React: `@sometic/react/head` (`HeadProvider`, `useHead`). Vue: `@sometic/vue/head`. See [Head / SEO](/utilities/head).
-
-### Theme (optional tokens, still your CSS)
-
-```ts
-import { createThemeController, applyThemeToElement } from "@sometic/theme";
 
 const theme = createThemeController({ defaultMode: "system" });
 applyThemeToElement(document.documentElement, theme.get());
 ```
 
-## 3. Read the model
+React: `@sometic/react/head`. Vue: `@sometic/vue/head`. See [Head / SEO](/utilities/head).
 
-Before browsing every component:
+## 4. Read the model
 
-1. [Architecture](/concepts/architecture)
-2. [Why Sometic](/guide/why-sometic)
-3. [Comparison](/guide/comparison)
-4. [Bundlers](/concepts/bundlers)
+1. [App shell](/guide/app-shell)
+2. [Architecture](/concepts/architecture)
+3. [Why Sometic](/guide/why-sometic)
+4. [Comparison](/guide/comparison)
+5. [What’s included](/guide/whats-included)
 
 ## Related
 
 - [Installation](/guide/installation)
-- [What’s included](/guide/whats-included)
+- [Authentication](/authentication/)
+- [HTTP](/utilities/http)
+- [Query](/utilities/query)
 - [Styling](/guide/styling)

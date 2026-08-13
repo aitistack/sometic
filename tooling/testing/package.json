@@ -7,5 +7,5 @@
         "./vitest": "./vitest.shared.mjs"
     },
     "description": "Shared Vitest testing configuration for Sometic packages.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

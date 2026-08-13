@@ -1,7 +1,7 @@
 # Terms of use
 
 **Last updated:** 6 August 2026  
-**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com) (the “Site”) and your use of publicly distributed Sometic packages.
+**Applies to:** the Sometic documentation website at [sometic.dev](https://sometic.dev) (the “Site”) and your use of publicly distributed Sometic packages.
 
 These Terms of Use (“Terms”) are a professional baseline for a free, open-source documentation Site. They are **not** a substitute for the [MIT license](/legal/license) that governs the software packages, and they are **not** legal advice.
 
@@ -21,7 +21,7 @@ You agree not to:
 
 - Attempt to disrupt, overload, or compromise the Site or its hosting infrastructure
 - Scrape the Site in a way that degrades service for others (reasonable automated access for indexing tools that respect `robots.txt` is fine)
-- Misrepresent affiliation with Sometic or AitiStack
+- Misrepresent affiliation with Sometic
 - Use the Site to distribute malware or unlawful content
 - Probe or attack systems beyond authorized security research described in [Security](/legal/security)
 
@@ -35,7 +35,7 @@ TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SITE AND THE SOFTWARE ARE PROVIDED *
 
 ## 6. Limitation of liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, AITISTACK AND CONTRIBUTORS ARE NOT LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SITE OR THE SOFTWARE—EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, SOMETIC AND CONTRIBUTORS ARE NOT LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SITE OR THE SOFTWARE—EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 Where liability cannot be excluded, it is limited to the greater of (a) fees you paid us for the Site in the prior 12 months (typically **zero**, because the Site is free) or (b) the minimum amount required by applicable law.
 
@@ -45,7 +45,7 @@ You are solely responsible for applications you build with Sometic packages, inc
 
 ## 8. Trademarks and branding
 
-“Sometic”, “AitiStack”, and related logos are brand assets. You may refer to Sometic factually (for example “built with Sometic”). Do not imply endorsement or use logos in a misleading way without permission.
+“Sometic” and related logos are brand assets. You may refer to Sometic factually (for example “built with Sometic”). Do not imply endorsement or use logos in a misleading way without permission.
 
 ## 9. Third-party content
 

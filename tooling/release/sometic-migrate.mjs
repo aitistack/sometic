@@ -50,7 +50,7 @@ function shouldProcess(file) {
 }
 
 const replacements = [
-    ["@aitistack/", "@sometic/"],
+    ["@sometic/", "@sometic/"],
     ["aiti-button", "sometic-button"],
     ["aiti-icon-button", "sometic-icon-button"],
     ["aiti-toggle-button", "sometic-toggle-button"],

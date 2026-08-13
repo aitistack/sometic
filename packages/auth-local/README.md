@@ -8,7 +8,7 @@ The adapter exists so application code can call `createAuth({ provider })` witho
 
 Standout options: `baseUrl`, per-route `endpoints`, injectable `fetcher`, and tolerant token field names (`accessToken` / `access_token`, `expiresIn` / `expires_in`). Failed credential responses surface as typed `AUTH_CREDENTIALS_INVALID` errors from `@sometic/auth`.
 
-Use with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), optionally [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) for API calls after login, and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) foundations. Product docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [auth providers](https://sometic.aitistack.com/packages/auth-providers/).
+Use with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), optionally [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) for API calls after login, and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) foundations. Product docs: [introduction](https://sometic.dev/guide/introduction) and [auth providers](https://sometic.dev/packages/auth-providers/).
 
 ## Install
 
@@ -72,10 +72,10 @@ Prefer [`@sometic/auth-oidc`](https://www.npmjs.com/package/@sometic/auth-oidc) 
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Auth providers](https://sometic.aitistack.com/packages/auth-providers/)
-- [Auth package](https://sometic.aitistack.com/packages/auth/)
-- [Authentication](https://sometic.aitistack.com/authentication/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Auth providers](https://sometic.dev/packages/auth-providers/)
+- [Auth package](https://sometic.dev/packages/auth/)
+- [Authentication](https://sometic.dev/authentication/)
 
 ## License
 

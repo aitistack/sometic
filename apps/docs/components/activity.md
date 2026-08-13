@@ -12,6 +12,14 @@ Activity is an audit-style feed (Event N in the preview), not an inbox. Use [Not
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/activity (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/activity (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { createActivityController } from "@sometic/activity";
 
@@ -27,30 +35,6 @@ activity.append({
 
 const firstPage = activity.getPage({ limit: 10, filter: { resourceId: "post-42" } });
 const unsubscribe = activity.subscribe((entries) => console.log(entries.length));
-```
-
-```ts [TS]
-import {
-    createActivityController,
-    type ActivityController,
-    type ActivityEntry,
-    type ActivityPage,
-} from "@sometic/activity";
-
-const activity: ActivityController = createActivityController({
-    pageSize: 10,
-    maxEntries: 500,
-});
-
-activity.append({
-    type: "update",
-    message: "Event 1",
-    actorId: "demo",
-    resourceId: "post-42",
-});
-
-const page: ActivityPage = activity.getPage({ limit: 10 });
-const entries: ActivityEntry[] = page.items;
 ```
 
 ```html [Vanilla]
@@ -102,6 +86,13 @@ const entries: ActivityEntry[] = page.items;
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.

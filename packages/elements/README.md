@@ -8,7 +8,7 @@ These elements exist so Vanilla, HTMX-adjacent, and multi-framework teams can sh
 
 Standout features include grouped registration helpers (`registerButtonElements`, `registerInputElements`, `registerOverlayElements`, …), typed custom events (`SometicValueChangeDetail`, `SometicFormSubmitDetail`, `SometicOpenChangeDetail`), and subpath imports (`@sometic/elements/button`, `@sometic/elements/input`, `@sometic/elements/form`, `@sometic/elements/overlay`) so you only register the families you need. Side-effect imports define the `sometic-*` tags once per registry.
 
-Ecosystem placement: elements depend on [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms), [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation), and [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth) for status/form wiring, while foundation utilities come from [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Start with the [introduction](https://sometic.aitistack.com/guide/introduction) and the [Vanilla guide](https://sometic.aitistack.com/frameworks/vanilla).
+Ecosystem placement: elements depend on [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms), [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation), and [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth) for status/form wiring, while foundation utilities come from [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Start with the [introduction](https://sometic.dev/guide/introduction) and the [Vanilla guide](https://sometic.dev/frameworks/vanilla).
 
 ## Install
 
@@ -62,10 +62,10 @@ Prefer framework adapters ([`@sometic/react`](https://www.npmjs.com/package/@som
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Vanilla / Web Components](https://sometic.aitistack.com/frameworks/vanilla)
-- [DOM engines](https://sometic.aitistack.com/primitives/dom)
-- [Components](https://sometic.aitistack.com/components/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Vanilla / Web Components](https://sometic.dev/frameworks/vanilla)
+- [DOM engines](https://sometic.dev/primitives/dom)
+- [Components](https://sometic.dev/components/)
 
 ## License
 

@@ -48,7 +48,7 @@ VitePress docs are required but **not sufficient** for interactive / browser-vis
 - Canonical harness: `apps/playground-vanilla` (`pnpm playground:vanilla` → http://127.0.0.1:5190)
 - From Phase 7 onward, each new interactive module must extend the playground (or the matching framework playground) before the phase is marked complete
 - Phase plans and completion reports must list playground sections/files
-- Guide: contributor playground mandate in [Contributing](https://sometic.aitistack.com/guide/contributing) · project coding standards
+- Guide: contributor playground mandate in [Contributing](https://sometic.dev/guide/contributing) · project coding standards
 
 ## Package READMEs
 

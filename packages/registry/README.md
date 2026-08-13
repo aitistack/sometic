@@ -8,7 +8,7 @@ Deterministic scaffolding needs a single catalog. Checksums catch content drift.
 
 Standout exports: `REGISTRY_ITEMS`, `getRegistry`, `getRegistryItem`, `resolveItemFiles`, `resolveButtonFiles`, `createRegistryFile`, `checksumContent`, `verifyChecksums`, and `verifyRegistryChecksums`. Types cover `RegistryItem`, `RegistryFile`, `RegistryFramework`, `RegistryMode`, and `RegistryItemType`. Button files are resolved dynamically per framework/mode rather than stored as a single static list on the item.
 
-In the ecosystem this package is tooling infrastructure next to the CLI, not a runtime UI dependency. Product behavior still lives in engines and adapters rooted at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). CLI usage: [CLI](https://sometic.aitistack.com/guide/cli).
+In the ecosystem this package is tooling infrastructure next to the CLI, not a runtime UI dependency. Product behavior still lives in engines and adapters rooted at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). CLI usage: [CLI](https://sometic.dev/guide/cli).
 
 ## Install
 
@@ -61,9 +61,9 @@ verifyRegistryChecksums();
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [CLI](https://sometic.aitistack.com/guide/cli)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [CLI](https://sometic.dev/guide/cli)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

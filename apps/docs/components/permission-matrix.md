@@ -12,33 +12,7 @@ Cells are editable allow/deny overrides for admin chrome. The server (and `@some
 
 ::: code-group
 
-```jsx [JS]
-import { PermissionMatrix } from "@sometic/react/data";
-
-const resources = [
-    { id: "posts", label: "Posts" },
-    { id: "users", label: "Users" },
-];
-
-const actions = [
-    { id: "read", label: "Read" },
-    { id: "write", label: "Write" },
-];
-
-export function Example() {
-    return (
-        <PermissionMatrix
-            label="Editor role"
-            resources={resources}
-            actions={actions}
-            can={(resourceId, actionId) => actionId === "read"}
-            onValueChange={(value) => console.log(value)}
-        />
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import {
     PermissionMatrix,
     type PermissionMatrixAction,
@@ -67,6 +41,31 @@ export function Example(): JSX.Element {
         />
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { PermissionMatrix } from "@sometic/vue/data";
+
+const resources = [
+    { id: "posts", label: "Posts" },
+    { id: "users", label: "Users" },
+];
+const actions = [
+    { id: "read", label: "Read" },
+    { id: "write", label: "Write" },
+];
+</script>
+
+<template>
+    <PermissionMatrix
+        label="Editor role"
+        :resources="resources"
+        :actions="actions"
+        :can="(resourceId, actionId) => actionId === 'read'"
+        @value-change="(value) => console.log(value)"
+    />
+</template>
 ```
 
 ```html [Vanilla]
@@ -154,6 +153,13 @@ export function Example(): JSX.Element {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller or the React and Vue components.

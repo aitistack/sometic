@@ -2,7 +2,7 @@
 
 Thanks for helping improve Sometic. Changes land through pull requests with CI and maintainer review. Pushes to `main` are restricted.
 
-Full guide: **[Contributing](https://sometic.aitistack.com/guide/contributing)** (or `/guide/contributing` when running the docs site locally).
+Full guide: **[Contributing](https://sometic.dev/guide/contributing)** (or `/guide/contributing` when running the docs site locally).
 
 ## Requirements
 
@@ -48,7 +48,7 @@ pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size && pnpm pack
 
 ## Checklist
 
-1. Read [Architecture](https://sometic.aitistack.com/concepts/architecture) and [What’s included](https://sometic.aitistack.com/guide/whats-included)
+1. Read [Architecture](https://sometic.dev/concepts/architecture) and [What’s included](https://sometic.dev/guide/whats-included)
 2. Use pnpm and **four-space** indentation (never tabs or two spaces)
 3. Do not add comments in TypeScript implementation or test files
 4. Add tests and docs (including FAQ/comparison for public modules)

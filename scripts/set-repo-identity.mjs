@@ -15,7 +15,7 @@ function arg(name, fallback) {
 
 const org = arg("org", "aitistack");
 const repo = arg("repo", "sometic");
-const docs = arg("docs", "https://sometic.aitistack.com");
+const docs = arg("docs", "https://sometic.dev");
 
 if (org === "aitistack" && repo === "sometic") {
     console.warn(

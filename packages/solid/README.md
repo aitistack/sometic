@@ -8,7 +8,7 @@ Sometic separates engines from adapters. Solid should not own a second store imp
 
 Standout exports: `createSolidStoreBind` and `solidAdapterCapabilities` (`["storeBind"]`). From Solid components you can bridge `subscribe` into signals or effects you create; the bind does not invent a parallel Solid store API beyond the documented methods.
 
-Ecosystem placement: Wave B with Angular, Svelte, and Preact. Shared contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Primitives: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [Solid](https://sometic.aitistack.com/frameworks/solid).
+Ecosystem placement: Wave B with Angular, Svelte, and Preact. Shared contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Primitives: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [Solid](https://sometic.dev/frameworks/solid).
 
 ## Install
 
@@ -60,10 +60,10 @@ console.log([...solidAdapterCapabilities]); // ["storeBind"]
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Solid](https://sometic.aitistack.com/frameworks/solid)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Solid](https://sometic.dev/frameworks/solid)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

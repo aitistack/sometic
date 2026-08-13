@@ -8,7 +8,7 @@ Sometic’s product promise is one behavior model for UI, forms, auth, HTTP, and
 
 Standout surfaces ship as tree-shakeable subpaths: button family (`Button`, `IconButton`, `ToggleButton`, `AsyncButton`, `ButtonGroup`), field and input variants, `useForm` / `Form` / `FormProvider` / field helpers, auth composables (`useAuth`, `useSession`, `useCan`), `useHttp`, `useStore`, selection controls, overlays such as `Dialog`, `Popover`, `Tooltip`, and `ToastRegion`, and structure (`Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, `Tree`, plus `Badge`, `Progress`, `Spinner`, `Skeleton`) from `@sometic/vue/structure`. Prefer `@sometic/vue/button` (and siblings) when you only need one module.
 
-In the ecosystem, Vue sits with React and Web Components as a production adapter target above [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and engines like [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Adapter model: [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters).
+In the ecosystem, Vue sits with React and Web Components as a production adapter target above [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and engines like [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom). Product overview: [Introduction](https://sometic.dev/guide/introduction). Adapter model: [Framework adapters](https://sometic.dev/concepts/framework-adapters).
 
 ## Install
 
@@ -91,10 +91,10 @@ Auth composables live under `@sometic/vue/auth` (`useAuth`, `useSession`, `useCa
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Vue](https://sometic.aitistack.com/frameworks/vue)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Vue](https://sometic.dev/frameworks/vue)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

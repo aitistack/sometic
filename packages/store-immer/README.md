@@ -8,7 +8,7 @@ Sometic keeps the core store free of Immer so most apps never pay for draft mach
 
 Out of the box you get typed `ImmerUpdater` drafts, full `DisposableStore` compatibility, and the same `CreateStoreOptions` (including custom equality) as the base store. There is no persistence or cross-tab logic here: compose with `@sometic/store/persistent` and related subpaths when you need those features on a plain store, or wrap only the in-memory slice that benefits from Immer.
 
-In the ecosystem, install this only when Immer is already (or will be) a peer in your app. It sits beside [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) and ultimately [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Theme, auth, and forms do not require it. Product context: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction).
+In the ecosystem, install this only when Immer is already (or will be) a peer in your app. It sits beside [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) and ultimately [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Theme, auth, and forms do not require it. Product context: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -74,9 +74,9 @@ Peer dependencies: [`@sometic/store`](https://www.npmjs.com/package/@sometic/sto
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Immer adapter: [https://sometic.aitistack.com/stores/store-immer](https://sometic.aitistack.com/stores/store-immer)
-- Store: [https://sometic.aitistack.com/stores/store](https://sometic.aitistack.com/stores/store)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Immer adapter: [https://sometic.dev/stores/store-immer](https://sometic.dev/stores/store-immer)
+- Store: [https://sometic.dev/stores/store](https://sometic.dev/stores/store)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Store-immer on npm: [https://www.npmjs.com/package/@sometic/store-immer](https://www.npmjs.com/package/@sometic/store-immer)
 

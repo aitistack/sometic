@@ -8,20 +8,7 @@ Determinate or indeterminate progressbar. Resolve emits `role="progressbar"`, `a
 
 ::: code-group
 
-```tsx [JS]
-import { Progress } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <>
-            <Progress value={64} max={100} />
-            <Progress indeterminate />
-        </>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Progress } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -34,7 +21,25 @@ export function Example(): JSX.Element {
 }
 ```
 
-```html [Vanilla]
+```vue [Vue]
+<script setup>
+import { Progress } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Progress :value="64" :max="100" />
+    <Progress indeterminate />
+</template>
+```
+
+```js [Vanilla]
+import { resolveProgress } from "@sometic/dom/progress";
+
+const determinate = resolveProgress({ value: 64, max: 100 });
+const indeterminate = resolveProgress({ indeterminate: true });
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import "@sometic/elements/structure";
 </script>
@@ -43,6 +48,12 @@ export function Example(): JSX.Element {
 <sometic-progress></sometic-progress>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-progress value="64" max="100"></sometic-progress>
+<sometic-progress></sometic-progress>
+```
 :::
 
 Omit `value` on the custom element for indeterminate (engine treats missing value as indeterminate). React can also pass `indeterminate`.

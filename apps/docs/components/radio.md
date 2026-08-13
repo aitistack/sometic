@@ -8,7 +8,7 @@ Native radio input resolved through the shared styling contract. Group value is 
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Radio } from "@sometic/react/selection";
 
@@ -35,34 +35,62 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Radio } from "@sometic/react/selection";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Radio } from "@sometic/vue/selection";
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState("pro");
-    return (
-        <div role="radiogroup" aria-label="Plan">
-            <Radio
-                name="plan"
-                value="free"
-                checked={value === "free"}
-                onValueChange={setValue}
-                aria-label="Free"
-            />
-            <Radio
-                name="plan"
-                value="pro"
-                checked={value === "pro"}
-                onValueChange={setValue}
-                aria-label="Pro"
-            />
-        </div>
-    );
+const value = ref("pro");
+</script>
+
+<template>
+    <div role="radiogroup" aria-label="Plan">
+        <Radio
+            name="plan"
+            value="free"
+            :checked="value === 'free'"
+            aria-label="Free"
+            @value-change="value = $event"
+        />
+        <Radio
+            name="plan"
+            value="pro"
+            :checked="value === 'pro'"
+            aria-label="Pro"
+            @value-change="value = $event"
+        />
+    </div>
+</template>
+```
+
+```js [Vanilla]
+import { createRadioGroupController } from "@sometic/dom/radio";
+
+const group = createRadioGroupController({
+    name: "plan",
+    defaultValue: "pro",
+    onValueChange(next) {
+        console.log(next);
+    },
+});
+
+for (const input of document.querySelectorAll('input[type="radio"][name="plan"]')) {
+    const apply = () => {
+        const view = group.resolveItem(input.value);
+        input.checked = view.checked;
+        for (const [key, attr] of Object.entries(view.attributes)) {
+            input.setAttribute(key, attr);
+        }
+    };
+    apply();
+    input.addEventListener("change", () => {
+        group.setValue(input.value);
+        apply();
+    });
 }
 ```
 
-```html [Vanilla]
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerSelectionElements } from "@sometic/elements/selection";
     registerSelectionElements();
@@ -74,6 +102,14 @@ export function Example(): JSX.Element {
 </div>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<div role="radiogroup" aria-label="Plan">
+    <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
+    <sometic-radio name="plan" value="pro" checked aria-label="Pro"></sometic-radio>
+</div>
+```
 :::
 
 ## Vue

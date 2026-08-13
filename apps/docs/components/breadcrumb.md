@@ -8,25 +8,7 @@ Navigation trail with `aria-label="Breadcrumb"` on the root and optional `aria-c
 
 ::: code-group
 
-```tsx [JS]
-import { Breadcrumb, BreadcrumbItem } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <Breadcrumb>
-            <BreadcrumbItem>
-                <a href="/">Docs</a>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                <a href="/components">Components</a>
-            </BreadcrumbItem>
-            <BreadcrumbItem current>Structure</BreadcrumbItem>
-        </Breadcrumb>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Breadcrumb, BreadcrumbItem } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -42,6 +24,24 @@ export function Example(): JSX.Element {
         </Breadcrumb>
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { Breadcrumb, BreadcrumbItem } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Breadcrumb>
+        <BreadcrumbItem>
+            <a href="/">Docs</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+            <a href="/components">Components</a>
+        </BreadcrumbItem>
+        <BreadcrumbItem current>Structure</BreadcrumbItem>
+    </Breadcrumb>
+</template>
 ```
 
 ```js [Vanilla]
@@ -63,6 +63,13 @@ for (const item of nav.querySelectorAll("li")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

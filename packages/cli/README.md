@@ -8,7 +8,7 @@ Scaffolding must not surprise CI or lock teams into one ownership model. Hybrid 
 
 Standout commands: `sometic init` writes `sometic.config.json` and a local lib README from the registry `config` item; `sometic add <item>` adds registry templates (`config`, `theme`, `button`) for `vanilla` | `react` | `vue`; `list` / `info` inspect the registry; `config get|set` updates config without prompts. Deferred placeholders exist for `diff`, `update`, and `doctor` (not Option A). Programmatic entry points export `runCli`, `helpText`, `parseArgv`, `createDefaultConfig`, and `detectProject`.
 
-In the ecosystem the CLI sits beside publishable packages and docs, not inside them. Engines and adapters remain normal dependencies; the CLI only scaffolds. Foundation context: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Full CLI guide: [CLI](https://sometic.aitistack.com/guide/cli).
+In the ecosystem the CLI sits beside publishable packages and docs, not inside them. Engines and adapters remain normal dependencies; the CLI only scaffolds. Foundation context: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Full CLI guide: [CLI](https://sometic.dev/guide/cli).
 
 ## Install
 
@@ -70,9 +70,9 @@ console.log(config.mode, code);
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [CLI](https://sometic.aitistack.com/guide/cli)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [CLI](https://sometic.dev/guide/cli)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

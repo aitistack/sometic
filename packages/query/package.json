@@ -21,7 +21,9 @@
             "types": "./dist/http/index.d.ts",
             "import": "./dist/http/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-query.esm.js": "./dist/cdn/sometic-query.esm.js",
+        "./cdn/sometic-query.iife.js": "./dist/cdn/sometic-query.iife.js"
     },
     "files": [
         "dist",
@@ -37,7 +39,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },
@@ -56,7 +58,7 @@
         }
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -97,6 +99,18 @@
             "path": "dist/http/index.js",
             "limit": "1.5 kB",
             "gzip": true
+        },
+        {
+            "name": "query CDN esm",
+            "path": "dist/cdn/sometic-query.esm.js",
+            "limit": "80 kB",
+            "gzip": true
+        },
+        {
+            "name": "query CDN iife",
+            "path": "dist/cdn/sometic-query.iife.js",
+            "limit": "80 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -109,5 +123,7 @@
         "data-fetching",
         "async",
         "cache"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-query.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-query.iife.js"
 }

@@ -8,7 +8,7 @@ Why it exists: portable apps need one HTTP layer that can attach auth headers, s
 
 Standout features include interceptor composition, `createMockFetcher` for tests, retry utilities (`computeRetryDelay`, `shouldRetryDefault`), URL safety (`assertSafeRequestUrl`), and policy interceptors under `@sometic/http/auth`. Pair with [`@sometic/query`](https://www.npmjs.com/package/@sometic/query) via `createHttpQueryFn` for cached server state.
 
-Ecosystem: depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); optional peer `@sometic/auth`; composed by [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [HTTP utilities](https://sometic.aitistack.com/utilities/http).
+Ecosystem: depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); optional peer `@sometic/auth`; composed by [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell). Docs: [introduction](https://sometic.dev/guide/introduction) and [HTTP utilities](https://sometic.dev/utilities/http).
 
 ## Install
 
@@ -71,11 +71,11 @@ Prefer the platform `fetch` alone for one-off calls with no interceptors/retry. 
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [HTTP utilities](https://sometic.aitistack.com/utilities/http)
-- [HTTP package](https://sometic.aitistack.com/packages/http/)
-- [Authentication / token refresh](https://sometic.aitistack.com/authentication/token-refresh)
-- [App shell](https://sometic.aitistack.com/guide/app-shell)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [HTTP utilities](https://sometic.dev/utilities/http)
+- [HTTP package](https://sometic.dev/packages/http/)
+- [Authentication / token refresh](https://sometic.dev/authentication/token-refresh)
+- [App shell](https://sometic.dev/guide/app-shell)
 
 ## License
 

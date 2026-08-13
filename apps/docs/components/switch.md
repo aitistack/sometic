@@ -8,7 +8,7 @@ On/off control with `role="switch"` for assistive technology, backed by a native
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Switch } from "@sometic/react/selection";
 
@@ -26,25 +26,49 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Switch } from "@sometic/react/selection";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Switch } from "@sometic/vue/selection";
 
-export function Example(): JSX.Element {
-    const [checked, setChecked] = useState(true);
-    return (
-        <Switch
-            checked={checked}
-            onCheckedChange={setChecked}
-            name="notifications"
-            value="on"
-            aria-label="Email notifications"
-        />
-    );
-}
+const checked = ref(true);
+</script>
+
+<template>
+    <Switch
+        v-model:checked="checked"
+        name="notifications"
+        value="on"
+        aria-label="Email notifications"
+    />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createSwitchController, resolveSwitch } from "@sometic/dom/switch";
+
+const input = document.querySelector("#notifications");
+const controller = createSwitchController({
+    defaultChecked: true,
+    onCheckedChange(next) {
+        const view = resolveSwitch({
+            checked: next,
+            name: "notifications",
+            value: "on",
+        });
+        input.checked = view.checked;
+        for (const [key, attr] of Object.entries(view.attributes)) {
+            input.setAttribute(key, attr);
+        }
+    },
+});
+
+input.addEventListener("change", () => {
+    controller.setChecked(input.checked);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerSelectionElements } from "@sometic/elements/selection";
     registerSelectionElements();
@@ -58,6 +82,16 @@ export function Example(): JSX.Element {
 ></sometic-switch>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-switch
+    checked
+    name="notifications"
+    value="on"
+    aria-label="Email notifications"
+></sometic-switch>
+```
 :::
 
 ## Vue

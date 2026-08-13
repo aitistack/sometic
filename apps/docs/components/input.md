@@ -8,7 +8,7 @@ Controllable native text-like `<input>` with shared invalid/disabled/readonly st
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Input } from "@sometic/react/input";
 
@@ -18,17 +18,32 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Input } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Input } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState("");
-    return <Input value={value} onValueChange={setValue} placeholder="Name" />;
-}
+const value = ref("");
+</script>
+
+<template>
+    <Input v-model="value" placeholder="Name" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { bindInput } from "@sometic/dom/input";
+
+const input = document.querySelector("input");
+bindInput(input, () => ({
+    value: input.value,
+    onValueChange(next) {
+        console.log(next);
+    },
+}));
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -37,6 +52,11 @@ export function Example(): JSX.Element {
 <sometic-input placeholder="Name"></sometic-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-input placeholder="Name"></sometic-input>
+```
 :::
 
 ## How it works

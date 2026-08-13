@@ -4,7 +4,7 @@
 
 ## Sometic software packages
 
-Sometic packages published under the `@sometic` npm scope are released under the **MIT License** unless a specific package states otherwise in its `package.json` / `LICENSE` file. The copyright line in the repository `LICENSE` is `Copyright (c) 2026 AitiStack contributors`. Sometic is the product name. AitiStack is the organization that owns the copyright.
+Sometic packages published under the `@sometic` npm scope are released under the **MIT License** unless a specific package states otherwise in its `package.json` / `LICENSE` file. The copyright line in the repository `LICENSE` is `Copyright (c) 2026 Sometic contributors`.
 
 ### MIT License (summary)
 
@@ -16,7 +16,7 @@ The authoritative license text ships with each package and in the source reposit
 
 ## Documentation site
 
-Content on [sometic.aitistack.com](https://sometic.aitistack.com) may be quoted for commentary, education, and tooling (including LLM context) with attribution. Do not present documentation excerpts as an official Sometic endorsement of a third-party product.
+Content on [sometic.dev](https://sometic.dev) may be quoted for commentary, education, and tooling (including LLM context) with attribution. Do not present documentation excerpts as an official Sometic endorsement of a third-party product.
 
 ## Fonts used on this documentation site
 

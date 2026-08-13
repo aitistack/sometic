@@ -23,5 +23,5 @@
         "vitepress": "^1.6.3"
     },
     "description": "Consumer documentation site for Sometic (VitePress).",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

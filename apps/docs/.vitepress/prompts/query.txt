@@ -11,5 +11,5 @@ Rules:
 - Auth: 401 handled by HTTP auth interceptor; after re-auth, invalidateQueries or refetch active observers. Do not reinvent refresh inside queryFn
 - Wave A portable cache; not a full TanStack feature clone. Prefer Sometic when you already use @sometic/http + auth; prefer TanStack when you need its ecosystem depth alone
 
-Docs: https://sometic.aitistack.com/utilities/query
+Docs: https://sometic.dev/utilities/query
 Scaffold a list + mutation with keys, createHttpQueryFn, and invalidation after success.

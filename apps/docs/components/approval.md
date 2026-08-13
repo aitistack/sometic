@@ -12,6 +12,14 @@ Manager steps can require every assignee; Director steps can accept any one. Pre
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/approval (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/approval (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { createApprovalController } from "@sometic/approval";
 
@@ -28,27 +36,6 @@ approval.approve({ actorId: "b" });
 
 console.log(approval.getStatus());
 console.log(approval.getActiveStep()?.id);
-```
-
-```ts [TS]
-import {
-    createApprovalController,
-    type ApprovalController,
-    type ApprovalState,
-    type ApprovalStatus,
-} from "@sometic/approval";
-
-const approval: ApprovalController = createApprovalController({
-    steps: [
-        { id: "manager", label: "Manager", assigneeIds: ["a", "b"], requireAll: true },
-        { id: "director", label: "Director", assigneeIds: ["c"] },
-    ],
-    onStatusChange: (status: ApprovalStatus) => console.log(status),
-});
-
-const unsubscribe = approval.subscribe((state: ApprovalState) => {
-    console.log(state.stepIndex, state.status, state.closed);
-});
 ```
 
 ```html [Vanilla]
@@ -106,6 +93,13 @@ const unsubscribe = approval.subscribe((state: ApprovalState) => {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine directly.

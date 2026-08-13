@@ -8,20 +8,7 @@ Decorative loading placeholder. Marked `aria-hidden="true"` so assistive tech sk
 
 ::: code-group
 
-```tsx [JS]
-import { Skeleton } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <>
-            <Skeleton />
-            <Skeleton animated={false} />
-        </>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Skeleton } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -34,7 +21,25 @@ export function Example(): JSX.Element {
 }
 ```
 
-```html [Vanilla]
+```vue [Vue]
+<script setup>
+import { Skeleton } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Skeleton />
+    <Skeleton :animated="false" />
+</template>
+```
+
+```js [Vanilla]
+import { resolveSkeleton } from "@sometic/dom/skeleton";
+
+const animated = resolveSkeleton();
+const staticView = resolveSkeleton({ animated: false });
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import "@sometic/elements/structure";
 </script>
@@ -42,6 +47,11 @@ export function Example(): JSX.Element {
 <sometic-skeleton></sometic-skeleton>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-skeleton></sometic-skeleton>
+```
 :::
 
 ## How it works

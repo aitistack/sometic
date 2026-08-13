@@ -1,9 +1,9 @@
 # App Shell
 
-`@sometic/app-shell` is the System composition package: one `createAppShell(...)` call wires auth, HTTP, query, head, theme, stores, and forms behind a **shared session epoch** and a single `dispose()` graph.
+`@sometic/app-shell` is the System composition package. Start with **`createSometicApp`** for distinctive easy keys (`app.http`, `app.query.define`, `app.whenReauth`). Under the hood it uses `createAppShell`, which wires auth, HTTP, query, head, theme, stores, and forms behind a **shared session epoch** and a single `dispose()` graph.
 
 ::: tip System standout
-Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP replays, or session stores behind. Prefer `createAppShell` over ad-hoc TanStack + Axios + Helmet + Zustand wiring when you want Sometic’s portable boundaries out of the box.
+Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP replays, or session stores behind. Prefer `createSometicApp` / `createAppShell` over ad-hoc TanStack + Axios + Helmet + Zustand wiring when you want Sometic’s portable boundaries out of the box.
 :::
 
 <CopyPrompt surface="app-shell" />
@@ -12,8 +12,9 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 | Concern         | API                                                                                |
 | --------------- | ---------------------------------------------------------------------------------- |
+| Easy spine      | `createSometicApp({ auth, baseUrl?, theme?, … })` → `app.http`, `app.query`, `app.whenReauth` |
 | Compose         | `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms?, … })`       |
-| Epoch           | `app.epoch` / `app.getEpoch()` / `app.onEpochChange(listener)`                     |
+| Epoch           | `app.epoch` / `app.getEpoch()` / `app.whenReauth` / `app.onEpochChange`            |
 | Dispose         | `app.dispose()` tears down binds; disposes owned query/HTTP clients                |
 | Auth ↔ query    | `bindQueryToAuth` (also applied inside shell)                                      |
 | Auth ↔ HTTP     | `bindAuthToHttp` (auth + optional policy interceptors, epoch ledger)               |
@@ -32,7 +33,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 ### When not to use
 
 - You only need one package (e.g. theme alone): import that package directly
-- Full durable offline queues / data tables: later phases; shell mutation queue is session-lite only
+- Full durable offline queues: later phases; shell mutation queue is session-lite only
 - Replacing TanStack DevTools or Floating UI: out of scope
 
 ## Installation
@@ -41,7 +42,107 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 
 Optional peers: `@sometic/head`, `@sometic/theme`, `@sometic/store`, `@sometic/forms`.
 
-## Usage
+## Usage (easy spine)
+
+::: code-group
+
+```js [JS]
+import { createAuth, createMemoryAuthStorage, createTestAuthProvider } from "@sometic/auth";
+import { createSometicApp } from "@sometic/app-shell";
+
+const auth = createAuth({
+    provider: createTestAuthProvider(),
+    storage: createMemoryAuthStorage(),
+});
+
+const app = createSometicApp({
+    auth,
+    baseUrl: "https://api.example.com",
+    theme: true,
+});
+
+app.whenReauth((epoch) => {
+    console.log("epoch", epoch);
+});
+
+const todos = app.query.define(["todos"], async () => {
+    const response = await app.http.get("/todos");
+    return response.data;
+});
+
+await todos.refetch();
+await app.query.invalidate(["todos"]);
+
+app.dispose();
+auth.dispose();
+```
+
+```ts [TS]
+import { createAuth, createMemoryAuthStorage, createTestAuthProvider } from "@sometic/auth";
+import { createSometicApp, type SometicApp } from "@sometic/app-shell";
+
+const auth = createAuth({
+    provider: createTestAuthProvider(),
+    storage: createMemoryAuthStorage(),
+});
+
+const app: SometicApp = createSometicApp({
+    auth,
+    baseUrl: "https://api.example.com",
+    theme: true,
+});
+
+app.whenReauth((epoch) => {
+    console.log("epoch", epoch);
+});
+
+const todos = app.query.define(["todos"], async () => {
+    const response = await app.http.get<{ id: string }[]>("/todos");
+    return response.data;
+});
+
+await todos.refetch();
+await app.query.invalidate(["todos"]);
+
+app.dispose();
+auth.dispose();
+```
+
+```js [Vanilla]
+import { createAuth, createMemoryAuthStorage, createTestAuthProvider } from "@sometic/auth";
+import { createSometicApp } from "@sometic/app-shell";
+
+const auth = createAuth({
+    provider: createTestAuthProvider(),
+    storage: createMemoryAuthStorage(),
+});
+
+const app = createSometicApp({ auth, baseUrl: "https://api.example.com" });
+const me = await app.http.get("/me");
+console.log(me.data, app.epoch);
+app.dispose();
+auth.dispose();
+```
+
+
+```js [CDN]
+import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+
+// Provide a real AuthController from @sometic/auth (CDN or npm).
+const app = createSometicApp({
+    auth,
+    baseUrl: "/api",
+    query: true,
+});
+
+const me = await app.http.get("/me");
+app.dispose();
+```
+:::
+
+Engine-level `createHttp` / `createQueryClient` / `createAppShell` remain supported when you need finer control.
+
+## Usage (engine shell)
 
 ::: code-group
 

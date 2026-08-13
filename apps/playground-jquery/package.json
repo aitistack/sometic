@@ -22,5 +22,5 @@
         "vite": "^7.0.5"
     },
     "description": "Interactive jQuery playground for Sometic Wave C adapters.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

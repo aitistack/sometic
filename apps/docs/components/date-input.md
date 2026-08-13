@@ -8,7 +8,7 @@ Native `type="date"` field backed by a pluggable `DateAdapter` so serialize/dese
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { DateInput } from "@sometic/react/input";
 import { createNativeDateAdapter } from "@sometic/date-native";
@@ -21,20 +21,42 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { DateInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { DateInput } from "@sometic/vue/input";
 import { createNativeDateAdapter } from "@sometic/date-native";
 
 const adapter = createNativeDateAdapter();
+const value = ref(null);
+</script>
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState(null);
-    return <DateInput adapter={adapter} value={value} onValueChange={setValue} />;
-}
+<template>
+    <DateInput v-model="value" :adapter="adapter" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createDateInputController, resolveDateInput } from "@sometic/dom/input-date";
+import { createNativeDateAdapter } from "@sometic/date-native";
+
+const adapter = createNativeDateAdapter();
+const input = document.querySelector("input");
+const controller = createDateInputController({
+    adapter,
+    defaultValue: null,
+    onValueChange(next) {
+        const view = resolveDateInput({ adapter, value: next });
+        input.value = view.value;
+    },
+});
+
+input.addEventListener("input", () => {
+    controller.setFromNativeValue(input.value);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -44,6 +66,12 @@ export function Example(): JSX.Element {
 <sometic-date-input></sometic-date-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
+<sometic-date-input></sometic-date-input>
+```
 :::
 
 ## Vue

@@ -5,9 +5,9 @@
 
 ## Decision
 
-One public VitePress app at `apps/docs` is the **consumer-only** Sometic documentation site destined for `https://sometic.aitistack.com`.
+One public VitePress app at `apps/docs` is the **consumer-only** Sometic documentation site destined for `https://sometic.dev`.
 
-Do not enable the GitHub Wiki; product docs ship only at `https://sometic.aitistack.com`.
+Do not enable the GitHub Wiki; product docs ship only at `https://sometic.dev`.
 
 ## Included in VitePress
 

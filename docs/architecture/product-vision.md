@@ -69,12 +69,12 @@ Shallow or demo-quality components are out of scope for public release. Prefer f
 | Item                  | Locked value                  |
 | --------------------- | ----------------------------- |
 | Product name          | Sometic                       |
-| Parent brand          | AitiStack                     |
+| Parent brand          | Sometic                     |
 | npm scope             | `@sometic`                    |
 | Monorepo root name    | `sometic-packages`            |
 | Custom element prefix | `sometic-*`                   |
 | CLI package (planned) | `@sometic/cli`                |
-| Docs URL              | https://sometic.aitistack.com |
+| Docs URL              | https://sometic.dev |
 
 ## Out of Scope (cores)
 

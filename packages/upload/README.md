@@ -8,7 +8,7 @@ Why it exists: the file `<input>` is one problem and the network lifecycle is an
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) is an optional peer for teams that want their interceptors and auth refresh in the transport.
 
-Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [https://sometic.aitistack.com](https://sometic.aitistack.com).
+Docs: [introduction](https://sometic.dev/guide/introduction) and [https://sometic.dev](https://sometic.dev).
 
 ## Install
 
@@ -101,8 +101,8 @@ Skip it for a single fire and forget `POST` with no progress, retry, or queue. P
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [HTTP client](https://sometic.aitistack.com/utilities/http)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [HTTP client](https://sometic.dev/utilities/http)
 
 ## License
 

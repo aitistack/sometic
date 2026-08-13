@@ -8,6 +8,14 @@ Two-version chrome from `resolveConflictStatus` in `@sometic/dom/status`. Everyt
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveConflictStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -31,19 +39,6 @@ for (const label of [view.localLabel, view.remoteLabel]) {
     }
     choice.textContent = `Keep ${label}`;
     panel.append(choice);
-}
-```
-
-```ts [TS]
-import { resolveConflictStatus, type ConflictStatusViewModel } from "@sometic/dom/status";
-
-export function recordConflict(): ConflictStatusViewModel {
-    return resolveConflictStatus({
-        kind: "conflict",
-        title: "This record changed while you were editing",
-        hasAction: true,
-        versions: { localLabel: "Your draft", remoteLabel: "Saved on server" },
-    });
 }
 ```
 
@@ -81,6 +76,13 @@ export function recordConflict(): ConflictStatusViewModel {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ## Notes

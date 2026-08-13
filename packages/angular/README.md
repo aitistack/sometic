@@ -8,7 +8,7 @@ Sometic keeps behavior in framework-independent engines. Angular should not reim
 
 Standout exports today: `createAngularStoreBind` (returns `store`, `get` / `set` / `update`, `subscribe`, and `dispose`), plus `angularAdapterCapabilities` (`["storeBind"]`) for capability discovery. Use the bind from injectable services or signal wrappers you own. Prefer React/Vue adapters when you need buttons, forms, overlays, and auth UI now.
 
-In the ecosystem this sits under Wave B with Svelte, Solid, and Preact. Shared types and fixtures live in [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Primitives start at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [Angular](https://sometic.aitistack.com/frameworks/angular).
+In the ecosystem this sits under Wave B with Svelte, Solid, and Preact. Shared types and fixtures live in [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Primitives start at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [Angular](https://sometic.dev/frameworks/angular).
 
 ## Install
 
@@ -61,10 +61,10 @@ console.log(angularAdapterCapabilities);
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Angular](https://sometic.aitistack.com/frameworks/angular)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Angular](https://sometic.dev/frameworks/angular)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

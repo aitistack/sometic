@@ -8,7 +8,7 @@ Icon-only native `<button>` that **requires** a non-empty `aria-label`. Shares B
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { IconButton } from "@sometic/react/button";
 
 export function Example() {
@@ -20,19 +20,27 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { IconButton } from "@sometic/react/button";
+```vue [Vue]
+<script setup>
+import { IconButton } from "@sometic/vue/button";
+</script>
 
-export function Example(): JSX.Element {
-    return (
-        <IconButton aria-label="Search" onClick={() => {}}>
-            <SearchIcon aria-hidden="true" />
-        </IconButton>
-    );
-}
+<template>
+    <IconButton aria-label="Settings" @click="() => {}">⚙</IconButton>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { bindButton } from "@sometic/dom/button";
+import { resolveIconButton } from "@sometic/dom/icon-button";
+
+const button = document.querySelector("button");
+const view = resolveIconButton({ "aria-label": "Settings" });
+Object.assign(button, { ariaLabel: view.attributes["aria-label"] });
+bindButton(button, { onPress() {} });
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerButtonElements } from "@sometic/elements/button";
     registerButtonElements();
@@ -43,6 +51,13 @@ export function Example(): JSX.Element {
 </sometic-icon-button>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-icon-button aria-label="Search">
+    <!-- icon markup -->
+</sometic-icon-button>
+```
 :::
 
 ## Vue

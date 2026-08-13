@@ -14,6 +14,52 @@ import { darkTheme, lightTheme } from "@sometic/theme/presets";
 import { bindAuthToStores, bindThemeToHead } from "./bind-theme-stores.js";
 import { bindMutationForm } from "./bind-mutation-form.js";
 import { createAppShell } from "./create-app-shell.js";
+import { createSometicApp } from "./create-sometic-app.js";
+
+describe("createSometicApp", () => {
+    it("exposes whenReauth, query.define, and query.invalidate over the shell", async () => {
+        const auth = createAuth({
+            provider: createTestAuthProvider(),
+            storage: createMemoryAuthStorage(),
+            crossTab: createNoopAuthBus(),
+            environment: false,
+        });
+        const app = createSometicApp({
+            auth,
+            baseUrl: "https://api.example.com",
+            createHttpOptions: {
+                fetcher: async () =>
+                    new Response(JSON.stringify({ ok: true }), {
+                        status: 200,
+                        headers: { "content-type": "application/json" },
+                    }),
+            },
+        });
+
+        let epochs = 0;
+        const stop = app.whenReauth(() => {
+            epochs += 1;
+        });
+
+        const observer = app.query.define(["demo"], async () => {
+            const response = await app.http.get<{ ok: boolean }>("/demo");
+            return response.data;
+        });
+        await observer.refetch();
+        expect(observer.getCurrentResult().data).toEqual({ ok: true });
+
+        await app.query.invalidate(["demo"]);
+        expect(app.query.getQueryState(["demo"])?.isInvalidated).toBe(true);
+
+        await auth.signIn({ email: "demo@example.com", password: "password" });
+        expect(epochs).toBeGreaterThan(0);
+
+        stop();
+        observer.destroy();
+        app.dispose();
+        auth.dispose();
+    });
+});
 
 describe("createAppShell", () => {
     it("clears query cache when session epoch bumps", async () => {

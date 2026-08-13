@@ -8,7 +8,7 @@ Button that toggles a pressed state with `aria-pressed` and `data-pressed`, supp
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { ToggleButton } from "@sometic/react/button";
 
@@ -22,21 +22,27 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { ToggleButton } from "@sometic/react/button";
+```vue [Vue]
+<script setup>
+import { ToggleButton } from "@sometic/vue/button";
+</script>
 
-export function Example(): JSX.Element {
-    const [pressed, setPressed] = useState(false);
-    return (
-        <ToggleButton pressed={pressed} onPressedChange={setPressed}>
-            Bold
-        </ToggleButton>
-    );
-}
+<template>
+    <ToggleButton>Bold</ToggleButton>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createToggleButtonController } from "@sometic/dom/toggle-button";
+
+const button = document.querySelector("button");
+createToggleButtonController({
+    getButton: () => button,
+    defaultPressed: false,
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerButtonElements } from "@sometic/elements/button";
     registerButtonElements();
@@ -45,6 +51,11 @@ export function Example(): JSX.Element {
 <sometic-toggle-button>Bold</sometic-toggle-button>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-toggle-button>Bold</sometic-toggle-button>
+```
 :::
 
 ## Vue

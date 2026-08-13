@@ -8,37 +8,53 @@ Native `<select>` with controllable value (`string | null`), option list renderi
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Select } from "@sometic/react/selection";
 
 export function Example() {
     const [value, setValue] = useState("us");
-    return (
-        <Select value={value} onValueChange={setValue}>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-        </Select>
-    );
+    const options = [
+        { value: "us", label: "United States" },
+        { value: "ca", label: "Canada" },
+    ];
+    return <Select value={value} onValueChange={setValue} options={options} />;
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Select } from "@sometic/react/selection";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Select } from "@sometic/vue/selection";
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState("us");
-    return (
-        <Select value={value} onValueChange={setValue}>
-            <option value="us">United States</option>
-            <option value="ca">Canada</option>
-        </Select>
-    );
-}
+const value = ref("us");
+const options = [
+    { value: "us", label: "United States" },
+    { value: "ca", label: "Canada" },
+];
+</script>
+
+<template>
+    <Select v-model="value" :options="options" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { bindSelect } from "@sometic/dom/select";
+
+const select = document.querySelector("select");
+bindSelect(select, () => ({
+    options: [
+        { value: "us", label: "United States" },
+        { value: "ca", label: "Canada" },
+    ],
+    onValueChange(next) {
+        console.log(next);
+    },
+}));
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerSelectionElements } from "@sometic/elements/selection";
     registerSelectionElements();
@@ -50,6 +66,14 @@ export function Example(): JSX.Element {
 </sometic-select>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-select>
+    <option value="a">Alpha</option>
+    <option value="b">Beta</option>
+</sometic-select>
+```
 :::
 
 > React `SelectProps` requires an `options: readonly SelectOption[]` array. You may still pass `children` to override the generated `<option>` list (as in the Usage snippet). Prefer `options={…}` for data-driven lists.

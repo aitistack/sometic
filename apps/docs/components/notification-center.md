@@ -12,35 +12,7 @@ Use this for persistent unread items. Ephemeral feedback stays on [Toast](/compo
 
 ::: code-group
 
-```jsx [JS]
-import { NotificationCenter } from "@sometic/react/data";
-import { createNotificationsController } from "@sometic/notifications";
-
-const notifications = createNotificationsController({
-    maxItems: 50,
-    items: [{ title: "Notification 1", source: "billing" }],
-});
-
-export function Example() {
-    return (
-        <NotificationCenter
-            notifications={notifications}
-            label="Notifications"
-            groupBy="source"
-            emptyLabel="You are all caught up"
-            onOpenChange={(open) => console.log(open)}
-        >
-            {(center) => (
-                <button type="button" onClick={() => center.markAllRead()}>
-                    Mark all read ({center.getUnreadCount()})
-                </button>
-            )}
-        </NotificationCenter>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { NotificationCenter, type NotificationCenterController } from "@sometic/react/data";
 import { createNotificationsController } from "@sometic/notifications";
 
@@ -66,6 +38,28 @@ export function Example(): JSX.Element {
         </NotificationCenter>
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { NotificationCenter } from "@sometic/vue/data";
+import { createNotificationsController } from "@sometic/notifications";
+
+const notifications = createNotificationsController({
+    maxItems: 50,
+    items: [{ title: "Notification 1", source: "billing" }],
+});
+</script>
+
+<template>
+    <NotificationCenter
+        :notifications="notifications"
+        label="Notifications"
+        group-by="source"
+        empty-label="You are all caught up"
+        @open-change="(open) => console.log(open)"
+    />
+</template>
 ```
 
 ```html [Vanilla]
@@ -132,6 +126,13 @@ export function Example(): JSX.Element {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller or the React and Vue components.

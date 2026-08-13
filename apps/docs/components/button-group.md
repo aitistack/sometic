@@ -8,7 +8,7 @@ Layout and semantics wrapper (`role="group"`) for related buttons that share ori
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { Button, ButtonGroup } from "@sometic/react/button";
 
 export function Example() {
@@ -21,20 +21,30 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { Button, ButtonGroup } from "@sometic/react/button";
+```vue [Vue]
+<script setup>
+import { Button, ButtonGroup } from "@sometic/vue/button";
+</script>
 
-export function Example(): JSX.Element {
-    return (
-        <ButtonGroup aria-label="Export" orientation="horizontal">
-            <Button type="button">CSV</Button>
-            <Button type="button">JSON</Button>
-        </ButtonGroup>
-    );
+<template>
+    <ButtonGroup>
+  <Button>One</Button>
+  <Button>Two</Button>
+</ButtonGroup>
+</template>
+```
+
+```js [Vanilla]
+import { resolveButtonGroup } from "@sometic/dom/button-group";
+
+const root = document.querySelector("[data-button-group]");
+const view = resolveButtonGroup({});
+for (const [key, value] of Object.entries(view.attributes)) {
+    root.setAttribute(key, value);
 }
 ```
 
-```html [Vanilla]
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerButtonElements } from "@sometic/elements/button";
     registerButtonElements();
@@ -46,6 +56,14 @@ export function Example(): JSX.Element {
 </sometic-button-group>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-button-group orientation="horizontal" aria-label="Export">
+    <sometic-button type="button">CSV</sometic-button>
+    <sometic-button type="button">JSON</sometic-button>
+</sometic-button-group>
+```
 :::
 
 ## Vue

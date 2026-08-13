@@ -8,7 +8,7 @@ Sometic’s adapters stay thin. Preact should not fork store or auth engines. Th
 
 Standout exports: `createPreactStoreBind` (`getSnapshot`, `subscribe`, `set`, `store`, `dispose`) and `preactAdapterCapabilities` (`["storeBind"]`). Pair `getSnapshot` / `subscribe` with Preact’s `useSyncExternalStore` (or equivalent) in your own components.
 
-Ecosystem: Wave B with Angular, Svelte, and Solid. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [Preact](https://sometic.aitistack.com/frameworks/preact).
+Ecosystem: Wave B with Angular, Svelte, and Solid. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [Preact](https://sometic.dev/frameworks/preact).
 
 ## Install
 
@@ -60,10 +60,10 @@ console.log(preactAdapterCapabilities); // ["storeBind"]
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Preact](https://sometic.aitistack.com/frameworks/preact)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Preact](https://sometic.dev/frameworks/preact)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

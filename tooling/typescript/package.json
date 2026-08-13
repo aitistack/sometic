@@ -12,5 +12,5 @@
         "./tsconfig.package.json": "./tsconfig.package.json"
     },
     "description": "Shared TypeScript configuration for Sometic packages.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

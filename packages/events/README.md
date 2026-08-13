@@ -8,7 +8,7 @@ Sometic is portable application behavior, not a visual component library. Featur
 
 Standout features include typed `EventMap` generics, disposable `on` / `once` subscriptions, optional `AbortSignal` unsubscription, `onListenerError` isolation so one bad handler does not stop the rest, and a clear disposed flag after `dispose()`. The emitter stays under a tight size budget so it is safe to pull into leaf modules.
 
-In the ecosystem, events sits on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and feeds higher layers that need coordination without a full store. Pair it with [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) when state is shared, or with [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility) and DOM engines when UI surfaces need typed signals. Product docs start at [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction).
+In the ecosystem, events sits on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and feeds higher layers that need coordination without a full store. Pair it with [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) when state is shared, or with [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility) and DOM engines when UI surfaces need typed signals. Product docs start at [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -77,9 +77,9 @@ Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) (insta
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Events primitives: [https://sometic.aitistack.com/primitives/events](https://sometic.aitistack.com/primitives/events)
-- Architecture: [https://sometic.aitistack.com/concepts/architecture](https://sometic.aitistack.com/concepts/architecture)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Events primitives: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/events)
+- Architecture: [https://sometic.dev/concepts/architecture](https://sometic.dev/concepts/architecture)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Events on npm: [https://www.npmjs.com/package/@sometic/events](https://www.npmjs.com/package/@sometic/events)
 

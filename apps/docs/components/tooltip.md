@@ -8,7 +8,7 @@ Label overlay for a control: `role="tooltip"`, default placement `"top"`, and de
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Tooltip } from "@sometic/react/overlay";
 
@@ -30,29 +30,53 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Tooltip } from "@sometic/react/overlay";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Tooltip } from "@sometic/vue/overlay";
 
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    return (
-        <Tooltip open={open} label="Save (Ctrl+S)">
-            <button
-                type="button"
-                onMouseEnter={() => setOpen(true)}
-                onMouseLeave={() => setOpen(false)}
-                onFocus={() => setOpen(true)}
-                onBlur={() => setOpen(false)}
-            >
-                Save
-            </button>
-        </Tooltip>
-    );
-}
+const open = ref(false);
+</script>
+
+<template>
+    <Tooltip :open="open" label="Save (Ctrl+S)">
+        <button
+            type="button"
+            @mouseenter="open = true"
+            @mouseleave="open = false"
+            @focus="open = true"
+            @blur="open = false"
+        >
+            Save
+        </button>
+    </Tooltip>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createTooltipController, resolveTooltip } from "@sometic/dom/tooltip";
+
+const tip = document.querySelector("#tooltip");
+const controller = createTooltipController({
+    defaultOpen: false,
+    getContent: () => tip,
+    onOpenChange(next) {
+        const view = resolveTooltip({ open: next });
+        tip.hidden = !next;
+        for (const [key, attr] of Object.entries(view.attributes)) {
+            tip.setAttribute(key, attr);
+        }
+    },
+});
+
+const trigger = document.querySelector("#save");
+trigger.addEventListener("mouseenter", () => controller.setOpen(true));
+trigger.addEventListener("mouseleave", () => controller.setOpen(false));
+trigger.addEventListener("focus", () => controller.setOpen(true));
+trigger.addEventListener("blur", () => controller.setOpen(false));
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerOverlayElements } from "@sometic/elements/overlay";
     registerOverlayElements();
@@ -64,6 +88,14 @@ export function Example(): JSX.Element {
 </sometic-tooltip>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-tooltip placement="top">
+    <button type="button">Save</button>
+    <div data-slot="content">Save (Ctrl+S)</div>
+</sometic-tooltip>
+```
 :::
 
 ## Vue

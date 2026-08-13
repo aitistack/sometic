@@ -8,7 +8,7 @@ Sometic models portable behavior across stacks. Application state must be explic
 
 Standout features include immutable-by-convention `set` / `update`, nested `batch` notifications, `select` with equality to avoid noisy updates, `createPersistentStore` with storage adapters and migrations, memory and web storage helpers, and a dispose path that clears listeners. Optional [`@sometic/store-immer`](https://www.npmjs.com/package/@sometic/store-immer) adds draft updates when you want Immer without baking it into the core store.
 
-In the ecosystem, store depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and powers packages such as [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme). Framework adapters subscribe to stores rather than reimplementing state machines. Start from [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction) and the store docs under `/stores/`.
+In the ecosystem, store depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and powers packages such as [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme). Framework adapters subscribe to stores rather than reimplementing state machines. Start from [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction) and the store docs under `/stores/`.
 
 ## Install
 
@@ -73,10 +73,10 @@ Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). No fr
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Store: [https://sometic.aitistack.com/stores/store](https://sometic.aitistack.com/stores/store)
-- Stores overview: [https://sometic.aitistack.com/stores/](https://sometic.aitistack.com/stores/)
-- Immer adapter: [https://sometic.aitistack.com/stores/store-immer](https://sometic.aitistack.com/stores/store-immer)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Store: [https://sometic.dev/stores/store](https://sometic.dev/stores/store)
+- Stores overview: [https://sometic.dev/stores/](https://sometic.dev/stores/)
+- Immer adapter: [https://sometic.dev/stores/store-immer](https://sometic.dev/stores/store-immer)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Store on npm: [https://www.npmjs.com/package/@sometic/store](https://www.npmjs.com/package/@sometic/store)
 

@@ -8,7 +8,7 @@ Modal dialog surface with open state, `role="dialog"`, and, via `createDialogCon
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Dialog } from "@sometic/react/overlay";
 
@@ -27,26 +27,42 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Dialog } from "@sometic/react/overlay";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Dialog } from "@sometic/vue/overlay";
 
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    return (
-        <>
-            <button type="button" onClick={() => setOpen(true)}>
-                Open
-            </button>
-            <Dialog open={open} onOpenChange={setOpen}>
-                Confirm?
-            </Dialog>
-        </>
-    );
-}
+const open = ref(false);
+</script>
+
+<template>
+    <button type="button" @click="open = true">Open</button>
+    <Dialog v-model:open="open">Confirm?</Dialog>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createDialogController, resolveDialog } from "@sometic/dom/dialog";
+
+const panel = document.querySelector("#dialog");
+const controller = createDialogController({
+    defaultOpen: false,
+    getContent: () => panel,
+    onOpenChange(next) {
+        const view = resolveDialog({ open: next });
+        panel.hidden = !next;
+        for (const [key, attr] of Object.entries(view.attributes)) {
+            panel.setAttribute(key, attr);
+        }
+    },
+});
+
+document.querySelector("#open").addEventListener("click", () => {
+    controller.setOpen(true);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerOverlayElements } from "@sometic/elements/overlay";
     registerOverlayElements();
@@ -61,6 +77,12 @@ export function Example(): JSX.Element {
 </script>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<button type="button" id="open">Open</button>
+<sometic-dialog>Confirm?</sometic-dialog>
+```
 :::
 
 ## How it works

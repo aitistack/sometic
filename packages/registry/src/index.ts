@@ -115,7 +115,7 @@ function readmeFile(): RegistryFile {
 Hybrid mode keeps security-sensitive and engine logic in \`@sometic/*\` packages.
 Own styling and composition files in this folder. Do not copy auth refresh/OAuth internals here.
 
-Run \`sometic add <item>\` to add more templates. Docs: https://sometic.aitistack.com
+Run \`sometic add <item>\` to add more templates. Docs: https://sometic.dev
 `,
     );
 }

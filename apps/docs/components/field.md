@@ -8,7 +8,7 @@ Accessible field shell that wires label, description, control, and error with ge
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { Field } from "@sometic/react/field";
 import { Input } from "@sometic/react/input";
 
@@ -21,20 +21,40 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { Field } from "@sometic/react/field";
-import { Input } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { Field } from "@sometic/vue/field";
+import { Input } from "@sometic/vue/input";
+</script>
 
-export function Example(): JSX.Element {
-    return (
-        <Field label="Email" description="Work address" required>
-            <Input type="email" name="email" />
-        </Field>
-    );
-}
+<template>
+    <Field label="Email" description="Work address" required>
+        <Input type="email" name="email" />
+    </Field>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createFieldIds, resolveField } from "@sometic/dom/field";
+import { bindInput } from "@sometic/dom/input";
+
+const root = document.querySelector("#field");
+const ids = createFieldIds("email");
+const view = resolveField({
+    ids,
+    required: true,
+    hasDescription: true,
+    hasError: false,
+});
+for (const [key, attr] of Object.entries(view.attributes)) {
+    root.setAttribute(key, attr);
+}
+
+const input = root.querySelector("input");
+bindInput(input, () => ({ type: "email", name: "email" }));
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -47,6 +67,15 @@ export function Example(): JSX.Element {
 </sometic-field>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<!-- Children mount into the control slot; set label/description/error text via the
+     element's internal parts or prefer React/Vue Field for full chrome props. -->
+<sometic-field required>
+    <sometic-input type="email" name="email"></sometic-input>
+</sometic-field>
+```
 :::
 
 ## Vue

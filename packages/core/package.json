@@ -65,7 +65,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },

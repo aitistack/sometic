@@ -8,7 +8,7 @@ Imperative toast queue with live-region announcements, max visible cap, and time
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { ToastRegion } from "@sometic/react/overlay";
 
 export function Example() {
@@ -36,35 +36,51 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { ToastRegion } from "@sometic/react/overlay";
+```vue [Vue]
+<script setup>
+import { ToastRegion } from "@sometic/vue/overlay";
+</script>
 
-export function Example(): JSX.Element {
-    return (
-        <ToastRegion>
-            {({ items, push, dismiss }) => (
-                <>
-                    <button type="button" onClick={() => push({ title: "Saved" })}>
-                        Toast
-                    </button>
-                    <ul>
-                        {items.map((item) => (
-                            <li key={item.id}>
-                                {item.title}
-                                <button type="button" onClick={() => dismiss(item.id)}>
-                                    Dismiss
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </>
-            )}
-        </ToastRegion>
-    );
-}
+<template>
+    <ToastRegion v-slot="{ items, push, dismiss }">
+        <button type="button" @click="push({ title: 'Saved' })">Toast</button>
+        <ul>
+            <li v-for="item in items" :key="item.id">
+                {{ item.title }}
+                <button type="button" @click="dismiss(item.id)">Dismiss</button>
+            </li>
+        </ul>
+    </ToastRegion>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createToastQueue } from "@sometic/dom/toast";
+
+const list = document.querySelector("#toasts");
+const queue = createToastQueue({
+    onChange(items) {
+        list.replaceChildren(
+            ...items.map((item) => {
+                const li = document.createElement("li");
+                li.textContent = item.title;
+                const button = document.createElement("button");
+                button.type = "button";
+                button.textContent = "Dismiss";
+                button.addEventListener("click", () => queue.dismiss(item.id));
+                li.append(button);
+                return li;
+            }),
+        );
+    },
+});
+
+document.querySelector("#go").addEventListener("click", () => {
+    queue.push({ title: "Saved" });
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerOverlayElements } from "@sometic/elements/overlay";
     registerOverlayElements();
@@ -79,6 +95,12 @@ export function Example(): JSX.Element {
 <sometic-toast-region></sometic-toast-region>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<button type="button" id="go">Toast</button>
+<sometic-toast-region></sometic-toast-region>
+```
 :::
 
 ## Vue

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sometic elements CDN smoke</title>
+        <style>
+            body {
+                font-family: system-ui, sans-serif;
+                margin: 2rem;
+                display: grid;
+                gap: 1rem;
+            }
+            sometic-button,
+            sometic-badge {
+                display: inline-flex;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sometic CDN smoke</h1>
+        <p>
+            Local mirror uses <code>/cdn/sometic-elements.esm.js</code>. Published npm is mirrored by
+            jsDelivr.
+        </p>
+        <sometic-button type="button">Save</sometic-button>
+        <sometic-badge tone="info">Info</sometic-badge>
+        <script type="module" src="./sometic-elements.esm.js"></script>
+    </body>
+</html>

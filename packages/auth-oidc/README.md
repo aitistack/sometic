@@ -8,7 +8,7 @@ Use this when your identity provider speaks OIDC (Auth0, Keycloak, Cognito hoste
 
 Standout options: `clientId`, `redirectUri`, `issuer` discovery, explicit `endpoints`, injectable `fetcher` / `store`, and `scopes` (default `openid profile email`). Capabilities focus on OAuth, refresh, session, and sign-out rather than password sign-in.
 
-Works with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) for API calls after login, and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [auth providers](https://sometic.aitistack.com/packages/auth-providers/).
+Works with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) for API calls after login, and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [auth providers](https://sometic.dev/packages/auth-providers/).
 
 ## Install
 
@@ -70,10 +70,10 @@ Prefer [`@sometic/auth-local`](https://www.npmjs.com/package/@sometic/auth-local
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Auth providers](https://sometic.aitistack.com/packages/auth-providers/)
-- [Auth package](https://sometic.aitistack.com/packages/auth/)
-- [Authentication](https://sometic.aitistack.com/authentication/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Auth providers](https://sometic.dev/packages/auth-providers/)
+- [Auth package](https://sometic.dev/packages/auth/)
+- [Authentication](https://sometic.dev/authentication/)
 
 ## License
 

@@ -8,7 +8,7 @@ Sometic separates behavior from visuals. Theme exists so portable engines can re
 
 Standout features include multi-theme registration, `system` color scheme with preference subscriptions, scoped controllers (`createScopedThemeController`), `defineSemanticTokens` with required paths, contrast audit helpers (`auditThemeContrast`, `assertThemeContrast`), and snapshots that expose tokens, CSS variables, and attributes together. Subpaths cover tokens, css-variables, contrast, system, and presets.
 
-In the ecosystem, theme depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), and [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling). Pair it with component packages and docs theming pages. Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction).
+In the ecosystem, theme depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), and [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling). Pair it with component packages and docs theming pages. Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -79,11 +79,11 @@ Runtime dependencies: [`@sometic/core`](https://www.npmjs.com/package/@sometic/c
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Theme store: [https://sometic.aitistack.com/stores/theme](https://sometic.aitistack.com/stores/theme)
-- Themes: [https://sometic.aitistack.com/theming/themes](https://sometic.aitistack.com/theming/themes)
-- Design tokens: [https://sometic.aitistack.com/concepts/design-tokens](https://sometic.aitistack.com/concepts/design-tokens)
-- Styling guide: [https://sometic.aitistack.com/guide/styling](https://sometic.aitistack.com/guide/styling)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Theme store: [https://sometic.dev/stores/theme](https://sometic.dev/stores/theme)
+- Themes: [https://sometic.dev/theming/themes](https://sometic.dev/theming/themes)
+- Design tokens: [https://sometic.dev/concepts/design-tokens](https://sometic.dev/concepts/design-tokens)
+- Styling guide: [https://sometic.dev/guide/styling](https://sometic.dev/guide/styling)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Theme on npm: [https://www.npmjs.com/package/@sometic/theme](https://www.npmjs.com/package/@sometic/theme)
 

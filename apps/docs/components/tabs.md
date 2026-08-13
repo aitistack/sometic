@@ -8,22 +8,7 @@ Accessible tablist with shared selection state. `Tabs` owns value (controlled or
 
 ::: code-group
 
-```tsx [JS]
-import { Tabs, TabTrigger, TabPanel } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <Tabs defaultValue="overview">
-            <TabTrigger value="overview">Overview</TabTrigger>
-            <TabTrigger value="api">API</TabTrigger>
-            <TabPanel value="overview">Portable selection state.</TabPanel>
-            <TabPanel value="api">Resolve emits ARIA for your CSS.</TabPanel>
-        </Tabs>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Tabs, TabTrigger, TabPanel } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -36,6 +21,21 @@ export function Example(): JSX.Element {
         </Tabs>
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { Tabs, TabTrigger, TabPanel } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Tabs default-value="overview">
+        <TabTrigger value="overview">Overview</TabTrigger>
+        <TabTrigger value="api">API</TabTrigger>
+        <TabPanel value="overview">Portable selection state.</TabPanel>
+        <TabPanel value="api">Resolve emits ARIA for your CSS.</TabPanel>
+    </Tabs>
+</template>
 ```
 
 ```js [Vanilla]
@@ -89,6 +89,13 @@ for (const trigger of root.querySelectorAll("[data-tab]")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

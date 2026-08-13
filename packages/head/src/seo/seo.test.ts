@@ -28,18 +28,18 @@ describe("seo patches", () => {
     });
 
     it("builds canonical, hreflang, and json-ld patches", () => {
-        expect(createCanonicalLink("https://sometic.aitistack.com/")).toEqual({
+        expect(createCanonicalLink("https://sometic.dev/")).toEqual({
             rel: "canonical",
-            href: "https://sometic.aitistack.com/",
+            href: "https://sometic.dev/",
         });
         expect(
             createHreflangLinks([
-                { hreflang: "en", href: "https://sometic.aitistack.com/en" },
-                { hreflang: "fr", href: "https://sometic.aitistack.com/fr" },
+                { hreflang: "en", href: "https://sometic.dev/en" },
+                { hreflang: "fr", href: "https://sometic.dev/fr" },
             ]),
         ).toEqual([
-            { rel: "alternate", href: "https://sometic.aitistack.com/en", hreflang: "en" },
-            { rel: "alternate", href: "https://sometic.aitistack.com/fr", hreflang: "fr" },
+            { rel: "alternate", href: "https://sometic.dev/en", hreflang: "en" },
+            { rel: "alternate", href: "https://sometic.dev/fr", hreflang: "fr" },
         ]);
         const jsonLd = createJsonLdPatch({
             type: "SoftwareApplication",
@@ -91,7 +91,7 @@ describe("detectHeadConflicts", () => {
         const warnings = detectHeadConflicts({
             title: "Page",
             meta: [{ property: "og:title", content: "Page" }],
-            link: [{ rel: "canonical", href: "https://sometic.aitistack.com/" }],
+            link: [{ rel: "canonical", href: "https://sometic.dev/" }],
             htmlAttrs: {},
             bodyAttrs: {},
             jsonLd: [],

@@ -4,5 +4,5 @@
     "private": true,
     "type": "module",
     "description": "Release and package validation helpers for the Sometic monorepo.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

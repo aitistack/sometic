@@ -47,15 +47,21 @@ for (const name of fs.readdirSync(componentsDir)) {
     const afterUsage = text.slice(usageIdx);
     const nextHeading = afterUsage.search(/\n## /);
     const usageBlock = nextHeading >= 0 ? afterUsage.slice(0, nextHeading) : afterUsage;
-    for (const label of ["[JS]", "[TS]", "[Vanilla]"]) {
+    for (const label of [
+        "[React]",
+        "[Vue]",
+        "[Vanilla]",
+        "[Custom Elements (Web Components)]",
+        "[CDN]",
+    ]) {
         if (!usageBlock.includes(label)) {
             console.error(`${rel}: Usage missing code-group label ${label}`);
             failed = true;
         }
     }
-    if (/```\w* \[(React|Vue|CE)\]/.test(usageBlock)) {
+    if (/```\w* \[CE\]/.test(usageBlock)) {
         console.error(
-            `${rel}: Usage still uses [React]/[Vue]/[CE] labels; use [JS]|[TS]|[Vanilla]`,
+            `${rel}: Usage still uses [CE]; use [Custom Elements (Web Components)]`,
         );
         failed = true;
     }
@@ -64,4 +70,6 @@ for (const name of fs.readdirSync(componentsDir)) {
 if (failed) {
     process.exit(1);
 }
-console.log("docs:check passed (pages + component Usage JS/TS/Vanilla triad)");
+console.log(
+    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)",
+);

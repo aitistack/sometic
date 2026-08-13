@@ -27,46 +27,7 @@ The data table engine and adapters support:
 
 ::: code-group
 
-```jsx [JS]
-import { DataTable } from "@sometic/react/data";
-
-const rows = Array.from({ length: 48 }, (_, index) => ({
-    id: String(index + 1),
-    name: `Person ${index + 1}`,
-    role: index % 2 === 0 ? "Admin" : "Editor",
-    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
-}));
-
-export function Example() {
-    return (
-        <DataTable
-            label="Team members"
-            columns={[
-                { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
-                { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
-                { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
-            ]}
-            rows={rows}
-            getRowId={(row) => row.id}
-            pageSize={8}
-            multiSort
-            toolbar={(table) => (
-                <div data-slot="toolbar">
-                    <button type="button" onClick={() => table.selectAllFiltered()}>
-                        Select all filtered
-                    </button>
-                    <button type="button" onClick={() => table.clearSelection()}>
-                        Clear selection
-                    </button>
-                </div>
-            )}
-            onSelectionChange={(selection) => console.log(selection)}
-        />
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { DataTable, type DataTableColumn } from "@sometic/react/data";
 
 type Member = { id: string; name: string; role: string; team: string };
@@ -107,6 +68,37 @@ export function Example(): JSX.Element {
         />
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { DataTable } from "@sometic/vue/data";
+
+const rows = Array.from({ length: 48 }, (_, index) => ({
+    id: String(index + 1),
+    name: `Person ${index + 1}`,
+    role: index % 2 === 0 ? "Admin" : "Editor",
+    team: index % 3 === 0 ? "Platform" : index % 3 === 1 ? "Growth" : "Support",
+}));
+
+const columns = [
+    { id: "name", header: "Name", accessor: (row) => row.name, sortable: true },
+    { id: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+    { id: "team", header: "Team", accessor: (row) => row.team, sortable: true },
+];
+</script>
+
+<template>
+    <DataTable
+        label="Team members"
+        :columns="columns"
+        :rows="rows"
+        :get-row-id="(row) => row.id"
+        :page-size="8"
+        multi-sort
+        @selection-change="(selection) => console.log(selection)"
+    />
+</template>
 ```
 
 ```js [Vanilla]
@@ -311,6 +303,13 @@ const unsubscribe = table.subscribe(render);
 render();
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controller, React, or Vue.

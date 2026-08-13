@@ -8,21 +8,7 @@ Inline tone badge with `data-tone`. Pure resolve; no interaction state.
 
 ::: code-group
 
-```tsx [JS]
-import { Badge } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <>
-            <Badge>Neutral</Badge>
-            <Badge tone="success">Ready</Badge>
-            <Badge tone="danger">Failed</Badge>
-        </>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Badge } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -36,7 +22,33 @@ export function Example(): JSX.Element {
 }
 ```
 
-```html [Vanilla]
+```vue [Vue]
+<script setup>
+import { Badge } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Badge>Neutral</Badge>
+    <Badge tone="success">Ready</Badge>
+    <Badge tone="danger">Failed</Badge>
+</template>
+```
+
+```js [Vanilla]
+import { resolveBadge } from "@sometic/dom/badge";
+
+for (const el of document.querySelectorAll("[data-badge]")) {
+    const view = resolveBadge({
+        tone: el.dataset.tone ?? "neutral",
+    });
+    for (const [key, attr] of Object.entries(view.attributes)) {
+        el.setAttribute(key, attr);
+    }
+    el.className = view.className;
+}
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import "@sometic/elements/structure";
 </script>
@@ -46,6 +58,13 @@ export function Example(): JSX.Element {
 <sometic-badge tone="danger">Failed</sometic-badge>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-badge>Neutral</sometic-badge>
+<sometic-badge tone="success">Ready</sometic-badge>
+<sometic-badge tone="danger">Failed</sometic-badge>
+```
 :::
 
 ## How it works

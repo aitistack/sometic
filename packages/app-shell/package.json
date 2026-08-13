@@ -13,7 +13,9 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-app-shell.esm.js": "./dist/cdn/sometic-app-shell.esm.js",
+        "./cdn/sometic-app-shell.iife.js": "./dist/cdn/sometic-app-shell.iife.js"
     },
     "files": [
         "dist",
@@ -29,7 +31,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },
@@ -63,7 +65,7 @@
         }
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -98,6 +100,18 @@
             "path": "dist/index.js",
             "limit": "8 kB",
             "gzip": true
+        },
+        {
+            "name": "app-shell CDN esm",
+            "path": "dist/cdn/sometic-app-shell.esm.js",
+            "limit": "160 kB",
+            "gzip": true
+        },
+        {
+            "name": "app-shell CDN iife",
+            "path": "dist/cdn/sometic-app-shell.iife.js",
+            "limit": "160 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -110,5 +124,7 @@
         "layout",
         "navigation",
         "spa"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-app-shell.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-app-shell.iife.js"
 }

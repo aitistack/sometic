@@ -8,7 +8,7 @@ Non-modal anchored overlay with `role="dialog"`, positioning via `@sometic/posit
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Popover } from "@sometic/react/overlay";
 
@@ -25,24 +25,42 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Popover } from "@sometic/react/overlay";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Popover } from "@sometic/vue/overlay";
 
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(true);
-    return (
-        <>
-            <button type="button" onClick={() => setOpen((v) => !v)}>
-                Toggle
-            </button>
-            <Popover open={open}>Filter panel</Popover>
-        </>
-    );
-}
+const open = ref(true);
+</script>
+
+<template>
+    <button type="button" @click="open = !open">Toggle</button>
+    <Popover :open="open">Filter panel</Popover>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createPopoverController, resolvePopover } from "@sometic/dom/popover";
+
+const panel = document.querySelector("#popover");
+const controller = createPopoverController({
+    defaultOpen: true,
+    getContent: () => panel,
+    onOpenChange(next) {
+        const view = resolvePopover({ open: next });
+        panel.hidden = !next;
+        for (const [key, attr] of Object.entries(view.attributes)) {
+            panel.setAttribute(key, attr);
+        }
+    },
+});
+
+document.querySelector("#trigger").addEventListener("click", () => {
+    controller.setOpen(!controller.open.get());
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerOverlayElements } from "@sometic/elements/overlay";
     registerOverlayElements();
@@ -52,6 +70,12 @@ export function Example(): JSX.Element {
 <sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<button type="button" id="trigger">Open</button>
+<sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
+```
 :::
 
 ## Vue

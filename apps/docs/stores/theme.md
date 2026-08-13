@@ -120,6 +120,12 @@ theme.subscribe((snapshot) => {
 theme.setMode("dark");
 ```
 
+
+```js [CDN]
+import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+
+const theme = createThemeController({ themes: [], defaultThemeId: "light" });
+```
 :::
 
 ### Without persistence

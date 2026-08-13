@@ -8,5 +8,5 @@ Rules:
 - Preference persistence via @sometic/store/persistent (see theme store docs)
 - Docs and demo-surface brand fonts (Chakra Petch / Urbanist / JetBrains Mono) are demo-kit only; never ship those from component packages
 
-Docs: https://sometic.aitistack.com/theming/
+Docs: https://sometic.dev/theming/
 Scaffold tokens + light/dark switching without locking the app to one CSS framework.

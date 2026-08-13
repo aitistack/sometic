@@ -91,7 +91,7 @@
 
 ### Minor Changes
 
-- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `AitiStackError` / `aitistack` storage keys / `aiti-*` class names.
+- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `SometicError` / `aitistack` storage keys / `aiti-*` class names.
 - 68c9d30: Beta Release: Dialog React/Vue use `createDialogController` (focus trap / Escape / scroll lock). Docs demos share playground control styles; consumer differentiator + MDN-depth component docs.
 - 68c9d30: Phase 10: provider-independent auth orchestration with Wave A adapters, test provider, and playground `#auth`.
 - 68c9d30: Phase 11: fetch-first HTTP client with auth refresh queue; professional headless auth API expansions.

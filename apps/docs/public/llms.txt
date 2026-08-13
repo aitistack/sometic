@@ -4,7 +4,7 @@
 
 Sometic is a portable application behavior system, not a pre-styled component kit. Framework-independent controllers power UI engines, forms, authentication, HTTP, query cache, head/SEO, and System composition via `@sometic/app-shell`. Thin adapters expose native DX for React, Vue, and `sometic-*` custom elements. Packages are unstyled by default. Bring Tailwind, Bootstrap, design tokens, or plain CSS.
 
-- Docs: https://sometic.aitistack.com
+- Docs: https://sometic.dev
 - npm scope: `@sometic`
 - Repository: https://github.com/aitistack/sometic
 - License: MIT
@@ -20,55 +20,55 @@ Sometic is a portable application behavior system, not a pre-styled component ki
 
 ## Start here
 
-- [Architecture](https://sometic.aitistack.com/concepts/architecture): controllers, layers, adapters
-- [Why Sometic](https://sometic.aitistack.com/guide/why-sometic): positioning vs kits and headless libs
-- [Comparison](https://sometic.aitistack.com/guide/comparison): portable application behavior vs alternatives
-- [Quick start](https://sometic.aitistack.com/guide/quick-start): adapter + app services
-- [Introduction](https://sometic.aitistack.com/guide/introduction): product promise
-- [What's included](https://sometic.aitistack.com/guide/whats-included): inventory and honesty labels
-- [Agents](https://sometic.aitistack.com/guide/agents): Copy Prompt, llms.txt, package graph
-- [Contributing](https://sometic.aitistack.com/guide/contributing): PRs, Changesets, review rules
-- [Beta maturity](https://sometic.aitistack.com/releases/beta): readiness and known limits
+- [Architecture](https://sometic.dev/concepts/architecture): controllers, layers, adapters
+- [Why Sometic](https://sometic.dev/guide/why-sometic): positioning vs kits and headless libs
+- [Comparison](https://sometic.dev/guide/comparison): portable application behavior vs alternatives
+- [Quick start](https://sometic.dev/guide/quick-start): adapter + app services
+- [Introduction](https://sometic.dev/guide/introduction): product promise
+- [What's included](https://sometic.dev/guide/whats-included): inventory and honesty labels
+- [Agents](https://sometic.dev/guide/agents): Copy Prompt, llms.txt, package graph
+- [Contributing](https://sometic.dev/guide/contributing): PRs, Changesets, review rules
+- [Beta maturity](https://sometic.dev/releases/beta): readiness and known limits
 
 ## System (lead with these)
 
-- [App Shell](https://sometic.aitistack.com/guide/app-shell): createAppShell: shared session epoch + dispose graph
-- [Authentication](https://sometic.aitistack.com/authentication/): session orchestration and provider adapters
-- [HTTP](https://sometic.aitistack.com/utilities/http): fetch-first client, interceptors, refresh queue
-- [Query](https://sometic.aitistack.com/utilities/query): portable server-state cache (keys, mutations, HTTP bridge)
-- [Head / SEO](https://sometic.aitistack.com/utilities/head): portable document head controller
-- [Forms](https://sometic.aitistack.com/forms/): fields, validation, and persistence
-- [Stores](https://sometic.aitistack.com/stores/): external store contract (client/UI state, not server cache)
-- [Theming](https://sometic.aitistack.com/theming/): tokens and CSS variables
-- [Bundlers](https://sometic.aitistack.com/concepts/bundlers): Vite, Rollup, webpack exports contract
-- [Styling](https://sometic.aitistack.com/guide/styling): unstyled cores; consumer fonts and themes
-- [Accessibility](https://sometic.aitistack.com/guide/accessibility): focus, keyboard, and a11y contract
+- [App Shell](https://sometic.dev/guide/app-shell): createAppShell: shared session epoch + dispose graph
+- [Authentication](https://sometic.dev/authentication/): session orchestration and provider adapters
+- [HTTP](https://sometic.dev/utilities/http): fetch-first client, interceptors, refresh queue
+- [Query](https://sometic.dev/utilities/query): portable server-state cache (keys, mutations, HTTP bridge)
+- [Head / SEO](https://sometic.dev/utilities/head): portable document head controller
+- [Forms](https://sometic.dev/forms/): fields, validation, and persistence
+- [Stores](https://sometic.dev/stores/): external store contract (client/UI state, not server cache)
+- [Theming](https://sometic.dev/theming/): tokens and CSS variables
+- [Bundlers](https://sometic.dev/concepts/bundlers): Vite, Rollup, webpack exports contract
+- [Styling](https://sometic.dev/guide/styling): unstyled cores; consumer fonts and themes
+- [Accessibility](https://sometic.dev/guide/accessibility): focus, keyboard, and a11y contract
 
 ## Also
 
-- [Components](https://sometic.aitistack.com/components/): UI engines (Button, Dialog, Input, OTP, Switch, and more)
-- [Frameworks](https://sometic.aitistack.com/frameworks/): React, Vue, Vanilla, and experimental adapters
-- [SSR](https://sometic.aitistack.com/guide/ssr): server rendering constraints
-- [API reference](https://sometic.aitistack.com/api/): package index
+- [Components](https://sometic.dev/components/): UI engines (Button, Dialog, Input, OTP, Switch, and more)
+- [Frameworks](https://sometic.dev/frameworks/): React, Vue, Vanilla, and experimental adapters
+- [SSR](https://sometic.dev/guide/ssr): server rendering constraints
+- [API reference](https://sometic.dev/api/): package index
 
 ## Legal & trust
 
-- [Privacy](https://sometic.aitistack.com/legal/privacy): documentation site data practices
-- [Terms of use](https://sometic.aitistack.com/legal/terms): site and package usage terms
-- [License](https://sometic.aitistack.com/legal/license): MIT and site font licenses
-- [Accessibility statement](https://sometic.aitistack.com/legal/accessibility): docs accessibility commitment
-- [Security](https://sometic.aitistack.com/legal/security): vulnerability reporting
+- [Privacy](https://sometic.dev/legal/privacy): documentation site data practices
+- [Terms of use](https://sometic.dev/legal/terms): site and package usage terms
+- [License](https://sometic.dev/legal/license): MIT and site font licenses
+- [Accessibility statement](https://sometic.dev/legal/accessibility): docs accessibility commitment
+- [Security](https://sometic.dev/legal/security): vulnerability reporting
 
 ## Optional
 
-- [Full documentation export for agents](https://sometic.aitistack.com/llms-full.txt): concatenated consumer docs (large)
-- [ai.txt](https://sometic.aitistack.com/ai.txt): short pointer to llms + agents guide
-- [Sitemap](https://sometic.aitistack.com/sitemap.xml)
+- [Full documentation export for agents](https://sometic.dev/llms-full.txt): concatenated consumer docs (large)
+- [ai.txt](https://sometic.dev/ai.txt): short pointer to llms + agents guide
+- [Sitemap](https://sometic.dev/sitemap.xml)
 
 ## Notes for coding agents
 
 - Sometic's product story is portable application behavior (controllers + adapters + auth/HTTP/query/app-shell), not a visual UI kit
-- Use **Copy Prompt** on surface docs (and the home CTA) to scaffold with the correct package boundaries; see [Agents](https://sometic.aitistack.com/guide/agents)
+- Use **Copy Prompt** on surface docs (and the home CTA) to scaffold with the correct package boundaries; see [Agents](https://sometic.dev/guide/agents)
 - Prefer `createAppShell` when composing auth + http + query (+ head/theme/stores/forms) so session epoch clears privileged state
 - Keep server data in `@sometic/query`; keep client/UI preferences in `@sometic/store`
 - Publishable `@sometic/*` packages are font-agnostic and do not ship brand fonts

@@ -8,7 +8,7 @@ Numeric field that models value as `number | null` (empty → `null`), with opti
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { NumberInput } from "@sometic/react/input";
 
@@ -18,17 +18,37 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { NumberInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { NumberInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState(null);
-    return <NumberInput value={value} onValueChange={setValue} minNumber={0} maxNumber={100} />;
-}
+const value = ref(null);
+</script>
+
+<template>
+    <NumberInput v-model="value" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createNumberInputController, resolveNumberInput } from "@sometic/dom/input-number";
+
+const input = document.querySelector("input");
+const controller = createNumberInputController({
+    defaultValue: null,
+    onValueChange(next) {
+        const view = resolveNumberInput({ value: next });
+        input.value = view.value;
+    },
+});
+
+input.addEventListener("input", () => {
+    controller.setFromString(input.value);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -37,6 +57,11 @@ export function Example(): JSX.Element {
 <sometic-number-input min="0" max="100"></sometic-number-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-number-input min="0" max="100"></sometic-number-input>
+```
 :::
 
 ## Vue

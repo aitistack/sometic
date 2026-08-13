@@ -32,7 +32,7 @@
 
 ### Minor Changes
 
-- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `AitiStackError` / `aitistack` storage keys / `aiti-*` class names.
+- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `SometicError` / `aitistack` storage keys / `aiti-*` class names.
 - 68c9d30: Phase 4 styling engine: class/style resolvers, slots, state attributes, and polymorphic as contract.
 
 ## 0.0.1

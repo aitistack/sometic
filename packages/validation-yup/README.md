@@ -8,7 +8,7 @@ It exists because Yup remains common in existing apps, while Sometic forms shoul
 
 Primary exports are `createYupSchemaAdapter` and `issuesFromYupError`. Pass any schema-like object that implements `validateSync` / `validate` (Yup schemas qualify). The adapter is asserted with `assertSchemaAdapter` before return so malformed wrappers fail fast.
 
-Pair with [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) and the validation kernel. Alternatives include native validators, `@sometic/validation/define`, or [`@sometic/validation-zod`](https://www.npmjs.com/package/@sometic/validation-zod). Foundation context: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and the [introduction](https://sometic.aitistack.com/guide/introduction).
+Pair with [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) and the validation kernel. Alternatives include native validators, `@sometic/validation/define`, or [`@sometic/validation-zod`](https://www.npmjs.com/package/@sometic/validation-zod). Foundation context: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and the [introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -65,9 +65,9 @@ Do not install this package if you are not using Yup. Prefer `@sometic/validatio
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Validation package](https://sometic.aitistack.com/packages/validation/)
-- [Forms](https://sometic.aitistack.com/packages/forms/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Validation package](https://sometic.dev/packages/validation/)
+- [Forms](https://sometic.dev/packages/forms/)
 
 ## License
 
