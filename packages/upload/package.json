@@ -1,6 +1,6 @@
 {
     "name": "@sometic/upload",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "Portable upload/download queue for Sometic with pluggable UploadTransport.",
     "license": "MIT",
     "type": "module",

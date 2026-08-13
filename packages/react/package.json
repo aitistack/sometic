@@ -1,6 +1,6 @@
 {
     "name": "@sometic/react",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Native React adapters and components powered by the Sometic framework-independent primitive engine.",
     "license": "MIT",
     "type": "module",

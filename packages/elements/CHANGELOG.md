@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [100c5c9]
+    - @sometic/auth@1.2.0
+    - @sometic/dom@3.0.0
+
 ## 1.1.2
 
 ### Patch Changes

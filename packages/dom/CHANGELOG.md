@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [100c5c9]
+    - @sometic/auth@1.2.0
+    - @sometic/upload@2.0.0
+
 ## 2.0.2
 
 ### Patch Changes

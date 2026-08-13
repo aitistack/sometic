@@ -1,5 +1,11 @@
 # @sometic/playground-react
 
+## 0.0.11
+
+### Patch Changes
+
+- @sometic/react@1.2.4
+
 ## 0.0.10
 
 ### Patch Changes

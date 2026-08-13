@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.8
+
+### Patch Changes
+
+- Updated dependencies [100c5c9]
+    - @sometic/auth@1.2.0
+
 ## 1.0.7
 
 ### Patch Changes

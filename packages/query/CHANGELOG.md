@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+### Patch Changes
+
+- @sometic/http@3.0.0
+
 ## 2.0.2
 
 ### Patch Changes
