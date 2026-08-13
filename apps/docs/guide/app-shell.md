@@ -33,7 +33,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 ### When not to use
 
 - You only need one package (e.g. theme alone): import that package directly
-- Full durable offline queues: later phases; shell mutation queue is session-lite only
+- Full durable offline queues: use [`@sometic/offline-queue`](/guide/app-primitives); shell mutation queue is session-lite only
 - Replacing TanStack DevTools or Floating UI: out of scope
 
 ## Installation

@@ -1,0 +1,81 @@
+{
+    "name": "@sometic/history",
+    "version": "0.1.0",
+    "description": "Undo/redo history stack for Sometic reversible commands.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aitistack/sometic.git",
+        "directory": "packages/history"
+    },
+    "bugs": {
+        "url": "https://github.com/aitistack/sometic/issues"
+    },
+    "homepage": "https://sometic.dev",
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "node": ">=20.18.0"
+    },
+    "dependencies": {
+        "@sometic/core": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "size-limit"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "@size-limit/file": "^11.2.0",
+        "@vitest/coverage-v8": "^3.2.4",
+        "eslint": "^9.31.0",
+        "size-limit": "^11.2.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "size-limit": [
+        {
+            "name": "history root",
+            "path": "dist/index.js",
+            "limit": "3 kB",
+            "gzip": true
+        }
+    ],
+    "keywords": [
+        "sometic",
+        "typescript",
+        "javascript",
+        "ssr",
+        "history",
+        "undo",
+        "redo"
+    ]
+}

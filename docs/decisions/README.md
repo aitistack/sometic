@@ -23,5 +23,6 @@
 | [ADR-0019](./ADR-0019-upload-transport-boundary.md)          | Upload transport boundary             | Accepted               |
 | [ADR-0020](./ADR-0020-elements-cdn-browser-bundles.md)       | Elements CDN browser bundles          | Accepted               |
 | [ADR-0021](./ADR-0021-system-engine-cdn-browser-bundles.md)  | System engine CDN browser bundles     | Accepted               |
+| [ADR-0022](./ADR-0022-app-primitives-package-map.md)         | App primitives package map            | Accepted               |
 
 Template: use the ADR template kept by maintainers (not published in this repository).

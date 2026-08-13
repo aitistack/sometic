@@ -43,18 +43,38 @@
     },
     "peerDependencies": {
         "@sometic/auth": "workspace:*",
+        "@sometic/commands": "workspace:*",
+        "@sometic/drafts": "workspace:*",
+        "@sometic/feature-flags": "workspace:*",
         "@sometic/forms": "workspace:*",
         "@sometic/head": "workspace:*",
+        "@sometic/history": "workspace:*",
         "@sometic/http": "workspace:*",
+        "@sometic/offline-queue": "workspace:*",
         "@sometic/query": "workspace:*",
         "@sometic/store": "workspace:*",
         "@sometic/theme": "workspace:*"
     },
     "peerDependenciesMeta": {
+        "@sometic/commands": {
+            "optional": true
+        },
+        "@sometic/drafts": {
+            "optional": true
+        },
+        "@sometic/feature-flags": {
+            "optional": true
+        },
         "@sometic/forms": {
             "optional": true
         },
         "@sometic/head": {
+            "optional": true
+        },
+        "@sometic/history": {
+            "optional": true
+        },
+        "@sometic/offline-queue": {
             "optional": true
         },
         "@sometic/store": {
@@ -76,10 +96,15 @@
     "devDependencies": {
         "@sometic/auth": "workspace:*",
         "@sometic/build-config": "workspace:*",
+        "@sometic/commands": "workspace:*",
+        "@sometic/drafts": "workspace:*",
         "@sometic/eslint-config": "workspace:*",
+        "@sometic/feature-flags": "workspace:*",
         "@sometic/forms": "workspace:*",
         "@sometic/head": "workspace:*",
+        "@sometic/history": "workspace:*",
         "@sometic/http": "workspace:*",
+        "@sometic/offline-queue": "workspace:*",
         "@sometic/query": "workspace:*",
         "@sometic/store": "workspace:*",
         "@sometic/testing-config": "workspace:*",

@@ -50,6 +50,13 @@ export {
     type AuthorizationPolicy,
 } from "./authorization/index.js";
 export {
+    createPermissionController,
+    type CreatePermissionControllerOptions,
+    type PermissionCheck,
+    type PermissionController,
+    type PermissionGrant,
+} from "./authorization/permission-controller.js";
+export {
     createAuth,
     createBroadcastAuthBus,
     createNoopAuthBus,
