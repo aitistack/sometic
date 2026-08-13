@@ -9,8 +9,8 @@
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --parallel",
-        "lint": "turbo run lint --concurrency=4",
-        "typecheck": "turbo run typecheck --concurrency=4",
+        "lint": "turbo run lint --concurrency=2",
+        "typecheck": "turbo run typecheck --concurrency=2",
         "test": "turbo run test --concurrency=4",
         "test:coverage": "turbo run test:coverage",
         "test:e2e": "playwright test",
