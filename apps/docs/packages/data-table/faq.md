@@ -42,4 +42,4 @@ Selection and filters are UX state. Enforce authorization and row visibility on 
 
 ## Migrations / related packages?
 
-Additive Phase 21 surface. Pair with `@sometic/query` for fetch caching and `@sometic/query-builder` via `toDataTableFilters`. See [comparison](./comparison) and [troubleshooting](./troubleshooting).
+Additive surface. Pair with `@sometic/query` for fetch caching and `@sometic/query-builder` via `toDataTableFilters`. See [comparison](./comparison) and [troubleshooting](./troubleshooting).

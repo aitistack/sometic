@@ -293,38 +293,6 @@ export default defineConfig({
                         { text: "Contributing", link: "/guide/contributing" },
                     ],
                 },
-                {
-                    text: "App primitive FAQs",
-                    items: [
-                        { text: "Feature flags", link: "/guide/primitives/feature-flags-faq" },
-                        {
-                            text: "Feature flags comparison",
-                            link: "/guide/primitives/feature-flags-comparison",
-                        },
-                        { text: "Drafts", link: "/guide/primitives/drafts-faq" },
-                        { text: "Drafts comparison", link: "/guide/primitives/drafts-comparison" },
-                        { text: "Commands", link: "/guide/primitives/commands-faq" },
-                        {
-                            text: "Commands comparison",
-                            link: "/guide/primitives/commands-comparison",
-                        },
-                        { text: "History", link: "/guide/primitives/history-faq" },
-                        {
-                            text: "History comparison",
-                            link: "/guide/primitives/history-comparison",
-                        },
-                        { text: "Conflict", link: "/guide/primitives/conflict-faq" },
-                        {
-                            text: "Conflict comparison",
-                            link: "/guide/primitives/conflict-comparison",
-                        },
-                        { text: "Offline queue", link: "/guide/primitives/offline-queue-faq" },
-                        {
-                            text: "Offline queue comparison",
-                            link: "/guide/primitives/offline-queue-comparison",
-                        },
-                    ],
-                },
             ],
             "/concepts/": [
                 {

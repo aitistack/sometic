@@ -188,7 +188,7 @@ Peer: `preact` `^10` (optional). Capabilities: `storeBind` only.
 
 <InstallCommands packages="@sometic/preact @sometic/store" />
 
-See [Preact](/frameworks/preact) for `createPreactStoreBind`. Phase 20 structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) are on `@sometic/react/structure` and `@sometic/vue/structure`, not Preact.
+See [Preact](/frameworks/preact) for `createPreactStoreBind`. Structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) ship on `@sometic/react/structure` and `@sometic/vue/structure`, not Preact.
 
 ### Angular, Svelte, Solid
 
