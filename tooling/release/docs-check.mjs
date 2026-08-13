@@ -47,20 +47,14 @@ for (const name of fs.readdirSync(componentsDir)) {
     const afterUsage = text.slice(usageIdx);
     const nextHeading = afterUsage.search(/\n## /);
     const usageBlock = nextHeading >= 0 ? afterUsage.slice(0, nextHeading) : afterUsage;
-    for (const label of [
-        "[React]",
-        "[Vue]",
-        "[Vanilla]",
-        "[Custom Elements (Web Components)]",
-    ]) {
+    for (const label of ["[React]", "[Vue]", "[Vanilla]", "[Custom Elements (Web Components)]"]) {
         if (!usageBlock.includes(label)) {
             console.error(`${rel}: Usage missing code-group label ${label}`);
             failed = true;
         }
     }
     const hasLegacyCdn = usageBlock.includes("[CDN]");
-    const hasSplitCdn =
-        usageBlock.includes("[CDN Simple]") && usageBlock.includes("[CDN Module]");
+    const hasSplitCdn = usageBlock.includes("[CDN Simple]") && usageBlock.includes("[CDN Module]");
     if (!hasLegacyCdn && !hasSplitCdn) {
         console.error(
             `${rel}: Usage missing CDN surface ([CDN] stub, or [CDN Simple] + [CDN Module])`,
@@ -76,6 +70,4 @@ for (const name of fs.readdirSync(componentsDir)) {
 if (failed) {
     process.exit(1);
 }
-console.log(
-    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)",
-);
+console.log("docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)");
