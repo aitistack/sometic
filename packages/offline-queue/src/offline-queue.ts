@@ -37,7 +37,7 @@ export type CreateOfflineMutationQueueOptions<TVariables = unknown, TResult = un
     onChange?: (jobs: OfflineQueueJob<TVariables>[]) => void;
 };
 
-export type OfflineMutationQueue<TVariables = unknown, TResult = unknown> = {
+export type OfflineMutationQueue<TVariables = unknown> = {
     enqueue: (input: {
         key: string;
         variables: TVariables;
@@ -66,7 +66,7 @@ export function createMemoryOfflineQueueStorage(seed: OfflineQueueJob[] = []): O
 
 export function createOfflineMutationQueue<TVariables = unknown, TResult = unknown>(
     options: CreateOfflineMutationQueueOptions<TVariables, TResult>,
-): OfflineMutationQueue<TVariables, TResult> {
+): OfflineMutationQueue<TVariables> {
     const now = options.now ?? (() => Date.now());
     const getEpoch = options.getEpoch ?? (() => 0);
     const dropOnEpochChange = options.dropOnEpochChange ?? true;
