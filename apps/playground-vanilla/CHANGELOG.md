@@ -1,5 +1,12 @@
 # @sometic/playground-vanilla
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [69b41ec]
+    - @sometic/app-shell@3.0.1
+
 ## 0.0.8
 
 ### Patch Changes
