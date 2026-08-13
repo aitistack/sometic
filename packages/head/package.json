@@ -1,6 +1,6 @@
 {
     "name": "@sometic/head",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Portable document head / SEO controller with SSR serialization for Sometic.",
     "license": "MIT",
     "type": "module",

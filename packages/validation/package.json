@@ -1,6 +1,6 @@
 {
     "name": "@sometic/validation",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Native validators and schema-adapter contracts for Sometic forms.",
     "license": "MIT",
     "type": "module",
