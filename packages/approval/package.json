@@ -1,6 +1,6 @@
 {
     "name": "@sometic/approval",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Portable multi-step approval flow state for Sometic.",
     "license": "MIT",
     "type": "module",

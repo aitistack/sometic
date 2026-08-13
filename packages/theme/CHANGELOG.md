@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- 8beb20b: Consumer CDN copy: concrete jsDelivr versions, Simple script vs Module script sections, no pin-in-production jargon.
+- Updated dependencies [8beb20b]
+    - @sometic/core@1.0.6
+    - @sometic/store@1.1.2
+    - @sometic/styling@1.0.6
+
 ## 1.1.1
 
 ### Patch Changes

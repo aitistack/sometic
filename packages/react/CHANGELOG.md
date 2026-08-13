@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.3
+
+### Patch Changes
+
+- Updated dependencies [8beb20b]
+    - @sometic/auth@1.1.2
+    - @sometic/dom@2.0.2
+    - @sometic/forms@1.1.2
+    - @sometic/head@0.1.2
+    - @sometic/http@2.0.2
+    - @sometic/query@2.0.2
+    - @sometic/store@1.1.2
+
 ## 1.2.2
 
 ### Patch Changes
