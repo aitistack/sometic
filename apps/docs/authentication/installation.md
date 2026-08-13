@@ -87,3 +87,14 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 - [Firebase](/authentication/firebase)
 - [Supabase](/authentication/supabase)
 - [OIDC](/authentication/oidc)
+
+## CDN
+
+::: code-group
+
+```js [CDN]
+import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+
+const auth = createAuth({ provider });
+```
+:::

@@ -8,7 +8,7 @@ Use it when your domain schemas already live in Zod and you want [`@sometic/form
 
 Exports: `createZodSchemaAdapter` and `issuesFromZodError`. Compatible with Zod schema-like objects that expose `parse` and `safeParse` (Zod 3 and Zod 4 peers are declared). Path segments are joined with `@sometic/validation/path` helpers.
 
-Related packages: [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation), [`@sometic/validation-yup`](https://www.npmjs.com/package/@sometic/validation-yup), [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms), and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [introduction](https://sometic.aitistack.com/guide/introduction).
+Related packages: [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation), [`@sometic/validation-yup`](https://www.npmjs.com/package/@sometic/validation-yup), [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms), and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -67,9 +67,9 @@ Skip this package if you are not using Zod. Prefer Yup via `@sometic/validation-
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Validation package](https://sometic.aitistack.com/packages/validation/)
-- [Forms](https://sometic.aitistack.com/packages/forms/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Validation package](https://sometic.dev/packages/validation/)
+- [Forms](https://sometic.dev/packages/forms/)
 
 ## License
 

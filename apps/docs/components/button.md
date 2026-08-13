@@ -8,7 +8,7 @@ Accessible native `<button>` with shared loading/disabled resolution, content sl
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { Button } from "@sometic/react/button";
 
 export function Example() {
@@ -16,15 +16,26 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { Button } from "@sometic/react/button";
+```vue [Vue]
+<script setup>
+import { Button } from "@sometic/vue/button";
+</script>
 
-export function Example(): JSX.Element {
-    return <Button onClick={() => {}}>Save</Button>;
-}
+<template>
+    <Button @click="() => {}">Save</Button>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { bindButton } from "@sometic/dom/button";
+
+const button = document.querySelector("button");
+bindButton(button, {
+    onPress() {},
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerButtonElements } from "@sometic/elements/button";
     registerButtonElements();
@@ -33,6 +44,11 @@ export function Example(): JSX.Element {
 <sometic-button>Save</sometic-button>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-button>Save</sometic-button>
+```
 :::
 
 ## How it works

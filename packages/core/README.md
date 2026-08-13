@@ -8,7 +8,7 @@ Sometic is a portable application behavior system, not a visual UI kit. Core exi
 
 Out of the box you get SSR-safe environment helpers (`canUseDom`, `isServerEnvironment`), `createId` / `createPrefixedId`, disposable stacks, `SometicError` with stable codes, `Result` helpers, plugin/adapter/lifecycle contract types, `createControllableState` for controlled and uncontrolled values, `createAsyncOperation` with concurrency and abort, plus utilities such as `debounce`, `throttle`, `anySignal`, and safe JSON helpers. Prefer subpaths like `@sometic/core/utils` when you want the smallest import graph.
 
-In the ecosystem, core sits under every foundation and feature package. Install it whenever you use Sometic, or pull it alone for disposable/async patterns in any TypeScript app. Related packages include [`@sometic/events`](https://www.npmjs.com/package/@sometic/events), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling), [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility), [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme), and [`@sometic/positioning`](https://www.npmjs.com/package/@sometic/positioning). Start with the product intro at [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction).
+In the ecosystem, core sits under every foundation and feature package. Install it whenever you use Sometic, or pull it alone for disposable/async patterns in any TypeScript app. Related packages include [`@sometic/events`](https://www.npmjs.com/package/@sometic/events), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling), [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility), [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme), and [`@sometic/positioning`](https://www.npmjs.com/package/@sometic/positioning). Start with the product intro at [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction).
 
 ## Modules
 
@@ -105,12 +105,12 @@ No peer dependencies. Do not treat core as a UI kit or className helper. Prefer 
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Core primitives: [https://sometic.aitistack.com/primitives/core](https://sometic.aitistack.com/primitives/core)
-- Architecture: [https://sometic.aitistack.com/concepts/architecture](https://sometic.aitistack.com/concepts/architecture)
-- Controlled state: [https://sometic.aitistack.com/concepts/controlled-state](https://sometic.aitistack.com/concepts/controlled-state)
-- Uncontrolled state: [https://sometic.aitistack.com/concepts/uncontrolled-state](https://sometic.aitistack.com/concepts/uncontrolled-state)
-- Tree shaking: [https://sometic.aitistack.com/concepts/tree-shaking](https://sometic.aitistack.com/concepts/tree-shaking)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Core primitives: [https://sometic.dev/primitives/core](https://sometic.dev/primitives/core)
+- Architecture: [https://sometic.dev/concepts/architecture](https://sometic.dev/concepts/architecture)
+- Controlled state: [https://sometic.dev/concepts/controlled-state](https://sometic.dev/concepts/controlled-state)
+- Uncontrolled state: [https://sometic.dev/concepts/uncontrolled-state](https://sometic.dev/concepts/uncontrolled-state)
+- Tree shaking: [https://sometic.dev/concepts/tree-shaking](https://sometic.dev/concepts/tree-shaking)
 - npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 
 ## License

@@ -8,7 +8,7 @@ It exists because correct multi-surface apps need more than separate packages; t
 
 Standout exports: `createAppShell`, `bindAuthToHttp`, `bindQueryToAuth`, `bindHeadToQuery`, `bindMutationForm`, `bindThemeToHead`, `bindAuthToStores`, `createSessionMutationQueue`, and `bindMutationQueueToAuth`. The returned shell exposes `auth`, `http`, `query`, `getEpoch` / `onEpochChange`, `mutationQueue`, and `dispose`.
 
-Peers include [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), and [`@sometic/query`](https://www.npmjs.com/package/@sometic/query), with optional [`@sometic/head`](https://www.npmjs.com/package/@sometic/head), [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), and [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [app shell](https://sometic.aitistack.com/guide/app-shell).
+Peers include [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), and [`@sometic/query`](https://www.npmjs.com/package/@sometic/query), with optional [`@sometic/head`](https://www.npmjs.com/package/@sometic/head), [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme), [`@sometic/store`](https://www.npmjs.com/package/@sometic/store), and [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [app shell](https://sometic.dev/guide/app-shell).
 
 ## Install
 
@@ -89,11 +89,11 @@ Skip app-shell when you only need a single package in isolation (for example HTT
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [App shell guide](https://sometic.aitistack.com/guide/app-shell)
-- [Authentication](https://sometic.aitistack.com/authentication/)
-- [Query](https://sometic.aitistack.com/utilities/query)
-- [HTTP](https://sometic.aitistack.com/utilities/http)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [App shell guide](https://sometic.dev/guide/app-shell)
+- [Authentication](https://sometic.dev/authentication/)
+- [Query](https://sometic.dev/utilities/query)
+- [HTTP](https://sometic.dev/utilities/http)
 
 ## License
 

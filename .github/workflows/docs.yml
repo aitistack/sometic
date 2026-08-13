@@ -41,6 +41,10 @@ jobs:
             - name: Install
               run: pnpm install --frozen-lockfile
 
+            - name: Build CDN mirrors for docs
+              run: |
+                  pnpm --filter @sometic/http --filter @sometic/query --filter @sometic/auth --filter @sometic/store --filter @sometic/theme --filter @sometic/head --filter @sometic/app-shell --filter @sometic/elements build
+
             - name: Build docs
               run: pnpm docs:build
 

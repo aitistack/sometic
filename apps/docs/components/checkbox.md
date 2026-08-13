@@ -8,7 +8,7 @@ Native checkbox with controllable checked state, optional indeterminate (ARIA mi
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Checkbox } from "@sometic/react/selection";
 
@@ -18,17 +18,31 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Checkbox } from "@sometic/react/selection";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { Checkbox } from "@sometic/vue/selection";
 
-export function Example(): JSX.Element {
-    const [checked, setChecked] = useState(false);
-    return <Checkbox checked={checked} onCheckedChange={setChecked} />;
-}
+const checked = ref(false);
+</script>
+
+<template>
+    <Checkbox v-model:checked="checked" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { bindCheckbox } from "@sometic/dom/checkbox";
+
+const input = document.querySelector('input[type="checkbox"]');
+bindCheckbox(input, () => ({
+    onCheckedChange(next) {
+        console.log(next);
+    },
+}));
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerSelectionElements } from "@sometic/elements/selection";
     registerSelectionElements();
@@ -37,6 +51,11 @@ export function Example(): JSX.Element {
 <sometic-checkbox></sometic-checkbox>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-checkbox></sometic-checkbox>
+```
 :::
 
 ## How it works

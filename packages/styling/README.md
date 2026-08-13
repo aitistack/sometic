@@ -8,7 +8,7 @@ Sometic is portable application behavior, not a visual kit. Components ship unst
 
 Standout features include `resolveClasses` / `createClassResolver`, `resolveStyles` and `resolveCssVariables`, layered `resolveStyleable` with documented override priority (`behavior` → `defaults` → `variants` → `state` → `user` → `cssVariables`), `defineSlots` / `createSlotAttributes`, `resolveStateAttributes`, and `resolvePolymorphicAs`. Subpaths (`@sometic/styling/classes`, `/styles`, `/slots`, `/state`, `/polymorphic`) keep imports tree-shakeable.
 
-In the ecosystem, styling pairs with [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme) for tokens and CSS variables, and with DOM/component packages that expose slots. It does not depend on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) at runtime, but sits in the same foundation story documented at [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction) and the styling guide.
+In the ecosystem, styling pairs with [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme) for tokens and CSS variables, and with DOM/component packages that expose slots. It does not depend on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) at runtime, but sits in the same foundation story documented at [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction) and the styling guide.
 
 ## Install
 
@@ -66,11 +66,11 @@ No peer dependencies. Do not use this package as a CSS framework or theme engine
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Styling guide: [https://sometic.aitistack.com/guide/styling](https://sometic.aitistack.com/guide/styling)
-- Styling primitives: [https://sometic.aitistack.com/primitives/styling](https://sometic.aitistack.com/primitives/styling)
-- Styling slots: [https://sometic.aitistack.com/concepts/styling-slots](https://sometic.aitistack.com/concepts/styling-slots)
-- State attributes: [https://sometic.aitistack.com/concepts/state-attributes](https://sometic.aitistack.com/concepts/state-attributes)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Styling guide: [https://sometic.dev/guide/styling](https://sometic.dev/guide/styling)
+- Styling primitives: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/styling)
+- Styling slots: [https://sometic.dev/concepts/styling-slots](https://sometic.dev/concepts/styling-slots)
+- State attributes: [https://sometic.dev/concepts/state-attributes](https://sometic.dev/concepts/state-attributes)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Styling on npm: [https://www.npmjs.com/package/@sometic/styling](https://www.npmjs.com/package/@sometic/styling)
 

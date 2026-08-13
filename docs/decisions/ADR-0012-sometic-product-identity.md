@@ -11,7 +11,7 @@ This ADR recorded the Phase 13 brand lock. **ADR-0017** is now authoritative for
 
 ## Context (historical)
 
-The public product identity was locked before beta. Packages had never been published to npm. Parent brand remains AitiStack.
+The public product identity was locked before beta. Packages had never been published to npm. Parent brand remains Sometic.
 
 ## Decision (historical; see ADR-0017)
 
@@ -19,7 +19,7 @@ The public product identity was locked before beta. Packages had never been publ
 2. Custom elements and TypeScript classes use the product prefix of record.
 3. No compatibility shim packages while unpublished.
 4. Consumer VitePress is product-branded; maintainer docs stay under `docs/`.
-5. Product docs URL and AitiStack attribution as then stated.
+5. Product docs URL and Sometic attribution as then stated.
 
 ## References
 

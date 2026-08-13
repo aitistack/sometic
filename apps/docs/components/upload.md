@@ -12,29 +12,7 @@ The queue never hardcodes HTTP. You pass `UploadTransport.upload(file, { signal,
 
 ::: code-group
 
-```jsx [JS]
-import { UploadDropzone } from "@sometic/react/data";
-import { createHttpUploadTransport } from "@sometic/upload";
-
-const transport = createHttpUploadTransport({ url: "/api/uploads" });
-
-export function Example() {
-    return (
-        <UploadDropzone
-            transport={transport}
-            accept="image/png,image/jpeg"
-            maxBytes={5 * 1024 * 1024}
-            concurrency={2}
-            label="Upload screenshots"
-            onItemsChange={(items) => console.log(items.map((item) => item.status))}
-        >
-            Drop files or press Enter to browse
-        </UploadDropzone>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { UploadDropzone, type UploadItem } from "@sometic/react/data";
 import { createHttpUploadTransport } from "@sometic/upload";
 
@@ -56,6 +34,28 @@ export function Example(): JSX.Element {
         </UploadDropzone>
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { UploadDropzone } from "@sometic/vue/data";
+import { createHttpUploadTransport } from "@sometic/upload";
+
+const transport = createHttpUploadTransport({ url: "/api/uploads" });
+</script>
+
+<template>
+    <UploadDropzone
+        :transport="transport"
+        accept="image/png,image/jpeg"
+        :max-bytes="5 * 1024 * 1024"
+        :concurrency="2"
+        label="Upload screenshots"
+        @items-change="(items) => console.log(items.map((item) => item.status))"
+    >
+        Drop files or press Enter to browse
+    </UploadDropzone>
+</template>
 ```
 
 ```html [Vanilla]
@@ -166,6 +166,13 @@ export function Example(): JSX.Element {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the DOM controllers or the React and Vue components.

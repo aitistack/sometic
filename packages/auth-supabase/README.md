@@ -8,7 +8,7 @@ It exists so Supabase apps can reuse Sometic refresh coordination, HTTP auth int
 
 Standout helpers include default `mapUser` (id, email, displayName from metadata) and token expiry normalization for `expires_at` / `expires_in`. Errors map to stable `@sometic/auth` codes such as `AUTH_CREDENTIALS_INVALID` and `AUTH_REFRESH_FAILED`.
 
-Related packages: [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [auth providers](https://sometic.aitistack.com/packages/auth-providers/).
+Related packages: [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [auth providers](https://sometic.dev/packages/auth-providers/).
 
 ## Install
 
@@ -62,10 +62,10 @@ Skip this adapter if you are not on Supabase. Prefer [`@sometic/auth-local`](htt
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Auth providers](https://sometic.aitistack.com/packages/auth-providers/)
-- [Auth package](https://sometic.aitistack.com/packages/auth/)
-- [Authentication](https://sometic.aitistack.com/authentication/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Auth providers](https://sometic.dev/packages/auth-providers/)
+- [Auth package](https://sometic.dev/packages/auth/)
+- [Authentication](https://sometic.dev/authentication/)
 
 ## License
 

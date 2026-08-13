@@ -8,6 +8,14 @@ Empty-collection chrome from `resolveStatus({ kind: "empty" })` in `@sometic/dom
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -30,19 +38,6 @@ for (const [key, value] of Object.entries(resolveStatusAction().attributes)) {
 }
 action.textContent = "Create invoice";
 panel.append(action);
-```
-
-```ts [TS]
-import { resolveStatus, type StatusViewModel } from "@sometic/dom/status";
-
-export function emptyInvoices(): StatusViewModel {
-    return resolveStatus({
-        kind: "empty",
-        title: "No invoices yet",
-        description: "Invoices appear here once a customer is billed.",
-        hasAction: true,
-    });
-}
 ```
 
 ```html [Vanilla]
@@ -73,6 +68,13 @@ export function emptyInvoices(): StatusViewModel {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ## Notes

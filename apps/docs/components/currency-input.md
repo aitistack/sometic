@@ -8,7 +8,7 @@ Locale-aware currency text field over a numeric `number | null` value. Display u
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { CurrencyInput } from "@sometic/react/input";
 
@@ -26,25 +26,51 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { CurrencyInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { CurrencyInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [amount, setAmount] = useState(null);
-    return (
-        <CurrencyInput
-            currency="USD"
-            locale="en-US"
-            fractionDigits={2}
-            value={amount}
-            onValueChange={setAmount}
-        />
-    );
-}
+const amount = ref(null);
+</script>
+
+<template>
+    <CurrencyInput
+        v-model="amount"
+        currency="USD"
+        locale="en-US"
+        :fraction-digits="2"
+    />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createCurrencyInputController } from "@sometic/dom/input-currency";
+
+const input = document.querySelector("input");
+const controller = createCurrencyInputController({
+    locale: "en-US",
+    currency: "USD",
+    fractionDigits: 2,
+    defaultValue: null,
+    onValueChange(next) {
+        console.log(next);
+    },
+});
+
+const apply = () => {
+    const view = controller.resolve();
+    input.value = view.value;
+};
+apply();
+
+input.addEventListener("input", () => {
+    controller.setFromDisplay(input.value);
+    apply();
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -53,6 +79,11 @@ export function Example(): JSX.Element {
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
+```
 :::
 
 ## Vue

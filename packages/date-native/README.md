@@ -8,7 +8,7 @@ It exists so date inputs can work out of the box without pulling a calendar libr
 
 Standout behavior: strict date-only parsing (rejects impossible calendar days), `add` / `startOf` / `endOf` for day/month/year, and `assertDateAdapter` at creation time. Optional `DateAdapterOptions` are accepted for API symmetry even when unused by the native implementation.
 
-Use with [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) date inputs and [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements) `sometic-date-input`. Related: [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [date primitives](https://sometic.aitistack.com/primitives/date).
+Use with [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) date inputs and [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements) `sometic-date-input`. Related: [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [date primitives](https://sometic.dev/primitives/date).
 
 ## Install
 
@@ -54,9 +54,9 @@ Prefer [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Date primitives](https://sometic.aitistack.com/primitives/date)
-- [Date packages](https://sometic.aitistack.com/packages/date/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Date primitives](https://sometic.dev/primitives/date)
+- [Date packages](https://sometic.dev/packages/date/)
 
 ## License
 

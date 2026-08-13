@@ -20,6 +20,27 @@ Wave A path for apps without React or Vue: DOM engines in `@sometic/dom` plus `s
 
 Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@sometic/auth`. Engines also live in `@sometic/dom` if you bind plain HTML without custom elements.
 
+### CDN (no bundler)
+
+Wave A **shipped** tags can load from a single browser bundle (inlines the required `@sometic/*` graph for those elements):
+
+```html
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
+
+<sometic-button type="button">Save</sometic-button>
+```
+
+IIFE:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+```
+
+Pin a version in production. Docs site also mirrors the same files under `/cdn/` after build. CDN covers shipped CEs only; Tabs/Tree/Data table and other non-CE surfaces use `@sometic/dom` or React/Vue. See [Installation](/guide/installation#cdn-web-components) and [What’s included](/guide/whats-included).
+
 ## Import map
 
 | Import                        | Role                       |

@@ -22,6 +22,19 @@ Honest inventory of the public beta. If it is not listed under **Included**, do 
 
 Prefer React, Vue, or Elements for production apps in this beta.
 
+## Wave A surface matrix
+
+Honest adapter coverage for production paths. **CE** means a `sometic-*` custom element. **DOM** means `@sometic/dom` controllers / resolve (always available for engines).
+
+| Area | React | Vue | CE | DOM |
+| ---- | ----- | --- | -- | --- |
+| Button / Field / Selection (non-combobox) | Yes | Yes | Yes | Yes |
+| Overlay dialog/popover/tooltip/toast/alert | Yes | Yes | Yes | Yes |
+| Menu / Context menu / Drawer / Combobox | Yes | Partial or not shipped | No | Yes |
+| Tabs / Accordion / Breadcrumb / Command palette / Tree | Yes | Yes | No | Yes |
+| Data table / Upload / Schema form / Permissions / Notifications | Yes (`/data`) | Yes (`/data`) | No | Yes |
+| Auth / HTTP / Query / Store / App shell | Hooks + engines | Hooks + engines | `sometic-auth-status` only | Engines + `createSometicApp` |
+
 ## Deferred (later phases)
 
 | Area           | Examples                                                                                                                                                                                                                                                          |

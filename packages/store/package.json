@@ -25,7 +25,9 @@
             "types": "./dist/kinds/index.d.ts",
             "import": "./dist/kinds/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-store.esm.js": "./dist/cdn/sometic-store.esm.js",
+        "./cdn/sometic-store.iife.js": "./dist/cdn/sometic-store.iife.js"
     },
     "files": [
         "dist",
@@ -41,7 +43,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },
@@ -52,7 +54,7 @@
         "@sometic/core": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -97,6 +99,18 @@
             "path": "dist/kinds/index.js",
             "limit": "3.5 kB",
             "gzip": true
+        },
+        {
+            "name": "store CDN esm",
+            "path": "dist/cdn/sometic-store.esm.js",
+            "limit": "40 kB",
+            "gzip": true
+        },
+        {
+            "name": "store CDN iife",
+            "path": "dist/cdn/sometic-store.iife.js",
+            "limit": "40 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -109,5 +123,7 @@
         "state",
         "selectors",
         "persistence"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-store.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-store.iife.js"
 }

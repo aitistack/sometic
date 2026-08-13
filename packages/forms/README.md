@@ -8,7 +8,7 @@ Sometic treats forms as portable application behavior, not a React Hook Form clo
 
 Standout exports include `createForm`, `createFieldArrayController`, `createDraftController` with memory/localStorage draft storage, `createFormSteps`, FormData bridges (`valuesToFormData`, `formDataToValues`), and feedback helpers (`createValidationFeedback`, `feedbackAttributes`). Subpaths such as `@sometic/forms/drafts`, `@sometic/forms/steps`, `@sometic/forms/a11y`, and `@sometic/forms/server` keep bundles intentional.
 
-This package sits on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation). UI wiring often comes from [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) / [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements), and session-safe composition can use [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell). See the [introduction](https://sometic.aitistack.com/guide/introduction) and [forms overview](https://sometic.aitistack.com/packages/forms/).
+This package sits on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and [`@sometic/validation`](https://www.npmjs.com/package/@sometic/validation). UI wiring often comes from [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) / [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements), and session-safe composition can use [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell). See the [introduction](https://sometic.dev/guide/introduction) and [forms overview](https://sometic.dev/packages/forms/).
 
 ## Install
 
@@ -88,10 +88,10 @@ Do not use `@sometic/forms` for server-state caching (that is [`@sometic/query`]
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Forms package](https://sometic.aitistack.com/packages/forms/)
-- [Forms guide](https://sometic.aitistack.com/forms/)
-- [Validation](https://sometic.aitistack.com/packages/validation/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Forms package](https://sometic.dev/packages/forms/)
+- [Forms guide](https://sometic.dev/forms/)
+- [Validation](https://sometic.dev/packages/validation/)
 
 ## License
 

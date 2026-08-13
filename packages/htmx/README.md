@@ -8,7 +8,7 @@ HTMX pages need behavior that re-attaches after partial HTML updates. Sometic ke
 
 Standout features: store bind; `bindHtmxButton`; `createHtmxBinderRoot` with `register({ selector, bind })`, `scan(scope?)`, and `dispose()`; and `htmxAdapterCapabilities` (`storeBind`, `button`). Register a selector once; after each settle the root rebinds matching elements and prunes detached ones.
 
-Ecosystem: Wave C with Alpine and jQuery. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Engines: [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [HTMX](https://sometic.aitistack.com/frameworks/htmx).
+Ecosystem: Wave C with Alpine and jQuery. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Engines: [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [HTMX](https://sometic.dev/frameworks/htmx).
 
 ## Install
 
@@ -68,10 +68,10 @@ root.dispose();
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [HTMX](https://sometic.aitistack.com/frameworks/htmx)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [HTMX](https://sometic.dev/frameworks/htmx)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

@@ -8,7 +8,7 @@ Why it exists: toasts and inboxes are different problems. [`@sometic/dom`](https
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) only. No browser globals at import time, so it is safe in SSR and Node.
 
-Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [https://sometic.aitistack.com](https://sometic.aitistack.com).
+Docs: [introduction](https://sometic.dev/guide/introduction) and [https://sometic.dev](https://sometic.dev).
 
 ## Install
 
@@ -91,7 +91,7 @@ Skip it for transient toasts: use the toast controller in `@sometic/dom` instead
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
+- [Introduction](https://sometic.dev/guide/introduction)
 - [Activity log](https://www.npmjs.com/package/@sometic/activity)
 
 ## License

@@ -8,7 +8,7 @@ Password field with controllable value and show/hide reveal state. Reveal flips 
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { PasswordInput } from "@sometic/react/input";
 
@@ -27,26 +27,53 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { PasswordInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { PasswordInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [value, setValue] = useState("");
-    const [revealed, setRevealed] = useState(false);
-    return (
-        <PasswordInput
-            value={value}
-            onValueChange={setValue}
-            revealed={revealed}
-            onRevealedChange={setRevealed}
-            autocomplete="current-password"
-        />
-    );
-}
+const value = ref("");
+const revealed = ref(false);
+</script>
+
+<template>
+    <PasswordInput
+        v-model="value"
+        v-model:revealed="revealed"
+        autocomplete="current-password"
+    />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createPasswordInputController } from "@sometic/dom/input-password";
+
+const input = document.querySelector("input");
+const controller = createPasswordInputController({
+    defaultValue: "",
+    defaultRevealed: false,
+    onValueChange(next) {
+        console.log(next);
+    },
+});
+
+const apply = () => {
+    const view = controller.resolve();
+    input.type = view.nativeAttributes.type;
+    input.value = view.value;
+};
+apply();
+
+input.addEventListener("input", () => {
+    controller.value.set(input.value);
+});
+document.querySelector("[data-reveal]").addEventListener("click", () => {
+    controller.toggleRevealed();
+    apply();
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -55,6 +82,11 @@ export function Example(): JSX.Element {
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-password-input autocomplete="current-password"></sometic-password-input>
+```
 :::
 
 ## Vue

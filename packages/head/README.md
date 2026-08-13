@@ -8,7 +8,7 @@ It exists because head management is application behavior that should not be loc
 
 Standout exports: `createHeadController`, `applyHead`, `serializeHead`, `mergePatches`, plus `createPageSeoPatch`, `createOpenGraphPatch`, `createTwitterPatch`, `createJsonLdPatch`, `createCanonicalLink`, `createHreflangLinks`, `createRouteHeadStack`, and `detectHeadConflicts`.
 
-Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Often composed with [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme) and [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell) (theme attrs mirrored into head). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [head utilities](https://sometic.aitistack.com/utilities/head).
+Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Often composed with [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme) and [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell) (theme attrs mirrored into head). Docs: [introduction](https://sometic.dev/guide/introduction) and [head utilities](https://sometic.dev/utilities/head).
 
 ## Install
 
@@ -77,9 +77,9 @@ Skip `@sometic/head` if your framework already owns a complete head pipeline you
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Head utilities](https://sometic.aitistack.com/utilities/head)
-- [App shell](https://sometic.aitistack.com/guide/app-shell)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Head utilities](https://sometic.dev/utilities/head)
+- [App shell](https://sometic.dev/guide/app-shell)
 
 ## License
 

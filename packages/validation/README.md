@@ -8,7 +8,7 @@ Why a separate package: forms need a stable issue model and abortable async vali
 
 Standout features include `runValidators`, `debouncePromise` for abortable debounce, `fromSchema` / `assertSchemaAdapter`, path utilities (`getAt`, `setAt`, `joinPath`), and `@sometic/validation/define` for `defineSchema`, `object`, `string`, and friends. Everything stays dependency-light and tree-shakeable via subpaths (`./validators`, `./compose`, `./schema`, `./path`, `./define`).
 
-Ecosystem role: consumed by [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) and optionally bridged by [`@sometic/validation-zod`](https://www.npmjs.com/package/@sometic/validation-zod) or [`@sometic/validation-yup`](https://www.npmjs.com/package/@sometic/validation-yup). Built on portable TypeScript with no framework imports; foundation context lives in [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Read the [introduction](https://sometic.aitistack.com/guide/introduction) and [validation overview](https://sometic.aitistack.com/packages/validation/).
+Ecosystem role: consumed by [`@sometic/forms`](https://www.npmjs.com/package/@sometic/forms) and optionally bridged by [`@sometic/validation-zod`](https://www.npmjs.com/package/@sometic/validation-zod) or [`@sometic/validation-yup`](https://www.npmjs.com/package/@sometic/validation-yup). Built on portable TypeScript with no framework imports; foundation context lives in [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Read the [introduction](https://sometic.dev/guide/introduction) and [validation overview](https://sometic.dev/packages/validation/).
 
 ## Install
 
@@ -67,10 +67,10 @@ Skip this package if you only need HTML constraint validation and never plan to 
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Validation package](https://sometic.aitistack.com/packages/validation/)
-- [Validation primitives](https://sometic.aitistack.com/primitives/validation)
-- [Forms](https://sometic.aitistack.com/packages/forms/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Validation package](https://sometic.dev/packages/validation/)
+- [Validation primitives](https://sometic.dev/primitives/validation)
+- [Forms](https://sometic.dev/packages/forms/)
 
 ## License
 

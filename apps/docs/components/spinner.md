@@ -8,15 +8,7 @@ Polite loading status indicator (`role="status"`, `aria-live="polite"`). Unstyle
 
 ::: code-group
 
-```tsx [JS]
-import { Spinner } from "@sometic/react/structure";
-
-export function Example() {
-    return <Spinner label="Loading results" />;
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Spinner } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -24,7 +16,27 @@ export function Example(): JSX.Element {
 }
 ```
 
-```html [Vanilla]
+```vue [Vue]
+<script setup>
+import { Spinner } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Spinner label="Loading results" />
+</template>
+```
+
+```js [Vanilla]
+import { resolveSpinner } from "@sometic/dom/spinner";
+
+const el = document.querySelector("[data-spinner]");
+const view = resolveSpinner({ label: "Loading results" });
+for (const [key, attr] of Object.entries(view.attributes)) {
+    el.setAttribute(key, attr);
+}
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import "@sometic/elements/structure";
 </script>
@@ -32,6 +44,11 @@ export function Example(): JSX.Element {
 <sometic-spinner label="Loading results"></sometic-spinner>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-spinner label="Loading results"></sometic-spinner>
+```
 :::
 
 ## How it works

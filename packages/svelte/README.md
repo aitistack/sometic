@@ -8,7 +8,7 @@ Portable behavior is the point of Sometic. Store logic stays in `@sometic/store`
 
 Standout exports: `createSvelteStoreBind` (readable-style `subscribe` that emits the current value immediately, plus `set`, `update`, `store`, `dispose`) and `svelteAdapterCapabilities` (`["storeBind"]`). You can wrap the bind with Svelte 5 runes or `$`-store patterns in your own code without forking store internals.
 
-In the ecosystem this pairs with Angular, Solid, and Preact Wave B packages. Contracts and fixtures: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [Svelte](https://sometic.aitistack.com/frameworks/svelte).
+In the ecosystem this pairs with Angular, Solid, and Preact Wave B packages. Contracts and fixtures: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [Svelte](https://sometic.dev/frameworks/svelte).
 
 ## Install
 
@@ -60,10 +60,10 @@ console.log(svelteAdapterCapabilities.includes("storeBind")); // true
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Svelte](https://sometic.aitistack.com/frameworks/svelte)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Svelte](https://sometic.dev/frameworks/svelte)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

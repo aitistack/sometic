@@ -29,8 +29,8 @@ for (const file of files) {
     if (allow.has(file)) continue;
     const text = fs.readFileSync(file, "utf8");
     const rel = path.relative(docsRoot, file);
-    if (text.includes("@aitistack/")) {
-        console.error(`stale @aitistack/ in ${rel}`);
+    if (text.includes("@sometic/")) {
+        console.error(`stale @sometic/ in ${rel}`);
         failed = true;
     }
     if (text.includes("@sometic-ui/")) {

@@ -11,7 +11,7 @@ Sometic is open-source software. We take security reports seriously and prefer c
 Prefer one of these channels:
 
 1. **GitHub Security Advisories** on the Sometic packages repository (private vulnerability report), when enabled for the repo
-2. **Email / contact** via channels listed on the AitiStack organization at [github.com/aitistack](https://github.com/aitistack)
+2. **Email / contact** via channels listed on the Sometic organization at [github.com/aitistack](https://github.com/aitistack)
 
 Include:
 

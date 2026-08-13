@@ -4,13 +4,11 @@
 
 **Sometic** is a portable application behavior system. Shared controllers power the app; thin adapters give you React, Vue, and `sometic-*` custom elements. Styling stays yours: slots, state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS.
 
-By [AitiStack](https://portfolio.aitistack.com).
-
-**Docs:** [https://sometic.aitistack.com](https://sometic.aitistack.com)
+**Docs:** [https://sometic.dev](https://sometic.dev)
 
 ## Install
 
-Pick the stack you ship. Prefer [subpath imports](https://sometic.aitistack.com/guide/installation) so you only pull what you use.
+Pick the stack you ship. Prefer [subpath imports](https://sometic.dev/guide/installation) so you only pull what you use.
 
 ### React
 
@@ -38,7 +36,7 @@ pnpm add @sometic/vue @sometic/core @sometic/theme
 pnpm add @sometic/elements @sometic/theme
 ```
 
-Copy-ready install blocks for every package live on the [Installation](https://sometic.aitistack.com/guide/installation) page.
+Copy-ready install blocks for every package live on the [Installation](https://sometic.dev/guide/installation) page.
 
 ## Quick start (React)
 
@@ -54,7 +52,7 @@ export function SaveAction() {
 }
 ```
 
-More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction](https://sometic.aitistack.com/guide/introduction) and component guides.
+More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction](https://sometic.dev/guide/introduction) and component guides.
 
 ## What you get
 
@@ -65,21 +63,21 @@ More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction]
 | Adapters    | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`)                    |
 | Styling     | Unstyled by default; theme tokens optional via `@sometic/theme`                        |
 
-Honest beta inventory: [What’s included](https://sometic.aitistack.com/guide/whats-included). Why this vs alternatives: [Comparison](https://sometic.aitistack.com/guide/comparison).
+Honest beta inventory: [What’s included](https://sometic.dev/guide/whats-included). Why this vs alternatives: [Comparison](https://sometic.dev/guide/comparison).
 
 ## Learn more
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Architecture](https://sometic.aitistack.com/concepts/architecture)
-- [Styling contract](https://sometic.aitistack.com/guide/styling)
-- [Authentication](https://sometic.aitistack.com/authentication/)
-- [HTTP](https://sometic.aitistack.com/utilities/http)
-- [Components](https://sometic.aitistack.com/components/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Architecture](https://sometic.dev/concepts/architecture)
+- [Styling contract](https://sometic.dev/guide/styling)
+- [Authentication](https://sometic.dev/authentication/)
+- [HTTP](https://sometic.dev/utilities/http)
+- [Components](https://sometic.dev/components/)
 
 ## License
 
-MIT, copyright AitiStack contributors. See [LICENSE](./LICENSE).
+MIT, copyright Sometic contributors. See [LICENSE](./LICENSE).
 
 ## Contributing
 
-Want to work on the monorepo? See [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Contributing guide](https://sometic.aitistack.com/guide/contributing).
+Want to work on the monorepo? See [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Contributing guide](https://sometic.dev/guide/contributing).

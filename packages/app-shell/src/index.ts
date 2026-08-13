@@ -7,6 +7,13 @@ export {
     type CreateAppShellOptions,
 } from "./create-app-shell.js";
 export {
+    createSometicApp,
+    type CreateSometicAppOptions,
+    type SometicApp,
+    type SometicAppQuery,
+    type SometicAppQueryDefineOptions,
+} from "./create-sometic-app.js";
+export {
     bindQueryToAuth,
     type BindQueryToAuthOptions,
     type RefetchOnReauth,

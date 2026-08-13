@@ -8,7 +8,7 @@ Sometic keeps portable application behavior out of framework packages. Framework
 
 Standout capabilities include resolve helpers (`resolveButton`, `resolveField`, `resolveDialog`), bind helpers for Vanilla (`bindButton`, `bindInput`, `bindCheckbox`, `bindSelect`), controllable controllers (`createInputController`, `createDialogController`, `createTabsController`, `createToastQueue`), and first-class slots/state attributes built on [`@sometic/styling`](https://www.npmjs.com/package/@sometic/styling) and [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility). Prefer intentional subpaths such as `@sometic/dom/button`, `@sometic/dom/field`, `@sometic/dom/input`, and `@sometic/dom/dialog` so consumers only pull the surface they need.
 
-In the ecosystem, this package sits above [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and is consumed by [`@sometic/react`](https://www.npmjs.com/package/@sometic/react), [`@sometic/vue`](https://www.npmjs.com/package/@sometic/vue), and [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements). Read the product model in the [introduction](https://sometic.aitistack.com/guide/introduction) and the DOM overview at [primitives/dom](https://sometic.aitistack.com/primitives/dom).
+In the ecosystem, this package sits above [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) and is consumed by [`@sometic/react`](https://www.npmjs.com/package/@sometic/react), [`@sometic/vue`](https://www.npmjs.com/package/@sometic/vue), and [`@sometic/elements`](https://www.npmjs.com/package/@sometic/elements). Read the product model in the [introduction](https://sometic.dev/guide/introduction) and the DOM overview at [primitives/dom](https://sometic.dev/primitives/dom).
 
 ## Install
 
@@ -76,10 +76,10 @@ Skip `@sometic/dom` when you only need foundation primitives (`@sometic/core`) o
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [DOM primitives](https://sometic.aitistack.com/primitives/dom)
-- [Vanilla framework guide](https://sometic.aitistack.com/frameworks/vanilla)
-- [Components](https://sometic.aitistack.com/components/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [DOM primitives](https://sometic.dev/primitives/dom)
+- [Vanilla framework guide](https://sometic.dev/frameworks/vanilla)
+- [Components](https://sometic.dev/components/)
 
 ## License
 

@@ -8,6 +8,14 @@ Connectivity chrome from `resolveStatus({ kind: "offline" })` in `@sometic/dom/s
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { bindOfflineRecovery, resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -31,19 +39,6 @@ const stopRecovery = bindOfflineRecovery({
         panel.replaceChildren(document.createTextNode("Back online"));
     },
 });
-```
-
-```ts [TS]
-import { bindOfflineRecovery, resolveStatus, type StatusViewModel } from "@sometic/dom/status";
-
-export function mountOffline(panel: HTMLElement, refetch: () => void): () => void {
-    const view: StatusViewModel = resolveStatus({ kind: "offline", hasAction: true });
-    panel.className = view.className;
-    for (const [key, value] of Object.entries(view.attributes)) {
-        panel.setAttribute(key, value);
-    }
-    return bindOfflineRecovery({ onOnline: refetch });
-}
 ```
 
 ```html [Vanilla]
@@ -80,6 +75,13 @@ export function mountOffline(panel: HTMLElement, refetch: () => void): () => voi
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ## Notes

@@ -6,7 +6,7 @@
 
 ## Scope of search
 
-Strings and identities: `@aitistack`, `aitistack`, `AitiStack`, `aiti-*`, Universal Primitives branding in VitePress, package install examples, Changesets, CI, playground, tests.
+Strings and identities: `@aitistack`, `aitistack`, `Sometic`, `aiti-*`, Universal Primitives branding in VitePress, package install examples, Changesets, CI, playground, tests.
 
 ## Findings by category
 
@@ -14,7 +14,7 @@ Strings and identities: `@aitistack`, `aitistack`, `AitiStack`, `aiti-*`, Univer
 
 - 24 publishable packages under `packages/*` named `@sometic/<name>` at `0.0.1` with `publishConfig.access: public`.
 - None published to npm (registry 404; CI only `npm pack --dry-run`).
-- Package descriptions, homepage, and repository metadata reference AitiStack / `@aitistack`.
+- Package descriptions, homepage, and repository metadata reference Sometic / `@aitistack`.
 
 ### Internal package dependency
 
@@ -23,7 +23,7 @@ Strings and identities: `@aitistack`, `aitistack`, `AitiStack`, `aiti-*`, Univer
 
 ### Documentation
 
-- VitePress at `apps/docs` titled “AitiStack”; Guide includes maintainer monorepo pages.
+- VitePress at `apps/docs` titled “Sometic”; Guide includes maintainer monorepo pages.
 - Package docs under `apps/docs/packages/*` and mirrors under `docs/consumer/*`.
 - Architecture/ADRs/phases under `docs/` (not all in VitePress).
 
@@ -56,12 +56,12 @@ Strings and identities: `@aitistack`, `aitistack`, `AitiStack`, `aiti-*`, Univer
 ### Branding / assets
 
 - Logos/icon only under playground (PNG); docs site has no `public/` brand assets yet.
-- Product promise text reused; title AitiStack.
+- Product promise text reused; title Sometic.
 
 ### URLs
 
 - Repository: `github.com/aitistack/sometic` (retain until org move).
-- Planned docs: `https://sometic.aitistack.com` (not deployed).
+- Planned docs: `https://sometic.dev` (not deployed).
 
 ### Migration compatibility
 

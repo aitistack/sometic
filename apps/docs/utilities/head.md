@@ -81,7 +81,7 @@ const head = createHeadController({
 head.set("page", {
     title: "Architecture",
     meta: [{ name: "description", content: "Controllers and adapters" }],
-    link: [{ rel: "canonical", href: "https://sometic.aitistack.com/architecture" }],
+    link: [{ rel: "canonical", href: "https://sometic.dev/architecture" }],
     htmlAttrs: { lang: "en" },
     bodyAttrs: { class: "docs" },
     jsonLd: [{ type: "application/ld+json", data: { "@type": "WebSite", name: "Sometic" } }],
@@ -96,6 +96,13 @@ applyHead(document, head.get());
 const tags = serializeHead(head.get());
 ```
 
+
+```js [CDN]
+import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+
+const head = createHeadController();
+head.patch({ title: "Docs" });
+```
 :::
 
 ### React

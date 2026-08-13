@@ -8,7 +8,7 @@ Sometic coding standards ban implementation comments, forbid `any`, prefer type-
 
 Standout behavior: `createPackageConfig` accepts optional `tsconfigRootDir` for typed lint via `projectService`; enables `@typescript-eslint/consistent-type-imports` with separate type imports; errors on `@typescript-eslint/no-explicit-any` and unused vars (with `_` ignore patterns); turns on `no-warning-comments` for todo/fixme/xxx/hack; and applies `sometic/no-implementation-comments` to TypeScript while disabling that rule for plain JS config files. The custom rule allows license headers and required tooling directives only.
 
-This package is developer tooling, not a runtime adapter. It sits beside TypeScript and ESLint peers, while application behavior remains in packages rooted at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Architecture and standards live under the docs site at [https://sometic.aitistack.com/](https://sometic.aitistack.com/).
+This package is developer tooling, not a runtime adapter. It sits beside TypeScript and ESLint peers, while application behavior remains in packages rooted at [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Architecture and standards live under the docs site at [https://sometic.dev/](https://sometic.dev/).
 
 Use it when you maintain Sometic packages or want the same comment and TypeScript discipline in a consumer monorepo. Skip it when you already have a house ESLint stack and do not want the no-implementation-comments policy. It does not replace framework adapters, CLI scaffolding, or UI engines.
 
@@ -46,8 +46,8 @@ export default createPackageConfig({
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

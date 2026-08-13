@@ -328,7 +328,7 @@ write(
     "migration/from-aitistack-to-sometic.md",
     `# Migrate from @aitistack to @sometic
 
-Sometic is the public product name. Packages moved from \`@aitistack/*\` to \`@sometic/*\`. Custom elements moved from \`aiti-*\` to \`sometic-*\`.
+Sometic is the public product name. Packages moved from \`@sometic/*\` to \`@sometic/*\`. Custom elements moved from \`aiti-*\` to \`sometic-*\`.
 
 ## Why
 
@@ -338,7 +338,7 @@ Official brand identity (ADR-0012). Early clones used a temporary scope that was
 
 Replace the scope in every dependency and import:
 
-\`@aitistack/<name>\` → \`@sometic/<name>\`
+\`@sometic/<name>\` → \`@sometic/<name>\`
 
 Examples: \`core\`, \`react\`, \`vue\`, \`auth\`, \`http\`, \`elements\`.
 
@@ -346,19 +346,19 @@ Examples: \`core\`, \`react\`, \`vue\`, \`auth\`, \`http\`, \`elements\`.
 
 ::: code-group
 \`\`\`bash [npm]
-npm uninstall @aitistack/core
+npm uninstall @sometic/core
 npm install @sometic/core
 \`\`\`
 \`\`\`bash [pnpm]
-pnpm remove @aitistack/core
+pnpm remove @sometic/core
 pnpm add @sometic/core
 \`\`\`
 \`\`\`bash [yarn]
-yarn remove @aitistack/core
+yarn remove @sometic/core
 yarn add @sometic/core
 \`\`\`
 \`\`\`bash [bun]
-bun remove @aitistack/core
+bun remove @sometic/core
 bun add @sometic/core
 \`\`\`
 :::
@@ -367,7 +367,7 @@ bun add @sometic/core
 
 \`\`\`ts
 // before
-import { createStore } from "@aitistack/store";
+import { createStore } from "@sometic/store";
 // after
 import { createStore } from "@sometic/store";
 \`\`\`
@@ -389,7 +389,7 @@ import { createStore } from "@sometic/store";
 
 ## Troubleshooting
 
-If a package is not found, confirm you are not still requesting \`@aitistack/*\`.
+If a package is not found, confirm you are not still requesting \`@sometic/*\`.
 `,
 );
 
@@ -460,7 +460,7 @@ write(
     "public/robots.txt",
     `User-agent: *
 Allow: /
-Sitemap: https://sometic.aitistack.com/sitemap.xml
+Sitemap: https://sometic.dev/sitemap.xml
 `,
 );
 

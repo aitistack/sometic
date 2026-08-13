@@ -9,5 +9,5 @@ Rules:
 - Prefer @sometic/dom controllers for Vanilla; React/Vue/elements wrap the same behavior
 - Subpath imports; tree-shake unused surfaces
 
-Docs: https://sometic.aitistack.com/primitives/
+Docs: https://sometic.dev/primitives/
 Scaffold a small Vanilla or adapter surface that uses foundation engines correctly without duplicating logic per framework.

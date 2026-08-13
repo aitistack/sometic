@@ -18,31 +18,30 @@ pnpm build
 
 ## Common commands
 
-| Command                             | Purpose                                                     |
-| ----------------------------------- | ----------------------------------------------------------- |
-| `pnpm build`                        | Build packages (Turbo)                                      |
-| `pnpm lint`                         | Lint                                                        |
-| `pnpm typecheck`                    | Typecheck                                                   |
-| `pnpm test`                         | Unit / package tests                                        |
-| `pnpm test:coverage`                | Coverage                                                    |
-| `pnpm test:e2e`                     | Playwright e2e                                              |
-| `pnpm size`                         | Bundle size budgets                                         |
-| `pnpm packages:validate`            | Package metadata / export checks                            |
-| `pnpm docs:dev`                     | Docs site (VitePress)                                       |
-| `pnpm docs:build`                   | Build docs                                                  |
-| `pnpm docs:check`                   | Docs validation                                             |
-| `pnpm playground:vanilla`           | Vanilla / Web Components playground → http://127.0.0.1:5190 |
-| `pnpm playground:react`             | React playground                                            |
-| `pnpm playground:vue`               | Vue playground                                              |
-| `pnpm format` / `pnpm format:check` | Prettier                                                    |
-| `pnpm changeset`                    | Add a Changeset for publishable changes                     |
-| `pnpm changeset:status`             | Changeset status                                            |
+| Command                             | Purpose                                  |
+| ----------------------------------- | ---------------------------------------- |
+| `pnpm build`                        | Build packages (Turbo)                   |
+| `pnpm lint`                         | Lint                                     |
+| `pnpm typecheck`                    | Typecheck                                |
+| `pnpm test`                         | Unit / package tests                     |
+| `pnpm test:coverage`                | Coverage                                 |
+| `pnpm test:e2e`                     | Playwright e2e                           |
+| `pnpm size`                         | Bundle size budgets                      |
+| `pnpm packages:validate`            | Package metadata / export checks         |
+| `pnpm docs:dev`                     | Docs site (VitePress)                    |
+| `pnpm docs:build`                   | Build docs                               |
+| `pnpm docs:check`                   | Docs validation                          |
+| `pnpm format` / `pnpm format:check` | Prettier                                 |
+| `pnpm changeset`                    | Add a Changeset for publishable changes  |
+| `pnpm changeset:status`             | Changeset status                         |
 
 Local quality gate:
 
 ```bash
 pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size && pnpm packages:validate
 ```
+
+Maintainer local harness commands (outside this docs site) are listed in the repository root `CONTRIBUTING.md`.
 
 ## Before you start
 
@@ -55,21 +54,19 @@ pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm size && pnpm pack
 1. Fork the repository (or branch, if you have write access)
 2. Create a branch from `main`
 3. Implement with tests and docs (FAQ/comparison for public modules)
-4. Add playground coverage for new interactive / browser-visible surfaces
-5. Run the local quality gate above
-6. Add a Changeset for publishable package changes: `pnpm changeset`
-7. Open a pull request and wait for CI + maintainer review
+4. Run the local quality gate above
+5. Add a Changeset for publishable package changes: `pnpm changeset`
+6. Open a pull request and wait for CI + maintainer review
 
 ## What we look for
 
-| Do                                      | Avoid                              |
-| --------------------------------------- | ---------------------------------- |
-| Four-space indentation                  | Tabs or two-space indent           |
-| Production TypeScript                   | Placeholders or mock-as-production |
-| Docs with the change                    | Undocumented public APIs           |
-| Stable issue `code`s for validation     | Schema-library lock-in in cores    |
-| Security notes on sensitive PRs         | Public issues for unfixed vulns    |
-| Playground demos for new interactive UI | Docs-only interactive features     |
+| Do                                  | Avoid                              |
+| ----------------------------------- | ---------------------------------- |
+| Four-space indentation              | Tabs or two-space indent           |
+| Production TypeScript               | Placeholders or mock-as-production |
+| Docs with the change                | Undocumented public APIs           |
+| Stable issue `code`s for validation | Schema-library lock-in in cores    |
+| Security notes on sensitive PRs     | Public issues for unfixed vulns    |
 
 ## Architecture for contributors
 
@@ -89,6 +86,6 @@ By contributing, you agree your work is provided under the project MIT license (
 
 ## Related
 
-- [Agents](/guide/agents) (Copy Prompt / LLM docs index)
+- [Agents](/guide/agents)
+- [What’s included](/guide/whats-included)
 - [Beta maturity](/releases/beta)
-- [Troubleshooting](/guide/troubleshooting)

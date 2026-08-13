@@ -8,7 +8,7 @@ Adapters must stay thin. Without a shared contract it is easy for one framework 
 
 Standout exports include `AdapterFrameworkId`, `AdapterCapability`, `AdapterManifest`, `ControlledValueContract`, `AdapterLifecycleContract`, `AdapterSsrContract`, wave manifest arrays, `assertManifestCapabilities`, `createStoreBindFixture`, `createDisposeRebindFixture`, and `assertNoImportTimeWindowAccess(false)`. Wave A manifests list React, Vue, Vanilla (`@sometic/dom`), and Elements. Wave B lists Angular, Svelte, Solid, Preact (store bind). Wave C lists Alpine, jQuery, HTMX (store bind + button).
 
-Most application code never imports this package directly. Adapter maintainers and Sometic’s own tests do. Application developers still benefit: capability claims in docs and packages stay aligned. Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Adapter model: [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters).
+Most application code never imports this package directly. Adapter maintainers and Sometic’s own tests do. Application developers still benefit: capability claims in docs and packages stay aligned. Product overview: [Introduction](https://sometic.dev/guide/introduction). Adapter model: [Framework adapters](https://sometic.dev/concepts/framework-adapters).
 
 ## Install
 
@@ -62,10 +62,10 @@ console.log(storeFixture.increments, lifecycle.bindCount);
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- [Frameworks](https://sometic.aitistack.com/frameworks/)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- [Frameworks](https://sometic.dev/frameworks/)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

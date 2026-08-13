@@ -8,5 +8,5 @@ Rules:
 - Dispose the client when the app root is torn down
 - Prefer extend() for scoped clients (admin vs public) over duplicating config
 
-Docs: https://sometic.aitistack.com/utilities/http
+Docs: https://sometic.dev/utilities/http
 Wire createHttp + optional auth interceptor, then feed responses into @sometic/query via createHttpQueryFn when caching is needed.

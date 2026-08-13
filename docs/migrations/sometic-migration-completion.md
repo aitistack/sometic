@@ -6,12 +6,12 @@
 
 ## Objective
 
-Migrate public identity from `@aitistack` / AitiStack Universal Primitives to **Sometic** / `@sometic`, harden consumer VitePress, integrate brand assets.
+Migrate public identity from `@aitistack` / Sometic Universal Primitives to **Sometic** / `@sometic`, harden consumer VitePress, integrate brand assets.
 
 ## Repository state before
 
-- 24 publishable `@aitistack/*` packages at `0.0.1`, unpublished
-- VitePress titled AitiStack with contributor Guide mixed in
+- 24 publishable `@sometic/*` packages at `0.0.1`, unpublished
+- VitePress titled Sometic with contributor Guide mixed in
 - Brand assets only in playground
 - CE prefix `aiti-*`
 
@@ -68,7 +68,7 @@ Hard cut; packages were never published under `@aitistack`.
 
 ## Deferred
 
-- Live deploy to sometic.aitistack.com
+- Live deploy to sometic.dev
 - npm publish
 - GitHub org rename
 - Phase 14 framework adapter foundation (**ask human first**)

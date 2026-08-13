@@ -8,24 +8,7 @@ Expandable sections with single or multiple open values. `Accordion` owns select
 
 ::: code-group
 
-```tsx [JS]
-import { Accordion, AccordionItem } from "@sometic/react/structure";
-
-export function Example() {
-    return (
-        <Accordion type="single" defaultValue="a11y">
-            <AccordionItem value="a11y" title="Accessibility">
-                Accessibility lives in core engines.
-            </AccordionItem>
-            <AccordionItem value="style" title="Styling">
-                Bring your own design tokens.
-            </AccordionItem>
-        </Accordion>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Accordion, AccordionItem } from "@sometic/react/structure";
 
 export function Example(): JSX.Element {
@@ -40,6 +23,23 @@ export function Example(): JSX.Element {
         </Accordion>
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { Accordion, AccordionItem } from "@sometic/vue/structure";
+</script>
+
+<template>
+    <Accordion type="single" default-value="a11y">
+        <AccordionItem value="a11y" title="Accessibility">
+            Accessibility lives in core engines.
+        </AccordionItem>
+        <AccordionItem value="style" title="Styling">
+            Bring your own design tokens.
+        </AccordionItem>
+    </Accordion>
+</template>
 ```
 
 ```js [Vanilla]
@@ -87,6 +87,13 @@ for (const trigger of root.querySelectorAll("[data-slot='trigger']")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

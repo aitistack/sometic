@@ -8,38 +8,7 @@ Modal, filterable command list for quick actions. Composes `@sometic/dom/overlay
 
 ::: code-group
 
-```tsx [JS]
-import { useState } from "react";
-import { CommandPalette } from "@sometic/react/structure";
-
-const commands = [
-    { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
-    { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
-    { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
-    { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
-    { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
-    { id: "compare", label: "Open comparison", keywords: ["vs"], group: "Docs" },
-];
-
-export function Example() {
-    const [open, setOpen] = useState(false);
-    return (
-        <>
-            <button type="button" onClick={() => setOpen(true)}>
-                Open command palette
-            </button>
-            <CommandPalette
-                open={open}
-                onOpenChange={setOpen}
-                commands={commands}
-                onSelect={(command) => console.log(command.id)}
-            />
-        </>
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { useState } from "react";
 import { CommandPalette, type CommandPaletteCommand } from "@sometic/react/structure";
 
@@ -70,6 +39,32 @@ export function Example(): JSX.Element {
 }
 ```
 
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { CommandPalette } from "@sometic/vue/structure";
+
+const open = ref(false);
+const commands = [
+    { id: "docs", label: "Open docs", keywords: ["guide", "documentation"], group: "Navigation" },
+    { id: "status", label: "Focus status log", keywords: ["log"], group: "Navigation" },
+    { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], group: "Theme" },
+    { id: "tokens", label: "Reset tokens", disabled: true, group: "Theme" },
+    { id: "faq", label: "Search FAQ", keywords: ["help"], group: "Docs" },
+    { id: "compare", label: "Open comparison", keywords: ["vs"], group: "Docs" },
+];
+</script>
+
+<template>
+    <button type="button" @click="open = true">Open command palette</button>
+    <CommandPalette
+        v-model:open="open"
+        :commands="commands"
+        @select="(command) => console.log(command.id)"
+    />
+</template>
+```
+
 ```ts [Vanilla]
 import { createCommandPaletteController } from "@sometic/dom/command-palette";
 
@@ -95,6 +90,13 @@ const controller = createCommandPaletteController({
 controller.setOpen(true);
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ### Vue

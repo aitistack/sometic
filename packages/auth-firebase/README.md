@@ -8,7 +8,7 @@ It exists so apps that already use Firebase Auth can still share Sometic session
 
 Capabilities include sign-in, register, getSession, refresh (forced ID token), getUser, passwordReset, and emailVerification when `sendEmailVerification` is available. `mapUser` customizes how Firebase users become `AuthUser` records.
 
-Compose with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Overview: [introduction](https://sometic.aitistack.com/guide/introduction) and [auth providers](https://sometic.aitistack.com/packages/auth-providers/).
+Compose with [`@sometic/auth`](https://www.npmjs.com/package/@sometic/auth), [`@sometic/http`](https://www.npmjs.com/package/@sometic/http), and [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Overview: [introduction](https://sometic.dev/guide/introduction) and [auth providers](https://sometic.dev/packages/auth-providers/).
 
 ## Install
 
@@ -69,10 +69,10 @@ Do not use this adapter if you are not on Firebase Auth. Prefer [`@sometic/auth-
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Auth providers](https://sometic.aitistack.com/packages/auth-providers/)
-- [Auth package](https://sometic.aitistack.com/packages/auth/)
-- [Authentication](https://sometic.aitistack.com/authentication/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Auth providers](https://sometic.dev/packages/auth-providers/)
+- [Auth package](https://sometic.dev/packages/auth/)
+- [Authentication](https://sometic.dev/authentication/)
 
 ## License
 

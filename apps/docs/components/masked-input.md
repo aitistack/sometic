@@ -8,7 +8,7 @@ Pattern-masked text input. The field shows a formatted display string; `onValueC
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { MaskedInput } from "@sometic/react/input";
 
@@ -20,19 +20,43 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { MaskedInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { MaskedInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [raw, setRaw] = useState("");
-    return (
-        <MaskedInput mask="(###) ###-####" value={raw} onValueChange={setRaw} placeholder="Phone" />
-    );
-}
+const raw = ref("");
+</script>
+
+<template>
+    <MaskedInput v-model="raw" mask="(###) ###-####" placeholder="Phone" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createMaskedInputController } from "@sometic/dom/input-masked";
+
+const input = document.querySelector("input");
+const controller = createMaskedInputController({
+    mask: "(###) ###-####",
+    defaultValue: "",
+    onValueChange(next) {
+        console.log(next);
+    },
+});
+
+const apply = () => {
+    input.value = controller.getDisplayValue();
+};
+apply();
+
+input.addEventListener("input", () => {
+    controller.setFromDisplay(input.value);
+    apply();
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -41,6 +65,11 @@ export function Example(): JSX.Element {
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
+```
 :::
 
 ## Vue

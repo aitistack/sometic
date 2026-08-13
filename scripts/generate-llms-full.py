@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1] / "apps" / "docs"
 OUT = ROOT / "public" / "llms-full.txt"
-BASE = "https://sometic.aitistack.com"
+BASE = "https://sometic.dev"
 
 INCLUDE_DIRS = [
     "guide",
@@ -107,15 +107,15 @@ def main() -> None:
 
     chunks: list[str] = [
         "# Sometic full documentation export\n",
-        "> Complete consumer documentation for Sometic (`@sometic`), concatenated for LLM / agent ingestion. Companion index: https://sometic.aitistack.com/llms.txt\n",
-        "Site: https://sometic.aitistack.com\nnpm scope: @sometic\nLicense: MIT\nParent brand: AitiStack\nMaturity: public beta\n",
+        "> Complete consumer documentation for Sometic (`@sometic`), concatenated for LLM / agent ingestion. Companion index: https://sometic.dev/llms.txt\n",
+        "Site: https://sometic.dev\nnpm scope: @sometic\nLicense: MIT\nParent brand: Sometic\nMaturity: public beta\n",
         "\nImportant product facts for agents:\n"
         "- Packages are unstyled by default; consumers own CSS/fonts.\n"
         "- Prefer subpath imports for tree-shaking.\n"
         "- Custom elements use the `sometic-*` prefix.\n"
         "- Auth helpers are client UX; authorize on the server.\n"
         "- Server cache lives in @sometic/query; client UI state in @sometic/store.\n"
-        "- Use Copy Prompt on surface docs; see https://sometic.aitistack.com/guide/agents.\n"
+        "- Use Copy Prompt on surface docs; see https://sometic.dev/guide/agents.\n"
         "- Documentation search is local (client-side).\n",
         "\n## Table of contents\n",
     ]

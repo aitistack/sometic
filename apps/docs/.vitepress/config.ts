@@ -19,7 +19,7 @@ export default defineConfig({
         "guide/getting-started.md",
     ],
     sitemap: {
-        hostname: "https://sometic.aitistack.com",
+        hostname: "https://sometic.dev",
     },
     /**
      * Drop VitePress Inter (Google Fonts + local subsets). We use self-hosted Urbanist/Chakra.
@@ -124,8 +124,8 @@ export default defineConfig({
                     "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
-        ["meta", { property: "og:url", content: "https://sometic.aitistack.com" }],
-        ["meta", { property: "og:image", content: "https://sometic.aitistack.com/icon.png" }],
+        ["meta", { property: "og:url", content: "https://sometic.dev" }],
+        ["meta", { property: "og:image", content: "https://sometic.dev/icon.png" }],
         ["meta", { name: "twitter:card", content: "summary" }],
         [
             "meta",
@@ -135,7 +135,7 @@ export default defineConfig({
                     "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
-        ["meta", { name: "twitter:image", content: "https://sometic.aitistack.com/icon.png" }],
+        ["meta", { name: "twitter:image", content: "https://sometic.dev/icon.png" }],
         [
             "script",
             { type: "application/ld+json" },
@@ -144,40 +144,35 @@ export default defineConfig({
                 "@graph": [
                     {
                         "@type": "Organization",
-                        "@id": "https://sometic.aitistack.com/#organization",
+                        "@id": "https://sometic.dev/#organization",
                         name: "Sometic",
                         alternateName: ["@sometic"],
-                        url: "https://sometic.aitistack.com",
-                        logo: "https://sometic.aitistack.com/icon.png",
+                        url: "https://sometic.dev",
+                        logo: "https://sometic.dev/icon.png",
                         sameAs: [
                             "https://github.com/aitistack/sometic",
                             "https://www.npmjs.com/org/sometic",
                         ],
-                        parentOrganization: {
-                            "@type": "Organization",
-                            name: "AitiStack",
-                            url: "https://portfolio.aitistack.com",
-                        },
                     },
                     {
                         "@type": "WebSite",
-                        "@id": "https://sometic.aitistack.com/#website",
+                        "@id": "https://sometic.dev/#website",
                         name: "Sometic Docs",
-                        url: "https://sometic.aitistack.com",
+                        url: "https://sometic.dev",
                         description:
                             "Documentation for Sometic, the open-source @sometic TypeScript library for portable UI, forms, auth, and HTTP behavior across JavaScript frameworks.",
-                        publisher: { "@id": "https://sometic.aitistack.com/#organization" },
+                        publisher: { "@id": "https://sometic.dev/#organization" },
                         inLanguage: "en-US",
                     },
                     {
                         "@type": "SoftwareApplication",
-                        "@id": "https://sometic.aitistack.com/#software",
+                        "@id": "https://sometic.dev/#software",
                         name: "Sometic",
                         alternateName: ["@sometic", "Sometic UI", "Sometic React"],
                         applicationCategory: "DeveloperApplication",
                         applicationSubCategory: "JavaScript library",
                         operatingSystem: "Any",
-                        url: "https://sometic.aitistack.com",
+                        url: "https://sometic.dev",
                         downloadUrl: "https://www.npmjs.com/org/sometic",
                         sameAs: [
                             "https://github.com/aitistack/sometic",
@@ -185,7 +180,7 @@ export default defineConfig({
                         ],
                         softwareVersion: "0.1.0-beta",
                         license: "https://opensource.org/licenses/MIT",
-                        author: { "@id": "https://sometic.aitistack.com/#organization" },
+                        author: { "@id": "https://sometic.dev/#organization" },
                         offers: {
                             "@type": "Offer",
                             price: "0",
@@ -508,6 +503,7 @@ export default defineConfig({
                     text: "Wave A, full adapters",
                     items: [
                         { text: "Vanilla / elements", link: "/frameworks/vanilla" },
+                        { text: "CDN / script tag", link: "/frameworks/vanilla#cdn-no-bundler" },
                         { text: "React", link: "/frameworks/react" },
                         { text: "Vue", link: "/frameworks/vue" },
                     ],
@@ -555,7 +551,7 @@ export default defineConfig({
             message:
                 '<p class="sometic-footer-kicker">Open source under the <a href="/legal/license">MIT License</a></p><nav class="sometic-footer-links" aria-label="Legal and trust"><a href="/guide/contributing">Contributing</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/security">Security</a><a href="/llms.txt">llms.txt</a></nav>',
             copyright:
-                '<div class="sometic-footer-brand"><img class="sometic-footer-logo light" src="/logo.png" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" alt="Sometic" /><p class="sometic-footer-by">by <a href="https://portfolio.aitistack.com" target="_blank" rel="noopener noreferrer">AitiStack</a></p></div>',
+                '<div class="sometic-footer-brand"><img class="sometic-footer-logo light" src="/logo.png" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" alt="Sometic" /><p class="sometic-footer-by">Sometic</p></div>',
         },
         search: {
             provider: "local",

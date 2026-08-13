@@ -8,7 +8,7 @@ That split keeps auth refresh, session epoch, cross-tab logout, and policy check
 
 Standout features include session epoch helpers (`nextSessionEpoch`, `shouldBumpSessionEpoch`), storage factories (memory, localStorage, sessionStorage, custom), `createRefreshCoordinator`, authorization (`createPolicy`, `requireRole`, `can` / `cannot`), optional cross-tab buses, and capability discovery (`AUTH_CAPABILITIES`, `hasCapability`). Subpaths expose `./provider`, `./session`, `./storage`, `./refresh`, `./authorization`, `./flows`, and `./test-provider`.
 
-Place in the ecosystem: depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); pairs with provider packages ([`@sometic/auth-local`](https://www.npmjs.com/package/@sometic/auth-local), [`@sometic/auth-firebase`](https://www.npmjs.com/package/@sometic/auth-firebase), [`@sometic/auth-supabase`](https://www.npmjs.com/package/@sometic/auth-supabase), [`@sometic/auth-oidc`](https://www.npmjs.com/package/@sometic/auth-oidc)); integrates with [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) auth interceptors and [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell) session epoch composition. Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [auth package](https://sometic.aitistack.com/packages/auth/).
+Place in the ecosystem: depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); pairs with provider packages ([`@sometic/auth-local`](https://www.npmjs.com/package/@sometic/auth-local), [`@sometic/auth-firebase`](https://www.npmjs.com/package/@sometic/auth-firebase), [`@sometic/auth-supabase`](https://www.npmjs.com/package/@sometic/auth-supabase), [`@sometic/auth-oidc`](https://www.npmjs.com/package/@sometic/auth-oidc)); integrates with [`@sometic/http`](https://www.npmjs.com/package/@sometic/http) auth interceptors and [`@sometic/app-shell`](https://www.npmjs.com/package/@sometic/app-shell) session epoch composition. Docs: [introduction](https://sometic.dev/guide/introduction) and [auth package](https://sometic.dev/packages/auth/).
 
 ## Install
 
@@ -67,11 +67,11 @@ Do not put provider SDKs in this package; use the dedicated provider packages. S
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Auth package](https://sometic.aitistack.com/packages/auth/)
-- [Authentication guide](https://sometic.aitistack.com/authentication/)
-- [Auth providers](https://sometic.aitistack.com/packages/auth-providers/)
-- [App shell](https://sometic.aitistack.com/guide/app-shell)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Auth package](https://sometic.dev/packages/auth/)
+- [Authentication guide](https://sometic.dev/authentication/)
+- [Auth providers](https://sometic.dev/packages/auth-providers/)
+- [App shell](https://sometic.dev/guide/app-shell)
 
 ## License
 

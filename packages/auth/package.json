@@ -41,7 +41,9 @@
             "types": "./dist/test-provider/index.d.ts",
             "import": "./dist/test-provider/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-auth.esm.js": "./dist/cdn/sometic-auth.esm.js",
+        "./cdn/sometic-auth.iife.js": "./dist/cdn/sometic-auth.iife.js"
     },
     "files": [
         "dist",
@@ -57,7 +59,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },
@@ -68,7 +70,7 @@
         "@sometic/core": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -114,6 +116,18 @@
             "path": "dist/test-provider/index.js",
             "limit": "3 kB",
             "gzip": true
+        },
+        {
+            "name": "auth CDN esm",
+            "path": "dist/cdn/sometic-auth.esm.js",
+            "limit": "80 kB",
+            "gzip": true
+        },
+        {
+            "name": "auth CDN iife",
+            "path": "dist/cdn/sometic-auth.iife.js",
+            "limit": "80 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -126,5 +140,7 @@
         "authentication",
         "session",
         "oauth"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-auth.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-auth.iife.js"
 }

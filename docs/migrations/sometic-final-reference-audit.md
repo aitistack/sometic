@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-05
 
-## Allowed remaining AitiStack / aitistack references
+## Allowed remaining Sometic / aitistack references
 
 | Location                                     | Reason                                                                   |
 | -------------------------------------------- | ------------------------------------------------------------------------ |
@@ -18,14 +18,14 @@
 
 ## Not allowed (verified absent in active source)
 
-- Active `@aitistack/` imports in `packages/*/src`, apps playground/src, tests consumers
+- Active `@sometic/` imports in `packages/*/src`, apps playground/src, tests consumers
 - Publishable `package.json` names under `@aitistack`
-- Current VitePress title “AitiStack”
+- Current VitePress title “Sometic”
 - Active `aiti-*` custom element registrations in elements source
 
 ## Scan commands used
 
 ```bash
-rg "@aitistack/" packages apps/playground-vanilla/src tests
+rg "@sometic/" packages apps/playground-vanilla/src tests
 rg "aiti-button|AitiButton" packages/elements/src
 ```

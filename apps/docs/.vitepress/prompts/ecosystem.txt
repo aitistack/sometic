@@ -5,7 +5,7 @@ Product facts:
 - System composition: @sometic/app-shell → createAppShell({ auth, http, query, head, theme, stores, forms })
 - Thin adapters: React (@sometic/react), Vue (@sometic/vue), Web Components (@sometic/elements, sometic-* prefix)
 - Packages are unstyled by default; consumer owns CSS, fonts, and design system
-- Docs: https://sometic.aitistack.com · npm scope: @sometic · public beta
+- Docs: https://sometic.dev · npm scope: @sometic · public beta
 
 Architecture (one-way dependencies):
 Consumer app → framework adapters → app-shell (composition) → features (forms, auth, http, query, theme, dom, …) → foundation (core, events, store, styling, accessibility, …)
@@ -23,7 +23,7 @@ State placement:
 Agent workflow:
 1. Prefer createAppShell when wiring auth + http + query (+ optional head/theme/stores/forms)
 2. Prefer subpath imports (@sometic/react/button, @sometic/react/query) for tree-shaking
-3. Use Copy Prompt buttons on surface docs, or https://sometic.aitistack.com/llms.txt and /guide/agents
+3. Use Copy Prompt buttons on surface docs, or https://sometic.dev/llms.txt and /guide/agents
 4. Authorize on the server; client auth helpers are UX-only
 5. Wave A (React, Vue, Elements) is the production path; Wave B/C adapters are experimental
 

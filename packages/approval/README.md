@@ -8,7 +8,7 @@ Why it exists: approvals are where teams quietly reinvent a state machine per fr
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) only. No browser globals at import time, so it works on the server too.
 
-Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [https://sometic.aitistack.com](https://sometic.aitistack.com).
+Docs: [introduction](https://sometic.dev/guide/introduction) and [https://sometic.dev](https://sometic.dev).
 
 ## Install
 
@@ -82,7 +82,7 @@ Skip it for a single boolean approval toggle. Prefer a workflow engine when you 
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
+- [Introduction](https://sometic.dev/guide/introduction)
 - [Activity log](https://www.npmjs.com/package/@sometic/activity)
 
 ## License

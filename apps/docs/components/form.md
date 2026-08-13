@@ -8,13 +8,13 @@ Framework adapters over `@sometic/forms`: React `Form` / hooks, Vue `Form` / com
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useForm, Form } from "@sometic/react/form";
 
 export function Example() {
     const form = useForm({ defaultValues: { email: "" } });
     return (
-        <Form form={form} onSubmit={async (values) => console.log(values)}>
+        <Form form={form} onValid={async (values) => console.log(values)}>
             <input name="email" />
             <button type="submit">Send</button>
         </Form>
@@ -22,21 +22,37 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useForm, Form } from "@sometic/react/form";
+```vue [Vue]
+<script setup>
+import { useForm, Form } from "@sometic/vue/form";
 
-export function Example(): JSX.Element {
-    const form = useForm({ defaultValues: { email: "" } });
-    return (
-        <Form form={form} onSubmit={async (values) => console.log(values)}>
-            <input name="email" />
-            <button type="submit">Send</button>
-        </Form>
-    );
-}
+const { form } = useForm({ defaultValues: { email: "" } });
+</script>
+
+<template>
+    <Form :form="form" :on-valid="(values) => console.log(values)">
+        <input name="email" />
+        <button type="submit">Send</button>
+    </Form>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createForm } from "@sometic/forms";
+
+const formEl = document.querySelector("form");
+const form = createForm({ defaultValues: { email: "" } });
+
+formEl.addEventListener("submit", (event) => {
+    void form.handleSubmit({
+        onValid(values) {
+            console.log(values);
+        },
+    })(event);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerFormElements } from "@sometic/elements/form";
     registerFormElements();
@@ -48,6 +64,14 @@ export function Example(): JSX.Element {
 </sometic-form>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-form>
+    <input name="email" />
+    <button type="submit">Send</button>
+</sometic-form>
+```
 :::
 
 > React/Vue `Form` props use **`onValid`** / optional **`onInvalid`** (see below). Wire submit through those handlers; the preview Usage snippet above is illustrative of composition shape.

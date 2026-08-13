@@ -8,50 +8,7 @@ Hierarchical single-select tree with expand/collapse, RTL-aware arrows, and opti
 
 ::: code-group
 
-```tsx [JS]
-import { Tree } from "@sometic/react/structure";
-
-const items = [
-    {
-        id: "docs",
-        label: "Docs",
-        children: [
-            {
-                id: "guide",
-                label: "Guide",
-                children: [
-                    { id: "intro", label: "Introduction" },
-                    { id: "install", label: "Installation" },
-                ],
-            },
-            {
-                id: "components",
-                label: "Components",
-                children: [
-                    { id: "tabs", label: "Tabs" },
-                    { id: "tree", label: "Tree" },
-                ],
-            },
-        ],
-    },
-    {
-        id: "packages",
-        label: "Packages",
-        children: [
-            { id: "dom", label: "@sometic/dom" },
-            { id: "react", label: "@sometic/react", disabled: true },
-        ],
-    },
-];
-
-export function Example() {
-    return (
-        <Tree items={items} defaultValue="tree" defaultExpanded={["docs", "guide", "components"]} />
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { Tree, type TreeItem } from "@sometic/react/structure";
 
 const items: TreeItem[] = [
@@ -94,6 +51,53 @@ export function Example(): JSX.Element {
 }
 ```
 
+```vue [Vue]
+<script setup>
+import { Tree } from "@sometic/vue/structure";
+
+const items = [
+    {
+        id: "docs",
+        label: "Docs",
+        children: [
+            {
+                id: "guide",
+                label: "Guide",
+                children: [
+                    { id: "intro", label: "Introduction" },
+                    { id: "install", label: "Installation" },
+                ],
+            },
+            {
+                id: "components",
+                label: "Components",
+                children: [
+                    { id: "tabs", label: "Tabs" },
+                    { id: "tree", label: "Tree" },
+                ],
+            },
+        ],
+    },
+    {
+        id: "packages",
+        label: "Packages",
+        children: [
+            { id: "dom", label: "@sometic/dom" },
+            { id: "react", label: "@sometic/react", disabled: true },
+        ],
+    },
+];
+</script>
+
+<template>
+    <Tree
+        :items="items"
+        default-value="tree"
+        :default-expanded="['docs', 'guide', 'components']"
+    />
+</template>
+```
+
 ```ts [Vanilla]
 import { createTreeController, resolveTreeItem } from "@sometic/dom/tree";
 
@@ -131,6 +135,13 @@ for (const node of tree.getVisibleNodes()) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ### Vue

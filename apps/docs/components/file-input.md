@@ -8,7 +8,7 @@ Native file picker that emits `File[]` (empty array when cleared), with optional
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { FileInput } from "@sometic/react/input";
 
@@ -18,17 +18,42 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { FileInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { FileInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [files, setFiles] = useState([]);
-    return <FileInput multiple accept="image/*,.pdf" onValueChange={setFiles} />;
-}
+const files = ref([]);
+</script>
+
+<template>
+    <FileInput multiple accept="image/*,.pdf" @update:model-value="files = $event" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createFileInputController, resolveFileInput } from "@sometic/dom/input-file";
+
+const input = document.querySelector('input[type="file"]');
+const controller = createFileInputController({
+    multiple: true,
+    accept: "image/*,.pdf",
+    onValueChange(next) {
+        console.log(next);
+    },
+});
+
+const view = resolveFileInput({ multiple: true, accept: "image/*,.pdf" });
+for (const [key, attr] of Object.entries(view.nativeAttributes)) {
+    input.setAttribute(key, attr);
+}
+
+input.addEventListener("change", () => {
+    controller.setFromList(input.files);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -37,6 +62,11 @@ export function Example(): JSX.Element {
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
+```
 :::
 
 ## Vue

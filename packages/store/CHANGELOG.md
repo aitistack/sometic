@@ -40,7 +40,7 @@
 
 ### Minor Changes
 
-- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `AitiStackError` / `aitistack` storage keys / `aiti-*` class names.
+- 68c9d30: Beta Harden: Sometic-only public API and docs (`SometicError`, `sometic` defaults), professional component documentation, release workflow. Breaking for local clones that relied on `SometicError` / `aitistack` storage keys / `aiti-*` class names.
 - 68c9d30: Phase 3 universal store system with persistence, cross-tab sync, and optional Immer adapter.
 
 ### Patch Changes

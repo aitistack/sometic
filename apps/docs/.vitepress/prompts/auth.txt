@@ -8,5 +8,5 @@ Rules:
 - Explicit createAuth({ provider, storage }); dispose when the app root unmounts; no hidden singletons
 - SSR-safe: no window/document/storage at import time
 
-Docs: https://sometic.aitistack.com/authentication/
+Docs: https://sometic.dev/authentication/
 Copy this boundary into code: AuthController owns session; HTTP owns transport; Query owns server cache refetch after re-auth.

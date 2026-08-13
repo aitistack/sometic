@@ -44,5 +44,5 @@
         "vite": "^7.0.5"
     },
     "description": "Interactive vanilla playground for Sometic primitives and components.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

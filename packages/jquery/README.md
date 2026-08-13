@@ -8,7 +8,7 @@ Many production apps still mix jQuery with progressive enhancement. Sometic supp
 
 Standout features: store bind (`get` / `set` / `update` / `subscribe` / `dispose`); `bindJQueryButton` that replaces prior bindings on the same element; `registerJQueryAdapters($)` for `$("button").someticButton(options)` and `$("button").someticButton("destroy")`; and `jqueryAdapterCapabilities` (`storeBind`, `button`). Options may be a plain object or a getter function.
 
-Ecosystem: Wave C with Alpine and HTMX. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [jQuery](https://sometic.aitistack.com/frameworks/jquery).
+Ecosystem: Wave C with Alpine and HTMX. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [jQuery](https://sometic.dev/frameworks/jquery).
 
 ## Install
 
@@ -62,10 +62,10 @@ $("button.save").someticButton("destroy");
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [jQuery](https://sometic.aitistack.com/frameworks/jquery)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [jQuery](https://sometic.dev/frameworks/jquery)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

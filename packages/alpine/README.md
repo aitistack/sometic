@@ -8,7 +8,7 @@ Sometic supports stacks that start from markup, not only SPA frameworks. Alpine 
 
 Standout features: store bind with `get` / `set` / `update` / `subscribe` / `dispose`; `bindAlpineButton(element, getOptions, cleanup?)` for imperative use; `createAlpineSometicPlugin(getButtonOptions?)` for declarative `x-sometic-button`; and `alpineAdapterCapabilities` (`storeBind`, `button`). Pass Alpine’s `cleanup` so bindings dispose with the directive.
 
-Ecosystem: Wave C with jQuery and HTMX. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Capability notes: [Alpine.js](https://sometic.aitistack.com/frameworks/alpine).
+Ecosystem: Wave C with jQuery and HTMX. Contracts: [`@sometic/adapter-contract`](https://www.npmjs.com/package/@sometic/adapter-contract). Foundation: [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Product overview: [Introduction](https://sometic.dev/guide/introduction). Capability notes: [Alpine.js](https://sometic.dev/frameworks/alpine).
 
 ## Install
 
@@ -67,10 +67,10 @@ Markup for the plugin directive: `<button type="button" x-sometic-button>Save</b
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Alpine.js](https://sometic.aitistack.com/frameworks/alpine)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Alpine.js](https://sometic.dev/frameworks/alpine)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

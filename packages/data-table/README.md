@@ -8,7 +8,7 @@ Why it exists: server-state caching belongs in [`@sometic/query`](https://www.np
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) only. No DOM access at import time, so it is safe in SSR and Node.
 
-Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [https://sometic.aitistack.com](https://sometic.aitistack.com).
+Docs: [introduction](https://sometic.dev/guide/introduction) and [https://sometic.dev](https://sometic.dev).
 
 ## Install
 
@@ -106,8 +106,8 @@ Skip it when you render a short static list that needs no sorting, paging, or se
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Query cache](https://sometic.aitistack.com/utilities/query)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Query cache](https://sometic.dev/utilities/query)
 
 ## License
 

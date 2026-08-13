@@ -8,5 +8,5 @@ Rules:
 - Explicit store instances; dispose; SSR-safe (no storage at import time)
 - Theme preference persistence bridges through store + @sometic/theme; see theming docs
 
-Docs: https://sometic.aitistack.com/stores/
+Docs: https://sometic.dev/stores/
 If the task is “fetch users and show them,” use query, not store.

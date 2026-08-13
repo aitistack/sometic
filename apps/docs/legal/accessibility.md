@@ -1,7 +1,7 @@
 # Accessibility statement
 
 **Last updated:** 6 August 2026  
-**Applies to:** the Sometic documentation website at [sometic.aitistack.com](https://sometic.aitistack.com).
+**Applies to:** the Sometic documentation website at [sometic.dev](https://sometic.dev).
 
 Sometic’s product promise includes accessible behavior in components. This page covers accessibility of the **documentation Site** itself.
 

@@ -8,7 +8,7 @@ Use it when your app already depends on Day.js and you want one calendar stack f
 
 Standout details: date-only `YYYY-MM-DD` / `yyyy-MM-dd` handling, `serialize`/`deserialize` for stable form values, and `assertDateAdapter` on create. `DateAdapterOptions` are accepted for contract symmetry.
 
-Related packages: [`@sometic/date-core`](https://www.npmjs.com/package/@sometic/date-core), [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns), [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [date primitives](https://sometic.aitistack.com/primitives/date).
+Related packages: [`@sometic/date-core`](https://www.npmjs.com/package/@sometic/date-core), [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns), [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom), [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). Docs: [introduction](https://sometic.dev/guide/introduction) and [date primitives](https://sometic.dev/primitives/date).
 
 ## Install
 
@@ -56,9 +56,9 @@ Skip this package if you do not use Day.js. Prefer [`@sometic/date-native`](http
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Date primitives](https://sometic.aitistack.com/primitives/date)
-- [Date packages](https://sometic.aitistack.com/packages/date/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Date primitives](https://sometic.dev/primitives/date)
+- [Date packages](https://sometic.dev/packages/date/)
 
 ## License
 

@@ -8,6 +8,14 @@ Failure chrome from `resolveStatus({ kind: "error" })` in `@sometic/dom/status`.
 
 ::: code-group
 
+```tsx [React]
+// No dedicated React adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla).
+```
+
+```vue [Vue]
+<!-- No dedicated Vue adapter for this surface. Use the engine from @sometic/dom/status (same API as Vanilla). -->
+```
+
 ```js [JS]
 import { resolveStatus, resolveStatusAction } from "@sometic/dom/status";
 
@@ -34,19 +42,6 @@ function showError(error, retry) {
     action.addEventListener("click", retry);
 
     panel.replaceChildren(action);
-}
-```
-
-```ts [TS]
-import { resolveStatus, type StatusViewModel } from "@sometic/dom/status";
-
-export function rowsError(error: Error): StatusViewModel {
-    return resolveStatus({
-        kind: "error",
-        title: "We could not load these rows",
-        description: error.message,
-        hasAction: true,
-    });
 }
 ```
 
@@ -78,6 +73,13 @@ export function rowsError(error: Error): StatusViewModel {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 ## Notes

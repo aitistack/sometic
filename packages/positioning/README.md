@@ -8,7 +8,7 @@ Sometic overlays (menus, popovers, tooltips, combobox lists) need predictable ge
 
 Standout features include rect or element inputs, absolute strategy coordinates, default flip and shift (disable via options), alignment-aware placement formatting, and a `PositioningAdapter` shape for injection. The surface is intentionally focused: compute once (or on your own schedule) rather than bundling auto-update observers, so DOM engines decide when to remeasure.
 
-In the ecosystem, positioning works with [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility) (dismiss, focus, portal) and DOM/overlay packages. It depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) for shared foundation alignment. Product intro: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction).
+In the ecosystem, positioning works with [`@sometic/accessibility`](https://www.npmjs.com/package/@sometic/accessibility) (dismiss, focus, portal) and DOM/overlay packages. It depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) for shared foundation alignment. Product intro: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction).
 
 ## Install
 
@@ -78,9 +78,9 @@ Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). No fr
 
 ## Docs
 
-- Introduction: [https://sometic.aitistack.com/guide/introduction](https://sometic.aitistack.com/guide/introduction)
-- Positioning primitives: [https://sometic.aitistack.com/primitives/positioning](https://sometic.aitistack.com/primitives/positioning)
-- Accessibility guide: [https://sometic.aitistack.com/guide/accessibility](https://sometic.aitistack.com/guide/accessibility)
+- Introduction: [https://sometic.dev/guide/introduction](https://sometic.dev/guide/introduction)
+- Positioning primitives: [https://sometic.dev/primitives/positioning](https://sometic.dev/primitives/positioning)
+- Accessibility guide: [https://sometic.dev/guide/accessibility](https://sometic.dev/guide/accessibility)
 - Core on npm: [https://www.npmjs.com/package/@sometic/core](https://www.npmjs.com/package/@sometic/core)
 - Positioning on npm: [https://www.npmjs.com/package/@sometic/positioning](https://www.npmjs.com/package/@sometic/positioning)
 

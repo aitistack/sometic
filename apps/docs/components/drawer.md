@@ -8,7 +8,7 @@ Modal side panel with open state, `role="dialog"`, side placement (`data-side`),
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Drawer } from "@sometic/react/overlay";
 
@@ -27,23 +27,8 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Drawer } from "@sometic/react/overlay";
-
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    return (
-        <>
-            <button type="button" onClick={() => setOpen(true)}>
-                Open
-            </button>
-            <Drawer open={open} onOpenChange={setOpen} side="right">
-                Account settings
-            </Drawer>
-        </>
-    );
-}
+```vue [Vue]
+<!-- Vue adapter not shipped for this surface yet. Use React or @sometic/dom (Vanilla). -->
 ```
 
 ```js [Vanilla]
@@ -68,6 +53,13 @@ document.querySelector("#open-drawer").addEventListener("click", () => {
 });
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

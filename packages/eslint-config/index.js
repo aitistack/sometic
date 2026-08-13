@@ -19,6 +19,7 @@ export function createPackageConfig(options = {}) {
                 "**/node_modules/**",
                 "**/eslint.config.js",
                 "**/tsup.config.ts",
+                "**/tsup.cdn.config.ts",
                 "**/vitest.config.ts",
             ],
         },

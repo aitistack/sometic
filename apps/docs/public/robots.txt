@@ -9,4 +9,4 @@ Allow: /ai.txt
 # Legal
 Allow: /legal/
 
-Sitemap: https://sometic.aitistack.com/sitemap.xml
+Sitemap: https://sometic.dev/sitemap.xml

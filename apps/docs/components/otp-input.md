@@ -8,7 +8,7 @@ Fixed-length one-time code input that keeps digits only. Defaults to `length={6}
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { OtpInput } from "@sometic/react/input";
 
@@ -29,28 +29,41 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { OtpInput } from "@sometic/react/input";
+```vue [Vue]
+<script setup>
+import { ref } from "vue";
+import { OtpInput } from "@sometic/vue/input";
 
-export function Example(): JSX.Element {
-    const [code, setCode] = useState("");
-    return (
-        <OtpInput
-            length={6}
-            value={code}
-            onValueChange={(next) => {
-                setCode(next);
-                if (next.length === 6) {
-                    // submit / verify
-                }
-            }}
-        />
-    );
-}
+const code = ref("");
+</script>
+
+<template>
+    <OtpInput v-model="code" :length="6" />
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { createOtpInputController, resolveOtpInput } from "@sometic/dom/input-otp";
+
+const input = document.querySelector("input");
+const controller = createOtpInputController({
+    length: 6,
+    defaultValue: "",
+    onValueChange(next) {
+        const view = resolveOtpInput({ value: next, length: 6 });
+        input.value = view.value;
+        if (next.length === 6) {
+            console.log("complete", next);
+        }
+    },
+});
+
+input.addEventListener("input", () => {
+    controller.applyPaste(input.value);
+});
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerInputElements } from "@sometic/elements/input";
     registerInputElements();
@@ -59,6 +72,11 @@ export function Example(): JSX.Element {
 <sometic-otp-input length="6"></sometic-otp-input>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-otp-input length="6"></sometic-otp-input>
+```
 :::
 
 ## Vue

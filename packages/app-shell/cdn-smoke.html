@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>SometicAppShell CDN smoke</title>
+    </head>
+    <body>
+        <p id="out">loading…</p>
+        <script type="module">
+            import * as mod from "./sometic-app-shell.esm.js";
+            const keys = Object.keys(mod).slice(0, 8).join(", ");
+            document.getElementById("out").textContent = "SometicAppShell CDN ok: " + keys;
+            console.log("SometicAppShell", mod);
+        </script>
+    </body>
+</html>

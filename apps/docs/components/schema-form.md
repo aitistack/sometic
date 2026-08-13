@@ -12,29 +12,7 @@ Schema form is a thin catalog over the portable forms engine, not a second valid
 
 ::: code-group
 
-```jsx [JS]
-import { SchemaForm } from "@sometic/react/data";
-
-const fields = [
-    { name: "title", label: "Title", type: "text", required: true },
-    { name: "count", label: "Count", type: "number", defaultValue: 1 },
-    { name: "published", label: "Published", type: "checkbox", defaultValue: false },
-];
-
-export function Example() {
-    return (
-        <SchemaForm
-            fields={fields}
-            submitLabel="Save"
-            onSubmitValues={async (values) => {
-                await fetch("/api/posts", { method: "POST", body: JSON.stringify(values) });
-            }}
-        />
-    );
-}
-```
-
-```tsx [TS]
+```tsx [React]
 import { SchemaForm, type SchemaFieldDescriptor, type SchemaFormValues } from "@sometic/react/data";
 
 const fields: SchemaFieldDescriptor[] = [
@@ -54,6 +32,28 @@ export function Example(): JSX.Element {
         />
     );
 }
+```
+
+```vue [Vue]
+<script setup>
+import { SchemaForm } from "@sometic/vue/data";
+
+const fields = [
+    { name: "title", label: "Title", type: "text", required: true },
+    { name: "count", label: "Count", type: "number", defaultValue: 1 },
+    { name: "published", label: "Published", type: "checkbox", defaultValue: false },
+];
+</script>
+
+<template>
+    <SchemaForm
+        :fields="fields"
+        submit-label="Save"
+        @submit-values="async (values) => {
+            await fetch('/api/posts', { method: 'POST', body: JSON.stringify(values) });
+        }"
+    />
+</template>
 ```
 
 ```html [Vanilla]
@@ -119,6 +119,13 @@ export function Example(): JSX.Element {
 </script>
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped for data surfaces in this beta; use the engine or the React and Vue components.

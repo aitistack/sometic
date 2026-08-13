@@ -7,5 +7,5 @@
         ".": "./create-tsup-config.mjs"
     },
     "description": "Shared build configuration for Sometic packages.",
-    "homepage": "https://sometic.aitistack.com"
+    "homepage": "https://sometic.dev"
 }

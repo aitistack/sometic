@@ -8,7 +8,7 @@ Pointer-positioned menu opened at client coordinates (`openAt(x, y)` on the cont
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { ContextMenu, MenuItem } from "@sometic/react/overlay";
 
@@ -33,29 +33,8 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { ContextMenu, MenuItem } from "@sometic/react/overlay";
-
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    const [point, setPoint] = useState({ x: 0, y: 0 });
-    return (
-        <div
-            onContextMenu={(event) => {
-                event.preventDefault();
-                setPoint({ x: event.clientX, y: event.clientY });
-                setOpen(true);
-            }}
-        >
-            Right-click me
-            <ContextMenu open={open} onOpenChange={setOpen} x={point.x} y={point.y}>
-                <MenuItem>Copy</MenuItem>
-                <MenuItem>Paste</MenuItem>
-            </ContextMenu>
-        </div>
-    );
-}
+```vue [Vue]
+<!-- Vue adapter not shipped for this surface yet. Use React or @sometic/dom (Vanilla). -->
 ```
 
 ```js [Vanilla]
@@ -93,6 +72,13 @@ for (const item of panel.querySelectorAll("[data-menuitem]")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

@@ -8,7 +8,7 @@ Inline status message with tone-driven live region semantics. Stateless `resolve
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { Alert } from "@sometic/react/overlay";
 
 export function Example() {
@@ -16,15 +16,29 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { Alert } from "@sometic/react/overlay";
+```vue [Vue]
+<script setup>
+import { Alert } from "@sometic/vue/overlay";
+</script>
 
-export function Example(): JSX.Element {
-    return <Alert tone="info">Profile saved.</Alert>;
-}
+<template>
+    <Alert tone="info">Profile saved.</Alert>
+</template>
 ```
 
-```html [Vanilla]
+```js [Vanilla]
+import { resolveAlert } from "@sometic/dom/alert";
+
+const el = document.querySelector("[data-alert]");
+const view = resolveAlert({ tone: "info" });
+for (const [key, attr] of Object.entries(view.attributes)) {
+    el.setAttribute(key, attr);
+}
+el.className = view.className;
+el.textContent = "Profile saved.";
+```
+
+```html [Custom Elements (Web Components)]
 <script type="module">
     import { registerOverlayElements } from "@sometic/elements/overlay";
     registerOverlayElements();
@@ -33,6 +47,11 @@ export function Example(): JSX.Element {
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
 ```
 
+```html [CDN]
+<script type="module" src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"></script>
+
+<sometic-alert tone="warning">Check your connection.</sometic-alert>
+```
 :::
 
 ## Vue

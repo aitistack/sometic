@@ -8,7 +8,7 @@ Sometic exists so application behavior is not rewritten per framework. Controlle
 
 Out of the box you get a full Wave A kit with tree-shakeable subpaths: button family (`Button`, `IconButton`, `ToggleButton`, `AsyncButton`, `ButtonGroup`), field and input variants, `useForm` / `Form` / field-array helpers, `AuthProvider` with `useAuth` / `useSession` / `useCan`, `HttpProvider` / `useHttp`, `useStore`, selection controls, overlays (dialog, menu, toast region, and more), structure (`Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, `Tree`, plus feedback primitives) from `@sometic/react/structure`, and document head helpers. Prefer subpath imports such as `@sometic/react/button` when you only need one surface.
 
-In the ecosystem, React sits above the engines and beside Vue and Web Components as a production adapter target. Start from [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) for primitives, then engines such as [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) and [`@sometic/store`](https://www.npmjs.com/package/@sometic/store). Product overview: [Introduction](https://sometic.aitistack.com/guide/introduction). Adapter model: [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters).
+In the ecosystem, React sits above the engines and beside Vue and Web Components as a production adapter target. Start from [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) for primitives, then engines such as [`@sometic/dom`](https://www.npmjs.com/package/@sometic/dom) and [`@sometic/store`](https://www.npmjs.com/package/@sometic/store). Product overview: [Introduction](https://sometic.dev/guide/introduction). Adapter model: [Framework adapters](https://sometic.dev/concepts/framework-adapters).
 
 ## Install
 
@@ -91,10 +91,10 @@ Auth is also available via `@sometic/react/auth` (`AuthProvider`, `useSession`, 
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [React](https://sometic.aitistack.com/frameworks/react)
-- [Framework adapters](https://sometic.aitistack.com/concepts/framework-adapters)
-- Docs home: [https://sometic.aitistack.com/](https://sometic.aitistack.com/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [React](https://sometic.dev/frameworks/react)
+- [Framework adapters](https://sometic.dev/concepts/framework-adapters)
+- Docs home: [https://sometic.dev/](https://sometic.dev/)
 
 ## License
 

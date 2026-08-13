@@ -8,7 +8,7 @@ This contract exists so date inputs and future date pickers can stay portable. A
 
 Standout surface: `DateAdapter`, `DateAdapterOptions` (`locale`, `weekStartsOn`), `DateUnit` (`day` | `month` | `year`), `ParseResult`, and runtime assertion so malformed adapters fail early in tests.
 
-Adapters: [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native) (default), [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns). Foundation context via [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) in the wider stack. Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [date primitives](https://sometic.aitistack.com/primitives/date).
+Adapters: [`@sometic/date-native`](https://www.npmjs.com/package/@sometic/date-native) (default), [`@sometic/date-dayjs`](https://www.npmjs.com/package/@sometic/date-dayjs), [`@sometic/date-fns`](https://www.npmjs.com/package/@sometic/date-fns). Foundation context via [`@sometic/core`](https://www.npmjs.com/package/@sometic/core) in the wider stack. Docs: [introduction](https://sometic.dev/guide/introduction) and [date primitives](https://sometic.dev/primitives/date).
 
 ## Install
 
@@ -62,9 +62,9 @@ Do not expect parsing/formatting to work from `@sometic/date-core` alone; instal
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Date primitives](https://sometic.aitistack.com/primitives/date)
-- [Date packages](https://sometic.aitistack.com/packages/date/)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Date primitives](https://sometic.dev/primitives/date)
+- [Date packages](https://sometic.dev/packages/date/)
 
 ## License
 

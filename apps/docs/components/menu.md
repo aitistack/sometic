@@ -8,7 +8,7 @@ Non-modal menu surface with `role="menu"`, open state, and overlay dismiss (Esca
 
 ::: code-group
 
-```tsx [JS]
+```tsx [React]
 import { useState } from "react";
 import { Menu, MenuItem } from "@sometic/react/overlay";
 
@@ -29,25 +29,8 @@ export function Example() {
 }
 ```
 
-```tsx [TS]
-import { useState } from "react";
-import { Menu, MenuItem } from "@sometic/react/overlay";
-
-export function Example(): JSX.Element {
-    const [open, setOpen] = useState(false);
-    return (
-        <>
-            <button type="button" onClick={() => setOpen(true)}>
-                Actions
-            </button>
-            <Menu open={open} onOpenChange={setOpen}>
-                <MenuItem>Edit</MenuItem>
-                <MenuItem>Duplicate</MenuItem>
-                <MenuItem disabled>Delete</MenuItem>
-            </Menu>
-        </>
-    );
-}
+```vue [Vue]
+<!-- Vue adapter not shipped for this surface yet. Use React or @sometic/dom (Vanilla). -->
 ```
 
 ```js [Vanilla]
@@ -79,6 +62,13 @@ for (const item of panel.querySelectorAll("[data-menuitem]")) {
 }
 ```
 
+```html [Custom Elements (Web Components)]
+<!-- CE not shipped for this surface. Use React, Vue, or @sometic/dom (Vanilla) above. -->
+```
+
+```html [CDN]
+<!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
+```
 :::
 
 > Custom element not shipped in this beta; use the DOM controller.

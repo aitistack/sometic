@@ -53,6 +53,8 @@
             "types": "./dist/shared/events.d.ts",
             "import": "./dist/shared/events.js"
         },
+        "./cdn/sometic-elements.esm.js": "./dist/cdn/sometic-elements.esm.js",
+        "./cdn/sometic-elements.iife.js": "./dist/cdn/sometic-elements.iife.js",
         "./package.json": "./package.json"
     },
     "files": [
@@ -61,6 +63,8 @@
         "README.md",
         "CHANGELOG.md"
     ],
+    "unpkg": "./dist/cdn/sometic-elements.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-elements.iife.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/aitistack/sometic.git",
@@ -69,7 +73,7 @@
     "bugs": {
         "url": "https://github.com/aitistack/sometic/issues"
     },
-    "homepage": "https://sometic.aitistack.com",
+    "homepage": "https://sometic.dev",
     "publishConfig": {
         "access": "public"
     },
@@ -85,7 +89,7 @@
         "@sometic/validation": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
         "test": "vitest run",
@@ -140,6 +144,18 @@
             "name": "elements overlay",
             "path": "dist/overlay/index.js",
             "limit": "6 kB",
+            "gzip": true
+        },
+        {
+            "name": "elements CDN esm",
+            "path": "dist/cdn/sometic-elements.esm.js",
+            "limit": "120 kB",
+            "gzip": true
+        },
+        {
+            "name": "elements CDN iife",
+            "path": "dist/cdn/sometic-elements.iife.js",
+            "limit": "120 kB",
             "gzip": true
         }
     ],

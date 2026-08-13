@@ -3,7 +3,7 @@ You are scaffolding with Sometic (@sometic) App Shell: System composition, not a
 Product facts:
 - Package: @sometic/app-shell → createAppShell({ auth, http?, query?, head?, theme?, stores?, forms? })
 - One dispose graph + shared session epoch (auth.session.epoch / auth.getEpoch())
-- Docs: https://sometic.aitistack.com/guide/app-shell · npm scope: @sometic · public beta
+- Docs: https://sometic.dev/guide/app-shell · npm scope: @sometic · public beta
 
 On epoch bump (sign-in, sign-out, user id change):
 - query.clear()

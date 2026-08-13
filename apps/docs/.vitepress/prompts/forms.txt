@@ -8,5 +8,5 @@ Rules:
 - Do not reimplement validation separately per framework adapter
 - Drafts / field arrays / submit abort: use the forms engine APIs, not ad-hoc local state sprawl
 
-Docs: https://sometic.aitistack.com/forms/
+Docs: https://sometic.dev/forms/
 Scaffold a form with validation and a clear submit path that talks to @sometic/http (and invalidates @sometic/query keys on success when server lists change).

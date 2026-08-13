@@ -8,7 +8,7 @@ Why it exists: UI client state belongs in [`@sometic/store`](https://www.npmjs.c
 
 Standout features: `hashQueryKey` / `partialMatchKey`, observer result shapes familiar to modern query libraries, mutation observers, and an HTTP helper that forwards `context.signal`. Framework hooks live in adapter packages (`@sometic/react/query`, `@sometic/vue/query`), keeping this core framework-free.
 
-Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); optional peer `@sometic/http`. Docs: [introduction](https://sometic.aitistack.com/guide/introduction) and [query utilities](https://sometic.aitistack.com/utilities/query).
+Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core); optional peer `@sometic/http`. Docs: [introduction](https://sometic.dev/guide/introduction) and [query utilities](https://sometic.dev/utilities/query).
 
 ## Install
 
@@ -79,10 +79,10 @@ Prefer TanStack Query when you need its plugin/devtools depth and are React-only
 
 ## Docs
 
-- [Introduction](https://sometic.aitistack.com/guide/introduction)
-- [Query utilities](https://sometic.aitistack.com/utilities/query)
-- [HTTP](https://sometic.aitistack.com/utilities/http)
-- [App shell](https://sometic.aitistack.com/guide/app-shell)
+- [Introduction](https://sometic.dev/guide/introduction)
+- [Query utilities](https://sometic.dev/utilities/query)
+- [HTTP](https://sometic.dev/utilities/http)
+- [App shell](https://sometic.dev/guide/app-shell)
 
 ## License
 
