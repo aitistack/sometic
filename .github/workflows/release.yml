@@ -7,7 +7,7 @@ on:
 
 concurrency:
     group: release-${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: false
 
 jobs:
     release:
@@ -48,7 +48,7 @@ jobs:
                   publish: pnpm exec changeset publish
                   title: "chore: version packages"
                   commit: "chore: version packages"
-                  createGithubReleases: true
+                  createGithubReleases: false
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
