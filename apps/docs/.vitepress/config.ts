@@ -63,13 +63,6 @@ export default defineConfig({
         ["link", { rel: "icon", href: "/favicon.ico", sizes: "any" }],
         ["link", { rel: "icon", href: "/favicon-96x96.png", type: "image/png", sizes: "96x96" }],
         ["link", { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" }],
-        [
-            "meta",
-            {
-                name: "google-site-verification",
-                content: "KDg6yRfpvw-MdB48t24TJPS3PNTn-dUFiy5xiJOt9c4",
-            },
-        ],
         /* Critical self-hosted faces — latin WOFF2 only (~36KB combined) */
         [
             "link",
