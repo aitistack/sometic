@@ -73,22 +73,22 @@ await query.fetchQuery({ queryKey: ["users", "me"], queryFn });
 
 ## CDN
 
-Docs: [https://sometic.dev/utilities/query](https://sometic.dev/utilities/query). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/utilities/query](https://sometic.dev/utilities/query).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@2.0.1/dist/cdn/sometic-query.iife.js"></script>
 <script>
     const client = SometicQuery.createQueryClient();
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@2.0.1/dist/cdn/sometic-query.esm.js";
 
     const client = createQueryClient();
 </script>

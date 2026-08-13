@@ -111,22 +111,14 @@ await bound.submit();
 app.dispose();
 ```
 
-CDN (after npm publish; pin a version in production):
-
-```html
-<script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
-</script>
-```
-
 ## CDN
 
-Docs: [https://sometic.dev/guide/app-shell](https://sometic.dev/guide/app-shell). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/guide/app-shell](https://sometic.dev/guide/app-shell).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@3.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -136,11 +128,11 @@ IIFE (classic script tag):
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@3.0.2/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,

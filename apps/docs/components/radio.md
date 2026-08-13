@@ -102,11 +102,19 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 </div>
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
+
+<div role="radiogroup" aria-label="Plan">
+    <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
+    <sometic-radio name="plan" value="pro" checked aria-label="Pro"></sometic-radio>
+</div>
+```
+
+```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <div role="radiogroup" aria-label="Plan">

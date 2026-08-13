@@ -73,23 +73,23 @@ emitter.dispose();
 
 ## CDN
 
-Docs: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/events). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/events).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/events@1.0.5/dist/cdn/sometic-events.iife.js"></script>
 <script>
     const emitter = SometicEvents.createEventEmitter();
     emitter.emit("ready", { ok: true });
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createEventEmitter } from "https://cdn.jsdelivr.net/npm/@sometic/events@latest/dist/cdn/sometic-events.esm.js";
+    import { createEventEmitter } from "https://cdn.jsdelivr.net/npm/@sometic/events@1.0.5/dist/cdn/sometic-events.esm.js";
 
     const emitter = createEventEmitter();
 </script>

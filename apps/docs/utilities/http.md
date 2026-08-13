@@ -94,17 +94,19 @@ const users = await http.get("/users");
 http.dispose();
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@2.0.1/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
         console.log(me);
     });
 </script>
+```
 
+```html [CDN Module]
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@2.0.1/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");

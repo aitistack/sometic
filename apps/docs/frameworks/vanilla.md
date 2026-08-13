@@ -22,26 +22,28 @@ Optional companions: `@sometic/theme`, `@sometic/store`, `@sometic/http`, `@some
 
 ### CDN (no bundler)
 
-Wave A **shipped** tags can load from a single browser bundle (inlines the required `@sometic/*` graph for those elements):
+Wave A **shipped** tags can load from a single browser bundle (inlines the required `@sometic/*` graph for those elements).
+
+#### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
 
-ESM alternative:
+#### Module script
 
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
 
-Pin a version in production. Docs site also mirrors the same files under `/cdn/` after build. CDN covers shipped CEs only; Tabs/Tree/Data table and other non-CE surfaces use `@sometic/dom` or React/Vue. See [Installation](/guide/installation#cdn-web-components) and [What’s included](/guide/whats-included).
+The docs site also mirrors the same files under `/cdn/` after build. CDN covers shipped custom elements only; Tabs/Tree/Data table and other non-element surfaces use `@sometic/dom` or React/Vue. See [Installation](/guide/installation#cdn-web-components) and [What’s included](/guide/whats-included).
 
 ## Import map
 

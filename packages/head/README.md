@@ -71,23 +71,23 @@ head.set(
 
 ## CDN
 
-Docs: [https://sometic.dev/utilities/head](https://sometic.dev/utilities/head). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/utilities/head](https://sometic.dev/utilities/head).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@0.1.1/dist/cdn/sometic-head.iife.js"></script>
 <script>
     const head = SometicHead.createHeadController();
     head.patch({ title: "Docs" });
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@0.1.1/dist/cdn/sometic-head.esm.js";
 
     const head = createHeadController();
     head.patch({ title: "Docs" });

@@ -154,14 +154,16 @@ observer.destroy();
 queryClient.dispose();
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@2.0.1/dist/cdn/sometic-query.iife.js"></script>
 <script>
     const client = SometicQuery.createQueryClient();
 </script>
+```
 
+```html [CDN Module]
 <script type="module">
-    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@2.0.1/dist/cdn/sometic-query.esm.js";
 
     const client = createQueryClient();
 </script>

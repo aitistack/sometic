@@ -80,23 +80,23 @@ bindings.attach();
 
 ## CDN
 
-Docs: [https://sometic.dev/primitives/accessibility](https://sometic.dev/primitives/accessibility). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/primitives/accessibility](https://sometic.dev/primitives/accessibility).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.5/dist/cdn/sometic-accessibility.iife.js"></script>
 <script>
     const announcer = SometicAccessibility.createLiveAnnouncer();
     announcer.announce("Saved");
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createLiveAnnouncer } from "https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.esm.js";
+    import { createLiveAnnouncer } from "https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.5/dist/cdn/sometic-accessibility.esm.js";
 
     const announcer = createLiveAnnouncer();
     announcer.announce("Saved");

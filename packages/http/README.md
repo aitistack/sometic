@@ -65,12 +65,12 @@ function createAuthedHttp(auth: AuthController) {
 
 ## CDN
 
-Docs: [https://sometic.dev/utilities/http](https://sometic.dev/utilities/http). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/utilities/http](https://sometic.dev/utilities/http).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@2.0.1/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -79,11 +79,11 @@ IIFE (classic script tag):
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@2.0.1/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");

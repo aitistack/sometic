@@ -62,22 +62,22 @@ console.log(slots, rootAttrs, labelClass);
 
 ## CDN
 
-Docs: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/styling). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/styling).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.5/dist/cdn/sometic-styling.iife.js"></script>
 <script>
     const className = SometicStyling.resolveClasses("btn", "is-primary");
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { resolveClasses } from "https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.esm.js";
+    import { resolveClasses } from "https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.5/dist/cdn/sometic-styling.esm.js";
 
     const className = resolveClasses("btn", "is-primary");
 </script>
