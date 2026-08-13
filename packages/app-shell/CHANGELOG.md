@@ -1,5 +1,11 @@
 # @sometic/app-shell
 
+## 3.0.1
+
+### Patch Changes
+
+- 69b41ec: Lead the npm README with createSometicApp, sometic.dev docs, and CDN usage so the published package matches the docs site.
+
 ## 3.0.0
 
 ### Minor Changes
