@@ -22,6 +22,7 @@ import { mountPermissionsSection } from "./sections/permissions.js";
 import { mountActivitySection } from "./sections/activity.js";
 import { mountApprovalSection } from "./sections/approval.js";
 import { mountNotificationsSection } from "./sections/notifications.js";
+import { mountAppPrimitivesSection } from "./sections/app-primitives.js";
 
 const app = document.querySelector("#app");
 if (!(app instanceof HTMLElement)) {
@@ -37,8 +38,8 @@ app.innerHTML = `
     <h1>Vanilla playground</h1>
     <p>
       Click-through harness for Theme, Accessibility, Buttons, Input/Field, Forms, Structure,
-      Overlay, Head, Auth, HTTP, Query, App Shell, and Data &amp; business. Use this page after each
-      phase ships interactive surfaces.
+      Overlay, Head, Auth, HTTP, Query, App Shell, Data &amp; business, and App primitives. Use this
+      page after each phase ships interactive surfaces.
     </p>
     <nav class="pg-nav" aria-label="Sections">
       <a href="#theme">Theme</a>
@@ -64,6 +65,7 @@ app.innerHTML = `
       <a href="#activity">Activity</a>
       <a href="#approval">Approval</a>
       <a href="#notifications">Notifications</a>
+      <a href="#app-primitives">App primitives</a>
     </nav>
   </header>
 
@@ -828,6 +830,88 @@ app.innerHTML = `
     </div>
     <div class="pg-notifications" data-notifications></div>
   </section>
+
+  <section class="pg-section" id="app-primitives">
+    <h2>App primitives</h2>
+    <p class="pg-lead">
+      Phase 22 engines: feature flags, app drafts, commands, undo/redo, conflict resolve,
+      durable offline queue, and permission grants.
+    </p>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Feature flags</h3>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-flag-enable>Enable override</button>
+        <button type="button" class="pg-btn" data-ap-flag-disable>Disable override</button>
+        <button type="button" class="pg-btn" data-ap-flag-clear>Clear overrides</button>
+      </div>
+      <p class="pg-status" data-ap-flags-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">App drafts</h3>
+      <div class="pg-input-grid">
+        <label class="pg-control">
+          <span>Title</span>
+          <input class="pg-input" data-ap-draft-input placeholder="Draft title" />
+        </label>
+      </div>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-draft-save>Save</button>
+        <button type="button" class="pg-btn" data-ap-draft-load>Load</button>
+        <button type="button" class="pg-btn" data-ap-draft-clear>Clear</button>
+      </div>
+      <p class="pg-status" data-ap-draft-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Commands</h3>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-command-run>Execute demo.ping</button>
+      </div>
+      <p class="pg-status" data-ap-command-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">History (undo / redo)</h3>
+      <p class="pg-demo-hint">Counter: <strong data-ap-history-value>0</strong></p>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-history-inc>Increment</button>
+        <button type="button" class="pg-btn" data-ap-history-undo>Undo</button>
+        <button type="button" class="pg-btn" data-ap-history-redo>Redo</button>
+      </div>
+      <p class="pg-status" data-ap-history-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Conflict</h3>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-conflict-open>Open conflict</button>
+        <button type="button" class="pg-btn" data-ap-conflict-client>Resolve client-wins</button>
+        <button type="button" class="pg-btn" data-ap-conflict-server>Resolve server-wins</button>
+      </div>
+      <p class="pg-status" data-ap-conflict-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Offline queue</h3>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-offline-enqueue>Enqueue</button>
+        <button type="button" class="pg-btn" data-ap-offline-flush>Flush</button>
+      </div>
+      <p class="pg-status" data-ap-offline-status></p>
+    </div>
+
+    <div class="pg-demo-block">
+      <h3 class="pg-demo-title">Permissions</h3>
+      <div class="pg-row pg-tools">
+        <button type="button" class="pg-btn" data-ap-permission-grant>Grant docs:edit@doc-1</button>
+        <button type="button" class="pg-btn" data-ap-permission-revoke>Revoke</button>
+        <button type="button" class="pg-btn" data-ap-permission-check>Check</button>
+      </div>
+      <p class="pg-status" data-ap-permission-status></p>
+    </div>
+  </section>
 `;
 
 const cleanups = [
@@ -853,6 +937,7 @@ const cleanups = [
     mountActivitySection(app),
     mountApprovalSection(app),
     mountNotificationsSection(app),
+    mountAppPrimitivesSection(app),
 ];
 mountFormsSection(app);
 

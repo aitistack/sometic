@@ -9,6 +9,7 @@ export const AUTH_ERROR_CODES = {
     storageFailed: "AUTH_STORAGE_FAILED",
     disposed: "AUTH_DISPOSED",
     unauthorized: "AUTH_UNAUTHORIZED",
+    invalidPermission: "AUTH_INVALID_PERMISSION",
 } as const;
 
 export type AuthErrorCode = (typeof AUTH_ERROR_CODES)[keyof typeof AUTH_ERROR_CODES];

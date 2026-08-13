@@ -1,6 +1,10 @@
-import type { AuthController } from "@sometic/auth";
+import type { AuthController, PermissionController } from "@sometic/auth";
+import type { CommandRegistry } from "@sometic/commands";
+import type { FeatureFlagController } from "@sometic/feature-flags";
 import type { HeadController } from "@sometic/head";
+import type { HistoryController } from "@sometic/history";
 import type { CreateHttpOptions, HttpClient } from "@sometic/http";
+import type { OfflineMutationQueue } from "@sometic/offline-queue";
 import {
     createQueryObserver,
     type CreateQueryClientOptions,
@@ -35,6 +39,12 @@ export type CreateSometicAppOptions = {
     require?: CreateAppShellOptions["require"];
     resetSessionState?: unknown;
     forms?: CreateAppShellOptions["forms"];
+    flags?: FeatureFlagController;
+    drafts?: CreateAppShellOptions["drafts"];
+    commands?: CommandRegistry;
+    history?: HistoryController;
+    offlineQueue?: OfflineMutationQueue;
+    permissions?: PermissionController;
 };
 
 export type SometicAppQueryDefineOptions<TData> = Omit<
@@ -79,19 +89,20 @@ function wrapQuery(client: QueryClient): SometicAppQuery {
     const define = <TData = unknown>(
         queryKey: QueryKey,
         queryFn: () => Promise<TData>,
-        options: SometicAppQueryDefineOptions<TData> = {},
-    ): QueryObserver<TData> => {
-        return createQueryObserver(client, {
-            ...options,
+        options?: SometicAppQueryDefineOptions<TData>,
+    ): QueryObserver<TData> =>
+        createQueryObserver(client, {
             queryKey,
             queryFn,
+            ...options,
         });
-    };
 
     const invalidate = async (filters?: QueryFilters | QueryKey): Promise<void> => {
-        await client.invalidateQueries(
-            filters === undefined ? undefined : resolveInvalidateFilters(filters),
-        );
+        if (filters === undefined) {
+            await client.invalidateQueries();
+            return;
+        }
+        await client.invalidateQueries(resolveInvalidateFilters(filters));
     };
 
     return Object.assign(client, { define, invalidate });
@@ -121,6 +132,12 @@ export function createSometicApp(options: CreateSometicAppOptions): SometicApp {
             ? { resetSessionState: options.resetSessionState }
             : {}),
         ...(options.forms ? { forms: options.forms } : {}),
+        ...(options.flags ? { flags: options.flags } : {}),
+        ...(options.drafts ? { drafts: options.drafts } : {}),
+        ...(options.commands ? { commands: options.commands } : {}),
+        ...(options.history ? { history: options.history } : {}),
+        ...(options.offlineQueue ? { offlineQueue: options.offlineQueue } : {}),
+        ...(options.permissions ? { permissions: options.permissions } : {}),
     });
 
     return {

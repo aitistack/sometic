@@ -34,6 +34,12 @@
         "@sometic/activity": "workspace:*",
         "@sometic/approval": "workspace:*",
         "@sometic/notifications": "workspace:*",
+        "@sometic/feature-flags": "workspace:*",
+        "@sometic/drafts": "workspace:*",
+        "@sometic/commands": "workspace:*",
+        "@sometic/history": "workspace:*",
+        "@sometic/conflict": "workspace:*",
+        "@sometic/offline-queue": "workspace:*",
         "@sometic/store": "workspace:*",
         "@sometic/theme": "workspace:*",
         "@sometic/validation": "workspace:*"

@@ -195,6 +195,12 @@ importers:
       '@sometic/auth-supabase':
         specifier: workspace:*
         version: link:../../packages/auth-supabase
+      '@sometic/commands':
+        specifier: workspace:*
+        version: link:../../packages/commands
+      '@sometic/conflict':
+        specifier: workspace:*
+        version: link:../../packages/conflict
       '@sometic/data-table':
         specifier: workspace:*
         version: link:../../packages/data-table
@@ -207,21 +213,33 @@ importers:
       '@sometic/dom':
         specifier: workspace:*
         version: link:../../packages/dom
+      '@sometic/drafts':
+        specifier: workspace:*
+        version: link:../../packages/drafts
       '@sometic/elements':
         specifier: workspace:*
         version: link:../../packages/elements
+      '@sometic/feature-flags':
+        specifier: workspace:*
+        version: link:../../packages/feature-flags
       '@sometic/forms':
         specifier: workspace:*
         version: link:../../packages/forms
       '@sometic/head':
         specifier: workspace:*
         version: link:../../packages/head
+      '@sometic/history':
+        specifier: workspace:*
+        version: link:../../packages/history
       '@sometic/http':
         specifier: workspace:*
         version: link:../../packages/http
       '@sometic/notifications':
         specifier: workspace:*
         version: link:../../packages/notifications
+      '@sometic/offline-queue':
+        specifier: workspace:*
+        version: link:../../packages/offline-queue
       '@sometic/query':
         specifier: workspace:*
         version: link:../../packages/query
@@ -512,18 +530,33 @@ importers:
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
+      '@sometic/commands':
+        specifier: workspace:*
+        version: link:../commands
+      '@sometic/drafts':
+        specifier: workspace:*
+        version: link:../drafts
       '@sometic/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@sometic/feature-flags':
+        specifier: workspace:*
+        version: link:../feature-flags
       '@sometic/forms':
         specifier: workspace:*
         version: link:../forms
       '@sometic/head':
         specifier: workspace:*
         version: link:../head
+      '@sometic/history':
+        specifier: workspace:*
+        version: link:../history
       '@sometic/http':
         specifier: workspace:*
         version: link:../http
+      '@sometic/offline-queue':
+        specifier: workspace:*
+        version: link:../offline-queue
       '@sometic/query':
         specifier: workspace:*
         version: link:../query
@@ -874,6 +907,86 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
+  packages/commands:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/conflict:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
   packages/core:
     devDependencies:
       '@size-limit/file':
@@ -1187,6 +1300,46 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
 
+  packages/drafts:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
   packages/elements:
     dependencies:
       '@sometic/auth':
@@ -1262,6 +1415,46 @@ importers:
         version: 5.9.3
 
   packages/events:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/feature-flags:
     dependencies:
       '@sometic/core':
         specifier: workspace:*
@@ -1377,6 +1570,46 @@ importers:
       happy-dom:
         specifier: ^20.8.9
         version: 20.11.2
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/history:
+    dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
       size-limit:
         specifier: ^11.2.0
         version: 11.2.0
@@ -1542,6 +1775,49 @@ importers:
 
   packages/notifications:
     dependencies:
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@size-limit/file':
+        specifier: ^11.2.0
+        version: 11.2.0(size-limit@11.2.0)
+      '@sometic/build-config':
+        specifier: workspace:*
+        version: link:../../tooling/build
+      '@sometic/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@sometic/testing-config':
+        specifier: workspace:*
+        version: link:../../tooling/testing
+      '@sometic/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.7(vitest@3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0))
+      eslint:
+        specifier: ^9.31.0
+        version: 9.39.5(jiti@2.7.0)
+      size-limit:
+        specifier: ^11.2.0
+        version: 11.2.0
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.25)(typescript@5.9.3)(yaml@2.9.0)
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(yaml@2.9.0)
+
+  packages/offline-queue:
+    dependencies:
+      '@sometic/conflict':
+        specifier: workspace:*
+        version: link:../conflict
       '@sometic/core':
         specifier: workspace:*
         version: link:../core

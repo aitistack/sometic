@@ -1,7 +1,13 @@
-import type { AuthController } from "@sometic/auth";
+import type { AuthController, PermissionController } from "@sometic/auth";
+import type { CommandRegistry } from "@sometic/commands";
+import type { DraftController } from "@sometic/drafts";
+import type { FeatureFlagController } from "@sometic/feature-flags";
 import type { FormController } from "@sometic/forms";
+import type { DraftController as FormDraftController } from "@sometic/forms/drafts";
 import type { HeadController } from "@sometic/head";
+import type { HistoryController } from "@sometic/history";
 import type { CreateHttpOptions, HttpClient } from "@sometic/http";
+import type { OfflineMutationQueue } from "@sometic/offline-queue";
 import {
     createQueryClient,
     type CreateQueryClientOptions,
@@ -45,7 +51,17 @@ export type CreateAppShellOptions = {
     forms?: {
         draftsClearOnEpoch?: boolean;
         register?: FormController<Record<string, unknown>>[];
+        draftControllers?: FormDraftController<Record<string, unknown>>[];
     };
+    flags?: FeatureFlagController;
+    drafts?: {
+        controllers?: DraftController<unknown>[];
+        clearOnEpoch?: boolean;
+    };
+    commands?: CommandRegistry;
+    history?: HistoryController;
+    offlineQueue?: OfflineMutationQueue;
+    permissions?: PermissionController;
     refetchOnReauth?: RefetchOnReauth;
     authQueryKeys?: readonly QueryKey[];
     require?: Parameters<typeof bindAuthToHttp>[0]["require"];
@@ -60,6 +76,11 @@ export type AppShell = {
     head?: HeadController;
     theme?: ThemeController;
     stores?: AppShellStores;
+    flags?: FeatureFlagController;
+    commands?: CommandRegistry;
+    history?: HistoryController;
+    offlineQueue?: OfflineMutationQueue;
+    permissions?: PermissionController;
     epoch: number;
     getEpoch: () => number;
     mutationQueue: SessionMutationQueue;
@@ -126,8 +147,9 @@ export function createAppShell(options: CreateAppShellOptions): AppShell {
         );
     }
 
-    if (options.forms?.draftsClearOnEpoch && options.forms.register) {
-        const forms = options.forms.register;
+    if (options.forms?.draftsClearOnEpoch) {
+        const forms = options.forms.register ?? [];
+        const formDrafts = options.forms.draftControllers ?? [];
         let lastEpoch = options.auth.getEpoch();
         disposers.push(
             options.auth.subscribe((session) => {
@@ -139,8 +161,75 @@ export function createAppShell(options: CreateAppShellOptions): AppShell {
                 for (const form of forms) {
                     form.clearServerErrors();
                 }
+                for (const draft of formDrafts) {
+                    void draft.clear();
+                }
             }),
         );
+    }
+
+    if (options.drafts?.clearOnEpoch !== false && options.drafts?.controllers) {
+        const appDrafts = options.drafts.controllers;
+        let lastEpoch = options.auth.getEpoch();
+        disposers.push(
+            options.auth.subscribe((session) => {
+                const epoch = session.epoch ?? 0;
+                if (epoch === lastEpoch) {
+                    return;
+                }
+                lastEpoch = epoch;
+                for (const draft of appDrafts) {
+                    void draft.clear();
+                }
+            }),
+        );
+    }
+
+    if (options.offlineQueue) {
+        const queue = options.offlineQueue;
+        let lastEpoch = options.auth.getEpoch();
+        disposers.push(
+            options.auth.subscribe((session) => {
+                const epoch = session.epoch ?? 0;
+                if (epoch === lastEpoch) {
+                    return;
+                }
+                lastEpoch = epoch;
+                void queue.dropStale();
+            }),
+        );
+        disposers.push(() => {
+            queue.dispose();
+        });
+    }
+
+    if (options.flags) {
+        disposers.push(() => {
+            options.flags?.dispose();
+        });
+    }
+    if (options.commands) {
+        disposers.push(() => {
+            options.commands?.dispose();
+        });
+    }
+    if (options.history) {
+        disposers.push(() => {
+            options.history?.dispose();
+        });
+    }
+    if (options.permissions) {
+        disposers.push(() => {
+            options.permissions?.dispose();
+        });
+    }
+    if (options.drafts?.controllers) {
+        const appDrafts = options.drafts.controllers;
+        disposers.push(() => {
+            for (const draft of appDrafts) {
+                draft.dispose();
+            }
+        });
     }
 
     return {
@@ -150,6 +239,11 @@ export function createAppShell(options: CreateAppShellOptions): AppShell {
         ...(options.head ? { head: options.head } : {}),
         ...(options.theme ? { theme: options.theme } : {}),
         ...(options.stores ? { stores: options.stores } : {}),
+        ...(options.flags ? { flags: options.flags } : {}),
+        ...(options.commands ? { commands: options.commands } : {}),
+        ...(options.history ? { history: options.history } : {}),
+        ...(options.offlineQueue ? { offlineQueue: options.offlineQueue } : {}),
+        ...(options.permissions ? { permissions: options.permissions } : {}),
         get epoch() {
             return options.auth.getEpoch();
         },
