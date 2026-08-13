@@ -77,11 +77,17 @@ document.querySelector("#open").addEventListener("click", () => {
 </script>
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
+
+<button type="button" id="open">Open</button>
+<sometic-dialog>Confirm?</sometic-dialog>
+```
+
+```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="open">Open</button>

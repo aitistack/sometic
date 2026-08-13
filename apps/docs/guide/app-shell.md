@@ -124,8 +124,8 @@ app.dispose();
 auth.dispose();
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@3.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -137,9 +137,11 @@ auth.dispose();
     });
     app.dispose();
 </script>
+```
 
+```html [CDN Module]
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@3.0.2/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,

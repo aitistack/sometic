@@ -88,11 +88,19 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 </sometic-tooltip>
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
+
+<sometic-tooltip placement="top">
+    <button type="button">Save</button>
+    <div data-slot="content">Save (Ctrl+S)</div>
+</sometic-tooltip>
+```
+
+```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-tooltip placement="top">

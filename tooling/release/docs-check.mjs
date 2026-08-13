@@ -52,12 +52,20 @@ for (const name of fs.readdirSync(componentsDir)) {
         "[Vue]",
         "[Vanilla]",
         "[Custom Elements (Web Components)]",
-        "[CDN]",
     ]) {
         if (!usageBlock.includes(label)) {
             console.error(`${rel}: Usage missing code-group label ${label}`);
             failed = true;
         }
+    }
+    const hasLegacyCdn = usageBlock.includes("[CDN]");
+    const hasSplitCdn =
+        usageBlock.includes("[CDN Simple]") && usageBlock.includes("[CDN Module]");
+    if (!hasLegacyCdn && !hasSplitCdn) {
+        console.error(
+            `${rel}: Usage missing CDN surface ([CDN] stub, or [CDN Simple] + [CDN Module])`,
+        );
+        failed = true;
     }
     if (/```\w* \[CE\]/.test(usageBlock)) {
         console.error(`${rel}: Usage still uses [CE]; use [Custom Elements (Web Components)]`);
@@ -68,4 +76,6 @@ for (const name of fs.readdirSync(componentsDir)) {
 if (failed) {
     process.exit(1);
 }
-console.log("docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)");
+console.log(
+    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)",
+);

@@ -56,22 +56,22 @@ dialog?.addEventListener("open-change", (event) => {
 
 ## CDN
 
-Docs: [https://sometic.dev/frameworks/vanilla](https://sometic.dev/frameworks/vanilla). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/frameworks/vanilla](https://sometic.dev/frameworks/vanilla).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>

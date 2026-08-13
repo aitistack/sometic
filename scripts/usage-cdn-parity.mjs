@@ -4,19 +4,38 @@ import { join } from "node:path";
 const root = process.cwd();
 const componentsDir = join(root, "apps/docs/components");
 
+/** @param {string} name */
+function packageVersion(name) {
+    const pkg = JSON.parse(
+        readFileSync(join(root, "packages", name, "package.json"), "utf8"),
+    );
+    return String(pkg.version);
+}
+
+const ELEMENTS_VERSION = packageVersion("elements");
+const ELEMENTS_IIFE = `https://cdn.jsdelivr.net/npm/@sometic/elements@${ELEMENTS_VERSION}/dist/cdn/sometic-elements.iife.js`;
+const ELEMENTS_ESM = `https://cdn.jsdelivr.net/npm/@sometic/elements@${ELEMENTS_VERSION}/dist/cdn/sometic-elements.esm.js`;
+
 const CDN_NOT_SHIPPED = `\`\`\`html [CDN]
 <!-- CDN not available for this surface yet (no shipped custom element). Use npm adapters or Vanilla. -->
 \`\`\``;
 
-const ELEMENTS_CDN =
-    "https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js";
-
 /** @param {string} markup */
 function cdnFromMarkup(markup) {
-    return `\`\`\`html [CDN]
-<script type="module" src="${ELEMENTS_CDN}"></script>
+    const trimmed = markup.trim();
+    return `\`\`\`html [CDN Simple]
+<script src="${ELEMENTS_IIFE}"></script>
 
-${markup.trim()}
+${trimmed}
+\`\`\`
+
+\`\`\`html [CDN Module]
+<script
+    type="module"
+    src="${ELEMENTS_ESM}"
+></script>
+
+${trimmed}
 \`\`\``;
 }
 
@@ -64,7 +83,7 @@ function transformComponent(text) {
     }
 
     const group = usageMatch[1];
-    if (group.includes("[CDN]")) {
+    if (group.includes("[CDN]") || group.includes("[CDN Simple]")) {
         return next;
     }
 
@@ -114,13 +133,38 @@ for (const file of readdirSync(componentsDir).filter((f) => f.endsWith(".md"))) 
 }
 console.log(`components: ${changed} files`);
 
-/** @type {Record<string, { url: string, snippet: string }>} */
-const systemPages = {
-    "apps/docs/guide/app-shell.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js",
-        snippet: `import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+/**
+ * @param {string} pkg
+ * @param {string} fileBase
+ */
+function cdnUrls(pkg, fileBase) {
+    const version = packageVersion(pkg);
+    return {
+        iife: `https://cdn.jsdelivr.net/npm/@sometic/${pkg}@${version}/dist/cdn/${fileBase}.iife.js`,
+        esm: `https://cdn.jsdelivr.net/npm/@sometic/${pkg}@${version}/dist/cdn/${fileBase}.esm.js`,
+    };
+}
 
-// Provide a real AuthController from @sometic/auth (CDN or npm).
+/** @type {Record<string, { simple: string, module: string }>} */
+const systemPages = {
+    "apps/docs/guide/app-shell.md": (() => {
+        const { iife, esm } = cdnUrls("app-shell", "sometic-app-shell");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const app = SometicAppShell.createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+
+    app.http.get("/me").then((me) => {
+        console.log(me);
+    });
+    app.dispose();
+</script>`,
+            module: `import { createSometicApp } from "${esm}";
+
 const app = createSometicApp({
     auth,
     baseUrl: "/api",
@@ -129,84 +173,133 @@ const app = createSometicApp({
 
 const me = await app.http.get("/me");
 app.dispose();`,
-    },
-    "apps/docs/utilities/http.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js",
-        snippet: `import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+        };
+    })(),
+    "apps/docs/utilities/http.md": (() => {
+        const { iife, esm } = cdnUrls("http", "sometic-http");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const http = SometicHttp.createHttp({ baseUrl: "/api" });
+    http.get("/me").then((me) => {
+        console.log(me);
+    });
+</script>`,
+            module: `import { createHttp } from "${esm}";
 
 const http = createHttp({ baseUrl: "/api" });
 const me = await http.get("/me");`,
-    },
-    "apps/docs/utilities/query.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js",
-        snippet: `import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+        };
+    })(),
+    "apps/docs/utilities/query.md": (() => {
+        const { iife, esm } = cdnUrls("query", "sometic-query");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const client = SometicQuery.createQueryClient();
+</script>`,
+            module: `import { createQueryClient } from "${esm}";
 
 const client = createQueryClient();
 const observer = client.observe(["todos"], async () => {
     const res = await fetch("/api/todos");
     return res.json();
 });`,
-    },
-    "apps/docs/utilities/head.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js",
-        snippet: `import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+        };
+    })(),
+    "apps/docs/utilities/head.md": (() => {
+        const { iife, esm } = cdnUrls("head", "sometic-head");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const head = SometicHead.createHeadController();
+    head.patch({ title: "Docs" });
+</script>`,
+            module: `import { createHeadController } from "${esm}";
 
 const head = createHeadController();
 head.patch({ title: "Docs" });`,
-    },
-    "apps/docs/stores/store.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js",
-        snippet: `import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+        };
+    })(),
+    "apps/docs/stores/store.md": (() => {
+        const { iife, esm } = cdnUrls("store", "sometic-store");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const store = SometicStore.createStore({ count: 0 });
+    store.setState((s) => ({ count: s.count + 1 }));
+</script>`,
+            module: `import { createStore } from "${esm}";
 
 const store = createStore({ count: 0 });
 store.setState((s) => ({ count: s.count + 1 }));`,
-    },
-    "apps/docs/stores/theme.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js",
-        snippet: `import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+        };
+    })(),
+    "apps/docs/stores/theme.md": (() => {
+        const { iife, esm } = cdnUrls("theme", "sometic-theme");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const theme = SometicTheme.createThemeController({
+        themes: [],
+        defaultThemeId: "light",
+    });
+</script>`,
+            module: `import { createThemeController } from "${esm}";
 
 const theme = createThemeController({
     themes: [],
     defaultThemeId: "light",
 });`,
-    },
-    "apps/docs/authentication/index.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js",
-        snippet: `import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+        };
+    })(),
+    "apps/docs/authentication/index.md": (() => {
+        const { iife, esm } = cdnUrls("auth", "sometic-auth");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+</script>`,
+            module: `import { createAuth } from "${esm}";
 
 const auth = createAuth({ provider });
-await auth.signIn({ email: "a@b.c", password: "…" });`,
-    },
-    "apps/docs/authentication/installation.md": {
-        url: "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js",
-        snippet: `import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+await auth.signIn({ email: "a@b.c", password: "secret" });`,
+        };
+    })(),
+    "apps/docs/authentication/installation.md": (() => {
+        const { iife, esm } = cdnUrls("auth", "sometic-auth");
+        return {
+            simple: `<script src="${iife}"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+</script>`,
+            module: `import { createAuth } from "${esm}";
 
 const auth = createAuth({ provider });`,
-    },
+        };
+    })(),
 };
 
-function appendCdnToFirstCodeGroup(text, snippet) {
-    if (text.includes("[CDN]")) {
+/**
+ * @param {string} text
+ * @param {{ simple: string, module: string }} blocks
+ */
+function appendCdnToFirstCodeGroup(text, blocks) {
+    if (text.includes("[CDN]") || text.includes("[CDN Simple]")) {
         return text;
     }
-    const cdnFence = `\`\`\`js [CDN]
-${snippet}
+    const cdnFences = `\`\`\`html [CDN Simple]
+${blocks.simple}
+\`\`\`
+
+\`\`\`html [CDN Module]
+<script type="module">
+${blocks.module}
+</script>
 \`\`\``;
 
     const match = text.match(/::: code-group\n([\s\S]*?)\n:::/);
     if (!match) {
-        const usage = text.match(/## Usage\s*\n/);
-        if (!usage || usage.index === undefined) {
-            return `${text.trimEnd()}
-
-## CDN
-
-::: code-group
-
-${cdnFence}
-:::
-`;
-        }
         return text;
     }
 
@@ -215,7 +308,7 @@ ${cdnFence}
     const rebuilt = `::: code-group
 ${inner}
 
-${cdnFence}
+${cdnFences}
 :::`;
     return text.replace(full, rebuilt);
 }
@@ -228,7 +321,7 @@ for (const [rel, meta] of Object.entries(systemPages)) {
         continue;
     }
     const before = readFileSync(path, "utf8");
-    const next = appendCdnToFirstCodeGroup(before, meta.snippet);
+    const next = appendCdnToFirstCodeGroup(before, meta);
     if (next !== before) {
         writeFileSync(path, next, "utf8");
         systemChanged += 1;

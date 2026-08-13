@@ -75,22 +75,22 @@ if (!result.ok) {
 
 ## CDN
 
-Docs: [https://sometic.dev/stores/theme](https://sometic.dev/stores/theme). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/stores/theme](https://sometic.dev/stores/theme).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.1/dist/cdn/sometic-theme.iife.js"></script>
 <script>
     const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@latest/dist/cdn/sometic-theme.esm.js";
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.1/dist/cdn/sometic-theme.esm.js";
 
     const theme = createThemeController({ themes: [], defaultThemeId: "light" });
 </script>

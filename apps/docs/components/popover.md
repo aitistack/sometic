@@ -70,11 +70,17 @@ document.querySelector("#trigger").addEventListener("click", () => {
 <sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
 ```
 
-```html [CDN]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+```html [CDN Simple]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
+
+<button type="button" id="trigger">Open</button>
+<sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
+```
+
+```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="trigger">Open</button>

@@ -70,12 +70,12 @@ Field and input subpaths compose the same way (`@sometic/dom/field`, `@sometic/d
 
 ## CDN
 
-Docs: [https://sometic.dev/primitives/dom](https://sometic.dev/primitives/dom). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/primitives/dom](https://sometic.dev/primitives/dom).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@2.0.1/dist/cdn/sometic-dom.iife.js"></script>
 <script>
     const button = document.querySelector("button");
     if (button) {
@@ -84,11 +84,11 @@ IIFE (classic script tag):
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { bindButton } from "https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.esm.js";
+    import { bindButton } from "https://cdn.jsdelivr.net/npm/@sometic/dom@2.0.1/dist/cdn/sometic-dom.esm.js";
 
     const button = document.querySelector("button");
     if (button) {

@@ -101,22 +101,22 @@ if (isBrowserEnvironment()) {
 
 ## CDN
 
-Docs: [https://sometic.dev/primitives/core](https://sometic.dev/primitives/core). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/primitives/core](https://sometic.dev/primitives/core).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/core@1.0.5/dist/cdn/sometic-core.iife.js"></script>
 <script>
     const id = SometicCore.createId();
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createId } from "https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.esm.js";
+    import { createId } from "https://cdn.jsdelivr.net/npm/@sometic/core@1.0.5/dist/cdn/sometic-core.esm.js";
 
     const id = createId();
 </script>

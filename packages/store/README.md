@@ -69,22 +69,22 @@ await prefs.persistNow();
 
 ## CDN
 
-Docs: [https://sometic.dev/stores/store](https://sometic.dev/stores/store). Pin a version in production (`@x.y.z`), not only `@latest`.
+Docs: [https://sometic.dev/stores/store](https://sometic.dev/stores/store).
 
-IIFE (classic script tag):
+### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.1/dist/cdn/sometic-store.iife.js"></script>
 <script>
     const store = SometicStore.createStore({ count: 0 });
 </script>
 ```
 
-ESM:
+### Module script
 
 ```html
 <script type="module">
-    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@latest/dist/cdn/sometic-store.esm.js";
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.1/dist/cdn/sometic-store.esm.js";
 
     const store = createStore({ count: 0 });
 </script>
