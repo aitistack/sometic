@@ -1,6 +1,6 @@
 {
     "name": "@sometic/registry",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Sometic CLI registry: templates, checksums, and install metadata.",
     "license": "MIT",
     "type": "module",

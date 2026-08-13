@@ -1,5 +1,15 @@
 # @sometic/solid
 
+## 0.1.6
+
+### Patch Changes
+
+- 1e941de: Point npm homepage and README docs links at https://sometic.dev, and ship IIFE plus ESM browser bundles for foundation engines and @sometic/dom so HTML-first pages can load Sometic without a bundler.
+- Updated dependencies [1e941de]
+    - @sometic/adapter-contract@0.1.6
+    - @sometic/core@1.0.5
+    - @sometic/store@1.1.1
+
 ## 0.1.5
 
 ### Patch Changes

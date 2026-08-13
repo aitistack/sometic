@@ -1,6 +1,6 @@
 {
     "name": "@sometic/http",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Fetch-first HTTP client with interceptors, retry and optional auth refresh for Sometic.",
     "license": "MIT",
     "type": "module",

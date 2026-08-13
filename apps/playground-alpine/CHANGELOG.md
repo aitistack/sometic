@@ -1,5 +1,13 @@
 # @sometic/playground-alpine
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [1e941de]
+    - @sometic/alpine@0.1.8
+    - @sometic/store@1.1.1
+
 ## 0.0.8
 
 ### Patch Changes
