@@ -16,6 +16,7 @@ export function createPackageConfig(options = {}) {
                 "**/coverage/**",
                 "**/.turbo/**",
                 "**/.vitepress/**",
+                "**/node_modules/**",
                 "**/eslint.config.js",
                 "**/tsup.config.ts",
                 "**/vitest.config.ts",
