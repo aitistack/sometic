@@ -23,6 +23,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 | Mutation ↔ form | `bindMutationForm`                                                                            |
 | Query → head    | `bindHeadToQuery`                                                                             |
 | Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline)            |
+| App primitives  | Optional `flags`, `drafts`, `commands`, `history`, `offlineQueue` on the shell / spine        |
 
 ### When to use
 
@@ -276,6 +277,7 @@ window.addEventListener("pagehide", () => {
 | `head` / `theme`                        | Optional; `bindThemeToHead` when both present              |
 | `stores`                                | `{ ui?, prefs?, session? }`; session stores reset on epoch |
 | `forms`                                 | `{ draftsClearOnEpoch?, register? }`                       |
+| `flags` / `drafts` / `commands` / `history` / `offlineQueue` | Optional app primitives; see [App primitives](/guide/app-primitives) |
 | `refetchOnReauth`                       | `'auth' \| 'all' \| false`                                 |
 | `authQueryKeys`                         | Used when `refetchOnReauth: 'auth'`                        |
 | `allowAbsoluteUrl` / `maxResponseBytes` | Forwarded to HTTP when shell creates the client            |
@@ -292,7 +294,7 @@ No. It composes Sometic System packages. Routing, layouts, and visual design sta
 
 ### Is the mutation queue offline-durable?
 
-No. `createSessionMutationQueue` drops on epoch change. Full offline queues are a later phase.
+No. `createSessionMutationQueue` is in-memory and drops on epoch change. For a durable outbox, use [`@sometic/offline-queue`](/guide/app-primitives#offline-queue).
 
 ### Who owns dispose?
 
@@ -300,6 +302,7 @@ Caller-owned `auth` / `head` / `theme` / passed-in `query` are not disposed by t
 
 ## Related
 
+- [App primitives](/guide/app-primitives)
 - [Authentication](/authentication/)
 - [HTTP](/utilities/http)
 - [Query](/utilities/query)

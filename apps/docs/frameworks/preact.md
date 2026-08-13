@@ -32,7 +32,7 @@ This is the full Preact install for this beta. Do not add `@sometic/preact/butto
 
 ## Components
 
-**Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Phase 20 surfaces live here:
+**Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Structure surfaces live here:
 
 | Surface                                                                                | Package                                                                                                                         |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ bind.dispose();
 
 - Capabilities: `["storeBind"]` only.
 - No button / form / overlay / structure / auth / HTTP Preact adapters.
-- Phase 20 Command palette and Tree are React, Vue, and Vanilla only.
+- Command palette and Tree are React, Vue, and Vanilla only.
 - Not validated as a compat layer over `@sometic/react`.
 - CLI does not scaffold Preact.
 

@@ -54,9 +54,10 @@ The following are **Deferred** for this beta and must not be treated as public c
 - Combobox
 - Drawer
 - Tabs / Accordion / Command Palette / Tree catalogs
-- App primitives such as feature flags or offline queues (later roadmap)
 
 Select, Popover, Dialog, and Toast are not substitutes for Menu or Combobox.
+
+App primitives (feature flags, drafts, commands, history, conflict, offline queue, permissions) ship as engines. See [App primitives](/guide/app-primitives).
 
 ## Related links
 

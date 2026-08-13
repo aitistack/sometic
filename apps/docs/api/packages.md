@@ -72,7 +72,7 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 | `@sometic/jquery` | jQuery adapters | [jQuery](/frameworks/jquery) |
 | `@sometic/htmx`   | HTMX adapters   | [HTMX](/frameworks/htmx)     |
 
-## Deferred (later phases)
+## Deferred
 
 These catalogs are **not shipped yet**. Launch surfaces such as Menu, Combobox, Drawer, and Tabs **are** available; see [What’s included](/guide/whats-included).
 
@@ -82,7 +82,9 @@ These catalogs are **not shipped yet**. Launch surfaces such as Menu, Combobox, 
 | Date / Time **picker UI**                           | Deferred      |
 | Command Palette / Tree / Pagination / Stepper       | Deferred      |
 | Floating UI adapter (opt-in)                        | Future        |
-| App primitives (flags, offline queue, …)            | Later roadmap |
+| Dedicated CE surfaces for app primitives            | Deferred      |
+
+App primitives engines (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and auth permissions) are shipped. See [App primitives](/guide/app-primitives).
 
 ## Dependency direction (reminder)
 

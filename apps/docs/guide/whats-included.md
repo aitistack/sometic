@@ -35,7 +35,7 @@ Honest adapter coverage for production paths. **CE** means a `sometic-*` custom 
 | Data table / Upload / Schema form / Permissions / Notifications | Yes (`/data`)   | Yes (`/data`)          | No                         | Yes                          |
 | Auth / HTTP / Query / Store / App shell / App primitives        | Hooks + engines | Hooks + engines        | `sometic-auth-status` only | Engines + `createSometicApp` |
 
-## Deferred (later phases)
+## Deferred
 
 | Area              | Examples                                                                                                                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ Honest adapter coverage for production paths. **CE** means a `sometic-*` custom 
 | Data CEs          | No `sometic-*` custom elements for data-table / upload / matrix yet: use React/Vue `@sometic/*/data` or `@sometic/dom` resolve controllers in Vanilla.                                |
 | App primitive CEs | No dedicated `sometic-*` elements for flags/drafts/commands/history/conflict/offline-queue yet: call the engines from Vanilla/React/Vue. See [App primitives](/guide/app-primitives). |
 
-**Shipped in Phase 22 (Level 2 engines):** `@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and `createPermissionController` on `@sometic/auth`. Phase 21 data surfaces (data table, query builder, upload, activity, approval, notifications, status) remain included above.
+App primitives (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and `createPermissionController` on `@sometic/auth`) are included above as production engines.
 
 See [Beta maturity](/releases/beta) for stability labels and known limitations.
 
