@@ -76,13 +76,13 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 
 These catalogs are **not shipped yet**. Launch surfaces such as Menu, Combobox, Drawer, and Tabs **are** available; see [What’s included](/guide/whats-included).
 
-| Area                                                | Status        |
-| --------------------------------------------------- | ------------- |
-| Autocomplete polish / Multi-select / Tags / Sliders | Deferred      |
-| Date / Time **picker UI**                           | Deferred      |
-| Command Palette / Tree / Pagination / Stepper       | Deferred      |
-| Floating UI adapter (opt-in)                        | Future        |
-| Dedicated CE surfaces for app primitives            | Deferred      |
+| Area                                                | Status   |
+| --------------------------------------------------- | -------- |
+| Autocomplete polish / Multi-select / Tags / Sliders | Deferred |
+| Date / Time **picker UI**                           | Deferred |
+| Command Palette / Tree / Pagination / Stepper       | Deferred |
+| Floating UI adapter (opt-in)                        | Future   |
+| Dedicated CE surfaces for app primitives            | Deferred |
 
 App primitives engines (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and auth permissions) are shipped. See [App primitives](/guide/app-primitives).
 
