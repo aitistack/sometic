@@ -1,9 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { createConflictController } from "@sometic/conflict";
-import {
-    createMemoryOfflineQueueStorage,
-    createOfflineMutationQueue,
-} from "./offline-queue.js";
+import { createMemoryOfflineQueueStorage, createOfflineMutationQueue } from "./offline-queue.js";
 
 describe("createMemoryOfflineQueueStorage", () => {
     it("loads and saves defensive copies", async () => {
@@ -105,9 +102,7 @@ describe("createOfflineMutationQueue", () => {
 
         const cancelled = await queue.enqueue({ key: "save", variables: { a: 2 } });
         await queue.cancel(cancelled.id);
-        expect(queue.peek().find((item) => item.id === cancelled.id)?.status).toBe(
-            "cancelled",
-        );
+        expect(queue.peek().find((item) => item.id === cancelled.id)?.status).toBe("cancelled");
 
         shouldFail = true;
         const exhausted = await queue.enqueue({ key: "save", variables: { a: 3 } });
@@ -245,9 +240,7 @@ describe("createOfflineMutationQueue", () => {
         expect(queue.disposed).toBe(true);
         expect(() => queue.peek()).toThrow(/disposed/);
         expect(() => queue.size()).toThrow(/disposed/);
-        await expect(queue.enqueue({ key: "d", variables: 4 })).rejects.toThrow(
-            /disposed/,
-        );
+        await expect(queue.enqueue({ key: "d", variables: 4 })).rejects.toThrow(/disposed/);
         expect(() => queue.subscribe(() => undefined)).toThrow(/disposed/);
     });
 });

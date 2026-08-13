@@ -112,12 +112,12 @@ describe("createHistoryController", () => {
         });
         expect(history.getState().undoDepth).toBe(2);
 
-        await expect(
-            createHistoryController().undo(),
-        ).rejects.toMatchObject({ code: "HISTORY_NOTHING_TO_UNDO" });
-        await expect(
-            createHistoryController().redo(),
-        ).rejects.toMatchObject({ code: "HISTORY_NOTHING_TO_REDO" });
+        await expect(createHistoryController().undo()).rejects.toMatchObject({
+            code: "HISTORY_NOTHING_TO_UNDO",
+        });
+        await expect(createHistoryController().redo()).rejects.toMatchObject({
+            code: "HISTORY_NOTHING_TO_REDO",
+        });
         history.dispose();
     });
 

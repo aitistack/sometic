@@ -296,37 +296,32 @@ export default defineConfig({
                 {
                     text: "App primitive FAQs",
                     items: [
-                        { text: "Feature flags", link: "/packages/feature-flags/faq" },
-                        { text: "Drafts", link: "/packages/drafts/faq" },
-                        { text: "Commands", link: "/packages/commands/faq" },
-                        { text: "History", link: "/packages/history/faq" },
-                        { text: "Conflict", link: "/packages/conflict/faq" },
-                        { text: "Offline queue", link: "/packages/offline-queue/faq" },
-                    ],
-                },
-            ],
-            "/packages/": [
-                {
-                    text: "App primitives",
-                    items: [
-                        { text: "Overview", link: "/guide/app-primitives" },
-                        { text: "Feature flags FAQ", link: "/packages/feature-flags/faq" },
+                        { text: "Feature flags", link: "/guide/primitives/feature-flags-faq" },
                         {
                             text: "Feature flags comparison",
-                            link: "/packages/feature-flags/comparison",
+                            link: "/guide/primitives/feature-flags-comparison",
                         },
-                        { text: "Drafts FAQ", link: "/packages/drafts/faq" },
-                        { text: "Drafts comparison", link: "/packages/drafts/comparison" },
-                        { text: "Commands FAQ", link: "/packages/commands/faq" },
-                        { text: "Commands comparison", link: "/packages/commands/comparison" },
-                        { text: "History FAQ", link: "/packages/history/faq" },
-                        { text: "History comparison", link: "/packages/history/comparison" },
-                        { text: "Conflict FAQ", link: "/packages/conflict/faq" },
-                        { text: "Conflict comparison", link: "/packages/conflict/comparison" },
-                        { text: "Offline queue FAQ", link: "/packages/offline-queue/faq" },
+                        { text: "Drafts", link: "/guide/primitives/drafts-faq" },
+                        { text: "Drafts comparison", link: "/guide/primitives/drafts-comparison" },
+                        { text: "Commands", link: "/guide/primitives/commands-faq" },
+                        {
+                            text: "Commands comparison",
+                            link: "/guide/primitives/commands-comparison",
+                        },
+                        { text: "History", link: "/guide/primitives/history-faq" },
+                        {
+                            text: "History comparison",
+                            link: "/guide/primitives/history-comparison",
+                        },
+                        { text: "Conflict", link: "/guide/primitives/conflict-faq" },
+                        {
+                            text: "Conflict comparison",
+                            link: "/guide/primitives/conflict-comparison",
+                        },
+                        { text: "Offline queue", link: "/guide/primitives/offline-queue-faq" },
                         {
                             text: "Offline queue comparison",
-                            link: "/packages/offline-queue/comparison",
+                            link: "/guide/primitives/offline-queue-comparison",
                         },
                     ],
                 },

@@ -34,4 +34,4 @@ Create one controller per app or workspace. There is no module singleton.
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives)
+[Comparison](/guide/primitives/feature-flags-comparison) · [App primitives](/guide/app-primitives)

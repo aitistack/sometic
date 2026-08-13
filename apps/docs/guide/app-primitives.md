@@ -4,15 +4,15 @@ Phase 22 ships seven framework-free engines for product behavior that sits above
 
 ## Catalog
 
-| Package / API | Job | Start here |
-| ------------- | --- | ---------- |
-| `@sometic/feature-flags` | Evaluate flags (default → remote → override) | `createFeatureFlagController` |
-| `@sometic/drafts` | Persist entity/document drafts | `createDraftController` |
-| `@sometic/commands` | Register and execute named actions | `createCommandRegistry` |
-| `@sometic/history` | Undo / redo stack for reversible edits | `createHistoryController` |
-| `@sometic/conflict` | Open and resolve local vs remote records | `createConflictController` |
-| `@sometic/offline-queue` | Durable mutation outbox | `createOfflineMutationQueue` |
-| `@sometic/auth` | Resource-scoped grants on top of session claims | `createPermissionController` |
+| Package / API            | Job                                             | Start here                    |
+| ------------------------ | ----------------------------------------------- | ----------------------------- |
+| `@sometic/feature-flags` | Evaluate flags (default → remote → override)    | `createFeatureFlagController` |
+| `@sometic/drafts`        | Persist entity/document drafts                  | `createDraftController`       |
+| `@sometic/commands`      | Register and execute named actions              | `createCommandRegistry`       |
+| `@sometic/history`       | Undo / redo stack for reversible edits          | `createHistoryController`     |
+| `@sometic/conflict`      | Open and resolve local vs remote records        | `createConflictController`    |
+| `@sometic/offline-queue` | Durable mutation outbox                         | `createOfflineMutationQueue`  |
+| `@sometic/auth`          | Resource-scoped grants on top of session claims | `createPermissionController`  |
 
 ### When to use
 
@@ -44,7 +44,7 @@ if (flags.isEnabled("checkout.v2")) {
 flags.dispose();
 ```
 
-Precedence is override, then remote, then definition default. See [FAQ](/packages/feature-flags/faq) and [comparison](/packages/feature-flags/comparison).
+Precedence is override, then remote, then definition default. See [FAQ](/guide/primitives/feature-flags-faq) and [comparison](/guide/primitives/feature-flags-comparison).
 
 ## App drafts
 
@@ -71,7 +71,7 @@ await drafts.save();
 drafts.dispose();
 ```
 
-See [FAQ](/packages/drafts/faq) and [comparison](/packages/drafts/comparison) (vs `@sometic/forms` drafts).
+See [FAQ](/guide/primitives/drafts-faq) and [comparison](/guide/primitives/drafts-comparison) (vs `@sometic/forms` drafts).
 
 ## Commands
 
@@ -91,7 +91,7 @@ await commands.execute("document.save", { dirty: true, id: "doc-1" });
 commands.dispose();
 ```
 
-Registry only; no palette chrome. See [FAQ](/packages/commands/faq) and [comparison](/packages/commands/comparison).
+Registry only; no palette chrome. See [FAQ](/guide/primitives/commands-faq) and [comparison](/guide/primitives/commands-comparison).
 
 ## History (undo / redo)
 
@@ -118,7 +118,7 @@ await history.redo();
 history.dispose();
 ```
 
-See [FAQ](/packages/history/faq) and [comparison](/packages/history/comparison).
+See [FAQ](/guide/primitives/history-faq) and [comparison](/guide/primitives/history-comparison).
 
 ## Conflict
 
@@ -141,7 +141,7 @@ const resolved = conflicts.resolve(opened.id);
 conflicts.dispose();
 ```
 
-Built-ins: last-write-wins, client-wins, server-wins. See [FAQ](/packages/conflict/faq) and [comparison](/packages/conflict/comparison).
+Built-ins: last-write-wins, client-wins, server-wins. See [FAQ](/guide/primitives/conflict-faq) and [comparison](/guide/primitives/conflict-comparison).
 
 ## Offline queue
 
@@ -169,7 +169,7 @@ await queue.flush();
 queue.dispose();
 ```
 
-See [FAQ](/packages/offline-queue/faq) and [comparison](/packages/offline-queue/comparison).
+See [FAQ](/guide/primitives/offline-queue-faq) and [comparison](/guide/primitives/offline-queue-comparison).
 
 ## Permissions
 

@@ -1,7 +1,4 @@
-export {
-    createMemoryOfflineQueueStorage,
-    createOfflineMutationQueue,
-} from "./offline-queue.js";
+export { createMemoryOfflineQueueStorage, createOfflineMutationQueue } from "./offline-queue.js";
 export type {
     CreateOfflineMutationQueueOptions,
     OfflineMutationQueue,

@@ -27,10 +27,7 @@ yarn add @sometic/conflict
 ## Usage
 
 ```ts
-import {
-    createConflictController,
-    lastWriteWinsStrategy,
-} from "@sometic/conflict";
+import { createConflictController, lastWriteWinsStrategy } from "@sometic/conflict";
 
 const conflicts = createConflictController({
     defaultStrategyId: lastWriteWinsStrategy.id,

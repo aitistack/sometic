@@ -34,9 +34,7 @@ export type CommandRegistry = {
     dispose: () => void;
 };
 
-export function createCommandRegistry(
-    options: CreateCommandRegistryOptions = {},
-): CommandRegistry {
+export function createCommandRegistry(options: CreateCommandRegistryOptions = {}): CommandRegistry {
     const commands = new Map<string, CommandDefinition>();
     const listeners = new Set<(event: CommandRegistryEvent) => void>();
     const disposable = createDisposable(() => {

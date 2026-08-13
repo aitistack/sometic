@@ -30,4 +30,4 @@ Optional `undo` on a definition is metadata for composition. The undo **stack** 
 
 ## Related?
 
-[Comparison](./comparison) · [App primitives](/guide/app-primitives) · [Command palette](/components/command-palette)
+[Comparison](/guide/primitives/commands-comparison) · [App primitives](/guide/app-primitives) · [Command palette](/components/command-palette)
