@@ -13,7 +13,9 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-events.esm.js": "./dist/cdn/sometic-events.esm.js",
+        "./cdn/sometic-events.iife.js": "./dist/cdn/sometic-events.iife.js"
     },
     "files": [
         "dist",
@@ -40,7 +42,7 @@
         "@sometic/core": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -67,6 +69,18 @@
             "path": "dist/index.js",
             "limit": "1 KB",
             "gzip": true
+        },
+        {
+            "name": "events CDN esm",
+            "path": "dist/cdn/sometic-events.esm.js",
+            "limit": "25 kB",
+            "gzip": true
+        },
+        {
+            "name": "events CDN iife",
+            "path": "dist/cdn/sometic-events.iife.js",
+            "limit": "25 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -79,5 +93,7 @@
         "pubsub",
         "emitter",
         "typed-events"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-events.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-events.iife.js"
 }

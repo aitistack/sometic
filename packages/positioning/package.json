@@ -13,7 +13,9 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-positioning.esm.js": "./dist/cdn/sometic-positioning.esm.js",
+        "./cdn/sometic-positioning.iife.js": "./dist/cdn/sometic-positioning.iife.js"
     },
     "files": [
         "dist",
@@ -40,7 +42,7 @@
         "@sometic/core": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -68,6 +70,18 @@
             "path": "dist/index.js",
             "limit": "4 kB",
             "gzip": true
+        },
+        {
+            "name": "positioning CDN esm",
+            "path": "dist/cdn/sometic-positioning.esm.js",
+            "limit": "40 kB",
+            "gzip": true
+        },
+        {
+            "name": "positioning CDN iife",
+            "path": "dist/cdn/sometic-positioning.iife.js",
+            "limit": "40 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -80,5 +94,7 @@
         "floating",
         "popover",
         "tooltip"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-positioning.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-positioning.iife.js"
 }

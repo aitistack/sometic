@@ -49,7 +49,9 @@
             "types": "./dist/utils/index.d.ts",
             "import": "./dist/utils/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-core.esm.js": "./dist/cdn/sometic-core.esm.js",
+        "./cdn/sometic-core.iife.js": "./dist/cdn/sometic-core.iife.js"
     },
     "files": [
         "dist",
@@ -73,7 +75,7 @@
         "node": ">=20.18.0"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -124,6 +126,18 @@
             "path": "dist/async-operation/index.js",
             "limit": "2 kB",
             "gzip": true
+        },
+        {
+            "name": "core CDN esm",
+            "path": "dist/cdn/sometic-core.esm.js",
+            "limit": "40 kB",
+            "gzip": true
+        },
+        {
+            "name": "core CDN iife",
+            "path": "dist/cdn/sometic-core.iife.js",
+            "limit": "40 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -136,5 +150,7 @@
         "disposable",
         "controllable-state",
         "foundation"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-core.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-core.iife.js"
 }

@@ -96,6 +96,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```
 
 ```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
 <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"

@@ -96,11 +96,19 @@ applyHead(document, head.get());
 const tags = serializeHead(head.get());
 ```
 
-```js [CDN]
-import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.iife.js"></script>
+<script>
+    const head = SometicHead.createHeadController();
+    head.patch({ title: "Docs" });
+</script>
 
-const head = createHeadController();
-head.patch({ title: "Docs" });
+<script type="module">
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@latest/dist/cdn/sometic-head.esm.js";
+
+    const head = createHeadController();
+    head.patch({ title: "Docs" });
+</script>
 ```
 
 :::

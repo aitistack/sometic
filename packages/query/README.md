@@ -71,6 +71,29 @@ const queryFn = createHttpQueryFn<{ id: string }>({
 await query.fetchQuery({ queryKey: ["users", "me"], queryFn });
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/utilities/query](https://sometic.dev/utilities/query). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.iife.js"></script>
+<script>
+    const client = SometicQuery.createQueryClient();
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@latest/dist/cdn/sometic-query.esm.js";
+
+    const client = createQueryClient();
+</script>
+```
+
 ## Peers / when not to use
 
 Optional peer: `@sometic/http`. Depends on `@sometic/core`.

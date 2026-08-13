@@ -33,7 +33,9 @@
             "types": "./dist/polymorphic/index.d.ts",
             "import": "./dist/polymorphic/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-styling.esm.js": "./dist/cdn/sometic-styling.esm.js",
+        "./cdn/sometic-styling.iife.js": "./dist/cdn/sometic-styling.iife.js"
     },
     "files": [
         "dist",
@@ -57,7 +59,7 @@
         "node": ">=20.18.0"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -114,6 +116,18 @@
             "path": "dist/polymorphic/index.js",
             "limit": "0.5 kB",
             "gzip": true
+        },
+        {
+            "name": "styling CDN esm",
+            "path": "dist/cdn/sometic-styling.esm.js",
+            "limit": "25 kB",
+            "gzip": true
+        },
+        {
+            "name": "styling CDN iife",
+            "path": "dist/cdn/sometic-styling.iife.js",
+            "limit": "25 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -126,5 +140,7 @@
         "classnames",
         "css",
         "slots"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-styling.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-styling.iife.js"
 }

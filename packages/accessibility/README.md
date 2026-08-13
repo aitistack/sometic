@@ -78,6 +78,31 @@ const bindings = createKeyboardBindings(
 bindings.attach();
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/accessibility](https://sometic.dev/primitives/accessibility). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.iife.js"></script>
+<script>
+    const announcer = SometicAccessibility.createLiveAnnouncer();
+    announcer.announce("Saved");
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createLiveAnnouncer } from "https://cdn.jsdelivr.net/npm/@sometic/accessibility@latest/dist/cdn/sometic-accessibility.esm.js";
+
+    const announcer = createLiveAnnouncer();
+    announcer.announce("Saved");
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on [`@sometic/core`](https://www.npmjs.com/package/@sometic/core). No framework peers. Do not use this package as a full ARIA widget set or as a replacement for native HTML semantics (buttons, labels, dialogs) when the platform already does the job. Prefer calling these helpers from DOM engines and adapters rather than reimplementing focus traps inside each framework.

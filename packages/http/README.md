@@ -63,6 +63,33 @@ function createAuthedHttp(auth: AuthController) {
 }
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/utilities/http](https://sometic.dev/utilities/http). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.iife.js"></script>
+<script>
+    const http = SometicHttp.createHttp({ baseUrl: "/api" });
+    http.get("/me").then((me) => {
+        console.log(me);
+    });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@latest/dist/cdn/sometic-http.esm.js";
+
+    const http = createHttp({ baseUrl: "/api" });
+    const me = await http.get("/me");
+</script>
+```
+
 ## Peers / when not to use
 
 Optional peer: `@sometic/auth` (for `@sometic/http/auth`). Depends on `@sometic/core`.

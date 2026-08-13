@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>SometicEvents CDN smoke</title>
+    </head>
+    <body>
+        <p id="out">loading…</p>
+        <script src="./sometic-events.iife.js"></script>
+        <script>
+            const keys = Object.keys(SometicEvents).slice(0, 8).join(", ");
+            document.getElementById("out").textContent = "SometicEvents CDN ok: " + keys;
+            console.log("SometicEvents", SometicEvents);
+        </script>
+    </body>
+</html>

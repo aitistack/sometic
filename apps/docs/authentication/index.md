@@ -101,11 +101,19 @@ auth.isAuthenticated();
 auth.dispose();
 ```
 
-```js [CDN]
-import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.iife.js"></script>
+<script>
+    const auth = SometicAuth.createAuth({ provider });
+    auth.signIn({ email: "a@b.c", password: "secret" });
+</script>
 
-const auth = createAuth({ provider });
-await auth.signIn({ email: "a@b.c", password: "…" });
+<script type="module">
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@latest/dist/cdn/sometic-auth.esm.js";
+
+    const auth = createAuth({ provider });
+    await auth.signIn({ email: "a@b.c", password: "secret" });
+</script>
 ```
 
 :::

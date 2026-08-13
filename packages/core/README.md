@@ -99,6 +99,29 @@ if (isBrowserEnvironment()) {
 }
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/core](https://sometic.dev/primitives/core). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.iife.js"></script>
+<script>
+    const id = SometicCore.createId();
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createId } from "https://cdn.jsdelivr.net/npm/@sometic/core@latest/dist/cdn/sometic-core.esm.js";
+
+    const id = createId();
+</script>
+```
+
 ## Peers / when not to use
 
 No peer dependencies. Do not treat core as a UI kit or className helper. Prefer [`@sometic/events`](https://www.npmjs.com/package/@sometic/events) for typed pub/sub and [`@sometic/store`](https://www.npmjs.com/package/@sometic/store) for application state. Skip core only if you are not integrating with Sometic at all.

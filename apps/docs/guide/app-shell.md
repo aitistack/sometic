@@ -124,18 +124,32 @@ app.dispose();
 auth.dispose();
 ```
 
-```js [CDN]
-import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
+```html [CDN]
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.iife.js"></script>
+<script>
+    const app = SometicAppShell.createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+    app.http.get("/me").then((me) => {
+        console.log(me);
+    });
+    app.dispose();
+</script>
 
-// Provide a real AuthController from @sometic/auth (CDN or npm).
-const app = createSometicApp({
-    auth,
-    baseUrl: "/api",
-    query: true,
-});
+<script type="module">
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@latest/dist/cdn/sometic-app-shell.esm.js";
 
-const me = await app.http.get("/me");
-app.dispose();
+    const app = createSometicApp({
+        auth,
+        baseUrl: "/api",
+        query: true,
+    });
+
+    const me = await app.http.get("/me");
+    app.dispose();
+</script>
 ```
 
 :::

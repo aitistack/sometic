@@ -68,6 +68,35 @@ dialog.setOpen(true);
 
 Field and input subpaths compose the same way (`@sometic/dom/field`, `@sometic/dom/input`) for labels, described-by IDs, and controllable values without importing the full root barrel.
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/dom](https://sometic.dev/primitives/dom). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.iife.js"></script>
+<script>
+    const button = document.querySelector("button");
+    if (button) {
+        SometicDom.bindButton(button, () => ({ type: "button" }));
+    }
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { bindButton } from "https://cdn.jsdelivr.net/npm/@sometic/dom@latest/dist/cdn/sometic-dom.esm.js";
+
+    const button = document.querySelector("button");
+    if (button) {
+        bindButton(button, () => ({ type: "button" }));
+    }
+</script>
+```
+
 ## Peers / when not to use
 
 There are no framework peer dependencies. Runtime deps include `@sometic/core`, `@sometic/accessibility`, `@sometic/styling`, `@sometic/positioning`, and `@sometic/date-core` (for date input engines).

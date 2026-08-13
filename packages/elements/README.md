@@ -54,6 +54,29 @@ dialog?.addEventListener("open-change", (event) => {
 });
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/frameworks/vanilla](https://sometic.dev/frameworks/vanilla). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.iife.js"></script>
+
+<sometic-button type="button">Save</sometic-button>
+```
+
+ESM:
+
+```html
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@latest/dist/cdn/sometic-elements.esm.js"
+></script>
+
+<sometic-button type="button">Save</sometic-button>
+```
+
 ## Peers / when not to use
 
 No framework peers. Dependencies include `@sometic/dom`, `@sometic/forms`, `@sometic/validation`, `@sometic/auth`, and date packages for date inputs.

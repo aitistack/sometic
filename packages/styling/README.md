@@ -60,6 +60,29 @@ const labelClass = pickSlotValue({ root: "field", label: "field__label" }, "labe
 console.log(slots, rootAttrs, labelClass);
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/styling). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.iife.js"></script>
+<script>
+    const className = SometicStyling.resolveClasses("btn", "is-primary");
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { resolveClasses } from "https://cdn.jsdelivr.net/npm/@sometic/styling@latest/dist/cdn/sometic-styling.esm.js";
+
+    const className = resolveClasses("btn", "is-primary");
+</script>
+```
+
 ## Peers / when not to use
 
 No peer dependencies. Do not use this package as a CSS framework or theme engine (use [`@sometic/theme`](https://www.npmjs.com/package/@sometic/theme) for runtime tokens). Skip it if you only need a one-off `classnames` helper outside Sometic components. Prefer its resolvers whenever you build or wrap unstyled Sometic surfaces so override order stays consistent.

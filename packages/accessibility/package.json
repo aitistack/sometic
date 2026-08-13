@@ -41,7 +41,9 @@
             "types": "./dist/observers/index.d.ts",
             "import": "./dist/observers/index.js"
         },
-        "./package.json": "./package.json"
+        "./package.json": "./package.json",
+        "./cdn/sometic-accessibility.esm.js": "./dist/cdn/sometic-accessibility.esm.js",
+        "./cdn/sometic-accessibility.iife.js": "./dist/cdn/sometic-accessibility.iife.js"
     },
     "files": [
         "dist",
@@ -68,7 +70,7 @@
         "@sometic/core": "workspace:*"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsup --config tsup.cdn.config.ts && node ./scripts/copy-cdn-to-docs.mjs",
         "dev": "tsup --watch",
         "lint": "eslint .",
         "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -138,6 +140,18 @@
             "path": "dist/observers/index.js",
             "limit": "1.5 kB",
             "gzip": true
+        },
+        {
+            "name": "accessibility CDN esm",
+            "path": "dist/cdn/sometic-accessibility.esm.js",
+            "limit": "50 kB",
+            "gzip": true
+        },
+        {
+            "name": "accessibility CDN iife",
+            "path": "dist/cdn/sometic-accessibility.iife.js",
+            "limit": "50 kB",
+            "gzip": true
         }
     ],
     "keywords": [
@@ -151,5 +165,7 @@
         "aria",
         "keyboard",
         "wcag"
-    ]
+    ],
+    "unpkg": "./dist/cdn/sometic-accessibility.iife.js",
+    "jsdelivr": "./dist/cdn/sometic-accessibility.iife.js"
 }

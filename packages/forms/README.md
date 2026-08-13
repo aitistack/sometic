@@ -80,6 +80,29 @@ await drafts.save();
 const body = valuesToFormData(form.getValues());
 ```
 
+## CDN
+
+Docs: [https://sometic.dev/forms/](https://sometic.dev/forms/). Pin a version in production (`@x.y.z`), not only `@latest`.
+
+IIFE (classic script tag):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@sometic/forms@latest/dist/cdn/sometic-forms.iife.js"></script>
+<script>
+    const form = SometicForms.createForm({ defaultValues: { email: "" } });
+</script>
+```
+
+ESM:
+
+```html
+<script type="module">
+    import { createForm } from "https://cdn.jsdelivr.net/npm/@sometic/forms@latest/dist/cdn/sometic-forms.esm.js";
+
+    const form = createForm({ defaultValues: { email: "" } });
+</script>
+```
+
 ## Peers / when not to use
 
 Depends on `@sometic/core` and `@sometic/validation`. No framework peers.

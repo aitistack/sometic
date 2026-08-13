@@ -20,10 +20,17 @@ Publish dedicated **browser bundles** (ESM + IIFE) for:
 - `@sometic/theme` → `SometicTheme`
 - `@sometic/head` → `SometicHead`
 - `@sometic/app-shell` → `SometicAppShell`
+- `@sometic/core` → `SometicCore`
+- `@sometic/events` → `SometicEvents`
+- `@sometic/forms` → `SometicForms`
+- `@sometic/styling` → `SometicStyling`
+- `@sometic/accessibility` → `SometicAccessibility`
+- `@sometic/positioning` → `SometicPositioning`
+- `@sometic/dom` → `SometicDom`
 
-Each package ships `dist/cdn/sometic-<name>.{esm,iife}.js` that **inlines** the required `@sometic/*` graph. Canonical URLs after npm publish use jsDelivr:
+Each package ships `dist/cdn/sometic-<name>.{esm,iife}.js` that **inlines** the required `@sometic/*` graph. **IIFE** (`<script src="…iife.js">` without `type="module"`, then `SometicHttp.createHttp(…)`) is the HTML-first path. ESM `type="module"` imports from `.esm.js` are optional. Canonical URLs after npm publish use jsDelivr:
 
-`https://cdn.jsdelivr.net/npm/@sometic/<pkg>@VERSION/dist/cdn/sometic-<name>.esm.js`
+`https://cdn.jsdelivr.net/npm/@sometic/<pkg>@VERSION/dist/cdn/sometic-<name>.iife.js`
 
 Docs may mirror the same bytes under `/cdn/`. Size budgets are separate and honest (larger than tree-shaken subpaths). Styling remains consumer-owned. No Google Fonts CDN.
 
@@ -42,8 +49,9 @@ Docs may mirror the same bytes under `/cdn/`. Size budgets are separate and hone
 ## Consequences
 
 - CDN gzip budgets grow with the inlined graph (especially `app-shell`).
-- Docs Installation lists engine + elements CDN URL shapes.
+- Docs Installation lists engine + elements + foundation + DOM CDN URL shapes (IIFE and ESM).
 - Smoke HTML and docs `/cdn/` mirror validate loadability.
+- Foundation and DOM CDN inlines `@sometic/*` the same way engines do. `@sometic/dom` exists so Vanilla `bind*` works without a bundler. Framework adapters stay npm/ESM.
 
 ## Risks
 
