@@ -1,6 +1,6 @@
 {
     "name": "@sometic/auth-oidc",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "OIDC Authorization Code + PKCE auth provider for Sometic.",
     "license": "MIT",
     "type": "module",

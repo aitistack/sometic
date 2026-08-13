@@ -1,5 +1,14 @@
 # @sometic/angular
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies [8beb20b]
+    - @sometic/core@1.0.6
+    - @sometic/store@1.1.2
+    - @sometic/adapter-contract@0.1.7
+
 ## 0.1.6
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @sometic/positioning
 
+## 0.1.6
+
+### Patch Changes
+
+- 8beb20b: Consumer CDN copy: concrete jsDelivr versions, Simple script vs Module script sections, no pin-in-production jargon.
+- Updated dependencies [8beb20b]
+    - @sometic/core@1.0.6
+
 ## 0.1.5
 
 ### Patch Changes

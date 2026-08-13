@@ -33,7 +33,7 @@
         "node": ">=20.18.0"
     },
     "peerDependencies": {
-        "@sometic/store": ">=1.1.1",
+        "@sometic/store": ">=1.1.2",
         "immer": "^10.0.0"
     },
     "devDependencies": {

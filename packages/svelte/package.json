@@ -1,6 +1,6 @@
 {
     "name": "@sometic/svelte",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "Svelte store-oriented foundation adapters for Sometic (store bind; component kit expands later).",
     "license": "MIT",
     "type": "module",

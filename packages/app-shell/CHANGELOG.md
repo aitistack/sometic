@@ -1,5 +1,20 @@
 # @sometic/app-shell
 
+## 3.0.3
+
+### Patch Changes
+
+- 8beb20b: Consumer CDN copy: concrete jsDelivr versions, Simple script vs Module script sections, no pin-in-production jargon.
+- Updated dependencies [8beb20b]
+    - @sometic/auth@1.1.2
+    - @sometic/core@1.0.6
+    - @sometic/forms@1.1.2
+    - @sometic/head@0.1.2
+    - @sometic/http@2.0.2
+    - @sometic/query@2.0.2
+    - @sometic/store@1.1.2
+    - @sometic/theme@1.1.2
+
 ## 3.0.2
 
 ### Patch Changes
