@@ -6,9 +6,7 @@ const componentsDir = join(root, "apps/docs/components");
 
 /** @param {string} name */
 function packageVersion(name) {
-    const pkg = JSON.parse(
-        readFileSync(join(root, "packages", name, "package.json"), "utf8"),
-    );
+    const pkg = JSON.parse(readFileSync(join(root, "packages", name, "package.json"), "utf8"));
     return String(pkg.version);
 }
 
