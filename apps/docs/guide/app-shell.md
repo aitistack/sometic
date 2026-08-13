@@ -269,18 +269,18 @@ window.addEventListener("pagehide", () => {
 
 ## Options
 
-| Input                                   | Behavior                                                   |
-| --------------------------------------- | ---------------------------------------------------------- |
-| `auth`                                  | Required                                                   |
-| `http` / create options                 | Attach auth + policy + epoch interceptors                  |
-| `query` / create options                | `bindQueryToAuth`                                          |
-| `head` / `theme`                        | Optional; `bindThemeToHead` when both present              |
-| `stores`                                | `{ ui?, prefs?, session? }`; session stores reset on epoch |
-| `forms`                                 | `{ draftsClearOnEpoch?, register? }`                       |
+| Input                                                        | Behavior                                                             |
+| ------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `auth`                                                       | Required                                                             |
+| `http` / create options                                      | Attach auth + policy + epoch interceptors                            |
+| `query` / create options                                     | `bindQueryToAuth`                                                    |
+| `head` / `theme`                                             | Optional; `bindThemeToHead` when both present                        |
+| `stores`                                                     | `{ ui?, prefs?, session? }`; session stores reset on epoch           |
+| `forms`                                                      | `{ draftsClearOnEpoch?, register? }`                                 |
 | `flags` / `drafts` / `commands` / `history` / `offlineQueue` | Optional app primitives; see [App primitives](/guide/app-primitives) |
-| `refetchOnReauth`                       | `'auth' \| 'all' \| false`                                 |
-| `authQueryKeys`                         | Used when `refetchOnReauth: 'auth'`                        |
-| `allowAbsoluteUrl` / `maxResponseBytes` | Forwarded to HTTP when shell creates the client            |
+| `refetchOnReauth`                                            | `'auth' \| 'all' \| false`                                           |
+| `authQueryKeys`                                              | Used when `refetchOnReauth: 'auth'`                                  |
+| `allowAbsoluteUrl` / `maxResponseBytes`                      | Forwarded to HTTP when shell creates the client                      |
 
 ## FAQ
 

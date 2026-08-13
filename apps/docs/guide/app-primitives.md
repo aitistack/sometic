@@ -10,15 +10,15 @@ Portable engines for product behavior that sits above forms and HTTP: feature fl
 
 ## Catalog
 
-| Package / API | What it does | Start here |
-| ------------- | ------------ | ---------- |
-| `@sometic/feature-flags` | Evaluate on/off and experiment variants with override → remote → default precedence | `createFeatureFlagController` |
-| `@sometic/drafts` | Persist entity or document drafts (notes, invoices, editors) with migrate and sanitize | `createDraftController` |
-| `@sometic/commands` | Register named actions once and run them from menus, hotkeys, tests, or APIs | `createCommandRegistry` |
-| `@sometic/history` | Undo / redo stack for reversible local edits with depth caps | `createHistoryController` |
-| `@sometic/conflict` | Record local vs remote disagreements and resolve with strategies | `createConflictController` |
-| `@sometic/offline-queue` | Durable mutation outbox that survives reload and respects auth epoch | `createOfflineMutationQueue` |
-| `@sometic/auth` | Dynamic resource-scoped grants on top of session claims | `createPermissionController` |
+| Package / API            | What it does                                                                           | Start here                    |
+| ------------------------ | -------------------------------------------------------------------------------------- | ----------------------------- |
+| `@sometic/feature-flags` | Evaluate on/off and experiment variants with override → remote → default precedence    | `createFeatureFlagController` |
+| `@sometic/drafts`        | Persist entity or document drafts (notes, invoices, editors) with migrate and sanitize | `createDraftController`       |
+| `@sometic/commands`      | Register named actions once and run them from menus, hotkeys, tests, or APIs           | `createCommandRegistry`       |
+| `@sometic/history`       | Undo / redo stack for reversible local edits with depth caps                           | `createHistoryController`     |
+| `@sometic/conflict`      | Record local vs remote disagreements and resolve with strategies                       | `createConflictController`    |
+| `@sometic/offline-queue` | Durable mutation outbox that survives reload and respects auth epoch                   | `createOfflineMutationQueue`  |
+| `@sometic/auth`          | Dynamic resource-scoped grants on top of session claims                                | `createPermissionController`  |
 
 ### When to use
 
@@ -108,12 +108,12 @@ flags.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `@sometic/feature-flags` | Shared evaluate/override API across stacks | No hosted targeting or analytics |
-| LaunchDarkly / Flagsmith / Unleash | Targeting, rollouts, dashboards | Vendor SDK in every surface |
-| Hardcoded env booleans | Tiny | No runtime override or shared snapshot |
-| Custom store map | Fits existing state | You reimplement precedence, subscribe, dispose |
+| Option                             | Strengths                                  | Tradeoffs                                      |
+| ---------------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| `@sometic/feature-flags`           | Shared evaluate/override API across stacks | No hosted targeting or analytics               |
+| LaunchDarkly / Flagsmith / Unleash | Targeting, rollouts, dashboards            | Vendor SDK in every surface                    |
+| Hardcoded env booleans             | Tiny                                       | No runtime override or shared snapshot         |
+| Custom store map                   | Fits existing state                        | You reimplement precedence, subscribe, dispose |
 
 ## App drafts
 
@@ -153,12 +153,12 @@ drafts.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `@sometic/drafts` | Versioned entity drafts, migrate/sanitize, injectable storage | Not multi-device sync |
-| `@sometic/forms` drafts | Tied to form controllers | Wrong for free-form documents |
-| Raw `localStorage` | Zero deps | No migrate, debounce, or dispose |
-| CRDT / sync | Cross-device merge | Heavy; different job |
+| Option                  | Strengths                                                     | Tradeoffs                        |
+| ----------------------- | ------------------------------------------------------------- | -------------------------------- |
+| `@sometic/drafts`       | Versioned entity drafts, migrate/sanitize, injectable storage | Not multi-device sync            |
+| `@sometic/forms` drafts | Tied to form controllers                                      | Wrong for free-form documents    |
+| Raw `localStorage`      | Zero deps                                                     | No migrate, debounce, or dispose |
+| CRDT / sync             | Cross-device merge                                            | Heavy; different job             |
 
 ## Commands
 
@@ -192,12 +192,12 @@ commands.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `@sometic/commands` | One execute path across surfaces | No UI or ranking |
-| Command palette | Filterable keyboard UX | Presentation only unless wired |
-| Ad-hoc `onClick` | Fast for one button | Diverges across menu/hotkey/tests |
-| Workflow / saga | Durable steps and retries | Heavy for simple actions |
+| Option              | Strengths                        | Tradeoffs                         |
+| ------------------- | -------------------------------- | --------------------------------- |
+| `@sometic/commands` | One execute path across surfaces | No UI or ranking                  |
+| Command palette     | Filterable keyboard UX           | Presentation only unless wired    |
+| Ad-hoc `onClick`    | Fast for one button              | Diverges across menu/hotkey/tests |
+| Workflow / saga     | Durable steps and retries        | Heavy for simple actions          |
 
 ## History (undo / redo)
 
@@ -238,12 +238,12 @@ history.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `@sometic/history` | Portable undo/redo, depth cap, exclusive chain | Local only; not multiplayer |
-| `@sometic/activity` | Append-only audit | Not reversible |
-| Editor / CRDT | Concurrent merge | Heavy; different sync model |
-| Browser History API | Navigation URLs | Not document edit undo |
+| Option              | Strengths                                      | Tradeoffs                   |
+| ------------------- | ---------------------------------------------- | --------------------------- |
+| `@sometic/history`  | Portable undo/redo, depth cap, exclusive chain | Local only; not multiplayer |
+| `@sometic/activity` | Append-only audit                              | Not reversible              |
+| Editor / CRDT       | Concurrent merge                               | Heavy; different sync model |
+| Browser History API | Navigation URLs                                | Not document edit undo      |
 
 ## Conflict
 
@@ -279,12 +279,12 @@ conflicts.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `@sometic/conflict` | Records + strategies + subscribe | Does not detect for you |
-| Server-always-wins reload | Simple | Drops local work without a record |
-| CRDT / OT | Character-level merge | Heavy for discrete document pairs |
-| Status UI only | Badge for users | Still needs a resolution engine |
+| Option                    | Strengths                        | Tradeoffs                         |
+| ------------------------- | -------------------------------- | --------------------------------- |
+| `@sometic/conflict`       | Records + strategies + subscribe | Does not detect for you           |
+| Server-always-wins reload | Simple                           | Drops local work without a record |
+| CRDT / OT                 | Character-level merge            | Heavy for discrete document pairs |
+| Status UI only            | Badge for users                  | Still needs a resolution engine   |
 
 ## Offline queue
 
@@ -324,12 +324,12 @@ queue.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
+| Option                   | Strengths                                      | Tradeoffs                      |
+| ------------------------ | ---------------------------------------------- | ------------------------------ |
 | `@sometic/offline-queue` | Durable outbox, epoch hooks, optional conflict | You supply transport + storage |
-| Session mutation queue | Tiny; drops on epoch | Dies with the tab |
-| Full sync engines | Pull/push, cursors, merge | Heavy; different product |
-| HTTP-only retry | Simple one request | No durable multi-job outbox |
+| Session mutation queue   | Tiny; drops on epoch                           | Dies with the tab              |
+| Full sync engines        | Pull/push, cursors, merge                      | Heavy; different product       |
+| HTTP-only retry          | Simple one request                             | No durable multi-job outbox    |
 
 ## Permissions
 
@@ -365,11 +365,11 @@ auth.dispose();
 
 ### Why this vs alternatives
 
-| Option | Strengths | Tradeoffs |
-| ------ | --------- | --------- |
-| `createPermissionController` | Resource-scoped grants + session claims | Not a full policy engine |
-| Session claims only | Simple | No per-resource grants without refetch |
-| External IAM SDK | Rich admin UX | Couples every adapter to that vendor |
+| Option                       | Strengths                               | Tradeoffs                              |
+| ---------------------------- | --------------------------------------- | -------------------------------------- |
+| `createPermissionController` | Resource-scoped grants + session claims | Not a full policy engine               |
+| Session claims only          | Simple                                  | No per-resource grants without refetch |
+| External IAM SDK             | Rich admin UX                           | Couples every adapter to that vendor   |
 
 ## Related
 
