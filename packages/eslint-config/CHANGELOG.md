@@ -1,5 +1,11 @@
 # @sometic/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- f550946: Sometic.dev identity cutover plus System engine and elements CDN browser bundles (ESM + IIFE) for docs Usage and jsDelivr. ESLint ignores tsup.cdn.config.ts.
+
 ## 1.0.4
 
 ### Patch Changes

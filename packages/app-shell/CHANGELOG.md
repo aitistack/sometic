@@ -1,5 +1,23 @@
 # @sometic/app-shell
 
+## 3.0.0
+
+### Minor Changes
+
+- f550946: Sometic.dev identity cutover plus System engine and elements CDN browser bundles (ESM + IIFE) for docs Usage and jsDelivr. ESLint ignores tsup.cdn.config.ts.
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/http@2.0.0
+    - @sometic/query@2.0.0
+    - @sometic/auth@1.1.0
+    - @sometic/store@1.1.0
+    - @sometic/theme@1.1.0
+    - @sometic/head@0.1.0
+    - @sometic/core@1.0.4
+    - @sometic/forms@1.1.0
+
 ## 2.0.0
 
 ### Patch Changes

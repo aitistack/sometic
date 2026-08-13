@@ -1,5 +1,15 @@
 # @sometic/htmx
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/store@1.1.0
+    - @sometic/dom@2.0.0
+    - @sometic/adapter-contract@0.1.5
+    - @sometic/core@1.0.4
+
 ## 0.1.6
 
 ### Patch Changes

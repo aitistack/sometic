@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/http@2.0.0
+    - @sometic/core@1.0.4
+
 ## 0.2.0
 
 ### Minor Changes

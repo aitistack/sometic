@@ -1,6 +1,6 @@
 {
     "name": "@sometic/htmx",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "HTMX adapters for Sometic (store bind, swap-safe button re-init).",
     "license": "MIT",
     "type": "module",

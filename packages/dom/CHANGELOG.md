@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/auth@1.1.0
+    - @sometic/upload@1.0.0
+    - @sometic/accessibility@1.0.4
+    - @sometic/core@1.0.4
+    - @sometic/data-table@0.2.0
+    - @sometic/date-core@1.0.4
+    - @sometic/notifications@0.2.0
+    - @sometic/positioning@0.1.4
+    - @sometic/styling@1.0.4
+
 ## 1.2.0
 
 ### Minor Changes

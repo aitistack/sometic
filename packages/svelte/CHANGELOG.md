@@ -1,5 +1,14 @@
 # @sometic/svelte
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies [f550946]
+    - @sometic/store@1.1.0
+    - @sometic/adapter-contract@0.1.5
+    - @sometic/core@1.0.4
+
 ## 0.1.4
 
 ### Patch Changes
