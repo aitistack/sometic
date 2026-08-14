@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.5
+
+### Patch Changes
+
+- 7cc882d: Cache React form field and form-state snapshots so useSyncExternalStore does not loop when getFieldMeta clones meta.
+
 ## 1.2.4
 
 ### Patch Changes
