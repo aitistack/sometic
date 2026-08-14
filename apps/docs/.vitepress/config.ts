@@ -17,6 +17,7 @@ export default defineConfig({
         "guide/repository-structure.md",
         "guide/release.md",
         "guide/getting-started.md",
+        "guide/examples.md",
     ],
     sitemap: {
         hostname: "https://sometic.dev",
@@ -550,6 +551,15 @@ export default defineConfig({
         },
         search: {
             provider: "local",
+            options: {
+                miniSearch: {
+                    searchOptions: {
+                        fuzzy: 0.2,
+                        prefix: true,
+                        boost: { title: 4, text: 2, titles: 2 },
+                    },
+                },
+            },
         },
         outline: {
             level: [2, 3],

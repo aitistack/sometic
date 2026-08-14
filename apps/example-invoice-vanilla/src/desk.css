@@ -1,0 +1,44 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+    color-scheme: light;
+    --bs-primary: #0b5cab;
+    --bs-primary-rgb: 11, 92, 171;
+    --bs-body-bg: #e8eef5;
+    --bs-body-color: #102033;
+}
+
+html,
+body,
+#app {
+    min-height: 100vh;
+}
+
+body {
+    background: linear-gradient(180deg, #d7e4f4 0%, #e8eef5 18rem);
+}
+
+sometic-button {
+    display: inline-block;
+}
+
+sometic-button button {
+    font: inherit;
+}
+
+.desk-hero {
+    max-width: 28rem;
+}
+
+.desk-table-host .table > :not(caption) > * > * {
+    background-color: transparent;
+}
+
+.desk-table-host tbody tr {
+    cursor: pointer;
+}
+
+.desk-editor {
+    position: sticky;
+    top: 1.25rem;
+}
