@@ -54,13 +54,13 @@ VitePress docs are required but **not sufficient** for interactive / browser-vis
 
 Every published package ships a README covering purpose, install, minimal example, link to full docs, peer requirements, and license.
 
-## Docs Application (Phase 1 scaffold, Phase 22 productize)
+## Docs Application (Phase 1 scaffold, Phase 23 productize)
 
-Search · version switcher · framework switcher · JS/TS tabs · install commands for npm/pnpm/Yarn/Bun · interactive examples · props/events/slots/CSS variable tables · a11y notes · bundle-size display · source and changelog links · migration guides.
+Local search (MiniSearch) · install commands for npm/pnpm/Yarn/Bun · in-page DemoFrame examples · equal Usage tabs. Realistic example apps under `apps/example-invoice-*` exist in-repo but consumer discovery is paused until a stronger example program is reopened. Version switchers and a global framework switcher stay deferred until 1.0 (single docs tree + `/releases/`; equal per-page code-groups).
 
 ## Accuracy Automation (progressive)
 
-Broken links · invalid examples · missing API pages · missing package READMEs · outdated generated API references.
+Required pages · component Usage labels · markdown internal links · example-app typecheck/build. Deferred: compiling every markdown snippet, generated API-reference freshness.
 
 ## IntelliSense as Documentation
 

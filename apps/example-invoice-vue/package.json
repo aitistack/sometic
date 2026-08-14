@@ -1,0 +1,30 @@
+{
+    "name": "@sometic/example-invoice-vue",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite --host 127.0.0.1 --port 5211",
+        "build": "vite build",
+        "preview": "vite preview --host 127.0.0.1 --port 5211",
+        "lint": "node -e \"process.exit(0)\"",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "node -e \"process.exit(0)\"",
+        "size": "node -e \"process.exit(0)\""
+    },
+    "dependencies": {
+        "@sometic/dom": "workspace:*",
+        "@sometic/example-invoice-kit": "workspace:*",
+        "@sometic/theme": "workspace:*",
+        "@sometic/validation": "workspace:*",
+        "@sometic/vue": "workspace:*",
+        "vue": "^3.5.17"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^6.0.0",
+        "typescript": "^5.8.3",
+        "vite": "^7.0.5"
+    },
+    "description": "Invoice Desk example application (Vue).",
+    "homepage": "https://sometic.dev"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "@sometic/example-invoice-kit",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "lint": "eslint .",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "size": "node -e \"process.exit(0)\""
+    },
+    "dependencies": {
+        "@sometic/app-shell": "workspace:*",
+        "@sometic/auth": "workspace:*",
+        "@sometic/drafts": "workspace:*",
+        "@sometic/feature-flags": "workspace:*",
+        "@sometic/http": "workspace:*",
+        "@sometic/validation": "workspace:*"
+    },
+    "devDependencies": {
+        "@sometic/build-config": "workspace:*",
+        "@sometic/eslint-config": "workspace:*",
+        "@sometic/testing-config": "workspace:*",
+        "@sometic/typescript-config": "workspace:*",
+        "eslint": "^9.31.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
+    },
+    "description": "Shared Invoice Desk domain, mock API, and runtime for Sometic example apps.",
+    "homepage": "https://sometic.dev"
+}

@@ -54,17 +54,27 @@ export function useFormState(form: FormController<Record<string, unknown>>): {
     values: Record<string, unknown>;
     meta: FormMeta;
 } {
+    const snapshotRef = useRef<{ values: Record<string, unknown>; meta: FormMeta } | null>(null);
     const subscribe = useCallback(
-        (onStoreChange: () => void) => form.subscribe(onStoreChange),
+        (onStoreChange: () => void) =>
+            form.subscribe(() => {
+                snapshotRef.current = null;
+                onStoreChange();
+            }),
         [form],
     );
-    const getSnapshot = useCallback(
-        () => ({
+    const getSnapshot = useCallback(() => {
+        const cached = snapshotRef.current;
+        if (cached) {
+            return cached;
+        }
+        const next = {
             values: form.getValues(),
             meta: form.getFormMeta(),
-        }),
-        [form],
-    );
+        };
+        snapshotRef.current = next;
+        return next;
+    }, [form]);
     return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
 
@@ -86,6 +96,7 @@ export function useFormField(
     }
     const optionsRef = useRef(options);
     optionsRef.current = options;
+    const snapshotRef = useRef<{ name: string; value: unknown; meta: FieldMeta } | null>(null);
     useEffect(() => {
         form.register(name, optionsRef.current);
         return () => {
@@ -93,16 +104,26 @@ export function useFormField(
         };
     }, [form, name]);
     const subscribe = useCallback(
-        (onStoreChange: () => void) => form.subscribe(onStoreChange),
+        (onStoreChange: () => void) =>
+            form.subscribe(() => {
+                snapshotRef.current = null;
+                onStoreChange();
+            }),
         [form],
     );
-    const getSnapshot = useCallback(
-        () => ({
+    const getSnapshot = useCallback(() => {
+        const cached = snapshotRef.current;
+        if (cached && cached.name === name) {
+            return cached;
+        }
+        const next = {
+            name,
             value: form.getValue(name),
             meta: form.getFieldMeta(name),
-        }),
-        [form, name],
-    );
+        };
+        snapshotRef.current = next;
+        return next;
+    }, [form, name]);
     const snapshot = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
     return {
         value: snapshot.value,

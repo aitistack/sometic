@@ -67,7 +67,84 @@ for (const name of fs.readdirSync(componentsDir)) {
     }
 }
 
+const skipLinkDirs = new Set(["packages", "architecture", ".vitepress", "node_modules", "dist"]);
+const skipLinkFiles = new Set([
+    "public-api-inventory.md",
+    "guide/development.md",
+    "guide/repository-structure.md",
+    "guide/release.md",
+    "guide/getting-started.md",
+    "guide/examples.md",
+]);
+
+function publishedMarkdownFiles(dir, prefix = "") {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const files = [];
+    for (const entry of entries) {
+        const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
+        if (entry.isDirectory()) {
+            if (skipLinkDirs.has(entry.name)) {
+                continue;
+            }
+            files.push(...publishedMarkdownFiles(path.join(dir, entry.name), rel));
+            continue;
+        }
+        if (!entry.name.endsWith(".md") || skipLinkFiles.has(rel.replaceAll("\\", "/"))) {
+            continue;
+        }
+        files.push(rel.replaceAll("\\", "/"));
+    }
+    return files;
+}
+
+function markdownTargetExists(fromRel, href) {
+    const bare = href.split("#")[0]?.split("?")[0] ?? "";
+    if (bare === "") {
+        return true;
+    }
+    if (/^(https?:|mailto:|tel:)/i.test(bare)) {
+        return true;
+    }
+    if (/\.(png|jpg|jpeg|gif|svg|webp|ico|xml|txt|webmanifest)$/i.test(bare)) {
+        const filePath = bare.startsWith("/")
+            ? path.join(docsRoot, "public", bare.slice(1))
+            : path.resolve(path.dirname(path.join(docsRoot, fromRel)), bare);
+        return fs.existsSync(filePath);
+    }
+    const candidates = [];
+    if (bare.startsWith("/")) {
+        const cleaned = bare.replace(/\/$/, "") || "/";
+        const withoutSlash = cleaned.replace(/^\//, "");
+        candidates.push(
+            path.join(docsRoot, `${withoutSlash}.md`),
+            path.join(docsRoot, withoutSlash, "index.md"),
+        );
+    } else {
+        const resolved = path.resolve(path.dirname(path.join(docsRoot, fromRel)), bare);
+        candidates.push(resolved, `${resolved}.md`, path.join(resolved, "index.md"));
+    }
+    return candidates.some((candidate) => fs.existsSync(candidate));
+}
+
+const linkPattern = /\[[^\]]*\]\(([^)]+)\)/g;
+for (const rel of publishedMarkdownFiles(docsRoot)) {
+    const text = fs.readFileSync(path.join(docsRoot, rel), "utf8");
+    const withoutFences = text.replace(/```[\s\S]*?```/g, "");
+    for (const match of withoutFences.matchAll(linkPattern)) {
+        const href = match[1]?.trim() ?? "";
+        if (href.startsWith("<") || href.includes("{")) {
+            continue;
+        }
+        if (!markdownTargetExists(rel, href)) {
+            console.error(`${rel}: broken link ${href}`);
+            failed = true;
+        }
+    }
+}
+
 if (failed) {
     process.exit(1);
 }
-console.log("docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN)");
+console.log(
+    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN + links)",
+);

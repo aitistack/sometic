@@ -17,7 +17,11 @@ sometic-packages/
 │   ├── playground-preact/
 │   ├── playground-jquery/
 │   ├── playground-alpine/
-│   └── playground-htmx/
+│   ├── playground-htmx/
+│   ├── example-invoice-kit/
+│   ├── example-invoice-react/
+│   ├── example-invoice-vue/
+│   └── example-invoice-vanilla/
 ├── packages/
 │   ├── core/
 │   ├── store/
@@ -153,3 +157,7 @@ See `public-api-policy.md`.
 ## Playgrounds
 
 `apps/playground-vanilla` is required for interactive verification (`pnpm playground:vanilla`). Framework playgrounds under `apps/playground-*` are created/updated when that adapter ships interactive UI. Docs do not replace playground coverage.
+
+## Example applications
+
+Realistic product apps live under `apps/example-invoice-*` and share private `@sometic/example-invoice-kit`. They are unpublished, Wave A only (React, Vue, Vanilla/CE), and are not playgrounds. **Consumer discovery is paused** (no `/guide/examples` in VitePress). See ADR-0023 and `.cursor/context/examples-paused.md`.
