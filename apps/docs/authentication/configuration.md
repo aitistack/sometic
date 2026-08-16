@@ -109,6 +109,8 @@ Prefer httpOnly cookies when your API supports them. Client storage adapters the
 
 Sign-out posts logout so peer tabs clear session without starting a refresh storm. Do not invent a second BroadcastChannel for the same app identity.
 
+The default session payload includes tokens. That lets peer tabs adopt a refreshed session. If you must not put bearer tokens on the channel, set `crossTabIncludeTokens: false` (peer tabs then receive `tokens: null` and should read from their own storage) or pass a custom bus.
+
 ## Environment hooks
 
 Pass a custom `environment` in tests or SSR shells. Pass `false` to skip visibility and online listeners (useful for Node unit tests).

@@ -70,7 +70,7 @@ OIDC has OAuth but not password `signIn`. Local has password flows but not OAuth
 
 **Causes:**
 
-- `redirectUri` mismatch (origin/path)
+- `redirectUri` mismatch (must equal the configured URI, including no extra query string)
 - Memory PKCE store lost across full page redirect (use durable `OidcPkceStore`)
 - Discovery URL wrong (`issuer` trailing slash / missing `.well-known`)
 

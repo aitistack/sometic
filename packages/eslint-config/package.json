@@ -20,7 +20,8 @@
         "directory": "packages/eslint-config"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "provenance": true
     },
     "peerDependencies": {
         "eslint": "^9.0.0",

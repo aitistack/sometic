@@ -35,3 +35,13 @@ No. `@sometic/auth` is headless orchestration only, no login forms or components
 ## Multi-tab logout
 
 Sign-out broadcasts `{ type: "logout" }` on the cross-tab bus so peer tabs clear session without starting a refresh storm.
+
+The default `{ type: "session" }` payload includes tokens. Set `crossTabIncludeTokens: false` to broadcast session metadata without tokens.
+
+## Does the client verify OIDC ID tokens?
+
+No. `@sometic/auth-oidc` does not verify `id_token` signatures or nonce in the browser. Treat those tokens as opaque until a backend or dedicated verifier checks them.
+
+## Is `completeStepUp()` MFA?
+
+No. Completing a step-up requires a provider round-trip (`verifyMfa` with a challenge id and code, or `signIn` again). The controller will not flip `mfaRequired` to `authenticated` in memory.

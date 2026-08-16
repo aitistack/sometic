@@ -32,13 +32,15 @@
 - Normalize errors without leaking upstream secrets
 - AbortSignal support everywhere network I/O exists
 
-## Supply Chain (Phase 23 hardening; prepare from Phase 1)
+## Supply Chain (Phase 24)
 
-npm trusted publishing · provenance · protected release environments · dependency review · secret scanning · lockfile integrity · publication dry runs · vulnerability reporting process (`docs/security/` POLICY during Phase 23, draft earlier as needed)
+npm trusted publishing (OIDC only, no `NPM_TOKEN` fallback) · provenance · protected `npm-publish` environment · dependency review · CodeQL · OSSF Scorecard · secret scanning · lockfile integrity · publication dry runs for every public package · `docs/security/POLICY.md`
+
+GitHub/npm UI toggles (Trusted Publisher, environment reviewers, secret scanning, private vulnerability reporting) are a maintainer gate. See `docs/security/release-runbook.md` and ADR-0024.
 
 ## Vulnerability Reporting
 
-Until a public SECURITY.md exists, treat security issues as private maintainer disclosure. Phase 23 publishes responsible disclosure process.
+Report privately via GitHub Security Advisories. Root `SECURITY.md`, consumer `/legal/security`, and `/.well-known/security.txt` share that single contact. No `mailto:` until a dedicated inbox exists.
 
 ## Claims Policy
 
@@ -48,4 +50,5 @@ Do not claim SOC2, ISO, or WCAG certification unless independently obtained. Spe
 
 - ADR-0006 Authentication provider boundaries
 - ADR-0007 Source generation versus packages
-- `docs/security/` (populated as reviews complete)
+- ADR-0024 npm trusted publishing and provenance
+- `docs/security/` (POLICY, release runbook, auth/HTTP boundaries)

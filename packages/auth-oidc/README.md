@@ -4,7 +4,7 @@ OIDC Authorization Code + PKCE provider for [`@sometic/auth`](https://www.npmjs.
 
 `createOidcAuthProvider` implements browser-friendly OpenID Connect: discovery or explicit endpoints, PKCE challenge storage, `startOAuth` / `completeOAuth`, token refresh, and optional userinfo mapping. No proprietary IdP SDK is required; it uses `fetch` and Web Crypto.
 
-Use this when your identity provider speaks OIDC (Auth0, Keycloak, Cognito hosted UI, Okta, etc.) and you want Sometic session orchestration without embedding vendor clients. Redirect URI validation is enabled by default; PKCE verifiers can use the built-in memory store or a custom `OidcPkceStore`.
+Use this when your identity provider speaks OIDC (Auth0, Keycloak, Cognito hosted UI, Okta, etc.) and you want Sometic session orchestration without embedding vendor clients. Redirect URI matching is exact by default; PKCE is S256. When `sessionStorage` exists, the verifier is persisted there across full-page redirects.
 
 Standout options: `clientId`, `redirectUri`, `issuer` discovery, explicit `endpoints`, injectable `fetcher` / `store`, and `scopes` (default `openid profile email`). Capabilities focus on OAuth, refresh, session, and sign-out rather than password sign-in.
 

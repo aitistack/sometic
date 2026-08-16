@@ -16,6 +16,20 @@ export type AuthInterceptorOptions = {
     getEpoch?: (auth: AuthController) => number;
 };
 
+export const DEFAULT_AUTH_EXCLUDE_URL_FRAGMENTS = [
+    "/login",
+    "/signin",
+    "/sign-in",
+    "/refresh",
+    "/register",
+    "/signup",
+] as const;
+
+export function isDefaultAuthExcludedUrl(url: string): boolean {
+    const lower = url.toLowerCase();
+    return DEFAULT_AUTH_EXCLUDE_URL_FRAGMENTS.some((fragment) => lower.includes(fragment));
+}
+
 export function createAuthInterceptor(options: AuthInterceptorOptions): HttpInterceptor {
     const headerName = options.headerName ?? "Authorization";
     const scheme = options.scheme ?? "Bearer";
@@ -42,15 +56,7 @@ export function createAuthInterceptor(options: AuthInterceptorOptions): HttpInte
         if (options.exclude) {
             return options.exclude(config);
         }
-        const url = config.url.toLowerCase();
-        return (
-            url.includes("/login") ||
-            url.includes("/signin") ||
-            url.includes("/sign-in") ||
-            url.includes("/refresh") ||
-            url.includes("/register") ||
-            url.includes("/signup")
-        );
+        return isDefaultAuthExcludedUrl(config.url);
     };
 
     const isUnauthorized = (status: number, config: HttpRequestConfig): boolean => {
@@ -63,10 +69,12 @@ export function createAuthInterceptor(options: AuthInterceptorOptions): HttpInte
     return {
         onRequest: (config) => {
             const epoch = readEpoch();
-            const token = getToken();
             const headers = { ...config.headers };
-            if (token) {
-                headers[headerName] = `${scheme} ${token}`.trim();
+            if (!excluded(config)) {
+                const token = getToken();
+                if (token) {
+                    headers[headerName] = `${scheme} ${token}`.trim();
+                }
             }
             return {
                 ...config,

@@ -59,7 +59,18 @@ export type SupabaseAuthLike = {
 export type SupabaseAuthProviderOptions = {
     auth: SupabaseAuthLike;
     mapUser?: (user: SupabaseUserLike) => AuthUser;
+    redirectUri?: string;
+    validateRedirectUri?: (uri: string) => boolean;
 };
+
+function isAllowedHttpUrl(uri: string): boolean {
+    try {
+        const parsed = new URL(uri);
+        return parsed.protocol === "https:" || parsed.protocol === "http:";
+    } catch {
+        return false;
+    }
+}
 
 function defaultMapUser(user: SupabaseUserLike): AuthUser {
     const displayName = user.user_metadata?.displayName ?? user.user_metadata?.full_name;
@@ -95,6 +106,14 @@ function mapSession(
 
 export function createSupabaseAuthProvider(options: SupabaseAuthProviderOptions): AuthProvider {
     const mapUser = options.mapUser ?? defaultMapUser;
+    const validateRedirect =
+        options.validateRedirectUri ??
+        ((uri: string) => {
+            if (options.redirectUri) {
+                return uri === options.redirectUri;
+            }
+            return isAllowedHttpUrl(uri);
+        });
     const capabilities = new Set<AuthCapability>([
         "signIn",
         "signOut",
@@ -161,6 +180,9 @@ export function createSupabaseAuthProvider(options: SupabaseAuthProviderOptions)
         startOAuth: async (oauth: OAuthStartOptions): Promise<OAuthStartResult> => {
             if (!options.auth.signInWithOAuth) {
                 throw createAuthError("AUTH_UNSUPPORTED", "Supabase OAuth unavailable");
+            }
+            if (!validateRedirect(oauth.redirectUri)) {
+                throw createAuthError("AUTH_UNAUTHORIZED", "Supabase redirectTo is not allowed");
             }
             const { data, error } = await options.auth.signInWithOAuth({
                 provider: oauth.provider,

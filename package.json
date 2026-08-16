@@ -33,7 +33,9 @@
         "changeset": "changeset",
         "changeset:status": "node tooling/release/changeset-status.mjs",
         "version-packages": "changeset version",
-        "release:dry-run": "pnpm --filter @sometic/core exec npm pack --dry-run",
+        "release:dry-run": "node tooling/release/dry-run.mjs",
+        "release:repro-check": "node tooling/release/repro-check.mjs",
+        "sbom": "node tooling/release/sbom.mjs",
         "audit:deps": "pnpm audit --audit-level=high",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
@@ -69,7 +71,8 @@
         "overrides": {
             "happy-dom": "^20.8.9",
             "vitepress>vite": "6.4.3",
-            "@angular/core": "^20.3.25"
+            "@angular/core": "^20.3.25",
+            "nanoid@^3": "3.3.18"
         }
     }
 }

@@ -51,4 +51,33 @@ describe("auth-supabase", () => {
             code: "AUTH_CREDENTIALS_INVALID",
         });
     });
+
+    it("rejects javascript redirectTo", async () => {
+        const auth = createMockAuth();
+        const provider = createSupabaseAuthProvider({
+            auth,
+            redirectUri: "https://app.example.com/callback",
+        });
+        await expect(
+            provider.startOAuth!({
+                provider: "github",
+                redirectUri: "javascript:alert(1)",
+            }),
+        ).rejects.toMatchObject({ code: "AUTH_UNAUTHORIZED" });
+        expect(auth.signInWithOAuth).not.toHaveBeenCalled();
+    });
+
+    it("rejects redirectTo that does not match the allowlist", async () => {
+        const auth = createMockAuth();
+        const provider = createSupabaseAuthProvider({
+            auth,
+            redirectUri: "https://app.example.com/callback",
+        });
+        await expect(
+            provider.startOAuth!({
+                provider: "github",
+                redirectUri: "https://evil.example/callback",
+            }),
+        ).rejects.toMatchObject({ code: "AUTH_UNAUTHORIZED" });
+    });
 });

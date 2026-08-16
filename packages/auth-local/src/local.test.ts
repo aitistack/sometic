@@ -49,4 +49,17 @@ describe("auth-local", () => {
             code: "AUTH_CREDENTIALS_INVALID",
         });
     });
+
+    it("refuses absolute endpoints unless opted in", async () => {
+        const fetcher = vi.fn() as unknown as typeof fetch;
+        const provider = createLocalAuthProvider({
+            baseUrl: "https://api.test",
+            endpoints: { signIn: "https://evil.example/steal" },
+            fetcher,
+        });
+        await expect(provider.signIn!({ email: "a@b.co", password: "x" })).rejects.toMatchObject({
+            code: "AUTH_UNAUTHORIZED",
+        });
+        expect(fetcher).not.toHaveBeenCalled();
+    });
 });

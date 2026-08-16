@@ -33,6 +33,8 @@ export type OidcAuthProviderOptions = {
     fetcher?: typeof fetch;
     store?: OidcPkceStore;
     validateRedirectUri?: (uri: string) => boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 
 function createMemoryStore(): OidcPkceStore {
@@ -46,6 +48,26 @@ function createMemoryStore(): OidcPkceStore {
             map.delete(key);
         },
     };
+}
+
+function createSessionStoragePkceStore(): OidcPkceStore | null {
+    try {
+        const storage = (globalThis as { sessionStorage?: Storage }).sessionStorage;
+        if (!storage) {
+            return null;
+        }
+        return {
+            get: (key) => storage.getItem(key),
+            set: (key, value) => {
+                storage.setItem(key, value);
+            },
+            remove: (key) => {
+                storage.removeItem(key);
+            },
+        };
+    } catch {
+        return null;
+    }
 }
 
 function base64Url(bytes: ArrayBuffer | Uint8Array): string {
@@ -69,9 +91,41 @@ async function sha256Challenge(verifier: string): Promise<string> {
     return base64Url(digest);
 }
 
+async function fetchWithTimeout(
+    fetcher: typeof fetch,
+    input: string,
+    init: RequestInit | undefined,
+    timeoutMs: number,
+    parent?: AbortSignal,
+): Promise<Response> {
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+        controller.abort();
+    }, timeoutMs);
+    const onParentAbort = (): void => {
+        controller.abort();
+    };
+    if (parent) {
+        if (parent.aborted) {
+            controller.abort();
+        } else {
+            parent.addEventListener("abort", onParentAbort, { once: true });
+        }
+    }
+    try {
+        return await fetcher(input, {
+            ...init,
+            signal: controller.signal,
+        });
+    } finally {
+        clearTimeout(timer);
+        parent?.removeEventListener("abort", onParentAbort);
+    }
+}
+
 async function resolveEndpoints(
     options: OidcAuthProviderOptions,
-    fetcher: typeof fetch,
+    request: (input: string, init?: RequestInit) => Promise<Response>,
 ): Promise<OidcEndpointConfig> {
     if (options.endpoints?.authorizationEndpoint && options.endpoints.tokenEndpoint) {
         return {
@@ -89,7 +143,7 @@ async function resolveEndpoints(
         throw createAuthError("AUTH_INVALID_SESSION", "OIDC requires issuer or explicit endpoints");
     }
     const discoveryUrl = `${options.issuer.replace(/\/+$/, "")}/.well-known/openid-configuration`;
-    const response = await fetcher(discoveryUrl);
+    const response = await request(discoveryUrl);
     if (!response.ok) {
         throw createAuthError("AUTH_INVALID_SESSION", "OIDC discovery failed");
     }
@@ -129,19 +183,13 @@ function mapTokenResponse(payload: Record<string, unknown>, user?: AuthUser): Au
 
 export function createOidcAuthProvider(options: OidcAuthProviderOptions): AuthProvider {
     const fetcher = options.fetcher ?? globalThis.fetch.bind(globalThis);
-    const store = options.store ?? createMemoryStore();
+    const store = options.store ?? createSessionStoragePkceStore() ?? createMemoryStore();
     const scopes = options.scopes ?? ["openid", "profile", "email"];
+    const timeoutMs = options.timeoutMs ?? 15_000;
+    const request = (input: string, init?: RequestInit): Promise<Response> =>
+        fetchWithTimeout(fetcher, input, init, timeoutMs, options.signal);
     const validateRedirect =
-        options.validateRedirectUri ??
-        ((uri: string) => {
-            try {
-                const expected = new URL(options.redirectUri);
-                const actual = new URL(uri);
-                return expected.origin === actual.origin && expected.pathname === actual.pathname;
-            } catch {
-                return false;
-            }
-        });
+        options.validateRedirectUri ?? ((uri: string) => uri === options.redirectUri);
     const capabilities = new Set<AuthCapability>([
         "oauth",
         "signOut",
@@ -152,8 +200,8 @@ export function createOidcAuthProvider(options: OidcAuthProviderOptions): AuthPr
     let cached: AuthSession | null = null;
 
     const tokenRequest = async (body: URLSearchParams): Promise<Record<string, unknown>> => {
-        const endpoints = await resolveEndpoints(options, fetcher);
-        const response = await fetcher(endpoints.tokenEndpoint, {
+        const endpoints = await resolveEndpoints(options, request);
+        const response = await request(endpoints.tokenEndpoint, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -174,9 +222,18 @@ export function createOidcAuthProvider(options: OidcAuthProviderOptions): AuthPr
             if (!validateRedirect(oauth.redirectUri)) {
                 throw createAuthError("AUTH_UNAUTHORIZED", "OIDC redirectUri is not allowed");
             }
-            const endpoints = await resolveEndpoints(options, fetcher);
+            if (oauth.codeChallengeMethod === "plain") {
+                throw createAuthError("AUTH_UNAUTHORIZED", "OIDC rejects plain PKCE");
+            }
+            if (oauth.codeChallenge !== undefined && oauth.codeChallenge.length === 0) {
+                throw createAuthError("AUTH_UNAUTHORIZED", "OIDC code_challenge must not be empty");
+            }
+            const endpoints = await resolveEndpoints(options, request);
             const state = oauth.state ?? randomString(16);
             const verifier = randomString(32);
+            if (!verifier) {
+                throw createAuthError("AUTH_UNAUTHORIZED", "OIDC code_verifier missing");
+            }
             const challenge = await sha256Challenge(verifier);
             await store.set(`oidc:state:${state}`, state);
             await store.set(`oidc:verifier:${state}`, verifier);
@@ -215,9 +272,9 @@ export function createOidcAuthProvider(options: OidcAuthProviderOptions): AuthPr
                 }),
             );
             let user: AuthUser = { id: "oidc-user" };
-            const endpoints = await resolveEndpoints(options, fetcher);
+            const endpoints = await resolveEndpoints(options, request);
             if (endpoints.userInfoEndpoint && typeof payload.access_token === "string") {
-                const profile = await fetcher(endpoints.userInfoEndpoint, {
+                const profile = await request(endpoints.userInfoEndpoint, {
                     headers: { Authorization: `Bearer ${payload.access_token}` },
                 });
                 if (profile.ok) {
@@ -258,3 +315,4 @@ export function createOidcAuthProvider(options: OidcAuthProviderOptions): AuthPr
 }
 
 export { createMemoryStore as createOidcMemoryStore };
+export { createSessionStoragePkceStore as createOidcSessionStorageStore };

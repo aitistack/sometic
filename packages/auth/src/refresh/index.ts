@@ -59,7 +59,6 @@ export function createRefreshCoordinator(options: RefreshCoordinatorOptions): Re
             });
             await options.setSession(next);
 
-            let lastError: unknown;
             for (attempt = 0; attempt <= maxRetries; attempt += 1) {
                 const controller = new AbortController();
                 const timer = setTimeout(() => {
@@ -89,9 +88,8 @@ export function createRefreshCoordinator(options: RefreshCoordinatorOptions): Re
                     });
                     await options.setSession(next);
                     return next;
-                } catch (error) {
+                } catch {
                     clearTimeout(timer);
-                    lastError = error;
                 }
             }
 
@@ -102,11 +100,7 @@ export function createRefreshCoordinator(options: RefreshCoordinatorOptions): Re
                 epoch: current.epoch,
             });
             await options.setSession(invalid);
-            throw createAuthError(
-                "AUTH_REFRESH_FAILED",
-                "Session refresh failed",
-                lastError instanceof Error ? { causeMessage: lastError.message } : undefined,
-            );
+            throw createAuthError("AUTH_REFRESH_FAILED", "Session refresh failed");
         };
 
         inflight = run().finally(() => {

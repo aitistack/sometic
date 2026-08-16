@@ -25,5 +25,6 @@
 | [ADR-0021](./ADR-0021-system-engine-cdn-browser-bundles.md)  | System engine CDN browser bundles     | Accepted               |
 | [ADR-0022](./ADR-0022-app-primitives-package-map.md)         | App primitives package map            | Accepted               |
 | [ADR-0023](./ADR-0023-example-apps.md)                       | Example applications vs playgrounds   | Accepted (paused)      |
+| [ADR-0024](./ADR-0024-trusted-publishing.md)                 | npm trusted publishing and provenance | Accepted               |
 
 Template: use the ADR template kept by maintainers (not published in this repository).

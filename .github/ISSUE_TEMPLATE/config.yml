@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+    - name: Report a vulnerability
+      url: https://github.com/aitistack/sometic/security/advisories/new
+      about: Private GitHub Security Advisory. Do not file a public issue for exploitable vulnerabilities.
+    - name: Consumer docs
+      url: https://sometic.dev
+      about: Install, usage, and security guidance for @sometic packages.

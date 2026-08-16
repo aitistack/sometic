@@ -161,9 +161,97 @@ describe("auth orchestration", () => {
         const stepped = await auth.requestStepUp({ reason: "reauthentication" });
         expect(stepped.session.status).toBe("reauthenticationRequired");
         expect(auth.getEpoch()).toBe(epoch);
-        const completed = await auth.completeStepUp();
+        await expect(auth.completeStepUp()).rejects.toMatchObject({
+            code: "AUTH_UNSUPPORTED",
+        });
+        expect(auth.getSession().status).toBe("reauthenticationRequired");
+        const completed = await auth.signIn({
+            email: "demo@example.com",
+            password: "password",
+        });
         expect(completed.status).toBe("authenticated");
-        expect(auth.getEpoch()).toBe(epoch);
         auth.dispose();
+    });
+
+    it("does not leak provider token strings on refresh failure", async () => {
+        const leaked = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIn0.leak-token";
+        const provider = createTestAuthProvider({ accessTokenTtlMs: 1 });
+        provider.refresh = async () => {
+            throw new Error(`upstream Bearer ${leaked}`);
+        };
+        const auth = createAuth({
+            provider,
+            storage: createMemoryAuthStorage(),
+            crossTab: createNoopAuthBus(),
+            environment: false,
+        });
+        await auth.signIn({ email: "demo@example.com", password: "password" });
+        provider.forceExpire();
+        try {
+            await auth.refresh();
+            throw new Error("expected refresh to fail");
+        } catch (error) {
+            expect(error).toMatchObject({ code: "AUTH_REFRESH_FAILED" });
+            const record = error as { message?: string; details?: unknown };
+            const serialized = `${record.message ?? ""} ${JSON.stringify(record.details ?? {})}`;
+            expect(serialized).not.toContain(leaked);
+            expect(serialized).not.toContain("Bearer ");
+            expect(record.details).toBeUndefined();
+        }
+        auth.dispose();
+    });
+
+    it("omits tokens from cross-tab session payloads when opted out", async () => {
+        const posted: unknown[] = [];
+        const bus = {
+            post: (message: unknown) => {
+                posted.push(message);
+            },
+            subscribe: () => () => undefined,
+            dispose: () => undefined,
+        };
+        const auth = createAuth({
+            provider: createTestAuthProvider(),
+            storage: createMemoryAuthStorage(),
+            crossTab: bus as never,
+            crossTabIncludeTokens: false,
+            environment: false,
+        });
+        await auth.signIn({ email: "demo@example.com", password: "password" });
+        const sessionMessage = posted.find(
+            (message) =>
+                typeof message === "object" &&
+                message !== null &&
+                "type" in message &&
+                (message as { type: string }).type === "session",
+        ) as { session: { tokens: unknown } } | undefined;
+        expect(sessionMessage?.session.tokens).toBeNull();
+        expect(auth.getAccessToken()).toBeTruthy();
+        auth.dispose();
+    });
+
+    it("does not read document when environment is false", () => {
+        const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, "document");
+        let documentReads = 0;
+        Object.defineProperty(globalThis, "document", {
+            configurable: true,
+            get() {
+                documentReads += 1;
+                return documentDescriptor?.value;
+            },
+        });
+        const auth = createAuth({
+            provider: createTestAuthProvider(),
+            storage: createMemoryAuthStorage(),
+            crossTab: createNoopAuthBus(),
+            environment: false,
+        });
+        expect(documentReads).toBe(0);
+        auth.dispose();
+        if (documentDescriptor) {
+            Object.defineProperty(globalThis, "document", documentDescriptor);
+        } else {
+            Reflect.deleteProperty(globalThis, "document");
+        }
     });
 });

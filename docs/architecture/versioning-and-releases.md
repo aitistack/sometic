@@ -22,7 +22,7 @@ Do not mark unfinished modules stable.
 
 - Changesets for changelog entries on user-facing changes
 - CI must pass required gates before publish
-- npm trusted publishing and provenance (Phase 23; prepare earlier)
+- npm trusted publishing and provenance (Phase 24; OIDC only, see ADR-0024)
 - Publication dry runs from Phase 1 scaffolding onward
 - Git tags for releases where practical
 - Telemetry-free default forever unless an explicit opt-in product decision (would need ADR)
