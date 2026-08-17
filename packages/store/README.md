@@ -74,7 +74,7 @@ Docs: [https://sometic.dev/stores/store](https://sometic.dev/stores/store).
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.1/dist/cdn/sometic-store.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.iife.js"></script>
 <script>
     const store = SometicStore.createStore({ count: 0 });
 </script>
@@ -84,7 +84,7 @@ Docs: [https://sometic.dev/stores/store](https://sometic.dev/stores/store).
 
 ```html
 <script type="module">
-    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.1/dist/cdn/sometic-store.esm.js";
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.esm.js";
 
     const store = createStore({ count: 0 });
 </script>

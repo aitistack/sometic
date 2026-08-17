@@ -79,7 +79,7 @@ Docs: [https://sometic.dev/primitives/positioning](https://sometic.dev/primitive
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.5/dist/cdn/sometic-positioning.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.6/dist/cdn/sometic-positioning.iife.js"></script>
 <script>
     const result = SometicPositioning.computePosition(anchor, floating);
 </script>
@@ -89,7 +89,7 @@ Docs: [https://sometic.dev/primitives/positioning](https://sometic.dev/primitive
 
 ```html
 <script type="module">
-    import { computePosition } from "https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.5/dist/cdn/sometic-positioning.esm.js";
+    import { computePosition } from "https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.6/dist/cdn/sometic-positioning.esm.js";
 
     const result = computePosition(anchor, floating);
 </script>

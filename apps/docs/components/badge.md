@@ -59,7 +59,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.3/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-badge>Neutral</sometic-badge>
 <sometic-badge tone="success">Ready</sometic-badge>
@@ -69,7 +69,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.1/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.3/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-badge>Neutral</sometic-badge>

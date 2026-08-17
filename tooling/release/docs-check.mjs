@@ -142,9 +142,71 @@ for (const rel of publishedMarkdownFiles(docsRoot)) {
     }
 }
 
+const cdnPinPattern = /cdn\.jsdelivr\.net\/npm\/@sometic\/([a-z0-9-]+)@([^/\s"'`)]+)/g;
+const packageVersions = new Map();
+for (const dir of fs.readdirSync(path.join(repoRoot, "packages"))) {
+    const pkgFile = path.join(repoRoot, "packages", dir, "package.json");
+    if (!fs.existsSync(pkgFile)) {
+        continue;
+    }
+    const pkg = JSON.parse(fs.readFileSync(pkgFile, "utf8"));
+    if (
+        typeof pkg.name === "string" &&
+        pkg.name.startsWith("@sometic/") &&
+        pkg.private !== true &&
+        typeof pkg.version === "string"
+    ) {
+        packageVersions.set(pkg.name.slice("@sometic/".length), pkg.version);
+    }
+}
+
+function walkCdnSurfaces(dir, acc = []) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            if (
+                entry.name === "node_modules" ||
+                entry.name === "dist" ||
+                entry.name === ".vitepress"
+            ) {
+                continue;
+            }
+            walkCdnSurfaces(full, acc);
+            continue;
+        }
+        if (/\.(md|txt|html)$/.test(entry.name)) {
+            acc.push(full);
+        }
+    }
+    return acc;
+}
+
+const cdnFiles = walkCdnSurfaces(docsRoot);
+for (const dir of fs.readdirSync(path.join(repoRoot, "packages"))) {
+    const readme = path.join(repoRoot, "packages", dir, "README.md");
+    if (fs.existsSync(readme)) {
+        cdnFiles.push(readme);
+    }
+}
+
+for (const file of cdnFiles) {
+    const text = fs.readFileSync(file, "utf8");
+    const rel = path.relative(repoRoot, file).replaceAll("\\", "/");
+    for (const match of text.matchAll(cdnPinPattern)) {
+        const name = match[1] ?? "";
+        const pin = match[2] ?? "";
+        const expected = packageVersions.get(name);
+        if (!expected || pin === expected) {
+            continue;
+        }
+        console.error(`${rel}: CDN pin @sometic/${name}@${pin} must be @${expected}`);
+        failed = true;
+    }
+}
+
 if (failed) {
     process.exit(1);
 }
 console.log(
-    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN + links)",
+    "docs:check passed (pages + component Usage React/Vue/Vanilla/Custom Elements/CDN + links + CDN pins)",
 );

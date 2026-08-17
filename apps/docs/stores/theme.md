@@ -121,7 +121,7 @@ theme.setMode("dark");
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.1/dist/cdn/sometic-theme.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.iife.js"></script>
 <script>
     const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
 </script>
@@ -129,7 +129,7 @@ theme.setMode("dark");
 
 ```html [CDN Module]
 <script type="module">
-    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.1/dist/cdn/sometic-theme.esm.js";
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.esm.js";
 
     const theme = createThemeController({ themes: [], defaultThemeId: "light" });
 </script>

@@ -87,7 +87,7 @@ Docs: [https://sometic.dev/forms/](https://sometic.dev/forms/).
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.1/dist/cdn/sometic-forms.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.2/dist/cdn/sometic-forms.iife.js"></script>
 <script>
     const form = SometicForms.createForm({ defaultValues: { email: "" } });
 </script>
@@ -97,7 +97,7 @@ Docs: [https://sometic.dev/forms/](https://sometic.dev/forms/).
 
 ```html
 <script type="module">
-    import { createForm } from "https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.1/dist/cdn/sometic-forms.esm.js";
+    import { createForm } from "https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.2/dist/cdn/sometic-forms.esm.js";
 
     const form = createForm({ defaultValues: { email: "" } });
 </script>
