@@ -68,7 +68,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.3/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
      element's internal parts or prefer React/Vue Field for full chrome props. -->
@@ -80,7 +80,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.3/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the

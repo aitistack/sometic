@@ -66,7 +66,7 @@ Docs: [https://sometic.dev/authentication/](https://sometic.dev/authentication/)
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.0/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
 </script>
@@ -76,7 +76,7 @@ Docs: [https://sometic.dev/authentication/](https://sometic.dev/authentication/)
 
 ```html
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.0/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
 </script>
