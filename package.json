@@ -51,7 +51,7 @@
         "@playwright/test": "^1.54.1",
         "@size-limit/file": "^11.2.0",
         "@types/node": "^22.16.5",
-        "dependency-cruiser": "^16.10.2",
+        "dependency-cruiser": "^18.2.0",
         "husky": "^9.1.7",
         "knip": "^5.88.1",
         "prettier": "^3.6.2",
