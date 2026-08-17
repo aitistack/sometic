@@ -46,7 +46,7 @@
     },
     "devDependencies": {
         "@sometic/typescript-config": "workspace:*",
-        "typescript": "^5.8.3",
+        "typescript": "^6.0.3",
         "vite": "^7.0.5"
     },
     "description": "Interactive vanilla playground for Sometic primitives and components.",

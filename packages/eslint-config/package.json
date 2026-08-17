@@ -33,7 +33,7 @@
     },
     "devDependencies": {
         "eslint": "^9.31.0",
-        "typescript": "^5.8.3"
+        "typescript": "^6.0.3"
     },
     "scripts": {
         "build": "node -e \"process.exit(0)\"",

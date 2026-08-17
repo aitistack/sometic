@@ -33,7 +33,7 @@
         "@sometic/typescript-config": "workspace:*",
         "eslint": "^9.31.0",
         "tsup": "^8.5.0",
-        "typescript": "^5.8.3",
+        "typescript": "^6.0.3",
         "vitest": "^3.2.4"
     },
     "description": "Shared Invoice Desk domain, mock API, and runtime for Sometic example apps.",
