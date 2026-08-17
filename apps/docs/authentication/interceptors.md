@@ -99,7 +99,7 @@ type AuthInterceptorOptions = {
 
 ## Refresh queue behavior
 
-1. `onRequest` attaches `Authorization: Bearer <token>` when a token exists.
+1. `onRequest` attaches `Authorization: Bearer <token>` when a token exists **and** the URL is not excluded.
 2. On error with unauthorized status (and not excluded, and not already retried):
     - Start or join a shared `refreshInflight` promise
     - Call `auth.handleUnauthorized()`

@@ -24,7 +24,7 @@ Use:
 - **Size Limit** (or equivalent) for bundle budgets
 - **API Extractor or TypeDoc** for API docs/validation
 - **GitHub Actions** for CI
-- Prepare for **npm trusted publishing** (fully hardened in Phase 23)
+- Prepare for **npm trusted publishing** (fully hardened in Phase 24; ADR-0024)
 
 ## Alternatives Considered
 

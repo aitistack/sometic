@@ -27,6 +27,9 @@ export type LocalAuthProviderOptions = {
     mapUser?: (payload: unknown) => AuthUser;
     mapTokens?: (payload: unknown) => AuthTokens | null;
     mapSession?: (payload: unknown) => AuthSession;
+    allowAbsoluteEndpoints?: boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 
 const DEFAULT_ENDPOINTS: Required<LocalAuthEndpoints> = {
@@ -38,8 +41,14 @@ const DEFAULT_ENDPOINTS: Required<LocalAuthEndpoints> = {
     passwordReset: "/auth/password-reset",
 };
 
-function joinUrl(baseUrl: string, path: string): string {
+function joinUrl(baseUrl: string, path: string, allowAbsolute: boolean): string {
     if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(path)) {
+        if (!allowAbsolute) {
+            throw createAuthError(
+                "AUTH_UNAUTHORIZED",
+                "Absolute local auth endpoints require allowAbsoluteEndpoints",
+            );
+        }
         return path;
     }
     return `${baseUrl.replace(/\/+$/, "")}/${path.replace(/^\/+/, "")}`;
@@ -117,6 +126,8 @@ export function createLocalAuthProvider(options: LocalAuthProviderOptions): Auth
     const endpoints = { ...DEFAULT_ENDPOINTS, ...options.endpoints };
     const mapUser = options.mapUser ?? defaultMapUser;
     const mapTokens = options.mapTokens ?? defaultMapTokens;
+    const timeoutMs = options.timeoutMs ?? 15_000;
+    const allowAbsolute = options.allowAbsoluteEndpoints === true;
     const capabilities = new Set<AuthCapability>([
         "signIn",
         "signOut",
@@ -146,21 +157,47 @@ export function createLocalAuthProvider(options: LocalAuthProviderOptions): Auth
         path: string,
         init?: RequestInit & { allowUnauthorized?: boolean },
     ): Promise<unknown> => {
-        const response = await fetcher(joinUrl(options.baseUrl, path), {
-            ...init,
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                ...(init?.headers ?? {}),
-            },
-        });
-        if (response.status === 401 || response.status === 403) {
-            throw createAuthError("AUTH_CREDENTIALS_INVALID", "Local auth rejected credentials");
+        const controller = new AbortController();
+        const timer = setTimeout(() => {
+            controller.abort();
+        }, timeoutMs);
+        const onParentAbort = (): void => {
+            controller.abort();
+        };
+        if (options.signal) {
+            if (options.signal.aborted) {
+                controller.abort();
+            } else {
+                options.signal.addEventListener("abort", onParentAbort, { once: true });
+            }
         }
-        if (!response.ok) {
-            throw createAuthError("AUTH_INVALID_SESSION", `Local auth failed (${response.status})`);
+        try {
+            const response = await fetcher(joinUrl(options.baseUrl, path, allowAbsolute), {
+                ...init,
+                signal: controller.signal,
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    ...(init?.headers ?? {}),
+                },
+            });
+            if (response.status === 401 || response.status === 403) {
+                throw createAuthError(
+                    "AUTH_CREDENTIALS_INVALID",
+                    "Local auth rejected credentials",
+                );
+            }
+            if (!response.ok) {
+                throw createAuthError(
+                    "AUTH_INVALID_SESSION",
+                    `Local auth failed (${response.status})`,
+                );
+            }
+            return readJson(response);
+        } finally {
+            clearTimeout(timer);
+            options.signal?.removeEventListener("abort", onParentAbort);
         }
-        return readJson(response);
     };
 
     return {

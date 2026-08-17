@@ -1,6 +1,6 @@
 # Security
 
-**Last updated:** 6 August 2026
+**Last updated:** 14 August 2026
 
 Sometic is open-source software. We take security reports seriously and prefer coordinated disclosure.
 
@@ -8,10 +8,11 @@ Sometic is open-source software. We take security reports seriously and prefer c
 
 **Do not** open a public GitHub issue for unfixed, exploitable vulnerabilities.
 
-Prefer one of these channels:
+Use **GitHub Security Advisories** (private vulnerability report) on the Sometic packages repository:
 
-1. **GitHub Security Advisories** on the Sometic packages repository (private vulnerability report), when enabled for the repo
-2. **Email / contact** via channels listed on the Sometic organization at [github.com/aitistack](https://github.com/aitistack)
+https://github.com/aitistack/sometic/security/advisories/new
+
+Do not email npm org profile addresses. There is no public security mailbox yet.
 
 Include:
 

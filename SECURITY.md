@@ -8,11 +8,18 @@ Public beta packages under `@sometic` on npm. Report issues against the latest p
 
 Do **not** open a public GitHub issue for security-sensitive reports.
 
-1. Use GitHub **Private vulnerability reporting** on this repository (Settings → Code security), or
-2. Email the maintainer address listed on the npm `@sometic` org / docs security page.
+Use GitHub **Security Advisories** (private vulnerability report) on this repository:
 
-Include: affected package name, version, reproduction steps, and impact. You will receive an acknowledgment when the report is received.
+https://github.com/aitistack/sometic/security/advisories/new
+
+There is no public security mailbox yet. Do not use npm org profile email as a disclosure channel.
+
+Include: affected package name, version, reproduction steps, and impact. You will receive an acknowledgment when a maintainer is available.
 
 ## Disclosure
 
-We aim to fix critical issues promptly and credit reporters when desired. Please allow reasonable time before public disclosure.
+This project is in public beta. We prioritize critical issues that affect already published packages and credit reporters when desired. We do not promise a fixed first-response clock. Please allow reasonable time before public disclosure.
+
+Consumer copy: https://sometic.dev/legal/security
+
+Machine-readable: https://sometic.dev/.well-known/security.txt

@@ -43,7 +43,7 @@ None (greenfield). Adding a provider is additive.
 
 ## Enforcement
 
-Dependency rules forbidding provider SDKs in auth core; security review in Phase 23; Phase 10–12 tests.
+Dependency rules forbidding provider SDKs in auth core; security review in Phase 24; Phase 10–12 tests.
 
 ## References
 

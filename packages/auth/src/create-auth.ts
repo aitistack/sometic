@@ -70,6 +70,7 @@ export type CreateAuthOptions = {
     storage?: AuthStorage;
     skewMs?: number;
     crossTab?: AuthCrossTabBus | false;
+    crossTabIncludeTokens?: boolean;
     now?: () => number;
     autoRefresh?: boolean;
     refreshIntervalMs?: number;
@@ -217,7 +218,9 @@ export function createAuth(options: CreateAuthOptions): AuthController {
         };
         await storage.setSession(session);
         if (broadcast && crossTab) {
-            crossTab.post({ type: "session", sourceId, session });
+            const payload =
+                options.crossTabIncludeTokens === false ? { ...session, tokens: null } : session;
+            crossTab.post({ type: "session", sourceId, session: payload });
         }
         notify();
         if (event) {
@@ -472,20 +475,10 @@ export function createAuth(options: CreateAuthOptions): AuthController {
             if (input?.challengeId !== undefined && input.code !== undefined) {
                 return controller.verifyMfa(input.challengeId, input.code);
             }
-            if (session.status !== "mfaRequired" && session.status !== "reauthenticationRequired") {
-                throw createAuthError(
-                    "AUTH_UNSUPPORTED",
-                    "No step-up challenge is pending on the current session",
-                );
-            }
-            const next = createSession({
-                status: "authenticated",
-                user: session.user,
-                tokens: session.tokens,
-                epoch: session.epoch,
-            });
-            await setSession(next, true, "signedIn", "adopt");
-            return next;
+            throw createAuthError(
+                "AUTH_UNSUPPORTED",
+                "Step-up completion requires a provider round-trip (verifyMfa with challengeId and code, or signIn for reauthentication)",
+            );
         },
         requestPasswordReset: async (email) => {
             assertActive();

@@ -66,3 +66,5 @@ Keep dependency direction one-way: adapters → integrations → features → fo
 Use GitHub issue templates (**Bug report** / **Feature request**). Include package versions, framework, and reproduction steps.
 
 Security-sensitive changes need explicit notes in the PR description. For vulnerabilities, see [SECURITY.md](./SECURITY.md). Do not file public issues for exploitable vulns.
+
+Maintainer npm publishing (OIDC, provenance, `npm-publish` environment) is documented in `docs/security/release-runbook.md`.

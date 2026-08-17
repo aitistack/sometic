@@ -88,6 +88,8 @@ Pass `supabase.auth` (or any `SupabaseAuthLike` mock) into the adapter. Sometic 
 type SupabaseAuthProviderOptions = {
     auth: SupabaseAuthLike;
     mapUser?: (user: SupabaseUserLike) => AuthUser;
+    redirectUri?: string;
+    validateRedirectUri?: (uri: string) => boolean;
 };
 ```
 
@@ -117,7 +119,7 @@ Supabase `access_token` / `refresh_token` / `expires_at` (seconds) map into Some
 
 ### OAuth
 
-Ensure the injected client exposes `signInWithOAuth`. Capability `oauth` is added only then. Complete the redirect with your app router; use Sometic session subscribe for UX.
+Ensure the injected client exposes `signInWithOAuth`. Capability `oauth` is added only then. `redirectTo` must match `redirectUri` when configured, or be an `http:` / `https:` URL. `javascript:` and other schemes are rejected.
 
 ### HTTP API calls
 

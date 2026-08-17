@@ -118,6 +118,9 @@ type LocalAuthProviderOptions = {
     mapUser?: (payload: unknown) => AuthUser;
     mapTokens?: (payload: unknown) => AuthTokens | null;
     mapSession?: (payload: unknown) => AuthSession;
+    allowAbsoluteEndpoints?: boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 ```
 
@@ -192,7 +195,7 @@ createLocalAuthProvider({
 
 ### Can I point endpoints at absolute URLs?
 
-Yes. Paths that look like absolute URLs are used as-is.
+Only with `allowAbsoluteEndpoints: true`. Relative paths under `baseUrl` are the default. Absolute `endpoints.*` values are rejected otherwise.
 
 ### How do I test without a server?
 

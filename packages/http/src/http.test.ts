@@ -6,7 +6,7 @@ import {
     createTestAuthProvider,
     requirePermission,
 } from "@sometic/auth";
-import { createAuthInterceptor } from "./auth/index.js";
+import { createAuthInterceptor, isDefaultAuthExcludedUrl } from "./auth/index.js";
 import { createPolicyInterceptor } from "./auth/policy.js";
 import { createHttp } from "./create-http.js";
 import { createMockFetcher } from "./mock.js";
@@ -93,6 +93,62 @@ describe("http client", () => {
         expect(response.data.secured).toBe(true);
         expect(hits).toBe(2);
         auth.dispose();
+        http.dispose();
+    });
+
+    it("does not attach Bearer to refresh or login URLs", async () => {
+        const provider = createTestAuthProvider({ accessTokenTtlMs: 60_000 });
+        const auth = createAuth({
+            provider,
+            storage: createMemoryAuthStorage(),
+            crossTab: createNoopAuthBus(),
+            environment: false,
+        });
+        await auth.signIn({ email: "demo@example.com", password: "password" });
+        const seen: Array<string | null> = [];
+        const fetcher = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+            seen.push(new Headers(init?.headers).get("Authorization"));
+            return new Response(JSON.stringify({ ok: true }), {
+                status: 200,
+                headers: { "Content-Type": "application/json" },
+            });
+        }) as unknown as typeof fetch;
+        const http = createHttp({
+            fetcher,
+            interceptors: [createAuthInterceptor({ auth })],
+            retry: false,
+        });
+        await http.post("/auth/refresh", JSON.stringify({ refreshToken: "x" }));
+        await http.post("/login", JSON.stringify({ email: "a" }));
+        expect(seen).toEqual([null, null]);
+        expect(isDefaultAuthExcludedUrl("/auth/refresh")).toBe(true);
+        expect(isDefaultAuthExcludedUrl("/v1/users")).toBe(false);
+        auth.dispose();
+        http.dispose();
+    });
+
+    it("keeps 401 errors status-only without response bodies", async () => {
+        const http = createHttp({
+            retry: false,
+            fetcher: vi.fn(
+                async () =>
+                    new Response(JSON.stringify({ access_token: "should-not-leak" }), {
+                        status: 401,
+                        headers: { "Content-Type": "application/json" },
+                    }),
+            ) as unknown as typeof fetch,
+        });
+        await expect(http.get("/secure")).rejects.toMatchObject({
+            code: "HTTP_STATUS",
+            details: { status: 401 },
+        });
+        try {
+            await http.get("/secure");
+        } catch (error) {
+            const serialized = JSON.stringify(error);
+            expect(serialized).not.toContain("should-not-leak");
+            expect(serialized).not.toContain("access_token");
+        }
         http.dispose();
     });
 

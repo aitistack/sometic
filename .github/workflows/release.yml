@@ -9,27 +9,31 @@ concurrency:
     group: release-${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: false
 
+permissions:
+    contents: read
+
 jobs:
     release:
         runs-on: ubuntu-latest
         timeout-minutes: 45
+        environment: npm-publish
         permissions:
             contents: write
             pull-requests: write
             id-token: write
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
               with:
                   fetch-depth: 0
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@a15d269cd4658e1107c09f1fabf4cbd7bd1f308a # v4.4.0
               with:
                   version: 10.14.0
 
             - name: Setup Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
               with:
                   node-version: 22
                   cache: pnpm
@@ -41,15 +45,31 @@ jobs:
             - name: Build
               run: pnpm build
 
+            - name: Validate packages
+              run: pnpm packages:validate
+
+            - name: Dependency audit
+              run: pnpm audit:deps
+
             - name: Create Release Pull Request or Publish
               id: changesets
-              uses: changesets/action@v1
+              uses: changesets/action@3841a0683d3cfa6dae0f9bb335290003010fe3f0 # v1.9.0
               with:
                   publish: pnpm exec changeset publish
                   title: "chore: version packages"
                   commit: "chore: version packages"
-                  createGithubReleases: false
+                  createGithubReleases: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NPM_CONFIG_PROVENANCE: "true"
+
+            - name: Generate CycloneDX SBOM
+              if: steps.changesets.outputs.published == 'true'
+              run: node tooling/release/sbom.mjs --output sometic.cdx.json
+
+            - name: Upload SBOM
+              if: steps.changesets.outputs.published == 'true'
+              uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                  name: sometic-cyclonedx-sbom
+                  path: sometic.cdx.json

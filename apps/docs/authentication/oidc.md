@@ -39,14 +39,17 @@ const auth = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -67,14 +70,17 @@ const auth: AuthController = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -94,14 +100,17 @@ const auth = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -124,6 +133,8 @@ type OidcAuthProviderOptions = {
     fetcher?: typeof fetch;
     store?: OidcPkceStore;
     validateRedirectUri?: (uri: string) => boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 ```
 
@@ -133,26 +144,7 @@ Default scopes: `openid profile email`.
 
 ## PKCE store
 
-Default store is in-memory. Full-page redirects to the IdP **lose** memory. Persist verifier/state:
-
-```ts
-const store = {
-    get: (key: string) => sessionStorage.getItem(key),
-    set: (key: string, value: string) => {
-        sessionStorage.setItem(key, value);
-    },
-    remove: (key: string) => {
-        sessionStorage.removeItem(key);
-    },
-};
-
-createOidcAuthProvider({
-    clientId: "my-spa",
-    redirectUri: "https://app.example.com/oauth/callback",
-    issuer: "https://id.example.com",
-    store,
-});
-```
+When `sessionStorage` exists, the default store persists verifier and state there so a full-page IdP redirect can complete. Inject `store` to override. Memory-only stores lose the verifier across navigations (fine for tests).
 
 ## Capabilities
 
@@ -167,7 +159,9 @@ Password grant is intentionally unsupported for SPAs.
 
 ## Redirect validation
 
-Default `validateRedirectUri` requires matching origin and pathname with the configured `redirectUri`. Override only when you understand open-redirect risks.
+Default `validateRedirectUri` requires an **exact** match with the configured `redirectUri` (full URI string). Query strings, fragments, and `javascript:` URLs do not match. Override only when you understand open-redirect risks.
+
+The browser adapter does **not** verify `id_token` signatures or nonce. Treat ID tokens as opaque until your backend (or a dedicated verifier) checks them.
 
 ## Patterns
 
@@ -212,7 +206,7 @@ Keeps the adapter standards-based and peer-free. You can still use Auth0 as the 
 
 ### Callback loses login state
 
-Use a durable `OidcPkceStore` (`sessionStorage`). Memory store is for tests or same-document flows only.
+The default store uses `sessionStorage` when it exists. If you passed a memory `store`, the verifier is gone after a full-page redirect.
 
 ### Related
 

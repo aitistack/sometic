@@ -81,6 +81,13 @@ function validatePackage(dirName) {
         errors.push(`${pkg.name}: files must include "dist"`);
     }
 
+    if (!pkg.publishConfig || pkg.publishConfig.access !== "public") {
+        errors.push(`${pkg.name}: publishConfig.access must be "public"`);
+    }
+    if (pkg.publishConfig?.provenance !== true) {
+        errors.push(`${pkg.name}: publishConfig.provenance must be true`);
+    }
+
     const repositoryUrl =
         pkg.repository && typeof pkg.repository === "object" ? pkg.repository.url : undefined;
     const bugsUrl = pkg.bugs && typeof pkg.bugs === "object" ? pkg.bugs.url : undefined;

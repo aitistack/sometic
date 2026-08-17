@@ -15,6 +15,9 @@ function isAllowedComment(comment) {
     if (/^vite-/.test(value) || /^webpack-/.test(value) || /^istanbul\s+ignore/.test(value)) {
         return true;
     }
+    if (/^@vitest-/.test(value) || /^vitest-environment/.test(value)) {
+        return true;
+    }
     return false;
 }
 
