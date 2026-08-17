@@ -36,5 +36,5 @@ Password · OTP · Number · File · Masked · Currency · Date (via `@sometic/d
 - [API](./api.md)
 - [FAQ](./faq.md)
 - [Comparison](./comparison.md)
-- Field composition: `docs/consumer/field/`
-- Date adapters: `docs/consumer/date/`
+- [Field](/components/field)
+- [Date](/primitives/date)

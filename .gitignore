@@ -15,7 +15,5 @@ test-results
 
 .cursor/
 /AGENTS.md
-/sometic/
-docs/maintainer/
-docs/phases/
+/docs/
 product-scope-and-description.pdf

@@ -57,32 +57,32 @@ features:
 
 <div class="sometic-home-constraints">
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">01</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">i</span>
 <h3>Framework-agnostic controllers</h3>
 <p>State, focus, and interaction logic are completely decoupled from framework lifecycles. Swap your view layer tomorrow without rewriting a single line of core behavior.</p>
 </article>
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">02</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">ii</span>
 <h3>Zero CSS contamination</h3>
 <p>No stylesheets, no default themes, no runtime CSS injection. You own design tokens and DOM structure completely.</p>
 </article>
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">03</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">iii</span>
 <h3>Zero-dependency HTTP core</h3>
 <p>Built on native fetch with an interceptor pipeline and token refresh queue. No mandatory Axios or networking SDK in core.</p>
 </article>
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">04</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">iv</span>
 <h3>SSR-safe from day one</h3>
 <p>Core controllers guard environment globals at import time, so Next.js, Nuxt, and Remix avoid hydration mismatches and window errors.</p>
 </article>
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">05</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">v</span>
 <h3>Tree-shakable subpath exports</h3>
 <p>Import only what you use. Feature-isolated packages keep production JavaScript lean and fast.</p>
 </article>
 <article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">06</span>
+<span class="sometic-home-constraint__index" aria-hidden="true">vi</span>
 <h3>Declarative slot architecture</h3>
 <p>Layouts rely on native DOM slots and state attributes for precise control over rendered nodes and the accessibility tree.</p>
 </article>

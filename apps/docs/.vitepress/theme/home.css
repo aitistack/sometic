@@ -572,22 +572,11 @@ html:not(.dark) .VPHome .sometic-home-cta--prompt:focus-visible {
     flex-direction: column;
     margin: 0;
     padding: 1.65rem 1.4rem 1.5rem;
+    cursor: default;
     background: linear-gradient(
         165deg,
         color-mix(in srgb, var(--sometic-brand) 8%, var(--vp-c-bg-soft)),
         var(--vp-c-bg-soft) 55%
-    );
-    transition:
-        transform 180ms ease,
-        background-color 180ms ease;
-}
-
-.sometic-home-proof:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(
-        165deg,
-        color-mix(in srgb, var(--sometic-brand) 12%, var(--vp-c-bg-soft)),
-        color-mix(in srgb, var(--sometic-brand) 4%, var(--vp-c-bg-soft)) 60%
     );
 }
 
@@ -744,26 +733,31 @@ html:not(.dark) .VPHome .sometic-home-cta--prompt:focus-visible {
     position: relative;
     margin: 0;
     padding: 1.5rem 1.35rem 1.55rem;
+    cursor: default;
     background: var(--vp-c-bg-soft);
     box-shadow: inset 3px 0 0 var(--sometic-brand);
-    transition:
-        transform 180ms ease,
-        background-color 180ms ease;
-}
-
-.sometic-home-constraint:hover {
-    transform: translateY(-2px);
-    background: color-mix(in srgb, var(--sometic-brand) 6%, var(--vp-c-bg-soft));
 }
 
 .sometic-home-constraint__index {
-    display: block;
-    font-family: var(--sometic-home-mono, var(--sometic-home-sans));
-    font-size: 0.78rem;
-    font-weight: 650;
-    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--sometic-home-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.06em;
+    line-height: 1;
     color: var(--sometic-brand);
     margin-bottom: 0.85rem;
+}
+
+.sometic-home-constraint__index::before {
+    content: "";
+    width: 0.72rem;
+    height: 0.72rem;
+    background: var(--sometic-brand);
+    clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
 }
 
 .sometic-home-constraint h3 {
@@ -857,14 +851,10 @@ html:not(.dark) .VPHome .sometic-home-cta--prompt:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .sometic-home-proof,
-    .sometic-home-constraint,
     .sometic-home-dest {
         transition: none;
     }
 
-    .sometic-home-proof:hover,
-    .sometic-home-constraint:hover,
     .sometic-home-dest:hover {
         transform: none;
     }
