@@ -97,7 +97,7 @@ const tags = serializeHead(head.get());
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/head@0.1.1/dist/cdn/sometic-head.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.iife.js"></script>
 <script>
     const head = SometicHead.createHeadController();
     head.patch({ title: "Docs" });
@@ -106,7 +106,7 @@ const tags = serializeHead(head.get());
 
 ```html [CDN Module]
 <script type="module">
-    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@0.1.1/dist/cdn/sometic-head.esm.js";
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.esm.js";
 
     const head = createHeadController();
     head.patch({ title: "Docs" });
