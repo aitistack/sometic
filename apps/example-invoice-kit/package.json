@@ -34,7 +34,7 @@
         "eslint": "^9.31.0",
         "tsup": "^8.5.0",
         "typescript": "^5.8.3",
-        "vitest": "^3.2.4"
+        "vitest": "^4.1.10"
     },
     "description": "Shared Invoice Desk domain, mock API, and runtime for Sometic example apps.",
     "homepage": "https://sometic.dev"

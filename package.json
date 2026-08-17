@@ -58,7 +58,7 @@
         "size-limit": "^11.2.0",
         "turbo": "^2.5.4",
         "typescript": "^5.8.3",
-        "vitest": "^3.2.4",
+        "vitest": "^4.1.10",
         "@sometic/typescript-config": "workspace:*",
         "@sometic/eslint-config": "workspace:*",
         "@sometic/build-config": "workspace:*",
