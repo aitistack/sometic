@@ -1,5 +1,14 @@
 # @sometic/jquery
 
+## 0.1.11
+
+### Patch Changes
+
+- @sometic/dom@3.0.1
+- @sometic/adapter-contract@0.1.7
+- @sometic/core@1.0.6
+- @sometic/store@1.1.2
+
 ## 0.1.10
 
 ### Patch Changes

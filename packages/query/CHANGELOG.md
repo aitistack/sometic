@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [be4b645]
+    - @sometic/http@3.0.1
+    - @sometic/core@1.0.6
+
 ## 3.0.0
 
 ### Patch Changes
