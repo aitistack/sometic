@@ -21,8 +21,8 @@ importers:
         specifier: ^1.54.1
         version: 1.62.1
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:tooling/build
@@ -51,8 +51,8 @@ importers:
         specifier: ^3.6.2
         version: 3.9.6
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       turbo:
         specifier: ^2.5.4
         version: 2.10.8
@@ -459,8 +459,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -483,8 +483,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -502,8 +502,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -523,8 +523,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -545,8 +545,8 @@ importers:
         version: link:../store
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -563,8 +563,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -594,8 +594,8 @@ importers:
         version: 3.15.12
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -615,8 +615,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -643,8 +643,8 @@ importers:
         version: link:../store
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -661,8 +661,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -680,8 +680,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/auth':
         specifier: workspace:*
         version: link:../auth
@@ -740,8 +740,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -759,8 +759,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -780,8 +780,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -799,8 +799,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -823,8 +823,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -848,8 +848,8 @@ importers:
         version: 12.17.1
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -872,8 +872,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -894,8 +894,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -918,8 +918,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -940,8 +940,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -964,8 +964,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -989,8 +989,8 @@ importers:
         version: 2.112.1
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1013,8 +1013,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1032,8 +1032,8 @@ importers:
         version: link:../registry
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1053,8 +1053,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1072,8 +1072,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1093,8 +1093,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1112,8 +1112,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1133,8 +1133,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1148,8 +1148,8 @@ importers:
   packages/core:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1169,8 +1169,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1188,8 +1188,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1212,8 +1212,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1227,8 +1227,8 @@ importers:
   packages/date-core:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1248,8 +1248,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1267,8 +1267,8 @@ importers:
         version: link:../date-core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1291,8 +1291,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1310,8 +1310,8 @@ importers:
         version: link:../date-core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1334,8 +1334,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1353,8 +1353,8 @@ importers:
         version: link:../date-core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1374,8 +1374,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1419,8 +1419,8 @@ importers:
         version: link:../upload
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1446,8 +1446,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1465,8 +1465,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1486,8 +1486,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1520,8 +1520,8 @@ importers:
         version: link:../validation
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1544,8 +1544,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1579,8 +1579,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1600,8 +1600,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1619,8 +1619,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1640,8 +1640,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1662,8 +1662,8 @@ importers:
         version: link:../validation
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1686,8 +1686,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1705,8 +1705,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1729,8 +1729,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1748,8 +1748,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1769,8 +1769,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1800,8 +1800,8 @@ importers:
         version: 2.0.10
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1821,8 +1821,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1840,8 +1840,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/auth':
         specifier: workspace:*
         version: link:../auth
@@ -1867,8 +1867,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1898,8 +1898,8 @@ importers:
         version: 3.7.1
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1919,8 +1919,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1938,8 +1938,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -1959,8 +1959,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -1981,8 +1981,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2002,8 +2002,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2021,8 +2021,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2045,8 +2045,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2073,8 +2073,8 @@ importers:
         version: 10.29.8
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2091,8 +2091,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2110,8 +2110,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2137,8 +2137,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2156,8 +2156,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2177,8 +2177,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2217,8 +2217,8 @@ importers:
         version: link:../store
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/adapter-contract':
         specifier: workspace:*
         version: link:../adapter-contract
@@ -2256,8 +2256,8 @@ importers:
         specifier: ^19.1.0
         version: 19.2.8(react@19.2.8)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2271,8 +2271,8 @@ importers:
   packages/registry:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2292,8 +2292,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2320,8 +2320,8 @@ importers:
         version: 1.9.14
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2338,8 +2338,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2357,8 +2357,8 @@ importers:
         version: link:../core
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2378,8 +2378,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2393,8 +2393,8 @@ importers:
   packages/store-immer:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2420,8 +2420,8 @@ importers:
         specifier: ^10.1.1
         version: 10.2.0
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2435,8 +2435,8 @@ importers:
   packages/styling:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2456,8 +2456,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2484,8 +2484,8 @@ importers:
         version: 5.56.8(@typescript-eslint/types@8.67.0)
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2502,8 +2502,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2527,8 +2527,8 @@ importers:
         version: link:../styling
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2548,8 +2548,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2570,8 +2570,8 @@ importers:
         version: link:../http
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2594,8 +2594,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2609,8 +2609,8 @@ importers:
   packages/validation:
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2630,8 +2630,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2649,8 +2649,8 @@ importers:
         version: link:../validation
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2670,8 +2670,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2692,8 +2692,8 @@ importers:
         version: link:../validation
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/build-config':
         specifier: workspace:*
         version: link:../../tooling/build
@@ -2713,8 +2713,8 @@ importers:
         specifier: ^9.31.0
         version: 9.39.5(jiti@2.7.0)
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -2756,8 +2756,8 @@ importers:
         version: link:../store
     devDependencies:
       '@size-limit/file':
-        specifier: ^11.2.0
-        version: 11.2.0(size-limit@11.2.0)
+        specifier: ^13.0.3
+        version: 13.0.3(size-limit@13.0.3)
       '@sometic/adapter-contract':
         specifier: workspace:*
         version: link:../adapter-contract
@@ -2783,8 +2783,8 @@ importers:
         specifier: ^20.8.9
         version: 20.11.2
       size-limit:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^13.0.3
+        version: 13.0.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(typescript@5.9.3)(yaml@2.9.0)
@@ -4268,11 +4268,11 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@size-limit/file@11.2.0':
-    resolution: {integrity: sha512-OZHE3putEkQ/fgzz3Tp/0hSmfVo3wyTpOJSRNm6AmcwX4Nm9YtTfbQQ/hZRwbBFR23S7x2Sd9EbqYzngKwbRoA==}
-    engines: {node: ^18.0.0 || >=20.0.0}
+  '@size-limit/file@13.0.3':
+    resolution: {integrity: sha512-PWTITIXH5p9aGIf6qq2Fruihn/b9nBQyfkyoAyb6DzFJgS1Ek9MSPJYKxKFLO8jdo0aqSgBPd3sevbS6PyBiJw==}
+    engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
     peerDependencies:
-      size-limit: 11.2.0
+      size-limit: 13.0.3
 
   '@supabase/auth-js@2.112.1':
     resolution: {integrity: sha512-TBacB69YXSYYFFet9ISgNC2jsPExFPIWngmzeLHAWrp/xvKWfYIyhh0nyvDLryi8WP6KoexkXO9kRF6Y9oBUTA==}
@@ -6046,9 +6046,9 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  size-limit@11.2.0:
-    resolution: {integrity: sha512-2kpQq2DD/pRpx3Tal/qRW1SYwcIeQ0iq8li5CJHQgOC+FtPn2BVmuDtzUCgNnpCrbgtfEHqh+iWzxK+Tq6C+RQ==}
-    engines: {node: ^18.0.0 || >=20.0.0}
+  size-limit@13.0.3:
+    resolution: {integrity: sha512-KVb2aNEU49BwTR21SVjD+2QHP9gBV/nWsTHzNB/heRwXtHyA7lLQiDZDQ1TiNh/B/TZXKAZrHYyTt+cvBUrzYw==}
+    engines: {node: ^22.18.0 || ^24.0.0 || >=26.0.0}
     hasBin: true
 
   slash@3.0.0:
@@ -7919,9 +7919,9 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@size-limit/file@11.2.0(size-limit@11.2.0)':
+  '@size-limit/file@13.0.3(size-limit@13.0.3)':
     dependencies:
-      size-limit: 11.2.0
+      size-limit: 13.0.3
 
   '@supabase/auth-js@2.112.1':
     dependencies:
@@ -9821,15 +9821,11 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  size-limit@11.2.0:
+  size-limit@13.0.3:
     dependencies:
       bytes-iec: 3.1.1
-      chokidar: 4.0.3
-      jiti: 2.7.0
       lilconfig: 3.1.3
       nanospinner: 1.2.2
-      picocolors: 1.1.1
-      tinyglobby: 0.2.17
 
   slash@3.0.0: {}
 
