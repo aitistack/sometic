@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.9
+
+### Patch Changes
+
+- be4b645: Harden client auth and HTTP so tokens stay out of errors and BroadcastChannel can omit them, OIDC redirect matching is exact with S256-only PKCE, Supabase redirectTo is allowlisted, and login/refresh URLs never receive Bearer.
+- Updated dependencies [be4b645]
+    - @sometic/auth@1.2.1
+    - @sometic/core@1.0.6
+
 ## 1.0.8
 
 ### Patch Changes

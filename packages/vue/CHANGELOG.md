@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.5
+
+### Patch Changes
+
+- Updated dependencies [be4b645]
+    - @sometic/auth@1.2.1
+    - @sometic/http@3.0.1
+    - @sometic/dom@3.0.1
+    - @sometic/query@3.0.1
+    - @sometic/date-core@1.0.5
+    - @sometic/forms@1.1.2
+    - @sometic/head@0.1.2
+    - @sometic/store@1.1.2
+
 ## 1.2.4
 
 ### Patch Changes
