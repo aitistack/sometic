@@ -1,6 +1,6 @@
 # Architecture
 
-Canonical architecture lives in the repository under `docs/architecture/`.
+Canonical architecture for consumers lives on this site under Concepts.
 
 Highlights:
 

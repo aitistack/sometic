@@ -67,4 +67,4 @@ Use GitHub issue templates (**Bug report** / **Feature request**). Include packa
 
 Security-sensitive changes need explicit notes in the PR description. For vulnerabilities, see [SECURITY.md](./SECURITY.md). Do not file public issues for exploitable vulns.
 
-Maintainer npm publishing (OIDC, provenance, `npm-publish` environment) is documented in `docs/security/release-runbook.md`.
+Maintainer npm publishing uses GitHub OIDC, provenance, and the `npm-publish` environment. Public reporting is in [SECURITY.md](./SECURITY.md).

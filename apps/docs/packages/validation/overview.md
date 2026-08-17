@@ -4,4 +4,4 @@
 
 Use it alone for value checks, or with `@sometic/forms` for form-wide validation.
 
-See consumer docs under `docs/consumer/validation/`.
+See [Validation](/primitives/validation) for the public overview, FAQ, and comparison.

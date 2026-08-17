@@ -15,6 +15,5 @@ test-results
 
 .cursor/
 /AGENTS.md
-docs/maintainer/
-docs/phases/
+/docs/
 product-scope-and-description.pdf
