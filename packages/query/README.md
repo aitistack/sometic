@@ -78,7 +78,7 @@ Docs: [https://sometic.dev/utilities/query](https://sometic.dev/utilities/query)
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.0/dist/cdn/sometic-query.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.iife.js"></script>
 <script>
     const client = SometicQuery.createQueryClient();
 </script>
@@ -88,7 +88,7 @@ Docs: [https://sometic.dev/utilities/query](https://sometic.dev/utilities/query)
 
 ```html
 <script type="module">
-    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.0/dist/cdn/sometic-query.esm.js";
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.esm.js";
 
     const client = createQueryClient();
 </script>

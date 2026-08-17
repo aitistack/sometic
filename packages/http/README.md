@@ -70,7 +70,7 @@ Docs: [https://sometic.dev/utilities/http](https://sometic.dev/utilities/http).
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.0/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -83,7 +83,7 @@ Docs: [https://sometic.dev/utilities/http](https://sometic.dev/utilities/http).
 
 ```html
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.0/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");
