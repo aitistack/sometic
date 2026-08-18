@@ -67,4 +67,14 @@ Use GitHub issue templates (**Bug report** / **Feature request**). Include packa
 
 Security-sensitive changes need explicit notes in the PR description. For vulnerabilities, see [SECURITY.md](./SECURITY.md). Do not file public issues for exploitable vulns.
 
-Maintainer npm publishing uses GitHub OIDC, provenance, and the `npm-publish` environment. Public reporting is in [SECURITY.md](./SECURITY.md).
+Maintainer npm publishing uses GitHub OIDC trusted publishing (no `NPM_TOKEN`), provenance, and the GitHub environment `npm-publish`. Public reporting is in [SECURITY.md](./SECURITY.md).
+
+### Release loop (do not invent extra steps)
+
+1. Merge feature PRs that include a Changeset. **Version PR** opens itself. No npm approval.
+2. Merge the `chore: version packages` PR. That bump is the source of truth; do not open a second version PR if npm is behind.
+3. **Publish npm** waits on the `npm-publish` environment. Approve that one job. It publishes whatever versions are in `package.json` and not yet on the registry.
+
+If publish fails, fix the workflow and re-run **Publish npm** on `main`. Do not bump versions again.
+
+One-time npmjs.com check (each `@sometic/*` package, or org default): Trusted Publisher = GitHub, repo `aitistack/sometic`, workflow `release.yml`, environment **`npm-publish`**. Empty environment on npm while the workflow uses that environment produces `E404` on `PUT`.

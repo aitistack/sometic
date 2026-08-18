@@ -13,13 +13,48 @@ permissions:
     contents: read
 
 jobs:
-    release:
+    version:
+        name: Version PR
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        permissions:
+            contents: write
+            pull-requests: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+              with:
+                  fetch-depth: 0
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@a15d269cd4658e1107c09f1fabf4cbd7bd1f308a # v4.4.0
+              with:
+                  version: 10.14.0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+              with:
+                  node-version: 22
+                  cache: pnpm
+
+            - name: Install
+              run: pnpm install --frozen-lockfile
+
+            - name: Create Version Pull Request
+              uses: changesets/action@3841a0683d3cfa6dae0f9bb335290003010fe3f0 # v1.9.0
+              with:
+                  title: "chore: version packages"
+                  commit: "chore: version packages"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    publish:
+        name: Publish npm
         runs-on: ubuntu-latest
         timeout-minutes: 45
         environment: npm-publish
         permissions:
             contents: write
-            pull-requests: write
             id-token: write
         steps:
             - name: Checkout
@@ -37,7 +72,16 @@ jobs:
               with:
                   node-version: 22
                   cache: pnpm
-                  registry-url: https://registry.npmjs.org
+
+            - name: Enable npm trusted publishing
+              run: |
+                  npm install -g npm@11.5.2
+                  npm -v
+                  for file in "${NPM_CONFIG_USERCONFIG:-}" "${HOME}/.npmrc"; do
+                      if [ -n "${file}" ] && [ -f "${file}" ]; then
+                          sed -i '/_authToken/d' "${file}"
+                      fi
+                  done
 
             - name: Install
               run: pnpm install --frozen-lockfile
@@ -51,24 +95,17 @@ jobs:
             - name: Dependency audit
               run: pnpm audit:deps
 
-            - name: Create Release Pull Request or Publish
-              id: changesets
-              uses: changesets/action@3841a0683d3cfa6dae0f9bb335290003010fe3f0 # v1.9.0
-              with:
-                  publish: pnpm exec changeset publish
-                  title: "chore: version packages"
-                  commit: "chore: version packages"
-                  createGithubReleases: true
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_CONFIG_PROVENANCE: "true"
+            - name: Publish unpublished packages
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  pnpm exec changeset publish
+                  git push origin --follow-tags
 
             - name: Generate CycloneDX SBOM
-              if: steps.changesets.outputs.published == 'true'
               run: node tooling/release/sbom.mjs --output sometic.cdx.json
 
             - name: Upload SBOM
-              if: steps.changesets.outputs.published == 'true'
               uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
               with:
                   name: sometic-cyclonedx-sbom
