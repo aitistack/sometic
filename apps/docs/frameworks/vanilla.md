@@ -27,7 +27,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 #### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -37,7 +37,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>

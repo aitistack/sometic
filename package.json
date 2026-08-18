@@ -32,7 +32,7 @@
         "packages:validate": "node tooling/release/validate-packages.mjs",
         "changeset": "changeset",
         "changeset:status": "node tooling/release/changeset-status.mjs",
-        "version-packages": "changeset version",
+        "version-packages": "changeset version && node tooling/release/sync-cdn-pins.mjs",
         "release:dry-run": "node tooling/release/dry-run.mjs",
         "release:repro-check": "node tooling/release/repro-check.mjs",
         "sbom": "node tooling/release/sbom.mjs",

@@ -85,7 +85,7 @@ store.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.iife.js"></script>
 <script>
     const store = SometicStore.createStore({ count: 0 });
     store.update((s) => ({ count: s.count + 1 }));
@@ -94,7 +94,7 @@ store.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.esm.js";
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.esm.js";
 
     const store = createStore({ count: 0 });
     store.update((s) => ({ count: s.count + 1 }));

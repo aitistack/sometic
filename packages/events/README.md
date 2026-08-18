@@ -78,7 +78,7 @@ Docs: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/eve
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/events@1.0.6/dist/cdn/sometic-events.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.iife.js"></script>
 <script>
     const emitter = SometicEvents.createEventEmitter();
     emitter.emit("ready", { ok: true });
@@ -89,7 +89,7 @@ Docs: [https://sometic.dev/primitives/events](https://sometic.dev/primitives/eve
 
 ```html
 <script type="module">
-    import { createEventEmitter } from "https://cdn.jsdelivr.net/npm/@sometic/events@1.0.6/dist/cdn/sometic-events.esm.js";
+    import { createEventEmitter } from "https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.esm.js";
 
     const emitter = createEventEmitter();
 </script>
