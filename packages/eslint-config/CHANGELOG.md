@@ -1,5 +1,11 @@
 # @sometic/eslint-config
 
+## 1.0.7
+
+### Patch Changes
+
+- be4b645: Harden client auth and HTTP so tokens stay out of errors and BroadcastChannel can omit them, OIDC redirect matching is exact with S256-only PKCE, Supabase redirectTo is allowlisted, and login/refresh URLs never receive Bearer.
+
 ## 1.0.6
 
 ### Patch Changes

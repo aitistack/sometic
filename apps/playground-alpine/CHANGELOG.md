@@ -1,5 +1,12 @@
 # @sometic/playground-alpine
 
+## 0.0.12
+
+### Patch Changes
+
+- @sometic/alpine@0.1.11
+- @sometic/store@1.1.2
+
 ## 0.0.11
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@sometic/eslint-config",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Shared ESLint configuration for the Sometic monorepo.",
     "license": "MIT",
     "type": "module",
