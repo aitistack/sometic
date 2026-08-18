@@ -1,5 +1,13 @@
 # @sometic/playground-jquery
 
+## 0.0.13
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/store@1.1.3
+    - @sometic/jquery@0.1.12
+
 ## 0.0.12
 
 ### Patch Changes

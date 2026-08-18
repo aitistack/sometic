@@ -1,5 +1,24 @@
 # @sometic/app-shell
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/commands@0.2.1
+    - @sometic/core@1.0.7
+    - @sometic/drafts@0.2.1
+    - @sometic/feature-flags@0.2.1
+    - @sometic/forms@1.1.3
+    - @sometic/head@0.1.3
+    - @sometic/history@0.2.1
+    - @sometic/offline-queue@0.2.1
+    - @sometic/store@1.1.3
+    - @sometic/theme@1.1.3
+    - @sometic/auth@1.2.2
+    - @sometic/http@3.0.2
+    - @sometic/query@3.0.2
+
 ## 4.0.1
 
 ### Patch Changes

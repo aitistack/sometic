@@ -1,6 +1,6 @@
 {
     "name": "@sometic/validation-yup",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Yup SchemaAdapter for @sometic/validation.",
     "license": "MIT",
     "type": "module",

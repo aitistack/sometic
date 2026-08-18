@@ -1,5 +1,15 @@
 # @sometic/angular
 
+## 0.1.8
+
+### Patch Changes
+
+- 5f7cddb: Republish packages whose current npm versions were not produced by GitHub Actions trusted publishing, so the latest line gets provenance.
+- Updated dependencies [5f7cddb]
+    - @sometic/adapter-contract@0.1.8
+    - @sometic/core@1.0.7
+    - @sometic/store@1.1.3
+
 ## 0.1.7
 
 ### Patch Changes

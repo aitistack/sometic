@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- 5f7cddb: Republish packages whose current npm versions were not produced by GitHub Actions trusted publishing, so the latest line gets provenance.
+
 ## 1.0.5
 
 ### Patch Changes

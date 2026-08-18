@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/core@1.0.7
+    - @sometic/auth@1.2.2
+
 ## 1.0.9
 
 ### Patch Changes

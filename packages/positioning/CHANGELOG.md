@@ -1,5 +1,13 @@
 # @sometic/positioning
 
+## 0.1.7
+
+### Patch Changes
+
+- 5f7cddb: Republish packages whose current npm versions were not produced by GitHub Actions trusted publishing, so the latest line gets provenance.
+- Updated dependencies [5f7cddb]
+    - @sometic/core@1.0.7
+
 ## 0.1.6
 
 ### Patch Changes

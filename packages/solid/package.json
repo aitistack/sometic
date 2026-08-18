@@ -1,6 +1,6 @@
 {
     "name": "@sometic/solid",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "Solid signals foundation adapters for Sometic (store bind; component kit expands later).",
     "license": "MIT",
     "type": "module",
