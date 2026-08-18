@@ -85,7 +85,7 @@ Docs: [https://sometic.dev/primitives/accessibility](https://sometic.dev/primiti
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.6/dist/cdn/sometic-accessibility.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.iife.js"></script>
 <script>
     const announcer = SometicAccessibility.createLiveAnnouncer();
     announcer.announce("Saved");
@@ -96,7 +96,7 @@ Docs: [https://sometic.dev/primitives/accessibility](https://sometic.dev/primiti
 
 ```html
 <script type="module">
-    import { createLiveAnnouncer } from "https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.6/dist/cdn/sometic-accessibility.esm.js";
+    import { createLiveAnnouncer } from "https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.esm.js";
 
     const announcer = createLiveAnnouncer();
     announcer.announce("Saved");

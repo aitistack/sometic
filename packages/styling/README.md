@@ -67,7 +67,7 @@ Docs: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/st
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.6/dist/cdn/sometic-styling.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.iife.js"></script>
 <script>
     const className = SometicStyling.resolveClasses("btn", "is-primary");
 </script>
@@ -77,7 +77,7 @@ Docs: [https://sometic.dev/primitives/styling](https://sometic.dev/primitives/st
 
 ```html
 <script type="module">
-    import { resolveClasses } from "https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.6/dist/cdn/sometic-styling.esm.js";
+    import { resolveClasses } from "https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.esm.js";
 
     const className = resolveClasses("btn", "is-primary");
 </script>
