@@ -1,6 +1,6 @@
 {
     "name": "@sometic/date-core",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Date adapter contracts for Sometic date-aware inputs and forms.",
     "license": "MIT",
     "type": "module",

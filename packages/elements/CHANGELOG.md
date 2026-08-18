@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/date-core@1.0.6
+    - @sometic/date-native@1.0.6
+    - @sometic/forms@1.1.3
+    - @sometic/validation@1.0.6
+    - @sometic/dom@3.0.2
+    - @sometic/auth@1.2.2
+
 ## 1.1.4
 
 ### Patch Changes

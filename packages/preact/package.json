@@ -1,6 +1,6 @@
 {
     "name": "@sometic/preact",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "Preact external-store foundation adapters for Sometic (store bind; component kit expands later).",
     "license": "MIT",
     "type": "module",

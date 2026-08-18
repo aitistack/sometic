@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/core@1.0.7
+
 ## 1.2.1
 
 ### Patch Changes

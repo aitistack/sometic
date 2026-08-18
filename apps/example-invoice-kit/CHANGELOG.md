@@ -1,5 +1,17 @@
 # @sometic/example-invoice-kit
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/drafts@0.2.1
+    - @sometic/feature-flags@0.2.1
+    - @sometic/validation@1.0.6
+    - @sometic/app-shell@4.0.2
+    - @sometic/auth@1.2.2
+    - @sometic/http@3.0.2
+
 ## 0.0.1
 
 ### Patch Changes

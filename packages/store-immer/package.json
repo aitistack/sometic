@@ -1,6 +1,6 @@
 {
     "name": "@sometic/store-immer",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Optional Immer adapter for Sometic stores.",
     "license": "MIT",
     "type": "module",
@@ -34,7 +34,7 @@
         "node": ">=20.18.0"
     },
     "peerDependencies": {
-        "@sometic/store": ">=1.1.2",
+        "@sometic/store": ">=1.1.3",
         "immer": "^10.0.0"
     },
     "devDependencies": {

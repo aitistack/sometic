@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.7
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/date-core@1.0.6
+    - @sometic/forms@1.1.3
+    - @sometic/head@0.1.3
+    - @sometic/store@1.1.3
+    - @sometic/dom@3.0.2
+    - @sometic/auth@1.2.2
+    - @sometic/http@3.0.2
+    - @sometic/query@3.0.2
+
 ## 1.2.6
 
 ### Patch Changes

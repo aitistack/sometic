@@ -1,5 +1,15 @@
 # @sometic/alpine
 
+## 0.1.12
+
+### Patch Changes
+
+- Updated dependencies [5f7cddb]
+    - @sometic/adapter-contract@0.1.8
+    - @sometic/core@1.0.7
+    - @sometic/store@1.1.3
+    - @sometic/dom@3.0.2
+
 ## 0.1.11
 
 ### Patch Changes

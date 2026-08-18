@@ -1,6 +1,6 @@
 {
     "name": "@sometic/cli",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Sometic CLI for hybrid/package/source scaffolding (no postinstall).",
     "license": "MIT",
     "type": "module",
