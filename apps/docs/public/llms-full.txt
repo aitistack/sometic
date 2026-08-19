@@ -1118,14 +1118,14 @@ Sometic targets **modern evergreen browsers**. Support is claimed where automate
 
 ## Runtime matrix (beta)
 
-| Runtime | Claim |
-| ------- | ----- |
-| Chrome, Edge (current stable Chromium) | Yes, where UI tests run |
-| Firefox (current stable) | Yes, where UI tests run |
-| Safari (current stable) | Yes, where UI tests run |
-| Node.js `>=20.18.0` | Tooling, SSR imports that avoid browser globals at evaluation time |
-| Internet Explorer | No |
-| React Native / non-DOM hosts for UI adapters | No |
+| Runtime                                      | Claim                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| Chrome, Edge (current stable Chromium)       | Yes, where UI tests run                                            |
+| Firefox (current stable)                     | Yes, where UI tests run                                            |
+| Safari (current stable)                      | Yes, where UI tests run                                            |
+| Node.js `>=20.18.0`                          | Tooling, SSR imports that avoid browser globals at evaluation time |
+| Internet Explorer                            | No                                                                 |
+| React Native / non-DOM hosts for UI adapters | No                                                                 |
 
 See [Compatibility](/frameworks/compatibility) for framework packages and [Beta maturity](/releases/beta) for labels.
 
@@ -14332,38 +14332,38 @@ Support is claimed only where automated tests exist. Prefer Wave A for productio
 
 ## Adapter packages
 
-| Framework    | Package                                | Wave           | Claimed capabilities                                                        | Peer                                  |
-| ------------ | -------------------------------------- | -------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| Framework    | Package                                | Wave           | Claimed capabilities                                                                                                   | Peer                                  |
+| ------------ | -------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | React        | `@sometic/react`                       | A              | button, field, input, form, selection, overlay (incl. menu/drawer), structure, `/data`, auth, http, query, store, head | `react` `^18 \|\| ^19`                |
-| Vue          | `@sometic/vue`                         | A              | matching Wave A subpaths (some overlay hosts thinner than DOM/CE)                                                       | `vue` `^3.5`                          |
-| Vanilla / WC | `@sometic/elements` (+ `@sometic/dom`) | A              | shipped `sometic-*` set in [What’s included](/guide/whats-included); remaining engines via `@sometic/dom`               | none (browser CE)                     |
-| Angular      | `@sometic/angular`                     | B Experimental | `storeBind`                                                                 | `@angular/core` `^19` (optional peer) |
-| Svelte       | `@sometic/svelte`                      | B Experimental | `storeBind`                                                                 | `svelte` `^5` (optional peer)         |
-| Solid        | `@sometic/solid`                       | B Experimental | `storeBind`                                                                 | `solid-js` `^1.8` (optional peer)     |
-| Preact       | `@sometic/preact`                      | B Experimental | `storeBind`                                                                 | `preact` `^10` (optional peer)        |
-| Alpine.js    | `@sometic/alpine`                      | C Experimental | `storeBind`, `button`                                                       | `alpinejs` `^3.14` (optional peer)    |
-| jQuery       | `@sometic/jquery`                      | C Experimental | `storeBind`, `button`                                                       | `jquery` `^3.7` (optional peer)       |
-| HTMX         | `@sometic/htmx`                        | C Experimental | `storeBind`, `button`                                                       | `htmx.org` `^2` (optional peer)       |
+| Vue          | `@sometic/vue`                         | A              | matching Wave A subpaths (some overlay hosts thinner than DOM/CE)                                                      | `vue` `^3.5`                          |
+| Vanilla / WC | `@sometic/elements` (+ `@sometic/dom`) | A              | shipped `sometic-*` set in [What’s included](/guide/whats-included); remaining engines via `@sometic/dom`              | none (browser CE)                     |
+| Angular      | `@sometic/angular`                     | B Experimental | `storeBind`                                                                                                            | `@angular/core` `^19` (optional peer) |
+| Svelte       | `@sometic/svelte`                      | B Experimental | `storeBind`                                                                                                            | `svelte` `^5` (optional peer)         |
+| Solid        | `@sometic/solid`                       | B Experimental | `storeBind`                                                                                                            | `solid-js` `^1.8` (optional peer)     |
+| Preact       | `@sometic/preact`                      | B Experimental | `storeBind`                                                                                                            | `preact` `^10` (optional peer)        |
+| Alpine.js    | `@sometic/alpine`                      | C Experimental | `storeBind`, `button`                                                                                                  | `alpinejs` `^3.14` (optional peer)    |
+| jQuery       | `@sometic/jquery`                      | C Experimental | `storeBind`, `button`                                                                                                  | `jquery` `^3.7` (optional peer)       |
+| HTMX         | `@sometic/htmx`                        | C Experimental | `storeBind`, `button`                                                                                                  | `htmx.org` `^2` (optional peer)       |
 
 ## Import maps (Wave A)
 
 ### `@sometic/react` / `@sometic/vue`
 
-| Subpath                           | Typical exports                                                                                               |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `@sometic/{react\|vue}/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                          |
-| `@sometic/{react\|vue}/field`     | `Field`                                                                                                       |
-| `@sometic/{react\|vue}/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
-| `@sometic/{react\|vue}/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
+| Subpath                           | Typical exports                                                                                                  |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `@sometic/{react\|vue}/button`    | `Button`, `IconButton`, `ToggleButton`, `ButtonGroup`, `AsyncButton`                                             |
+| `@sometic/{react\|vue}/field`     | `Field`                                                                                                          |
+| `@sometic/{react\|vue}/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput`    |
+| `@sometic/{react\|vue}/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`             |
 | `@sometic/{react\|vue}/selection` | `Checkbox`, `Radio`, `Select`, `Switch`, `Combobox` (Vue coverage: see [What’s included](/guide/whats-included)) |
-| `@sometic/{react\|vue}/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`, plus menu / context-menu / drawer where shipped           |
-| `@sometic/{react\|vue}/structure` | `Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, `Tree`, feedback primitives                                  |
-| `@sometic/{react\|vue}/data`      | Data table, upload, schema form, permission matrix, notification center                                           |
-| `@sometic/{react\|vue}/store`     | `useStore`                                                                                                        |
-| `@sometic/{react\|vue}/auth`      | React: `AuthProvider`, `useAuth`, `useSession`, `useCan` · Vue: `useAuth`, `useSession`, `useCan`                 |
-| `@sometic/{react\|vue}/http`      | React: `HttpProvider`, `useHttp` · Vue: `useHttp`                                                                 |
-| `@sometic/{react\|vue}/query`     | Query hooks over `@sometic/query`                                                                                 |
-| `@sometic/{react\|vue}/head`      | Document head helpers                                                                                             |
+| `@sometic/{react\|vue}/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`, plus menu / context-menu / drawer where shipped          |
+| `@sometic/{react\|vue}/structure` | `Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, `Tree`, feedback primitives                                 |
+| `@sometic/{react\|vue}/data`      | Data table, upload, schema form, permission matrix, notification center                                          |
+| `@sometic/{react\|vue}/store`     | `useStore`                                                                                                       |
+| `@sometic/{react\|vue}/auth`      | React: `AuthProvider`, `useAuth`, `useSession`, `useCan` · Vue: `useAuth`, `useSession`, `useCan`                |
+| `@sometic/{react\|vue}/http`      | React: `HttpProvider`, `useHttp` · Vue: `useHttp`                                                                |
+| `@sometic/{react\|vue}/query`     | Query hooks over `@sometic/query`                                                                                |
+| `@sometic/{react\|vue}/head`      | Document head helpers                                                                                            |
 
 Root `@sometic/react` and `@sometic/vue` re-export selected surfaces; prefer subpaths for tree-shaking.
 
@@ -16869,21 +16869,21 @@ Installing auth core does not pull provider SDKs. Installing store does not pull
 
 Architecture targets (goals, not runtime guarantees on every commit):
 
-| Area            | Goal     |
-| --------------- | -------- |
-| Core utils      | ≤ 1.5 KB |
-| Events          | ≤ 1 KB   |
-| Store           | ≤ 1.5 KB |
-| Styling         | ≤ 2 KB   |
-| Button behavior | ≤ 1.5 KB |
-| React button    | ≤ 2 KB   |
-| Input           | ≤ 3 KB   |
+| Area            | Goal                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| Core utils      | ≤ 1.5 KB                                                                                   |
+| Events          | ≤ 1 KB                                                                                     |
+| Store           | ≤ 1.5 KB                                                                                   |
+| Styling         | ≤ 2 KB                                                                                     |
+| Button behavior | ≤ 1.5 KB                                                                                   |
+| React button    | ≤ 2 KB                                                                                     |
+| Input           | ≤ 3 KB                                                                                     |
 | Theme           | About 4.4 KB gzip for the controller root (Size Limit 5 KB). Import `/presets` separately. |
-| HTTP client     | ≤ 6 KB   |
-| Validation root | ≤ 3 KB   |
-| Forms root      | ≤ 6.5 KB |
-| Auth core       | ≤ 8 KB   |
-| Head            | ≤ 4 KB   |
+| HTTP client     | ≤ 6 KB                                                                                     |
+| Validation root | ≤ 3 KB                                                                                     |
+| Forms root      | ≤ 6.5 KB                                                                                   |
+| Auth core       | ≤ 8 KB                                                                                     |
+| Head            | ≤ 4 KB                                                                                     |
 
 Prefer subpath imports and avoid presets on the theme root when you only need the controller.
 
@@ -25597,11 +25597,11 @@ This section is a **navigation hub**, not a generated per-symbol reference. Hand
 
 ## Stability labels
 
-| Label            | Meaning                                                                                  |
-| ---------------- | ---------------------------------------------------------------------------------------- |
-| **Beta**         | Usable and tested; breaking changes may land in minors with changelog notes      |
-| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements        |
-| **Deferred**     | Not in this beta (for example picker UI polish, missing custom elements)         |
+| Label            | Meaning                                                                     |
+| ---------------- | --------------------------------------------------------------------------- |
+| **Beta**         | Usable and tested; breaking changes may land in minors with changelog notes |
+| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements   |
+| **Deferred**     | Not in this beta (for example picker UI polish, missing custom elements)    |
 
 Full wording: [Beta maturity](/releases/beta).
 
@@ -25770,11 +25770,11 @@ Sometic `@sometic` packages are a **public beta**. Beta is a **maturity label**,
 
 ## Stability labels
 
-| Label            | Meaning                                                                                                                                                         |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Beta**         | Usable and tested Wave A engines and adapters. Breaking changes may land in minors; they are called out in Changesets and [Upgrade](/releases/upgrade).         |
+| Label            | Meaning                                                                                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Beta**         | Usable and tested Wave A engines and adapters. Breaking changes may land in minors; they are called out in Changesets and [Upgrade](/releases/upgrade).           |
 | **Experimental** | Wave B adapters (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX). Contracts and thin binds only. Prefer React, Vue, or Elements for production. |
-| **Deferred**     | Surfaces that are **not** in this beta. Engines that already ship stay **Beta**; missing custom elements for those engines are deferred, not the engines.       |
+| **Deferred**     | Surfaces that are **not** in this beta. Engines that already ship stay **Beta**; missing custom elements for those engines are deferred, not the engines.         |
 
 Inventory source of truth: [What’s included](/guide/whats-included). Catalog with labels: [Package index](/api/packages).
 
@@ -25906,11 +25906,11 @@ Sometic publishes under the **`@sometic`** npm scope. Custom elements use the **
 
 **Public beta.** Maturity labels live on [Beta maturity](/releases/beta). Each package versions independently via Changesets. Do not treat a `1.x` npm number as Level 3 stable, and do not look for a single `0.1.0-beta` line across the scope.
 
-| Resource                         | Purpose                                                      |
-| -------------------------------- | ------------------------------------------------------------ |
-| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations      |
-| [Upgrade](/releases/upgrade)     | How breaking changes are recorded and how to bump packages   |
-| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets      |
+| Resource                         | Purpose                                                    |
+| -------------------------------- | ---------------------------------------------------------- |
+| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations    |
+| [Upgrade](/releases/upgrade)     | How breaking changes are recorded and how to bump packages |
+| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets    |
 
 **Maturity source of truth:** always prefer [Beta maturity](/releases/beta) over informal README claims. **Inventory source of truth:** [What’s included](/guide/whats-included).
 
@@ -25971,13 +25971,13 @@ How to move between `@sometic` package versions during the public beta.
 
 These already shipped. Treat them as current contract, not as a future migration.
 
-| Area | What to expect |
-| ---- | -------------- |
-| Identity | `SometicError` / `isSometicError`. No legacy error class names. |
-| Custom elements | `sometic-*` tags only. |
-| Theme | CSS variable prefix and storage defaults use `sometic`. |
-| HTTP | `http.dispose()` aborts in-flight requests. New calls throw `HTTP_DISPOSED`. |
-| Query | After `client.dispose()`, writes such as `setQueryData` throw. In-flight fetches abort. |
+| Area            | What to expect                                                                          |
+| --------------- | --------------------------------------------------------------------------------------- |
+| Identity        | `SometicError` / `isSometicError`. No legacy error class names.                         |
+| Custom elements | `sometic-*` tags only.                                                                  |
+| Theme           | CSS variable prefix and storage defaults use `sometic`.                                 |
+| HTTP            | `http.dispose()` aborts in-flight requests. New calls throw `HTTP_DISPOSED`.            |
+| Query           | After `client.dispose()`, writes such as `setQueryData` throw. In-flight fetches abort. |
 
 ## How to report a break
 
