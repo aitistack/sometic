@@ -34,12 +34,12 @@ The public beta gathers Wave A foundations through overlays into a coherent cons
 | Overlay | Positioning engine; Dialog, Popover, Tooltip, Toast, Alert |
 | Beta release / harden | Dialog controller wiring on React/Vue; Sometic-only public API and docs polish |
 
-Workspace may still report `0.0.x` until the coordinated beta version publish. Treat **`0.1.0-beta`** as the intended published track name in consumer docs.
+Workspace packages already use independent SemVer. Do not treat a coordinated `0.1.0-beta` line as the published version scheme. See [Beta maturity](/releases/beta) and [Upgrade](/releases/upgrade).
 
 ## Honesty notes (do not over-read the table)
 
 - **Experimental:** Wave B and Wave C packages are contracts-first; prefer React, Vue, or Elements for production.
-- **Deferred:** Menu, Combobox, Drawer, Tabs, and related catalogs are not shipped. Select and Popover are not those APIs.
+- **Deferred:** richer selection polish, date/time picker UI, remaining nav chrome, Floating UI adapter, and missing custom elements. Menu, Combobox, Drawer, Tabs, data-table engines, and app primitive engines **do** ship where listed in [What’s included](/guide/whats-included).
 - **Overlay limits:** React/Vue Dialog uses modal overlay controller behavior (focus trap, Escape, scroll lock); outside press does not dismiss. Popover/Tooltip on React/Vue remain thinner than DOM/CE hosts for positioning and dismiss layers. Details: [Beta maturity](/releases/beta).
 
 ## Reading package changelogs
@@ -47,13 +47,14 @@ Workspace may still report `0.0.x` until the coordinated beta version publish. T
 After a Changesets version publish:
 
 1. Open the package’s `CHANGELOG.md` for exact version sections.
-2. Cross-check breaking notes against [Beta maturity](/releases/beta).
+2. Cross-check breaking notes against [Beta maturity](/releases/beta) and [Upgrade](/releases/upgrade).
 3. Prefer subpath imports when adopting new entries ([Tree shaking](/concepts/tree-shaking)).
 
 ## Related links
 
 - [Releases](/releases/)
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
 - [Package index](/api/packages)
 - [API reference](/api/)
 - [Architecture](/concepts/architecture)

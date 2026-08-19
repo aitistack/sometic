@@ -4,7 +4,7 @@
     --sometic-brand-hover: #0338b4;
     --sometic-brand-active: #022e94;
     --sometic-brand-soft: rgba(4, 67, 213, 0.12);
-    --sometic-docs-version: "0.1.0-beta";
+    --sometic-docs-version: "beta";
     --vp-font-family-base: var(--sometic-font-body);
     --vp-font-family-mono: var(--sometic-font-code);
     --vp-c-brand-1: var(--sometic-brand);
@@ -16,6 +16,8 @@
     --vp-button-brand-active-bg: var(--sometic-brand-active);
     --vp-home-hero-name-color: var(--sometic-brand);
     --vp-home-hero-name-background: none;
+    --vp-nav-bg-color: var(--color-hero, var(--vp-c-bg));
+    --vp-nav-screen-bg-color: var(--color-hero, var(--vp-c-bg));
     --sometic-scrollbar-thumb: color-mix(in srgb, var(--vp-c-text-3) 55%, transparent);
     --sometic-scrollbar-thumb-hover: color-mix(in srgb, var(--vp-c-text-2) 65%, transparent);
     --sometic-scrollbar-track: transparent;
@@ -29,6 +31,8 @@
     --sometic-brand-soft: rgba(0, 212, 255, 0.18);
     --vp-home-hero-name-color: var(--sometic-brand);
     --vp-home-hero-name-background: none;
+    --vp-nav-bg-color: var(--color-hero, var(--vp-c-bg));
+    --vp-nav-screen-bg-color: var(--color-hero, var(--vp-c-bg));
 }
 
 html {

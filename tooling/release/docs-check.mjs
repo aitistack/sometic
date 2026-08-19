@@ -15,6 +15,7 @@ const required = [
     "components/form.md",
     "components/dialog.md",
     "releases/beta.md",
+    "releases/upgrade.md",
     "public/logo.png",
     "public/logo-dark.png",
     "public/icon.png",

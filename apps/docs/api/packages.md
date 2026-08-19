@@ -35,8 +35,20 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 | `@sometic/auth-oidc`     | OIDC provider                                        | [OIDC](/authentication/oidc)                              |
 | `@sometic/http`          | Fetch-first client, interceptors, auth refresh queue | [HTTP](/utilities/http), [Services: HTTP](/services/http) |
 | `@sometic/query`         | Portable server-state cache, keys, mutations         | [Query](/utilities/query)                                 |
+| `@sometic/query-builder` | Filter / query AST for tables and forms              | [Query builder](/components/query-builder)                |
+| `@sometic/data-table`    | Data table engine                                    | [Data table](/components/data-table)                      |
+| `@sometic/upload`        | Upload engine                                        | [Upload](/components/upload)                              |
+| `@sometic/activity`      | Activity / audit list engine                         | [Activity](/components/activity)                          |
+| `@sometic/approval`      | Approval flow engine                                 | [Approval](/components/approval)                          |
+| `@sometic/notifications` | Notification center engine                           | [Notification center](/components/notification-center)    |
 | `@sometic/head`          | Portable document head (title/meta/link/SSR)         | [Head / SEO](/utilities/head)                             |
 | `@sometic/app-shell`     | System composition: createAppShell + epoch binds     | [App Shell](/guide/app-shell)                             |
+| `@sometic/feature-flags` | Feature flag evaluation engine                       | [App primitives](/guide/app-primitives)                   |
+| `@sometic/drafts`        | Draft persistence engine                             | [App primitives](/guide/app-primitives)                   |
+| `@sometic/commands`      | Command registry                                     | [App primitives](/guide/app-primitives)                   |
+| `@sometic/history`       | Undo / redo history                                  | [App primitives](/guide/app-primitives)                   |
+| `@sometic/conflict`      | Conflict resolution helpers                          | [App primitives](/guide/app-primitives)                   |
+| `@sometic/offline-queue` | Durable offline mutation queue                       | [App primitives](/guide/app-primitives)                   |
 
 ## Wave A adapters (Beta)
 
@@ -80,9 +92,9 @@ These catalogs are **not shipped yet**. Launch surfaces such as Menu, Combobox, 
 | --------------------------------------------------- | -------- |
 | Autocomplete polish / Multi-select / Tags / Sliders | Deferred |
 | Date / Time **picker UI**                           | Deferred |
-| Command Palette / Tree / Pagination / Stepper       | Deferred |
+| Pagination / Stepper / Timeline / Nav chrome        | Deferred |
 | Floating UI adapter (opt-in)                        | Future   |
-| Dedicated CE surfaces for app primitives            | Deferred |
+| Dedicated CE surfaces for data and app primitives   | Deferred |
 
 App primitives engines (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and auth permissions) are shipped. See [App primitives](/guide/app-primitives).
 

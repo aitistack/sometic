@@ -44,7 +44,9 @@
         "docs:preview": "pnpm --filter @sometic/docs docs:preview",
         "docs:check": "pnpm --filter @sometic/docs docs:check",
         "docs:scope-check": "pnpm --filter @sometic/docs docs:scope-check",
-        "bundler:smoke": "pnpm --filter @sometic/core build && pnpm --filter @sometic/head build && pnpm --filter @sometic/http build && pnpm --filter @sometic/react build && pnpm --filter @sometic/bundler-smoke-vite build && pnpm --filter @sometic/bundler-smoke-rollup build"
+        "bundler:smoke": "pnpm --filter @sometic/core build && pnpm --filter @sometic/events build && pnpm --filter @sometic/store build && pnpm --filter @sometic/head build && pnpm --filter @sometic/http build && pnpm --filter @sometic/auth build && pnpm --filter @sometic/react build && pnpm --filter @sometic/vue build && pnpm --filter @sometic/bundler-smoke-vite build && pnpm --filter @sometic/bundler-smoke-rollup build",
+        "perf:bench": "pnpm --filter @sometic/performance-tools bench",
+        "perf:sizes": "pnpm --filter @sometic/performance-tools report:sizes"
     },
     "devDependencies": {
         "@changesets/cli": "^2.29.5",

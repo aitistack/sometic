@@ -117,7 +117,7 @@ Theme lists them as dependencies. Install store yourself when you import `@somet
 
 ### Why are presets a separate subpath?
 
-To protect the root controller size budget (about 3 KB gzip for the theme root entry).
+To keep presets off the controller entry. The theme root is about 4.4 KB gzip (package Size Limit 5 KB). Import `@sometic/theme/presets` only when you need bundled palettes.
 
 ### Can I use this in CommonJS?
 

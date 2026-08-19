@@ -4,11 +4,15 @@ description: Report a bug in an @sometic package
 labels: ["bug"]
 ---
 
+## Security
+
+- [ ] This is **not** a security vulnerability. Exploitable issues go to [GitHub Security Advisories](https://github.com/aitistack/sometic/security/advisories/new), not a public issue.
+
 ## Package
 
 - Package name(s):
-- Version:
-- Framework (React / Vue / Elements / other):
+- **Published version(s)** (from `package.json` / lockfile, not a repo-wide track):
+- Framework (React / Vue / Elements / Vanilla / other):
 
 ## Description
 
@@ -28,8 +32,8 @@ Clear description of the bug.
 
 - OS:
 - Browser (if UI):
-- Node:
+- Node (if tooling / SSR):
 
 ## Minimal reproduction
 
-Link or code snippet.
+Link or code snippet. Include only public APIs.

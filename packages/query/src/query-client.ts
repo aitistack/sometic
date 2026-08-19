@@ -314,6 +314,9 @@ export function createQueryClient(options: CreateQueryClientOptions = {}): Query
             queryKey: QueryKey,
             updater: TData | ((previous: TData | undefined) => TData),
         ) {
+            if (disposed) {
+                throw new Error("QueryClient is disposed");
+            }
             const entry = ensureEntry(queryKey);
             const previous = entry.state.data as TData | undefined;
             const next =
@@ -370,6 +373,9 @@ export function createQueryClient(options: CreateQueryClientOptions = {}): Query
             return fetchEntry(entry, fetchOptions.queryFn, fetchOptions.retry);
         },
         async ensureQueryData(fetchOptions) {
+            if (disposed) {
+                throw new Error("QueryClient is disposed");
+            }
             const entry = ensureEntry(
                 fetchOptions.queryKey,
                 pickDefined({
@@ -386,6 +392,9 @@ export function createQueryClient(options: CreateQueryClientOptions = {}): Query
             return client.fetchQuery(fetchOptions);
         },
         async invalidateQueries(filters = {}) {
+            if (disposed) {
+                throw new Error("QueryClient is disposed");
+            }
             const jobs: Promise<unknown>[] = [];
             for (const entry of cache.values()) {
                 if (!matchesFilters(entry, filters)) {
@@ -400,6 +409,9 @@ export function createQueryClient(options: CreateQueryClientOptions = {}): Query
             await Promise.allSettled(jobs);
         },
         removeQueries(filters = {}) {
+            if (disposed) {
+                throw new Error("QueryClient is disposed");
+            }
             for (const entry of [...cache.values()]) {
                 if (!matchesFilters(entry, filters)) {
                     continue;
@@ -412,6 +424,9 @@ export function createQueryClient(options: CreateQueryClientOptions = {}): Query
             notify();
         },
         clear() {
+            if (disposed) {
+                throw new Error("QueryClient is disposed");
+            }
             for (const entry of cache.values()) {
                 entry.abort?.abort();
                 clearGc(entry);

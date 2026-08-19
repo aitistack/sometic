@@ -89,3 +89,4 @@ By contributing, you agree your work is provided under the project MIT license (
 - [Agents](/guide/agents)
 - [What’s included](/guide/whats-included)
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)

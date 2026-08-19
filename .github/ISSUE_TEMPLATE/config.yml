@@ -6,3 +6,6 @@ contact_links:
     - name: Consumer docs
       url: https://sometic.dev
       about: Install, usage, and security guidance for @sometic packages.
+    - name: Beta maturity
+      url: https://sometic.dev/releases/beta
+      about: Stability labels, known limitations, and how to read package versions.

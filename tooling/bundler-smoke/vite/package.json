@@ -6,12 +6,17 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@sometic/auth": "workspace:*",
         "@sometic/core": "workspace:*",
+        "@sometic/events": "workspace:*",
         "@sometic/head": "workspace:*",
         "@sometic/http": "workspace:*",
         "@sometic/react": "workspace:*",
+        "@sometic/store": "workspace:*",
+        "@sometic/vue": "workspace:*",
         "react": "^19.1.0",
-        "react-dom": "^19.1.0"
+        "react-dom": "^19.1.0",
+        "vue": "^3.5.17"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.5.2",

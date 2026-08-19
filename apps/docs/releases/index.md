@@ -4,28 +4,29 @@ Sometic publishes under the **`@sometic`** npm scope. Custom elements use the **
 
 ## Current track
 
-**Public beta:** packages target a **`0.1.0-beta`** publish line. Workspace package.json files may still show `0.0.x` until the first Changesets version publish lands on the registry.
+**Public beta.** Maturity labels live on [Beta maturity](/releases/beta). Each package versions independently via Changesets. Do not treat a `1.x` npm number as Level 3 stable, and do not look for a single `0.1.0-beta` line across the scope.
 
-| Resource                         | Purpose                                                 |
-| -------------------------------- | ------------------------------------------------------- |
-| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations |
-| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets |
+| Resource                         | Purpose                                                    |
+| -------------------------------- | ---------------------------------------------------------- |
+| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations    |
+| [Upgrade](/releases/upgrade)     | How breaking changes are recorded and how to bump packages |
+| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets    |
 
-**Maturity source of truth:** always prefer [Beta maturity](/releases/beta) over informal README claims.
+**Maturity source of truth:** always prefer [Beta maturity](/releases/beta) over informal README claims. **Inventory source of truth:** [What’s included](/guide/whats-included).
 
 ## What “beta” means here
 
-- APIs are usable and covered by tests for Wave A surfaces.
-- Breaking changes may still occur in `0.x` minors; they are called out in Changesets and changelog notes.
+- Wave A APIs are usable and covered by tests.
+- Breaking changes may still occur; they are called out in Changesets and changelog notes.
 - Experimental Wave B/C adapters are opt-in and incomplete relative to React / Vue / Elements.
-- Deferred catalogs such as data tables, command palette, and date/time picker UI remain out of scope for this beta (Menu, Combobox, Tabs, Drawer ship — see [What’s included](/guide/whats-included)).
+- Deferred items are listed on [What’s included](/guide/whats-included). Shipped Menu, Combobox, Tabs, data-table engines, and app primitive engines are **not** deferred.
 
 ## Versioning policy (summary)
 
 - Semantic Versioning per package via Changesets (versions may diverge).
 - Coordinated bumps when cross-package contracts move together.
-- Pre-1.0: prefer soft migrations, but breaking changes are allowed with clear notes.
 - Typed deprecations and migration notes when APIs are retired.
+- Details: [Upgrade](/releases/upgrade).
 
 ## How we record changes
 
@@ -33,11 +34,12 @@ Each user-facing change should land with a Changeset. Themes from recent Changes
 
 ## Feedback
 
-Use the repository GitHub issue templates (**Bug report** / **Feature request**). Include reproduction steps, package versions, and framework.
+Use the repository GitHub issue templates (**Bug report** / **Feature request**). Include reproduction steps, package versions, and framework. Security: GitHub Security Advisories, not public issues.
 
 ## Related links
 
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
 - [Changelog](/releases/changelog)
 - [Package index](/api/packages)
 - [Architecture](/concepts/architecture)

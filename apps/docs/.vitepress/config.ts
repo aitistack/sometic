@@ -172,7 +172,7 @@ export default defineConfig({
                             "https://github.com/aitistack/sometic",
                             "https://www.npmjs.com/org/sometic",
                         ],
-                        softwareVersion: "0.1.0-beta",
+                        softwareVersion: "public-beta",
                         license: "https://opensource.org/licenses/MIT",
                         author: { "@id": "https://sometic.dev/#organization" },
                         offers: {
@@ -241,12 +241,13 @@ export default defineConfig({
                     { text: "API reference", link: "/api/" },
                     { text: "Releases", link: "/releases/" },
                     { text: "Beta maturity", link: "/releases/beta" },
+                    { text: "Upgrade", link: "/releases/upgrade" },
                     { text: "Contributing", link: "/guide/contributing" },
                     { text: "Legal", link: "/legal/" },
                     { text: "llms.txt", link: "/llms.txt" },
                 ],
             },
-            { text: "v0.1.0-beta", link: "/releases/beta" },
+            { text: "Beta", link: "/releases/beta" },
         ],
         sidebar: {
             "/legal/": [
@@ -537,6 +538,7 @@ export default defineConfig({
                     items: [
                         { text: "Overview", link: "/releases/" },
                         { text: "Beta maturity", link: "/releases/beta" },
+                        { text: "Upgrade", link: "/releases/upgrade" },
                         { text: "Changelog", link: "/releases/changelog" },
                     ],
                 },

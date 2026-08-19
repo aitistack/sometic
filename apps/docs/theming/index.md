@@ -45,7 +45,7 @@ Sometic theming is **behavior first**, not a shipped visual kit:
 | System prefs     | `@sometic/theme/system`        | Color scheme, reduced motion, more contrast (lazy `matchMedia`) |
 | Presets          | `@sometic/theme/presets`       | Minimal `lightTheme` / `darkTheme` for demos and tests          |
 
-Presets stay on a subpath so the root controller can stay within its gzip size budget.
+Presets stay on a subpath so apps that only need the controller do not pay for palettes. The controller root is about 4.4 KB gzip.
 
 ## Architecture boundary
 

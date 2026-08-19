@@ -86,7 +86,7 @@ Public beta labels live on [Beta maturity](/releases/beta). In short:
 
 - **Beta:** Wave A foundations, forms, auth, HTTP, query, React, Vue, Elements, CLI.
 - **Experimental:** Wave B (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX) contracts.
-- **Deferred:** later-phase catalogs such as multi-select polish, date/time picker UI, command palette, and data tables. Menu, Combobox, Drawer, Tabs, and related launch surfaces ship in this beta — see [What’s included](/guide/whats-included).
+- **Deferred:** richer selection polish, date/time picker UI, remaining nav chrome, Floating UI adapter, and missing custom elements. Command palette, Tree, data-table engines, and app primitive engines ship as listed in [What’s included](/guide/whats-included). Menu, Combobox, Drawer, and Tabs also ship.
 
 ## When to use Sometic
 

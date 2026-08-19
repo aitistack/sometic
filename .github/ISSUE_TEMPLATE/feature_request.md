@@ -12,8 +12,11 @@ What problem does this solve for consumers?
 
 ## Alternatives considered
 
-## Scope
+## Scope (check one)
 
-- [ ] Wave A (dom / elements / react / vue)
+- [ ] **Included** Wave A (already in [What’s included](https://sometic.dev/guide/whats-included)): bugfix or small extension
+- [ ] **Experimental** adapter (Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX)
+- [ ] **Deferred** (picker UI polish, missing custom elements, remaining nav chrome, Floating UI)
 - [ ] Docs only
-- [ ] Later phase (nav / data / app primitives)
+
+See [Beta maturity](https://sometic.dev/releases/beta) for labels.
