@@ -17,3 +17,7 @@ test-results
 /AGENTS.md
 /docs/
 product-scope-and-description.pdf
+.agents/
+.hallmark/
+skills-lock.json
+skills-lock.md

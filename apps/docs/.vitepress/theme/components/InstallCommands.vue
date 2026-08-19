@@ -87,7 +87,7 @@ async function copyCommand(manager: string): Promise<void> {
 
 .sometic-install-commands__row {
     border: 1px solid var(--vp-c-divider);
-    border-radius: 10px;
+    border-radius: 0;
     background: var(--vp-c-bg-soft);
     overflow: hidden;
 }
@@ -111,7 +111,7 @@ async function copyCommand(manager: string): Promise<void> {
 .sometic-install-commands__copy {
     appearance: none;
     border: 1px solid var(--sometic-brand, var(--vp-c-brand-1));
-    border-radius: 999px;
+    border-radius: 0;
     background: var(--sometic-brand, var(--vp-c-brand-1));
     color: #fff;
     font: inherit;
@@ -122,12 +122,30 @@ async function copyCommand(manager: string): Promise<void> {
     cursor: pointer;
 }
 
-.sometic-install-commands__copy:hover,
+.sometic-install-commands__copy:hover {
+    background: var(--sometic-brand-hover, var(--vp-c-brand-2));
+    border-color: var(--sometic-brand-hover, var(--vp-c-brand-2));
+    color: #fff;
+}
+
 .sometic-install-commands__copy:focus-visible {
     background: var(--sometic-brand-hover, var(--vp-c-brand-2));
     border-color: var(--sometic-brand-hover, var(--vp-c-brand-2));
     color: #fff;
-    outline: none;
+    outline: 2px solid var(--sometic-brand, var(--vp-c-brand-1));
+    outline-offset: 2px;
+}
+
+.sometic-install-commands__copy:active {
+    background: var(--sometic-brand-active, var(--vp-c-brand-3));
+    border-color: var(--sometic-brand-active, var(--vp-c-brand-3));
+}
+
+html.dark .sometic-install-commands__copy,
+html.dark .sometic-install-commands__copy:hover,
+html.dark .sometic-install-commands__copy:focus-visible,
+html.dark .sometic-install-commands__copy:active {
+    color: var(--vp-c-bg);
 }
 
 .sometic-install-commands__pre {
