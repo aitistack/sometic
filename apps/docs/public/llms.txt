@@ -8,7 +8,7 @@ Sometic is a portable application behavior system, not a pre-styled component ki
 - npm scope: `@sometic`
 - Repository: https://github.com/aitistack/sometic
 - License: MIT
-- Maturity: public beta (`0.1.0-beta` track)
+- Maturity: public beta (per-package SemVer; see https://sometic.dev/releases/beta)
 
 ## When to use Sometic
 

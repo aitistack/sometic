@@ -24,11 +24,13 @@ Important product facts for agents:
 - [index.md](https://sometic.dev/)
 - [guide/accessibility.md](https://sometic.dev/guide/accessibility)
 - [guide/agents.md](https://sometic.dev/guide/agents)
+- [guide/app-primitives.md](https://sometic.dev/guide/app-primitives)
 - [guide/app-shell.md](https://sometic.dev/guide/app-shell)
 - [guide/browser-support.md](https://sometic.dev/guide/browser-support)
 - [guide/cli.md](https://sometic.dev/guide/cli)
 - [guide/comparison.md](https://sometic.dev/guide/comparison)
 - [guide/contributing.md](https://sometic.dev/guide/contributing)
+- [guide/examples.md](https://sometic.dev/guide/examples)
 - [guide/installation.md](https://sometic.dev/guide/installation)
 - [guide/introduction.md](https://sometic.dev/guide/introduction)
 - [guide/javascript.md](https://sometic.dev/guide/javascript)
@@ -162,6 +164,7 @@ Important product facts for agents:
 - [releases/beta.md](https://sometic.dev/releases/beta)
 - [releases/changelog.md](https://sometic.dev/releases/changelog)
 - [releases/index.md](https://sometic.dev/releases/)
+- [releases/upgrade.md](https://sometic.dev/releases/upgrade)
 - [legal/accessibility.md](https://sometic.dev/legal/accessibility)
 - [legal/index.md](https://sometic.dev/legal/)
 - [legal/license.md](https://sometic.dev/legal/license)
@@ -177,131 +180,101 @@ Important product facts for agents:
 
 Source: https://sometic.dev/
 
-<section class="sometic-home-band sometic-home-band--proofs">
+<section class="sometic-home-band sometic-home-band--legend">
 
-<h2>What makes Sometic different</h2>
+<h2>How the system holds</h2>
 
-<p>Not another component kit. A portable application behavior system. Prove it in three moves.</p>
+<p>Not another component kit. A portable application behavior system. The tiles above are the entry points. The notes below are the contract.</p>
 
-<div class="sometic-home-proofs">
-<article class="sometic-home-proof">
-<span class="sometic-home-proof__index" aria-hidden="true">01</span>
-<h3>One engine → three surfaces</h3>
-<p>Write behavior once in a framework-agnostic controller. Bind it through React, Vue, or <code>sometic-*</code> elements without forking state, focus, or keyboard rules.</p>
-<p class="sometic-home-proof__link"><a href="/concepts/architecture">See the architecture →</a></p>
-</article>
-<article class="sometic-home-proof">
-<span class="sometic-home-proof__index" aria-hidden="true">02</span>
-<h3>App spine: auth + HTTP + query</h3>
-<p>When a request gets 401, Sometic coordinates refresh and retries. Session epoch clears query and bound stores together. Start with <a href="/guide/app-shell">App shell</a> / <code>createSometicApp</code>.</p>
-<p class="sometic-home-proof__link"><a href="/authentication/">Authentication →</a> · <a href="/utilities/http">HTTP →</a> · <a href="/utilities/query">Query →</a></p>
-</article>
-<article class="sometic-home-proof">
-<span class="sometic-home-proof__index" aria-hidden="true">03</span>
-<h3>Same engine, your skin</h3>
-<p>No default look. Style with slots and state attributes. Keep brand CSS intact while the behavior layer stays patchable via npm or CDN for shipped custom elements.</p>
-<p class="sometic-home-proof__link"><a href="/guide/styling">Styling contract →</a></p>
-</article>
+<dl class="sometic-home-legend">
+<div>
+<dt><HomeGlyph name="layers" /> One engine, three surfaces</dt>
+<dd>Write behavior once in a framework-agnostic controller. Bind it through React, Vue, or <code>sometic-*</code> elements without forking state, focus, or keyboard rules. <a href="/concepts/architecture">Read the architecture</a>.</dd>
 </div>
+<div>
+<dt><HomeGlyph name="spine" /> App spine</dt>
+<dd>When a request gets 401, Sometic coordinates refresh and retries. Session epoch clears query and bound stores together. Start with <a href="/guide/app-shell">App shell</a> and <code>createSometicApp</code>.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="skin" /> Same engine, your skin</dt>
+<dd>Zero forced theme. Slots, data-state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS. <a href="/guide/styling">Styling contract</a>.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="a11y" /> Accessible by construction</dt>
+<dd>Focus traps, dismiss layers, portals, and scroll locks live in the core and compose into overlays. They are not patched on after ship.</dd>
+</div>
+</dl>
 
 </section>
 
-<section class="sometic-home-band sometic-home-band--constraints">
+<section class="sometic-home-band sometic-home-band--spec">
 
-<h2>Built for real production constraints</h2>
+<h2>Built for production constraints</h2>
 
 <p>Most UI kits assume your design system or force heavy third-party SDKs into your runtime. Sometic stays out of your way.</p>
 
-<div class="sometic-home-constraints">
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">i</span>
-<h3>Framework-agnostic controllers</h3>
-<p>State, focus, and interaction logic are completely decoupled from framework lifecycles. Swap your view layer tomorrow without rewriting a single line of core behavior.</p>
-</article>
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">ii</span>
-<h3>Zero CSS contamination</h3>
-<p>No stylesheets, no default themes, no runtime CSS injection. You own design tokens and DOM structure completely.</p>
-</article>
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">iii</span>
-<h3>Zero-dependency HTTP core</h3>
-<p>Built on native fetch with an interceptor pipeline and token refresh queue. No mandatory Axios or networking SDK in core.</p>
-</article>
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">iv</span>
-<h3>SSR-safe from day one</h3>
-<p>Core controllers guard environment globals at import time, so Next.js, Nuxt, and Remix avoid hydration mismatches and window errors.</p>
-</article>
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">v</span>
-<h3>Tree-shakable subpath exports</h3>
-<p>Import only what you use. Feature-isolated packages keep production JavaScript lean and fast.</p>
-</article>
-<article class="sometic-home-constraint">
-<span class="sometic-home-constraint__index" aria-hidden="true">vi</span>
-<h3>Declarative slot architecture</h3>
-<p>Layouts rely on native DOM slots and state attributes for precise control over rendered nodes and the accessibility tree.</p>
-</article>
+<dl class="sometic-home-spec">
+<div>
+<dt><HomeGlyph name="bind" /> Framework-agnostic controllers</dt>
+<dd>State, focus, and interaction logic are decoupled from framework lifecycles. Swap the view layer without rewriting core behavior.</dd>
 </div>
+<div>
+<dt><HomeGlyph name="skin" /> Zero CSS contamination</dt>
+<dd>No stylesheets, no default themes, no runtime CSS injection. You own design tokens and DOM structure.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="http" /> Zero-dependency HTTP core</dt>
+<dd>Built on native fetch with an interceptor pipeline and token refresh queue. No mandatory Axios or networking SDK in core.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="ssr" /> SSR-safe from day one</dt>
+<dd>Core controllers guard environment globals at import time, so Next.js, Nuxt, and Remix avoid hydration mismatches and window errors.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="tree" /> Tree-shakable subpath exports</dt>
+<dd>Import only what you use. Feature-isolated packages keep production JavaScript lean.</dd>
+</div>
+<div>
+<dt><HomeGlyph name="slots" /> Declarative slot architecture</dt>
+<dd>Layouts rely on native DOM slots and state attributes for control over rendered nodes and the accessibility tree.</dd>
+</div>
+</dl>
 
 </section>
 
-<section class="sometic-home-band sometic-home-band--waves">
+<section class="sometic-home-band sometic-home-band--steps">
 
 <h2>Where the adapters live</h2>
 
 <p>The engine is shared. Adapters are how you mount it. Wave A is production-ready for React, Vue, and shipped <code>sometic-*</code> elements; B and C are experimental binds. Not every structure or data surface ships a custom element yet. See <a href="/guide/whats-included">What’s included</a>.</p>
 
-<div class="sometic-home-waves">
-<article class="sometic-home-wave" data-wave="A">
-<span class="sometic-home-wave__mark" aria-hidden="true">A</span>
-<div class="sometic-home-wave__body">
-<p class="sometic-home-wave__label">Production adapters</p>
-<p class="sometic-home-wave__copy">Thin wrappers over shared engines for React, Vue, and Vanilla Web Components (shipped CE set + DOM controllers).</p>
-</div>
-</article>
-<article class="sometic-home-wave" data-wave="B">
-<span class="sometic-home-wave__mark" aria-hidden="true">B</span>
-<div class="sometic-home-wave__body">
-<p class="sometic-home-wave__label">Store bindings <em>Experimental</em></p>
-<p class="sometic-home-wave__copy">State-slice integrations for Angular, Svelte, Solid, and Preact.</p>
-</div>
-</article>
-<article class="sometic-home-wave" data-wave="C">
-<span class="sometic-home-wave__mark" aria-hidden="true">C</span>
-<div class="sometic-home-wave__body">
-<p class="sometic-home-wave__label">HTML-first enhancements <em>Experimental</em></p>
-<p class="sometic-home-wave__copy">Progressive hooks for Alpine.js, jQuery, and HTMX.</p>
-</div>
-</article>
-</div>
+<ol class="sometic-home-steps">
+<li>
+<span class="sometic-home-steps__mark">A</span>
+<h3><HomeGlyph name="bind" /> Production adapters</h3>
+<p>Thin wrappers over shared engines for React, Vue, and Vanilla Web Components (shipped custom-element set plus DOM controllers).</p>
+</li>
+<li>
+<span class="sometic-home-steps__mark">B</span>
+<h3><HomeGlyph name="store" /> Store bindings</h3>
+<p>State-slice integrations for Angular, Svelte, Solid, and Preact. Experimental.</p>
+</li>
+<li>
+<span class="sometic-home-steps__mark">C</span>
+<h3><HomeGlyph name="html" /> HTML-first enhancements</h3>
+<p>Progressive hooks for Alpine.js, jQuery, and HTMX. Experimental.</p>
+</li>
+</ol>
 
 </section>
 
-<section class="sometic-home-band sometic-home-band--paths">
+<section class="sometic-home-band sometic-home-band--close">
 
 <h2>Start where the system is</h2>
 
 <p>Enter through architecture and app services first. UI engines are included. They are not the product story.</p>
 
-<div class="sometic-home-destinations">
-<a class="sometic-home-dest" href="/guide/app-shell">
-<span class="sometic-home-dest__kicker">App shell</span>
-<span class="sometic-home-dest__title">createSometicApp spine for auth, HTTP, and query</span>
-<span class="sometic-home-dest__hint">Start here</span>
-</a>
-<a class="sometic-home-dest" href="/concepts/architecture">
-<span class="sometic-home-dest__kicker">Architecture</span>
-<span class="sometic-home-dest__title">Controllers, layers, and adapters</span>
-<span class="sometic-home-dest__hint">Read the model</span>
-</a>
-<a class="sometic-home-dest" href="/authentication/">
-<span class="sometic-home-dest__kicker">Auth + HTTP + Query</span>
-<span class="sometic-home-dest__title">Sessions, refresh, fetch, and cache</span>
-<span class="sometic-home-dest__hint">Open services</span>
-</a>
-</div>
+<p class="sometic-home-close"><a class="sometic-home-close__cta" href="/guide/app-shell">Open App shell</a></p>
 
 </section>
 
@@ -435,6 +408,387 @@ Adapters (@sometic/react, vue, elements, …)
 
 
 
+# guide/app-primitives.md
+
+Source: https://sometic.dev/guide/app-primitives
+
+# App primitives
+
+Portable engines for product behavior that sits above forms and HTTP: feature flags, entity drafts, command registration, undo/redo, conflict resolution, a durable offline mutation queue, and resource-scoped permission grants. Each package is framework-free, disposable, and safe to import on the server. React, Vue, and Vanilla call the same APIs; UI adapters stay thin.
+
+## Catalog
+
+| Package / API            | What it does                                                                           | Start here                    |
+| ------------------------ | -------------------------------------------------------------------------------------- | ----------------------------- |
+| `@sometic/feature-flags` | Evaluate on/off and experiment variants with override → remote → default precedence    | `createFeatureFlagController` |
+| `@sometic/drafts`        | Persist entity or document drafts (notes, invoices, editors) with migrate and sanitize | `createDraftController`       |
+| `@sometic/commands`      | Register named actions once and run them from menus, hotkeys, tests, or APIs           | `createCommandRegistry`       |
+| `@sometic/history`       | Undo / redo stack for reversible local edits with depth caps                           | `createHistoryController`     |
+| `@sometic/conflict`      | Record local vs remote disagreements and resolve with strategies                       | `createConflictController`    |
+| `@sometic/offline-queue` | Durable mutation outbox that survives reload and respects auth epoch                   | `createOfflineMutationQueue`  |
+| `@sometic/auth`          | Dynamic resource-scoped grants on top of session claims                                | `createPermissionController`  |
+
+### When to use
+
+- The same product rule must work in Vanilla, React, Vue, and tests without copying handlers
+- You need disposable, SSR-safe controllers (no browser globals at import time)
+- App Shell / `createSometicApp` should optionally compose flags, drafts, commands, history, or offline queue
+
+### When not to use
+
+- Form field restore only: use [`@sometic/forms` drafts](/forms/persistence)
+- Searchable command UI chrome: use the [command palette](/components/command-palette); wire it to `@sometic/commands` when you want one execute path
+- Ephemeral in-tab retries that die with the session: `createSessionMutationQueue` on [App Shell](/guide/app-shell)
+- Hosted flag SDKs, CRDT multiplayer sync, or compliance audit stores: keep those products; these packages are portable clients
+
+## Compose with App Shell
+
+Pass optional controllers into `createSometicApp` / `createAppShell` so epoch and dispose stay one graph. Create controllers first, then pass them in; wire `getEpoch` to the shell after create, or use a shared epoch getter.
+
+```ts
+import { createSometicApp } from "@sometic/app-shell";
+import { createFeatureFlagController } from "@sometic/feature-flags";
+import { createCommandRegistry } from "@sometic/commands";
+import { createHistoryController } from "@sometic/history";
+import {
+    createMemoryOfflineQueueStorage,
+    createOfflineMutationQueue,
+} from "@sometic/offline-queue";
+
+let epoch = 0;
+
+const flags = createFeatureFlagController({
+    flags: [{ key: "checkout.v2", defaultValue: false }],
+});
+const commands = createCommandRegistry();
+const history = createHistoryController();
+const offlineQueue = createOfflineMutationQueue({
+    storage: createMemoryOfflineQueueStorage(),
+    transport: { send: async () => undefined },
+    getEpoch: () => epoch,
+});
+
+const app = createSometicApp({
+    auth,
+    flags,
+    commands,
+    history,
+    offlineQueue,
+});
+
+epoch = app.getEpoch();
+app.onEpochChange((next) => {
+    epoch = next;
+});
+```
+
+Shell clears configured entity drafts and can drop the offline queue on auth epoch. Controllers you pass in are disposed with `app.dispose()` when the shell owns that path. Details: [App Shell](/guide/app-shell).
+
+## Feature flags
+
+Decide which product paths are on, and which experiment arm a user is in, without hardcoding booleans in every adapter. You own delivery (fetch remote payloads and call `setRemote`); Sometic owns evaluation, overrides, snapshots, and subscribe.
+
+Install: `pnpm add @sometic/feature-flags` (depends on `@sometic/core`).
+
+```ts
+import { createFeatureFlagController } from "@sometic/feature-flags";
+
+const flags = createFeatureFlagController({
+    flags: [{ key: "checkout.v2", defaultValue: false, defaultVariant: "control" }],
+    remote: { "checkout.v2": { enabled: true, variant: "treatment" } },
+});
+
+if (flags.isEnabled("checkout.v2")) {
+    renderCheckout(flags.getVariant("checkout.v2"));
+}
+
+flags.dispose();
+```
+
+### FAQ
+
+- **Evaluation order?** Override, then remote, then the flag definition default. `getSnapshot(key)` reports `source` as `"override" | "remote" | "default"`.
+- **Does it fetch from a vendor?** No. Supply definitions plus optional `remote` / `overrides`. Wire your own fetch and call `setRemote`.
+- **Variants only booleans?** No. Variants may be `string | boolean | number | null`. Use `isEnabled` for on/off and `getVariant` for experiment arms.
+- **SSR-safe?** Yes. No browser globals at import time. Controllers are explicit and disposable.
+- **Unknown keys?** `isEnabled`, `getVariant`, and `getSnapshot` throw typed `FEATURE_FLAG_*` errors.
+- **Multi-instance?** One controller per app or workspace. There is no module singleton.
+
+### Why this vs alternatives
+
+| Option                             | Strengths                                  | Tradeoffs                                      |
+| ---------------------------------- | ------------------------------------------ | ---------------------------------------------- |
+| `@sometic/feature-flags`           | Shared evaluate/override API across stacks | No hosted targeting or analytics               |
+| LaunchDarkly / Flagsmith / Unleash | Targeting, rollouts, dashboards            | Vendor SDK in every surface                    |
+| Hardcoded env booleans             | Tiny                                       | No runtime override or shared snapshot         |
+| Custom store map                   | Fits existing state                        | You reimplement precedence, subscribe, dispose |
+
+## App drafts
+
+Persist free-form entity or document state (a note, invoice draft, editor document) with versioned records, optional migrate, and `omit` / `pick` / `sanitize` before write. This is not form-field restore; that stays in [`@sometic/forms` drafts](/forms/persistence).
+
+Install: `pnpm add @sometic/drafts`.
+
+```ts
+import { createDraftController, createMemoryDraftStorage } from "@sometic/drafts";
+
+let values = { title: "", body: "" };
+
+const drafts = createDraftController({
+    key: "note:draft",
+    version: 1,
+    storage: createMemoryDraftStorage(),
+    getValues: () => values,
+    setValues: (next) => {
+        values = next;
+    },
+    omit: ["password"],
+});
+
+await drafts.load();
+await drafts.save();
+drafts.dispose();
+```
+
+### FAQ
+
+- **vs forms drafts?** Entity/document storage here; field-level restore on form controllers in `@sometic/forms/drafts`.
+- **Storage options?** Memory (tests/SSR), `createLocalStorageDraftStorage` (no import-time access), or any `getItem` / `setItem` / `removeItem` adapter.
+- **Schema changes?** Bump `version` and supply `migrate`. Without migrate, older records load as `null`.
+- **Secrets?** Use `omit`, `pick`, or `sanitize` before persist.
+- **Debounce?** `scheduleSave()` respects `debounceMs`; `save()` writes immediately.
+- **SSR?** Import is safe. Construct localStorage-backed storage on the client after hydrate.
+
+### Why this vs alternatives
+
+| Option                  | Strengths                                                     | Tradeoffs                        |
+| ----------------------- | ------------------------------------------------------------- | -------------------------------- |
+| `@sometic/drafts`       | Versioned entity drafts, migrate/sanitize, injectable storage | Not multi-device sync            |
+| `@sometic/forms` drafts | Tied to form controllers                                      | Wrong for free-form documents    |
+| Raw `localStorage`      | Zero deps                                                     | No migrate, debounce, or dispose |
+| CRDT / sync             | Cross-device merge                                            | Heavy; different job             |
+
+## Commands
+
+Register each product action once (`document.save`, `invoice.send`) with `canExecute` gates, then run it from a button, menu, hotkey, or test. This is a registry/bus, not the searchable [command palette](/components/command-palette) UI.
+
+Install: `pnpm add @sometic/commands`.
+
+```ts
+import { createCommandRegistry } from "@sometic/commands";
+
+const commands = createCommandRegistry();
+
+commands.register({
+    id: "document.save",
+    label: "Save document",
+    canExecute: (context) => context?.["dirty"] === true,
+    execute: async (context) => saveDocument(context?.["id"]),
+});
+
+await commands.execute("document.save", { dirty: true, id: "doc-1" });
+commands.dispose();
+```
+
+### FAQ
+
+- **Is this the palette?** No. Palette is presentation. This package is `register` / `canExecute` / `execute` / `subscribe`.
+- **Duplicate ids?** Throws `COMMAND_DUPLICATE`.
+- **Guarding?** Put logic in `canExecute`; `execute` throws when the gate fails.
+- **Undo metadata?** Optional `undo` on a definition is metadata only. The undo stack is `@sometic/history`.
+- **Events?** `register`, `unregister`, `execute`, and `error` (errors emit then rethrow).
+
+### Why this vs alternatives
+
+| Option              | Strengths                        | Tradeoffs                         |
+| ------------------- | -------------------------------- | --------------------------------- |
+| `@sometic/commands` | One execute path across surfaces | No UI or ranking                  |
+| Command palette     | Filterable keyboard UX           | Presentation only unless wired    |
+| Ad-hoc `onClick`    | Fast for one button              | Diverges across menu/hotkey/tests |
+| Workflow / saga     | Durable steps and retries        | Heavy for simple actions          |
+
+## History (undo / redo)
+
+Keep a local stack of reversible edits for canvases, documents, and settings. Each entry supplies `execute` and `undo` (optional custom `redo`). Depth is capped; undo and execute share one promise chain so concurrent calls cannot corrupt the stack.
+
+Install: `pnpm add @sometic/history`.
+
+```ts
+import { createHistoryController } from "@sometic/history";
+
+const history = createHistoryController({ maxDepth: 50 });
+let title = "Untitled";
+
+await history.execute({
+    label: "Rename",
+    execute: () => {
+        const previous = title;
+        title = "Invoice";
+        return previous;
+    },
+    undo: (previous) => {
+        title = previous;
+    },
+});
+
+await history.undo();
+await history.redo();
+history.dispose();
+```
+
+### FAQ
+
+- **Required fields?** `execute` and `undo`. Optional `id`, `label`, and `redo` (default redo re-runs `execute`).
+- **Depth?** `maxDepth` defaults to 100; oldest entries drop.
+- **Reentrancy?** Undo/execute/redo are serialized on an internal promise chain.
+- **Checkpoints?** `checkpoint(label?)` marks a bulk-edit boundary.
+- **Audit log?** No. Use `@sometic/activity` for append-only timelines.
+
+### Why this vs alternatives
+
+| Option              | Strengths                                      | Tradeoffs                   |
+| ------------------- | ---------------------------------------------- | --------------------------- |
+| `@sometic/history`  | Portable undo/redo, depth cap, exclusive chain | Local only; not multiplayer |
+| `@sometic/activity` | Append-only audit                              | Not reversible              |
+| Editor / CRDT       | Concurrent merge                               | Heavy; different sync model |
+| Browser History API | Navigation URLs                                | Not document edit undo      |
+
+## Conflict
+
+When local and remote values disagree (after an offline flush, multi-tab edit, or API merge), open a conflict record and resolve it with a strategy (last-write-wins, client-wins, server-wins, or your own). This package does not detect conflicts on the wire; you open them when you know both sides.
+
+Install: `pnpm add @sometic/conflict`.
+
+```ts
+import { createConflictController, lastWriteWinsStrategy } from "@sometic/conflict";
+
+const conflicts = createConflictController({
+    defaultStrategyId: lastWriteWinsStrategy.id,
+});
+
+const opened = conflicts.open({
+    key: "invoice:42",
+    local: { total: 100 },
+    remote: { total: 120 },
+    localUpdatedAt: 1_000,
+    remoteUpdatedAt: 2_000,
+});
+
+const resolved = conflicts.resolve(opened.id);
+conflicts.dispose();
+```
+
+### FAQ
+
+- **Built-ins?** `lww`, `client-wins`, `server-wins`. Register more with `registerStrategy`.
+- **Does it detect network conflicts?** No. You call `open` when local and remote disagree.
+- **Manual value?** `resolveWith(id, value)`. Strategy path: `resolve(id, strategyId?)`.
+- **Already resolved?** `resolve` returns the existing record (idempotent).
+
+### Why this vs alternatives
+
+| Option                    | Strengths                        | Tradeoffs                         |
+| ------------------------- | -------------------------------- | --------------------------------- |
+| `@sometic/conflict`       | Records + strategies + subscribe | Does not detect for you           |
+| Server-always-wins reload | Simple                           | Drops local work without a record |
+| CRDT / OT                 | Character-level merge            | Heavy for discrete document pairs |
+| Status UI only            | Badge for users                  | Still needs a resolution engine   |
+
+## Offline queue
+
+A durable mutation outbox: enqueue writes while offline, persist them, then `flush` when the transport is available. Distinct from App Shell’s session mutation queue, which is in-memory and drops on auth epoch. Pair with conflict when max attempts are exhausted.
+
+Install: `pnpm add @sometic/offline-queue` (optional peer `@sometic/conflict`).
+
+```ts
+import {
+    createMemoryOfflineQueueStorage,
+    createOfflineMutationQueue,
+} from "@sometic/offline-queue";
+
+const queue = createOfflineMutationQueue({
+    storage: createMemoryOfflineQueueStorage(),
+    transport: {
+        send: async (job) => {
+            await api.save(job.variables);
+        },
+    },
+    getEpoch: () => sessionEpoch,
+    maxAttempts: 5,
+});
+
+await queue.enqueue({ key: "invoice.update", variables: { id: "42" } });
+await queue.flush();
+queue.dispose();
+```
+
+### FAQ
+
+- **vs session mutation queue?** This outbox is durable. Session queue is in-memory and drops on epoch.
+- **When does flush run?** When you call `flush()`. Nothing listens at import time.
+- **Epoch?** Pass `getEpoch`. `dropOnEpochChange` defaults to true.
+- **Conflicts?** With a `conflict` controller and max attempts reached, a conflict opens (`remote: null`).
+- **Concurrent flush?** Throws `OFFLINE_QUEUE_FLUSH_IN_PROGRESS`.
+
+### Why this vs alternatives
+
+| Option                   | Strengths                                      | Tradeoffs                      |
+| ------------------------ | ---------------------------------------------- | ------------------------------ |
+| `@sometic/offline-queue` | Durable outbox, epoch hooks, optional conflict | You supply transport + storage |
+| Session mutation queue   | Tiny; drops on epoch                           | Dies with the tab              |
+| Full sync engines        | Pull/push, cursors, merge                      | Heavy; different product       |
+| HTTP-only retry          | Simple one request                             | No durable multi-job outbox    |
+
+## Permissions
+
+Add dynamic, resource-scoped grants on top of session claim policies already in `@sometic/auth`. Client checks are UX only; APIs must still enforce authorization on the server.
+
+```ts
+import {
+    createAuth,
+    createMemoryAuthStorage,
+    createPermissionController,
+    createTestAuthProvider,
+} from "@sometic/auth";
+
+const auth = createAuth({
+    provider: createTestAuthProvider(),
+    storage: createMemoryAuthStorage(),
+});
+
+const permissions = createPermissionController({ auth });
+
+permissions.grant({ permission: "docs:edit", resource: "doc-1" });
+permissions.can({ permission: "docs:edit", resource: "doc-1" });
+
+permissions.dispose();
+auth.dispose();
+```
+
+### FAQ
+
+- **vs `requirePermission`?** Session claims stay on auth policies. This controller adds grant/revoke for specific resources and `subscribe`.
+- **Server still required?** Yes. Treat `can` / `require` as UX gates only.
+- **Empty permission strings?** Throw typed auth errors.
+
+### Why this vs alternatives
+
+| Option                       | Strengths                               | Tradeoffs                              |
+| ---------------------------- | --------------------------------------- | -------------------------------------- |
+| `createPermissionController` | Resource-scoped grants + session claims | Not a full policy engine               |
+| Session claims only          | Simple                                  | No per-resource grants without refetch |
+| External IAM SDK             | Rich admin UX                           | Couples every adapter to that vendor   |
+
+## Related
+
+- [What's included](/guide/whats-included)
+- [App Shell](/guide/app-shell)
+- [Authentication](/authentication/)
+- [Forms persistence](/forms/persistence)
+- [Command palette](/components/command-palette)
+
+
+
 # guide/app-shell.md
 
 Source: https://sometic.dev/guide/app-shell
@@ -462,6 +816,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 | Mutation ↔ form | `bindMutationForm`                                                                            |
 | Query → head    | `bindHeadToQuery`                                                                             |
 | Mutation outbox | `createSessionMutationQueue` (in-memory; drops on epoch bump; not durable offline)            |
+| App primitives  | Optional `flags`, `drafts`, `commands`, `history`, `offlineQueue` on the shell / spine        |
 
 ### When to use
 
@@ -472,7 +827,7 @@ Sign-out and user switch cannot leave privileged query cache, cross-epoch HTTP r
 ### When not to use
 
 - You only need one package (e.g. theme alone): import that package directly
-- Full durable offline queues: later phases; shell mutation queue is session-lite only
+- Full durable offline queues: use [`@sometic/offline-queue`](/guide/app-primitives); shell mutation queue is session-lite only
 - Replacing TanStack DevTools or Floating UI: out of scope
 
 ## Installation
@@ -564,7 +919,7 @@ auth.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -580,7 +935,7 @@ auth.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,
@@ -707,17 +1062,18 @@ window.addEventListener("pagehide", () => {
 
 ## Options
 
-| Input                                   | Behavior                                                   |
-| --------------------------------------- | ---------------------------------------------------------- |
-| `auth`                                  | Required                                                   |
-| `http` / create options                 | Attach auth + policy + epoch interceptors                  |
-| `query` / create options                | `bindQueryToAuth`                                          |
-| `head` / `theme`                        | Optional; `bindThemeToHead` when both present              |
-| `stores`                                | `{ ui?, prefs?, session? }`; session stores reset on epoch |
-| `forms`                                 | `{ draftsClearOnEpoch?, register? }`                       |
-| `refetchOnReauth`                       | `'auth' \| 'all' \| false`                                 |
-| `authQueryKeys`                         | Used when `refetchOnReauth: 'auth'`                        |
-| `allowAbsoluteUrl` / `maxResponseBytes` | Forwarded to HTTP when shell creates the client            |
+| Input                                                        | Behavior                                                             |
+| ------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `auth`                                                       | Required                                                             |
+| `http` / create options                                      | Attach auth + policy + epoch interceptors                            |
+| `query` / create options                                     | `bindQueryToAuth`                                                    |
+| `head` / `theme`                                             | Optional; `bindThemeToHead` when both present                        |
+| `stores`                                                     | `{ ui?, prefs?, session? }`; session stores reset on epoch           |
+| `forms`                                                      | `{ draftsClearOnEpoch?, register? }`                                 |
+| `flags` / `drafts` / `commands` / `history` / `offlineQueue` | Optional app primitives; see [App primitives](/guide/app-primitives) |
+| `refetchOnReauth`                                            | `'auth' \| 'all' \| false`                                           |
+| `authQueryKeys`                                              | Used when `refetchOnReauth: 'auth'`                                  |
+| `allowAbsoluteUrl` / `maxResponseBytes`                      | Forwarded to HTTP when shell creates the client                      |
 
 ## FAQ
 
@@ -731,7 +1087,7 @@ No. It composes Sometic System packages. Routing, layouts, and visual design sta
 
 ### Is the mutation queue offline-durable?
 
-No. `createSessionMutationQueue` drops on epoch change. Full offline queues are a later phase.
+No. `createSessionMutationQueue` is in-memory and drops on epoch change. For a durable outbox, use [`@sometic/offline-queue`](/guide/app-primitives#offline-queue).
 
 ### Who owns dispose?
 
@@ -739,6 +1095,7 @@ Caller-owned `auth` / `head` / `theme` / passed-in `query` are not disposed by t
 
 ## Related
 
+- [App primitives](/guide/app-primitives)
 - [Authentication](/authentication/)
 - [HTTP](/utilities/http)
 - [Query](/utilities/query)
@@ -757,7 +1114,20 @@ Source: https://sometic.dev/guide/browser-support
 
 # Browser support
 
-Sometic targets **modern evergreen browsers** (current stable Chrome, Firefox, Safari, Edge). Support is claimed where automated tests run; see [Compatibility](/frameworks/compatibility) and [Beta maturity](/releases/beta).
+Sometic targets **modern evergreen browsers**. Support is claimed where automated tests run (Vitest with happy-dom, Playwright on evergreen channels). That is **not** a WCAG certification and not a vendor compatibility badge.
+
+## Runtime matrix (beta)
+
+| Runtime | Claim |
+| ------- | ----- |
+| Chrome, Edge (current stable Chromium) | Yes, where UI tests run |
+| Firefox (current stable) | Yes, where UI tests run |
+| Safari (current stable) | Yes, where UI tests run |
+| Node.js `>=20.18.0` | Tooling, SSR imports that avoid browser globals at evaluation time |
+| Internet Explorer | No |
+| React Native / non-DOM hosts for UI adapters | No |
+
+See [Compatibility](/frameworks/compatibility) for framework packages and [Beta maturity](/releases/beta) for labels.
 
 ## Baseline expectations
 
@@ -771,10 +1141,9 @@ Sometic targets **modern evergreen browsers** (current stable Chrome, Firefox, S
 
 ## Not claimed
 
-- Internet Explorer
 - Obsolete evergreen versions outside current stable channels
-- React Native / non-DOM hosts for UI adapters
 - Using `@sometic/react` through `preact/compat` without the Experimental Preact store bind path
+- Every `sometic-*` tag for every engine (CE inventory is honest on [What’s included](/guide/whats-included))
 
 ## SSR and non-browser
 
@@ -1168,6 +1537,163 @@ By contributing, you agree your work is provided under the project MIT license (
 - [Agents](/guide/agents)
 - [What’s included](/guide/whats-included)
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
+
+
+
+# guide/examples.md
+
+Source: https://sometic.dev/guide/examples
+
+<!-- Parked: srcExclude in apps/docs/.vitepress/config.ts. See .cursor/context/examples-paused.md -->
+
+# Examples
+
+Invoice Desk is one small authenticated workspace implemented three times: React, Vue, and Vanilla (DOM plus shipped custom elements). The three apps share a private kit for types, seed users, validators, and the in-memory API. `createSometicApp` owns the spine: session, HTTP, query, theme, a notes feature flag, and editor drafts.
+
+Each app styles the **same unstyled Sometic components** with a different consumer styling system, so you can see the product promise in the browser: React uses Tailwind CSS, Vue uses hand-written CSS against `data-slot` and `data-state`, and Vanilla uses Bootstrap.
+
+Clone the [Sometic repository](https://github.com/aitistack/sometic), install, and build packages first (`pnpm install` then `pnpm build`).
+
+## When to use
+
+- You want a production-shaped composition, not a single-component snippet
+- You need to see session epoch, query cache, and form drafts clear on sign-out
+- You are choosing React, Vue, or Vanilla and want the same product behavior
+- You want to see unstyled Sometic components dressed with Tailwind, plain CSS, or Bootstrap
+
+## When not to use
+
+- You only need a button or dialog: use the component pages and in-page demos
+- You need a real backend, OAuth, or hosted flags: this mock API and test auth are local only
+- You need a `sometic-*` data table: that custom element is not shipped. Vanilla binds the data-table engine in Light DOM
+
+## Run
+
+```bash
+pnpm example:invoice:react
+```
+
+```bash
+pnpm example:invoice:vue
+```
+
+```bash
+pnpm example:invoice:vanilla
+```
+
+Ports: React `http://127.0.0.1:5210`, Vue `http://127.0.0.1:5211`, Vanilla `http://127.0.0.1:5212`.
+
+| App     | Port | Styling system                             | Look                                      |
+| ------- | ---- | ------------------------------------------ | ----------------------------------------- |
+| React   | 5210 | Tailwind CSS utilities on slot classes     | Indigo SaaS shell                         |
+| Vue     | 5211 | Plain CSS + `data-slot` selectors          | Warm paper ledger                         |
+| Vanilla | 5212 | Bootstrap 5 on layout and `sometic-button` | Classic Bootstrap cards, table, and forms |
+
+Sign in as Ada (`ada@invoice.example` / `invoice-desk`) or Ben (`ben@invoice.example` / `invoice-desk`). Invoices are scoped to the signed-in user. Each login screen also has Ada and Ben shortcuts that fill the Sometic fields.
+
+Source:
+
+- `apps/example-invoice-react`
+- `apps/example-invoice-vue`
+- `apps/example-invoice-vanilla`
+- `apps/example-invoice-kit`
+
+## Usage
+
+The spine is identical. Adapters only mount UI.
+
+::: code-group
+
+```ts [React]
+import { createInvoiceDeskRuntime } from "@sometic/example-invoice-kit";
+import { AuthProvider } from "@sometic/react/auth";
+import { QueryClientProvider } from "@sometic/react/query";
+
+const runtime = createInvoiceDeskRuntime();
+
+<AuthProvider auth={runtime.auth}>
+    <QueryClientProvider client={runtime.app.query}>{/* Invoice Desk UI */}</QueryClientProvider>
+</AuthProvider>;
+```
+
+```ts [Vue]
+import { createInvoiceDeskRuntime } from "@sometic/example-invoice-kit";
+import { useAuth } from "@sometic/vue/auth";
+import { provideQueryClient } from "@sometic/vue/query";
+
+const runtime = createInvoiceDeskRuntime();
+const { session } = useAuth(runtime.auth);
+provideQueryClient(runtime.app.query);
+```
+
+```ts [Vanilla]
+import { createInvoiceDeskRuntime } from "@sometic/example-invoice-kit";
+import { createDataTableController } from "@sometic/dom/data-table";
+import { registerButtonElements } from "@sometic/elements/button";
+
+registerButtonElements();
+const runtime = createInvoiceDeskRuntime();
+const table = createDataTableController({
+    columns: [/* number, customer, amount, status */],
+    getRowId: (row) => row.id,
+    rows: [],
+});
+```
+
+```ts [Custom Elements (Web Components)]
+import { registerButtonElements } from "@sometic/elements/button";
+
+registerButtonElements();
+```
+
+```html
+<sometic-button type="button">Sign out</sometic-button>
+```
+
+There is no `sometic-data-table` element. The Vanilla app renders a Light DOM table from `@sometic/dom/data-table`.
+
+```html [CDN Simple]
+<!-- Invoice Desk is a workspace app, not a CDN bundle. -->
+<!-- Use the React, Vue, or Vanilla app folders in the repository. -->
+```
+
+```js [CDN Module]
+// Invoice Desk is not published as a CDN bundle.
+// Clone the repository and run pnpm example:invoice:react (or vue / vanilla).
+```
+
+:::
+
+## FAQ
+
+- **Is this an npm package?** No. The kit and apps are private workspace folders. Copy them into your repo or start from `createSometicApp` as shown on [App Shell](/guide/app-shell).
+- **Is the API real?** No. `createInvoiceDeskApi` is an in-memory `fetch` stand-in. Auth uses `createTestAuthProvider`.
+- **Why two users?** To prove resource scoping. Ada never sees Ben's invoices after a user switch, because query cache drops on session epoch.
+- **Where is the data-table custom element?** It is not shipped. React and Vue use `@sometic/react/data` and `@sometic/vue/data`. Vanilla uses the DOM controller.
+- **Do these apps use the docs fonts?** No. They use system UI. React maps Tailwind utilities onto Sometic slot `classes`. Vue authors plain CSS against slots and state attributes. Vanilla applies Bootstrap classes around Light DOM and `sometic-button`.
+- **Why three visual themes?** Cores stay unstyled. The examples exist to show that the same Field, Input, Button, Select, Switch, and DataTable engines can look like three different products.
+- **Can I `sometic init` this?** Not in this release. The CLI still scaffolds hybrid wrappers; it does not copy Invoice Desk.
+
+## Why this vs alternatives
+
+| Option                                   | Strengths                              | Tradeoffs                                       |
+| ---------------------------------------- | -------------------------------------- | ----------------------------------------------- |
+| Invoice Desk examples                    | Same product, three stacks, shared kit | Not a hosted demo URL                           |
+| Component pages only                     | Fast, in-page demos                    | Do not show auth epoch or query composition     |
+| A framework starter (CRA, Vite template) | Familiar                               | You re-wire auth, HTTP, and query yourself      |
+| Full SaaS clone                          | Looks impressive                       | Hides the portable engines under product chrome |
+
+## Related
+
+- [Quick start](/guide/quick-start)
+- [App Shell](/guide/app-shell)
+- [App primitives](/guide/app-primitives)
+- [What's included](/guide/whats-included)
+- [Styling](/guide/styling)
+- [Tailwind](/theming/tailwind)
+- [Plain CSS](/theming/plain-css)
+- [Bootstrap](/theming/bootstrap)
 
 
 
@@ -1249,7 +1775,7 @@ Pick one format:
 #### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -1259,7 +1785,7 @@ Pick one format:
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
@@ -1269,28 +1795,28 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ### Browser bundles
 
-| Package                  | Global                 | Simple script                                                                                       | Module script                                                                                      |
-| ------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `@sometic/elements`      | `SometicElements`      | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js`           | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js`           |
-| `@sometic/http`          | `SometicHttp`          | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.esm.js`                   |
-| `@sometic/query`         | `SometicQuery`         | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.esm.js`                 |
-| `@sometic/auth`          | `SometicAuth`          | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.esm.js`                   |
-| `@sometic/store`         | `SometicStore`         | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.esm.js`                 |
-| `@sometic/theme`         | `SometicTheme`         | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.esm.js`                 |
-| `@sometic/head`          | `SometicHead`          | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.esm.js`                   |
-| `@sometic/app-shell`     | `SometicAppShell`      | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.iife.js`         | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.esm.js`         |
-| `@sometic/core`          | `SometicCore`          | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.6/dist/cdn/sometic-core.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.6/dist/cdn/sometic-core.esm.js`                   |
-| `@sometic/events`        | `SometicEvents`        | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.6/dist/cdn/sometic-events.iife.js`               | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.6/dist/cdn/sometic-events.esm.js`               |
-| `@sometic/forms`         | `SometicForms`         | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.2/dist/cdn/sometic-forms.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.2/dist/cdn/sometic-forms.esm.js`                 |
-| `@sometic/styling`       | `SometicStyling`       | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.6/dist/cdn/sometic-styling.iife.js`             | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.6/dist/cdn/sometic-styling.esm.js`             |
-| `@sometic/accessibility` | `SometicAccessibility` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.6/dist/cdn/sometic-accessibility.iife.js` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.6/dist/cdn/sometic-accessibility.esm.js` |
-| `@sometic/positioning`   | `SometicPositioning`   | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.6/dist/cdn/sometic-positioning.iife.js`     | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.6/dist/cdn/sometic-positioning.esm.js`     |
-| `@sometic/dom`           | `SometicDom`           | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.1/dist/cdn/sometic-dom.iife.js`                     | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.1/dist/cdn/sometic-dom.esm.js`                     |
+| Package                  | Global                 | Simple script                                                                                      | Module script                                                                                     |
+| ------------------------ | ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `@sometic/elements`      | `SometicElements`      | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js`           | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js`           |
+| `@sometic/http`          | `SometicHttp`          | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js`                   |
+| `@sometic/query`         | `SometicQuery`         | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.esm.js`                 |
+| `@sometic/auth`          | `SometicAuth`          | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js`                   |
+| `@sometic/store`         | `SometicStore`         | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.esm.js`                 |
+| `@sometic/theme`         | `SometicTheme`         | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.esm.js`                 |
+| `@sometic/head`          | `SometicHead`          | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.esm.js`                   |
+| `@sometic/app-shell`     | `SometicAppShell`      | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js`         | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js`         |
+| `@sometic/core`          | `SometicCore`          | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.7/dist/cdn/sometic-core.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.7/dist/cdn/sometic-core.esm.js`                   |
+| `@sometic/events`        | `SometicEvents`        | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.iife.js`               | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.esm.js`               |
+| `@sometic/forms`         | `SometicForms`         | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.3/dist/cdn/sometic-forms.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.3/dist/cdn/sometic-forms.esm.js`                 |
+| `@sometic/styling`       | `SometicStyling`       | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.iife.js`             | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.esm.js`             |
+| `@sometic/accessibility` | `SometicAccessibility` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.iife.js` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.esm.js` |
+| `@sometic/positioning`   | `SometicPositioning`   | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.7/dist/cdn/sometic-positioning.iife.js`     | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.7/dist/cdn/sometic-positioning.esm.js`     |
+| `@sometic/dom`           | `SometicDom`           | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.iife.js`                     | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.esm.js`                     |
 
 #### Simple script (HTTP)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -1303,7 +1829,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ```html
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");
@@ -1313,7 +1839,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 #### Simple script (app shell)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -1327,7 +1853,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ```html
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.1/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,
@@ -1340,7 +1866,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 #### Simple script (Vanilla `bind*` via `@sometic/dom`)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.1/dist/cdn/sometic-dom.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.iife.js"></script>
 <script>
     const button = document.querySelector("button");
     if (button) {
@@ -1359,7 +1885,7 @@ Peer: `preact` `^10` (optional). Capabilities: `storeBind` only.
 
 <InstallCommands packages="@sometic/preact @sometic/store" />
 
-See [Preact](/frameworks/preact) for `createPreactStoreBind`. Phase 20 structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) are on `@sometic/react/structure` and `@sometic/vue/structure`, not Preact.
+See [Preact](/frameworks/preact) for `createPreactStoreBind`. Structure components (Tabs, Accordion, Breadcrumb, Command palette, Tree) ship on `@sometic/react/structure` and `@sometic/vue/structure`, not Preact.
 
 ### Angular, Svelte, Solid
 
@@ -1390,7 +1916,7 @@ Full inventory and honesty labels: [What’s included](/guide/whats-included).
 
 ## Maturity
 
-Public **beta** (`0.1.0-beta` track). See [Beta maturity](/releases/beta).
+Public **beta**. Maturity is a label, not a shared npm version. See [Beta maturity](/releases/beta).
 
 ## Next
 
@@ -1938,7 +2464,7 @@ Honest inventory of the public beta. If it is not listed under **Included**, do 
 | Area                  | Packages / surfaces                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Foundation            | `core`, `events`, `store`, `store-immer`, `styling`, `theme`, `accessibility`, `positioning`, `dom`, `validation`, `validation-zod`, `validation-yup`, `date-*`, **`head`**                                                                                                                                                                                                                                                                                                                          |
-| Application           | `forms`, `auth`, `auth-local`, `auth-firebase`, `auth-supabase`, `auth-oidc`, `http`, **`query`**, **`query-builder`**, **`data-table`**, **`upload`**, **`activity`**, **`approval`**, **`notifications`**, **`head`**, **`app-shell`**                                                                                                                                                                                                                                                             |
+| Application           | `forms`, `auth`, `auth-local`, `auth-firebase`, `auth-supabase`, `auth-oidc`, `http`, **`query`**, **`query-builder`**, **`data-table`**, **`upload`**, **`activity`**, **`approval`**, **`notifications`**, **`head`**, **`app-shell`**, **`feature-flags`**, **`drafts`**, **`commands`**, **`history`**, **`conflict`**, **`offline-queue`** (plus `createPermissionController` on `auth`)                                                                                                        |
 | UI engines + adapters | Button family, Field/Input family, Selection (Checkbox, Switch, Radio, Select, **Combobox**), Overlay (Dialog, Popover, Tooltip, Toast, Alert, **Menu**, **Context menu**, **Drawer**), Structure (**Tabs**, **Accordion**, **Breadcrumb**, **Command palette**, **Tree**), Feedback (**Progress**, **Spinner**, **Skeleton**, **Badge**, **Status**), Data (**Data table**, **Upload**, **Permission matrix**, **Notification center**, **Schema form**), Form adapters                             |
 | Adapters              | `@sometic/react` (Wave A including structure + **`/data`**), `@sometic/vue` (including structure + **`/data`**), `@sometic/elements` (CEs below)                                                                                                                                                                                                                                                                                                                                                     |
 | Elements CEs (honest) | **Shipped:** button family, field/input family, form, selection (checkbox/switch/radio/select, **not** combobox), overlay (dialog/popover/tooltip/toast/alert, **not** menu/context-menu/drawer), structure feedback (**`sometic-badge`**, **`sometic-progress`**, **`sometic-spinner`**, **`sometic-skeleton`**). **Not shipped as CEs:** Menu, Context menu, Drawer, Tabs, Accordion, Breadcrumb, Command palette, Tree, Combobox: use React/Vue or `@sometic/dom` controllers/resolve in Vanilla. |
@@ -1964,24 +2490,28 @@ Honest adapter coverage for production paths. **CE** means a `sometic-*` custom 
 | Menu / Context menu / Drawer / Combobox                         | Yes             | Partial or not shipped | No                         | Yes                          |
 | Tabs / Accordion / Breadcrumb / Command palette / Tree          | Yes             | Yes                    | No                         | Yes                          |
 | Data table / Upload / Schema form / Permissions / Notifications | Yes (`/data`)   | Yes (`/data`)          | No                         | Yes                          |
-| Auth / HTTP / Query / Store / App shell                         | Hooks + engines | Hooks + engines        | `sometic-auth-status` only | Engines + `createSometicApp` |
+| Auth / HTTP / Query / Store / App shell / App primitives        | Hooks + engines | Hooks + engines        | `sometic-auth-status` only | Engines + `createSometicApp` |
 
-## Deferred (later phases)
+## Deferred
 
-| Area           | Examples                                                                                                                                                                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rich selection | Autocomplete polish, Multi-select, Tags, Sliders, Color picker, Date/Time **picker UI**                                                                                                                                                                           |
-| Navigation     | Pagination, Stepper, Timeline, Nav Menu chrome, Split/Resizable panes                                                                                                                                                                                             |
-| App primitives | Feature flags, drafts, offline mutation queue, undo/redo, command registry (Phase 22). **Data table**, **query builder**, **upload**, **activity**, **approval**, **notifications**, and **status** surfaces now ship (Phase 21); see [Components](/components/). |
-| Data CEs       | No `sometic-*` custom elements for data-table / upload / matrix yet: use React/Vue `@sometic/*/data` or `@sometic/dom` resolve controllers in Vanilla.                                                                                                            |
+| Area              | Examples                                                                                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rich selection    | Autocomplete polish, Multi-select, Tags, Sliders, Color picker, Date/Time **picker UI**                                                                                               |
+| Navigation        | Pagination, Stepper, Timeline, Nav Menu chrome, Split/Resizable panes                                                                                                                 |
+| Data CEs          | No `sometic-*` custom elements for data-table / upload / matrix yet: use React/Vue `@sometic/*/data` or `@sometic/dom` resolve controllers in Vanilla.                                |
+| App primitive CEs | No dedicated `sometic-*` elements for flags/drafts/commands/history/conflict/offline-queue yet: call the engines from Vanilla/React/Vue. See [App primitives](/guide/app-primitives). |
+
+App primitives (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and `createPermissionController` on `@sometic/auth`) are included above as production engines.
 
 See [Beta maturity](/releases/beta) for stability labels and known limitations.
+See [Upgrade](/releases/upgrade) when bumping package versions.
 
 ## Related
 
 - [Why Sometic](/guide/why-sometic)
 - [Comparison](/guide/comparison)
 - [Components](/components/)
+- [App primitives](/guide/app-primitives)
 - [Head / SEO](/utilities/head)
 - [Query](/utilities/query)
 - [App Shell](/guide/app-shell)
@@ -2577,7 +3107,7 @@ el.textContent = "Profile saved.";
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
 ```
@@ -2585,7 +3115,7 @@ el.textContent = "Profile saved.";
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
@@ -3073,7 +3603,7 @@ createAsyncButtonController({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-async-button>Save</sometic-async-button>
 ```
@@ -3081,7 +3611,7 @@ createAsyncButtonController({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-async-button>Save</sometic-async-button>
@@ -3302,7 +3832,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-badge>Neutral</sometic-badge>
 <sometic-badge tone="success">Ready</sometic-badge>
@@ -3312,7 +3842,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-badge>Neutral</sometic-badge>
@@ -3629,7 +4159,7 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
     <sometic-button type="button">CSV</sometic-button>
@@ -3640,7 +4170,7 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
@@ -3843,7 +4373,7 @@ bindButton(button, {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button>Save</sometic-button>
 ```
@@ -3851,7 +4381,7 @@ bindButton(button, {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button>Save</sometic-button>
@@ -4063,7 +4593,7 @@ bindCheckbox(input, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-checkbox></sometic-checkbox>
 ```
@@ -4071,7 +4601,7 @@ bindCheckbox(input, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-checkbox></sometic-checkbox>
@@ -4944,7 +5474,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
 ```
@@ -4952,7 +5482,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
@@ -5722,7 +6252,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
 <sometic-date-input></sometic-date-input>
@@ -5731,7 +6261,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
@@ -5965,7 +6495,7 @@ document.querySelector("#open").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="open">Open</button>
 <sometic-dialog>Confirm?</sometic-dialog>
@@ -5974,7 +6504,7 @@ document.querySelector("#open").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="open">Open</button>
@@ -6546,7 +7076,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
      element's internal parts or prefer React/Vue Field for full chrome props. -->
@@ -6558,7 +7088,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
@@ -6792,7 +7322,7 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
 ```
@@ -6800,7 +7330,7 @@ input.addEventListener("change", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
@@ -7024,7 +7554,7 @@ formEl.addEventListener("submit", (event) => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-form>
     <input name="email" />
@@ -7035,7 +7565,7 @@ formEl.addEventListener("submit", (event) => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-form>
@@ -7245,7 +7775,7 @@ bindButton(button, { onPress() {} });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-icon-button aria-label="Search">
     <!-- icon markup -->
@@ -7255,7 +7785,7 @@ bindButton(button, { onPress() {} });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-icon-button aria-label="Search">
@@ -7592,7 +8122,7 @@ bindInput(input, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-input placeholder="Name"></sometic-input>
 ```
@@ -7600,7 +8130,7 @@ bindInput(input, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-input placeholder="Name"></sometic-input>
@@ -7818,7 +8348,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
 ```
@@ -7826,7 +8356,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
@@ -8532,7 +9062,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-number-input min="0" max="100"></sometic-number-input>
 ```
@@ -8540,7 +9070,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-number-input min="0" max="100"></sometic-number-input>
@@ -8872,7 +9402,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-otp-input length="6"></sometic-otp-input>
 ```
@@ -8880,7 +9410,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-otp-input length="6"></sometic-otp-input>
@@ -9117,7 +9647,7 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
 ```
@@ -9125,7 +9655,7 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
@@ -9708,7 +10238,7 @@ document.querySelector("#trigger").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="trigger">Open</button>
 <sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
@@ -9717,7 +10247,7 @@ document.querySelector("#trigger").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="trigger">Open</button>
@@ -9928,7 +10458,7 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
 <sometic-progress></sometic-progress>
@@ -9937,7 +10467,7 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
@@ -10419,7 +10949,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <div role="radiogroup" aria-label="Plan">
     <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
@@ -10430,7 +10960,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <div role="radiogroup" aria-label="Plan">
@@ -10986,7 +11516,7 @@ bindSelect(select, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-select>
     <option value="a">Alpha</option>
@@ -10997,7 +11527,7 @@ bindSelect(select, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-select>
@@ -11187,7 +11717,7 @@ const staticView = resolveSkeleton({ animated: false });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-skeleton></sometic-skeleton>
 ```
@@ -11195,7 +11725,7 @@ const staticView = resolveSkeleton({ animated: false });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-skeleton></sometic-skeleton>
@@ -11318,7 +11848,7 @@ for (const [key, attr] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-spinner label="Loading results"></sometic-spinner>
 ```
@@ -11326,7 +11856,7 @@ for (const [key, attr] of Object.entries(view.attributes)) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-spinner label="Loading results"></sometic-spinner>
@@ -11768,7 +12298,7 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-switch
     checked
@@ -11781,7 +12311,7 @@ input.addEventListener("change", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-switch
@@ -12283,7 +12813,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="go">Toast</button>
 <sometic-toast-region></sometic-toast-region>
@@ -12292,7 +12822,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="go">Toast</button>
@@ -12503,7 +13033,7 @@ createToggleButtonController({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-toggle-button>Bold</sometic-toggle-button>
 ```
@@ -12511,7 +13041,7 @@ createToggleButtonController({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-toggle-button>Bold</sometic-toggle-button>
@@ -12763,7 +13293,7 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-tooltip placement="top">
     <button type="button">Save</button>
@@ -12774,7 +13304,7 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-tooltip placement="top">
@@ -13804,9 +14334,9 @@ Support is claimed only where automated tests exist. Prefer Wave A for productio
 
 | Framework    | Package                                | Wave           | Claimed capabilities                                                        | Peer                                  |
 | ------------ | -------------------------------------- | -------------- | --------------------------------------------------------------------------- | ------------------------------------- |
-| React        | `@sometic/react`                       | A              | button, field, input, form, selection, overlay, auth, http, store           | `react` `^18 \|\| ^19`                |
-| Vue          | `@sometic/vue`                         | A              | button, field, input, form, selection, overlay, auth, http, store           | `vue` `^3.5`                          |
-| Vanilla / WC | `@sometic/elements` (+ `@sometic/dom`) | A              | `sometic-*` elements: button, input, form, selection, overlay, auth, events | none (browser CE)                     |
+| React        | `@sometic/react`                       | A              | button, field, input, form, selection, overlay (incl. menu/drawer), structure, `/data`, auth, http, query, store, head | `react` `^18 \|\| ^19`                |
+| Vue          | `@sometic/vue`                         | A              | matching Wave A subpaths (some overlay hosts thinner than DOM/CE)                                                       | `vue` `^3.5`                          |
+| Vanilla / WC | `@sometic/elements` (+ `@sometic/dom`) | A              | shipped `sometic-*` set in [What’s included](/guide/whats-included); remaining engines via `@sometic/dom`               | none (browser CE)                     |
 | Angular      | `@sometic/angular`                     | B Experimental | `storeBind`                                                                 | `@angular/core` `^19` (optional peer) |
 | Svelte       | `@sometic/svelte`                      | B Experimental | `storeBind`                                                                 | `svelte` `^5` (optional peer)         |
 | Solid        | `@sometic/solid`                       | B Experimental | `storeBind`                                                                 | `solid-js` `^1.8` (optional peer)     |
@@ -13825,11 +14355,15 @@ Support is claimed only where automated tests exist. Prefer Wave A for productio
 | `@sometic/{react\|vue}/field`     | `Field`                                                                                                       |
 | `@sometic/{react\|vue}/input`     | `Input`, `PasswordInput`, `OtpInput`, `NumberInput`, `FileInput`, `MaskedInput`, `CurrencyInput`, `DateInput` |
 | `@sometic/{react\|vue}/form`      | `Form`, `FormProvider`, `useForm`, `useFormContext`, `useFormField`, `useFormState`, `useFieldArray`          |
-| `@sometic/{react\|vue}/selection` | `Checkbox`, `Radio`, `Select`, `Switch`                                                                       |
-| `@sometic/{react\|vue}/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`                                                        |
-| `@sometic/{react\|vue}/store`     | `useStore`                                                                                                    |
-| `@sometic/{react\|vue}/auth`      | React: `AuthProvider`, `useAuth`, `useSession`, `useCan` · Vue: `useAuth`, `useSession`, `useCan`             |
-| `@sometic/{react\|vue}/http`      | React: `HttpProvider`, `useHttp` · Vue: `useHttp`                                                             |
+| `@sometic/{react\|vue}/selection` | `Checkbox`, `Radio`, `Select`, `Switch`, `Combobox` (Vue coverage: see [What’s included](/guide/whats-included)) |
+| `@sometic/{react\|vue}/overlay`   | `Alert`, `Dialog`, `Popover`, `Tooltip`, `ToastRegion`, plus menu / context-menu / drawer where shipped           |
+| `@sometic/{react\|vue}/structure` | `Tabs`, `Accordion`, `Breadcrumb`, `CommandPalette`, `Tree`, feedback primitives                                  |
+| `@sometic/{react\|vue}/data`      | Data table, upload, schema form, permission matrix, notification center                                           |
+| `@sometic/{react\|vue}/store`     | `useStore`                                                                                                        |
+| `@sometic/{react\|vue}/auth`      | React: `AuthProvider`, `useAuth`, `useSession`, `useCan` · Vue: `useAuth`, `useSession`, `useCan`                 |
+| `@sometic/{react\|vue}/http`      | React: `HttpProvider`, `useHttp` · Vue: `useHttp`                                                                 |
+| `@sometic/{react\|vue}/query`     | Query hooks over `@sometic/query`                                                                                 |
+| `@sometic/{react\|vue}/head`      | Document head helpers                                                                                             |
 
 Root `@sometic/react` and `@sometic/vue` re-export selected surfaces; prefer subpaths for tree-shaking.
 
@@ -13859,6 +14393,7 @@ There is no `@sometic/elements/store` or `/http` subpath. Use `@sometic/store` a
 - [Components](/components/)
 - [Stores](/stores/)
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
 
 
 
@@ -14185,7 +14720,7 @@ This is the full Preact install for this beta. Do not add `@sometic/preact/butto
 
 ## Components
 
-**Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Phase 20 surfaces live here:
+**Not shipped.** `@sometic/preact` has no button, form, overlay, or structure components. Structure surfaces live here:
 
 | Surface                                                                                | Package                                                                                                                         |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -14236,7 +14771,7 @@ bind.dispose();
 
 - Capabilities: `["storeBind"]` only.
 - No button / form / overlay / structure / auth / HTTP Preact adapters.
-- Phase 20 Command palette and Tree are React, Vue, and Vanilla only.
+- Command palette and Tree are React, Vue, and Vanilla only.
 - Not validated as a compat layer over `@sometic/react`.
 - CLI does not scaffold Preact.
 
@@ -14891,7 +15426,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 #### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -14901,7 +15436,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
@@ -15493,7 +16028,7 @@ Public beta labels live on [Beta maturity](/releases/beta). In short:
 
 - **Beta:** Wave A foundations, forms, auth, HTTP, query, React, Vue, Elements, CLI.
 - **Experimental:** Wave B (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX) contracts.
-- **Deferred:** later-phase catalogs such as multi-select polish, date/time picker UI, command palette, and data tables. Menu, Combobox, Drawer, Tabs, and related launch surfaces ship in this beta — see [What’s included](/guide/whats-included).
+- **Deferred:** richer selection polish, date/time picker UI, remaining nav chrome, Floating UI adapter, and missing custom elements. Command palette, Tree, data-table engines, and app primitive engines ship as listed in [What’s included](/guide/whats-included). Menu, Combobox, Drawer, and Tabs also ship.
 
 ## When to use Sometic
 
@@ -16343,7 +16878,10 @@ Architecture targets (goals, not runtime guarantees on every commit):
 | Button behavior | ≤ 1.5 KB |
 | React button    | ≤ 2 KB   |
 | Input           | ≤ 3 KB   |
-| Theme           | ≤ 3 KB   |
+| Theme           | About 4.4 KB gzip for the controller root (Size Limit 5 KB). Import `/presets` separately. |
+| HTTP client     | ≤ 6 KB   |
+| Validation root | ≤ 3 KB   |
+| Forms root      | ≤ 6.5 KB |
 | Auth core       | ≤ 8 KB   |
 | Head            | ≤ 4 KB   |
 
@@ -18460,7 +18998,7 @@ Sometic theming is **behavior first**, not a shipped visual kit:
 | System prefs     | `@sometic/theme/system`        | Color scheme, reduced motion, more contrast (lazy `matchMedia`) |
 | Presets          | `@sometic/theme/presets`       | Minimal `lightTheme` / `darkTheme` for demos and tests          |
 
-Presets stay on a subpath so the root controller can stay within its gzip size budget.
+Presets stay on a subpath so apps that only need the controller do not pay for palettes. The controller root is about 4.4 KB gzip.
 
 ## Architecture boundary
 
@@ -18677,7 +19215,7 @@ Theme lists them as dependencies. Install store yourself when you import `@somet
 
 ### Why are presets a separate subpath?
 
-To protect the root controller size budget (about 3 KB gzip for the theme root entry).
+To keep presets off the controller entry. The theme root is about 4.4 KB gzip (package Size Limit 5 KB). Import `@sometic/theme/presets` only when you need bundled palettes.
 
 ### Can I use this in CommonJS?
 
@@ -20106,6 +20644,8 @@ Prefer httpOnly cookies when your API supports them. Client storage adapters the
 
 Sign-out posts logout so peer tabs clear session without starting a refresh storm. Do not invent a second BroadcastChannel for the same app identity.
 
+The default session payload includes tokens. That lets peer tabs adopt a refreshed session. If you must not put bearer tokens on the channel, set `crossTabIncludeTokens: false` (peer tabs then receive `tokens: null` and should read from their own storage) or pass a custom bus.
+
 ## Environment hooks
 
 Pass a custom `environment` in tests or SSR shells. Pass `false` to skip visibility and online listeners (useful for Node unit tests).
@@ -20461,7 +21001,7 @@ auth.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
     auth.signIn({ email: "a@b.c", password: "secret" });
@@ -20470,7 +21010,7 @@ auth.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
     await auth.signIn({ email: "a@b.c", password: "secret" });
@@ -20649,7 +21189,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 ::: code-group
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
 </script>
@@ -20657,7 +21197,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 
 ```html [CDN Module]
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
 </script>
@@ -20772,7 +21312,7 @@ type AuthInterceptorOptions = {
 
 ## Refresh queue behavior
 
-1. `onRequest` attaches `Authorization: Bearer <token>` when a token exists.
+1. `onRequest` attaches `Authorization: Bearer <token>` when a token exists **and** the URL is not excluded.
 2. On error with unauthorized status (and not excluded, and not already retried):
     - Start or join a shared `refreshInflight` promise
     - Call `auth.handleUnauthorized()`
@@ -20988,6 +21528,9 @@ type LocalAuthProviderOptions = {
     mapUser?: (payload: unknown) => AuthUser;
     mapTokens?: (payload: unknown) => AuthTokens | null;
     mapSession?: (payload: unknown) => AuthSession;
+    allowAbsoluteEndpoints?: boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 ```
 
@@ -21062,7 +21605,7 @@ createLocalAuthProvider({
 
 ### Can I point endpoints at absolute URLs?
 
-Yes. Paths that look like absolute URLs are used as-is.
+Only with `allowAbsoluteEndpoints: true`. Relative paths under `baseUrl` are the default. Absolute `endpoints.*` values are rejected otherwise.
 
 ### How do I test without a server?
 
@@ -21122,14 +21665,17 @@ const auth = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -21150,14 +21696,17 @@ const auth: AuthController = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -21177,14 +21726,17 @@ const auth = createAuth({
     storage: createSessionStorageAuthStorage(),
 });
 
-const { url } = await auth.startOAuth({
+const { authorizationUrl } = await auth.startOAuth({
     provider: "oidc",
     redirectUri: "https://app.example.com/oauth/callback",
 });
-location.assign(url);
+location.assign(authorizationUrl);
 
 await auth.completeOAuth({
-    redirectUri: location.href,
+    provider: "oidc",
+    redirectUri: "https://app.example.com/oauth/callback",
+    code: new URLSearchParams(location.search).get("code") ?? "",
+    state: new URLSearchParams(location.search).get("state") ?? "",
 });
 ```
 
@@ -21207,6 +21759,8 @@ type OidcAuthProviderOptions = {
     fetcher?: typeof fetch;
     store?: OidcPkceStore;
     validateRedirectUri?: (uri: string) => boolean;
+    signal?: AbortSignal;
+    timeoutMs?: number;
 };
 ```
 
@@ -21216,26 +21770,7 @@ Default scopes: `openid profile email`.
 
 ## PKCE store
 
-Default store is in-memory. Full-page redirects to the IdP **lose** memory. Persist verifier/state:
-
-```ts
-const store = {
-    get: (key: string) => sessionStorage.getItem(key),
-    set: (key: string, value: string) => {
-        sessionStorage.setItem(key, value);
-    },
-    remove: (key: string) => {
-        sessionStorage.removeItem(key);
-    },
-};
-
-createOidcAuthProvider({
-    clientId: "my-spa",
-    redirectUri: "https://app.example.com/oauth/callback",
-    issuer: "https://id.example.com",
-    store,
-});
-```
+When `sessionStorage` exists, the default store persists verifier and state there so a full-page IdP redirect can complete. Inject `store` to override. Memory-only stores lose the verifier across navigations (fine for tests).
 
 ## Capabilities
 
@@ -21250,7 +21785,9 @@ Password grant is intentionally unsupported for SPAs.
 
 ## Redirect validation
 
-Default `validateRedirectUri` requires matching origin and pathname with the configured `redirectUri`. Override only when you understand open-redirect risks.
+Default `validateRedirectUri` requires an **exact** match with the configured `redirectUri` (full URI string). Query strings, fragments, and `javascript:` URLs do not match. Override only when you understand open-redirect risks.
+
+The browser adapter does **not** verify `id_token` signatures or nonce. Treat ID tokens as opaque until your backend (or a dedicated verifier) checks them.
 
 ## Patterns
 
@@ -21295,7 +21832,7 @@ Keeps the adapter standards-based and peer-free. You can still use Auth0 as the 
 
 ### Callback loses login state
 
-Use a durable `OidcPkceStore` (`sessionStorage`). Memory store is for tests or same-document flows only.
+The default store uses `sessionStorage` when it exists. If you passed a memory `store`, the verifier is gone after a full-page redirect.
 
 ### Related
 
@@ -21599,6 +22136,8 @@ Pass `supabase.auth` (or any `SupabaseAuthLike` mock) into the adapter. Sometic 
 type SupabaseAuthProviderOptions = {
     auth: SupabaseAuthLike;
     mapUser?: (user: SupabaseUserLike) => AuthUser;
+    redirectUri?: string;
+    validateRedirectUri?: (uri: string) => boolean;
 };
 ```
 
@@ -21628,7 +22167,7 @@ Supabase `access_token` / `refresh_token` / `expires_at` (seconds) map into Some
 
 ### OAuth
 
-Ensure the injected client exposes `signInWithOAuth`. Capability `oauth` is added only then. Complete the redirect with your app router; use Sometic session subscribe for UX.
+Ensure the injected client exposes `signInWithOAuth`. Capability `oauth` is added only then. `redirectTo` must match `redirectUri` when configured, or be an `http:` / `https:` URL. `javascript:` and other schemes are rejected.
 
 ### HTTP API calls
 
@@ -21893,7 +22432,7 @@ OIDC has OAuth but not password `signIn`. Local has password flows but not OAuth
 
 **Causes:**
 
-- `redirectUri` mismatch (origin/path)
+- `redirectUri` mismatch (must equal the configured URI, including no extra query string)
 - Memory PKCE store lost across full page redirect (use durable `OidcPkceStore`)
 - Discovery URL wrong (`issuer` trailing slash / missing `.well-known`)
 
@@ -23281,7 +23820,7 @@ store.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.iife.js"></script>
 <script>
     const store = SometicStore.createStore({ count: 0 });
     store.update((s) => ({ count: s.count + 1 }));
@@ -23290,7 +23829,7 @@ store.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.2/dist/cdn/sometic-store.esm.js";
+    import { createStore } from "https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.esm.js";
 
     const store = createStore({ count: 0 });
     store.update((s) => ({ count: s.count + 1 }));
@@ -23796,7 +24335,7 @@ theme.setMode("dark");
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.iife.js"></script>
 <script>
     const theme = SometicTheme.createThemeController({ themes: [], defaultThemeId: "light" });
 </script>
@@ -23804,7 +24343,7 @@ theme.setMode("dark");
 
 ```html [CDN Module]
 <script type="module">
-    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.2/dist/cdn/sometic-theme.esm.js";
+    import { createThemeController } from "https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.esm.js";
 
     const theme = createThemeController({ themes: [], defaultThemeId: "light" });
 </script>
@@ -24030,7 +24569,7 @@ const tags = serializeHead(head.get());
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.iife.js"></script>
 <script>
     const head = SometicHead.createHeadController();
     head.patch({ title: "Docs" });
@@ -24039,7 +24578,7 @@ const tags = serializeHead(head.get());
 
 ```html [CDN Module]
 <script type="module">
-    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@0.1.2/dist/cdn/sometic-head.esm.js";
+    import { createHeadController } from "https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.esm.js";
 
     const head = createHeadController();
     head.patch({ title: "Docs" });
@@ -24359,7 +24898,7 @@ http.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -24370,7 +24909,7 @@ http.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.1/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");
@@ -24831,7 +25370,7 @@ queryClient.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.iife.js"></script>
 <script>
     const client = SometicQuery.createQueryClient();
 </script>
@@ -24839,7 +25378,7 @@ queryClient.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.1/dist/cdn/sometic-query.esm.js";
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.esm.js";
 
     const client = createQueryClient();
 </script>
@@ -25060,9 +25599,9 @@ This section is a **navigation hub**, not a generated per-symbol reference. Hand
 
 | Label            | Meaning                                                                                  |
 | ---------------- | ---------------------------------------------------------------------------------------- |
-| **Beta**         | Usable and tested; breaking changes may land in `0.x` with changelog notes               |
-| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements for production |
-| **Deferred**     | Later-phase catalogs (for example multi-select polish, date picker UI, data tables)      |
+| **Beta**         | Usable and tested; breaking changes may land in minors with changelog notes      |
+| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements        |
+| **Deferred**     | Not in this beta (for example picker UI polish, missing custom elements)         |
 
 Full wording: [Beta maturity](/releases/beta).
 
@@ -25082,13 +25621,15 @@ Public failures use typed `SometicError` with stable codes (`isSometicError` hel
 
 The following are **Deferred** for this beta and must not be treated as public catalog APIs:
 
-- Menu
-- Combobox
-- Drawer
-- Tabs / Accordion / Command Palette / Tree catalogs
-- App primitives such as feature flags or offline queues (later roadmap)
+- Autocomplete polish, multi-select, tags, sliders, color picker
+- Date / time **picker UI**
+- Pagination, stepper, timeline, nav-menu chrome, split/resizable panes
+- Floating UI positioning adapter
+- Dedicated `sometic-*` elements for data surfaces and app primitives
 
-Select, Popover, Dialog, and Toast are not substitutes for Menu or Combobox.
+Menu, Combobox, Drawer, Tabs, Accordion, Command palette, Tree, data-table **engines**, and app primitive **engines** ship as listed in [What’s included](/guide/whats-included). Select and Popover are not substitutes for Menu or Combobox.
+
+App primitives (feature flags, drafts, commands, history, conflict, offline queue, permissions) ship as engines. See [App primitives](/guide/app-primitives).
 
 ## Related links
 
@@ -25141,8 +25682,20 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 | `@sometic/auth-oidc`     | OIDC provider                                        | [OIDC](/authentication/oidc)                              |
 | `@sometic/http`          | Fetch-first client, interceptors, auth refresh queue | [HTTP](/utilities/http), [Services: HTTP](/services/http) |
 | `@sometic/query`         | Portable server-state cache, keys, mutations         | [Query](/utilities/query)                                 |
+| `@sometic/query-builder` | Filter / query AST for tables and forms              | [Query builder](/components/query-builder)                |
+| `@sometic/data-table`    | Data table engine                                    | [Data table](/components/data-table)                      |
+| `@sometic/upload`        | Upload engine                                        | [Upload](/components/upload)                              |
+| `@sometic/activity`      | Activity / audit list engine                         | [Activity](/components/activity)                          |
+| `@sometic/approval`      | Approval flow engine                                 | [Approval](/components/approval)                          |
+| `@sometic/notifications` | Notification center engine                           | [Notification center](/components/notification-center)    |
 | `@sometic/head`          | Portable document head (title/meta/link/SSR)         | [Head / SEO](/utilities/head)                             |
 | `@sometic/app-shell`     | System composition: createAppShell + epoch binds     | [App Shell](/guide/app-shell)                             |
+| `@sometic/feature-flags` | Feature flag evaluation engine                       | [App primitives](/guide/app-primitives)                   |
+| `@sometic/drafts`        | Draft persistence engine                             | [App primitives](/guide/app-primitives)                   |
+| `@sometic/commands`      | Command registry                                     | [App primitives](/guide/app-primitives)                   |
+| `@sometic/history`       | Undo / redo history                                  | [App primitives](/guide/app-primitives)                   |
+| `@sometic/conflict`      | Conflict resolution helpers                          | [App primitives](/guide/app-primitives)                   |
+| `@sometic/offline-queue` | Durable offline mutation queue                       | [App primitives](/guide/app-primitives)                   |
 
 ## Wave A adapters (Beta)
 
@@ -25178,17 +25731,19 @@ Public packages under the **`@sometic`** scope. Labels match [Beta maturity](/re
 | `@sometic/jquery` | jQuery adapters | [jQuery](/frameworks/jquery) |
 | `@sometic/htmx`   | HTMX adapters   | [HTMX](/frameworks/htmx)     |
 
-## Deferred (later phases)
+## Deferred
 
 These catalogs are **not shipped yet**. Launch surfaces such as Menu, Combobox, Drawer, and Tabs **are** available; see [What’s included](/guide/whats-included).
 
-| Area                                                | Status        |
-| --------------------------------------------------- | ------------- |
-| Autocomplete polish / Multi-select / Tags / Sliders | Deferred      |
-| Date / Time **picker UI**                           | Deferred      |
-| Command Palette / Tree / Pagination / Stepper       | Deferred      |
-| Floating UI adapter (opt-in)                        | Future        |
-| App primitives (flags, offline queue, …)            | Later roadmap |
+| Area                                                | Status   |
+| --------------------------------------------------- | -------- |
+| Autocomplete polish / Multi-select / Tags / Sliders | Deferred |
+| Date / Time **picker UI**                           | Deferred |
+| Pagination / Stepper / Timeline / Nav chrome        | Deferred |
+| Floating UI adapter (opt-in)                        | Future   |
+| Dedicated CE surfaces for data and app primitives   | Deferred |
+
+App primitives engines (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and auth permissions) are shipped. See [App primitives](/guide/app-primitives).
 
 ## Dependency direction (reminder)
 
@@ -25211,45 +25766,64 @@ Source: https://sometic.dev/releases/beta
 
 # Beta maturity
 
-Sometic `@sometic` packages are published as a **public beta**.
+Sometic `@sometic` packages are a **public beta**. Beta is a **maturity label**, not a single npm version. Each package versions independently via Changesets. A `1.x` number is not a promise of Level 3 stable APIs.
 
 ## Stability labels
 
-| Label            | Meaning                                                                                                                                                                                                        |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Beta**         | APIs are usable and tested; breaking changes may land in `0.x` minors with changelog notes                                                                                                                     |
-| **Experimental** | Wave B adapters (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX), contracts only; prefer React / Vue / Elements for production apps                                                          |
-| **Deferred**     | Richer selection polish (multi-select, tags, sliders), date/time **picker UI**, command palette, **data tables**, feature flags / offline queue — not `@sometic/query` (server-state cache ships in this beta) |
+| Label            | Meaning                                                                                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Beta**         | Usable and tested Wave A engines and adapters. Breaking changes may land in minors; they are called out in Changesets and [Upgrade](/releases/upgrade).         |
+| **Experimental** | Wave B adapters (Angular, Svelte, Solid, Preact) and Wave C (Alpine, jQuery, HTMX). Contracts and thin binds only. Prefer React, Vue, or Elements for production. |
+| **Deferred**     | Surfaces that are **not** in this beta. Engines that already ship stay **Beta**; missing custom elements for those engines are deferred, not the engines.       |
+
+Inventory source of truth: [What’s included](/guide/whats-included). Catalog with labels: [Package index](/api/packages).
+
+## How to read npm versions
+
+- Do not expect every package to share one version (there is no coordinated `0.1.0-beta` line).
+- Pin the versions you install. Read that package’s `CHANGELOG.md` when you bump.
+- Pre-1.0 packages may break more often than `1.x` packages; both can still be **Beta** maturity.
 
 ## Supported runtimes (beta)
 
+Claimed only where automated tests exist (Vitest, Playwright). Not a WCAG or browser-vendor certification.
+
 - TypeScript / JavaScript
-- React
-- Vue
-- Vanilla DOM / Web Components (`sometic-*`)
+- React 18 or 19
+- Vue 3.5+
+- Vanilla DOM / Web Components (`sometic-*` where listed as shipped)
+- Node.js `>=20.18.0` for tooling and SSR imports that avoid browser globals at evaluation time
+- Evergreen Chrome, Firefox, Safari, and Edge (see [Browser support](/guide/browser-support))
 
 ## Package set (beta)
 
-Foundation: `core`, `events`, `store`, `store-immer`, `styling`, `theme`, `accessibility`, `positioning`, `dom`, `validation`, `date-*`
+Foundation: `core`, `events`, `store`, `store-immer`, `styling`, `theme`, `accessibility`, `positioning`, `dom`, `validation`, `validation-zod`, `validation-yup`, `date-*`
 
-Application: `forms`, `auth`, `auth-local`, `auth-firebase`, `auth-supabase`, `auth-oidc`, `http`, `query`, `head`
+Application: `forms`, `auth`, `auth-local`, `auth-firebase`, `auth-supabase`, `auth-oidc`, `http`, `query`, `query-builder`, `data-table`, `upload`, `activity`, `approval`, `notifications`, `head`, `app-shell`, `feature-flags`, `drafts`, `commands`, `history`, `conflict`, `offline-queue`, plus `createPermissionController` on `@sometic/auth`
 
-Adapters: `react`, `vue`, `elements`, `cli`, `registry`
+Adapters and tooling: `react`, `vue`, `elements`, `cli`, `registry`
+
+Experimental (not the production path): `angular`, `svelte`, `solid`, `preact`, `alpine`, `jquery`, `htmx`
 
 ## Known limitations
 
-- **Dialog (React / Vue)** uses `createDialogController` → modal `createOverlayController` (focus trap, body scroll lock, Escape dismiss). Outside press does not dismiss. Pass `titleId` / `descriptionId` (or `aria-label`) for an accessible name; optional `getTrigger` is available on the DOM controller for return-focus wiring.
-- **Popover / Tooltip (React / Vue)** remain resolve-only open shells; full positioning, delay timers, and dismiss layers live on DOM controllers and `sometic-*` custom elements.
-- Theme CSS variable prefix and storage keys default to `sometic` (not configurable legacy names).
+- **Dialog (React / Vue)** uses modal overlay behavior (focus trap, body scroll lock, Escape). Outside press does not dismiss. Pass `titleId` / `descriptionId` (or `aria-label`) for an accessible name.
+- **Popover / Tooltip (React / Vue)** remain resolve-only open shells; full positioning, delay timers, and dismiss layers live on DOM controllers and shipped `sometic-*` elements.
+- **Custom elements** do not cover every Wave A engine. Menu, Context menu, Drawer, Tabs, Accordion, Breadcrumb, Command palette, Tree, Combobox, and data/app-primitive CEs are not shipped. Use React, Vue, or `@sometic/dom` for those. See [What’s included](/guide/whats-included).
+- Theme CSS variable prefix and storage keys default to `sometic`.
 - Errors are `SometicError` (`isSometicError`).
-- First-party positioning only; Floating UI adapter is a future opt-in.
-- Menu, Drawer, Context menu, Combobox, Tabs, Accordion, and feedback surfaces (Progress, Spinner, Skeleton, Badge) ship in this beta. **`@sometic/query` ships** for server-state caching; **data table UI engines** and rich query-builder catalogs remain deferred. Autocomplete polish, multi-select, and date/time picker UI remain deferred — do not treat Popover/Select as stand-ins for those.
+- First-party positioning only; a Floating UI adapter is deferred.
+- Richer selection polish (multi-select, tags, sliders), date/time **picker UI**, and remaining nav chrome (pagination, stepper, timeline, split panes) remain deferred.
+
+## Telemetry
+
+`@sometic/*` packages do **not** send usage or analytics data to Sometic. There is no phone-home, crash reporter, or optional telemetry SDK in the libraries. The documentation site’s practices are described in [Privacy](/legal/privacy).
 
 ## Feedback
 
-Use the GitHub issue templates (**Bug report** / **Feature request**) on this repository. Include reproduction steps, package versions, and framework.
+Use the GitHub issue templates (**Bug report** / **Feature request**) on the [packages repository](https://github.com/aitistack/sometic/issues). Include reproduction steps, **package names and versions**, and framework. Security issues go to [GitHub Security Advisories](https://github.com/aitistack/sometic/security/advisories/new), not public issues.
 
-Want to send a fix or docs PR? See [Contributing](/guide/contributing).
+Want to send a fix or docs PR? See [Contributing](/guide/contributing). Breaking-change habits: [Upgrade](/releases/upgrade).
 
 
 
@@ -25293,12 +25867,12 @@ The public beta gathers Wave A foundations through overlays into a coherent cons
 | Overlay | Positioning engine; Dialog, Popover, Tooltip, Toast, Alert |
 | Beta release / harden | Dialog controller wiring on React/Vue; Sometic-only public API and docs polish |
 
-Workspace may still report `0.0.x` until the coordinated beta version publish. Treat **`0.1.0-beta`** as the intended published track name in consumer docs.
+Workspace packages already use independent SemVer. Do not treat a coordinated `0.1.0-beta` line as the published version scheme. See [Beta maturity](/releases/beta) and [Upgrade](/releases/upgrade).
 
 ## Honesty notes (do not over-read the table)
 
 - **Experimental:** Wave B and Wave C packages are contracts-first; prefer React, Vue, or Elements for production.
-- **Deferred:** Menu, Combobox, Drawer, Tabs, and related catalogs are not shipped. Select and Popover are not those APIs.
+- **Deferred:** richer selection polish, date/time picker UI, remaining nav chrome, Floating UI adapter, and missing custom elements. Menu, Combobox, Drawer, Tabs, data-table engines, and app primitive engines **do** ship where listed in [What’s included](/guide/whats-included).
 - **Overlay limits:** React/Vue Dialog uses modal overlay controller behavior (focus trap, Escape, scroll lock); outside press does not dismiss. Popover/Tooltip on React/Vue remain thinner than DOM/CE hosts for positioning and dismiss layers. Details: [Beta maturity](/releases/beta).
 
 ## Reading package changelogs
@@ -25306,13 +25880,14 @@ Workspace may still report `0.0.x` until the coordinated beta version publish. T
 After a Changesets version publish:
 
 1. Open the package’s `CHANGELOG.md` for exact version sections.
-2. Cross-check breaking notes against [Beta maturity](/releases/beta).
+2. Cross-check breaking notes against [Beta maturity](/releases/beta) and [Upgrade](/releases/upgrade).
 3. Prefer subpath imports when adopting new entries ([Tree shaking](/concepts/tree-shaking)).
 
 ## Related links
 
 - [Releases](/releases/)
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
 - [Package index](/api/packages)
 - [API reference](/api/)
 - [Architecture](/concepts/architecture)
@@ -25329,28 +25904,29 @@ Sometic publishes under the **`@sometic`** npm scope. Custom elements use the **
 
 ## Current track
 
-**Public beta:** packages target a **`0.1.0-beta`** publish line. Workspace package.json files may still show `0.0.x` until the first Changesets version publish lands on the registry.
+**Public beta.** Maturity labels live on [Beta maturity](/releases/beta). Each package versions independently via Changesets. Do not treat a `1.x` npm number as Level 3 stable, and do not look for a single `0.1.0-beta` line across the scope.
 
-| Resource                         | Purpose                                                 |
-| -------------------------------- | ------------------------------------------------------- |
-| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations |
-| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets |
+| Resource                         | Purpose                                                      |
+| -------------------------------- | ------------------------------------------------------------ |
+| [Beta maturity](/releases/beta)  | Stability labels, supported runtimes, known limitations      |
+| [Upgrade](/releases/upgrade)     | How breaking changes are recorded and how to bump packages   |
+| [Changelog](/releases/changelog) | Identity narrative and thematic history from Changesets      |
 
-**Maturity source of truth:** always prefer [Beta maturity](/releases/beta) over informal README claims.
+**Maturity source of truth:** always prefer [Beta maturity](/releases/beta) over informal README claims. **Inventory source of truth:** [What’s included](/guide/whats-included).
 
 ## What “beta” means here
 
-- APIs are usable and covered by tests for Wave A surfaces.
-- Breaking changes may still occur in `0.x` minors; they are called out in Changesets and changelog notes.
+- Wave A APIs are usable and covered by tests.
+- Breaking changes may still occur; they are called out in Changesets and changelog notes.
 - Experimental Wave B/C adapters are opt-in and incomplete relative to React / Vue / Elements.
-- Deferred catalogs such as data tables, command palette, and date/time picker UI remain out of scope for this beta (Menu, Combobox, Tabs, Drawer ship — see [What’s included](/guide/whats-included)).
+- Deferred items are listed on [What’s included](/guide/whats-included). Shipped Menu, Combobox, Tabs, data-table engines, and app primitive engines are **not** deferred.
 
 ## Versioning policy (summary)
 
 - Semantic Versioning per package via Changesets (versions may diverge).
 - Coordinated bumps when cross-package contracts move together.
-- Pre-1.0: prefer soft migrations, but breaking changes are allowed with clear notes.
 - Typed deprecations and migration notes when APIs are retired.
+- Details: [Upgrade](/releases/upgrade).
 
 ## How we record changes
 
@@ -25358,14 +25934,61 @@ Each user-facing change should land with a Changeset. Themes from recent Changes
 
 ## Feedback
 
-Use the repository GitHub issue templates (**Bug report** / **Feature request**). Include reproduction steps, package versions, and framework.
+Use the repository GitHub issue templates (**Bug report** / **Feature request**). Include reproduction steps, package versions, and framework. Security: GitHub Security Advisories, not public issues.
 
 ## Related links
 
 - [Beta maturity](/releases/beta)
+- [Upgrade](/releases/upgrade)
 - [Changelog](/releases/changelog)
 - [Package index](/api/packages)
 - [Architecture](/concepts/architecture)
+
+
+
+# releases/upgrade.md
+
+Source: https://sometic.dev/releases/upgrade
+
+# Upgrade
+
+How to move between `@sometic` package versions during the public beta.
+
+## Policy
+
+- Each package versions independently. Read the version you installed, not a repo-wide track name.
+- Breaking changes are allowed while maturity is **Beta**. They must land with a Changeset and notes in that package’s `CHANGELOG.md`.
+- There is no shim layer for the older product identity. Imports, custom element tags, error helpers, and theme storage keys use **Sometic** / `@sometic` / `sometic-*` / `SometicError` only.
+
+## Before you bump
+
+1. Read [Changelog](/releases/changelog) for thematic notes.
+2. Open each upgraded package’s `CHANGELOG.md` in `node_modules` or on GitHub.
+3. Cross-check [Beta maturity](/releases/beta) for known limitations that are not bugs.
+4. Re-run your app’s tests and a production build. Size Limit in this monorepo is for maintainers; your app bundle is yours.
+
+## Recurring breaking themes
+
+These already shipped. Treat them as current contract, not as a future migration.
+
+| Area | What to expect |
+| ---- | -------------- |
+| Identity | `SometicError` / `isSometicError`. No legacy error class names. |
+| Custom elements | `sometic-*` tags only. |
+| Theme | CSS variable prefix and storage defaults use `sometic`. |
+| HTTP | `http.dispose()` aborts in-flight requests. New calls throw `HTTP_DISPOSED`. |
+| Query | After `client.dispose()`, writes such as `setQueryData` throw. In-flight fetches abort. |
+
+## How to report a break
+
+If an upgrade fails without a matching changelog note, file a **Bug report** with package names and **exact versions**. See [Beta maturity](/releases/beta).
+
+## Related
+
+- [Beta maturity](/releases/beta)
+- [Releases](/releases/)
+- [Contributing](/guide/contributing)
+- [What’s included](/guide/whats-included)
 
 
 
@@ -25485,7 +26108,7 @@ Source: https://sometic.dev/legal/privacy
 
 # Privacy policy
 
-**Last updated:** 6 August 2026  
+**Last updated:** 19 August 2026  
 **Applies to:** the Sometic documentation website at [sometic.dev](https://sometic.dev) (the “Site”), operated by the Sometic open-source project (“we”, “us”).
 
 This policy explains what information is involved when you use the Site. It is written for transparency. It is **not** legal advice.
@@ -25521,7 +26144,7 @@ Documentation fonts are **self-hosted** on the Site. We do not load documentatio
 
 ### Analytics and marketing
 
-As of the last updated date above, the Site does **not** use third-party advertising networks. If we add privacy-respecting analytics in the future, we will update this policy and describe the tool, purpose, and controls.
+As of the last updated date above, the Site does **not** use third-party advertising networks or a Sometic analytics SDK. If we add privacy-respecting analytics in the future, we will update this policy and describe the tool, purpose, and controls. `@sometic/*` libraries remain telemetry-free regardless of Site analytics.
 
 ### Cookies and similar technologies
 
@@ -25573,7 +26196,7 @@ The Site links to third parties (for example npm, GitHub, MDN). Their privacy pr
 
 ## Open-source packages
 
-Installing or running `@sometic/*` packages in **your** application does not by itself send usage data to Sometic. Any data your app collects is your responsibility. Prefer secure patterns documented in our guides (for example careful handling of tokens and credentials).
+Installing or running `@sometic/*` packages in **your** application does not send usage, analytics, or crash data to Sometic. The libraries have no phone-home, no crash reporter, and no optional telemetry SDK. Any data your app collects is your responsibility. Prefer secure patterns documented in our guides (for example careful handling of tokens and credentials). See [Beta maturity](/releases/beta).
 
 ## Changes
 
@@ -25591,7 +26214,7 @@ Source: https://sometic.dev/legal/security
 
 # Security
 
-**Last updated:** 6 August 2026
+**Last updated:** 14 August 2026
 
 Sometic is open-source software. We take security reports seriously and prefer coordinated disclosure.
 
@@ -25599,10 +26222,11 @@ Sometic is open-source software. We take security reports seriously and prefer c
 
 **Do not** open a public GitHub issue for unfixed, exploitable vulnerabilities.
 
-Prefer one of these channels:
+Use **GitHub Security Advisories** (private vulnerability report) on the Sometic packages repository:
 
-1. **GitHub Security Advisories** on the Sometic packages repository (private vulnerability report), when enabled for the repo
-2. **Email / contact** via channels listed on the Sometic organization at [github.com/aitistack](https://github.com/aitistack)
+https://github.com/aitistack/sometic/security/advisories/new
+
+Do not email npm org profile addresses. There is no public security mailbox yet.
 
 Include:
 

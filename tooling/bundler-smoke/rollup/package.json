@@ -6,9 +6,12 @@
         "build": "rollup -c"
     },
     "dependencies": {
+        "@sometic/auth": "workspace:*",
         "@sometic/core": "workspace:*",
+        "@sometic/events": "workspace:*",
         "@sometic/head": "workspace:*",
-        "@sometic/http": "workspace:*"
+        "@sometic/http": "workspace:*",
+        "@sometic/store": "workspace:*"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^16.0.1",

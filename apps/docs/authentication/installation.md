@@ -93,7 +93,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 ::: code-group
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
 </script>
@@ -101,7 +101,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 
 ```html [CDN Module]
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.1/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
 </script>

@@ -254,4 +254,36 @@ describe("auth orchestration", () => {
             Reflect.deleteProperty(globalThis, "document");
         }
     });
+
+    it("stops refresh timers and cross-tab bus on dispose", async () => {
+        const listeners = new Set<(message: unknown) => void>();
+        const bus = {
+            post: vi.fn(),
+            subscribe: (listener: (message: unknown) => void) => {
+                listeners.add(listener);
+                return () => {
+                    listeners.delete(listener);
+                };
+            },
+            dispose: vi.fn(() => {
+                listeners.clear();
+            }),
+        };
+        const auth = createAuth({
+            provider: createTestAuthProvider({ accessTokenTtlMs: 60_000 }),
+            storage: createMemoryAuthStorage(),
+            crossTab: bus as never,
+            autoRefresh: true,
+            environment: false,
+        });
+        await auth.signIn({ email: "demo@example.com", password: "password" });
+        expect(listeners.size).toBe(1);
+        auth.dispose();
+        auth.dispose();
+        expect(bus.dispose).toHaveBeenCalledTimes(1);
+        expect(listeners.size).toBe(0);
+        await expect(
+            auth.signIn({ email: "demo@example.com", password: "password" }),
+        ).rejects.toMatchObject({ code: "AUTH_DISPOSED" });
+    });
 });

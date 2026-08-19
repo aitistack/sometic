@@ -109,6 +109,7 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
               };
     const fetcher = options.fetcher ?? globalThis.fetch.bind(globalThis);
     const inflight = new Map<string, Promise<HttpResponse<unknown>>>();
+    const requestLifetimes = new Set<AbortController>();
     let disposed = false;
 
     const assertActive = (): void => {
@@ -123,13 +124,19 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
         const headers = mergeHeaders(options.headers, config.headers);
         const timeoutMs = config.timeoutMs ?? options.timeoutMs;
         const timeoutController = timeoutMs && timeoutMs > 0 ? new AbortController() : null;
+        const requestLifetime = new AbortController();
+        requestLifetimes.add(requestLifetime);
         let timer: ReturnType<typeof setTimeout> | undefined;
         if (timeoutController && timeoutMs) {
             timer = setTimeout(() => {
                 timeoutController.abort();
             }, timeoutMs);
         }
-        const signal = composeAbortSignals(config.signal, timeoutController?.signal);
+        const signal = composeAbortSignals(
+            config.signal,
+            timeoutController?.signal,
+            requestLifetime.signal,
+        );
         try {
             const response = await fetcher(url, {
                 method,
@@ -176,6 +183,7 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
             }
             throw createHttpError("HTTP_NETWORK", "Network request failed");
         } finally {
+            requestLifetimes.delete(requestLifetime);
             if (timer) {
                 clearTimeout(timer);
             }
@@ -308,6 +316,10 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
             }),
         dispose: () => {
             disposed = true;
+            for (const controller of requestLifetimes) {
+                controller.abort();
+            }
+            requestLifetimes.clear();
             inflight.clear();
         },
     };

@@ -254,4 +254,40 @@ describe("http client", () => {
         http.dispose();
         auth.dispose();
     });
+
+    it("aborts in-flight requests and ignores interceptors after dispose", async () => {
+        const onRequest = vi.fn((config) => config);
+        let started!: () => void;
+        const whenStarted = new Promise<void>((resolve) => {
+            started = resolve;
+        });
+        const fetcher = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+            started();
+            await new Promise<void>((resolve, reject) => {
+                const timer = setTimeout(resolve, 500);
+                init?.signal?.addEventListener(
+                    "abort",
+                    () => {
+                        clearTimeout(timer);
+                        reject(new DOMException("Aborted", "AbortError"));
+                    },
+                    { once: true },
+                );
+            });
+            return new Response("{}");
+        }) as unknown as typeof fetch;
+        const http = createHttp({
+            fetcher,
+            retry: false,
+            interceptors: [{ onRequest }],
+        });
+        const pending = http.get("/slow");
+        await whenStarted;
+        expect(onRequest).toHaveBeenCalledTimes(1);
+        http.dispose();
+        http.dispose();
+        await expect(pending).rejects.toMatchObject({ code: "HTTP_ABORTED" });
+        await expect(http.get("/after")).rejects.toMatchObject({ code: "HTTP_DISPOSED" });
+        expect(onRequest).toHaveBeenCalledTimes(1);
+    });
 });

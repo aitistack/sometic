@@ -1,0 +1,27 @@
+{
+    "name": "@sometic/performance-tools",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Cold-import and runtime benches plus Size Limit snapshots for Sometic.",
+    "homepage": "https://sometic.dev",
+    "scripts": {
+        "bench": "node src/cold-import.mjs && vitest bench --run",
+        "report:sizes": "node src/collect-sizes.mjs"
+    },
+    "dependencies": {
+        "@sometic/auth": "workspace:*",
+        "@sometic/core": "workspace:*",
+        "@sometic/events": "workspace:*",
+        "@sometic/forms": "workspace:*",
+        "@sometic/http": "workspace:*",
+        "@sometic/query": "workspace:*",
+        "@sometic/react": "workspace:*",
+        "@sometic/store": "workspace:*",
+        "@sometic/theme": "workspace:*",
+        "react": "^19.1.0"
+    },
+    "devDependencies": {
+        "vitest": "^3.2.4"
+    }
+}

@@ -63,11 +63,12 @@ More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction]
 | Adapters    | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`)                    |
 | Styling     | Unstyled by default; theme tokens optional via `@sometic/theme`                        |
 
-Honest beta inventory: [What’s included](https://sometic.dev/guide/whats-included). Why this vs alternatives: [Comparison](https://sometic.dev/guide/comparison).
+Honest beta inventory: [What’s included](https://sometic.dev/guide/whats-included). Maturity labels: [Beta maturity](https://sometic.dev/releases/beta). Why this vs alternatives: [Comparison](https://sometic.dev/guide/comparison).
 
 ## Learn more
 
 - [Introduction](https://sometic.dev/guide/introduction)
+- [Beta maturity](https://sometic.dev/releases/beta)
 - [Architecture](https://sometic.dev/concepts/architecture)
 - [Styling contract](https://sometic.dev/guide/styling)
 - [Authentication](https://sometic.dev/authentication/)

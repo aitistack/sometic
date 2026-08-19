@@ -1,6 +1,6 @@
 # Privacy policy
 
-**Last updated:** 6 August 2026  
+**Last updated:** 19 August 2026  
 **Applies to:** the Sometic documentation website at [sometic.dev](https://sometic.dev) (the “Site”), operated by the Sometic open-source project (“we”, “us”).
 
 This policy explains what information is involved when you use the Site. It is written for transparency. It is **not** legal advice.
@@ -36,7 +36,7 @@ Documentation fonts are **self-hosted** on the Site. We do not load documentatio
 
 ### Analytics and marketing
 
-As of the last updated date above, the Site does **not** use third-party advertising networks. If we add privacy-respecting analytics in the future, we will update this policy and describe the tool, purpose, and controls.
+As of the last updated date above, the Site does **not** use third-party advertising networks or a Sometic analytics SDK. If we add privacy-respecting analytics in the future, we will update this policy and describe the tool, purpose, and controls. `@sometic/*` libraries remain telemetry-free regardless of Site analytics.
 
 ### Cookies and similar technologies
 
@@ -88,7 +88,7 @@ The Site links to third parties (for example npm, GitHub, MDN). Their privacy pr
 
 ## Open-source packages
 
-Installing or running `@sometic/*` packages in **your** application does not by itself send usage data to Sometic. Any data your app collects is your responsibility. Prefer secure patterns documented in our guides (for example careful handling of tokens and credentials).
+Installing or running `@sometic/*` packages in **your** application does not send usage, analytics, or crash data to Sometic. The libraries have no phone-home, no crash reporter, and no optional telemetry SDK. Any data your app collects is your responsibility. Prefer secure patterns documented in our guides (for example careful handling of tokens and credentials). See [Beta maturity](/releases/beta).
 
 ## Changes
 

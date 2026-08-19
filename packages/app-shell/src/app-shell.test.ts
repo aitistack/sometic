@@ -57,6 +57,8 @@ describe("createSometicApp", () => {
         stop();
         observer.destroy();
         app.dispose();
+        app.dispose();
+        await expect(app.http.get("/demo")).rejects.toMatchObject({ code: "HTTP_DISPOSED" });
         auth.dispose();
     });
 });

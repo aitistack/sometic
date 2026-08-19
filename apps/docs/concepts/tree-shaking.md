@@ -57,18 +57,21 @@ Installing auth core does not pull provider SDKs. Installing store does not pull
 
 Architecture targets (goals, not runtime guarantees on every commit):
 
-| Area            | Goal     |
-| --------------- | -------- |
-| Core utils      | ≤ 1.5 KB |
-| Events          | ≤ 1 KB   |
-| Store           | ≤ 1.5 KB |
-| Styling         | ≤ 2 KB   |
-| Button behavior | ≤ 1.5 KB |
-| React button    | ≤ 2 KB   |
-| Input           | ≤ 3 KB   |
-| Theme           | ≤ 3 KB   |
-| Auth core       | ≤ 8 KB   |
-| Head            | ≤ 4 KB   |
+| Area            | Goal                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| Core utils      | ≤ 1.5 KB                                                                                   |
+| Events          | ≤ 1 KB                                                                                     |
+| Store           | ≤ 1.5 KB                                                                                   |
+| Styling         | ≤ 2 KB                                                                                     |
+| Button behavior | ≤ 1.5 KB                                                                                   |
+| React button    | ≤ 2 KB                                                                                     |
+| Input           | ≤ 3 KB                                                                                     |
+| Theme           | About 4.4 KB gzip for the controller root (Size Limit 5 KB). Import `/presets` separately. |
+| HTTP client     | ≤ 6 KB                                                                                     |
+| Validation root | ≤ 3 KB                                                                                     |
+| Forms root      | ≤ 6.5 KB                                                                                   |
+| Auth core       | ≤ 8 KB                                                                                     |
+| Head            | ≤ 4 KB                                                                                     |
 
 Prefer subpath imports and avoid presets on the theme root when you only need the controller.
 

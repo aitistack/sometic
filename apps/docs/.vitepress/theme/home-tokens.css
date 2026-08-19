@@ -51,6 +51,8 @@ html:has(.VPHome) {
     --home-wordmark: clamp(5.5rem, 12vw, 8.5rem);
     --footer-wordmark: 6.75rem;
     --home-hero-inset: var(--space-xl);
+    --vp-nav-bg-color: var(--color-hero);
+    --vp-nav-screen-bg-color: var(--color-hero);
     background-color: var(--color-paper);
 }
 
@@ -67,4 +69,6 @@ html.dark:has(.VPHome) {
     --color-cta-ink: oklch(18% 0.04 230);
     --color-cta-on-accent: oklch(18% 0.04 230);
     --color-accent-ink: var(--color-cta-on-accent);
+    --vp-nav-bg-color: var(--color-hero);
+    --vp-nav-screen-bg-color: var(--color-hero);
 }

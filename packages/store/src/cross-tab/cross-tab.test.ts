@@ -76,4 +76,19 @@ describe("createCrossTabStore", () => {
         expect(disposeSpy).toHaveBeenCalledTimes(1);
         expect(store.disposed).toBe(true);
     });
+
+    it("drops transport listeners and ignores posts after dispose", () => {
+        const transport = createMemoryTransport();
+        const store = createCrossTabStore({ n: 0 }, { key: "counter", transport });
+        store.dispose();
+        store.dispose();
+        transport.emit({
+            sourceId: "remote",
+            key: "counter",
+            revision: 4,
+            state: { n: 9 },
+        });
+        expect(() => store.set({ n: 2 })).toThrow(/disposed/);
+        expect(store.get()).toEqual({ n: 0 });
+    });
 });

@@ -2807,15 +2807,24 @@ importers:
 
   tooling/bundler-smoke/rollup:
     dependencies:
+      '@sometic/auth':
+        specifier: workspace:*
+        version: link:../../../packages/auth
       '@sometic/core':
         specifier: workspace:*
         version: link:../../../packages/core
+      '@sometic/events':
+        specifier: workspace:*
+        version: link:../../../packages/events
       '@sometic/head':
         specifier: workspace:*
         version: link:../../../packages/head
       '@sometic/http':
         specifier: workspace:*
         version: link:../../../packages/http
+      '@sometic/store':
+        specifier: workspace:*
+        version: link:../../../packages/store
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^16.0.1
@@ -2826,9 +2835,15 @@ importers:
 
   tooling/bundler-smoke/vite:
     dependencies:
+      '@sometic/auth':
+        specifier: workspace:*
+        version: link:../../../packages/auth
       '@sometic/core':
         specifier: workspace:*
         version: link:../../../packages/core
+      '@sometic/events':
+        specifier: workspace:*
+        version: link:../../../packages/events
       '@sometic/head':
         specifier: workspace:*
         version: link:../../../packages/head
@@ -2838,12 +2853,21 @@ importers:
       '@sometic/react':
         specifier: workspace:*
         version: link:../../../packages/react
+      '@sometic/store':
+        specifier: workspace:*
+        version: link:../../../packages/store
+      '@sometic/vue':
+        specifier: workspace:*
+        version: link:../../../packages/vue
       react:
         specifier: ^19.1.0
         version: 19.2.8
       react-dom:
         specifier: ^19.1.0
         version: 19.2.8(react@19.2.8)
+      vue:
+        specifier: ^3.5.17
+        version: 3.5.41(typescript@5.9.3)
     devDependencies:
       '@vitejs/plugin-react':
         specifier: ^4.5.2
@@ -2851,6 +2875,43 @@ importers:
       vite:
         specifier: ^6.4.3
         version: 6.4.3(@types/node@22.20.1)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0)
+
+  tooling/performance:
+    dependencies:
+      '@sometic/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@sometic/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@sometic/events':
+        specifier: workspace:*
+        version: link:../../packages/events
+      '@sometic/forms':
+        specifier: workspace:*
+        version: link:../../packages/forms
+      '@sometic/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@sometic/query':
+        specifier: workspace:*
+        version: link:../../packages/query
+      '@sometic/react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@sometic/store':
+        specifier: workspace:*
+        version: link:../../packages/store
+      '@sometic/theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
+      react:
+        specifier: ^19.1.0
+        version: 19.2.8
+    devDependencies:
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@22.20.1)(happy-dom@20.11.2)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0)
 
   tooling/release: {}
 

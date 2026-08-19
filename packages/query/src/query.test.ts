@@ -138,6 +138,45 @@ describe("createQueryClient", () => {
         expect(client.getQueryData(["private"])).toBeUndefined();
         client.dispose();
     });
+
+    it("aborts in-flight fetches and drops late cache writes after dispose", async () => {
+        const client = createQueryClient({
+            defaultOptions: { queries: { retry: false } },
+        });
+        let aborted = false;
+        let started!: () => void;
+        const whenStarted = new Promise<void>((resolve) => {
+            started = resolve;
+        });
+        const pending = client.fetchQuery({
+            queryKey: ["hang"],
+            queryFn: async ({ signal }) => {
+                started();
+                await new Promise<void>((_resolve, reject) => {
+                    signal.addEventListener(
+                        "abort",
+                        () => {
+                            aborted = true;
+                            reject(new DOMException("Aborted", "AbortError"));
+                        },
+                        { once: true },
+                    );
+                    if (signal.aborted) {
+                        aborted = true;
+                        reject(new DOMException("Aborted", "AbortError"));
+                    }
+                });
+                return { late: true };
+            },
+        });
+        await whenStarted;
+        client.dispose();
+        client.dispose();
+        await expect(pending).rejects.toBeTruthy();
+        expect(aborted).toBe(true);
+        expect(client.getQueryData(["hang"])).toBeUndefined();
+        expect(() => client.setQueryData(["hang"], { late: true })).toThrow();
+    });
 });
 
 describe("createHttpQueryFn", () => {

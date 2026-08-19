@@ -26,11 +26,11 @@ This section is a **navigation hub**, not a generated per-symbol reference. Hand
 
 ## Stability labels
 
-| Label            | Meaning                                                                                  |
-| ---------------- | ---------------------------------------------------------------------------------------- |
-| **Beta**         | Usable and tested; breaking changes may land in `0.x` with changelog notes               |
-| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements for production |
-| **Deferred**     | Later-phase catalogs (for example multi-select polish, date picker UI, data tables)      |
+| Label            | Meaning                                                                     |
+| ---------------- | --------------------------------------------------------------------------- |
+| **Beta**         | Usable and tested; breaking changes may land in minors with changelog notes |
+| **Experimental** | Wave B/C adapters and incomplete contracts; prefer React / Vue / Elements   |
+| **Deferred**     | Not in this beta (for example picker UI polish, missing custom elements)    |
 
 Full wording: [Beta maturity](/releases/beta).
 
@@ -50,12 +50,13 @@ Public failures use typed `SometicError` with stable codes (`isSometicError` hel
 
 The following are **Deferred** for this beta and must not be treated as public catalog APIs:
 
-- Menu
-- Combobox
-- Drawer
-- Tabs / Accordion / Command Palette / Tree catalogs
+- Autocomplete polish, multi-select, tags, sliders, color picker
+- Date / time **picker UI**
+- Pagination, stepper, timeline, nav-menu chrome, split/resizable panes
+- Floating UI positioning adapter
+- Dedicated `sometic-*` elements for data surfaces and app primitives
 
-Select, Popover, Dialog, and Toast are not substitutes for Menu or Combobox.
+Menu, Combobox, Drawer, Tabs, Accordion, Command palette, Tree, data-table **engines**, and app primitive **engines** ship as listed in [What’s included](/guide/whats-included). Select and Popover are not substitutes for Menu or Combobox.
 
 App primitives (feature flags, drafts, commands, history, conflict, offline queue, permissions) ship as engines. See [App primitives](/guide/app-primitives).
 

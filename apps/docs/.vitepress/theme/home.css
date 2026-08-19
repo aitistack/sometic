@@ -27,6 +27,17 @@
     margin-top: 0;
 }
 
+.Layout:has(.VPHome) .VPNavBar:not(.home.top),
+.Layout:has(.VPHome) .VPNavBar.screen-open {
+    background-color: var(--color-hero) !important;
+}
+
+.Layout:has(.VPHome) .VPNavBar:not(.home.top) .divider,
+.Layout:has(.VPHome) .VPNavBar:not(.home.top) .divider-line {
+    display: block;
+    background-color: var(--color-rule) !important;
+}
+
 .VPHome .VPHero {
     position: relative;
     isolation: isolate;

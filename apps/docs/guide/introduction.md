@@ -24,7 +24,7 @@ Full inventory and honesty labels: [What’s included](/guide/whats-included).
 
 ## Maturity
 
-Public **beta** (`0.1.0-beta` track). See [Beta maturity](/releases/beta).
+Public **beta**. Maturity is a label, not a shared npm version. See [Beta maturity](/releases/beta).
 
 ## Next
 

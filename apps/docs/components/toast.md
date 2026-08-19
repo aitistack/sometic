@@ -96,7 +96,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="go">Toast</button>
 <sometic-toast-region></sometic-toast-region>
@@ -105,7 +105,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.4/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="go">Toast</button>

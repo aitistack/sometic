@@ -88,4 +88,15 @@ describe("createPersistentStore", () => {
         expect(onPersistError).toHaveBeenCalled();
         store.dispose();
     });
+
+    it("stops persistence writes after dispose", async () => {
+        const storage = createMemoryStorage();
+        const store = createPersistentStore({ count: 0 }, { key: "app", storage });
+        await store.hydrated;
+        const before = await storage.getItem("app");
+        store.dispose();
+        store.dispose();
+        expect(() => store.set({ count: 1 })).toThrow(/disposed/);
+        expect(await storage.getItem("app")).toBe(before);
+    });
 });

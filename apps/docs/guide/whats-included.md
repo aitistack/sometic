@@ -47,6 +47,7 @@ Honest adapter coverage for production paths. **CE** means a `sometic-*` custom 
 App primitives (`@sometic/feature-flags`, `@sometic/drafts`, `@sometic/commands`, `@sometic/history`, `@sometic/conflict`, `@sometic/offline-queue`, and `createPermissionController` on `@sometic/auth`) are included above as production engines.
 
 See [Beta maturity](/releases/beta) for stability labels and known limitations.
+See [Upgrade](/releases/upgrade) when bumping package versions.
 
 ## Related
 

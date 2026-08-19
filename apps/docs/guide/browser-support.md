@@ -1,6 +1,19 @@
 # Browser support
 
-Sometic targets **modern evergreen browsers** (current stable Chrome, Firefox, Safari, Edge). Support is claimed where automated tests run; see [Compatibility](/frameworks/compatibility) and [Beta maturity](/releases/beta).
+Sometic targets **modern evergreen browsers**. Support is claimed where automated tests run (Vitest with happy-dom, Playwright on evergreen channels). That is **not** a WCAG certification and not a vendor compatibility badge.
+
+## Runtime matrix (beta)
+
+| Runtime                                      | Claim                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| Chrome, Edge (current stable Chromium)       | Yes, where UI tests run                                            |
+| Firefox (current stable)                     | Yes, where UI tests run                                            |
+| Safari (current stable)                      | Yes, where UI tests run                                            |
+| Node.js `>=20.18.0`                          | Tooling, SSR imports that avoid browser globals at evaluation time |
+| Internet Explorer                            | No                                                                 |
+| React Native / non-DOM hosts for UI adapters | No                                                                 |
+
+See [Compatibility](/frameworks/compatibility) for framework packages and [Beta maturity](/releases/beta) for labels.
 
 ## Baseline expectations
 
@@ -14,10 +27,9 @@ Sometic targets **modern evergreen browsers** (current stable Chrome, Firefox, S
 
 ## Not claimed
 
-- Internet Explorer
 - Obsolete evergreen versions outside current stable channels
-- React Native / non-DOM hosts for UI adapters
 - Using `@sometic/react` through `preact/compat` without the Experimental Preact store bind path
+- Every `sometic-*` tag for every engine (CE inventory is honest on [What’s included](/guide/whats-included))
 
 ## SSR and non-browser
 
