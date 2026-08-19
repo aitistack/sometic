@@ -17,6 +17,7 @@
         "docs:links": "node ../../tooling/release/docs-check.mjs"
     },
     "dependencies": {
+        "@lucide/vue": "^1.32.0",
         "@sometic/demo-kit": "workspace:*"
     },
     "devDependencies": {

@@ -545,9 +545,9 @@ export default defineConfig({
         socialLinks: [{ icon: "github", link: "https://github.com/aitistack/sometic" }],
         footer: {
             message:
-                '<p class="sometic-footer-kicker">Open source under the <a href="/legal/license">MIT License</a></p><nav class="sometic-footer-links" aria-label="Legal and trust"><a href="/guide/contributing">Contributing</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/security">Security</a><a href="/llms.txt">llms.txt</a></nav>',
+                '<span class="sometic-footer-mast"><a class="sometic-footer-brand" href="/"><img class="sometic-footer-logo light" src="/logo.png" width="200" height="70" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" width="200" height="70" alt="" /></a><span class="sometic-footer-lede">Shared engines. Thin adapters. Your skin.</span></span>',
             copyright:
-                '<div class="sometic-footer-brand"><img class="sometic-footer-logo light" src="/logo.png" alt="Sometic" /><img class="sometic-footer-logo dark" src="/logo-dark.png" alt="Sometic" /></div>',
+                '<span class="sometic-footer-end"><span class="sometic-footer-links" role="navigation" aria-label="Legal and trust"><a href="/guide/contributing">Contributing</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/security">Security</a><a href="/llms.txt">llms.txt</a></span><span class="sometic-footer-license">Open source under the <a href="/legal/license">MIT License</a></span></span>',
         },
         search: {
             provider: "local",

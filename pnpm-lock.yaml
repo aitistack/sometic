@@ -65,6 +65,9 @@ importers:
 
   apps/docs:
     dependencies:
+      '@lucide/vue':
+        specifier: ^1.32.0
+        version: 1.32.0(vue@3.5.40(typescript@5.9.3))
       '@sometic/demo-kit':
         specifier: workspace:*
         version: link:../../packages/demo-kit
@@ -3930,6 +3933,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@lucide/vue@1.32.0':
+    resolution: {integrity: sha512-1JU7YEsgE2QhugazyzHZDkqAAZz+Iiwr4bmGxVNDIFEXryPoACCnB7nognKklSitCTbp1mfC1xetruPczxM6uw==}
+    peerDependencies:
+      vue: '>=3.0.1'
+
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
 
@@ -7653,6 +7661,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@lucide/vue@1.32.0(vue@3.5.40(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.40(typescript@5.9.3)
 
   '@manypkg/find-root@1.1.0':
     dependencies:
