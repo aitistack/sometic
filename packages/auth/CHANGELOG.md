@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.3
+
+### Patch Changes
+
+- 0bcb11e: Harden React query hooks for Strict Mode, make auth HTTP binding idempotent, and soften App Shell refetch-on-reauth defaults so auth apps stop hanging and double-refreshing.
+
 ## 1.2.2
 
 ### Patch Changes

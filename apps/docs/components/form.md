@@ -82,7 +82,7 @@ formEl.addEventListener("submit", (event) => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-form>
     <input name="email" />
@@ -93,7 +93,7 @@ formEl.addEventListener("submit", (event) => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-form>

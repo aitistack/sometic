@@ -1,5 +1,13 @@
 # @sometic/example-invoice-vue
 
+## 0.0.3
+
+### Patch Changes
+
+- @sometic/example-invoice-kit@0.0.3
+- @sometic/vue@1.2.7
+- @sometic/dom@3.0.3
+
 ## 0.0.2
 
 ### Patch Changes

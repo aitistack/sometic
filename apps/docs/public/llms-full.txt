@@ -961,7 +961,7 @@ auth.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -977,7 +977,7 @@ auth.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,
@@ -1817,7 +1817,7 @@ Pick one format:
 #### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -1827,7 +1827,7 @@ Pick one format:
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
@@ -1839,26 +1839,26 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 | Package                  | Global                 | Simple script                                                                                      | Module script                                                                                     |
 | ------------------------ | ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `@sometic/elements`      | `SometicElements`      | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js`           | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js`           |
-| `@sometic/http`          | `SometicHttp`          | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js`                   |
-| `@sometic/query`         | `SometicQuery`         | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.esm.js`                 |
-| `@sometic/auth`          | `SometicAuth`          | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js`                   |
+| `@sometic/elements`      | `SometicElements`      | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js`           | `https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js`           |
+| `@sometic/http`          | `SometicHttp`          | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.esm.js`                   |
+| `@sometic/query`         | `SometicQuery`         | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.3/dist/cdn/sometic-query.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/query@3.0.3/dist/cdn/sometic-query.esm.js`                 |
+| `@sometic/auth`          | `SometicAuth`          | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.esm.js`                   |
 | `@sometic/store`         | `SometicStore`         | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/store@1.1.3/dist/cdn/sometic-store.esm.js`                 |
 | `@sometic/theme`         | `SometicTheme`         | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/theme@1.1.3/dist/cdn/sometic-theme.esm.js`                 |
 | `@sometic/head`          | `SometicHead`          | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/head@0.1.3/dist/cdn/sometic-head.esm.js`                   |
-| `@sometic/app-shell`     | `SometicAppShell`      | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js`         | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js`         |
+| `@sometic/app-shell`     | `SometicAppShell`      | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.iife.js`         | `https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.esm.js`         |
 | `@sometic/core`          | `SometicCore`          | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.7/dist/cdn/sometic-core.iife.js`                   | `https://cdn.jsdelivr.net/npm/@sometic/core@1.0.7/dist/cdn/sometic-core.esm.js`                   |
 | `@sometic/events`        | `SometicEvents`        | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.iife.js`               | `https://cdn.jsdelivr.net/npm/@sometic/events@1.0.7/dist/cdn/sometic-events.esm.js`               |
 | `@sometic/forms`         | `SometicForms`         | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.3/dist/cdn/sometic-forms.iife.js`                 | `https://cdn.jsdelivr.net/npm/@sometic/forms@1.1.3/dist/cdn/sometic-forms.esm.js`                 |
 | `@sometic/styling`       | `SometicStyling`       | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.iife.js`             | `https://cdn.jsdelivr.net/npm/@sometic/styling@1.0.7/dist/cdn/sometic-styling.esm.js`             |
 | `@sometic/accessibility` | `SometicAccessibility` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.iife.js` | `https://cdn.jsdelivr.net/npm/@sometic/accessibility@1.0.7/dist/cdn/sometic-accessibility.esm.js` |
 | `@sometic/positioning`   | `SometicPositioning`   | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.7/dist/cdn/sometic-positioning.iife.js`     | `https://cdn.jsdelivr.net/npm/@sometic/positioning@0.1.7/dist/cdn/sometic-positioning.esm.js`     |
-| `@sometic/dom`           | `SometicDom`           | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.iife.js`                     | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.esm.js`                     |
+| `@sometic/dom`           | `SometicDom`           | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.3/dist/cdn/sometic-dom.iife.js`                     | `https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.3/dist/cdn/sometic-dom.esm.js`                     |
 
 #### Simple script (HTTP)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -1871,7 +1871,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ```html
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");
@@ -1881,7 +1881,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 #### Simple script (app shell)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -1895,7 +1895,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 
 ```html
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,
@@ -1908,7 +1908,7 @@ The elements CDN covers **shipped** tags only (button/input/form/selection/overl
 #### Simple script (Vanilla `bind*` via `@sometic/dom`)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.3/dist/cdn/sometic-dom.iife.js"></script>
 <script>
     const button = document.querySelector("button");
     if (button) {
@@ -3151,7 +3151,7 @@ el.textContent = "Profile saved.";
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
 ```
@@ -3159,7 +3159,7 @@ el.textContent = "Profile saved.";
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-alert tone="warning">Check your connection.</sometic-alert>
@@ -3647,7 +3647,7 @@ createAsyncButtonController({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-async-button>Save</sometic-async-button>
 ```
@@ -3655,7 +3655,7 @@ createAsyncButtonController({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-async-button>Save</sometic-async-button>
@@ -3876,7 +3876,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-badge>Neutral</sometic-badge>
 <sometic-badge tone="success">Ready</sometic-badge>
@@ -3886,7 +3886,7 @@ for (const el of document.querySelectorAll("[data-badge]")) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-badge>Neutral</sometic-badge>
@@ -4203,7 +4203,7 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
     <sometic-button type="button">CSV</sometic-button>
@@ -4214,7 +4214,7 @@ for (const [key, value] of Object.entries(view.attributes)) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button-group orientation="horizontal" aria-label="Export">
@@ -4417,7 +4417,7 @@ bindButton(button, {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button>Save</sometic-button>
 ```
@@ -4425,7 +4425,7 @@ bindButton(button, {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button>Save</sometic-button>
@@ -4637,7 +4637,7 @@ bindCheckbox(input, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-checkbox></sometic-checkbox>
 ```
@@ -4645,7 +4645,7 @@ bindCheckbox(input, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-checkbox></sometic-checkbox>
@@ -5518,7 +5518,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
 ```
@@ -5526,7 +5526,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-currency-input currency="USD" locale="en-US" fraction-digits="2"></sometic-currency-input>
@@ -6296,7 +6296,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
 <sometic-date-input></sometic-date-input>
@@ -6305,7 +6305,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <!-- Defaults to createNativeDateAdapter(); override via element.adapter -->
@@ -6539,7 +6539,7 @@ document.querySelector("#open").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="open">Open</button>
 <sometic-dialog>Confirm?</sometic-dialog>
@@ -6548,7 +6548,7 @@ document.querySelector("#open").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="open">Open</button>
@@ -7120,7 +7120,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
      element's internal parts or prefer React/Vue Field for full chrome props. -->
@@ -7132,7 +7132,7 @@ bindInput(input, () => ({ type: "email", name: "email" }));
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <!-- Children mount into the control slot; set label/description/error text via the
@@ -7366,7 +7366,7 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
 ```
@@ -7374,7 +7374,7 @@ input.addEventListener("change", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-file-input multiple accept="image/*,.pdf"></sometic-file-input>
@@ -7598,7 +7598,7 @@ formEl.addEventListener("submit", (event) => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-form>
     <input name="email" />
@@ -7609,7 +7609,7 @@ formEl.addEventListener("submit", (event) => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-form>
@@ -7819,7 +7819,7 @@ bindButton(button, { onPress() {} });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-icon-button aria-label="Search">
     <!-- icon markup -->
@@ -7829,7 +7829,7 @@ bindButton(button, { onPress() {} });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-icon-button aria-label="Search">
@@ -8166,7 +8166,7 @@ bindInput(input, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-input placeholder="Name"></sometic-input>
 ```
@@ -8174,7 +8174,7 @@ bindInput(input, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-input placeholder="Name"></sometic-input>
@@ -8392,7 +8392,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
 ```
@@ -8400,7 +8400,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-masked-input mask="(###) ###-####" placeholder="Phone"></sometic-masked-input>
@@ -9106,7 +9106,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-number-input min="0" max="100"></sometic-number-input>
 ```
@@ -9114,7 +9114,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-number-input min="0" max="100"></sometic-number-input>
@@ -9446,7 +9446,7 @@ input.addEventListener("input", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-otp-input length="6"></sometic-otp-input>
 ```
@@ -9454,7 +9454,7 @@ input.addEventListener("input", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-otp-input length="6"></sometic-otp-input>
@@ -9691,7 +9691,7 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
 ```
@@ -9699,7 +9699,7 @@ document.querySelector("[data-reveal]").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-password-input autocomplete="current-password"></sometic-password-input>
@@ -10282,7 +10282,7 @@ document.querySelector("#trigger").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="trigger">Open</button>
 <sometic-popover id="panel" placement="bottom-start" open> Filter panel </sometic-popover>
@@ -10291,7 +10291,7 @@ document.querySelector("#trigger").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="trigger">Open</button>
@@ -10502,7 +10502,7 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
 <sometic-progress></sometic-progress>
@@ -10511,7 +10511,7 @@ const indeterminate = resolveProgress({ indeterminate: true });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-progress value="64" max="100"></sometic-progress>
@@ -10993,7 +10993,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <div role="radiogroup" aria-label="Plan">
     <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
@@ -11004,7 +11004,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <div role="radiogroup" aria-label="Plan">
@@ -11560,7 +11560,7 @@ bindSelect(select, () => ({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-select>
     <option value="a">Alpha</option>
@@ -11571,7 +11571,7 @@ bindSelect(select, () => ({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-select>
@@ -11761,7 +11761,7 @@ const staticView = resolveSkeleton({ animated: false });
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-skeleton></sometic-skeleton>
 ```
@@ -11769,7 +11769,7 @@ const staticView = resolveSkeleton({ animated: false });
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-skeleton></sometic-skeleton>
@@ -11892,7 +11892,7 @@ for (const [key, attr] of Object.entries(view.attributes)) {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-spinner label="Loading results"></sometic-spinner>
 ```
@@ -11900,7 +11900,7 @@ for (const [key, attr] of Object.entries(view.attributes)) {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-spinner label="Loading results"></sometic-spinner>
@@ -12342,7 +12342,7 @@ input.addEventListener("change", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-switch
     checked
@@ -12355,7 +12355,7 @@ input.addEventListener("change", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-switch
@@ -12857,7 +12857,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <button type="button" id="go">Toast</button>
 <sometic-toast-region></sometic-toast-region>
@@ -12866,7 +12866,7 @@ document.querySelector("#go").addEventListener("click", () => {
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <button type="button" id="go">Toast</button>
@@ -13077,7 +13077,7 @@ createToggleButtonController({
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-toggle-button>Bold</sometic-toggle-button>
 ```
@@ -13085,7 +13085,7 @@ createToggleButtonController({
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-toggle-button>Bold</sometic-toggle-button>
@@ -13337,7 +13337,7 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-tooltip placement="top">
     <button type="button">Save</button>
@@ -13348,7 +13348,7 @@ trigger.addEventListener("blur", () => controller.setOpen(false));
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-tooltip placement="top">
@@ -15470,7 +15470,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 #### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <sometic-button type="button">Save</sometic-button>
 ```
@@ -15480,7 +15480,7 @@ Wave A **shipped** tags can load from a single browser bundle (inlines the requi
 ```html
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <sometic-button type="button">Save</sometic-button>
@@ -21045,7 +21045,7 @@ auth.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
     auth.signIn({ email: "a@b.c", password: "secret" });
@@ -21054,7 +21054,7 @@ auth.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
     await auth.signIn({ email: "a@b.c", password: "secret" });
@@ -21233,7 +21233,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 ::: code-group
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.iife.js"></script>
 <script>
     const auth = SometicAuth.createAuth({ provider });
 </script>
@@ -21241,7 +21241,7 @@ Core must stay provider-independent. Locking Firebase into core would force ever
 
 ```html [CDN Module]
 <script type="module">
-    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.2/dist/cdn/sometic-auth.esm.js";
+    import { createAuth } from "https://cdn.jsdelivr.net/npm/@sometic/auth@1.2.3/dist/cdn/sometic-auth.esm.js";
 
     const auth = createAuth({ provider });
 </script>
@@ -24942,7 +24942,7 @@ http.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.iife.js"></script>
 <script>
     const http = SometicHttp.createHttp({ baseUrl: "/api" });
     http.get("/me").then((me) => {
@@ -24953,7 +24953,7 @@ http.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.2/dist/cdn/sometic-http.esm.js";
+    import { createHttp } from "https://cdn.jsdelivr.net/npm/@sometic/http@3.0.3/dist/cdn/sometic-http.esm.js";
 
     const http = createHttp({ baseUrl: "/api" });
     const me = await http.get("/me");
@@ -25414,7 +25414,7 @@ queryClient.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/query@3.0.3/dist/cdn/sometic-query.iife.js"></script>
 <script>
     const client = SometicQuery.createQueryClient();
 </script>
@@ -25422,7 +25422,7 @@ queryClient.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.2/dist/cdn/sometic-query.esm.js";
+    import { createQueryClient } from "https://cdn.jsdelivr.net/npm/@sometic/query@3.0.3/dist/cdn/sometic-query.esm.js";
 
     const client = createQueryClient();
 </script>

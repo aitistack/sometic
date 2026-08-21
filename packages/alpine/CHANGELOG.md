@@ -1,5 +1,11 @@
 # @sometic/alpine
 
+## 0.1.13
+
+### Patch Changes
+
+- @sometic/dom@3.0.3
+
 ## 0.1.12
 
 ### Patch Changes

@@ -118,7 +118,7 @@ Docs: [https://sometic.dev/guide/app-shell](https://sometic.dev/guide/app-shell)
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -132,7 +132,7 @@ Docs: [https://sometic.dev/guide/app-shell](https://sometic.dev/guide/app-shell)
 
 ```html
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,

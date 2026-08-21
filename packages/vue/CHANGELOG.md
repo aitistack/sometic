@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.7
+
+### Patch Changes
+
+- Updated dependencies [0bcb11e]
+    - @sometic/http@3.0.3
+    - @sometic/query@3.0.3
+    - @sometic/auth@1.2.3
+    - @sometic/dom@3.0.3
+
 ## 1.2.6
 
 ### Patch Changes

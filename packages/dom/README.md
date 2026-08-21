@@ -75,7 +75,7 @@ Docs: [https://sometic.dev/primitives/dom](https://sometic.dev/primitives/dom).
 ### Simple script
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.3/dist/cdn/sometic-dom.iife.js"></script>
 <script>
     const button = document.querySelector("button");
     if (button) {
@@ -88,7 +88,7 @@ Docs: [https://sometic.dev/primitives/dom](https://sometic.dev/primitives/dom).
 
 ```html
 <script type="module">
-    import { bindButton } from "https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.2/dist/cdn/sometic-dom.esm.js";
+    import { bindButton } from "https://cdn.jsdelivr.net/npm/@sometic/dom@3.0.3/dist/cdn/sometic-dom.esm.js";
 
     const button = document.querySelector("button");
     if (button) {

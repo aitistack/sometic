@@ -126,7 +126,7 @@ auth.dispose();
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.iife.js"></script>
 <script>
     const app = SometicAppShell.createSometicApp({
         auth,
@@ -142,7 +142,7 @@ auth.dispose();
 
 ```html [CDN Module]
 <script type="module">
-    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.2/dist/cdn/sometic-app-shell.esm.js";
+    import { createSometicApp } from "https://cdn.jsdelivr.net/npm/@sometic/app-shell@4.0.3/dist/cdn/sometic-app-shell.esm.js";
 
     const app = createSometicApp({
         auth,
