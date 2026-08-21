@@ -181,7 +181,7 @@ const app = createAppShell({
     head,
     theme,
     createHttpOptions: { baseUrl: "https://api.example.com" },
-    refetchOnReauth: "all",
+    refetchOnReauth: false,
     allowAbsoluteUrl: false,
 });
 
@@ -212,7 +212,7 @@ const app: AppShell = createAppShell({
     head,
     theme,
     createHttpOptions: { baseUrl: "https://api.example.com" },
-    refetchOnReauth: "all",
+    refetchOnReauth: false,
     allowAbsoluteUrl: false,
     maxResponseBytes: 2_000_000,
 });
@@ -269,18 +269,18 @@ window.addEventListener("pagehide", () => {
 
 ## Options
 
-| Input                                                        | Behavior                                                             |
-| ------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `auth`                                                       | Required                                                             |
-| `http` / create options                                      | Attach auth + policy + epoch interceptors                            |
-| `query` / create options                                     | `bindQueryToAuth`                                                    |
-| `head` / `theme`                                             | Optional; `bindThemeToHead` when both present                        |
-| `stores`                                                     | `{ ui?, prefs?, session? }`; session stores reset on epoch           |
-| `forms`                                                      | `{ draftsClearOnEpoch?, register? }`                                 |
-| `flags` / `drafts` / `commands` / `history` / `offlineQueue` | Optional app primitives; see [App primitives](/guide/app-primitives) |
-| `refetchOnReauth`                                            | `'auth' \| 'all' \| false`                                           |
-| `authQueryKeys`                                              | Used when `refetchOnReauth: 'auth'`                                  |
-| `allowAbsoluteUrl` / `maxResponseBytes`                      | Forwarded to HTTP when shell creates the client                      |
+| Input                                                        | Behavior                                                                                                                                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `auth`                                                       | Required                                                                                                                                                                  |
+| `http` / create options                                      | Prefer a **naked** `createHttp` (no prior auth interceptor). Shell binds once; use `app.http` in UI. Double-binding is skipped if an auth interceptor is already present. |
+| `query` / create options                                     | `bindQueryToAuth`                                                                                                                                                         |
+| `head` / `theme`                                             | Optional; `bindThemeToHead` when both present                                                                                                                             |
+| `stores`                                                     | `{ ui?, prefs?, session? }`; session stores reset on epoch                                                                                                                |
+| `forms`                                                      | `{ draftsClearOnEpoch?, register? }`                                                                                                                                      |
+| `flags` / `drafts` / `commands` / `history` / `offlineQueue` | Optional app primitives; see [App primitives](/guide/app-primitives)                                                                                                      |
+| `refetchOnReauth`                                            | Default `false`. `'auth'` (with `authQueryKeys`) or `'all'` when token refresh must invalidate queries                                                                    |
+| `authQueryKeys`                                              | Used when `refetchOnReauth: 'auth'`                                                                                                                                       |
+| `allowAbsoluteUrl` / `maxResponseBytes`                      | Forwarded to HTTP when shell creates the client                                                                                                                           |
 
 ## FAQ
 

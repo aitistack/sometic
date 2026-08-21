@@ -49,8 +49,10 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(props
         merge,
         className,
         style,
+        htmlFor: _htmlFor,
         ...rest
-    } = props;
+    } = props as FieldProps & { htmlFor?: string };
+    void _htmlFor;
 
     const ids = idsProp ?? createFieldIds();
     const view = resolveField({

@@ -40,7 +40,15 @@ export {
     type FormProps,
     type UseFormResult,
 } from "./form/index.js";
-export { AuthProvider, useAuth, useCan, useSession, type AuthProviderProps } from "./auth/index.js";
+export {
+    AuthProvider,
+    useAuth,
+    useCan,
+    useRequireAuth,
+    useSession,
+    type AuthProviderProps,
+    type UseRequireAuthResult,
+} from "./auth/index.js";
 export { HttpProvider, useHttp, type HttpProviderProps } from "./http/index.js";
 export { useStore } from "./store/index.js";
 export {

@@ -114,7 +114,7 @@ export function createAppShell(options: CreateAppShellOptions): AppShell {
     disposers.push(httpBind.dispose);
 
     const queryBind = bindQueryToAuth(options.auth, query, {
-        refetchOnReauth: options.refetchOnReauth ?? "all",
+        refetchOnReauth: options.refetchOnReauth ?? false,
         ...(options.authQueryKeys ? { authQueryKeys: options.authQueryKeys } : {}),
         onEpochChange: (epoch) => {
             for (const listener of epochListeners) {

@@ -10,6 +10,7 @@ import {
 import {
     can,
     createAuth,
+    isAuthenticatedStatus,
     type AuthController,
     type AuthSession,
     type AuthorizationPolicy,
@@ -76,4 +77,24 @@ export function useCan(policy: AuthorizationPolicy, authProp?: AuthController): 
     const getSnapshot = useCallback(() => auth.getSession(), [auth]);
     const session = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
     return can(session, policy);
+}
+
+export type UseRequireAuthResult = {
+    auth: AuthController;
+    session: AuthSession;
+    ready: boolean;
+};
+
+export function useRequireAuth(authProp?: AuthController): UseRequireAuthResult {
+    const contextAuth = useContext(AuthContext);
+    const auth = authProp ?? contextAuth;
+    if (!auth) {
+        throw new Error("useRequireAuth requires AuthProvider or auth argument");
+    }
+    const session = useSession(auth);
+    return {
+        auth,
+        session,
+        ready: isAuthenticatedStatus(session.status),
+    };
 }

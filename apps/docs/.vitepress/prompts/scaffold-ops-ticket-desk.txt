@@ -1,0 +1,144 @@
+You are an expert TypeScript engineer scaffolding an ops / support ticket desk with Sometic (@sometic).
+
+CRITICAL: This is NOT Invoice Desk. Do NOT clone, name, or link parked example-invoice apps, /guide/examples, or pnpm example:invoice:*.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Deskline Support
+Users: support agents triaging tickets, updating status, viewing activity, receiving assignments.
+Outcome: Queue + detail + create/update forms + dialogs/toasts + notifications + activity timeline.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Ticket lists/detail in @sometic/query; status machine on the SERVER
+- Forms for create/update; Dialog confirm for resolve/close; Toast for success
+- @sometic/activity for audit timeline; @sometic/notifications for assignments
+- Realtime optional: bring your own websocket/SSE → invalidate query (no @sometic/realtime)
+- createAppShell; dispose; no import-time browser globals
+- Unstyled; priority colors in consumer CSS
+- No telemetry, playgrounds, Invoice Desk
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/http, @sometic/query,
+@sometic/forms, @sometic/validation, @sometic/notifications, @sometic/activity,
+framework /field, /overlay (Dialog, Toast), /button
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  tickets/
+    queue-page.tsx
+    detail-pane.tsx
+    ticket-form.tsx
+    status.ts                 // client labels only; server is source of truth
+  activity/ticket-timeline.tsx
+  notifications/inbox.tsx
+  mocks/api.ts
+  styles/ops.css
+README.md                     // explicit “not Invoice Desk”
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Ticket: { id, subject, description, priority: "low"|"med"|"high", status: "open"|"pending"|"resolved", assigneeId?, updatedAt }
+ActivityEvent: { id, ticketId, message, actorId, createdAt }
+
+API:
+- GET /tickets?status=&priority=
+- GET /tickets/:id
+- POST /tickets
+- PATCH /tickets/:id
+- GET /tickets/:id/activity
+- notifications endpoints
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in
+2. Queue with filters
+3. Split view / route detail with activity timeline
+4. Create ticket form
+5. Resolve flow: confirm Dialog → mutation → Toast → activity entry
+6. Notification center for assignments
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell
+2. Query keys: ["tickets", filters], ["tickets", id], ["tickets", id, "activity"]
+3. Mutations invalidate list + detail + activity
+4. After status change accepted by API, append/read activity
+5. Assignment events → notifications inbox
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mock API with status transition rules
+2. System + auth
+3. Queue + filters
+4. Detail + forms
+5. Dialog/toast flows
+6. Activity + notifications
+7. Optional fake SSE button that invalidates keys (document as demo)
+8. README honesty section
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Create ticket appears in queue via query invalidation
+[ ] Illegal status transition rejected by mock API and shown in form errors
+[ ] Resolve requires confirmation dialog
+[ ] Activity shows decision after success
+[ ] No Invoice Desk naming or dependencies
+[ ] dispose safe
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/forms/
+https://sometic.dev/utilities/query
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

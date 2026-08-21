@@ -10,6 +10,7 @@ const required = [
     "guide/introduction.md",
     "guide/why-sometic.md",
     "guide/whats-included.md",
+    "guide/app-scaffolds.md",
     "guide/comparison.md",
     "components/button.md",
     "components/form.md",

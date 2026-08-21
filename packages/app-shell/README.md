@@ -72,7 +72,7 @@ const auth = createAuth({
 const shell = createAppShell({
     auth,
     query: createQueryClient(),
-    refetchOnReauth: "all",
+    refetchOnReauth: false,
 });
 
 shell.onEpochChange((epoch) => {

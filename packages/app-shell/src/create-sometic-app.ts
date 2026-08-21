@@ -125,7 +125,9 @@ export function createSometicApp(options: CreateSometicAppOptions): SometicApp {
         ...(options.head ? { head: options.head } : {}),
         ...(theme ? { theme } : {}),
         ...(options.stores ? { stores: options.stores } : {}),
-        ...(options.refetchOnReauth ? { refetchOnReauth: options.refetchOnReauth } : {}),
+        ...(options.refetchOnReauth !== undefined
+            ? { refetchOnReauth: options.refetchOnReauth }
+            : {}),
         ...(options.authQueryKeys ? { authQueryKeys: options.authQueryKeys } : {}),
         ...(options.require ? { require: options.require } : {}),
         ...(options.resetSessionState !== undefined

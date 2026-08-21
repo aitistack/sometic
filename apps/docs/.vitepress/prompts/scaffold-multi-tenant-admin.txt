@@ -1,0 +1,147 @@
+You are an expert TypeScript engineer scaffolding a multi-tenant admin console with Sometic (@sometic).
+
+There is NO @sometic/tenant package. Tenancy is your API + query key scoping + auth capabilities.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Orbit Admin
+Users: platform operators managing many customer organizations (tenants).
+Outcome: Tenant switcher, members table, permission matrix, approval queue, activity audit, notifications — all scoped to the active tenant.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Active tenantId in URL and/or cookie; always include in query keys AND HTTP headers your API expects
+- On tenant switch: invalidate previous tenant query keys; re-check permissions; never flash wrong-tenant data
+- Permission matrix + can() are UX; server authorizes
+- Approval + activity are workflow/audit engines, not a hosted multi-tenant SaaS
+- Permission matrix is NOT a CE — use /data adapters or @sometic/dom
+- createAppShell; page-lifetime System (no Strict Mode dispose of create-once refs); pin @sometic versions; unit + e2e; no import-time browser globals
+- No Invoice Desk, playgrounds, telemetry, invented packages
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth (+ adapter), @sometic/http, @sometic/query,
+@sometic/data-table, @sometic/approval, @sometic/activity, @sometic/notifications,
+framework /data (PermissionMatrix, DataTable), /overlay (Dialog)
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  tenant/
+    tenant-context.tsx       // read/write active tenant
+    tenant-switcher.tsx
+  modules/
+    members/
+    roles-matrix/
+    approvals/
+    activity/
+  mocks/api.ts
+  styles/admin.css
+README.md
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Tenant: { id, name, slug }
+Member: { id, tenantId, email, role, status }
+RolePermission: matrix of role × action
+ApprovalCase: { id, tenantId, type: "invite"|"elevate", state, payload }
+ActivityEvent: { id, tenantId, actorId, message, createdAt }
+
+Actions: members:read, members:invite, roles:edit, approvals:decide
+
+Mock API must reject cross-tenant access even if client lies about tenantId.
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in
+2. Shell with tenant switcher
+3. Members data-table for active tenant
+4. Roles: Permission matrix editor (save via mutation)
+5. Approvals queue: approve/reject with confirm Dialog
+6. Activity feed filtered by tenant
+7. Notifications for new approval assignments
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell auth/http/query
+2. After /me, load tenants list; set active tenant
+3. http default headers / interceptor inject X-Tenant-Id (or your scheme)
+4. Query keys ALWAYS include tenantId: ["t", tenantId, "members"]
+5. createPermissionController from capabilities for active tenant
+6. approval controller for invite/elevate flows; activity append after decisions
+7. On switchTenant(next): navigate, clear old keys, refetch
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mocks that enforce tenant header
+2. System + auth + tenant context
+3. Members table
+4. Permission matrix page
+5. Approvals + dialogs + activity writes
+6. Notifications hookup
+7. CSS densify; README documents tenancy model and “no @sometic/tenant”
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Switching tenants changes table data without showing previous tenant rows
+[ ] Removing tenant header on API returns 403 in mock
+[ ] Matrix edits require roles:edit permission in UI and API
+[ ] Approval decision creates activity event
+[ ] Notifications appear for assignees
+[ ] dispose safe on remount
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/authentication/
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/utilities/query
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/components/
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

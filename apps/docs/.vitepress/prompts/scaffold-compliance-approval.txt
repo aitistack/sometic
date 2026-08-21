@@ -1,0 +1,147 @@
+You are an expert TypeScript engineer scaffolding a compliance / approval workflow product with Sometic (@sometic).
+
+@sometic/approval is NOT a legal system of record. Your backend remains authoritative. Notifications INFORM; they do not authorize. Drawer is NOT a shipped custom element — use the chosen stack’s overlay (A/B) or @sometic/dom (C). Do not invent a Drawer CE.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Mandate Review
+Users: reviewers deciding approve/reject on policy cases; auditors reading activity.
+Outcome: Case queue + right-hand review drawer + approval steps + permission-gated actions + activity audit + notification fan-out + confirm dialogs for irrevocable decisions.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Approval engine models steps/state; server enforces dual-control / four-eyes if required
+- Activity = audit trail surface (not toast history)
+- Permission matrix + can() are UX; API rejects unauthorized decides
+- Review UI: Drawer from the right for case detail; Dialog for final approve/reject
+- createAppShell; dispose; no import-time globals
+- Conservative high-contrast consumer CSS; unmistakable approve/reject
+- No Invoice Desk, playgrounds, telemetry; no invented compliance-export package (build export from your API if needed)
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/approval, @sometic/activity, @sometic/notifications, @sometic/auth,
+@sometic/query, @sometic/http, @sometic/app-shell,
+framework /overlay (Dialog, Drawer), /data (PermissionMatrix), /button
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  cases/
+    queue-page.tsx
+    review-drawer.tsx
+    decision-dialog.tsx
+  access/roles-matrix.tsx
+  audit/activity-panel.tsx
+  mocks/api.ts
+  styles/compliance.css
+README.md                     // system-of-record honesty
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Case: { id, title, summary, state: "pending"|"approved"|"rejected", step, version }
+Decision: { caseId, outcome: "approve"|"reject", comment }
+ActivityEvent: { id, caseId, actorId, message, createdAt }
+
+Permissions: cases:read, cases:decide, roles:edit
+
+API:
+- GET /cases
+- GET /cases/:id
+- POST /cases/:id/decide (authz + optional dual control rules)
+- GET /cases/:id/activity
+- notifications on assignment
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in
+2. Case queue (filter by state)
+3. Opening a case opens right Drawer with summary + current step + activity
+4. Decide → Dialog confirm → mutation → activity entry → notify watchers
+5. Roles page with Permission matrix for reviewer roles
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell auth/http/query
+2. Query keys ["cases"], ["cases", id], ["cases", id, "activity"]
+3. approval controller drives step UI; final decide hits API
+4. On success: invalidate + activity refresh + notification fan-out (mock OK)
+5. Hide decide button without cases:decide; still verify 403 if forced
+6. Drawer focus trap / Esc close; restore focus to queue row
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mock API with authz rules
+2. System bootstrap
+3. Queue + drawer
+4. Approval step UI + decision dialog
+5. Activity panel
+6. Notifications
+7. Permission matrix page
+8. Conservative CSS + README (legal SoR, Drawer CE gap, export-out-of-scope)
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Decide without permission fails in API and is blocked in UI
+[ ] Confirm dialog required before approve/reject
+[ ] Activity records the decision actor and outcome
+[ ] Drawer does not scroll the underlying page (portal/fixed UI)
+[ ] No claim that Sometic stores regulatory proof beyond your API
+[ ] dispose safe
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/authentication/
+https://sometic.dev/components/
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt
+
+When unsure of a symbol, read docs and package TypeScript exports — do not invent APIs.

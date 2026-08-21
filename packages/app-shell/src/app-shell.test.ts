@@ -172,4 +172,28 @@ describe("createAppShell", () => {
         form.dispose();
         query.dispose();
     });
+
+    it("bindAuthToHttp does not stack a second auth interceptor", async () => {
+        const auth = createAuth({
+            provider: createTestAuthProvider(),
+            storage: createMemoryAuthStorage(),
+            crossTab: createNoopAuthBus(),
+            environment: false,
+        });
+        const { createHttp } = await import("@sometic/http");
+        const { createAuthInterceptor, isAuthHttpInterceptor } = await import("@sometic/http/auth");
+        const { bindAuthToHttp } = await import("./bind-http.js");
+        const base = createHttp({
+            interceptors: [createAuthInterceptor({ auth })],
+            retry: false,
+        });
+        expect(base.getInterceptors().filter(isAuthHttpInterceptor)).toHaveLength(1);
+        const once = bindAuthToHttp({ auth, http: base });
+        expect(once.http).toBe(base);
+        expect(once.owned).toBe(false);
+        expect(once.http.getInterceptors().filter(isAuthHttpInterceptor)).toHaveLength(1);
+        once.dispose();
+        base.dispose();
+        auth.dispose();
+    });
 });

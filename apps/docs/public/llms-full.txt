@@ -25,6 +25,7 @@ Important product facts for agents:
 - [guide/accessibility.md](https://sometic.dev/guide/accessibility)
 - [guide/agents.md](https://sometic.dev/guide/agents)
 - [guide/app-primitives.md](https://sometic.dev/guide/app-primitives)
+- [guide/app-scaffolds.md](https://sometic.dev/guide/app-scaffolds)
 - [guide/app-shell.md](https://sometic.dev/guide/app-shell)
 - [guide/browser-support.md](https://sometic.dev/guide/browser-support)
 - [guide/cli.md](https://sometic.dev/guide/cli)
@@ -349,6 +350,8 @@ Source: https://sometic.dev/guide/agents
 
 How coding agents (and humans pasting into agents) should load Sometic context without inventing a visual UI kit.
 
+For **full-app** pasteable scaffolds (SaaS, auth e2e, AI workspace, and more), use [App scaffolds](/guide/app-scaffolds). This page covers surface Copy Prompt buttons and `llms.txt`.
+
 ## Copy Prompt
 
 Surface docs expose a **Copy Prompt** button (dashed outline). It copies a plain-text scaffold brief for that area:
@@ -401,6 +404,7 @@ Adapters (@sometic/react, vue, elements, …)
 
 ## Related
 
+- [App scaffolds](/guide/app-scaffolds)
 - [Quick start](/guide/quick-start)
 - [Contributing](/guide/contributing)
 - [Package index](/api/packages)
@@ -786,6 +790,44 @@ auth.dispose();
 - [Authentication](/authentication/)
 - [Forms persistence](/forms/persistence)
 - [Command palette](/components/command-palette)
+
+
+
+# guide/app-scaffolds.md
+
+Source: https://sometic.dev/guide/app-scaffolds
+
+# App scaffolds
+
+Full-app prompts for coding agents (Cursor, Claude, Copilot, and similar). Each scaffold asks the agent to wire the Sometic packages that belong in that product shape, with honest Wave A boundaries.
+
+These are **not** live example apps. Paste **Copy Prompt** into your agent, then follow the linked docs. For surface-level prompts and `llms.txt`, see [Agents](/guide/agents).
+
+Use the sticky index (or mobile chips) to jump between scaffolds. **What’s Included** opens a right drawer with the package checklist and the full prompt.
+
+<AppScaffolds />
+
+## Page FAQ
+
+### Why prompts instead of example repos?
+
+Public example apps are paused. Agent scaffolds keep discovery honest: you get a production-shaped brief without a demo product that over-promises UI.
+
+### Will these invent packages?
+
+No. Every prompt is scoped to [What’s included](/guide/whats-included). Missing custom elements and Experimental adapters are called out.
+
+### React or Vue?
+
+Each prompt lets the agent pick React or Vue as the Wave A primary path. Vanilla and Elements appear only where they honestly ship.
+
+### Related
+
+- [Agents](/guide/agents)
+- [App Shell](/guide/app-shell)
+- [App primitives](/guide/app-primitives)
+- [What’s included](/guide/whats-included)
+- [Beta maturity](/releases/beta)
 
 
 
@@ -1921,6 +1963,7 @@ Public **beta**. Maturity is a label, not a shared npm version. See [Beta maturi
 ## Next
 
 - [App shell](/guide/app-shell) — easiest spine entry
+- [App scaffolds](/guide/app-scaffolds) — full-app agent prompts
 - [Architecture](/concepts/architecture) — mental model
 - [Why Sometic](/guide/why-sometic) — positioning
 - [Quick start](/guide/quick-start) — React, Vue, CE, then services
@@ -2510,6 +2553,7 @@ See [Upgrade](/releases/upgrade) when bumping package versions.
 
 - [Why Sometic](/guide/why-sometic)
 - [Comparison](/guide/comparison)
+- [App scaffolds](/guide/app-scaffolds)
 - [Components](/components/)
 - [App primitives](/guide/app-primitives)
 - [Head / SEO](/utilities/head)

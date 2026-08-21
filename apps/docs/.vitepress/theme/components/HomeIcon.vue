@@ -11,6 +11,7 @@ import {
     Download,
     Frame,
     KeyRound,
+    Layers,
     ListChecks,
     Network,
     Package,
@@ -38,7 +39,8 @@ const props = defineProps<{
         | "install"
         | "react"
         | "vue"
-        | "elements";
+        | "elements"
+        | "scaffolds";
 }>();
 
 const icons = {
@@ -59,6 +61,7 @@ const icons = {
     react: Atom,
     vue: Triangle,
     elements: CodeXml,
+    scaffolds: Layers,
 } as const;
 
 const icon = computed(() => icons[props.name]);

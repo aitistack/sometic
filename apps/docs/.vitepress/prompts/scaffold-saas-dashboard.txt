@@ -1,0 +1,163 @@
+You are an expert TypeScript engineer scaffolding a production-shaped B2B SaaS dashboard with Sometic (@sometic).
+
+Sometic is portable application behavior (controllers + adapters), NOT a dashboard theme kit and NOT a hosted SaaS backend.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Northline Dashboard (B2B SaaS home)
+Users: signed-in operators at a company using modules (Overview, Customers, Settings).
+Outcome: One App Shell runtime with auth, HTTP, query tables, notifications, command palette, tabs, and feature-flagged modules.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Auth session + HTTP refresh + Query cache composed via createAppShell / createSometicApp
+- Server lists live in @sometic/query (+ data-table). UI chrome (sidebar collapsed) lives in @sometic/store
+- createFeatureFlagController gates modules; server still enforces entitlements
+- createPermissionController / can() is UX-only
+- Structure Tabs + Command palette: A/B use /structure adapters; C use @sometic/dom (NO Tabs/Command-palette CEs invented)
+- Data table: A/B use /data adapters; C use engine + DOM (NO invented data-table CE)
+- Unstyled packages; consumer CSS for dense SaaS layout
+- No playgrounds, Invoice Desk, telemetry, invented packages, Google Fonts in packages
+- No browser globals at import time
+- Pin exact @sometic/* versions (never "latest"); ship unit + e2e tests
+- Page-lifetime System singleton; do NOT dispose shell/auth/forms on React Strict Mode / Vue remount cleanup
+- Pass naked createHttp into createAppShell; use shell.http; forms via connected fields; guards via isAuthenticatedStatus (A: useRequireAuth)
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth (+ adapter), @sometic/http, @sometic/query,
+@sometic/data-table, @sometic/notifications, @sometic/feature-flags,
+@sometic/store, @sometic/theme, @sometic/head, @sometic/forms (settings forms),
+framework /structure + /data + /overlay (toast) + /auth hooks
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  app/shell-layout.tsx          // sidebar, topbar, outlet
+  modules/
+    overview/
+    customers/                  // query + data-table
+    settings/
+    billing/                    // behind feature flag "billing"
+  notifications/
+  commands/register.ts          // command palette actions
+  flags/definitions.ts
+  styles/dashboard.css
+  mocks/api.ts
+README.md
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Customer: { id, name, plan: "free"|"pro"|"enterprise", seats, updatedAt }
+Notification: { id, title, body, read, createdAt }
+Flag keys: "billing", "newCustomerImporter"
+Permission examples: customers:read, customers:write, billing:manage
+
+Mock API:
+- auth endpoints
+- GET /customers?cursor=
+- PATCH /customers/:id
+- GET /notifications
+- POST /notifications/:id/read
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in (minimal; can deep-link from Auth scaffold patterns)
+2. App shell with sidebar: Overview, Customers, Settings, Billing (flagged)
+3. Customers: data-table with sort/filter stubs, row actions permission-gated
+4. Notifications center entry + toast on successful mutation
+5. Command palette: Navigate to Customers, Create customer (if permitted), Toggle theme
+6. Settings: profile form via @sometic/forms
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. createAuth + http interceptor + query client
+2. createFeatureFlagController({ definitions, remote/overrides as needed })
+3. createPermissionController from auth capabilities returned by /me
+4. createAppShell({ auth, http, query, head, theme, stores, forms })
+5. Register commands that call router.navigate / open dialogs
+6. On session epoch change: drop privileged query data / remount module outlets
+7. Do not dispose page-lifetime System on Strict Mode effect cleanup (useRef singleton)
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite app + installs + mock API
+2. System bootstrap + protected layout
+3. Customers query + DataTable adapter integration
+4. Notifications list + mark-read mutation + toast
+5. Tabs within Settings (Profile / Preferences)
+6. Feature flag: hide Billing nav + route when disabled; document server entitlement still required
+7. Command palette wired to commands registry
+8. Head titles per module
+9. Consumer CSS (dense spacing, sticky subheaders)
+10. README with flag keys, permissions, and honesty about CE gaps
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Authenticated shell renders only after hydrate
+[ ] Customers table data comes from query keys, not store
+[ ] Mutating a customer invalidates/refetches the list
+[ ] Billing route unreachable in UI when flag off
+[ ] Permission-denied actions hidden OR disabled AND API rejects if forced
+[ ] Command palette navigates without full reload
+[ ] Toast confirms save; notification inbox shows assignment-style events
+[ ] dispose cleans up; remounting root does not duplicate listeners
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/utilities/query
+https://sometic.dev/authentication/
+https://sometic.dev/components/
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/styling
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt
+
+Prefer docs + package types over inventing APIs.

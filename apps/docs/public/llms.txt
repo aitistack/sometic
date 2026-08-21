@@ -27,6 +27,7 @@ Sometic is a portable application behavior system, not a pre-styled component ki
 - [Introduction](https://sometic.dev/guide/introduction): product promise
 - [What's included](https://sometic.dev/guide/whats-included): inventory and honesty labels
 - [Agents](https://sometic.dev/guide/agents): Copy Prompt, llms.txt, package graph
+- [App scaffolds](https://sometic.dev/guide/app-scaffolds): full-app agent prompts (SaaS, auth, AI workspace, and more)
 - [Contributing](https://sometic.dev/guide/contributing): PRs, Changesets, review rules
 - [Beta maturity](https://sometic.dev/releases/beta): readiness and known limits
 
@@ -69,6 +70,7 @@ Sometic is a portable application behavior system, not a pre-styled component ki
 
 - Sometic's product story is portable application behavior (controllers + adapters + auth/HTTP/query/app-shell), not a visual UI kit
 - Use **Copy Prompt** on surface docs (and the home CTA) to scaffold with the correct package boundaries; see [Agents](https://sometic.dev/guide/agents)
+- For full product shapes, use [App scaffolds](https://sometic.dev/guide/app-scaffolds) prompts instead of inventing example apps
 - Prefer `createAppShell` when composing auth + http + query (+ head/theme/stores/forms) so session epoch clears privileged state
 - Keep server data in `@sometic/query`; keep client/UI preferences in `@sometic/store`
 - Publishable `@sometic/*` packages are font-agnostic and do not ship brand fonts

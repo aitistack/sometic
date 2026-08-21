@@ -158,21 +158,24 @@ export function useFieldArray<TItem>(
     }, [form, name, options?.defaultItem]);
 }
 
-export type FormProps = {
-    form: FormController<Record<string, unknown>>;
+export type FormProps<TValues extends Record<string, unknown> = Record<string, unknown>> = {
+    form: FormController<TValues>;
     children: ReactNode;
-    onValid: SubmitHandlers<Record<string, unknown>>["onValid"];
-    onInvalid?: SubmitHandlers<Record<string, unknown>>["onInvalid"];
+    onValid: SubmitHandlers<TValues>["onValid"];
+    onInvalid?: SubmitHandlers<TValues>["onInvalid"];
     className?: string;
 };
 
-export function Form(props: FormProps): ReactNode {
-    const submit = props.form.handleSubmit({
+export function Form<TValues extends Record<string, unknown> = Record<string, unknown>>(
+    props: FormProps<TValues>,
+): ReactNode {
+    const handlers: SubmitHandlers<TValues> = {
         onValid: props.onValid,
         ...(props.onInvalid === undefined ? {} : { onInvalid: props.onInvalid }),
-    });
+    };
+    const submit = props.form.handleSubmit(handlers);
     return createElement(FormProvider, {
-        form: props.form,
+        form: props.form as FormController<Record<string, unknown>>,
         children: createElement(
             "form",
             {
