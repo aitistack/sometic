@@ -3,7 +3,7 @@
 `@sometic/http` is a fetch-first client: interceptors, retry/backoff, in-flight dedupe, typed errors, mock fetcher helpers, and an optional auth refresh queue via `@sometic/http/auth`. It does not embed Firebase, Supabase, or OIDC SDKs. `@sometic/auth` is an optional peer used only when you import the auth interceptor.
 
 ::: tip System standout: epoch ledger + policy
-`createAuthInterceptor` tags `meta.sessionEpoch` and refuses replay after an epoch bump (`HTTP_SESSION_STALE`). `createPolicyInterceptor` fails closed on capability checks. Defaults: `allowAbsoluteUrl: false`, optional `maxResponseBytes`. Prefer [`createAppShell`](/guide/app-shell) / `bindAuthToHttp` for the full spine.
+`createAuthInterceptor` tags `meta.sessionEpoch` and refuses replay after an epoch bump (`HTTP_SESSION_STALE`). `createPolicyInterceptor` fails closed on capability checks. Defaults: `allowAbsoluteUrl: false`, optional `maxResponseBytes`. Prefer [`createAppShell`](/guide/app-shell) / `bindAuthToHttp` for the full spine: pass a **naked** `createHttp` into the shell and use `shell.http` in the UI so auth binding is not stacked twice.
 :::
 
 <CopyPrompt surface="http" />

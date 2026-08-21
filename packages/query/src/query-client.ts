@@ -525,7 +525,9 @@ export function createQueryObserver<TData = unknown, TError = Error>(
             state.isInvalidated ||
             isStaleState(state, staleTime);
         if (!shouldRefetch) {
-            notify();
+            if (!current) {
+                current = buildResult();
+            }
             return;
         }
         await client
@@ -558,8 +560,8 @@ export function createQueryObserver<TData = unknown, TError = Error>(
                     true;
                 if (refetchOnSubscribe) {
                     void maybeFetch();
-                } else {
-                    notify();
+                } else if (!current) {
+                    current = buildResult();
                 }
             } else {
                 listener();

@@ -2,6 +2,10 @@
 
 Framework adapters over `@sometic/forms`: React `Form` / hooks, Vue `Form` / composables, and the `sometic-form` custom element. Same `FormController` behavior everywhere, validation modes, field meta, submit, server errors, and field arrays.
 
+::: tip Connected fields
+`handleSubmit` validates **controller values**, not DOM `FormData`. Bind every field with `useFormField` (value + `setValue` + `onBlur`). A bare `<input name="…">` or unbound `<Input name="…">` will submit empty defaults and look like a broken submit handler.
+:::
+
 <PreviewForm />
 
 ## Usage
@@ -9,13 +13,26 @@ Framework adapters over `@sometic/forms`: React `Form` / hooks, Vue `Form` / com
 ::: code-group
 
 ```tsx [React]
-import { useForm, Form } from "@sometic/react/form";
+import { useForm, Form, useFormField } from "@sometic/react/form";
+import { Input } from "@sometic/react/input";
+import { required, email } from "@sometic/validation";
 
 export function Example() {
     const form = useForm({ defaultValues: { email: "" } });
+    const emailField = useFormField(
+        "email",
+        {
+            validators: [required(), email()],
+        },
+        form,
+    );
     return (
         <Form form={form} onValid={async (values) => console.log(values)}>
-            <input name="email" />
+            <Input
+                value={String(emailField.value ?? "")}
+                onValueChange={emailField.setValue}
+                onBlur={emailField.onBlur}
+            />
             <button type="submit">Send</button>
         </Form>
     );

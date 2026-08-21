@@ -135,6 +135,13 @@ function selectManager(manager: PackageManager): void {
                             <HomeIcon name="architecture" />
                             <span class="sometic-home-cta__label">Architecture</span>
                         </a>
+                        <a
+                            class="sometic-home-cta sometic-home-cta--secondary"
+                            :href="withBase('/guide/app-scaffolds')"
+                        >
+                            <HomeIcon name="scaffolds" />
+                            <span class="sometic-home-cta__label">App scaffolds</span>
+                        </a>
                         <button
                             type="button"
                             class="sometic-home-cta sometic-home-cta--prompt"

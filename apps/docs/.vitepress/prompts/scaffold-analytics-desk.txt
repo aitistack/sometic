@@ -1,0 +1,141 @@
+You are an expert TypeScript engineer scaffolding an analytics / reporting desk with Sometic (@sometic).
+
+CRITICAL: Sometic does NOT include charts. You MUST pick a real chart library (visx, Chart.js, ECharts, Apache ECharts, Recharts, etc.) and document the boundary in README. Never invent @sometic/charts.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Signal Reports
+Users: analysts filtering datasets, viewing tables, glancing at charts, importing/exporting CSV.
+Outcome: query-builder filters → query-cached results → data-table + optional chart; uploads for import jobs.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Filters: @sometic/query-builder → serialize to YOUR API filter contract
+- Results: @sometic/query keys include serialized filters
+- Presentation: data-table via /data adapters
+- Files: field/file input collects; @sometic/upload transports (progress/abort)
+- Charts: third-party only
+- Auth + App Shell for gated desk; page-lifetime System (no Strict Mode dispose of create-once refs); pin @sometic versions; unit + e2e tests
+- Prefer filter state in URL for shareable reports
+- No playgrounds, Invoice Desk, telemetry, invented Sometic viz packages
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/http, @sometic/query,
+@sometic/query-builder, @sometic/data-table, @sometic/upload, @sometic/theme,
+framework /data adapters, plus CHART_LIB of your choice
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  reports/
+    filter-panel.tsx          // query-builder UI
+    results-table.tsx
+    results-chart.tsx         // wraps chosen chart lib
+    serialize-filters.ts
+  import/
+    csv-import.tsx            // upload job
+  hooks/use-report-query.ts
+  mocks/api.ts
+  styles/reports.css
+README.md                     // MUST name chart library + honesty note
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+FilterAst: whatever query-builder emits (map to API)
+ReportRow: { id, dimension, metric, date }
+ImportJob: { id, status: "queued"|"running"|"done"|"error", filename }
+
+API:
+- GET /reports/query?filter=...
+- POST /reports/import (multipart)
+- GET /reports/import/:id
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in
+2. Report desk: filter panel | results table | chart
+3. Import drawer/modal with upload progress
+4. Empty/error/loading states for query
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell auth/http/query/theme
+2. Build filters with query-builder; sync to URL search params
+3. useQuery(["report", serialized]) → rows
+4. DataTable binds rows; chart maps rows → series
+5. Upload import; poll job status via query
+6. High-contrast tokens via theme helpers for dense UI
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite app + mock report API
+2. System bootstrap
+3. Filter panel + URL sync + serialize helper
+4. Table integration
+5. Chart integration (explicit dependency)
+6. CSV import upload + status
+7. README with chart choice, filter mapping notes, performance caveats for huge exports
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Changing filters refetches with new query key
+[ ] Shared URL reproduces the same filter set
+[ ] Table and chart reflect the same result set
+[ ] Upload shows progress and completes job
+[ ] README states chart library and “no @sometic/charts”
+[ ] No multi-hundred-MB CSV parsed entirely on main thread without warning
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/utilities/query
+https://sometic.dev/theming/
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

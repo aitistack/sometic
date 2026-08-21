@@ -18,7 +18,7 @@ export function bindQueryToAuth(
     query: QueryClient,
     options: BindQueryToAuthOptions = {},
 ): BindQueryToAuthResult {
-    const refetchOnReauth = options.refetchOnReauth ?? "all";
+    const refetchOnReauth = options.refetchOnReauth ?? false;
     let lastEpoch = auth.getEpoch();
 
     const unsubSession = auth.subscribe((session) => {

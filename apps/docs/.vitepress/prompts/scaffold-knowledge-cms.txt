@@ -1,0 +1,143 @@
+You are an expert TypeScript engineer scaffolding a knowledge base / CMS lite with Sometic (@sometic).
+
+There is NO @sometic/rich-text package. Bring TipTap, Lexical, ProseMirror, or a textarea. App primitive engines (drafts/history/conflict) have NO dedicated CEs — call them from the stack the user chooses (A / B / C).
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Quill Knowledge Base
+Users: editors drafting articles; readers viewing published pages.
+Outcome: Article list + editor with draft autosave + undo/redo + conflict handling on save races + SEO head on published routes.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Forms bind article fields; rich text is your component feeding form state
+- @sometic/drafts for autosave (omit secrets); debounce writes
+- @sometic/history for intentional undo/redo command stack
+- @sometic/conflict for concurrent save policy (reload vs merge prompt) — not a full CRDT suite
+- Published routes set @sometic/head; drafts should be noindex if publicly reachable
+- Long-term revision history beyond undo stack = your API if needed
+- createAppShell for editor session; dispose; no import-time globals
+- No Invoice Desk, playgrounds, telemetry, invented rich-text package
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/http, @sometic/query,
+@sometic/forms, @sometic/drafts, @sometic/history, @sometic/conflict, @sometic/head,
+plus RICH_TEXT_LIB of your choice
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  articles/
+    list-page.tsx
+    editor-page.tsx
+    published-page.tsx
+    rich-text-editor.tsx      // wraps TipTap/Lexical/textarea
+  collab/
+    conflict-modal.tsx
+  mocks/api.ts                // include ETag / version for conflicts
+  styles/cms.css
+README.md                     // name rich text library
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Article: { id, slug, title, content, status: "draft"|"published", version, updatedAt }
+
+API:
+- GET /articles
+- GET /articles/:id
+- PUT /articles/:id (If-Match version; 409 on conflict)
+- POST /articles/:id/publish
+- GET /p/:slug (published)
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in
+2. Article list (query)
+3. Editor: title + rich text + autosave indicator + undo/redo buttons
+4. Conflict modal on 409
+5. Published reader page with head/seo
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell
+2. Load article into forms; mirror draft via drafts engine
+3. Wrap edits in history commands
+4. Save sends version; on 409 open conflict UI (reload server copy or overwrite with confirm)
+5. Publish mutation updates status + head fields on public route
+6. Debounced draft persistence separate from server save
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mock with version conflicts
+2. System + list/detail queries
+3. Editor form binding + chosen rich text lib
+4. Drafts autosave
+5. History undo/redo
+6. Conflict modal
+7. Published page + head
+8. README honesty (no CE for primitives; no rich-text package)
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Autosave restores after reload of editor route
+[ ] Undo/redo changes content via history
+[ ] Forced mid-air conflict (two tabs) surfaces conflict UI
+[ ] Published page title tag matches article title
+[ ] package.json includes explicit rich text dependency (or documents textarea-only)
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/forms/
+https://sometic.dev/utilities/head
+https://sometic.dev/guide/ssr
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

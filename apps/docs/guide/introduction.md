@@ -29,6 +29,7 @@ Public **beta**. Maturity is a label, not a shared npm version. See [Beta maturi
 ## Next
 
 - [App shell](/guide/app-shell) — easiest spine entry
+- [App scaffolds](/guide/app-scaffolds) — full-app agent prompts
 - [Architecture](/concepts/architecture) — mental model
 - [Why Sometic](/guide/why-sometic) — positioning
 - [Quick start](/guide/quick-start) — React, Vue, CE, then services

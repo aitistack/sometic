@@ -91,6 +91,7 @@ export type HttpClient = {
         url: string,
         init?: Omit<HttpRequestConfig, "url" | "method" | "body">,
     ) => Promise<HttpResponse<T>>;
+    getInterceptors: () => readonly HttpInterceptor[];
     extend: (overrides: CreateHttpOptions) => HttpClient;
     dispose: () => void;
 };

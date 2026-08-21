@@ -1,5 +1,6 @@
 import DefaultTheme from "vitepress/theme";
 import Layout from "./Layout.vue";
+import AppScaffolds from "./components/AppScaffolds.vue";
 import CopyPrompt from "./components/CopyPrompt.vue";
 import DemoFrame from "./components/DemoFrame.vue";
 import HomeGlyph from "./components/HomeGlyph.vue";
@@ -17,6 +18,7 @@ export default {
     extends: DefaultTheme,
     Layout,
     enhanceApp({ app }) {
+        app.component("AppScaffolds", AppScaffolds);
         app.component("CopyPrompt", CopyPrompt);
         app.component("DemoFrame", DemoFrame);
         app.component("HomeGlyph", HomeGlyph);

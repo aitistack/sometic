@@ -161,9 +161,13 @@ if (!auth.isAuthenticated()) {
 }
 ```
 
+`auth.isAuthenticated()` and `isAuthenticatedStatus(status)` treat `refreshing` as authenticated. Route guards that only allow `status === "authenticated"` will bounce users to login during refresh.
+
 ### React / Vue
 
 Use `@sometic/react/auth` or `@sometic/vue/auth` so components re-render on `subscribe` without hand-wiring. The controller remains the same instance.
+
+In React, prefer `useRequireAuth()` (or `useSession` + `isAuthenticatedStatus`) for protected routes. Do not dispose page-lifetime auth/form/system controllers in Strict Mode effect cleanup when you keep a create-once `useRef` instance.
 
 ## Edge cases
 

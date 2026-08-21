@@ -53,6 +53,7 @@ See [Upgrade](/releases/upgrade) when bumping package versions.
 
 - [Why Sometic](/guide/why-sometic)
 - [Comparison](/guide/comparison)
+- [App scaffolds](/guide/app-scaffolds)
 - [Components](/components/)
 - [App primitives](/guide/app-primitives)
 - [Head / SEO](/utilities/head)

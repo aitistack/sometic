@@ -1,0 +1,147 @@
+You are an expert TypeScript engineer scaffolding an offline-first field app with Sometic (@sometic).
+
+Sometic does NOT ship a service worker. Add Workbox/PWA tooling yourself if needed. Detect online/offline at RUNTIME — never read navigator at import time.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+Mobile-friendly UI required for the chosen stack.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Fieldkit Capture
+Users: field technicians capturing forms without reliable connectivity, then syncing.
+Outcome: Drafted forms + offline mutation queue + conflict resolution on reconnect + query as server truth after sync + auth hydrate when online.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- @sometic/offline-queue retries TRANSPORT; @sometic/conflict owns merge policy; @sometic/query holds server truth after sync
+- @sometic/drafts for in-progress forms (omit secrets)
+- @sometic/store persistence for client field state you intentionally keep
+- Only enqueue mutations your API can accept idempotently later
+- Reconnect order: hydrate auth → flush queue → conflict strategies → invalidate query
+- createAppShell; dispose contracts for listeners/in-flight HTTP; document queue durability across reloads
+- Large touch targets; high contrast; prefer native inputs
+- No Invoice Desk, playgrounds, telemetry; no import-time navigator/window
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/offline-queue, @sometic/drafts, @sometic/conflict, @sometic/forms,
+@sometic/validation, @sometic/store, @sometic/http, @sometic/auth, @sometic/query,
+@sometic/app-shell, framework field adapters
+Optional: Workbox / vite-plugin-pwa (explicitly yours)
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  net/online.ts                 // runtime listeners only
+  capture/
+    inspection-form.tsx
+    draft-bridge.ts
+  sync/
+    enqueue.ts
+    flush.ts
+    conflict-ui.tsx
+  mocks/api.ts                  // simulate offline by pausing; 409 conflicts
+  styles/field.css
+README.md                       // PWA optional; reconnect order
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Inspection: { id, siteCode, notes, severity, updatedAt, version }
+Mutation: { id, type: "create"|"update", payload, clientId }  // idempotent clientId
+
+API:
+- PUT /inspections/:id (If-Match)
+- POST /inspections
+- GET /inspections
+
+================================================================================
+SCREENS
+================================================================================
+1. Sign-in (online)
+2. Inspection list (query when online; last-known cache messaging when offline)
+3. Capture form with draft autosave
+4. Offline banner + pending queue count
+5. Conflict UI comparing server vs local fields
+6. Sync success → refreshed query list
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell with persisted store + offline queue storage
+2. Form bind + drafts
+3. On submit: if offline → enqueue; if online → http then invalidate
+4. online event → auth.ensure/hydrate → flush queue → conflicts → query.invalidate
+5. dispose: abort in-flight; do not assume queue memory-only unless documented
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite mobile layout + mocks with conflict + pause switch
+2. System + runtime online helper
+3. Form + drafts
+4. Queue enqueue/flush
+5. Conflict UI
+6. Auth gate for sync
+7. Optional PWA note in README (not required to finish)
+8. README: what survives reload; which endpoints are offline-safe
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Fill form offline, reload, draft still present
+[ ] Submit offline increases queue; reconnect flushes
+[ ] Conflict path can be forced and resolved
+[ ] After sync, query list matches server
+[ ] No navigator usage at import time
+[ ] Touch-friendly controls
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/guide/app-primitives
+https://sometic.dev/stores/
+https://sometic.dev/forms/
+https://sometic.dev/guide/ssr
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

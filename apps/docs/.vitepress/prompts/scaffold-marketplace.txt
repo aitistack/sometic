@@ -1,0 +1,141 @@
+You are an expert TypeScript engineer scaffolding a marketplace listings product with Sometic (@sometic).
+
+Payments and search ranking are OUTSIDE Sometic. Integrate Stripe (or similar) yourself if needed — there is NO @sometic/payments. Combobox is NOT a custom element yet.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Harbor Listings
+Users: buyers browse public listings; sellers authenticate to create/edit listings with images.
+Outcome: Catalog + listing detail with SEO head tags + seller create/edit forms + upload pipeline + category select/combobox.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Public listing pages set @sometic/head (+ head/seo) metadata matching content
+- Catalog/results in @sometic/query; seller mutations invalidate keys
+- Upload via @sometic/upload; inputs collect files
+- Select/Combobox via framework selection adapters (no Combobox CE)
+- Seller routes auth-gated; public catalog may be anonymous
+- createAppShell for seller session areas; dispose; no import-time globals
+- Unstyled card grids; semantic article/link cards; no fake browser chrome
+- No Invoice Desk, playgrounds, telemetry, invented payments package
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/http, @sometic/query,
+@sometic/forms, @sometic/validation, @sometic/upload, @sometic/head,
+framework /selection (Select, Combobox), /field, /button
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  public/
+    catalog-page.tsx
+    listing-detail-page.tsx   // SSR-friendly head if framework allows
+  seller/
+    listing-editor.tsx
+    media-uploader.tsx
+  mocks/api.ts
+  styles/market.css
+README.md                     // payments/search honesty
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+Listing: { id, slug, title, description, priceCents, categoryId, imageUrls[], status: "draft"|"published" }
+Category: { id, name }
+
+API:
+- GET /listings?q=&category=
+- GET /listings/:slug
+- POST/PATCH /seller/listings (auth)
+- POST /seller/listings/:id/images (upload)
+
+================================================================================
+SCREENS
+================================================================================
+1. Public catalog with filters + category control
+2. Public listing detail with head title/description
+3. Sign-in
+4. Seller dashboard list
+5. Create/edit listing form + multi-image upload
+6. Publish action
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. Anonymous query for public catalog/detail
+2. Seller App Shell with auth/http/query/head
+3. Editor forms + validation; upload images then attach URLs to listing
+4. On publish: mutation + head fields for public route
+5. Combobox/select for categories from query ["categories"]
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite app + mocks (public + seller)
+2. Catalog + detail + head/seo
+3. Auth + seller editor
+4. Upload pipeline with progress
+5. Category combobox
+6. Consumer marketplace CSS
+7. README: Stripe placeholder section (“wire later”), CE honesty for combobox
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Listing detail document title matches listing title
+[ ] Seller cannot edit without auth
+[ ] Uploaded image URL appears on listing after save
+[ ] Catalog filters use query keys
+[ ] No @sometic/payments dependency
+[ ] README states Combobox CE gap
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/forms/
+https://sometic.dev/utilities/head
+https://sometic.dev/utilities/query
+https://sometic.dev/guide/whats-included
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/agents
+https://sometic.dev/llms.txt

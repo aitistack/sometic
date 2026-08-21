@@ -2,6 +2,7 @@ import type { AuthController, AuthorizationPolicy } from "@sometic/auth";
 import {
     createAuthInterceptor,
     createPolicyInterceptor,
+    isAuthHttpInterceptor,
     type AuthInterceptorOptions,
     type PolicyInterceptorOptions,
 } from "@sometic/http/auth";
@@ -25,25 +26,38 @@ type BindAuthToHttpResult = {
 };
 
 export function bindAuthToHttp(options: BindAuthToHttpOptions): BindAuthToHttpResult {
-    const interceptors: HttpInterceptor[] = [
-        createAuthInterceptor({
-            auth: options.auth,
-            ...options.authInterceptor,
-            getEpoch: options.authInterceptor?.getEpoch ?? ((auth) => auth.getEpoch()),
-        }),
-    ];
-    if (options.policy || options.require) {
-        interceptors.push(
-            createPolicyInterceptor({
-                auth: options.auth,
-                ...options.policy,
-                ...(options.require ? { require: options.require } : {}),
-            }),
-        );
-    }
+    const needsPolicy = Boolean(options.policy || options.require);
+    const authInterceptor = createAuthInterceptor({
+        auth: options.auth,
+        ...options.authInterceptor,
+        getEpoch: options.authInterceptor?.getEpoch ?? ((auth) => auth.getEpoch()),
+    });
+    const policyInterceptor = needsPolicy
+        ? createPolicyInterceptor({
+              auth: options.auth,
+              ...options.policy,
+              ...(options.require ? { require: options.require } : {}),
+          })
+        : null;
 
     if (options.http) {
-        const extended = options.http.extend({ interceptors });
+        const existing = options.http.getInterceptors();
+        const hasAuth = existing.some(isAuthHttpInterceptor);
+        const toAdd: HttpInterceptor[] = [];
+        if (!hasAuth) {
+            toAdd.push(authInterceptor);
+        }
+        if (policyInterceptor) {
+            toAdd.push(policyInterceptor);
+        }
+        if (toAdd.length === 0) {
+            return {
+                http: options.http,
+                owned: false,
+                dispose: () => {},
+            };
+        }
+        const extended = options.http.extend({ interceptors: toAdd });
         return {
             http: extended,
             owned: true,
@@ -51,6 +65,11 @@ export function bindAuthToHttp(options: BindAuthToHttpOptions): BindAuthToHttpRe
                 extended.dispose();
             },
         };
+    }
+
+    const interceptors: HttpInterceptor[] = [authInterceptor];
+    if (policyInterceptor) {
+        interceptors.push(policyInterceptor);
     }
 
     const http = createHttp({

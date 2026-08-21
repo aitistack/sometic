@@ -307,6 +307,7 @@ export function createHttp(options: CreateHttpOptions = {}): HttpClient {
         put: (url, body, init) => request({ ...init, url, method: "PUT", body: body ?? null }),
         patch: (url, body, init) => request({ ...init, url, method: "PATCH", body: body ?? null }),
         delete: (url, init) => request({ ...init, url, method: "DELETE" }),
+        getInterceptors: () => interceptors.slice(),
         extend: (overrides) =>
             createHttp({
                 ...options,

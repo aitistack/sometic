@@ -1,0 +1,140 @@
+You are an expert TypeScript engineer scaffolding a developer API portal with Sometic (@sometic).
+
+This does NOT replace https://sometic.dev VitePress docs. Build a CUSTOMER-FACING portal for YOUR product’s API.
+
+================================================================================
+TECH STACK GATE (MANDATORY — DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating ANY files, installing packages, scaffolding folders, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2).
+
+Which delivery path should this scaffold use?
+
+  A)  React — Vite + TypeScript + @sometic/react (npm)
+  B)  Vue — Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components — Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN — HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN — HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules for this gate (before they answer):
+- Do NOT assume a path.
+- Do NOT default to React, Vue, Vanilla, or CDN.
+- Do NOT pick for the user.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only “D” or “CDN”, ask them to pick D1 or D2.
+- If the answer is ambiguous, ask again with A / B / C / D1 / D2 only.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (Experimental only).
+
+AFTER they answer A, B, C, D1, or D2 (this is critical):
+- The gate is CLOSED. Immediately begin IMPLEMENTATION STEPS for the chosen path in the SAME turn.
+- Do NOT stop at acknowledging the choice.
+- Do NOT ask “ready to proceed?”, “shall I scaffold?”, “want a plan first?”, or any other permission loop.
+- Do NOT summarize the prompt instead of building.
+- Do NOT wait for another message.
+- One short confirmation line is allowed (e.g. “Building with C — Vanilla + Elements.”), then create the full project (npm pins for A/B/C, or pinned jsDelivr URLs for D1/D2), system wiring, routes, mock API, tests, and README.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN “just in case”).
+- State the chosen path letter once in the README.
+
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Acme Developer Portal
+Users: developers who sign in (OIDC optional), manage API keys, read endpoint docs chrome, try authenticated HTTP calls.
+Outcome: Docs-like IA + auth + key forms (secret omit) + structure Tabs/Tree + HTTP try-it panels using the same interceptors as production.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Try-it panels use @sometic/http with real interceptor order; never hardcode live secrets into static MD
+- API key create: show secret ONCE; persist only hashes server-side; forms draft omit secrets
+- Structure Tabs / Accordion / Tree via framework adapters (no structure CEs for those)
+- Optional @sometic/auth-oidc for SSO; auth-local also fine
+- Point agent readers at https://sometic.dev/guide/agents and /llms.txt when teaching Sometic itself
+- createAppShell; dispose; no import-time globals; unstyled editorial CSS
+- No playgrounds, Invoice Desk, telemetry
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/auth-oidc (optional), @sometic/http,
+@sometic/forms, @sometic/head, @sometic/query, framework /structure, /field
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  pages/
+    home.tsx
+    docs/
+      rest.tsx
+      webhooks.tsx
+    keys/
+      keys-page.tsx
+    try/
+      http-lab.tsx
+  content/endpoints.ts       // static endpoint descriptors (not secrets)
+  mocks/api.ts
+  styles/portal.css
+README.md
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+ApiKey: { id, name, prefix, createdAt, lastUsedAt? }  // secret only in create response
+EndpointDescriptor: { id, method, path, description }
+
+API:
+- auth/OIDC or local
+- GET/POST/DELETE /developer/keys
+- Echo try-it routes under /demo/*
+
+================================================================================
+SCREENS
+================================================================================
+1. Marketing/home with head tags
+2. Sign-in (OIDC button and/or local)
+3. API reference: Tree of groups + Tabs (REST vs Webhooks)
+4. Keys management table + create form
+5. Try-it panel: method/path/body → http request → status/body viewer
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell with auth/http/query/head
+2. Keys query ["developer","keys"]
+3. Create key mutation returns secret once; UI copy field; never write secret to drafts/store
+4. Try-it builds Request via createHttp instance (auth header attached by interceptor)
+5. Head titles per docs section
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mocks
+2. Auth (document OIDC env)
+3. Docs chrome with Tree/Tabs
+4. Keys CRUD UX
+5. HTTP lab panel showing interceptor-aware calls
+6. Editorial CSS + mono for payloads (consumer font choice)
+7. README links to sometic.dev agents/llms for Sometic learning
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Secret shown once on create and not re-fetchable
+[ ] Try-it fails closed when signed out
+[ ] Tree/Tabs navigate endpoint content
+[ ] No live secrets in repo files
+[ ] Portal does not claim to be sometic.dev
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/authentication/
+https://sometic.dev/utilities/http
+https://sometic.dev/utilities/head
+https://sometic.dev/guide/agents
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/llms.txt

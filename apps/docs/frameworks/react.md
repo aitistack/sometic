@@ -37,7 +37,7 @@ Prefer **subpath imports** so unused families stay out of your bundle.
 | `@sometic/react/overlay`   | `Alert`, `Dialog`, `Drawer`, `Menu`, `MenuItem`, `ContextMenu`, `Popover`, `Tooltip`, `ToastRegion`                                                                  |
 | `@sometic/react/structure` | `Tabs`, `TabTrigger`, `TabPanel`, `Accordion`, `AccordionItem`, `Breadcrumb`, `BreadcrumbItem`, `CommandPalette`, `Tree`, `Badge`, `Progress`, `Spinner`, `Skeleton` |
 | `@sometic/react/store`     | `useStore`                                                                                                                                                           |
-| `@sometic/react/auth`      | `AuthProvider`, `useAuth`, `useSession`, `useCan`                                                                                                                    |
+| `@sometic/react/auth`      | `AuthProvider`, `useAuth`, `useSession`, `useCan`, `useRequireAuth`                                                                                                  |
 | `@sometic/react/http`      | `HttpProvider`, `useHttp`                                                                                                                                            |
 | `@sometic/react`           | Root barrel (prefer subpaths)                                                                                                                                        |
 

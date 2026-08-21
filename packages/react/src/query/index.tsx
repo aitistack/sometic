@@ -1,11 +1,11 @@
 import {
     createContext,
     createElement,
+    useCallback,
     useContext,
     useEffect,
     useMemo,
     useRef,
-    useState,
     useSyncExternalStore,
     type ReactNode,
 } from "react";
@@ -13,10 +13,13 @@ import {
     createMutationObserver,
     createQueryClient,
     createQueryObserver,
+    hashQueryKey,
     type CreateQueryClientOptions,
+    type MutationObserver,
     type MutationObserverOptions,
     type MutationObserverResult,
     type QueryClient,
+    type QueryObserver,
     type QueryObserverOptions,
     type QueryObserverResult,
 } from "@sometic/query";
@@ -30,21 +33,26 @@ export type QueryClientProviderProps = {
 };
 
 export function QueryClientProvider(props: QueryClientProviderProps): ReactNode {
-    const client = useMemo(() => {
-        if (props.client) {
-            return props.client;
-        }
-        return createQueryClient(props.options ?? {});
-    }, [props.client, props.options]);
+    const ownedRef = useRef<QueryClient | null>(null);
+    if (props.client) {
+        ownedRef.current = null;
+    } else if (!ownedRef.current) {
+        ownedRef.current = createQueryClient(props.options ?? {});
+    }
+    const client = props.client ?? ownedRef.current;
+    if (!client) {
+        throw new Error("QueryClientProvider requires client or options");
+    }
 
     useEffect(() => {
         if (props.client) {
             return;
         }
         return () => {
-            client.dispose();
+            ownedRef.current?.dispose();
+            ownedRef.current = null;
         };
-    }, [client, props.client]);
+    }, [props.client]);
 
     return createElement(QueryClientContext.Provider, { value: client }, props.children);
 }
@@ -63,26 +71,69 @@ export function useQuery<TData = unknown, TError = Error>(
     const client = useQueryClient();
     const optionsRef = useRef(options);
     optionsRef.current = options;
-    const observer = useMemo(
-        () => createQueryObserver<TData, TError>(client, optionsRef.current),
-        [client],
-    );
+
+    const observerRef = useRef<{
+        client: QueryClient;
+        observer: QueryObserver<TData, TError>;
+    } | null>(null);
+    if (!observerRef.current || observerRef.current.client !== client) {
+        observerRef.current?.observer.destroy();
+        observerRef.current = {
+            client,
+            observer: createQueryObserver<TData, TError>(client, optionsRef.current),
+        };
+    }
+    const observer = observerRef.current.observer;
+
+    const queryKeyHash = useMemo(() => hashQueryKey(options.queryKey), [options.queryKey]);
 
     useEffect(() => {
-        observer.setOptions(options);
-    }, [observer, options]);
+        observer.setOptions(optionsRef.current);
+    }, [
+        observer,
+        queryKeyHash,
+        options.enabled,
+        options.staleTime,
+        options.gcTime,
+        options.retry,
+        options.refetchOnSubscribe,
+        options.queryFn,
+        options.select,
+        options.initialData,
+    ]);
+
+    const snapshotRef = useRef<QueryObserverResult<TData, TError> | null>(null);
+
+    const subscribe = useCallback(
+        (onStoreChange: () => void) =>
+            observer.subscribe(() => {
+                snapshotRef.current = null;
+                onStoreChange();
+            }),
+        [observer],
+    );
+
+    const getSnapshot = useCallback(() => {
+        const cached = snapshotRef.current;
+        if (cached) {
+            return cached;
+        }
+        const next = observer.getCurrentResult();
+        snapshotRef.current = next;
+        return next;
+    }, [observer]);
 
     useEffect(() => {
         return () => {
             observer.destroy();
+            if (observerRef.current?.observer === observer) {
+                observerRef.current = null;
+            }
+            snapshotRef.current = null;
         };
     }, [observer]);
 
-    return useSyncExternalStore(
-        (onStoreChange) => observer.subscribe(onStoreChange),
-        () => observer.getCurrentResult(),
-        () => observer.getCurrentResult(),
-    );
+    return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
 
 export function useMutation<TData = unknown, TError = Error, TVariables = void, TContext = unknown>(
@@ -91,24 +142,65 @@ export function useMutation<TData = unknown, TError = Error, TVariables = void, 
     const client = useQueryClient();
     const optionsRef = useRef(options);
     optionsRef.current = options;
-    const observer = useMemo(() => createMutationObserver(client, optionsRef.current), [client]);
-    const [, setTick] = useState(0);
+
+    const observerRef = useRef<{
+        client: QueryClient;
+        observer: MutationObserver<TData, TError, TVariables, TContext>;
+    } | null>(null);
+    if (!observerRef.current || observerRef.current.client !== client) {
+        observerRef.current?.observer.destroy();
+        observerRef.current = {
+            client,
+            observer: createMutationObserver(client, optionsRef.current),
+        };
+    }
+    const observer = observerRef.current.observer;
 
     useEffect(() => {
-        observer.setOptions(options);
-    }, [observer, options]);
+        observer.setOptions(optionsRef.current);
+    }, [
+        observer,
+        options.mutationFn,
+        options.onMutate,
+        options.onSuccess,
+        options.onError,
+        options.onSettled,
+    ]);
+
+    const snapshotRef = useRef<MutationObserverResult<TData, TError, TVariables, TContext> | null>(
+        null,
+    );
+
+    const subscribe = useCallback(
+        (onStoreChange: () => void) =>
+            observer.subscribe(() => {
+                snapshotRef.current = null;
+                onStoreChange();
+            }),
+        [observer],
+    );
+
+    const getSnapshot = useCallback(() => {
+        const cached = snapshotRef.current;
+        if (cached) {
+            return cached;
+        }
+        const next = observer.getCurrentResult();
+        snapshotRef.current = next;
+        return next;
+    }, [observer]);
 
     useEffect(() => {
-        const stop = observer.subscribe(() => {
-            setTick((value) => value + 1);
-        });
         return () => {
-            stop();
             observer.destroy();
+            if (observerRef.current?.observer === observer) {
+                observerRef.current = null;
+            }
+            snapshotRef.current = null;
         };
     }, [observer]);
 
-    return observer.getCurrentResult();
+    return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
 
 export {

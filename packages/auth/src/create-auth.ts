@@ -27,6 +27,7 @@ import {
     isAuthenticatedStatus,
     isSessionExpired,
     nextSessionEpoch,
+    sessionExpiresAt,
 } from "./session/index.js";
 import { createMemoryAuthStorage, type AuthStorage } from "./storage/index.js";
 
@@ -223,6 +224,15 @@ export function createAuth(options: CreateAuthOptions): AuthController {
             crossTab.post({ type: "session", sourceId, session: payload });
         }
         notify();
+        if (isAuthenticatedStatus(session.status) && !isAuthenticatedStatus(previous.status)) {
+            const skewMs = options.skewMs ?? 30_000;
+            const expiresAt = sessionExpiresAt(session);
+            if (expiresAt != null && expiresAt - now() <= skewMs) {
+                console.warn(
+                    `[@sometic/auth] skewMs (${String(skewMs)}) is greater than or equal to the remaining access token lifetime. Refresh will fire immediately. Keep skewMs much smaller than access TTL.`,
+                );
+            }
+        }
         if (event) {
             emit(event, session as AuthEventMap[typeof event]);
         } else if (

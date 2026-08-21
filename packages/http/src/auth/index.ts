@@ -16,6 +16,16 @@ export type AuthInterceptorOptions = {
     getEpoch?: (auth: AuthController) => number;
 };
 
+export const AUTH_HTTP_INTERCEPTOR = Symbol.for("@sometic/http.authInterceptor");
+
+export type AuthTaggedInterceptor = HttpInterceptor & {
+    readonly [AUTH_HTTP_INTERCEPTOR]?: true;
+};
+
+export function isAuthHttpInterceptor(interceptor: HttpInterceptor): boolean {
+    return (interceptor as AuthTaggedInterceptor)[AUTH_HTTP_INTERCEPTOR] === true;
+}
+
 export const DEFAULT_AUTH_EXCLUDE_URL_FRAGMENTS = [
     "/login",
     "/signin",
@@ -66,7 +76,8 @@ export function createAuthInterceptor(options: AuthInterceptorOptions): HttpInte
         return status === 401;
     };
 
-    return {
+    const interceptor: AuthTaggedInterceptor = {
+        [AUTH_HTTP_INTERCEPTOR]: true,
         onRequest: (config) => {
             const epoch = readEpoch();
             const headers = { ...config.headers };
@@ -148,4 +159,5 @@ export function createAuthInterceptor(options: AuthInterceptorOptions): HttpInte
             return replay;
         },
     };
+    return interceptor;
 }

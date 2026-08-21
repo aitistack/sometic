@@ -2,13 +2,15 @@
 
 How coding agents (and humans pasting into agents) should load Sometic context without inventing a visual UI kit.
 
+For **full-app** pasteable scaffolds (SaaS, auth e2e, AI workspace, and more), use [App scaffolds](/guide/app-scaffolds) (also linked from the home hero). This page covers surface Copy Prompt buttons and `llms.txt`.
+
 ## Copy Prompt
 
 Surface docs expose a **Copy Prompt** button (dashed outline). It copies a plain-text scaffold brief for that area:
 
 | Surface    | Page                               | Prompt file      |
 | ---------- | ---------------------------------- | ---------------- |
-| Ecosystem  | Home (hero CTA)                    | `ecosystem.txt`  |
+| Ecosystem  | Home (Copy prompt CTA)             | `ecosystem.txt`  |
 | App Shell  | [App Shell](/guide/app-shell)      | `app-shell.txt`  |
 | Auth       | [Authentication](/authentication/) | `auth.txt`       |
 | HTTP       | [HTTP](/utilities/http)            | `http.txt`       |
@@ -54,6 +56,7 @@ Adapters (@sometic/react, vue, elements, …)
 
 ## Related
 
+- [App scaffolds](/guide/app-scaffolds)
 - [Quick start](/guide/quick-start)
 - [Contributing](/guide/contributing)
 - [Package index](/api/packages)

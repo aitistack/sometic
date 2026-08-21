@@ -83,7 +83,6 @@ async function copyPrompt(): Promise<void> {
             :aria-label="copied ? 'Prompt copied' : 'Copy prompt for coding agents'"
             @click="copyPrompt"
         >
-            <span class="sometic-copy-prompt__label">{{ buttonLabel }}</span>
             <svg
                 class="sometic-copy-prompt__icon"
                 viewBox="0 0 16 16"
@@ -111,6 +110,7 @@ async function copyPrompt(): Promise<void> {
                     d="M4.25 10.75H3.5a1 1 0 0 1-1-1v-5.5a1 1 0 0 1 1-1h5.5a1 1 0 0 1 1 1V4.5"
                 />
             </svg>
+            <span class="sometic-copy-prompt__label">{{ buttonLabel }}</span>
         </button>
     </div>
 </template>
@@ -124,10 +124,9 @@ async function copyPrompt(): Promise<void> {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
+    gap: 0.45rem;
     min-height: 2.25rem;
     padding: 0.4rem 0.95rem;
-    overflow: hidden;
     font-family: var(--sometic-font-body, var(--vp-font-family-base));
     font-size: 0.875rem;
     font-weight: 600;
@@ -149,25 +148,9 @@ async function copyPrompt(): Promise<void> {
 
 .sometic-copy-prompt__icon {
     flex: 0 0 auto;
-    width: 0;
-    height: 1em;
-    margin-inline-start: 0;
-    opacity: 0;
-    overflow: hidden;
-    transform: translateX(-0.35rem);
-    transition:
-        width 220ms ease,
-        margin-inline-start 220ms ease,
-        opacity 200ms ease,
-        transform 220ms ease;
-}
-
-.sometic-copy-prompt__button:hover:not(:disabled) .sometic-copy-prompt__icon,
-.sometic-copy-prompt__button:focus-visible:not(:disabled) .sometic-copy-prompt__icon {
     width: 1em;
-    margin-inline-start: 0.45rem;
-    opacity: 1;
-    transform: translateX(0);
+    height: 1em;
+    display: block;
 }
 
 .sometic-copy-prompt__button:hover:not(:disabled),
@@ -178,20 +161,19 @@ async function copyPrompt(): Promise<void> {
     outline: none;
 }
 
+.sometic-copy-prompt__button:focus-visible {
+    outline: 2px solid var(--sometic-brand);
+    outline-offset: 2px;
+}
+
 .sometic-copy-prompt__button:disabled {
     opacity: 0.45;
     cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .sometic-copy-prompt__button,
-    .sometic-copy-prompt__icon {
+    .sometic-copy-prompt__button {
         transition: none;
-    }
-
-    .sometic-copy-prompt__button:hover:not(:disabled) .sometic-copy-prompt__icon,
-    .sometic-copy-prompt__button:focus-visible:not(:disabled) .sometic-copy-prompt__icon {
-        transform: none;
     }
 }
 </style>
