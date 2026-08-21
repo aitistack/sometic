@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.3
+
+### Patch Changes
+
+- 0bcb11e: Harden React query hooks for Strict Mode, make auth HTTP binding idempotent, and soften App Shell refetch-on-reauth defaults so auth apps stop hanging and double-refreshing.
+- Updated dependencies [0bcb11e]
+    - @sometic/auth@1.2.3
+
 ## 3.0.2
 
 ### Patch Changes

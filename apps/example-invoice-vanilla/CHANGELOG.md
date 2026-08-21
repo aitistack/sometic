@@ -1,5 +1,13 @@
 # @sometic/example-invoice-vanilla
 
+## 0.0.3
+
+### Patch Changes
+
+- @sometic/example-invoice-kit@0.0.3
+- @sometic/dom@3.0.3
+- @sometic/elements@1.1.6
+
 ## 0.0.2
 
 ### Patch Changes

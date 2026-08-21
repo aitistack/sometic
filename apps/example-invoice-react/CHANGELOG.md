@@ -1,5 +1,14 @@
 # @sometic/example-invoice-react
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [0bcb11e]
+    - @sometic/react@1.2.8
+    - @sometic/example-invoice-kit@0.0.3
+    - @sometic/dom@3.0.3
+
 ## 0.0.3
 
 ### Patch Changes

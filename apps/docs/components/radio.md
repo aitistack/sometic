@@ -103,7 +103,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```
 
 ```html [CDN Simple]
-<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.iife.js"></script>
 
 <div role="radiogroup" aria-label="Plan">
     <sometic-radio name="plan" value="free" aria-label="Free"></sometic-radio>
@@ -114,7 +114,7 @@ for (const input of document.querySelectorAll('input[type="radio"][name="plan"]'
 ```html [CDN Module]
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.5/dist/cdn/sometic-elements.esm.js"
+    src="https://cdn.jsdelivr.net/npm/@sometic/elements@1.1.6/dist/cdn/sometic-elements.esm.js"
 ></script>
 
 <div role="radiogroup" aria-label="Plan">

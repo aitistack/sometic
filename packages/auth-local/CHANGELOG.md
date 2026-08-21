@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies [0bcb11e]
+    - @sometic/auth@1.2.3
+
 ## 1.0.10
 
 ### Patch Changes

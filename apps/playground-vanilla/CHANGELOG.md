@@ -1,5 +1,22 @@
 # @sometic/playground-vanilla
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [0bcb11e]
+    - @sometic/http@3.0.3
+    - @sometic/app-shell@4.0.3
+    - @sometic/query@3.0.3
+    - @sometic/auth@1.2.3
+    - @sometic/upload@2.0.3
+    - @sometic/auth-firebase@1.0.11
+    - @sometic/auth-local@1.0.11
+    - @sometic/auth-oidc@1.0.11
+    - @sometic/auth-supabase@1.0.11
+    - @sometic/dom@3.0.3
+    - @sometic/elements@1.1.6
+
 ## 0.0.14
 
 ### Patch Changes

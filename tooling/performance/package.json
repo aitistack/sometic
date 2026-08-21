@@ -1,6 +1,6 @@
 {
     "name": "@sometic/performance-tools",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": true,
     "type": "module",
     "description": "Cold-import and runtime benches plus Size Limit snapshots for Sometic.",

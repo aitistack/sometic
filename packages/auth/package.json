@@ -1,6 +1,6 @@
 {
     "name": "@sometic/auth",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Provider-independent authentication orchestration for Sometic applications.",
     "license": "MIT",
     "type": "module",
