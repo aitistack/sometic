@@ -50,7 +50,7 @@ html:has(.VPHome) {
     --home-max: 76rem;
     --home-wordmark: clamp(4.5rem, 13vw, 7.75rem);
     --footer-wordmark: 6.75rem;
-    --home-hero-inset: var(--space-lg);
+    --home-hero-inset: var(--space-xl);
     --vp-nav-bg-color: var(--color-hero);
     --vp-nav-screen-bg-color: var(--color-hero);
     background-color: var(--color-paper);

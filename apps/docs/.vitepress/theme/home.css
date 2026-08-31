@@ -54,7 +54,7 @@
     margin-bottom: 0 !important;
     padding-top: calc(var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) !important;
     padding-inline: var(--space-md) !important;
-    padding-bottom: var(--space-lg) !important;
+    padding-bottom: var(--space-2xl) !important;
     background: var(--color-hero);
 }
 
@@ -76,19 +76,19 @@
     display: flex !important;
     flex: 1 1 auto;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     max-width: var(--home-max) !important;
     min-height: 0;
     margin: 0 auto;
-    padding: 0;
+    padding: var(--home-hero-inset) 0 0;
     text-align: left;
 }
 
 .VPHome .VPHero .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     max-width: none !important;
     margin: 0;
@@ -215,7 +215,7 @@
     }
 
     html:has(.VPHome) {
-        --home-hero-inset: var(--space-xl);
+        --home-hero-inset: var(--space-2xl);
     }
 }
 

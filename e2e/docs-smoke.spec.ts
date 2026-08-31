@@ -5,7 +5,9 @@ test("docs home loads", async ({ page }) => {
     await expect(page.getByRole("img", { name: "Sometic" }).first()).toBeVisible();
     await expect(
         page
-            .getByText("One behavior model for UI, forms, auth, HTTP, query, stores, and theming")
+            .getByText(
+                "One behavior model for UI, forms, auth, HTTP, query, stores, and theme on every JavaScript stack",
+            )
             .first(),
     ).toBeVisible();
 });
