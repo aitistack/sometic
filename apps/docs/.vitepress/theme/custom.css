@@ -408,6 +408,13 @@ div[class*="language-"] > pre {
     min-height: unset;
 }
 
+.VPDoc .content:has(.sometic-scaffolds),
+.VPDoc .content .sometic-scaffolds {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
 @media (min-width: 960px) {
     .VPDoc .content {
         padding-bottom: 48px;

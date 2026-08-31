@@ -48,9 +48,9 @@ html:has(.VPHome) {
     --z-base: 1;
     --z-raised: 10;
     --home-max: 76rem;
-    --home-wordmark: clamp(5.5rem, 12vw, 8.5rem);
+    --home-wordmark: clamp(4.5rem, 13vw, 7.75rem);
     --footer-wordmark: 6.75rem;
-    --home-hero-inset: var(--space-xl);
+    --home-hero-inset: var(--space-lg);
     --vp-nav-bg-color: var(--color-hero);
     --vp-nav-screen-bg-color: var(--color-hero);
     background-color: var(--color-paper);

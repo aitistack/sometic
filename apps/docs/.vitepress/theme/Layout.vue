@@ -159,146 +159,78 @@ function selectManager(manager: PackageManager): void {
                         </button>
                     </div>
                 </div>
-                <section class="sometic-home-bento" aria-label="Sometic entry points">
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--spine">
-                        <a :href="withBase('/guide/app-shell')">
-                            <HomeIcon name="spine" />
-                            <span class="sometic-home-bento__kicker">App spine</span>
-                            <span class="sometic-home-bento__name">createSometicApp</span>
-                            <span class="sometic-home-bento__note"
-                                >Auth, HTTP, and query composed as one runtime. Session epoch clears
-                                query and bound stores together.</span
+                <section class="sometic-home-install-panel" aria-label="App spine and install">
+                    <a class="sometic-home-spine" :href="withBase('/guide/app-shell')">
+                        <HomeIcon name="spine" class="sometic-home-spine__icon" />
+                        <span class="sometic-home-spine__copy">
+                            <span class="sometic-home-spine__kicker">App spine</span>
+                            <span class="sometic-home-spine__name">createSometicApp</span>
+                            <span class="sometic-home-spine__note"
+                                >Auth, HTTP, and query as one runtime. Session epoch clears query
+                                and stores.</span
                             >
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--auth">
-                        <a :href="withBase('/authentication/')">
-                            <HomeIcon name="auth" />
-                            <span class="sometic-home-bento__name">Auth</span>
-                            <span class="sometic-home-bento__note">Session and refresh</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--http">
-                        <a :href="withBase('/utilities/http')">
-                            <HomeIcon name="http" />
-                            <span class="sometic-home-bento__name">HTTP</span>
-                            <span class="sometic-home-bento__note">Fetch and interceptors</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--query">
-                        <a :href="withBase('/utilities/query')">
-                            <HomeIcon name="query" />
-                            <span class="sometic-home-bento__name">Query</span>
-                            <span class="sometic-home-bento__note">Cache and epoch</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--store">
-                        <a :href="withBase('/stores/')">
-                            <HomeIcon name="store" />
-                            <span class="sometic-home-bento__name">Store</span>
-                            <span class="sometic-home-bento__note">State and persistence</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--bind">
-                        <p class="sometic-home-bento__kicker">
-                            <HomeIcon name="bind" />
-                            Bind a view
+                        </span>
+                    </a>
+                    <div class="sometic-home-install">
+                        <p class="sometic-home-install__label">
+                            <HomeIcon name="install" />
+                            Install the spine
                         </p>
-                        <div class="sometic-home-bento__binds">
-                            <a :href="withBase('/frameworks/react')">
-                                <HomeIcon name="react" />
-                                React
-                            </a>
-                            <a :href="withBase('/frameworks/vue')">
-                                <HomeIcon name="vue" />
-                                Vue
-                            </a>
-                            <a :href="withBase('/frameworks/vanilla')">
-                                <HomeIcon name="elements" />
-                                Web Components
-                            </a>
-                        </div>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--forms">
-                        <a :href="withBase('/forms/')">
-                            <HomeIcon name="forms" />
-                            <span class="sometic-home-bento__name">Forms</span>
-                            <span class="sometic-home-bento__note">Fields and validation</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--theme">
-                        <a :href="withBase('/theming/')">
-                            <HomeIcon name="theme" />
-                            <span class="sometic-home-bento__name">Theme</span>
-                            <span class="sometic-home-bento__note">Tokens, your CSS</span>
-                        </a>
-                    </article>
-                    <article class="sometic-home-bento__cell sometic-home-bento__cell--install">
-                        <div class="sometic-home-install">
-                            <p class="sometic-home-install__label">
-                                <HomeIcon name="install" />
-                                Install the spine
-                            </p>
-                            <div
-                                class="sometic-home-install__tabs"
-                                role="tablist"
-                                aria-label="Package manager"
+                        <div
+                            class="sometic-home-install__tabs"
+                            role="tablist"
+                            aria-label="Package manager"
+                        >
+                            <button
+                                v-for="manager in managers"
+                                :key="manager"
+                                type="button"
+                                role="tab"
+                                class="sometic-home-install__tab"
+                                :aria-selected="activeManager === manager"
+                                @click="selectManager(manager)"
                             >
-                                <button
-                                    v-for="manager in managers"
-                                    :key="manager"
-                                    type="button"
-                                    role="tab"
-                                    class="sometic-home-install__tab"
-                                    :aria-selected="activeManager === manager"
-                                    @click="selectManager(manager)"
-                                >
-                                    {{ manager }}
-                                </button>
-                            </div>
-                            <div class="sometic-home-install__row">
-                                <pre
-                                    class="sometic-home-install__pre"
-                                ><code>{{ installCommand }}</code></pre>
-                                <button
-                                    type="button"
-                                    class="sometic-home-install__copy"
-                                    :data-state="
-                                        installCopyFailed
-                                            ? 'error'
-                                            : installCopied
-                                              ? 'success'
-                                              : undefined
-                                    "
-                                    :aria-label="
-                                        installCopied
-                                            ? 'Install command copied'
-                                            : installCopyFailed
-                                              ? 'Copy failed. Try again'
-                                              : `Copy ${activeManager} install command`
-                                    "
-                                    @click="copyInstallCommand"
-                                >
-                                    <HomeIcon
-                                        :name="
-                                            installCopyFailed
-                                                ? 'retry'
-                                                : installCopied
-                                                  ? 'check'
-                                                  : 'copy'
-                                        "
-                                    />
-                                    {{
-                                        installCopied
-                                            ? "Copied"
-                                            : installCopyFailed
-                                              ? "Retry"
-                                              : "Copy"
-                                    }}
-                                </button>
-                            </div>
+                                {{ manager }}
+                            </button>
                         </div>
-                    </article>
+                        <div class="sometic-home-install__row">
+                            <pre
+                                class="sometic-home-install__pre"
+                            ><code>{{ installCommand }}</code></pre>
+                            <button
+                                type="button"
+                                class="sometic-home-install__copy"
+                                :data-state="
+                                    installCopyFailed
+                                        ? 'error'
+                                        : installCopied
+                                          ? 'success'
+                                          : undefined
+                                "
+                                :aria-label="
+                                    installCopied
+                                        ? 'Install command copied'
+                                        : installCopyFailed
+                                          ? 'Copy failed. Try again'
+                                          : `Copy ${activeManager} install command`
+                                "
+                                @click="copyInstallCommand"
+                            >
+                                <HomeIcon
+                                    :name="
+                                        installCopyFailed
+                                            ? 'retry'
+                                            : installCopied
+                                              ? 'check'
+                                              : 'copy'
+                                    "
+                                />
+                                {{
+                                    installCopied ? "Copied" : installCopyFailed ? "Retry" : "Copy"
+                                }}
+                            </button>
+                        </div>
+                    </div>
                 </section>
             </div>
         </template>
