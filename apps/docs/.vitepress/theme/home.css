@@ -41,57 +41,54 @@
 .VPHome .VPHero {
     position: relative;
     isolation: isolate;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column;
     box-sizing: border-box;
     width: 100%;
-    min-height: 0 !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
     height: auto !important;
     margin-top: calc(
         (var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) * -1
     ) !important;
     margin-bottom: 0 !important;
-    padding-top: calc(
-        var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px) + var(--home-hero-inset)
-    ) !important;
+    padding-top: calc(var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px)) !important;
     padding-inline: var(--space-md) !important;
-    padding-bottom: var(--space-2xl) !important;
+    padding-bottom: var(--space-lg) !important;
     background: var(--color-hero);
 }
 
 @media (min-width: 40rem) {
     .VPHome .VPHero {
-        padding-top: calc(
-            var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px) + var(--home-hero-inset)
-        ) !important;
         padding-inline: var(--space-lg) !important;
     }
 }
 
 @media (min-width: 60rem) {
     .VPHome .VPHero {
-        padding-top: calc(
-            var(--vp-nav-height, 64px) + var(--vp-layout-top-height, 0px) + var(--home-hero-inset)
-        ) !important;
         padding-inline: var(--space-xl) !important;
-        padding-bottom: var(--space-2xl) !important;
     }
 }
 
 .VPHome .VPHero .container {
     position: relative;
     z-index: var(--z-raised);
-    display: block !important;
+    display: flex !important;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     max-width: var(--home-max) !important;
     min-height: 0;
-    height: auto;
     margin: 0 auto;
     padding: 0;
     text-align: left;
 }
 
 .VPHome .VPHero .main {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     max-width: none !important;
     margin: 0;
@@ -101,7 +98,19 @@
 .sometic-home-hero {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-lg);
+}
+
+.sometic-home-hero__mast {
+    width: 100%;
+    min-width: 0;
+    max-width: min(42rem, 100%);
+}
+
+@media (min-width: 48rem) {
+    .sometic-home-hero__mast {
+        max-width: min(52rem, 100%);
+    }
 }
 
 .VPHome .VPHero .sometic-hero-heading {
@@ -157,11 +166,13 @@
     font-size: var(--text-md);
     line-height: var(--leading-body);
     width: 100% !important;
-    max-width: var(--measure) !important;
-    margin: var(--space-md) 0 0;
+    max-width: min(36rem, 100%) !important;
+    min-width: 0;
+    margin: var(--space-sm) 0 0;
     color: var(--color-ink-2);
     text-align: left;
     white-space: normal !important;
+    overflow-wrap: anywhere;
 }
 
 .sometic-home-actions {
@@ -170,7 +181,42 @@
     justify-content: flex-start;
     align-items: center;
     gap: var(--space-sm);
-    margin-top: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 39.99rem) {
+    .VPHome .VPHero .sometic-hero-heading {
+        gap: var(--space-sm);
+    }
+
+    .VPHome .VPHero .tagline {
+        font-size: var(--text-sm);
+    }
+
+    .sometic-home-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: var(--space-xs);
+        margin-top: var(--space-sm);
+    }
+
+    .VPHome .sometic-home-cta {
+        width: 100%;
+        min-height: 2.5rem;
+        padding-inline: var(--space-sm);
+        font-size: var(--text-xs);
+    }
+}
+
+@media (min-width: 60rem) {
+    .sometic-home-hero {
+        gap: var(--space-xl);
+    }
+
+    html:has(.VPHome) {
+        --home-hero-inset: var(--space-xl);
+    }
 }
 
 .sometic-home-icon {
@@ -298,135 +344,89 @@ html:not(.dark) .VPHome .sometic-home-cta--primary:focus-visible {
     display: none !important;
 }
 
-.sometic-home-bento {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-sm);
+.sometic-home-install-panel {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
-}
-
-@media (min-width: 40rem) {
-    .sometic-home-bento {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .sometic-home-bento__cell--spine,
-    .sometic-home-bento__cell--bind,
-    .sometic-home-bento__cell--install {
-        grid-column: span 2;
-    }
+    padding: var(--space-md);
+    background: var(--color-map);
+    box-shadow: inset 0 0 0 var(--rule) var(--color-rule);
 }
 
 @media (min-width: 64rem) {
-    .sometic-home-bento {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        grid-template-areas:
-            "spine spine auth http"
-            "spine spine query store"
-            "bind bind forms theme"
-            "install install install install";
+    .sometic-home-install-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+        gap: var(--space-lg);
+        align-items: center;
+        padding: var(--space-md) var(--space-lg);
     }
 
-    .sometic-home-bento__cell--spine {
-        grid-area: spine;
+    .sometic-home-spine {
+        margin: 0;
+        padding: var(--space-sm);
     }
 
-    .sometic-home-bento__cell--auth {
-        grid-area: auth;
-    }
-
-    .sometic-home-bento__cell--http {
-        grid-area: http;
-    }
-
-    .sometic-home-bento__cell--query {
-        grid-area: query;
-    }
-
-    .sometic-home-bento__cell--store {
-        grid-area: store;
-    }
-
-    .sometic-home-bento__cell--bind {
-        grid-area: bind;
-    }
-
-    .sometic-home-bento__cell--forms {
-        grid-area: forms;
-    }
-
-    .sometic-home-bento__cell--theme {
-        grid-area: theme;
-    }
-
-    .sometic-home-bento__cell--install {
-        grid-area: install;
+    .sometic-home-install {
+        min-width: 0;
+        align-self: center;
     }
 }
 
-.sometic-home-bento__cell {
-    min-width: 0;
-    margin: 0;
-    background: var(--color-map);
-}
-
-.sometic-home-bento__cell > a {
+.sometic-home-spine {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    align-content: start;
-    column-gap: var(--space-sm);
-    row-gap: var(--space-2xs);
-    min-height: 7.5rem;
-    min-width: 0;
-    height: 100%;
-    padding: var(--space-md);
+    gap: var(--space-xs);
+    align-items: center;
+    align-self: center;
+    margin: 0;
+    padding: var(--space-sm);
     text-decoration: none;
     color: inherit;
+    border: 1.5px dashed color-mix(in srgb, var(--color-ink) 50%, var(--color-rule));
+    border-radius: 0;
     outline: 2px solid transparent;
-    box-shadow: inset 0 0 0 var(--rule) var(--color-rule);
     transition:
         color var(--dur-micro) var(--ease-out),
         background-color var(--dur-micro) var(--ease-out),
-        box-shadow var(--dur-micro) var(--ease-out);
+        border-color var(--dur-micro) var(--ease-out);
 }
 
-.sometic-home-bento__cell > a .sometic-home-icon {
-    grid-column: 1;
-    grid-row: 1 / -1;
-    align-self: start;
-    margin-top: 0.125rem;
+html.dark:has(.VPHome) .sometic-home-spine {
+    border-color: color-mix(in srgb, var(--color-ink) 72%, transparent);
+}
+
+.sometic-home-spine:hover,
+.sometic-home-spine:focus-visible {
     color: var(--color-accent);
+    border-color: var(--color-accent);
+    background-color: color-mix(in srgb, var(--color-accent) 8%, transparent);
 }
 
-.sometic-home-bento__cell--spine > a .sometic-home-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.sometic-home-bento__cell--spine > a {
-    min-height: 12rem;
-    align-content: center;
-    background: var(--color-hero);
-    box-shadow: inset 0 0 0 2px var(--color-accent);
-}
-
-.sometic-home-bento__cell > a:hover,
-.sometic-home-bento__cell > a:focus-visible {
-    color: var(--color-accent);
-    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-map));
-}
-
-.sometic-home-bento__cell > a:focus-visible {
+.sometic-home-spine:focus-visible {
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
-.sometic-home-bento__cell > a:active {
-    transform: translateY(1px);
+.sometic-home-spine__icon {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0;
+    color: var(--color-accent);
 }
 
-.sometic-home-bento__cell > a .sometic-home-bento__kicker {
-    grid-column: 2;
+.sometic-home-spine__copy {
+    display: grid;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.sometic-home-spine__kicker {
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: 700;
@@ -435,107 +435,31 @@ html:not(.dark) .VPHome .sometic-home-cta--primary:focus-visible {
     color: var(--color-accent);
 }
 
-.sometic-home-bento__cell > a .sometic-home-bento__name {
-    grid-column: 2;
+.sometic-home-spine__name {
     font-family: var(--font-display);
     font-style: normal;
     font-weight: 600;
     font-size: var(--text-md);
     letter-spacing: -0.02em;
+    line-height: 1.25;
     color: var(--color-ink);
     overflow-wrap: anywhere;
 }
 
-.sometic-home-bento__cell--spine .sometic-home-bento__name {
-    font-size: var(--text-xl);
-}
-
-.sometic-home-bento__cell > a .sometic-home-bento__note {
-    grid-column: 2;
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    line-height: 1.45;
-    color: var(--color-ink-2);
-}
-
-.sometic-home-bento__cell--bind {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: 7.5rem;
-    padding: var(--space-md);
-    box-shadow: inset 0 0 0 var(--rule) var(--color-rule);
-}
-
-.sometic-home-bento__cell--bind .sometic-home-bento__kicker {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-xs);
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
+.sometic-home-spine__note {
     font-family: var(--font-body);
     font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-}
-
-.sometic-home-bento__cell--bind .sometic-home-bento__kicker .sometic-home-icon {
-    color: var(--color-accent);
-}
-
-.sometic-home-bento__binds {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: var(--space-sm) var(--space-md);
-    width: 100%;
-}
-
-.sometic-home-bento__binds a {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    min-height: 2.75rem;
-    font-family: var(--font-display);
-    font-style: normal;
-    font-weight: 600;
-    font-size: var(--text-sm);
-    white-space: nowrap;
-    color: var(--color-ink);
-    text-decoration: none;
-    border-bottom: var(--rule) solid var(--color-accent);
-}
-
-.sometic-home-bento__binds a .sometic-home-icon {
-    color: var(--color-accent);
-}
-
-.sometic-home-bento__binds a:hover,
-.sometic-home-bento__binds a:focus-visible {
-    color: var(--color-accent);
-}
-
-.sometic-home-bento__binds a:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 3px;
-}
-
-.sometic-home-bento__cell--install {
-    padding: var(--space-md);
-    box-shadow: inset 0 0 0 var(--rule) var(--color-rule);
+    line-height: 1.45;
+    color: var(--color-ink-2);
+    overflow-wrap: anywhere;
 }
 
 .sometic-home-install {
     display: grid;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     min-width: 0;
+    align-self: center;
+    width: 100%;
 }
 
 .sometic-home-install__label {
@@ -564,8 +488,8 @@ html:not(.dark) .VPHome .sometic-home-cta--primary:focus-visible {
 
 .sometic-home-install__tab {
     appearance: none;
-    min-height: 2.25rem;
-    padding: 0 var(--space-sm);
+    min-height: 2rem;
+    padding: 0 var(--space-xs);
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: 700;
@@ -613,8 +537,8 @@ html:not(.dark) .sometic-home-install__tab[aria-selected="true"] {
 .sometic-home-install__pre {
     margin: 0;
     min-width: 0;
-    padding: var(--space-sm) var(--space-md);
-    overflow-x: auto;
+    padding: var(--space-xs) var(--space-sm);
+    overflow-x: clip;
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     line-height: 1.5;
@@ -625,7 +549,8 @@ html:not(.dark) .sometic-home-install__tab[aria-selected="true"] {
 
 .sometic-home-install__pre code {
     font-family: inherit;
-    white-space: pre;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .sometic-home-install__copy {
@@ -635,10 +560,10 @@ html:not(.dark) .sometic-home-install__tab[aria-selected="true"] {
     justify-content: center;
     align-self: stretch;
     gap: var(--space-xs);
-    min-height: 2.75rem;
-    padding: 0 var(--space-md);
+    min-height: 2.25rem;
+    padding: 0 var(--space-sm);
     font-family: var(--font-body);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
@@ -684,8 +609,7 @@ html.dark .sometic-home-install__copy {
 
 @media (prefers-reduced-motion: reduce) {
     .VPHome .sometic-home-cta,
-    .sometic-home-bento__cell > a,
-    .sometic-home-bento__binds a,
+    .sometic-home-spine,
     .sometic-home-install__copy,
     .sometic-home-close__cta {
         transition: none;

@@ -7,15 +7,15 @@ description: >-
     app-shell with thin React, Vue, and Web Components adapters. Unstyled
     engines. Your design system.
 hero:
-    text: One behavior model for UI, forms, auth, HTTP, query, stores, and theming across every JavaScript stack.
-    tagline: Shared controllers power the app. Thin adapters for React, Vue, and Web Components. Your design system stays yours. Swap the view layer without rewriting core logic.
+    text: One behavior model for UI, forms, auth, HTTP, query, stores, and theme on every JavaScript stack.
+    tagline: Shared engines. Thin React, Vue, and Web Components adapters. Your design system stays yours.
 ---
 
 <section class="sometic-home-band sometic-home-band--legend">
 
 <h2>How the system holds</h2>
 
-<p>Not another component kit. A portable application behavior system. The tiles above are the entry points. The notes below are the contract.</p>
+<p>Not another component kit. A portable application behavior system. Install the spine above, then read the contract below.</p>
 
 <dl class="sometic-home-legend">
 <div>

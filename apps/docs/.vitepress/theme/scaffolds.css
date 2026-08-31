@@ -5,7 +5,12 @@
     --scaffold-gap: 1.25rem;
     --scaffold-rail-width: 14.5rem;
     --scaffold-rule: color-mix(in srgb, var(--sometic-brand, #2563eb) 22%, var(--vp-c-divider));
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: 1.5rem 0 3rem;
+    overflow-x: clip;
     color: var(--vp-c-text-1);
     font-family: var(--sometic-font-body, var(--vp-font-family-base));
 }
@@ -14,6 +19,16 @@
     display: grid;
     gap: var(--scaffold-gap);
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.sometic-scaffolds__main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
 }
 
 @media (min-width: 960px) {
@@ -92,11 +107,18 @@
 .sometic-scaffolds__chips {
     display: flex;
     gap: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
     padding: 0.25rem 0 0.75rem;
     margin: 0 0 0.5rem;
     border-bottom: 1px solid var(--vp-c-divider);
     scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 960px) {
@@ -141,6 +163,10 @@
 }
 
 .sometic-scaffold {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     scroll-margin-top: calc(var(--vp-nav-height, 64px) + 1rem);
     padding: 1.25rem 0 0;
     border-top: 1px solid var(--vp-c-divider);
@@ -154,11 +180,13 @@
 .sometic-scaffold__title {
     margin: 0 0 0.5rem;
     font-family: var(--sometic-font-display, var(--vp-font-family-base));
-    font-size: 1.45rem;
+    font-size: clamp(1.2rem, 2.5vw + 0.85rem, 1.45rem);
     font-weight: 600;
     font-style: normal;
     letter-spacing: -0.02em;
     line-height: 1.25;
+    min-width: 0;
+    max-width: 100%;
     overflow-wrap: anywhere;
 }
 
@@ -167,7 +195,16 @@
     color: var(--vp-c-text-2);
     font-size: 0.975rem;
     line-height: 1.55;
-    max-width: 42rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 48rem) {
+    .sometic-scaffold__desc {
+        max-width: 42rem;
+    }
 }
 
 .sometic-scaffold__features,
@@ -187,6 +224,9 @@
     list-style: none;
     font-size: 0.925rem;
     line-height: 1.45;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 .sometic-scaffold__features li::marker,
@@ -314,6 +354,9 @@
     color: var(--vp-c-text-2);
     font-size: 0.925rem;
     line-height: 1.55;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 .sometic-scaffold__pre {
@@ -361,6 +404,29 @@
     color: var(--vp-c-text-2);
     font-size: 0.875rem;
     line-height: 1.5;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.sometic-scaffold__faq summary {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 39.99rem) {
+    .sometic-scaffold__ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sometic-scaffold__included {
+        width: 100%;
+    }
+
+    .sometic-scaffold__title {
+        font-size: 1.2rem;
+    }
 }
 
 .sometic-scaffold-drawer-root {

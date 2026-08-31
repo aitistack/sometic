@@ -231,4 +231,16 @@ watch(drawerOpen, (open) => {
     white-space: nowrap;
     border: 0;
 }
+
+@media (max-width: 39.99rem) {
+    :deep(.sometic-copy-prompt) {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    :deep(.sometic-copy-prompt__button) {
+        width: 100%;
+    }
+}
 </style>
