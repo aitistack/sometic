@@ -58,7 +58,7 @@
         "knip": "^5.88.1",
         "prettier": "^3.6.2",
         "size-limit": "^11.2.0",
-        "turbo": "^2.5.4",
+        "turbo": "^2.10.12",
         "typescript": "^5.8.3",
         "vitest": "^3.2.4",
         "@sometic/typescript-config": "workspace:*",
