@@ -2728,8 +2728,8 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@26.4.0)(happy-dom@20.11.13)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0)
       zod:
-        specifier: ^3.24.2
-        version: 3.25.76
+        specifier: ^4.5.4
+        version: 4.5.4
 
   packages/vue:
     dependencies:
@@ -6757,11 +6757,8 @@ packages:
   zimmerframe@1.1.4:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
 
-  zod@3.25.76:
-    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
-
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.5.4:
+    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
 
   zone.js@0.15.1:
     resolution: {integrity: sha512-XE96n56IQpJM7NAoXswY3XRLcWFW83xe0BiAOeMD7K5k5xecOeul3Qcpx6GqEeeHNkW5DWL5zOyTbEfB4eti8w==}
@@ -9616,7 +9613,7 @@ snapshots:
       typescript: 5.9.3
       unbash: 2.2.0
       yaml: 2.9.0
-      zod: 4.4.3
+      zod: 4.5.4
 
   levn@0.4.1:
     dependencies:
@@ -10766,9 +10763,7 @@ snapshots:
 
   zimmerframe@1.1.4: {}
 
-  zod@3.25.76: {}
-
-  zod@4.4.3: {}
+  zod@4.5.4: {}
 
   zone.js@0.15.1:
     optional: true
