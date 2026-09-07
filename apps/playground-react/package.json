@@ -25,7 +25,7 @@
         "@types/react-dom": "^19.2.5",
         "@vitejs/plugin-react": "^4.7.0",
         "typescript": "^5.8.3",
-        "vite": "^7.0.5"
+        "vite": "^8.2.2"
     },
     "description": "Interactive React playground for Sometic adapters.",
     "homepage": "https://sometic.dev"
