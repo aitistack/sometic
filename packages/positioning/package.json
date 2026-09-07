@@ -57,7 +57,7 @@
         "@sometic/testing-config": "workspace:*",
         "@sometic/typescript-config": "workspace:*",
         "@size-limit/file": "^11.2.0",
-        "@vitest/coverage-v8": "^3.2.4",
+        "@vitest/coverage-v8": "^5.0.0",
         "eslint": "^9.31.0",
         "happy-dom": "^20.11.13",
         "size-limit": "^11.2.0",
