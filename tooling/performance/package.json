@@ -19,7 +19,7 @@
         "@sometic/react": "workspace:*",
         "@sometic/store": "workspace:*",
         "@sometic/theme": "workspace:*",
-        "react": "^19.1.0"
+        "react": "^19.3.0"
     },
     "devDependencies": {
         "vitest": "^3.2.4"
