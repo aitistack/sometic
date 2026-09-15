@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Sometic OG</title>
+        <style>
+            @font-face {
+                font-family: "Chakra Petch";
+                font-weight: 700;
+                font-style: normal;
+                src: url("./fonts/Chakra_Petch/ChakraPetch-Bold-latin.woff2") format("woff2");
+            }
+            @font-face {
+                font-family: "Urbanist";
+                font-weight: 500;
+                font-style: normal;
+                src: url("./fonts/Urbanist/Urbanist-latin.woff2") format("woff2");
+            }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html,
+            body {
+                width: 1200px;
+                height: 630px;
+                overflow: hidden;
+            }
+            body {
+                background:
+                    radial-gradient(95% 75% at 50% 36%, rgba(4, 67, 213, 0.3) 0%, transparent 60%),
+                    radial-gradient(
+                        55% 48% at 84% 80%,
+                        rgba(0, 212, 255, 0.14) 0%,
+                        transparent 50%
+                    ),
+                    #05080f;
+                color: #eef2f8;
+                font-family: Urbanist, system-ui, sans-serif;
+                position: relative;
+            }
+            .frame {
+                position: absolute;
+                inset: 36px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .corner {
+                position: absolute;
+                width: 56px;
+                height: 56px;
+                border-style: solid;
+            }
+            .corner--tl {
+                top: 36px;
+                left: 36px;
+                border-color: #00d4ff;
+                border-width: 3px 0 0 3px;
+            }
+            .corner--br {
+                right: 36px;
+                bottom: 36px;
+                border-color: #0443d5;
+                border-width: 0 3px 3px 0;
+            }
+            .stage {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 24px;
+                padding: 64px 96px 80px;
+                text-align: center;
+            }
+            .mark {
+                width: 120px;
+                height: 120px;
+                object-fit: contain;
+                filter: drop-shadow(0 16px 32px rgba(0, 212, 255, 0.28));
+            }
+            .wordmark {
+                position: relative;
+                font-family: "Chakra Petch", Urbanist, sans-serif;
+                font-size: 96px;
+                font-weight: 700;
+                line-height: 1;
+                letter-spacing: 0.04em;
+                color: #f7f9fc;
+            }
+            .wordmark .i {
+                position: relative;
+                display: inline-block;
+            }
+            .wordmark .i::before {
+                content: "";
+                position: absolute;
+                top: 0.08em;
+                left: 50%;
+                width: 0.2em;
+                height: 0.2em;
+                border-radius: 50%;
+                background: #00d4ff;
+                box-shadow: 0 0 12px rgba(0, 212, 255, 0.55);
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+            .tagline {
+                max-width: 28ch;
+                font-size: 28px;
+                line-height: 1.35;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                color: rgba(238, 242, 248, 0.74);
+            }
+            .meta {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 8px;
+                font-family: "Chakra Petch", Urbanist, sans-serif;
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+            .meta span {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 38px;
+                padding: 0 16px;
+                border: 1.5px solid rgba(0, 212, 255, 0.42);
+                color: #00d4ff;
+                background: rgba(0, 212, 255, 0.08);
+            }
+            .url {
+                position: absolute;
+                left: 56px;
+                bottom: 52px;
+                font-size: 18px;
+                letter-spacing: 0.06em;
+                color: rgba(238, 242, 248, 0.45);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="frame" aria-hidden="true"></div>
+        <div class="corner corner--tl" aria-hidden="true"></div>
+        <div class="corner corner--br" aria-hidden="true"></div>
+        <div class="stage">
+            <img class="mark" src="./icon.png" width="120" height="120" alt="" />
+            <h1 class="wordmark">Somet<span class="i">ı</span>c</h1>
+            <p class="tagline">Portable application behavior for the JavaScript stack.</p>
+            <div class="meta">
+                <span>@sometic</span>
+                <span>Docs</span>
+            </div>
+        </div>
+        <p class="url">sometic.dev</p>
+    </body>
+</html>

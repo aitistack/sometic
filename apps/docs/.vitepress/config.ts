@@ -119,8 +119,18 @@ export default defineConfig({
             },
         ],
         ["meta", { property: "og:url", content: "https://sometic.dev" }],
-        ["meta", { property: "og:image", content: "https://sometic.dev/icon.png" }],
-        ["meta", { name: "twitter:card", content: "summary" }],
+        ["meta", { property: "og:image", content: "https://sometic.dev/og.png" }],
+        ["meta", { property: "og:image:type", content: "image/png" }],
+        ["meta", { property: "og:image:width", content: "1200" }],
+        ["meta", { property: "og:image:height", content: "630" }],
+        [
+            "meta",
+            {
+                property: "og:image:alt",
+                content: "Sometic: portable application behavior for the JavaScript stack",
+            },
+        ],
+        ["meta", { name: "twitter:card", content: "summary_large_image" }],
         [
             "meta",
             {
@@ -129,7 +139,14 @@ export default defineConfig({
                     "Sometic (@sometic) is an open-source TypeScript library for portable application behavior: UI, forms, auth, and HTTP across React, Vue, and Web Components.",
             },
         ],
-        ["meta", { name: "twitter:image", content: "https://sometic.dev/icon.png" }],
+        ["meta", { name: "twitter:image", content: "https://sometic.dev/og.png" }],
+        [
+            "meta",
+            {
+                name: "twitter:image:alt",
+                content: "Sometic: portable application behavior for the JavaScript stack",
+            },
+        ],
         [
             "script",
             { type: "application/ld+json" },
@@ -143,6 +160,7 @@ export default defineConfig({
                         alternateName: ["@sometic"],
                         url: "https://sometic.dev",
                         logo: "https://sometic.dev/icon.png",
+                        image: "https://sometic.dev/og.png",
                         sameAs: [
                             "https://github.com/aitistack/sometic",
                             "https://www.npmjs.com/org/sometic",
@@ -156,6 +174,7 @@ export default defineConfig({
                         description:
                             "Documentation for Sometic, the open-source @sometic TypeScript library for portable UI, forms, auth, and HTTP behavior across JavaScript frameworks.",
                         publisher: { "@id": "https://sometic.dev/#organization" },
+                        image: "https://sometic.dev/og.png",
                         inLanguage: "en-US",
                     },
                     {
@@ -168,6 +187,7 @@ export default defineConfig({
                         operatingSystem: "Any",
                         url: "https://sometic.dev",
                         downloadUrl: "https://www.npmjs.com/org/sometic",
+                        image: "https://sometic.dev/og.png",
                         sameAs: [
                             "https://github.com/aitistack/sometic",
                             "https://www.npmjs.com/org/sometic",

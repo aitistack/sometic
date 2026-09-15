@@ -45,3 +45,4 @@ Button, IconButton, ButtonGroup, ToggleButton, Input, Field, PasswordInput, OtpI
 | `/logo.png`      | brand `logo-dark.png` (dark wordmark) | Light mode navbar |
 | `/logo-dark.png` | brand `logo.png` (light wordmark)     | Dark mode navbar  |
 | `/icon.png`      | brand `icon.png`                      | Favicon / hero    |
+| `/og.png`        | `public/og-source.html` capture       | Open Graph / X    |
