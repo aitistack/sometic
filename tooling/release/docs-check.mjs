@@ -20,6 +20,7 @@ const required = [
     "public/logo.png",
     "public/logo-dark.png",
     "public/icon.png",
+    "public/og.png",
     "public/favicon.ico",
 ];
 
