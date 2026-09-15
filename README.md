@@ -1,84 +1,101 @@
 # Sometic
 
-> One behavior model for UI, forms, auth, HTTP, and document head across every JavaScript stack. Your styling system.
+**Portable application behavior for the JavaScript stack.**
 
-**Sometic** is a portable application behavior system. Shared controllers power the app; thin adapters give you React, Vue, and `sometic-*` custom elements. Styling stays yours: slots, state attributes, and tokens plug into Tailwind, Bootstrap, CSS Modules, or plain CSS.
+One shared model for auth, HTTP, query, forms, stores, document head, and accessible UI engines. Thin adapters for React, Vue, and `sometic-*` custom elements. **Your** styling system.
 
-**Docs:** [https://sometic.dev](https://sometic.dev)
+> Not another component kit. Not a look-and-feel library. The product is the behavior spine that survives a framework change.
 
-## Install
+**Docs:** [https://sometic.dev](https://sometic.dev) · **Why this exists:** [Why Sometic](https://sometic.dev/guide/why-sometic) · **vs alternatives:** [Comparison](https://sometic.dev/guide/comparison)
 
-Pick the stack you ship. Prefer [subpath imports](https://sometic.dev/guide/installation) so you only pull what you use.
+## The problem Sometic solves
 
-### React
+Teams re-implement the same application behavior per stack: session refresh, fetch queues, query cache invalidation on sign-out, form state, accessible overlays, theme tokens. Visual libraries lock you into one look (or one framework). Headless widget kits stop at primitives and leave the app spine to glue code.
 
-```bash
-pnpm add @sometic/react @sometic/core @sometic/theme
-```
+Sometic keeps **controllers and orchestration** framework-independent. Adapters stay thin. Styling stays yours (unstyled by default: slots, `data-state` / `data-slot`, CSS variables, Tailwind, Bootstrap, CSS Modules, or plain CSS).
 
-```bash
-npm install @sometic/react @sometic/core @sometic/theme
-```
+## Start with the spine (not a button)
 
 ```bash
-yarn add @sometic/react @sometic/core @sometic/theme
+pnpm add @sometic/app-shell @sometic/auth @sometic/http @sometic/query
 ```
 
-### Vue
+```ts
+import { createAuth, createMemoryAuthStorage, createTestAuthProvider } from "@sometic/auth";
+import { createSometicApp } from "@sometic/app-shell";
+
+const auth = createAuth({
+    provider: createTestAuthProvider(),
+    storage: createMemoryAuthStorage(),
+});
+
+const app = createSometicApp({
+    auth,
+    baseUrl: "https://api.example.com",
+});
+
+app.whenReauth((epoch) => {
+    // Session epoch moved: privileged query/cache clears with the shell.
+    console.log("reauth epoch", epoch);
+});
+
+const todos = app.query.define(["todos"], async () => {
+    const response = await app.http.get("/todos");
+    return response.data;
+});
+
+await todos.refetch();
+app.dispose();
+auth.dispose();
+```
+
+That is the product wedge: **auth + HTTP + query + session epoch** under one disposable graph (`createSometicApp` / `createAppShell`). Then bind a view.
+
+Full install matrix (React, Vue, Vanilla, CDN): [Installation](https://sometic.dev/guide/installation). App composition: [App shell](https://sometic.dev/guide/app-shell).
+
+## What ships in public beta
+
+| Layer       | Packages (npm scope `@sometic`)                                                               |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| App spine   | `app-shell`, `auth` (+ optional provider adapters), `http`, `query`, `forms`, `head`, `store` |
+| Foundations | `core`, `events`, `styling`, `theme`, `accessibility`, `positioning`, `dom`                   |
+| Bind a view | `react`, `vue`, `elements` (`sometic-*`)                                                      |
+| Tooling     | `cli`, `registry`                                                                             |
+
+UI engines (fields, overlays, structure, and so on) sit **on top of** that spine. They are how you touch shared controllers, not the identity of the project.
+
+Honest inventory and maturity labels: [What’s included](https://sometic.dev/guide/whats-included) · [Beta maturity](https://sometic.dev/releases/beta).
+
+## Bind a view (after the spine)
+
+Prefer [subpath imports](https://sometic.dev/guide/installation) so you only pull what you use.
 
 ```bash
-pnpm add @sometic/vue @sometic/core @sometic/theme
+pnpm add @sometic/react @sometic/core @sometic/theme   # React
+pnpm add @sometic/vue @sometic/core @sometic/theme     # Vue
+pnpm add @sometic/elements @sometic/theme              # Vanilla / Web Components
 ```
 
-### Vanilla / Web Components
+Adapters map the same controllers into framework DX. They do not replace your design system.
 
-```bash
-pnpm add @sometic/elements @sometic/theme
-```
+## When to use / when not
 
-Copy-ready install blocks for every package live on the [Installation](https://sometic.dev/guide/installation) page.
+**Use Sometic when** you need the same behavior across Vanilla, React, Vue, and custom elements; unstyled accessible engines with your own CSS; or auth/HTTP/query orchestration without baking one backend SDK into core.
 
-## Quick start (React)
-
-```tsx
-import { Button } from "@sometic/react/button";
-
-export function SaveAction() {
-    return (
-        <Button type="button" onClick={() => {}}>
-            Save
-        </Button>
-    );
-}
-```
-
-More patterns (forms, auth, HTTP, overlays, structure) are in the [Introduction](https://sometic.dev/guide/introduction) and component guides.
-
-## What you get
-
-| Area        | Examples                                                                               |
-| ----------- | -------------------------------------------------------------------------------------- |
-| UI & forms  | Button family, fields, selection, overlays, tabs, accordion, progress                  |
-| Application | Forms engine, auth orchestration, HTTP client with refresh queue, query, document head |
-| Adapters    | `@sometic/react`, `@sometic/vue`, `@sometic/elements` (`sometic-*`)                    |
-| Styling     | Unstyled by default; theme tokens optional via `@sometic/theme`                        |
-
-Honest beta inventory: [What’s included](https://sometic.dev/guide/whats-included). Maturity labels: [Beta maturity](https://sometic.dev/releases/beta). Why this vs alternatives: [Comparison](https://sometic.dev/guide/comparison).
+**Use something else when** you only want a pre-styled React kit (MUI, Chakra, shadcn, …), or you only need React-only headless widgets (Radix, React Aria, Headless UI). See the [comparison guide](https://sometic.dev/guide/comparison).
 
 ## Learn more
 
 - [Introduction](https://sometic.dev/guide/introduction)
-- [Beta maturity](https://sometic.dev/releases/beta)
 - [Architecture](https://sometic.dev/concepts/architecture)
+- [App scaffolds](https://sometic.dev/guide/app-scaffolds) (agent-ready full-app prompts)
+- [Authentication](https://sometic.dev/authentication/) · [HTTP](https://sometic.dev/utilities/http) · [Query](https://sometic.dev/utilities/query)
 - [Styling contract](https://sometic.dev/guide/styling)
-- [Authentication](https://sometic.dev/authentication/)
-- [HTTP](https://sometic.dev/utilities/http)
-- [Components](https://sometic.dev/components/)
 
 ## License
 
-MIT, copyright Sometic contributors. See [LICENSE](./LICENSE).
+MIT. See [LICENSE](./LICENSE).
 
 ## Contributing
 
-Want to work on the monorepo? See [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Contributing guide](https://sometic.dev/guide/contributing).
+Monorepo workflow: [CONTRIBUTING.md](./CONTRIBUTING.md) and the [Contributing guide](https://sometic.dev/guide/contributing).
