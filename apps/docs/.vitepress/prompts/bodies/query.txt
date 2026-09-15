@@ -1,0 +1,41 @@
+================================================================================
+SURFACE FOCUS: QUERY
+================================================================================
+Goal: Use `@sometic/query` as the portable server-state cache (keys, observers, invalidate, refetch), bound to auth epoch via App Shell.
+
+Required packages:
+- @sometic/query
+- Almost always: @sometic/http + @sometic/app-shell + @sometic/auth for session products
+- Adapter hooks/composables from @sometic/react/query or @sometic/vue/query when building UI
+
+Module API truth:
+- Define queries with stable key arrays; fetch via http (shell.http when composed)
+- invalidate / refetch / clear are first-class; clear on epoch bump via bindQueryToAuth
+- Never store API list payloads in @sometic/store
+- refetchOnReauth: follow shell defaults unless justified
+- Dispose query client with the shell/app
+
+Wiring recipe:
+1. createSometicApp / createAppShell with query + http + auth
+2. app.query.define(["todos"], () => app.http.get("/todos").then(r => r.data))
+3. UI subscribes via adapter hooks or vanilla observers
+4. Mutations invalidate the affected keys
+5. Sign-out proves cache clear
+
+Implementation steps:
+1. Gate → install query + http + shell peers
+2. Create system with bindQueryToAuth
+3. One list + one detail query; one mutation invalidation
+4. Tests: invalidate updates observers; epoch clear empties privileged keys
+
+Acceptance criteria:
+- Server lists live only in query
+- Epoch bump clears privileged cache
+- No TanStack-only APIs assumed inside Sometic cores (keep TanStack at app boundary if used elsewhere)
+
+Anti-patterns:
+- Duplicating the same list in store and query
+- Fetching in components without keys
+- Skipping shell when auth+http+query are all present
+
+Docs: https://sometic.dev/utilities/query

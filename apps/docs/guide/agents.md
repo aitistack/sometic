@@ -2,11 +2,13 @@
 
 How coding agents (and humans pasting into agents) should load Sometic context without inventing a visual UI kit.
 
-For **full-app** pasteable scaffolds (SaaS, auth e2e, AI workspace, and more), use [App scaffolds](/guide/app-scaffolds) (also linked from the home hero). This page covers surface Copy Prompt buttons and `llms.txt`.
+For **full-app** pasteable scaffolds (SaaS, auth e2e, AI workspace, and more), use [App scaffolds](/guide/app-scaffolds) (also linked from the home hero). This page covers surface **Copy Prompt** buttons and `llms.txt`.
 
 ## Copy Prompt
 
-Surface docs expose a **Copy Prompt** button (dashed outline). It copies a plain-text scaffold brief for that area:
+Surface docs expose a **Copy Prompt** button (dashed outline). Each button copies a **pro integration brief** for that area: product framing, Wave A path gate, architecture, App Shell spine, shared API truth, module wiring recipe, acceptance criteria, and docs links.
+
+These briefs are module-focused (not full product novels). For a complete SaaS/auth/marketplace build, use an [App scaffolds](/guide/app-scaffolds) prompt instead.
 
 | Surface    | Page                               | Prompt file      |
 | ---------- | ---------------------------------- | ---------------- |
@@ -20,8 +22,9 @@ Surface docs expose a **Copy Prompt** button (dashed outline). It copies a plain
 | Stores     | [Stores](/stores/)                 | `stores.txt`     |
 | Theming    | [Theming](/theming/)               | `theming.txt`    |
 | Foundation | [Primitives](/primitives/)         | `foundation.txt` |
+| Components | [Components](/components/)         | `components.txt` |
 
-Paste the prompt into your agent, then point it at the matching docs URL and package names.
+Paste the prompt into your agent, answer **A / B / C / D1 / D2** when asked, then follow the linked docs. Prompt sources are composed from `apps/docs/.vitepress/prompts/shared/` + `bodies/` via `pnpm prompts:compose`.
 
 ## llms.txt
 

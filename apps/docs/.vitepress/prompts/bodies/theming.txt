@@ -1,0 +1,39 @@
+================================================================================
+SURFACE FOCUS: THEMING
+================================================================================
+Goal: Drive design tokens / theme switching with `@sometic/theme`, apply to the DOM in bootstrap, optionally bind metadata to head via App Shell. Packages stay unstyled; consumer CSS owns look.
+
+Required packages:
+- @sometic/theme (+ presets)
+- Optional: @sometic/head + app-shell bindThemeToHead
+- Do not force theme CSS into publishable package consumers beyond tokens/vars you opt into
+
+Module API truth:
+- createThemeController({ themes, defaultThemeId, … }) (NEVER createTheme())
+- lightTheme / darkTheme from `@sometic/theme/presets`
+- applyThemeToElement(document.documentElement, theme.get()); subscribe for updates
+- Controllers own state; apply* owns DOM
+
+Wiring recipe:
+1. createThemeController in system factory
+2. Optional createAppShell({ theme, head }) + bindThemeToHead
+3. Bootstrap applyThemeToElement
+4. UI toggle calls theme.set / documented API
+5. Consumer CSS variables from tokens
+
+Implementation steps:
+1. Gate → install theme (+ head/shell if binding)
+2. Wire controller + apply
+3. Toggle light/dark; verify CSS variables / class strategy you chose
+4. Test subscribe updates
+
+Acceptance criteria:
+- No invent createTheme
+- No Google Fonts CDN from publishable packages
+- applyThemeToElement not buried inside reusable createSystem()
+
+Anti-patterns:
+- Shipping a full visual kit as "the Sometic look"
+- Mixing multiple competing theme systems without a boundary
+
+Docs: https://sometic.dev/theming/

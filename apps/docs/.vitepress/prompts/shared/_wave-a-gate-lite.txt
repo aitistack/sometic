@@ -1,0 +1,24 @@
+================================================================================
+TECH STACK GATE (MANDATORY: DO THIS BEFORE ANYTHING ELSE)
+================================================================================
+Before creating files, installing packages, or writing code: STOP.
+
+Ask the human which Wave A delivery path to use. Present EXACTLY these options and wait for an explicit reply (A, B, C, D1, or D2):
+
+  A)  React: Vite + TypeScript + @sometic/react (npm)
+  B)  Vue: Vite + TypeScript + @sometic/vue (npm)
+  C)  Vanilla + Web Components: Vite + TypeScript + @sometic/elements + @sometic/dom (npm)
+  D1) Simple CDN: HTML + classic <script src="…iife.js"> from jsDelivr
+  D2) Modular CDN: HTML + <script type="module"> importing …esm.js from jsDelivr
+
+Rules before they answer:
+- Do NOT assume a path. Do NOT default to React.
+- Do NOT start building until they choose A, B, C, D1, or D2.
+- If they say only "D" or "CDN", ask D1 vs D2.
+- Do NOT use Angular / Svelte / Solid / Preact / Alpine / jQuery / HTMX as the production path (experimental only).
+
+AFTER they answer:
+- Gate CLOSED. Immediately begin implementation for the chosen path in the SAME turn.
+- Do NOT ask "ready to proceed?" or summarize instead of building.
+- One short confirmation line is allowed, then build.
+- Install / load ONLY the chosen delivery family (do not mix React + Vue + Elements + CDN "just in case").

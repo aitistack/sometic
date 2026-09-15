@@ -7,7 +7,7 @@ description: Pasteable AI-agent prompts that scaffold full real-world apps on So
 
 Full-app prompts for coding agents (Cursor, Claude, Copilot, and similar). Each **Copy Prompt** is a long-form scaffold brief: product definition, package inventory, repo layout, domain stubs, wiring recipe, ordered implementation steps, acceptance criteria, and docs to read. Paste the whole prompt; the agent must ask you to choose path **A / B / C / D1 / D2** before it builds, then follow the linked Sometic docs for exact APIs.
 
-These are **not** live example apps. Paste **Copy Prompt** into your agent, then follow the linked docs. For surface-level prompts and `llms.txt`, see [Agents](/guide/agents).
+These are **not** live example apps. Paste **Copy Prompt** into your agent, then follow the linked docs. For module **integration briefs** (Auth, HTTP, App Shell, Components, …) and `llms.txt`, see [Agents](/guide/agents).
 
 Use the sticky index (or mobile chips) to jump between scaffolds. **What’s Included** opens a right drawer with the package checklist and the full prompt.
 

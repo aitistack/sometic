@@ -1,0 +1,18 @@
+================================================================================
+ARCHITECTURE (ONE-WAY)
+================================================================================
+Consumer app
+  → adapters (@sometic/react | @sometic/vue | @sometic/elements)
+    → composition (@sometic/app-shell)
+      → features (auth, http, query, forms, head, theme, dom, …)
+        → foundation (core, events, store, styling, accessibility, positioning, …)
+
+Cores never import React/Vue/frameworks. No browser globals (`window`, `document`, `storage`, `matchMedia`, `customElements`) at import time. Prefer subpath imports (`@sometic/react/button`, `@sometic/http/auth`).
+
+State placement (never mix):
+- Client UI / prefs / chrome → `@sometic/store` (kinds: ui / prefs / session)
+- Server / cache lists → `@sometic/query` (never park API lists in the store)
+- Forms / drafts → `@sometic/forms` + `@sometic/validation` (omit secrets from drafts)
+- Session → `@sometic/auth` (+ optional `@sometic/auth-*` providers)
+- Transport → `@sometic/http` (interceptors, auth refresh queue, epoch ledger)
+- Document head / SEO → `@sometic/head` (+ `@sometic/head/seo`)

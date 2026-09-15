@@ -1,0 +1,39 @@
+================================================================================
+SURFACE FOCUS: DOCUMENT HEAD / SEO
+================================================================================
+Goal: Drive document title/meta through `@sometic/head` (+ optional `@sometic/head/seo`), applied to the DOM in bootstrap, optionally bound to theme via App Shell.
+
+Required packages:
+- @sometic/head
+- Optional: @sometic/head/seo recipes; @sometic/theme + app-shell bindThemeToHead
+- Chosen adapter only if UI sets head from routes
+
+Module API truth:
+- createHeadController() (NEVER createHead())
+- head.set(id, { title, … }) (NEVER head.setTitle)
+- applyHead(document, head.get()) in bootstrap; subscribe for updates
+- Controllers own state; apply* owns DOM. Never touch document inside reusable createSystem()
+
+Wiring recipe:
+1. createHeadController in system factory
+2. Optional createAppShell({ …, head, theme }) + bindThemeToHead
+3. Bootstrap: applyHead + subscribe
+4. Route/screen calls head.set for titles
+5. SEO recipes only where documented
+
+Implementation steps:
+1. Gate → install head (+ theme/shell if binding)
+2. Wire controller + applyHead
+3. Set titles on two screens; verify DOM updates
+4. Test head.set merges by id without inventing helpers
+
+Acceptance criteria:
+- No createHead / setTitle inventions
+- applyHead only in bootstrap (or a dedicated DOM bridge file)
+- Works with SSR constraints (no import-time document)
+
+Anti-patterns:
+- react-helmet-only thinking for portable apps
+- Setting document.title imperatively beside the controller
+
+Docs: https://sometic.dev/utilities/head

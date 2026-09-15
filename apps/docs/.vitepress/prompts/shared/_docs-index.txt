@@ -1,0 +1,13 @@
+================================================================================
+DOCS (READ BEFORE INVENTING)
+================================================================================
+- Home / product: https://sometic.dev
+- Why / comparison: https://sometic.dev/guide/why-sometic · https://sometic.dev/guide/comparison
+- App shell: https://sometic.dev/guide/app-shell
+- Agents index: https://sometic.dev/guide/agents
+- Full-app scaffolds: https://sometic.dev/guide/app-scaffolds
+- Curated LLM index: https://sometic.dev/llms.txt
+- Inventory: https://sometic.dev/guide/whats-included
+- Beta labels: https://sometic.dev/releases/beta
+
+When the human wants a full product (SaaS, auth e2e, marketplace, …), escalate to an App scaffolds Copy Prompt instead of inventing a product brief from this module prompt alone.

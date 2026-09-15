@@ -1,0 +1,43 @@
+================================================================================
+SURFACE FOCUS: HTTP
+================================================================================
+Goal: Ship a fetch-first `@sometic/http` client with typed errors, optional auth refresh queue, and correct handoff into `@sometic/query` / App Shell.
+
+Required packages:
+- @sometic/http
+- For authenticated apps: @sometic/auth + @sometic/app-shell + @sometic/query
+- createMockFetcher for tests
+
+Module API truth:
+- createHttp({ baseUrl, headers, interceptors, retry, dedupe, timeoutMs, allowAbsoluteUrl?, maxResponseBytes? })
+- extend() for scoped clients (admin vs public) instead of duplicating config
+- Auth refresh: createAuthInterceptor from `@sometic/http/auth` (prefer via createAppShell bindAuthToHttp)
+- When using App Shell: pass naked createHttp into shell; call shell.http only
+- Typed errors / HTTP_ERROR_CODES; dispose the client with the app root
+
+Wiring recipe:
+1. createHttp({ baseUrl })
+2. If session exists: createAuth + createAppShell({ auth, http, query })
+3. Feed cached server reads through @sometic/query (createHttpQueryFn or query.define + http.get)
+4. Mutations: http.post/patch/delete then query.invalidate
+5. Tests with createMockFetcher
+
+Implementation steps:
+1. Gate → install http (+ shell peers if auth)
+2. Configure baseUrl and error mapping
+3. Wire interceptor via shell when auth is in play
+4. Add one list query + one mutation path
+5. Assert single-flight refresh under parallel 401s (if auth)
+
+Acceptance criteria:
+- No provider SDKs inside HTTP
+- No replacing @sometic/query with raw fetch for cached lists
+- Authenticated traffic goes through shell.http
+- Client disposed only on true app teardown
+
+Anti-patterns:
+- Axios middleware ecosystems bolted beside Sometic http without a boundary
+- Absolute URL open-proxy mistakes (keep allowAbsoluteUrl false unless required)
+- Ad-hoc retry loops that bypass the auth refresh queue
+
+Docs: https://sometic.dev/utilities/http

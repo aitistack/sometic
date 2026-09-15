@@ -1,0 +1,102 @@
+================================================================================
+PRODUCT TO BUILD
+================================================================================
+Name: Acme Developer Portal
+Users: developers who sign in (OIDC optional), manage API keys, read endpoint docs chrome, try authenticated HTTP calls.
+Outcome: Docs-like IA + auth + key forms (secret omit) + structure Tabs/Tree + HTTP try-it panels using the same interceptors as production.
+
+================================================================================
+NON-NEGOTIABLE RULES
+================================================================================
+- Try-it panels use @sometic/http with real interceptor order; never hardcode live secrets into static MD
+- API key create: show secret ONCE; persist only hashes server-side; forms draft omit secrets
+- Structure Tabs / Accordion / Tree via framework adapters (no structure CEs for those)
+- Optional @sometic/auth-oidc for SSO; auth-local also fine
+- Point agent readers at https://sometic.dev/guide/agents and /llms.txt when teaching Sometic itself
+- createAppShell; dispose; no import-time globals; unstyled editorial CSS
+- No playgrounds, Invoice Desk, telemetry
+
+================================================================================
+REQUIRED PACKAGES
+================================================================================
+@sometic/app-shell, @sometic/auth, @sometic/auth-oidc (optional), @sometic/http,
+@sometic/forms, @sometic/head, @sometic/query, framework /structure, /field
+
+================================================================================
+REPO LAYOUT
+================================================================================
+src/
+  system/create-system.ts
+  pages/
+    home.tsx
+    docs/
+      rest.tsx
+      webhooks.tsx
+    keys/
+      keys-page.tsx
+    try/
+      http-lab.tsx
+  content/endpoints.ts       // static endpoint descriptors (not secrets)
+  mocks/api.ts
+  styles/portal.css
+README.md
+
+================================================================================
+DOMAIN STUBS
+================================================================================
+ApiKey: { id, name, prefix, createdAt, lastUsedAt? }  // secret only in create response
+EndpointDescriptor: { id, method, path, description }
+
+API:
+- auth/OIDC or local
+- GET/POST/DELETE /developer/keys
+- Echo try-it routes under /demo/*
+
+================================================================================
+SCREENS
+================================================================================
+1. Marketing/home with head tags
+2. Sign-in (OIDC button and/or local)
+3. API reference: Tree of groups + Tabs (REST vs Webhooks)
+4. Keys management table + create form
+5. Try-it panel: method/path/body → http request → status/body viewer
+
+================================================================================
+WIRING RECIPE
+================================================================================
+1. App Shell with auth/http/query/head
+2. Keys query ["developer","keys"]
+3. Create key mutation returns secret once; UI copy field; never write secret to drafts/store
+4. Try-it builds Request via createHttp instance (auth header attached by interceptor)
+5. Head titles per docs section
+
+================================================================================
+IMPLEMENTATION STEPS
+================================================================================
+1. Vite + mocks
+2. Auth (document OIDC env)
+3. Docs chrome with Tree/Tabs
+4. Keys CRUD UX
+5. HTTP lab panel showing interceptor-aware calls
+6. Editorial CSS + mono for payloads (consumer font choice)
+7. README links to sometic.dev agents/llms for Sometic learning
+
+================================================================================
+ACCEPTANCE CRITERIA
+================================================================================
+[ ] Secret shown once on create and not re-fetchable
+[ ] Try-it fails closed when signed out
+[ ] Tree/Tabs navigate endpoint content
+[ ] No live secrets in repo files
+[ ] Portal does not claim to be sometic.dev
+
+================================================================================
+DOCS
+================================================================================
+https://sometic.dev/authentication/
+https://sometic.dev/utilities/http
+https://sometic.dev/utilities/head
+https://sometic.dev/guide/agents
+https://sometic.dev/guide/app-shell
+https://sometic.dev/guide/whats-included
+https://sometic.dev/llms.txt

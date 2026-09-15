@@ -69,7 +69,7 @@ Sometic is a portable application behavior system, not a pre-styled component ki
 ## Notes for coding agents
 
 - Sometic's product story is portable application behavior (controllers + adapters + auth/HTTP/query/app-shell), not a visual UI kit
-- Use **Copy Prompt** on surface docs (and the home CTA) to scaffold with the correct package boundaries; see [Agents](https://sometic.dev/guide/agents)
+- Use **Copy Prompt** on surface docs (and the home CTA) for pro integration briefs with App Shell + API truth; see [Agents](https://sometic.dev/guide/agents). For full-app products, use [App scaffolds](https://sometic.dev/guide/app-scaffolds).
 - For full product shapes, use [App scaffolds](https://sometic.dev/guide/app-scaffolds) prompts instead of inventing example apps
 - Prefer `createAppShell` when composing auth + http + query (+ head/theme/stores/forms) so session epoch clears privileged state
 - Keep server data in `@sometic/query`; keep client/UI preferences in `@sometic/store`
