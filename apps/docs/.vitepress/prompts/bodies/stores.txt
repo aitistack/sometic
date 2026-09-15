@@ -1,0 +1,39 @@
+================================================================================
+SURFACE FOCUS: STORES
+================================================================================
+Goal: Use `@sometic/store` for client/UI/prefs/session chrome only. Never park server lists here; compose with App Shell when auth binds session stores.
+
+Required packages:
+- @sometic/store
+- Optional: @sometic/app-shell bindAuthToStores; immer adapter only if product already chose Immer
+- Adapters/hooks from react/vue when binding UI
+
+Module API truth:
+- Explicit, injectable stores (no hidden module singletons)
+- Kinds: ui / prefs / session (use the right kind)
+- Selectors + subscriptions; dispose with the app
+- Persistence / cross-tab only via documented APIs
+- Server/cache data → @sometic/query (hard rule)
+
+Wiring recipe:
+1. Create ui/prefs stores for chrome (sidebar, theme preference mirror if needed)
+2. If auth session-shaped: createAppShell + bindAuthToStores so session stores reset on epoch
+3. UI reads via selectors/hooks
+4. Keep API tables in query
+
+Implementation steps:
+1. Gate → install store (+ shell if auth-bound)
+2. Define one ui store + one prefs store
+3. Optional session store reset demo on sign-out
+4. Tests: update + select; dispose cleans subscriptions
+
+Acceptance criteria:
+- No API list payloads in store
+- SSR-safe creation (no import-time storage)
+- Epoch bind resets session stores when configured
+
+Anti-patterns:
+- Using store as a generic Redux dump for fetched entities
+- Module-level getState() globals
+
+Docs: https://sometic.dev/stores/

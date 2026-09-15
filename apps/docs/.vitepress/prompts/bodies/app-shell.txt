@@ -1,0 +1,40 @@
+================================================================================
+SURFACE FOCUS: APP SHELL
+================================================================================
+Goal: Wire `@sometic/app-shell` as the System composition root so auth, HTTP, query (and optional head/theme/stores/forms) share one session epoch and one dispose graph.
+
+Required packages:
+- @sometic/app-shell
+- Peers you actually bind: @sometic/auth, @sometic/http, @sometic/query (+ optional head, theme, store, forms)
+- Chosen Wave A adapter for any UI that consumes the shell
+
+Module API truth:
+- `createSometicApp(options)` → easy spine (`app.http`, `app.query`, `app.whenReauth`, `app.epoch`, `app.dispose`)
+- `createAppShell(options)` → explicit controller graph (`shell.http`, `shell.query`, …)
+- Prefer shell helpers (`bindQueryToAuth`, `bindAuthToHttp`, …) over hand-rolled listeners
+- On epoch bump: query.clear(); refuse cross-epoch HTTP replay (HTTP_SESSION_STALE); drop session mutation outbox; reset session stores when bindAuthToStores is used
+
+Wiring recipe:
+1. createAuth + naked createHttp({ baseUrl }) + query client
+2. createSometicApp / createAppShell with those instances
+3. Export a single app/system from one module; bootstrap applies DOM adapters
+4. Demonstrate sign-out clears query and blocks stale HTTP
+5. Optional: bindThemeToHead + applyHead/applyThemeToElement in bootstrap only
+
+Implementation steps:
+1. Gate → install shell + peers for chosen path
+2. Implement createSystem() without touching document/window
+3. Bootstrap subscribes auth + applies head/theme if present
+4. Add a tiny protected view that uses shell.http + shell.query
+5. Tests: epoch bump clears query; dispose is idempotent
+
+Acceptance criteria:
+- Only shell.http is used for authenticated fetches
+- Sign-out increments epoch and clears privileged cache
+- No dispose on React/Vue remount cleanup for page-lifetime shell
+- Boundaries documented in README (query vs store vs forms)
+
+Anti-patterns:
+- New Http client per screen
+- Keeping server lists in @sometic/store
+- Calling applyHead inside createSystem reusable factory

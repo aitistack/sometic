@@ -1,0 +1,16 @@
+================================================================================
+APP SPINE (SYSTEM COMPOSITION)
+================================================================================
+When auth + HTTP + query appear together, compose with `@sometic/app-shell`:
+- Prefer `createSometicApp({ auth, baseUrl?, theme?, … })` for easy keys (`app.http`, `app.query`, `app.whenReauth`)
+- Or `createAppShell({ auth, http?, query?, head?, theme?, stores?, forms? })` for explicit controllers
+- Pass a naked `createHttp({ baseUrl })` into the shell; use `shell.http` / `app.http` only (single auth interceptor)
+- One dispose graph: `app.dispose()` / `shell.dispose()` when the app root is truly torn down (not on React Strict Mode remount cleanup)
+- Session epoch is the System clock: on sign-in / sign-out / user change, query clears, cross-epoch HTTP replay is refused, session stores reset when bound
+
+Ownership:
+- Auth owns session. HTTP owns transport + 401 refresh. Query owns server cache refetch after re-auth.
+- Client `can()` / policies are UX-only. Authorize privileged APIs on the server (mocks OK in scaffolds).
+
+Standout binds (prefer shell helpers over inventing glue):
+`bindQueryToAuth`, `bindAuthToHttp`, `bindThemeToHead`, `bindAuthToStores`, `bindMutationForm`, `bindHeadToQuery`, `createSessionMutationQueue`.

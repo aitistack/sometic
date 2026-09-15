@@ -1,0 +1,44 @@
+================================================================================
+SURFACE FOCUS: AUTHENTICATION
+================================================================================
+Goal: Implement provider-independent session orchestration with `@sometic/auth`, composed through App Shell with HTTP refresh and query epoch clear.
+
+Required packages:
+- @sometic/auth
+- One provider adapter: @sometic/auth-local | auth-firebase | auth-supabase | auth-oidc (do not embed provider SDKs in UI)
+- @sometic/app-shell, @sometic/http, @sometic/query for real session products
+- Optional: @sometic/forms for sign-in/register fields; @sometic/head for titles
+
+Module API truth:
+- createAuth({ provider, storage }); dispose with the app root
+- Verbs: signIn / register / signOut / getSession / whenReady / subscribe (see shared API TRUTH)
+- Storage helpers: createMemoryAuthStorage, createSessionStorageAuthStorage("key")
+- Guards: isAuthenticatedStatus; refreshing counts as authenticated
+- Never put Firebase/Supabase/OIDC SDK calls in components; adapters own that
+
+Wiring recipe:
+1. Provider + storage → createAuth
+2. createHttp + createAppShell/createSometicApp({ auth, http, query, … })
+3. Sign-in/register screens use forms engine (not ad-hoc state) when building UI
+4. Protected routes use documented require-auth helpers
+5. after re-auth: query refetch/clear via shell binds
+
+Implementation steps:
+1. Gate → install auth + adapter + shell peers
+2. Mock auth-local endpoints exactly if using auth-local
+3. Wire shell; add sign-in + register + sign-out
+4. Prove anonymous /auth/session 401 is null session
+5. Unit tests for register/signIn/signOut; e2e smoke optional
+
+Acceptance criteria:
+- No invented auth method names
+- HTTP refresh is single-flight via shell/interceptor
+- Epoch moves on sign-in and sign-out; privileged query cache clears
+- Client can() never used as server authorization
+
+Anti-patterns:
+- Provider SDK in React/Vue components
+- Per-request refresh logic outside createAuthInterceptor
+- Treating auth-local anonymous 401 as a bug
+
+Docs: https://sometic.dev/authentication/

@@ -1,0 +1,41 @@
+================================================================================
+SURFACE FOCUS: FORMS
+================================================================================
+Goal: Build forms on `@sometic/forms` + `@sometic/validation` with native HTML semantics, then submit through `@sometic/http` and invalidate `@sometic/query` keys on success.
+
+Required packages:
+- @sometic/forms, @sometic/validation
+- Adapters: @sometic/react form helpers, @sometic/vue, or sometic-form / @sometic/dom
+- For product flows: @sometic/http + @sometic/query (+ app-shell when session-shaped)
+
+Module API truth:
+- Framework-independent form engine; adapters stay thin
+- Validators from @sometic/validation; map server errors into field feedback (@sometic/forms/server where documented)
+- Controlled/uncontrolled: value, defaultValue, onValueChange
+- handleSubmit validates controller values (not FormData-only shortcuts)
+- Drafts omit secrets; field arrays / submit abort use engine APIs
+- Do not dispose page-lifetime forms on remount cleanup
+
+Wiring recipe:
+1. createForm / adapter form with validators
+2. Connected fields for A/B; controller-synced inputs for C/D
+3. onSubmit → shell.http or http client
+4. On success → query.invalidate([...])
+5. Optional bindMutationForm via app-shell
+
+Implementation steps:
+1. Gate → install forms + validation + http/query as needed
+2. Build one create/edit form with sync + async validation
+3. Wire submit + invalidation
+4. Tests: validation errors; server error map; successful invalidate
+
+Acceptance criteria:
+- Native labels / autofill / disabled / required preserved
+- No per-framework reimplementation of validation
+- Secrets never persisted in drafts
+
+Anti-patterns:
+- Local useState sprawl instead of the forms engine
+- Submitting without invalidating related query keys
+
+Docs: https://sometic.dev/forms/

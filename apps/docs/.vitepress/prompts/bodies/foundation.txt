@@ -1,0 +1,39 @@
+================================================================================
+SURFACE FOCUS: FOUNDATION / PRIMITIVES
+================================================================================
+Goal: Use foundation packages correctly under feature modules and App Shell: `@sometic/core`, `events`, `store`, `styling`, `accessibility`, `positioning`, `dom` engines. Do not stop at primitives when the human asked for a product spine.
+
+Required packages (as needed):
+- @sometic/core, @sometic/events, @sometic/store, @sometic/styling
+- @sometic/accessibility, @sometic/positioning, @sometic/dom
+- Escalate to app-shell + auth/http/query when building app behavior
+
+Module API truth:
+- Controllable state patterns (value / defaultValue / onValueChange) stay consistent
+- Environment guards; disposable controllers; no import-time browser globals
+- Styling resolve helpers are unstyled: class/style/slot/state attrs for consumer CSS
+- A11y primitives (focus trap, dismissable, portal, scroll lock, announcer) compose into overlays
+- DOM engines power Vanilla / Elements; adapters stay thin
+
+Wiring recipe:
+1. Identify whether the task is foundation-only or needs the app spine
+2. If spine: createSometicApp first, then attach UI engines
+3. Prefer documented engines over reinventing focus/dismiss/portal
+4. Subpath imports everywhere
+
+Implementation steps:
+1. Gate → install only required foundation packages (+ shell if product-shaped)
+2. Demonstrate one controllable primitive + cleanup
+3. If overlays: compose accessibility helpers correctly
+4. Tests for subscribe/dispose
+
+Acceptance criteria:
+- No framework imports inside foundation usage guidance for cores
+- Disposable resources cleaned up
+- Clear pointer to app-shell when auth/http/query appear
+
+Anti-patterns:
+- Building a component gallery and calling it a Sometic integration
+- Ignoring dispose/subscriptions
+
+Docs: https://sometic.dev/primitives/

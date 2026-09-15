@@ -1,0 +1,37 @@
+================================================================================
+SURFACE FOCUS: ECOSYSTEM (HOME CTA)
+================================================================================
+Goal: Scaffold a small but real Wave A app that proves the Sometic spine end-to-end (not a button gallery).
+
+Required packages (minimum):
+- @sometic/app-shell, @sometic/auth (+ a provider adapter such as @sometic/auth-local), @sometic/http, @sometic/query
+- Chosen adapter: @sometic/react OR @sometic/vue OR @sometic/elements (+ @sometic/dom for C)
+- Optional but recommended: @sometic/head, @sometic/theme, @sometic/forms, @sometic/store
+
+Wiring recipe:
+1. createAuth({ provider, storage }) with explicit dispose
+2. createSometicApp({ auth, baseUrl }) or createAppShell({ auth, http, query, head?, theme? })
+3. app.whenReauth / bindQueryToAuth so cache clears on epoch bump
+4. One protected screen gated by isAuthenticatedStatus
+5. One query-backed list via app.query.define + app.http.get
+6. One form submit that mutates via HTTP and invalidates query keys
+7. Consumer CSS only (unstyled packages)
+
+Implementation steps:
+1. Ask Wave A path; install only that family
+2. Create system module (createSystem / createApp) with no document access inside
+3. Bootstrap applies head/theme to DOM when used
+4. Mock or real API with auth-local endpoint shapes if using auth-local
+5. Unit-test epoch clear + one HTTP mock; optional Playwright smoke
+
+Acceptance criteria:
+- App boots without invented Sometic APIs
+- Sign-in / sign-out moves epoch and clears privileged query cache
+- HTTP 401 refresh is single-flight via shell (no per-call ad-hoc retries)
+- Query holds server lists; store (if used) holds UI chrome only
+- README states chosen path letter and package boundaries
+
+Anti-patterns:
+- Leading with a Button demo as the product
+- Ad-hoc Axios + Zustand + Helmet glue instead of app-shell
+- Mixing React and Vue adapters "for completeness"

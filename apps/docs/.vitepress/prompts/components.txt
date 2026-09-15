@@ -127,45 +127,49 @@ Storage:
 Do not invent missing `sometic-*` custom elements. Do not mention playgrounds, Invoice Desk, or `/guide/examples`. Packages are unstyled; consumer owns CSS. No Google Fonts CDN inside publishable package code. No telemetry.
 
 ================================================================================
-SURFACE FOCUS: APP SHELL
+SURFACE FOCUS: COMPONENTS (UI ENGINES + ADAPTERS)
 ================================================================================
-Goal: Wire `@sometic/app-shell` as the System composition root so auth, HTTP, query (and optional head/theme/stores/forms) share one session epoch and one dispose graph.
+Goal: Bind a view with `@sometic/react`, `@sometic/vue`, or `@sometic/elements` over shared engines. Components are how you touch behavior; they are not the product identity. Prefer App Shell when the screen is session-shaped.
 
 Required packages:
-- @sometic/app-shell
-- Peers you actually bind: @sometic/auth, @sometic/http, @sometic/query (+ optional head, theme, store, forms)
-- Chosen Wave A adapter for any UI that consumes the shell
+- Exactly one adapter family for the chosen Wave A path
+- @sometic/dom when using engines directly / Vanilla
+- @sometic/theme optional for tokens; consumer CSS required for look
+- For data screens: forms / query / http / app-shell as neighbors
 
 Module API truth:
-- `createSometicApp(options)` → easy spine (`app.http`, `app.query`, `app.whenReauth`, `app.epoch`, `app.dispose`)
-- `createAppShell(options)` → explicit controller graph (`shell.http`, `shell.query`, …)
-- Prefer shell helpers (`bindQueryToAuth`, `bindAuthToHttp`, …) over hand-rolled listeners
-- On epoch bump: query.clear(); refuse cross-epoch HTTP replay (HTTP_SESSION_STALE); drop session mutation outbox; reset session stores when bindAuthToStores is used
+- Subpath imports: `@sometic/react/button`, `@sometic/vue/...`, `sometic-*` custom elements only where shipped
+- Native HTML semantics first (real button/input; autofill; keyboard)
+- Unstyled by default: slots, data-state / data-slot, classes/styles props
+- Do NOT invent missing custom elements or pretend Sometic is MUI/Chakra/shadcn
+- Controllable props: value, defaultValue, onValueChange, disabled, invalid, loading, …
 
 Wiring recipe:
-1. createAuth + naked createHttp({ baseUrl }) + query client
-2. createSometicApp / createAppShell with those instances
-3. Export a single app/system from one module; bootstrap applies DOM adapters
-4. Demonstrate sign-out clears query and blocks stale HTTP
-5. Optional: bindThemeToHead + applyHead/applyThemeToElement in bootstrap only
+1. Gate → install ONE adapter family
+2. If auth/http/query needed: createSometicApp first
+3. Build screens with documented components only
+4. Style with consumer CSS / tokens
+5. Forms + overlays use shared engines (not one-off state machines)
 
 Implementation steps:
-1. Gate → install shell + peers for chosen path
-2. Implement createSystem() without touching document/window
-3. Bootstrap subscribes auth + applies head/theme if present
-4. Add a tiny protected view that uses shell.http + shell.query
-5. Tests: epoch bump clears query; dispose is idempotent
+1. Ask path; install adapter + peers
+2. Wire spine if session-shaped
+3. Implement one interactive flow (form or overlay + list) with correct packages
+4. Verify a11y basics (name, focus, keyboard) for interactive controls
+5. Tests for controllable state where non-trivial
 
 Acceptance criteria:
-- Only shell.http is used for authenticated fetches
-- Sign-out increments epoch and clears privileged cache
-- No dispose on React/Vue remount cleanup for page-lifetime shell
-- Boundaries documented in README (query vs store vs forms)
+- No "Sometic UI kit" positioning in README
+- Only shipped Elements tags used for path C
+- Styling owned by consumer
+- Spine used when session/fetch/cache are present
 
 Anti-patterns:
-- New Http client per screen
-- Keeping server lists in @sometic/store
-- Calling applyHead inside createSystem reusable factory
+- Button-only hello world as the integration
+- Copying visual-library patterns that fight native semantics
+- Mixing multiple adapter frameworks
+
+Docs: https://sometic.dev/components/
 
 ================================================================================
 DOCS (READ BEFORE INVENTING)

@@ -1,0 +1,58 @@
+================================================================================
+API TRUTH (NEVER INVENT)
+================================================================================
+Verify every symbol against installed package `.d.ts`, package README, or https://sometic.dev before use. Prefer failing loudly over optional-chaining methods that should exist.
+
+AuthController verbs (exact):
+| User intent    | Method                                      |
+|----------------|---------------------------------------------|
+| Sign in        | auth.signIn({ email, password })            |
+| Create account | auth.register({ email, password, displayName? }) |
+| Sign out       | auth.signOut()                              |
+| Session        | auth.getSession() / whenReady() / subscribe |
+
+FORBIDDEN AuthController names: signUp, createAccount, login (as methods).
+
+Head:
+- Factory: `createHeadController()` (NEVER `createHead()`)
+- Updates: `head.set(id, { title: "…" })` (NEVER `head.setTitle`)
+- DOM (bootstrap only): `applyHead(document, head.get()); head.subscribe(() => applyHead(document, head.get()))`
+
+Theme:
+- Factory: `createThemeController({ themes: [lightTheme, darkTheme], defaultThemeId: "light", … })` (NEVER `createTheme()`)
+- Presets: `import { lightTheme, darkTheme } from "@sometic/theme/presets"`
+- DOM: `applyThemeToElement(document.documentElement, theme.get()); theme.subscribe(...)`
+- `createAppShell` may bind theme↔head metadata. It does NOT replace `applyHead` / `applyThemeToElement`.
+
+@sometic/auth-local default endpoints (mocks MUST match unless endpoints are set explicitly):
+```
+signIn:        /auth/sign-in
+register:      /auth/register
+refresh:       /auth/refresh
+signOut:       /auth/sign-out
+session:       /auth/session
+passwordReset: /auth/password-reset
+```
+FORBIDDEN: mock `/auth/sign-up` instead of `/auth/register` without provider config.
+Anonymous GET `/auth/session` → 401 is EXPECTED (null session). Do not treat that as a sign-up bug.
+
+HTTP + shell:
+- `createHttp({ baseUrl })` naked → shell → use `shell.http` only
+- Auth refresh: `createAuthInterceptor` from `@sometic/http/auth` (usually via shell bind)
+- Typed errors via HTTP_ERROR_CODES; `createMockFetcher` in tests
+
+Forms:
+- `handleSubmit` validates controller values, not raw FormData alone
+- A/B: connected field helpers (`useFormField` / value / setValue / onBlur)
+- Do not dispose page-lifetime forms/auth/shell on remount cleanup
+
+Guards:
+- `isAuthenticatedStatus` / `auth.isAuthenticated()` (refreshing counts as authenticated)
+- React: `useRequireAuth()` where documented; other paths: subscribe + status
+
+Path aliases (Vite): if using `@/` imports, set BOTH tsconfig paths AND `vite.config` `resolve.alias`.
+
+Storage:
+- `createSessionStorageAuthStorage("your-key")` takes a string key, NOT `{ key: "…" }`
+
+Do not invent missing `sometic-*` custom elements. Do not mention playgrounds, Invoice Desk, or `/guide/examples`. Packages are unstyled; consumer owns CSS. No Google Fonts CDN inside publishable package code. No telemetry.

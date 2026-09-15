@@ -1,0 +1,44 @@
+================================================================================
+SURFACE FOCUS: COMPONENTS (UI ENGINES + ADAPTERS)
+================================================================================
+Goal: Bind a view with `@sometic/react`, `@sometic/vue`, or `@sometic/elements` over shared engines. Components are how you touch behavior; they are not the product identity. Prefer App Shell when the screen is session-shaped.
+
+Required packages:
+- Exactly one adapter family for the chosen Wave A path
+- @sometic/dom when using engines directly / Vanilla
+- @sometic/theme optional for tokens; consumer CSS required for look
+- For data screens: forms / query / http / app-shell as neighbors
+
+Module API truth:
+- Subpath imports: `@sometic/react/button`, `@sometic/vue/...`, `sometic-*` custom elements only where shipped
+- Native HTML semantics first (real button/input; autofill; keyboard)
+- Unstyled by default: slots, data-state / data-slot, classes/styles props
+- Do NOT invent missing custom elements or pretend Sometic is MUI/Chakra/shadcn
+- Controllable props: value, defaultValue, onValueChange, disabled, invalid, loading, …
+
+Wiring recipe:
+1. Gate → install ONE adapter family
+2. If auth/http/query needed: createSometicApp first
+3. Build screens with documented components only
+4. Style with consumer CSS / tokens
+5. Forms + overlays use shared engines (not one-off state machines)
+
+Implementation steps:
+1. Ask path; install adapter + peers
+2. Wire spine if session-shaped
+3. Implement one interactive flow (form or overlay + list) with correct packages
+4. Verify a11y basics (name, focus, keyboard) for interactive controls
+5. Tests for controllable state where non-trivial
+
+Acceptance criteria:
+- No "Sometic UI kit" positioning in README
+- Only shipped Elements tags used for path C
+- Styling owned by consumer
+- Spine used when session/fetch/cache are present
+
+Anti-patterns:
+- Button-only hello world as the integration
+- Copying visual-library patterns that fight native semantics
+- Mixing multiple adapter frameworks
+
+Docs: https://sometic.dev/components/

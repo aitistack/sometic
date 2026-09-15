@@ -2,6 +2,10 @@
 
 Framework-native adapters and custom elements over shared Sometic behavior engines. Install the adapter you use (`@sometic/react`, `@sometic/vue`, or `@sometic/elements`) plus `@sometic/dom` when you need engines directly.
 
+Components are how you bind a view to portable behavior. They are not a visual UI kit. Prefer [App shell](/guide/app-shell) when the screen is session-shaped (auth + HTTP + query).
+
+<CopyPrompt surface="components" />
+
 ## Button family
 
 | Component                                  | Summary                                                         |
